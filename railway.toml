@@ -1,0 +1,7 @@
+# Railway: deploy this service from the Dockerfile and add a second service from the
+# image falkordb/falkordb:latest, then point FALKORDB_HOST at its private hostname.
+[build]
+builder = "dockerfile"
+[deploy]
+healthcheckPath = "/api/health"
+restartPolicyType = "on_failure"

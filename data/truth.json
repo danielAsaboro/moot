@@ -699,6 +699,366 @@
   ],
   "evidence": [
     {
+      "id": "chat-noise-1049",
+      "kind": "chat",
+      "date": "2025-01-02",
+      "author": "ada",
+      "title": "#auth: UUID formatting",
+      "text": "Tune the UUID formatting in the auth. Measured on staging first. Follow-up to last week's incident review.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-987",
+      "kind": "chat",
+      "date": "2025-01-03",
+      "author": "kwame",
+      "title": "#mobile: Safari layout bug",
+      "text": "Retry the Safari layout bug in the mobile app. Docs updated. Requested by support.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-912",
+      "kind": "pr",
+      "date": "2025-01-07",
+      "author": "priya",
+      "title": "Fix Safari layout bug",
+      "text": "Fix the Safari layout bug in the infrastructure. Requested by support. Measured on staging first.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-951",
+      "kind": "doc",
+      "date": "2025-01-09",
+      "author": "ada",
+      "title": "Instrument CSV parser",
+      "text": "Instrument the CSV parser in the billing. No behaviour change. Nothing user-facing.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-947",
+      "kind": "pr",
+      "date": "2025-01-21",
+      "author": "lena",
+      "title": "Fix email templates",
+      "text": "Fix the email templates in the web app. Covered by existing tests. Small, reviewed in person.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1030",
+      "kind": "pr",
+      "date": "2025-01-22",
+      "author": "tomi",
+      "title": "Harden Envoy config lint",
+      "text": "Harden the Envoy config lint in the uploads API. Measured on staging first. Small, reviewed in person.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-937",
+      "kind": "pr",
+      "date": "2025-01-25",
+      "author": "kwame",
+      "title": "Clean up on-call runbook",
+      "text": "Clean up the on-call runbook in the notifications. Rolled out behind a flag. Small, reviewed in person.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-1020",
+      "kind": "doc",
+      "date": "2025-01-26",
+      "author": "kwame",
+      "title": "Fix onboarding copy",
+      "text": "Fix the onboarding copy in the search. Covered by existing tests. Measured on staging first.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1019",
+      "kind": "pr",
+      "date": "2025-01-27",
+      "author": "sofia",
+      "title": "Document Envoy config lint",
+      "text": "Document the Envoy config lint in the infrastructure. Rolled out behind a flag. Follow-up to last week's incident review.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-1000",
+      "kind": "ticket",
+      "date": "2025-02-01",
+      "author": "lena",
+      "title": "Clean up pipeline backfill",
+      "text": "Clean up the pipeline backfill in the data pipeline. Covered by existing tests. Rolled out behind a flag.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-1026",
+      "kind": "ticket",
+      "date": "2025-02-04",
+      "author": "kwame",
+      "title": "Harden pipeline backfill",
+      "text": "Harden the pipeline backfill in the billing. Requested by support. Part of the Q3 cleanup.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-921",
+      "kind": "chat",
+      "date": "2025-02-05",
+      "author": "jonah",
+      "title": "#mobile: Terraform modules",
+      "text": "Clean up the Terraform modules in the mobile app. Part of the Q3 cleanup. Docs updated.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1010",
+      "kind": "pr",
+      "date": "2025-02-07",
+      "author": "sofia",
+      "title": "Instrument BigQuery views",
+      "text": "Instrument the BigQuery views in the API gateway. Docs updated. Docs updated.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-910",
+      "kind": "chat",
+      "date": "2025-02-09",
+      "author": "tomi",
+      "title": "#infrastructure: invoice PDF rendering",
+      "text": "Clean up the invoice PDF rendering in the infrastructure. No behaviour change. Part of the Q3 cleanup.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-901",
+      "kind": "pr",
+      "date": "2025-02-14",
+      "author": "tomi",
+      "title": "Document gateway timeouts",
+      "text": "Document the gateway timeouts in the notifications. Requested by support. Covered by existing tests.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-948",
+      "kind": "pr",
+      "date": "2025-02-15",
+      "author": "jonah",
+      "title": "Instrument Postgres vacuum schedule",
+      "text": "Instrument the Postgres vacuum schedule in the API gateway. Nothing user-facing. Measured on staging first.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1045",
+      "kind": "pr",
+      "date": "2025-02-17",
+      "author": "marcus",
+      "title": "Migrate Terraform modules",
+      "text": "Migrate the Terraform modules in the infrastructure. Measured on staging first. Small, reviewed in person.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-935",
+      "kind": "pr",
+      "date": "2025-02-18",
+      "author": "jonah",
+      "title": "Retry LaunchDarkly SDK bump",
+      "text": "Retry the LaunchDarkly SDK bump in the mobile app. Nothing user-facing. Nothing user-facing.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-969",
+      "kind": "ticket",
+      "date": "2025-02-18",
+      "author": "lena",
+      "title": "Clean up feature flag cleanup",
+      "text": "Clean up the feature flag cleanup in the mobile app. Covered by existing tests. Docs updated.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1004",
+      "kind": "pr",
+      "date": "2025-02-20",
+      "author": "jonah",
+      "title": "Document LaunchDarkly SDK bump",
+      "text": "Document the LaunchDarkly SDK bump in the search. Part of the Q3 cleanup. Rolled out behind a flag.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1047",
+      "kind": "pr",
+      "date": "2025-02-21",
+      "author": "lena",
+      "title": "Clean up session cookie flags",
+      "text": "Clean up the session cookie flags in the billing. Measured on staging first. Part of the Q3 cleanup.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-968",
+      "kind": "pr",
+      "date": "2025-02-23",
+      "author": "kwame",
+      "title": "Instrument Stripe webhook retries",
+      "text": "Instrument the Stripe webhook retries in the mobile app. Part of the Q3 cleanup. Nothing user-facing.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1034",
+      "kind": "pr",
+      "date": "2025-02-26",
+      "author": "ada",
+      "title": "Speed up CSV parser",
+      "text": "Speed up the CSV parser in the data pipeline. No behaviour change. Follow-up to last week's incident review.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-1032",
+      "kind": "ticket",
+      "date": "2025-03-01",
+      "author": "kwame",
+      "title": "Harden feature flag cleanup",
+      "text": "Harden the feature flag cleanup in the mobile app. Docs updated. Requested by support.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-981",
+      "kind": "doc",
+      "date": "2025-03-03",
+      "author": "kwame",
+      "title": "Fix pipeline backfill",
+      "text": "Fix the pipeline backfill in the web app. Nothing user-facing. Requested by support.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-945",
+      "kind": "pr",
+      "date": "2025-03-09",
+      "author": "sofia",
+      "title": "Instrument gateway timeouts",
+      "text": "Instrument the gateway timeouts in the search. Part of the Q3 cleanup. Measured on staging first.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-923",
+      "kind": "pr",
+      "date": "2025-03-12",
+      "author": "jonah",
+      "title": "Harden CSV parser",
+      "text": "Harden the CSV parser in the search. Requested by support. Small, reviewed in person.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1029",
+      "kind": "pr",
+      "date": "2025-03-13",
+      "author": "tomi",
+      "title": "Speed up log sampling",
+      "text": "Speed up the log sampling in the uploads API. Follow-up to last week's incident review. Requested by support.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-973",
+      "kind": "chat",
+      "date": "2025-03-14",
+      "author": "sofia",
+      "title": "#mobile: Terraform modules",
+      "text": "Speed up the Terraform modules in the mobile app. Rolled out behind a flag. Covered by existing tests.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-941",
+      "kind": "pr",
+      "date": "2025-03-15",
+      "author": "tomi",
+      "title": "Tune email templates",
+      "text": "Tune the email templates in the data pipeline. Measured on staging first. Docs updated.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1036",
+      "kind": "pr",
+      "date": "2025-03-16",
+      "author": "priya",
+      "title": "Fix onboarding copy",
+      "text": "Fix the onboarding copy in the infrastructure. Requested by support. Covered by existing tests.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-982",
+      "kind": "chat",
+      "date": "2025-03-18",
+      "author": "marcus",
+      "title": "#data: rollback notes",
+      "text": "Clean up the rollback notes in the data pipeline. Covered by existing tests. Follow-up to last week's incident review.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1039",
+      "kind": "pr",
+      "date": "2025-03-21",
+      "author": "jonah",
+      "title": "Tune deploy script",
+      "text": "Tune the deploy script in the auth. Measured on staging first. Follow-up to last week's incident review.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-1033",
+      "kind": "chat",
+      "date": "2025-03-26",
+      "author": "sofia",
+      "title": "#infrastructure: Envoy config lint",
+      "text": "Clean up the Envoy config lint in the infrastructure. Covered by existing tests. Covered by existing tests.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-992",
+      "kind": "chat",
+      "date": "2025-04-01",
+      "author": "lena",
+      "title": "#notifications: on-call runbook",
+      "text": "Document the on-call runbook in the notifications. No behaviour change. No behaviour change.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-953",
+      "kind": "chat",
+      "date": "2025-04-08",
+      "author": "marcus",
+      "title": "#notifications: status page copy",
+      "text": "Instrument the status page copy in the notifications. Follow-up to last week's incident review. Measured on staging first.",
+      "rel": null,
+      "premise": null
+    },
+    {
       "id": "PR-201",
       "kind": "pr",
       "date": "2025-04-09",
@@ -707,6 +1067,146 @@
       "text": "Adds pytest and Jest suites to CI, 1,180 tests, running on every PR in about six minutes.",
       "rel": "CONTRADICTS",
       "premise": "p_no_ci_tests"
+    },
+    {
+      "id": "OPS-983",
+      "kind": "ticket",
+      "date": "2025-04-12",
+      "author": "marcus",
+      "title": "Fix rate limits",
+      "text": "Fix the rate limits in the notifications. No behaviour change. Measured on staging first.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-1001",
+      "kind": "chat",
+      "date": "2025-04-13",
+      "author": "lena",
+      "title": "#api: Playwright flake",
+      "text": "Harden the Playwright flake in the API gateway. Measured on staging first. Covered by existing tests.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-940",
+      "kind": "chat",
+      "date": "2025-04-14",
+      "author": "marcus",
+      "title": "#mobile: invoice PDF rendering",
+      "text": "Migrate the invoice PDF rendering in the mobile app. Part of the Q3 cleanup. Covered by existing tests.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-952",
+      "kind": "doc",
+      "date": "2025-04-15",
+      "author": "sofia",
+      "title": "Harden Safari layout bug",
+      "text": "Harden the Safari layout bug in the auth. Docs updated. Nothing user-facing.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-926",
+      "kind": "ticket",
+      "date": "2025-04-16",
+      "author": "jonah",
+      "title": "Document session cookie flags",
+      "text": "Document the session cookie flags in the API gateway. Requested by support. Docs updated.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-977",
+      "kind": "ticket",
+      "date": "2025-04-25",
+      "author": "sofia",
+      "title": "Harden rate limits",
+      "text": "Harden the rate limits in the web app. No behaviour change. Measured on staging first.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-931",
+      "kind": "doc",
+      "date": "2025-04-27",
+      "author": "ada",
+      "title": "Speed up Postgres vacuum schedule",
+      "text": "Speed up the Postgres vacuum schedule in the billing. Part of the Q3 cleanup. Requested by support.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-939",
+      "kind": "doc",
+      "date": "2025-04-27",
+      "author": "priya",
+      "title": "Harden UUID formatting",
+      "text": "Harden the UUID formatting in the search. Measured on staging first. Covered by existing tests.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1015",
+      "kind": "pr",
+      "date": "2025-04-27",
+      "author": "jonah",
+      "title": "Clean up UUID formatting",
+      "text": "Clean up the UUID formatting in the uploads API. No behaviour change. Part of the Q3 cleanup.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-957",
+      "kind": "ticket",
+      "date": "2025-05-07",
+      "author": "priya",
+      "title": "Refactor UUID formatting",
+      "text": "Refactor the UUID formatting in the auth. No behaviour change. Rolled out behind a flag.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-1012",
+      "kind": "ticket",
+      "date": "2025-05-12",
+      "author": "lena",
+      "title": "Instrument SOC 2 evidence folder",
+      "text": "Instrument the SOC 2 evidence folder in the search. Requested by support. Docs updated.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-944",
+      "kind": "chat",
+      "date": "2025-05-17",
+      "author": "tomi",
+      "title": "#data: BigQuery views",
+      "text": "Harden the BigQuery views in the data pipeline. Requested by support. Covered by existing tests.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-950",
+      "kind": "pr",
+      "date": "2025-05-21",
+      "author": "marcus",
+      "title": "Document EU latency dashboard",
+      "text": "Document the EU latency dashboard in the billing. Part of the Q3 cleanup. Docs updated.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-966",
+      "kind": "chat",
+      "date": "2025-05-25",
+      "author": "marcus",
+      "title": "#web: Safari layout bug",
+      "text": "Fix the Safari layout bug in the web app. Covered by existing tests. Small, reviewed in person.",
+      "rel": null,
+      "premise": null
     },
     {
       "id": "doc-handbook-deploys",
@@ -729,6 +1229,176 @@
       "premise": null
     },
     {
+      "id": "OPS-943",
+      "kind": "ticket",
+      "date": "2025-06-01",
+      "author": "kwame",
+      "title": "Fix LaunchDarkly SDK bump",
+      "text": "Fix the LaunchDarkly SDK bump in the data pipeline. Docs updated. No behaviour change.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-1005",
+      "kind": "doc",
+      "date": "2025-06-09",
+      "author": "ada",
+      "title": "Instrument LaunchDarkly SDK bump",
+      "text": "Instrument the LaunchDarkly SDK bump in the uploads API. Small, reviewed in person. Covered by existing tests.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-1018",
+      "kind": "doc",
+      "date": "2025-06-11",
+      "author": "ada",
+      "title": "Document gateway timeouts",
+      "text": "Document the gateway timeouts in the data pipeline. Requested by support. Part of the Q3 cleanup.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1024",
+      "kind": "pr",
+      "date": "2025-06-15",
+      "author": "priya",
+      "title": "Speed up SOC 2 evidence folder",
+      "text": "Speed up the SOC 2 evidence folder in the API gateway. No behaviour change. No behaviour change.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-1041",
+      "kind": "chat",
+      "date": "2025-06-19",
+      "author": "jonah",
+      "title": "#data: deploy script",
+      "text": "Instrument the deploy script in the data pipeline. Rolled out behind a flag. Covered by existing tests.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-919",
+      "kind": "doc",
+      "date": "2025-06-20",
+      "author": "tomi",
+      "title": "Harden session cookie flags",
+      "text": "Harden the session cookie flags in the billing. Requested by support. Small, reviewed in person.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-1037",
+      "kind": "ticket",
+      "date": "2025-06-20",
+      "author": "kwame",
+      "title": "Instrument pipeline backfill",
+      "text": "Instrument the pipeline backfill in the infrastructure. Follow-up to last week's incident review. Part of the Q3 cleanup.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-1046",
+      "kind": "ticket",
+      "date": "2025-06-20",
+      "author": "priya",
+      "title": "Tune onboarding copy",
+      "text": "Tune the onboarding copy in the infrastructure. Follow-up to last week's incident review. No behaviour change.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-974",
+      "kind": "ticket",
+      "date": "2025-06-27",
+      "author": "tomi",
+      "title": "Migrate Playwright flake",
+      "text": "Migrate the Playwright flake in the uploads API. Requested by support. No behaviour change.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-1040",
+      "kind": "ticket",
+      "date": "2025-06-28",
+      "author": "tomi",
+      "title": "Harden gateway timeouts",
+      "text": "Harden the gateway timeouts in the API gateway. Part of the Q3 cleanup. Nothing user-facing.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-997",
+      "kind": "chat",
+      "date": "2025-07-02",
+      "author": "ada",
+      "title": "#uploads: index warmup",
+      "text": "Retry the index warmup in the uploads API. Small, reviewed in person. Follow-up to last week's incident review.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1003",
+      "kind": "pr",
+      "date": "2025-07-02",
+      "author": "ada",
+      "title": "Document SendGrid templates",
+      "text": "Document the SendGrid templates in the web app. Docs updated. Covered by existing tests.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1023",
+      "kind": "pr",
+      "date": "2025-07-07",
+      "author": "sofia",
+      "title": "Document deploy script",
+      "text": "Document the deploy script in the data pipeline. Follow-up to last week's incident review. Measured on staging first.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-914",
+      "kind": "doc",
+      "date": "2025-07-08",
+      "author": "tomi",
+      "title": "Speed up CSV parser",
+      "text": "Speed up the CSV parser in the search. Follow-up to last week's incident review. Follow-up to last week's incident review.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-984",
+      "kind": "chat",
+      "date": "2025-07-09",
+      "author": "ada",
+      "title": "#web: onboarding copy",
+      "text": "Harden the onboarding copy in the web app. Docs updated. Part of the Q3 cleanup.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-942",
+      "kind": "pr",
+      "date": "2025-07-17",
+      "author": "jonah",
+      "title": "Tune status page copy",
+      "text": "Tune the status page copy in the auth. Measured on staging first. Requested by support.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-959",
+      "kind": "pr",
+      "date": "2025-07-19",
+      "author": "sofia",
+      "title": "Fix index warmup",
+      "text": "Fix the index warmup in the search. No behaviour change. Part of the Q3 cleanup.",
+      "rel": null,
+      "premise": null
+    },
+    {
       "id": "doc-news-cookies",
       "kind": "doc",
       "date": "2025-07-22",
@@ -737,6 +1407,66 @@
       "text": "Google announced it will not remove third-party cookies from Chrome and will not roll out a new standalone prompt either.",
       "rel": "CONTRADICTS",
       "premise": "p_chrome_3p"
+    },
+    {
+      "id": "doc-note-911",
+      "kind": "doc",
+      "date": "2025-07-22",
+      "author": "ada",
+      "title": "Instrument status page copy",
+      "text": "Instrument the status page copy in the mobile app. Docs updated. Rolled out behind a flag.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-963",
+      "kind": "pr",
+      "date": "2025-07-27",
+      "author": "ada",
+      "title": "Migrate session cookie flags",
+      "text": "Migrate the session cookie flags in the billing. No behaviour change. Nothing user-facing.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-956",
+      "kind": "chat",
+      "date": "2025-08-01",
+      "author": "jonah",
+      "title": "#billing: email templates",
+      "text": "Tune the email templates in the billing. Rolled out behind a flag. Nothing user-facing.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-995",
+      "kind": "ticket",
+      "date": "2025-08-07",
+      "author": "marcus",
+      "title": "Fix onboarding copy",
+      "text": "Fix the onboarding copy in the notifications. Requested by support. Docs updated.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-986",
+      "kind": "pr",
+      "date": "2025-08-14",
+      "author": "ada",
+      "title": "Speed up Redis eviction policy",
+      "text": "Speed up the Redis eviction policy in the web app. Follow-up to last week's incident review. No behaviour change.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-972",
+      "kind": "ticket",
+      "date": "2025-08-16",
+      "author": "ada",
+      "title": "Migrate photo picker",
+      "text": "Migrate the photo picker in the API gateway. Follow-up to last week's incident review. No behaviour change.",
+      "rel": null,
+      "premise": null
     },
     {
       "id": "chat-2025-08-21-ci",
@@ -749,6 +1479,96 @@
       "premise": "p_no_ci_tests"
     },
     {
+      "id": "PR-946",
+      "kind": "pr",
+      "date": "2025-08-23",
+      "author": "tomi",
+      "title": "Harden SOC 2 evidence folder",
+      "text": "Harden the SOC 2 evidence folder in the notifications. Part of the Q3 cleanup. No behaviour change.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-934",
+      "kind": "doc",
+      "date": "2025-08-25",
+      "author": "ada",
+      "title": "Refactor Postgres vacuum schedule",
+      "text": "Refactor the Postgres vacuum schedule in the notifications. Follow-up to last week's incident review. Follow-up to last week's incident review.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1006",
+      "kind": "pr",
+      "date": "2025-08-25",
+      "author": "lena",
+      "title": "Fix Safari layout bug",
+      "text": "Fix the Safari layout bug in the auth. Measured on staging first. Docs updated.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-964",
+      "kind": "pr",
+      "date": "2025-08-26",
+      "author": "tomi",
+      "title": "Instrument upload retries",
+      "text": "Instrument the upload retries in the mobile app. Nothing user-facing. Covered by existing tests.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-936",
+      "kind": "doc",
+      "date": "2025-09-02",
+      "author": "marcus",
+      "title": "Fix UUID formatting",
+      "text": "Fix the UUID formatting in the mobile app. Part of the Q3 cleanup. No behaviour change.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-979",
+      "kind": "pr",
+      "date": "2025-09-05",
+      "author": "kwame",
+      "title": "Clean up gateway timeouts",
+      "text": "Clean up the gateway timeouts in the search. Measured on staging first. Rolled out behind a flag.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-971",
+      "kind": "pr",
+      "date": "2025-09-09",
+      "author": "priya",
+      "title": "Fix index warmup",
+      "text": "Fix the index warmup in the infrastructure. Small, reviewed in person. Nothing user-facing.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-991",
+      "kind": "pr",
+      "date": "2025-09-10",
+      "author": "lena",
+      "title": "Refactor upload retries",
+      "text": "Refactor the upload retries in the infrastructure. Rolled out behind a flag. Requested by support.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-922",
+      "kind": "pr",
+      "date": "2025-09-12",
+      "author": "ada",
+      "title": "Refactor onboarding copy",
+      "text": "Refactor the onboarding copy in the notifications. Nothing user-facing. Part of the Q3 cleanup.",
+      "rel": null,
+      "premise": null
+    },
+    {
       "id": "SRCH-233",
       "kind": "ticket",
       "date": "2025-09-14",
@@ -759,6 +1579,136 @@
       "premise": "p_es_incremental"
     },
     {
+      "id": "OPS-908",
+      "kind": "ticket",
+      "date": "2025-09-14",
+      "author": "jonah",
+      "title": "Fix session cookie flags",
+      "text": "Fix the session cookie flags in the infrastructure. Follow-up to last week's incident review. Docs updated.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-970",
+      "kind": "pr",
+      "date": "2025-09-15",
+      "author": "sofia",
+      "title": "Clean up invoice PDF rendering",
+      "text": "Clean up the invoice PDF rendering in the search. Requested by support. Requested by support.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1002",
+      "kind": "pr",
+      "date": "2025-09-15",
+      "author": "jonah",
+      "title": "Document CSV parser",
+      "text": "Document the CSV parser in the mobile app. Rolled out behind a flag. Docs updated.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-930",
+      "kind": "doc",
+      "date": "2025-09-18",
+      "author": "ada",
+      "title": "Migrate index warmup",
+      "text": "Migrate the index warmup in the mobile app. No behaviour change. Covered by existing tests.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-909",
+      "kind": "chat",
+      "date": "2025-09-19",
+      "author": "jonah",
+      "title": "#uploads: Playwright flake",
+      "text": "Fix the Playwright flake in the uploads API. Rolled out behind a flag. Small, reviewed in person.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-958",
+      "kind": "chat",
+      "date": "2025-09-21",
+      "author": "marcus",
+      "title": "#api: email templates",
+      "text": "Clean up the email templates in the API gateway. Nothing user-facing. No behaviour change.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-955",
+      "kind": "pr",
+      "date": "2025-09-22",
+      "author": "marcus",
+      "title": "Speed up Postgres vacuum schedule",
+      "text": "Speed up the Postgres vacuum schedule in the API gateway. Part of the Q3 cleanup. No behaviour change.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-988",
+      "kind": "pr",
+      "date": "2025-09-22",
+      "author": "kwame",
+      "title": "Tune index warmup",
+      "text": "Tune the index warmup in the auth. Covered by existing tests. Nothing user-facing.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-905",
+      "kind": "doc",
+      "date": "2025-09-23",
+      "author": "ada",
+      "title": "Migrate session cookie flags",
+      "text": "Migrate the session cookie flags in the auth. Small, reviewed in person. Requested by support.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-949",
+      "kind": "ticket",
+      "date": "2025-09-23",
+      "author": "tomi",
+      "title": "Tune gateway timeouts",
+      "text": "Tune the gateway timeouts in the infrastructure. Follow-up to last week's incident review. Part of the Q3 cleanup.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-999",
+      "kind": "pr",
+      "date": "2025-09-24",
+      "author": "ada",
+      "title": "Document pipeline backfill",
+      "text": "Document the pipeline backfill in the data pipeline. Part of the Q3 cleanup. Measured on staging first.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-903",
+      "kind": "chat",
+      "date": "2025-09-28",
+      "author": "lena",
+      "title": "#uploads: gateway timeouts",
+      "text": "Document the gateway timeouts in the uploads API. Measured on staging first. Follow-up to last week's incident review.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-960",
+      "kind": "ticket",
+      "date": "2025-09-28",
+      "author": "sofia",
+      "title": "Fix SOC 2 evidence folder",
+      "text": "Fix the SOC 2 evidence folder in the auth. Rolled out behind a flag. Docs updated.",
+      "rel": null,
+      "premise": null
+    },
+    {
       "id": "chat-2025-10-02-search",
       "kind": "chat",
       "date": "2025-10-02",
@@ -767,6 +1717,76 @@
       "text": "Rolled incremental indexing back in production. Update storms during bulk imports pushed indexing lag past 40 minutes. Until the mapping is reworked again the index still cannot take incremental updates at our volume, so the nightly rebuild stays.",
       "rel": "SUPPORTS",
       "premise": "p_es_incremental"
+    },
+    {
+      "id": "doc-note-902",
+      "kind": "doc",
+      "date": "2025-10-04",
+      "author": "ada",
+      "title": "Refactor Envoy config lint",
+      "text": "Refactor the Envoy config lint in the web app. Small, reviewed in person. Small, reviewed in person.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-915",
+      "kind": "pr",
+      "date": "2025-10-06",
+      "author": "lena",
+      "title": "Refactor Safari layout bug",
+      "text": "Refactor the Safari layout bug in the auth. No behaviour change. Follow-up to last week's incident review.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-916",
+      "kind": "chat",
+      "date": "2025-10-11",
+      "author": "ada",
+      "title": "#notifications: BigQuery views",
+      "text": "Migrate the BigQuery views in the notifications. Docs updated. Nothing user-facing.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-932",
+      "kind": "ticket",
+      "date": "2025-10-11",
+      "author": "sofia",
+      "title": "Document Playwright flake",
+      "text": "Document the Playwright flake in the notifications. Follow-up to last week's incident review. No behaviour change.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-920",
+      "kind": "chat",
+      "date": "2025-10-12",
+      "author": "tomi",
+      "title": "#billing: CSV parser",
+      "text": "Instrument the CSV parser in the billing. Covered by existing tests. Docs updated.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-1025",
+      "kind": "doc",
+      "date": "2025-10-20",
+      "author": "priya",
+      "title": "Speed up invoice PDF rendering",
+      "text": "Speed up the invoice PDF rendering in the billing. Follow-up to last week's incident review. Rolled out behind a flag.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1028",
+      "kind": "pr",
+      "date": "2025-10-28",
+      "author": "kwame",
+      "title": "Retry deploy script",
+      "text": "Retry the deploy script in the auth. Follow-up to last week's incident review. Small, reviewed in person.",
+      "rel": null,
+      "premise": null
     },
     {
       "id": "PR-350",
@@ -789,6 +1809,26 @@
       "premise": "p_rds_no_cmk"
     },
     {
+      "id": "OPS-900",
+      "kind": "ticket",
+      "date": "2026-01-03",
+      "author": "tomi",
+      "title": "Speed up Redis eviction policy",
+      "text": "Speed up the Redis eviction policy in the billing. Rolled out behind a flag. Small, reviewed in person.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-929",
+      "kind": "pr",
+      "date": "2026-01-05",
+      "author": "kwame",
+      "title": "Tune index warmup",
+      "text": "Tune the index warmup in the billing. Follow-up to last week's incident review. Small, reviewed in person.",
+      "rel": null,
+      "premise": null
+    },
+    {
       "id": "chat-2026-01-08-standup",
       "kind": "chat",
       "date": "2026-01-08",
@@ -805,6 +1845,26 @@
       "author": "marcus",
       "title": "Disaster recovery plan",
       "text": "RPO 1 hour, RTO 4 hours, tested quarterly.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-1022",
+      "kind": "chat",
+      "date": "2026-01-10",
+      "author": "jonah",
+      "title": "#search: rollback notes",
+      "text": "Instrument the rollback notes in the search. Measured on staging first. Measured on staging first.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-1042",
+      "kind": "chat",
+      "date": "2026-01-10",
+      "author": "lena",
+      "title": "#auth: BigQuery views",
+      "text": "Tune the BigQuery views in the auth. Part of the Q3 cleanup. Small, reviewed in person.",
       "rel": null,
       "premise": null
     },
@@ -829,6 +1889,16 @@
       "premise": null
     },
     {
+      "id": "PR-1009",
+      "kind": "pr",
+      "date": "2026-01-16",
+      "author": "jonah",
+      "title": "Fix Redis eviction policy",
+      "text": "Fix the Redis eviction policy in the web app. Follow-up to last week's incident review. Measured on staging first.",
+      "rel": null,
+      "premise": null
+    },
+    {
       "id": "ADR-notes-sharding",
       "kind": "doc",
       "date": "2026-01-20",
@@ -837,6 +1907,46 @@
       "text": "We will not shard Postgres by tenant. The Citus evaluation is closed; a single primary with read replicas covers projected load through 2027.",
       "rel": "CONTRADICTS",
       "premise": "p_sharding"
+    },
+    {
+      "id": "PR-1027",
+      "kind": "pr",
+      "date": "2026-01-20",
+      "author": "sofia",
+      "title": "Clean up rate limits",
+      "text": "Clean up the rate limits in the uploads API. Covered by existing tests. Small, reviewed in person.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1035",
+      "kind": "pr",
+      "date": "2026-01-25",
+      "author": "sofia",
+      "title": "Harden invoice PDF rendering",
+      "text": "Harden the invoice PDF rendering in the data pipeline. Follow-up to last week's incident review. No behaviour change.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-962",
+      "kind": "doc",
+      "date": "2026-01-27",
+      "author": "marcus",
+      "title": "Retry Envoy config lint",
+      "text": "Retry the Envoy config lint in the notifications. Covered by existing tests. No behaviour change.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-976",
+      "kind": "ticket",
+      "date": "2026-01-27",
+      "author": "lena",
+      "title": "Instrument session cookie flags",
+      "text": "Instrument the session cookie flags in the uploads API. Follow-up to last week's incident review. Requested by support.",
+      "rel": null,
+      "premise": null
     },
     {
       "id": "doc-soc2-2026",
@@ -879,12 +1989,32 @@
       "premise": "p_log_cost"
     },
     {
+      "id": "doc-note-978",
+      "kind": "doc",
+      "date": "2026-02-02",
+      "author": "sofia",
+      "title": "Document LaunchDarkly SDK bump",
+      "text": "Document the LaunchDarkly SDK bump in the notifications. Docs updated. Small, reviewed in person.",
+      "rel": null,
+      "premise": null
+    },
+    {
       "id": "OPS-301",
       "kind": "ticket",
       "date": "2026-02-09",
       "author": "marcus",
       "title": "Disk alert on the metrics node",
       "text": "Prometheus retention reduced from 30 to 15 days after disk hit 92%.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-990",
+      "kind": "doc",
+      "date": "2026-02-10",
+      "author": "marcus",
+      "title": "Fix session cookie flags",
+      "text": "Fix the session cookie flags in the web app. Measured on staging first. Part of the Q3 cleanup.",
       "rel": null,
       "premise": null
     },
@@ -899,6 +2029,16 @@
       "premise": "p_rn_sdk"
     },
     {
+      "id": "PR-918",
+      "kind": "pr",
+      "date": "2026-02-11",
+      "author": "ada",
+      "title": "Clean up pipeline backfill",
+      "text": "Clean up the pipeline backfill in the auth. Covered by existing tests. No behaviour change.",
+      "rel": null,
+      "premise": null
+    },
+    {
       "id": "doc-arch-2026-02",
       "kind": "doc",
       "date": "2026-02-14",
@@ -907,6 +2047,16 @@
       "text": "Web tier scaled from 3 to 14 pods during the February launch with no session loss because nothing is held in process memory.",
       "rel": "SUPPORTS",
       "premise": "p_stateless"
+    },
+    {
+      "id": "chat-noise-917",
+      "kind": "chat",
+      "date": "2026-02-16",
+      "author": "sofia",
+      "title": "#web: deploy script",
+      "text": "Speed up the deploy script in the web app. No behaviour change. Requested by support.",
+      "rel": null,
+      "premise": null
     },
     {
       "id": "SALES-91",
@@ -925,6 +2075,16 @@
       "author": "sofia",
       "title": "Design system v2",
       "text": "Tokens, spacing and components documented; dark theme planned.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-954",
+      "kind": "ticket",
+      "date": "2026-02-21",
+      "author": "lena",
+      "title": "Tune upload retries",
+      "text": "Tune the upload retries in the uploads API. Measured on staging first. Follow-up to last week's incident review.",
       "rel": null,
       "premise": null
     },
@@ -949,12 +2109,42 @@
       "premise": "p_gateway_limit"
     },
     {
+      "id": "PR-961",
+      "kind": "pr",
+      "date": "2026-03-02",
+      "author": "sofia",
+      "title": "Retry Redis eviction policy",
+      "text": "Retry the Redis eviction policy in the search. Nothing user-facing. Follow-up to last week's incident review.",
+      "rel": null,
+      "premise": null
+    },
+    {
       "id": "BILL-80",
       "kind": "ticket",
       "date": "2026-03-03",
       "author": "tomi",
       "title": "Annual invoicing for enterprise",
       "text": "Enterprise customers can be billed annually in advance.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1013",
+      "kind": "pr",
+      "date": "2026-03-10",
+      "author": "marcus",
+      "title": "Document photo picker",
+      "text": "Document the photo picker in the billing. Rolled out behind a flag. Covered by existing tests.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-1043",
+      "kind": "ticket",
+      "date": "2026-03-10",
+      "author": "sofia",
+      "title": "Refactor photo picker",
+      "text": "Refactor the photo picker in the uploads API. Measured on staging first. Nothing user-facing.",
       "rel": null,
       "premise": null
     },
@@ -1019,6 +2209,16 @@
       "premise": "p_team_size"
     },
     {
+      "id": "PR-924",
+      "kind": "pr",
+      "date": "2026-04-07",
+      "author": "kwame",
+      "title": "Speed up LaunchDarkly SDK bump",
+      "text": "Speed up the LaunchDarkly SDK bump in the auth. Rolled out behind a flag. No behaviour change.",
+      "rel": null,
+      "premise": null
+    },
+    {
       "id": "PR-455",
       "kind": "pr",
       "date": "2026-04-08",
@@ -1039,12 +2239,32 @@
       "premise": null
     },
     {
+      "id": "OPS-1044",
+      "kind": "ticket",
+      "date": "2026-04-20",
+      "author": "ada",
+      "title": "Tune Safari layout bug",
+      "text": "Tune the Safari layout bug in the uploads API. No behaviour change. No behaviour change.",
+      "rel": null,
+      "premise": null
+    },
+    {
       "id": "chat-2026-04-22-launch",
       "kind": "chat",
       "date": "2026-04-22",
       "author": "tomi",
       "title": "#general: launch",
       "text": "Reporting v2 is live. Thanks everyone. Watch the dashboards tonight.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-925",
+      "kind": "pr",
+      "date": "2026-04-23",
+      "author": "jonah",
+      "title": "Clean up email templates",
+      "text": "Clean up the email templates in the search. Docs updated. Rolled out behind a flag.",
       "rel": null,
       "premise": null
     },
@@ -1067,6 +2287,26 @@
       "text": "We are now on 100 flat-rate slots. Query cost no longer depends on bytes scanned or on how often jobs run.",
       "rel": "CONTRADICTS",
       "premise": "p_bq_ondemand"
+    },
+    {
+      "id": "chat-noise-965",
+      "kind": "chat",
+      "date": "2026-05-08",
+      "author": "marcus",
+      "title": "#search: Postgres vacuum schedule",
+      "text": "Fix the Postgres vacuum schedule in the search. Requested by support. Docs updated.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-993",
+      "kind": "pr",
+      "date": "2026-05-08",
+      "author": "sofia",
+      "title": "Speed up invoice PDF rendering",
+      "text": "Speed up the invoice PDF rendering in the mobile app. Rolled out behind a flag. Requested by support.",
+      "rel": null,
+      "premise": null
     },
     {
       "id": "OPS-318",
@@ -1109,12 +2349,52 @@
       "premise": null
     },
     {
+      "id": "OPS-980",
+      "kind": "ticket",
+      "date": "2026-05-13",
+      "author": "marcus",
+      "title": "Instrument LaunchDarkly SDK bump",
+      "text": "Instrument the LaunchDarkly SDK bump in the search. Part of the Q3 cleanup. Docs updated.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-938",
+      "kind": "doc",
+      "date": "2026-05-15",
+      "author": "kwame",
+      "title": "Harden onboarding copy",
+      "text": "Harden the onboarding copy in the infrastructure. Nothing user-facing. Requested by support.",
+      "rel": null,
+      "premise": null
+    },
+    {
       "id": "chat-2026-05-16-farewell",
       "kind": "chat",
       "date": "2026-05-16",
       "author": "tomi",
       "title": "#general: farewell",
       "text": "Ada's last day was yesterday. Platform decisions she owned need new owners; Kwame is collecting the list.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-967",
+      "kind": "pr",
+      "date": "2026-05-20",
+      "author": "priya",
+      "title": "Instrument Redis eviction policy",
+      "text": "Instrument the Redis eviction policy in the data pipeline. No behaviour change. Docs updated.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-1038",
+      "kind": "doc",
+      "date": "2026-05-20",
+      "author": "marcus",
+      "title": "Document SOC 2 evidence folder",
+      "text": "Document the SOC 2 evidence folder in the mobile app. Rolled out behind a flag. Rolled out behind a flag.",
       "rel": null,
       "premise": null
     },
@@ -1127,6 +2407,26 @@
       "text": "Adds 64 Playwright tests covering sign-in, onboarding, checkout and the billing portal. Runs against staging on every release candidate.",
       "rel": "CONTRADICTS",
       "premise": "p_no_e2e"
+    },
+    {
+      "id": "doc-note-1017",
+      "kind": "doc",
+      "date": "2026-05-25",
+      "author": "ada",
+      "title": "Clean up BigQuery views",
+      "text": "Clean up the BigQuery views in the billing. Covered by existing tests. Small, reviewed in person.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1007",
+      "kind": "pr",
+      "date": "2026-05-27",
+      "author": "priya",
+      "title": "Tune upload retries",
+      "text": "Tune the upload retries in the mobile app. Small, reviewed in person. Requested by support.",
+      "rel": null,
+      "premise": null
     },
     {
       "id": "doc-oncall-2026",
@@ -1145,6 +2445,16 @@
       "author": "jonah",
       "title": "Add security headers",
       "text": "CSP, HSTS and frame-ancestors headers added to all responses.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-928",
+      "kind": "pr",
+      "date": "2026-06-03",
+      "author": "sofia",
+      "title": "Tune rollback notes",
+      "text": "Tune the rollback notes in the mobile app. Docs updated. Measured on staging first.",
       "rel": null,
       "premise": null
     },
@@ -1169,6 +2479,16 @@
       "premise": "p_signup_abuse"
     },
     {
+      "id": "chat-noise-906",
+      "kind": "chat",
+      "date": "2026-06-15",
+      "author": "kwame",
+      "title": "#notifications: Playwright flake",
+      "text": "Speed up the Playwright flake in the notifications. Rolled out behind a flag. Part of the Q3 cleanup.",
+      "rel": null,
+      "premise": null
+    },
+    {
       "id": "DATA-150",
       "kind": "ticket",
       "date": "2026-06-20",
@@ -1179,12 +2499,32 @@
       "premise": null
     },
     {
+      "id": "PR-1048",
+      "kind": "pr",
+      "date": "2026-06-20",
+      "author": "kwame",
+      "title": "Harden UUID formatting",
+      "text": "Harden the UUID formatting in the uploads API. Small, reviewed in person. Nothing user-facing.",
+      "rel": null,
+      "premise": null
+    },
+    {
       "id": "PR-515",
       "kind": "pr",
       "date": "2026-06-24",
       "author": "sofia",
       "title": "Dark mode",
       "text": "Adds a theme toggle and dark tokens.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-927",
+      "kind": "doc",
+      "date": "2026-06-26",
+      "author": "tomi",
+      "title": "Refactor Safari layout bug",
+      "text": "Refactor the Safari layout bug in the infrastructure. Covered by existing tests. Measured on staging first.",
       "rel": null,
       "premise": null
     },
@@ -1219,12 +2559,52 @@
       "premise": "p_ld_budget"
     },
     {
+      "id": "chat-noise-1031",
+      "kind": "chat",
+      "date": "2026-07-10",
+      "author": "marcus",
+      "title": "#notifications: Redis eviction policy",
+      "text": "Instrument the Redis eviction policy in the notifications. Measured on staging first. Measured on staging first.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-994",
+      "kind": "chat",
+      "date": "2026-07-12",
+      "author": "sofia",
+      "title": "#uploads: status page copy",
+      "text": "Migrate the status page copy in the uploads API. Requested by support. No behaviour change.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-975",
+      "kind": "ticket",
+      "date": "2026-07-13",
+      "author": "tomi",
+      "title": "Migrate invoice PDF rendering",
+      "text": "Migrate the invoice PDF rendering in the search. Rolled out behind a flag. Measured on staging first.",
+      "rel": null,
+      "premise": null
+    },
+    {
       "id": "PR-531",
       "kind": "pr",
       "date": "2026-07-15",
       "author": "marcus",
       "title": "Spot instances for batch workers",
       "text": "Batch workers run on spot capacity with checkpointing; saves about 60% on that pool.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-998",
+      "kind": "chat",
+      "date": "2026-07-15",
+      "author": "jonah",
+      "title": "#uploads: pipeline backfill",
+      "text": "Refactor the pipeline backfill in the uploads API. Covered by existing tests. Covered by existing tests.",
       "rel": null,
       "premise": null
     },
@@ -1239,6 +2619,16 @@
       "premise": null
     },
     {
+      "id": "chat-noise-913",
+      "kind": "chat",
+      "date": "2026-08-13",
+      "author": "lena",
+      "title": "#mobile: pipeline backfill",
+      "text": "Fix the pipeline backfill in the mobile app. Follow-up to last week's incident review. Measured on staging first.",
+      "rel": null,
+      "premise": null
+    },
+    {
       "id": "chat-2026-08-15-ld",
       "kind": "chat",
       "date": "2026-08-15",
@@ -1247,6 +2637,16 @@
       "text": "Renegotiated LaunchDarkly to a startup plan at $450 a month for 12 months. Under budget again, for now.",
       "rel": "SUPPORTS",
       "premise": "p_ld_budget"
+    },
+    {
+      "id": "PR-1011",
+      "kind": "pr",
+      "date": "2026-08-20",
+      "author": "marcus",
+      "title": "Tune rollback notes",
+      "text": "Tune the rollback notes in the auth. Nothing user-facing. Covered by existing tests.",
+      "rel": null,
+      "premise": null
     },
     {
       "id": "chat-2026-08-27-perf",
@@ -1259,12 +2659,112 @@
       "premise": null
     },
     {
+      "id": "PR-1021",
+      "kind": "pr",
+      "date": "2026-09-03",
+      "author": "priya",
+      "title": "Harden index warmup",
+      "text": "Harden the index warmup in the web app. Measured on staging first. Part of the Q3 cleanup.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-noise-1014",
+      "kind": "chat",
+      "date": "2026-09-08",
+      "author": "tomi",
+      "title": "#search: log sampling",
+      "text": "Document the log sampling in the search. Docs updated. No behaviour change.",
+      "rel": null,
+      "premise": null
+    },
+    {
       "id": "chat-2026-09-10-roadmap",
       "kind": "chat",
       "date": "2026-09-10",
       "author": "tomi",
       "title": "#general: Q4 roadmap",
       "text": "Q4 priorities: enterprise SSO rollout, reporting exports, mobile refresh.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-933",
+      "kind": "ticket",
+      "date": "2026-09-14",
+      "author": "priya",
+      "title": "Retry Envoy config lint",
+      "text": "Retry the Envoy config lint in the mobile app. Nothing user-facing. Follow-up to last week's incident review.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-985",
+      "kind": "doc",
+      "date": "2026-09-17",
+      "author": "marcus",
+      "title": "Tune Stripe webhook retries",
+      "text": "Tune the Stripe webhook retries in the data pipeline. Covered by existing tests. Part of the Q3 cleanup.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-note-904",
+      "kind": "doc",
+      "date": "2026-09-27",
+      "author": "priya",
+      "title": "Retry Terraform modules",
+      "text": "Retry the Terraform modules in the API gateway. Covered by existing tests. Small, reviewed in person.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-989",
+      "kind": "pr",
+      "date": "2026-10-02",
+      "author": "lena",
+      "title": "Tune photo picker",
+      "text": "Tune the photo picker in the uploads API. Follow-up to last week's incident review. Part of the Q3 cleanup.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "OPS-1008",
+      "kind": "ticket",
+      "date": "2026-10-03",
+      "author": "marcus",
+      "title": "Clean up CSV parser",
+      "text": "Clean up the CSV parser in the data pipeline. Measured on staging first. Follow-up to last week's incident review.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-907",
+      "kind": "pr",
+      "date": "2026-10-10",
+      "author": "kwame",
+      "title": "Document invoice PDF rendering",
+      "text": "Document the invoice PDF rendering in the billing. Rolled out behind a flag. Docs updated.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-996",
+      "kind": "pr",
+      "date": "2026-10-16",
+      "author": "priya",
+      "title": "Instrument session cookie flags",
+      "text": "Instrument the session cookie flags in the search. Requested by support. Docs updated.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-1016",
+      "kind": "pr",
+      "date": "2026-10-27",
+      "author": "marcus",
+      "title": "Refactor onboarding copy",
+      "text": "Refactor the onboarding copy in the API gateway. Covered by existing tests. Rolled out behind a flag.",
       "rel": null,
       "premise": null
     }

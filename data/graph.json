@@ -982,12 +982,562 @@
   },
   {
    "label": "Evidence",
+   "id": "chat-noise-1049",
+   "props": {
+    "kind": "chat",
+    "title": "#auth: UUID formatting",
+    "date": "2025-01-02",
+    "excerpt": "Tune the UUID formatting in the auth. Measured on staging first. Follow-up to last week's incident review.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-987",
+   "props": {
+    "kind": "chat",
+    "title": "#mobile: Safari layout bug",
+    "date": "2025-01-03",
+    "excerpt": "Retry the Safari layout bug in the mobile app. Docs updated. Requested by support.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-912",
+   "props": {
+    "kind": "pr",
+    "title": "Fix Safari layout bug",
+    "date": "2025-01-07",
+    "excerpt": "Fix the Safari layout bug in the infrastructure. Requested by support. Measured on staging first.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-951",
+   "props": {
+    "kind": "doc",
+    "title": "Instrument CSV parser",
+    "date": "2025-01-09",
+    "excerpt": "Instrument the CSV parser in the billing. No behaviour change. Nothing user-facing.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-947",
+   "props": {
+    "kind": "pr",
+    "title": "Fix email templates",
+    "date": "2025-01-21",
+    "excerpt": "Fix the email templates in the web app. Covered by existing tests. Small, reviewed in person.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1030",
+   "props": {
+    "kind": "pr",
+    "title": "Harden Envoy config lint",
+    "date": "2025-01-22",
+    "excerpt": "Harden the Envoy config lint in the uploads API. Measured on staging first. Small, reviewed in person.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-937",
+   "props": {
+    "kind": "pr",
+    "title": "Clean up on-call runbook",
+    "date": "2025-01-25",
+    "excerpt": "Clean up the on-call runbook in the notifications. Rolled out behind a flag. Small, reviewed in person.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-1020",
+   "props": {
+    "kind": "doc",
+    "title": "Fix onboarding copy",
+    "date": "2025-01-26",
+    "excerpt": "Fix the onboarding copy in the search. Covered by existing tests. Measured on staging first.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1019",
+   "props": {
+    "kind": "pr",
+    "title": "Document Envoy config lint",
+    "date": "2025-01-27",
+    "excerpt": "Document the Envoy config lint in the infrastructure. Rolled out behind a flag. Follow-up to last week's incident review.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-1000",
+   "props": {
+    "kind": "ticket",
+    "title": "Clean up pipeline backfill",
+    "date": "2025-02-01",
+    "excerpt": "Clean up the pipeline backfill in the data pipeline. Covered by existing tests. Rolled out behind a flag.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-1026",
+   "props": {
+    "kind": "ticket",
+    "title": "Harden pipeline backfill",
+    "date": "2025-02-04",
+    "excerpt": "Harden the pipeline backfill in the billing. Requested by support. Part of the Q3 cleanup.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-921",
+   "props": {
+    "kind": "chat",
+    "title": "#mobile: Terraform modules",
+    "date": "2025-02-05",
+    "excerpt": "Clean up the Terraform modules in the mobile app. Part of the Q3 cleanup. Docs updated.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1010",
+   "props": {
+    "kind": "pr",
+    "title": "Instrument BigQuery views",
+    "date": "2025-02-07",
+    "excerpt": "Instrument the BigQuery views in the API gateway. Docs updated. Docs updated.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-910",
+   "props": {
+    "kind": "chat",
+    "title": "#infrastructure: invoice PDF rendering",
+    "date": "2025-02-09",
+    "excerpt": "Clean up the invoice PDF rendering in the infrastructure. No behaviour change. Part of the Q3 cleanup.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-901",
+   "props": {
+    "kind": "pr",
+    "title": "Document gateway timeouts",
+    "date": "2025-02-14",
+    "excerpt": "Document the gateway timeouts in the notifications. Requested by support. Covered by existing tests.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-948",
+   "props": {
+    "kind": "pr",
+    "title": "Instrument Postgres vacuum schedule",
+    "date": "2025-02-15",
+    "excerpt": "Instrument the Postgres vacuum schedule in the API gateway. Nothing user-facing. Measured on staging first.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1045",
+   "props": {
+    "kind": "pr",
+    "title": "Migrate Terraform modules",
+    "date": "2025-02-17",
+    "excerpt": "Migrate the Terraform modules in the infrastructure. Measured on staging first. Small, reviewed in person.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-935",
+   "props": {
+    "kind": "pr",
+    "title": "Retry LaunchDarkly SDK bump",
+    "date": "2025-02-18",
+    "excerpt": "Retry the LaunchDarkly SDK bump in the mobile app. Nothing user-facing. Nothing user-facing.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-969",
+   "props": {
+    "kind": "ticket",
+    "title": "Clean up feature flag cleanup",
+    "date": "2025-02-18",
+    "excerpt": "Clean up the feature flag cleanup in the mobile app. Covered by existing tests. Docs updated.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1004",
+   "props": {
+    "kind": "pr",
+    "title": "Document LaunchDarkly SDK bump",
+    "date": "2025-02-20",
+    "excerpt": "Document the LaunchDarkly SDK bump in the search. Part of the Q3 cleanup. Rolled out behind a flag.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1047",
+   "props": {
+    "kind": "pr",
+    "title": "Clean up session cookie flags",
+    "date": "2025-02-21",
+    "excerpt": "Clean up the session cookie flags in the billing. Measured on staging first. Part of the Q3 cleanup.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-968",
+   "props": {
+    "kind": "pr",
+    "title": "Instrument Stripe webhook retries",
+    "date": "2025-02-23",
+    "excerpt": "Instrument the Stripe webhook retries in the mobile app. Part of the Q3 cleanup. Nothing user-facing.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1034",
+   "props": {
+    "kind": "pr",
+    "title": "Speed up CSV parser",
+    "date": "2025-02-26",
+    "excerpt": "Speed up the CSV parser in the data pipeline. No behaviour change. Follow-up to last week's incident review.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-1032",
+   "props": {
+    "kind": "ticket",
+    "title": "Harden feature flag cleanup",
+    "date": "2025-03-01",
+    "excerpt": "Harden the feature flag cleanup in the mobile app. Docs updated. Requested by support.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-981",
+   "props": {
+    "kind": "doc",
+    "title": "Fix pipeline backfill",
+    "date": "2025-03-03",
+    "excerpt": "Fix the pipeline backfill in the web app. Nothing user-facing. Requested by support.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-945",
+   "props": {
+    "kind": "pr",
+    "title": "Instrument gateway timeouts",
+    "date": "2025-03-09",
+    "excerpt": "Instrument the gateway timeouts in the search. Part of the Q3 cleanup. Measured on staging first.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-923",
+   "props": {
+    "kind": "pr",
+    "title": "Harden CSV parser",
+    "date": "2025-03-12",
+    "excerpt": "Harden the CSV parser in the search. Requested by support. Small, reviewed in person.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1029",
+   "props": {
+    "kind": "pr",
+    "title": "Speed up log sampling",
+    "date": "2025-03-13",
+    "excerpt": "Speed up the log sampling in the uploads API. Follow-up to last week's incident review. Requested by support.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-973",
+   "props": {
+    "kind": "chat",
+    "title": "#mobile: Terraform modules",
+    "date": "2025-03-14",
+    "excerpt": "Speed up the Terraform modules in the mobile app. Rolled out behind a flag. Covered by existing tests.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-941",
+   "props": {
+    "kind": "pr",
+    "title": "Tune email templates",
+    "date": "2025-03-15",
+    "excerpt": "Tune the email templates in the data pipeline. Measured on staging first. Docs updated.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1036",
+   "props": {
+    "kind": "pr",
+    "title": "Fix onboarding copy",
+    "date": "2025-03-16",
+    "excerpt": "Fix the onboarding copy in the infrastructure. Requested by support. Covered by existing tests.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-982",
+   "props": {
+    "kind": "chat",
+    "title": "#data: rollback notes",
+    "date": "2025-03-18",
+    "excerpt": "Clean up the rollback notes in the data pipeline. Covered by existing tests. Follow-up to last week's incident review.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1039",
+   "props": {
+    "kind": "pr",
+    "title": "Tune deploy script",
+    "date": "2025-03-21",
+    "excerpt": "Tune the deploy script in the auth. Measured on staging first. Follow-up to last week's incident review.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-1033",
+   "props": {
+    "kind": "chat",
+    "title": "#infrastructure: Envoy config lint",
+    "date": "2025-03-26",
+    "excerpt": "Clean up the Envoy config lint in the infrastructure. Covered by existing tests. Covered by existing tests.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-992",
+   "props": {
+    "kind": "chat",
+    "title": "#notifications: on-call runbook",
+    "date": "2025-04-01",
+    "excerpt": "Document the on-call runbook in the notifications. No behaviour change. No behaviour change.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-953",
+   "props": {
+    "kind": "chat",
+    "title": "#notifications: status page copy",
+    "date": "2025-04-08",
+    "excerpt": "Instrument the status page copy in the notifications. Follow-up to last week's incident review. Measured on staging first.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "PR-201",
    "props": {
     "kind": "pr",
     "title": "Add the CI test suite",
     "date": "2025-04-09",
     "excerpt": "Adds pytest and Jest suites to CI, 1,180 tests, running on every PR in about six minutes.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-983",
+   "props": {
+    "kind": "ticket",
+    "title": "Fix rate limits",
+    "date": "2025-04-12",
+    "excerpt": "Fix the rate limits in the notifications. No behaviour change. Measured on staging first.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-1001",
+   "props": {
+    "kind": "chat",
+    "title": "#api: Playwright flake",
+    "date": "2025-04-13",
+    "excerpt": "Harden the Playwright flake in the API gateway. Measured on staging first. Covered by existing tests.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-940",
+   "props": {
+    "kind": "chat",
+    "title": "#mobile: invoice PDF rendering",
+    "date": "2025-04-14",
+    "excerpt": "Migrate the invoice PDF rendering in the mobile app. Part of the Q3 cleanup. Covered by existing tests.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-952",
+   "props": {
+    "kind": "doc",
+    "title": "Harden Safari layout bug",
+    "date": "2025-04-15",
+    "excerpt": "Harden the Safari layout bug in the auth. Docs updated. Nothing user-facing.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-926",
+   "props": {
+    "kind": "ticket",
+    "title": "Document session cookie flags",
+    "date": "2025-04-16",
+    "excerpt": "Document the session cookie flags in the API gateway. Requested by support. Docs updated.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-977",
+   "props": {
+    "kind": "ticket",
+    "title": "Harden rate limits",
+    "date": "2025-04-25",
+    "excerpt": "Harden the rate limits in the web app. No behaviour change. Measured on staging first.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-931",
+   "props": {
+    "kind": "doc",
+    "title": "Speed up Postgres vacuum schedule",
+    "date": "2025-04-27",
+    "excerpt": "Speed up the Postgres vacuum schedule in the billing. Part of the Q3 cleanup. Requested by support.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-939",
+   "props": {
+    "kind": "doc",
+    "title": "Harden UUID formatting",
+    "date": "2025-04-27",
+    "excerpt": "Harden the UUID formatting in the search. Measured on staging first. Covered by existing tests.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1015",
+   "props": {
+    "kind": "pr",
+    "title": "Clean up UUID formatting",
+    "date": "2025-04-27",
+    "excerpt": "Clean up the UUID formatting in the uploads API. No behaviour change. Part of the Q3 cleanup.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-957",
+   "props": {
+    "kind": "ticket",
+    "title": "Refactor UUID formatting",
+    "date": "2025-05-07",
+    "excerpt": "Refactor the UUID formatting in the auth. No behaviour change. Rolled out behind a flag.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-1012",
+   "props": {
+    "kind": "ticket",
+    "title": "Instrument SOC 2 evidence folder",
+    "date": "2025-05-12",
+    "excerpt": "Instrument the SOC 2 evidence folder in the search. Requested by support. Docs updated.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-944",
+   "props": {
+    "kind": "chat",
+    "title": "#data: BigQuery views",
+    "date": "2025-05-17",
+    "excerpt": "Harden the BigQuery views in the data pipeline. Requested by support. Covered by existing tests.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-950",
+   "props": {
+    "kind": "pr",
+    "title": "Document EU latency dashboard",
+    "date": "2025-05-21",
+    "excerpt": "Document the EU latency dashboard in the billing. Part of the Q3 cleanup. Docs updated.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-966",
+   "props": {
+    "kind": "chat",
+    "title": "#web: Safari layout bug",
+    "date": "2025-05-25",
+    "excerpt": "Fix the Safari layout bug in the web app. Covered by existing tests. Small, reviewed in person.",
     "path": ""
    }
   },
@@ -1015,12 +1565,265 @@
   },
   {
    "label": "Evidence",
+   "id": "OPS-943",
+   "props": {
+    "kind": "ticket",
+    "title": "Fix LaunchDarkly SDK bump",
+    "date": "2025-06-01",
+    "excerpt": "Fix the LaunchDarkly SDK bump in the data pipeline. Docs updated. No behaviour change.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-1005",
+   "props": {
+    "kind": "doc",
+    "title": "Instrument LaunchDarkly SDK bump",
+    "date": "2025-06-09",
+    "excerpt": "Instrument the LaunchDarkly SDK bump in the uploads API. Small, reviewed in person. Covered by existing tests.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-1018",
+   "props": {
+    "kind": "doc",
+    "title": "Document gateway timeouts",
+    "date": "2025-06-11",
+    "excerpt": "Document the gateway timeouts in the data pipeline. Requested by support. Part of the Q3 cleanup.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1024",
+   "props": {
+    "kind": "pr",
+    "title": "Speed up SOC 2 evidence folder",
+    "date": "2025-06-15",
+    "excerpt": "Speed up the SOC 2 evidence folder in the API gateway. No behaviour change. No behaviour change.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-1041",
+   "props": {
+    "kind": "chat",
+    "title": "#data: deploy script",
+    "date": "2025-06-19",
+    "excerpt": "Instrument the deploy script in the data pipeline. Rolled out behind a flag. Covered by existing tests.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-919",
+   "props": {
+    "kind": "doc",
+    "title": "Harden session cookie flags",
+    "date": "2025-06-20",
+    "excerpt": "Harden the session cookie flags in the billing. Requested by support. Small, reviewed in person.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-1037",
+   "props": {
+    "kind": "ticket",
+    "title": "Instrument pipeline backfill",
+    "date": "2025-06-20",
+    "excerpt": "Instrument the pipeline backfill in the infrastructure. Follow-up to last week's incident review. Part of the Q3 cleanup.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-1046",
+   "props": {
+    "kind": "ticket",
+    "title": "Tune onboarding copy",
+    "date": "2025-06-20",
+    "excerpt": "Tune the onboarding copy in the infrastructure. Follow-up to last week's incident review. No behaviour change.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-974",
+   "props": {
+    "kind": "ticket",
+    "title": "Migrate Playwright flake",
+    "date": "2025-06-27",
+    "excerpt": "Migrate the Playwright flake in the uploads API. Requested by support. No behaviour change.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-1040",
+   "props": {
+    "kind": "ticket",
+    "title": "Harden gateway timeouts",
+    "date": "2025-06-28",
+    "excerpt": "Harden the gateway timeouts in the API gateway. Part of the Q3 cleanup. Nothing user-facing.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-997",
+   "props": {
+    "kind": "chat",
+    "title": "#uploads: index warmup",
+    "date": "2025-07-02",
+    "excerpt": "Retry the index warmup in the uploads API. Small, reviewed in person. Follow-up to last week's incident review.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1003",
+   "props": {
+    "kind": "pr",
+    "title": "Document SendGrid templates",
+    "date": "2025-07-02",
+    "excerpt": "Document the SendGrid templates in the web app. Docs updated. Covered by existing tests.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1023",
+   "props": {
+    "kind": "pr",
+    "title": "Document deploy script",
+    "date": "2025-07-07",
+    "excerpt": "Document the deploy script in the data pipeline. Follow-up to last week's incident review. Measured on staging first.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-914",
+   "props": {
+    "kind": "doc",
+    "title": "Speed up CSV parser",
+    "date": "2025-07-08",
+    "excerpt": "Speed up the CSV parser in the search. Follow-up to last week's incident review. Follow-up to last week's incident review.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-984",
+   "props": {
+    "kind": "chat",
+    "title": "#web: onboarding copy",
+    "date": "2025-07-09",
+    "excerpt": "Harden the onboarding copy in the web app. Docs updated. Part of the Q3 cleanup.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-942",
+   "props": {
+    "kind": "pr",
+    "title": "Tune status page copy",
+    "date": "2025-07-17",
+    "excerpt": "Tune the status page copy in the auth. Measured on staging first. Requested by support.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-959",
+   "props": {
+    "kind": "pr",
+    "title": "Fix index warmup",
+    "date": "2025-07-19",
+    "excerpt": "Fix the index warmup in the search. No behaviour change. Part of the Q3 cleanup.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "doc-news-cookies",
    "props": {
     "kind": "doc",
     "title": "Google drops plan to remove third-party cookies",
     "date": "2025-07-22",
     "excerpt": "Google announced it will not remove third-party cookies from Chrome and will not roll out a new standalone prompt either.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-911",
+   "props": {
+    "kind": "doc",
+    "title": "Instrument status page copy",
+    "date": "2025-07-22",
+    "excerpt": "Instrument the status page copy in the mobile app. Docs updated. Rolled out behind a flag.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-963",
+   "props": {
+    "kind": "pr",
+    "title": "Migrate session cookie flags",
+    "date": "2025-07-27",
+    "excerpt": "Migrate the session cookie flags in the billing. No behaviour change. Nothing user-facing.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-956",
+   "props": {
+    "kind": "chat",
+    "title": "#billing: email templates",
+    "date": "2025-08-01",
+    "excerpt": "Tune the email templates in the billing. Rolled out behind a flag. Nothing user-facing.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-995",
+   "props": {
+    "kind": "ticket",
+    "title": "Fix onboarding copy",
+    "date": "2025-08-07",
+    "excerpt": "Fix the onboarding copy in the notifications. Requested by support. Docs updated.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-986",
+   "props": {
+    "kind": "pr",
+    "title": "Speed up Redis eviction policy",
+    "date": "2025-08-14",
+    "excerpt": "Speed up the Redis eviction policy in the web app. Follow-up to last week's incident review. No behaviour change.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-972",
+   "props": {
+    "kind": "ticket",
+    "title": "Migrate photo picker",
+    "date": "2025-08-16",
+    "excerpt": "Migrate the photo picker in the API gateway. Follow-up to last week's incident review. No behaviour change.",
     "path": ""
    }
   },
@@ -1037,6 +1840,105 @@
   },
   {
    "label": "Evidence",
+   "id": "PR-946",
+   "props": {
+    "kind": "pr",
+    "title": "Harden SOC 2 evidence folder",
+    "date": "2025-08-23",
+    "excerpt": "Harden the SOC 2 evidence folder in the notifications. Part of the Q3 cleanup. No behaviour change.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-934",
+   "props": {
+    "kind": "doc",
+    "title": "Refactor Postgres vacuum schedule",
+    "date": "2025-08-25",
+    "excerpt": "Refactor the Postgres vacuum schedule in the notifications. Follow-up to last week's incident review. Follow-up to last week's incident review.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1006",
+   "props": {
+    "kind": "pr",
+    "title": "Fix Safari layout bug",
+    "date": "2025-08-25",
+    "excerpt": "Fix the Safari layout bug in the auth. Measured on staging first. Docs updated.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-964",
+   "props": {
+    "kind": "pr",
+    "title": "Instrument upload retries",
+    "date": "2025-08-26",
+    "excerpt": "Instrument the upload retries in the mobile app. Nothing user-facing. Covered by existing tests.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-936",
+   "props": {
+    "kind": "doc",
+    "title": "Fix UUID formatting",
+    "date": "2025-09-02",
+    "excerpt": "Fix the UUID formatting in the mobile app. Part of the Q3 cleanup. No behaviour change.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-979",
+   "props": {
+    "kind": "pr",
+    "title": "Clean up gateway timeouts",
+    "date": "2025-09-05",
+    "excerpt": "Clean up the gateway timeouts in the search. Measured on staging first. Rolled out behind a flag.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-971",
+   "props": {
+    "kind": "pr",
+    "title": "Fix index warmup",
+    "date": "2025-09-09",
+    "excerpt": "Fix the index warmup in the infrastructure. Small, reviewed in person. Nothing user-facing.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-991",
+   "props": {
+    "kind": "pr",
+    "title": "Refactor upload retries",
+    "date": "2025-09-10",
+    "excerpt": "Refactor the upload retries in the infrastructure. Rolled out behind a flag. Requested by support.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-922",
+   "props": {
+    "kind": "pr",
+    "title": "Refactor onboarding copy",
+    "date": "2025-09-12",
+    "excerpt": "Refactor the onboarding copy in the notifications. Nothing user-facing. Part of the Q3 cleanup.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "SRCH-233",
    "props": {
     "kind": "ticket",
@@ -1048,12 +1950,232 @@
   },
   {
    "label": "Evidence",
+   "id": "OPS-908",
+   "props": {
+    "kind": "ticket",
+    "title": "Fix session cookie flags",
+    "date": "2025-09-14",
+    "excerpt": "Fix the session cookie flags in the infrastructure. Follow-up to last week's incident review. Docs updated.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-970",
+   "props": {
+    "kind": "pr",
+    "title": "Clean up invoice PDF rendering",
+    "date": "2025-09-15",
+    "excerpt": "Clean up the invoice PDF rendering in the search. Requested by support. Requested by support.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1002",
+   "props": {
+    "kind": "pr",
+    "title": "Document CSV parser",
+    "date": "2025-09-15",
+    "excerpt": "Document the CSV parser in the mobile app. Rolled out behind a flag. Docs updated.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-930",
+   "props": {
+    "kind": "doc",
+    "title": "Migrate index warmup",
+    "date": "2025-09-18",
+    "excerpt": "Migrate the index warmup in the mobile app. No behaviour change. Covered by existing tests.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-909",
+   "props": {
+    "kind": "chat",
+    "title": "#uploads: Playwright flake",
+    "date": "2025-09-19",
+    "excerpt": "Fix the Playwright flake in the uploads API. Rolled out behind a flag. Small, reviewed in person.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-958",
+   "props": {
+    "kind": "chat",
+    "title": "#api: email templates",
+    "date": "2025-09-21",
+    "excerpt": "Clean up the email templates in the API gateway. Nothing user-facing. No behaviour change.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-955",
+   "props": {
+    "kind": "pr",
+    "title": "Speed up Postgres vacuum schedule",
+    "date": "2025-09-22",
+    "excerpt": "Speed up the Postgres vacuum schedule in the API gateway. Part of the Q3 cleanup. No behaviour change.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-988",
+   "props": {
+    "kind": "pr",
+    "title": "Tune index warmup",
+    "date": "2025-09-22",
+    "excerpt": "Tune the index warmup in the auth. Covered by existing tests. Nothing user-facing.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-905",
+   "props": {
+    "kind": "doc",
+    "title": "Migrate session cookie flags",
+    "date": "2025-09-23",
+    "excerpt": "Migrate the session cookie flags in the auth. Small, reviewed in person. Requested by support.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-949",
+   "props": {
+    "kind": "ticket",
+    "title": "Tune gateway timeouts",
+    "date": "2025-09-23",
+    "excerpt": "Tune the gateway timeouts in the infrastructure. Follow-up to last week's incident review. Part of the Q3 cleanup.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-999",
+   "props": {
+    "kind": "pr",
+    "title": "Document pipeline backfill",
+    "date": "2025-09-24",
+    "excerpt": "Document the pipeline backfill in the data pipeline. Part of the Q3 cleanup. Measured on staging first.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-903",
+   "props": {
+    "kind": "chat",
+    "title": "#uploads: gateway timeouts",
+    "date": "2025-09-28",
+    "excerpt": "Document the gateway timeouts in the uploads API. Measured on staging first. Follow-up to last week's incident review.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-960",
+   "props": {
+    "kind": "ticket",
+    "title": "Fix SOC 2 evidence folder",
+    "date": "2025-09-28",
+    "excerpt": "Fix the SOC 2 evidence folder in the auth. Rolled out behind a flag. Docs updated.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "chat-2025-10-02-search",
    "props": {
     "kind": "chat",
     "title": "#search: rolling back incremental indexing",
     "date": "2025-10-02",
     "excerpt": "Rolled incremental indexing back in production. Update storms during bulk imports pushed indexing lag past 40 minutes. Until the mapping is reworked again the index still cannot take incremental updates at our volume, so the nightly rebuild stays.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-902",
+   "props": {
+    "kind": "doc",
+    "title": "Refactor Envoy config lint",
+    "date": "2025-10-04",
+    "excerpt": "Refactor the Envoy config lint in the web app. Small, reviewed in person. Small, reviewed in person.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-915",
+   "props": {
+    "kind": "pr",
+    "title": "Refactor Safari layout bug",
+    "date": "2025-10-06",
+    "excerpt": "Refactor the Safari layout bug in the auth. No behaviour change. Follow-up to last week's incident review.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-916",
+   "props": {
+    "kind": "chat",
+    "title": "#notifications: BigQuery views",
+    "date": "2025-10-11",
+    "excerpt": "Migrate the BigQuery views in the notifications. Docs updated. Nothing user-facing.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-932",
+   "props": {
+    "kind": "ticket",
+    "title": "Document Playwright flake",
+    "date": "2025-10-11",
+    "excerpt": "Document the Playwright flake in the notifications. Follow-up to last week's incident review. No behaviour change.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-920",
+   "props": {
+    "kind": "chat",
+    "title": "#billing: CSV parser",
+    "date": "2025-10-12",
+    "excerpt": "Instrument the CSV parser in the billing. Covered by existing tests. Docs updated.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-1025",
+   "props": {
+    "kind": "doc",
+    "title": "Speed up invoice PDF rendering",
+    "date": "2025-10-20",
+    "excerpt": "Speed up the invoice PDF rendering in the billing. Follow-up to last week's incident review. Rolled out behind a flag.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1028",
+   "props": {
+    "kind": "pr",
+    "title": "Retry deploy script",
+    "date": "2025-10-28",
+    "excerpt": "Retry the deploy script in the auth. Follow-up to last week's incident review. Small, reviewed in person.",
     "path": ""
    }
   },
@@ -1081,6 +2203,28 @@
   },
   {
    "label": "Evidence",
+   "id": "OPS-900",
+   "props": {
+    "kind": "ticket",
+    "title": "Speed up Redis eviction policy",
+    "date": "2026-01-03",
+    "excerpt": "Speed up the Redis eviction policy in the billing. Rolled out behind a flag. Small, reviewed in person.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-929",
+   "props": {
+    "kind": "pr",
+    "title": "Tune index warmup",
+    "date": "2026-01-05",
+    "excerpt": "Tune the index warmup in the billing. Follow-up to last week's incident review. Small, reviewed in person.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "chat-2026-01-08-standup",
    "props": {
     "kind": "chat",
@@ -1098,6 +2242,28 @@
     "title": "Disaster recovery plan",
     "date": "2026-01-10",
     "excerpt": "RPO 1 hour, RTO 4 hours, tested quarterly.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-1022",
+   "props": {
+    "kind": "chat",
+    "title": "#search: rollback notes",
+    "date": "2026-01-10",
+    "excerpt": "Instrument the rollback notes in the search. Measured on staging first. Measured on staging first.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-1042",
+   "props": {
+    "kind": "chat",
+    "title": "#auth: BigQuery views",
+    "date": "2026-01-10",
+    "excerpt": "Tune the BigQuery views in the auth. Part of the Q3 cleanup. Small, reviewed in person.",
     "path": ""
    }
   },
@@ -1125,12 +2291,67 @@
   },
   {
    "label": "Evidence",
+   "id": "PR-1009",
+   "props": {
+    "kind": "pr",
+    "title": "Fix Redis eviction policy",
+    "date": "2026-01-16",
+    "excerpt": "Fix the Redis eviction policy in the web app. Follow-up to last week's incident review. Measured on staging first.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "ADR-notes-sharding",
    "props": {
     "kind": "doc",
     "title": "Citus evaluation closed",
     "date": "2026-01-20",
     "excerpt": "We will not shard Postgres by tenant. The Citus evaluation is closed; a single primary with read replicas covers projected load through 2027.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1027",
+   "props": {
+    "kind": "pr",
+    "title": "Clean up rate limits",
+    "date": "2026-01-20",
+    "excerpt": "Clean up the rate limits in the uploads API. Covered by existing tests. Small, reviewed in person.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1035",
+   "props": {
+    "kind": "pr",
+    "title": "Harden invoice PDF rendering",
+    "date": "2026-01-25",
+    "excerpt": "Harden the invoice PDF rendering in the data pipeline. Follow-up to last week's incident review. No behaviour change.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-962",
+   "props": {
+    "kind": "doc",
+    "title": "Retry Envoy config lint",
+    "date": "2026-01-27",
+    "excerpt": "Retry the Envoy config lint in the notifications. Covered by existing tests. No behaviour change.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-976",
+   "props": {
+    "kind": "ticket",
+    "title": "Instrument session cookie flags",
+    "date": "2026-01-27",
+    "excerpt": "Instrument the session cookie flags in the uploads API. Follow-up to last week's incident review. Requested by support.",
     "path": ""
    }
   },
@@ -1180,12 +2401,34 @@
   },
   {
    "label": "Evidence",
+   "id": "doc-note-978",
+   "props": {
+    "kind": "doc",
+    "title": "Document LaunchDarkly SDK bump",
+    "date": "2026-02-02",
+    "excerpt": "Document the LaunchDarkly SDK bump in the notifications. Docs updated. Small, reviewed in person.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "OPS-301",
    "props": {
     "kind": "ticket",
     "title": "Disk alert on the metrics node",
     "date": "2026-02-09",
     "excerpt": "Prometheus retention reduced from 30 to 15 days after disk hit 92%.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-990",
+   "props": {
+    "kind": "doc",
+    "title": "Fix session cookie flags",
+    "date": "2026-02-10",
+    "excerpt": "Fix the session cookie flags in the web app. Measured on staging first. Part of the Q3 cleanup.",
     "path": ""
    }
   },
@@ -1202,12 +2445,34 @@
   },
   {
    "label": "Evidence",
+   "id": "PR-918",
+   "props": {
+    "kind": "pr",
+    "title": "Clean up pipeline backfill",
+    "date": "2026-02-11",
+    "excerpt": "Clean up the pipeline backfill in the auth. Covered by existing tests. No behaviour change.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "doc-arch-2026-02",
    "props": {
     "kind": "doc",
     "title": "Autoscaling review",
     "date": "2026-02-14",
     "excerpt": "Web tier scaled from 3 to 14 pods during the February launch with no session loss because nothing is held in process memory.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-917",
+   "props": {
+    "kind": "chat",
+    "title": "#web: deploy script",
+    "date": "2026-02-16",
+    "excerpt": "Speed up the deploy script in the web app. No behaviour change. Requested by support.",
     "path": ""
    }
   },
@@ -1235,6 +2500,17 @@
   },
   {
    "label": "Evidence",
+   "id": "OPS-954",
+   "props": {
+    "kind": "ticket",
+    "title": "Tune upload retries",
+    "date": "2026-02-21",
+    "excerpt": "Tune the upload retries in the uploads API. Measured on staging first. Follow-up to last week's incident review.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "chat-2026-02-26-hiring",
    "props": {
     "kind": "chat",
@@ -1257,12 +2533,45 @@
   },
   {
    "label": "Evidence",
+   "id": "PR-961",
+   "props": {
+    "kind": "pr",
+    "title": "Retry Redis eviction policy",
+    "date": "2026-03-02",
+    "excerpt": "Retry the Redis eviction policy in the search. Nothing user-facing. Follow-up to last week's incident review.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "BILL-80",
    "props": {
     "kind": "ticket",
     "title": "Annual invoicing for enterprise",
     "date": "2026-03-03",
     "excerpt": "Enterprise customers can be billed annually in advance.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1013",
+   "props": {
+    "kind": "pr",
+    "title": "Document photo picker",
+    "date": "2026-03-10",
+    "excerpt": "Document the photo picker in the billing. Rolled out behind a flag. Covered by existing tests.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-1043",
+   "props": {
+    "kind": "ticket",
+    "title": "Refactor photo picker",
+    "date": "2026-03-10",
+    "excerpt": "Refactor the photo picker in the uploads API. Measured on staging first. Nothing user-facing.",
     "path": ""
    }
   },
@@ -1334,6 +2643,17 @@
   },
   {
    "label": "Evidence",
+   "id": "PR-924",
+   "props": {
+    "kind": "pr",
+    "title": "Speed up LaunchDarkly SDK bump",
+    "date": "2026-04-07",
+    "excerpt": "Speed up the LaunchDarkly SDK bump in the auth. Rolled out behind a flag. No behaviour change.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "PR-455",
    "props": {
     "kind": "pr",
@@ -1356,12 +2676,34 @@
   },
   {
    "label": "Evidence",
+   "id": "OPS-1044",
+   "props": {
+    "kind": "ticket",
+    "title": "Tune Safari layout bug",
+    "date": "2026-04-20",
+    "excerpt": "Tune the Safari layout bug in the uploads API. No behaviour change. No behaviour change.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "chat-2026-04-22-launch",
    "props": {
     "kind": "chat",
     "title": "#general: launch",
     "date": "2026-04-22",
     "excerpt": "Reporting v2 is live. Thanks everyone. Watch the dashboards tonight.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-925",
+   "props": {
+    "kind": "pr",
+    "title": "Clean up email templates",
+    "date": "2026-04-23",
+    "excerpt": "Clean up the email templates in the search. Docs updated. Rolled out behind a flag.",
     "path": ""
    }
   },
@@ -1384,6 +2726,28 @@
     "title": "Moved BigQuery to flat-rate slots",
     "date": "2026-04-30",
     "excerpt": "We are now on 100 flat-rate slots. Query cost no longer depends on bytes scanned or on how often jobs run.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-965",
+   "props": {
+    "kind": "chat",
+    "title": "#search: Postgres vacuum schedule",
+    "date": "2026-05-08",
+    "excerpt": "Fix the Postgres vacuum schedule in the search. Requested by support. Docs updated.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-993",
+   "props": {
+    "kind": "pr",
+    "title": "Speed up invoice PDF rendering",
+    "date": "2026-05-08",
+    "excerpt": "Speed up the invoice PDF rendering in the mobile app. Rolled out behind a flag. Requested by support.",
     "path": ""
    }
   },
@@ -1433,6 +2797,28 @@
   },
   {
    "label": "Evidence",
+   "id": "OPS-980",
+   "props": {
+    "kind": "ticket",
+    "title": "Instrument LaunchDarkly SDK bump",
+    "date": "2026-05-13",
+    "excerpt": "Instrument the LaunchDarkly SDK bump in the search. Part of the Q3 cleanup. Docs updated.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-938",
+   "props": {
+    "kind": "doc",
+    "title": "Harden onboarding copy",
+    "date": "2026-05-15",
+    "excerpt": "Harden the onboarding copy in the infrastructure. Nothing user-facing. Requested by support.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "chat-2026-05-16-farewell",
    "props": {
     "kind": "chat",
@@ -1444,12 +2830,56 @@
   },
   {
    "label": "Evidence",
+   "id": "PR-967",
+   "props": {
+    "kind": "pr",
+    "title": "Instrument Redis eviction policy",
+    "date": "2026-05-20",
+    "excerpt": "Instrument the Redis eviction policy in the data pipeline. No behaviour change. Docs updated.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-1038",
+   "props": {
+    "kind": "doc",
+    "title": "Document SOC 2 evidence folder",
+    "date": "2026-05-20",
+    "excerpt": "Document the SOC 2 evidence folder in the mobile app. Rolled out behind a flag. Rolled out behind a flag.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "PR-520",
    "props": {
     "kind": "pr",
     "title": "Playwright end-to-end suite for checkout and onboarding",
     "date": "2026-05-22",
     "excerpt": "Adds 64 Playwright tests covering sign-in, onboarding, checkout and the billing portal. Runs against staging on every release candidate.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-1017",
+   "props": {
+    "kind": "doc",
+    "title": "Clean up BigQuery views",
+    "date": "2026-05-25",
+    "excerpt": "Clean up the BigQuery views in the billing. Covered by existing tests. Small, reviewed in person.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1007",
+   "props": {
+    "kind": "pr",
+    "title": "Tune upload retries",
+    "date": "2026-05-27",
+    "excerpt": "Tune the upload retries in the mobile app. Small, reviewed in person. Requested by support.",
     "path": ""
    }
   },
@@ -1477,6 +2907,17 @@
   },
   {
    "label": "Evidence",
+   "id": "PR-928",
+   "props": {
+    "kind": "pr",
+    "title": "Tune rollback notes",
+    "date": "2026-06-03",
+    "excerpt": "Tune the rollback notes in the mobile app. Docs updated. Measured on staging first.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "chat-2026-06-05-retro",
    "props": {
     "kind": "chat",
@@ -1499,6 +2940,17 @@
   },
   {
    "label": "Evidence",
+   "id": "chat-noise-906",
+   "props": {
+    "kind": "chat",
+    "title": "#notifications: Playwright flake",
+    "date": "2026-06-15",
+    "excerpt": "Speed up the Playwright flake in the notifications. Rolled out behind a flag. Part of the Q3 cleanup.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "DATA-150",
    "props": {
     "kind": "ticket",
@@ -1510,12 +2962,34 @@
   },
   {
    "label": "Evidence",
+   "id": "PR-1048",
+   "props": {
+    "kind": "pr",
+    "title": "Harden UUID formatting",
+    "date": "2026-06-20",
+    "excerpt": "Harden the UUID formatting in the uploads API. Small, reviewed in person. Nothing user-facing.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "PR-515",
    "props": {
     "kind": "pr",
     "title": "Dark mode",
     "date": "2026-06-24",
     "excerpt": "Adds a theme toggle and dark tokens.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-927",
+   "props": {
+    "kind": "doc",
+    "title": "Refactor Safari layout bug",
+    "date": "2026-06-26",
+    "excerpt": "Refactor the Safari layout bug in the infrastructure. Covered by existing tests. Measured on staging first.",
     "path": ""
    }
   },
@@ -1554,12 +3028,56 @@
   },
   {
    "label": "Evidence",
+   "id": "chat-noise-1031",
+   "props": {
+    "kind": "chat",
+    "title": "#notifications: Redis eviction policy",
+    "date": "2026-07-10",
+    "excerpt": "Instrument the Redis eviction policy in the notifications. Measured on staging first. Measured on staging first.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-994",
+   "props": {
+    "kind": "chat",
+    "title": "#uploads: status page copy",
+    "date": "2026-07-12",
+    "excerpt": "Migrate the status page copy in the uploads API. Requested by support. No behaviour change.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-975",
+   "props": {
+    "kind": "ticket",
+    "title": "Migrate invoice PDF rendering",
+    "date": "2026-07-13",
+    "excerpt": "Migrate the invoice PDF rendering in the search. Rolled out behind a flag. Measured on staging first.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "PR-531",
    "props": {
     "kind": "pr",
     "title": "Spot instances for batch workers",
     "date": "2026-07-15",
     "excerpt": "Batch workers run on spot capacity with checkpointing; saves about 60% on that pool.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-998",
+   "props": {
+    "kind": "chat",
+    "title": "#uploads: pipeline backfill",
+    "date": "2026-07-15",
+    "excerpt": "Refactor the pipeline backfill in the uploads API. Covered by existing tests. Covered by existing tests.",
     "path": ""
    }
   },
@@ -1576,12 +3094,34 @@
   },
   {
    "label": "Evidence",
+   "id": "chat-noise-913",
+   "props": {
+    "kind": "chat",
+    "title": "#mobile: pipeline backfill",
+    "date": "2026-08-13",
+    "excerpt": "Fix the pipeline backfill in the mobile app. Follow-up to last week's incident review. Measured on staging first.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "chat-2026-08-15-ld",
    "props": {
     "kind": "chat",
     "title": "#finance: LaunchDarkly renegotiated",
     "date": "2026-08-15",
     "excerpt": "Renegotiated LaunchDarkly to a startup plan at $450 a month for 12 months. Under budget again, for now.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1011",
+   "props": {
+    "kind": "pr",
+    "title": "Tune rollback notes",
+    "date": "2026-08-20",
+    "excerpt": "Tune the rollback notes in the auth. Nothing user-facing. Covered by existing tests.",
     "path": ""
    }
   },
@@ -1598,12 +3138,122 @@
   },
   {
    "label": "Evidence",
+   "id": "PR-1021",
+   "props": {
+    "kind": "pr",
+    "title": "Harden index warmup",
+    "date": "2026-09-03",
+    "excerpt": "Harden the index warmup in the web app. Measured on staging first. Part of the Q3 cleanup.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "chat-noise-1014",
+   "props": {
+    "kind": "chat",
+    "title": "#search: log sampling",
+    "date": "2026-09-08",
+    "excerpt": "Document the log sampling in the search. Docs updated. No behaviour change.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "chat-2026-09-10-roadmap",
    "props": {
     "kind": "chat",
     "title": "#general: Q4 roadmap",
     "date": "2026-09-10",
     "excerpt": "Q4 priorities: enterprise SSO rollout, reporting exports, mobile refresh.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-933",
+   "props": {
+    "kind": "ticket",
+    "title": "Retry Envoy config lint",
+    "date": "2026-09-14",
+    "excerpt": "Retry the Envoy config lint in the mobile app. Nothing user-facing. Follow-up to last week's incident review.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-985",
+   "props": {
+    "kind": "doc",
+    "title": "Tune Stripe webhook retries",
+    "date": "2026-09-17",
+    "excerpt": "Tune the Stripe webhook retries in the data pipeline. Covered by existing tests. Part of the Q3 cleanup.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "doc-note-904",
+   "props": {
+    "kind": "doc",
+    "title": "Retry Terraform modules",
+    "date": "2026-09-27",
+    "excerpt": "Retry the Terraform modules in the API gateway. Covered by existing tests. Small, reviewed in person.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-989",
+   "props": {
+    "kind": "pr",
+    "title": "Tune photo picker",
+    "date": "2026-10-02",
+    "excerpt": "Tune the photo picker in the uploads API. Follow-up to last week's incident review. Part of the Q3 cleanup.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "OPS-1008",
+   "props": {
+    "kind": "ticket",
+    "title": "Clean up CSV parser",
+    "date": "2026-10-03",
+    "excerpt": "Clean up the CSV parser in the data pipeline. Measured on staging first. Follow-up to last week's incident review.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-907",
+   "props": {
+    "kind": "pr",
+    "title": "Document invoice PDF rendering",
+    "date": "2026-10-10",
+    "excerpt": "Document the invoice PDF rendering in the billing. Rolled out behind a flag. Docs updated.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-996",
+   "props": {
+    "kind": "pr",
+    "title": "Instrument session cookie flags",
+    "date": "2026-10-16",
+    "excerpt": "Instrument the session cookie flags in the search. Requested by support. Docs updated.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "PR-1016",
+   "props": {
+    "kind": "pr",
+    "title": "Refactor onboarding copy",
+    "date": "2026-10-27",
+    "excerpt": "Refactor the onboarding copy in the API gateway. Covered by existing tests. Rolled out behind a flag.",
     "path": ""
    }
   }
@@ -2466,6 +4116,222 @@
    "props": {}
   },
   {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-1049",
+   "props": {}
+  },
+  {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-987",
+   "props": {}
+  },
+  {
+   "src": "priya",
+   "rel": "AUTHORED",
+   "dst": "PR-912",
+   "props": {}
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "doc-note-951",
+   "props": {}
+  },
+  {
+   "src": "lena",
+   "rel": "AUTHORED",
+   "dst": "PR-947",
+   "props": {}
+  },
+  {
+   "src": "tomi",
+   "rel": "AUTHORED",
+   "dst": "PR-1030",
+   "props": {}
+  },
+  {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "PR-937",
+   "props": {}
+  },
+  {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "doc-note-1020",
+   "props": {}
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "PR-1019",
+   "props": {}
+  },
+  {
+   "src": "lena",
+   "rel": "AUTHORED",
+   "dst": "OPS-1000",
+   "props": {}
+  },
+  {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "OPS-1026",
+   "props": {}
+  },
+  {
+   "src": "jonah",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-921",
+   "props": {}
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "PR-1010",
+   "props": {}
+  },
+  {
+   "src": "tomi",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-910",
+   "props": {}
+  },
+  {
+   "src": "tomi",
+   "rel": "AUTHORED",
+   "dst": "PR-901",
+   "props": {}
+  },
+  {
+   "src": "jonah",
+   "rel": "AUTHORED",
+   "dst": "PR-948",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "PR-1045",
+   "props": {}
+  },
+  {
+   "src": "jonah",
+   "rel": "AUTHORED",
+   "dst": "PR-935",
+   "props": {}
+  },
+  {
+   "src": "lena",
+   "rel": "AUTHORED",
+   "dst": "OPS-969",
+   "props": {}
+  },
+  {
+   "src": "jonah",
+   "rel": "AUTHORED",
+   "dst": "PR-1004",
+   "props": {}
+  },
+  {
+   "src": "lena",
+   "rel": "AUTHORED",
+   "dst": "PR-1047",
+   "props": {}
+  },
+  {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "PR-968",
+   "props": {}
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "PR-1034",
+   "props": {}
+  },
+  {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "OPS-1032",
+   "props": {}
+  },
+  {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "doc-note-981",
+   "props": {}
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "PR-945",
+   "props": {}
+  },
+  {
+   "src": "jonah",
+   "rel": "AUTHORED",
+   "dst": "PR-923",
+   "props": {}
+  },
+  {
+   "src": "tomi",
+   "rel": "AUTHORED",
+   "dst": "PR-1029",
+   "props": {}
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-973",
+   "props": {}
+  },
+  {
+   "src": "tomi",
+   "rel": "AUTHORED",
+   "dst": "PR-941",
+   "props": {}
+  },
+  {
+   "src": "priya",
+   "rel": "AUTHORED",
+   "dst": "PR-1036",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-982",
+   "props": {}
+  },
+  {
+   "src": "jonah",
+   "rel": "AUTHORED",
+   "dst": "PR-1039",
+   "props": {}
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-1033",
+   "props": {}
+  },
+  {
+   "src": "lena",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-992",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-953",
+   "props": {}
+  },
+  {
    "src": "priya",
    "rel": "AUTHORED",
    "dst": "PR-201",
@@ -2483,6 +4349,90 @@
   {
    "src": "marcus",
    "rel": "AUTHORED",
+   "dst": "OPS-983",
+   "props": {}
+  },
+  {
+   "src": "lena",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-1001",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-940",
+   "props": {}
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "doc-note-952",
+   "props": {}
+  },
+  {
+   "src": "jonah",
+   "rel": "AUTHORED",
+   "dst": "OPS-926",
+   "props": {}
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "OPS-977",
+   "props": {}
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "doc-note-931",
+   "props": {}
+  },
+  {
+   "src": "priya",
+   "rel": "AUTHORED",
+   "dst": "doc-note-939",
+   "props": {}
+  },
+  {
+   "src": "jonah",
+   "rel": "AUTHORED",
+   "dst": "PR-1015",
+   "props": {}
+  },
+  {
+   "src": "priya",
+   "rel": "AUTHORED",
+   "dst": "OPS-957",
+   "props": {}
+  },
+  {
+   "src": "lena",
+   "rel": "AUTHORED",
+   "dst": "OPS-1012",
+   "props": {}
+  },
+  {
+   "src": "tomi",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-944",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "PR-950",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-966",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
    "dst": "doc-handbook-deploys",
    "props": {}
   },
@@ -2490,6 +4440,108 @@
    "src": "tomi",
    "rel": "AUTHORED",
    "dst": "doc-handbook-reviews",
+   "props": {}
+  },
+  {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "OPS-943",
+   "props": {}
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "doc-note-1005",
+   "props": {}
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "doc-note-1018",
+   "props": {}
+  },
+  {
+   "src": "priya",
+   "rel": "AUTHORED",
+   "dst": "PR-1024",
+   "props": {}
+  },
+  {
+   "src": "jonah",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-1041",
+   "props": {}
+  },
+  {
+   "src": "tomi",
+   "rel": "AUTHORED",
+   "dst": "doc-note-919",
+   "props": {}
+  },
+  {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "OPS-1037",
+   "props": {}
+  },
+  {
+   "src": "priya",
+   "rel": "AUTHORED",
+   "dst": "OPS-1046",
+   "props": {}
+  },
+  {
+   "src": "tomi",
+   "rel": "AUTHORED",
+   "dst": "OPS-974",
+   "props": {}
+  },
+  {
+   "src": "tomi",
+   "rel": "AUTHORED",
+   "dst": "OPS-1040",
+   "props": {}
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-997",
+   "props": {}
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "PR-1003",
+   "props": {}
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "PR-1023",
+   "props": {}
+  },
+  {
+   "src": "tomi",
+   "rel": "AUTHORED",
+   "dst": "doc-note-914",
+   "props": {}
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-984",
+   "props": {}
+  },
+  {
+   "src": "jonah",
+   "rel": "AUTHORED",
+   "dst": "PR-942",
+   "props": {}
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "PR-959",
    "props": {}
   },
   {
@@ -2508,6 +4560,42 @@
    }
   },
   {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "doc-note-911",
+   "props": {}
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "PR-963",
+   "props": {}
+  },
+  {
+   "src": "jonah",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-956",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "OPS-995",
+   "props": {}
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "PR-986",
+   "props": {}
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "OPS-972",
+   "props": {}
+  },
+  {
    "src": "tomi",
    "rel": "AUTHORED",
    "dst": "chat-2025-08-21-ci",
@@ -2521,6 +4609,60 @@
     "at": "2025-08-21",
     "quote": "I have disabled the CI test job for now. It has been red for two weeks because of the flaky integration tests and people are merging around it. Until someone owns the suite, CI is effectively running "
    }
+  },
+  {
+   "src": "tomi",
+   "rel": "AUTHORED",
+   "dst": "PR-946",
+   "props": {}
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "doc-note-934",
+   "props": {}
+  },
+  {
+   "src": "lena",
+   "rel": "AUTHORED",
+   "dst": "PR-1006",
+   "props": {}
+  },
+  {
+   "src": "tomi",
+   "rel": "AUTHORED",
+   "dst": "PR-964",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "doc-note-936",
+   "props": {}
+  },
+  {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "PR-979",
+   "props": {}
+  },
+  {
+   "src": "priya",
+   "rel": "AUTHORED",
+   "dst": "PR-971",
+   "props": {}
+  },
+  {
+   "src": "lena",
+   "rel": "AUTHORED",
+   "dst": "PR-991",
+   "props": {}
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "PR-922",
+   "props": {}
   },
   {
    "src": "lena",
@@ -2538,6 +4680,84 @@
    }
   },
   {
+   "src": "jonah",
+   "rel": "AUTHORED",
+   "dst": "OPS-908",
+   "props": {}
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "PR-970",
+   "props": {}
+  },
+  {
+   "src": "jonah",
+   "rel": "AUTHORED",
+   "dst": "PR-1002",
+   "props": {}
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "doc-note-930",
+   "props": {}
+  },
+  {
+   "src": "jonah",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-909",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-958",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "PR-955",
+   "props": {}
+  },
+  {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "PR-988",
+   "props": {}
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "doc-note-905",
+   "props": {}
+  },
+  {
+   "src": "tomi",
+   "rel": "AUTHORED",
+   "dst": "OPS-949",
+   "props": {}
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "PR-999",
+   "props": {}
+  },
+  {
+   "src": "lena",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-903",
+   "props": {}
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "OPS-960",
+   "props": {}
+  },
+  {
    "src": "lena",
    "rel": "AUTHORED",
    "dst": "chat-2025-10-02-search",
@@ -2551,6 +4771,48 @@
     "at": "2025-10-02",
     "quote": "Rolled incremental indexing back in production. Update storms during bulk imports pushed indexing lag past 40 minutes. Until the mapping is reworked again the index still cannot take incremental updat"
    }
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "doc-note-902",
+   "props": {}
+  },
+  {
+   "src": "lena",
+   "rel": "AUTHORED",
+   "dst": "PR-915",
+   "props": {}
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-916",
+   "props": {}
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "OPS-932",
+   "props": {}
+  },
+  {
+   "src": "tomi",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-920",
+   "props": {}
+  },
+  {
+   "src": "priya",
+   "rel": "AUTHORED",
+   "dst": "doc-note-1025",
+   "props": {}
+  },
+  {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "PR-1028",
+   "props": {}
   },
   {
    "src": "marcus",
@@ -2583,6 +4845,18 @@
    }
   },
   {
+   "src": "tomi",
+   "rel": "AUTHORED",
+   "dst": "OPS-900",
+   "props": {}
+  },
+  {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "PR-929",
+   "props": {}
+  },
+  {
    "src": "kwame",
    "rel": "AUTHORED",
    "dst": "chat-2026-01-08-standup",
@@ -2592,6 +4866,18 @@
    "src": "marcus",
    "rel": "AUTHORED",
    "dst": "doc-dr-plan",
+   "props": {}
+  },
+  {
+   "src": "jonah",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-1022",
+   "props": {}
+  },
+  {
+   "src": "lena",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-1042",
    "props": {}
   },
   {
@@ -2616,6 +4902,12 @@
    "props": {}
   },
   {
+   "src": "jonah",
+   "rel": "AUTHORED",
+   "dst": "PR-1009",
+   "props": {}
+  },
+  {
    "src": "priya",
    "rel": "AUTHORED",
    "dst": "ADR-notes-sharding",
@@ -2629,6 +4921,30 @@
     "at": "2026-01-20",
     "quote": "We will not shard Postgres by tenant. The Citus evaluation is closed; a single primary with read replicas covers projected load through 2027."
    }
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "PR-1027",
+   "props": {}
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "PR-1035",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "doc-note-962",
+   "props": {}
+  },
+  {
+   "src": "lena",
+   "rel": "AUTHORED",
+   "dst": "OPS-976",
+   "props": {}
   },
   {
    "src": "jonah",
@@ -2682,9 +4998,21 @@
    }
   },
   {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "doc-note-978",
+   "props": {}
+  },
+  {
    "src": "marcus",
    "rel": "AUTHORED",
    "dst": "OPS-301",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "doc-note-990",
    "props": {}
   },
   {
@@ -2703,6 +5031,12 @@
    }
   },
   {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "PR-918",
+   "props": {}
+  },
+  {
    "src": "marcus",
    "rel": "AUTHORED",
    "dst": "doc-arch-2026-02",
@@ -2716,6 +5050,12 @@
     "at": "2026-02-14",
     "quote": "Web tier scaled from 3 to 14 pods during the February launch with no session loss because nothing is held in process memory."
    }
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-917",
+   "props": {}
   },
   {
    "src": "tomi",
@@ -2736,6 +5076,12 @@
    "src": "sofia",
    "rel": "AUTHORED",
    "dst": "doc-design-system",
+   "props": {}
+  },
+  {
+   "src": "lena",
+   "rel": "AUTHORED",
+   "dst": "OPS-954",
    "props": {}
   },
   {
@@ -2760,9 +5106,27 @@
    }
   },
   {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "PR-961",
+   "props": {}
+  },
+  {
    "src": "tomi",
    "rel": "AUTHORED",
    "dst": "BILL-80",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "PR-1013",
+   "props": {}
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "OPS-1043",
    "props": {}
   },
   {
@@ -2829,6 +5193,12 @@
    }
   },
   {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "PR-924",
+   "props": {}
+  },
+  {
    "src": "marcus",
    "rel": "AUTHORED",
    "dst": "PR-455",
@@ -2841,9 +5211,21 @@
    "props": {}
   },
   {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "OPS-1044",
+   "props": {}
+  },
+  {
    "src": "tomi",
    "rel": "AUTHORED",
    "dst": "chat-2026-04-22-launch",
+   "props": {}
+  },
+  {
+   "src": "jonah",
+   "rel": "AUTHORED",
+   "dst": "PR-925",
    "props": {}
   },
   {
@@ -2866,6 +5248,18 @@
     "at": "2026-04-30",
     "quote": "We are now on 100 flat-rate slots. Query cost no longer depends on bytes scanned or on how often jobs run."
    }
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-965",
+   "props": {}
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "PR-993",
+   "props": {}
   },
   {
    "src": "marcus",
@@ -2901,9 +5295,33 @@
    "props": {}
   },
   {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "OPS-980",
+   "props": {}
+  },
+  {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "doc-note-938",
+   "props": {}
+  },
+  {
    "src": "tomi",
    "rel": "AUTHORED",
    "dst": "chat-2026-05-16-farewell",
+   "props": {}
+  },
+  {
+   "src": "priya",
+   "rel": "AUTHORED",
+   "dst": "PR-967",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "doc-note-1038",
    "props": {}
   },
   {
@@ -2920,6 +5338,18 @@
     "at": "2026-05-22",
     "quote": "Adds 64 Playwright tests covering sign-in, onboarding, checkout and the billing portal. Runs against staging on every release candidate."
    }
+  },
+  {
+   "src": "ada",
+   "rel": "AUTHORED",
+   "dst": "doc-note-1017",
+   "props": {}
+  },
+  {
+   "src": "priya",
+   "rel": "AUTHORED",
+   "dst": "PR-1007",
+   "props": {}
   },
   {
    "src": "marcus",
@@ -2940,6 +5370,12 @@
    "src": "jonah",
    "rel": "AUTHORED",
    "dst": "PR-502",
+   "props": {}
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "PR-928",
    "props": {}
   },
   {
@@ -2964,15 +5400,33 @@
    }
   },
   {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-906",
+   "props": {}
+  },
+  {
    "src": "lena",
    "rel": "AUTHORED",
    "dst": "DATA-150",
    "props": {}
   },
   {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "PR-1048",
+   "props": {}
+  },
+  {
    "src": "sofia",
    "rel": "AUTHORED",
    "dst": "PR-515",
+   "props": {}
+  },
+  {
+   "src": "tomi",
+   "rel": "AUTHORED",
+   "dst": "doc-note-927",
    "props": {}
   },
   {
@@ -3014,13 +5468,43 @@
   {
    "src": "marcus",
    "rel": "AUTHORED",
+   "dst": "chat-noise-1031",
+   "props": {}
+  },
+  {
+   "src": "sofia",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-994",
+   "props": {}
+  },
+  {
+   "src": "tomi",
+   "rel": "AUTHORED",
+   "dst": "OPS-975",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
    "dst": "PR-531",
+   "props": {}
+  },
+  {
+   "src": "jonah",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-998",
    "props": {}
   },
   {
    "src": "marcus",
    "rel": "AUTHORED",
    "dst": "chat-2026-07-30-oncall",
+   "props": {}
+  },
+  {
+   "src": "lena",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-913",
    "props": {}
   },
   {
@@ -3039,15 +5523,81 @@
    }
   },
   {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "PR-1011",
+   "props": {}
+  },
+  {
    "src": "priya",
    "rel": "AUTHORED",
    "dst": "chat-2026-08-27-perf",
    "props": {}
   },
   {
+   "src": "priya",
+   "rel": "AUTHORED",
+   "dst": "PR-1021",
+   "props": {}
+  },
+  {
+   "src": "tomi",
+   "rel": "AUTHORED",
+   "dst": "chat-noise-1014",
+   "props": {}
+  },
+  {
    "src": "tomi",
    "rel": "AUTHORED",
    "dst": "chat-2026-09-10-roadmap",
+   "props": {}
+  },
+  {
+   "src": "priya",
+   "rel": "AUTHORED",
+   "dst": "OPS-933",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "doc-note-985",
+   "props": {}
+  },
+  {
+   "src": "priya",
+   "rel": "AUTHORED",
+   "dst": "doc-note-904",
+   "props": {}
+  },
+  {
+   "src": "lena",
+   "rel": "AUTHORED",
+   "dst": "PR-989",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "OPS-1008",
+   "props": {}
+  },
+  {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "PR-907",
+   "props": {}
+  },
+  {
+   "src": "priya",
+   "rel": "AUTHORED",
+   "dst": "PR-996",
+   "props": {}
+  },
+  {
+   "src": "marcus",
+   "rel": "AUTHORED",
+   "dst": "PR-1016",
    "props": {}
   }
  ]

@@ -63,7 +63,7 @@ def main() -> None:
 
     items = list(spec.EVIDENCE) + [
         dict(id=i, kind=k, date=dt, author=a, title=t, text=x, rel=None, premise=None)
-        for (i, k, dt, a, t, x) in spec.DISTRACTORS
+        for (i, k, dt, a, t, x) in spec.DISTRACTORS + spec.noise_documents()
     ]
     items.sort(key=lambda e: e["date"])
     prs, tickets, chat = [], [], []

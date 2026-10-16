@@ -39,8 +39,14 @@ def find_decision(g: Graph, query: str, limit: int = 5) -> list[dict]:
     rows = g.ro_query(
         "CALL db.idx.fulltext.queryNodes('Decision', $q) YIELD node, score "
         "RETURN node.id, node.title, node.summary, node.decided_on, score ORDER BY score DESC LIMIT $limit",
-        {"q": ft, "limit": limit}).result_set
-    return [dict(id=r[0], title=r[1], summary=r[2], decided_on=r[3], score=r[4]) for r in rows]
+        {"q": ft, "limit": limit * 3}).result_set
+    out = []
+    for r in rows:
+        hay = f"{r[1]} {r[2]}".lower()
+        hits = sum(1 for w in words if w in hay)
+        out.append(dict(id=r[0], title=r[1], summary=r[2], decided_on=r[3], score=r[4], matched_terms=hits))
+    # rank by how many distinct question terms the decision covers, then by the index score
+    return sorted(out, key=lambda c: (-c["matched_terms"], -c["score"]))
 
 
 # 2. The audit: decision -> premises (up to `depth` hops) -> dated evidence -> verdict.

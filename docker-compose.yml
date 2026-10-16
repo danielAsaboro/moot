@@ -1,0 +1,17 @@
+services:
+  falkordb:
+    image: falkordb/falkordb:latest
+    ports: ["6379:6379", "3000:3000"]   # 3000 is the FalkorDB Browser
+    volumes: ["falkordb-data:/var/lib/falkordb/data"]
+  moot:
+    build: .
+    depends_on: [falkordb]
+    environment:
+      FALKORDB_HOST: falkordb
+      FALKORDB_PORT: "6379"
+      MOOT_TENANT: larkspur
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      MOOT_MODEL: ${MOOT_MODEL:-claude-opus-5-5}
+    ports: ["8000:8000"]
+volumes:
+  falkordb-data:

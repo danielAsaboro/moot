@@ -290,3 +290,32 @@ DISTRACTORS = [
 ]
 
 AS_OF = "2026-10-16"
+
+
+def noise_documents(n: int = 150, seed: int = 7) -> list[tuple]:
+    """Templated background noise so retrieval is not trivially easy: realistic PRs, tickets and
+    chat about the same systems and vocabulary, touching no premise. Deterministic for a seed."""
+    import random
+    r = random.Random(seed)
+    systems = ["uploads API", "API gateway", "billing", "auth", "search", "data pipeline", "web app", "mobile app", "notifications", "infrastructure"]
+    verbs = ["Refactor", "Fix", "Tune", "Document", "Instrument", "Migrate", "Speed up", "Clean up", "Harden", "Retry"]
+    objs = ["upload retries", "gateway timeouts", "invoice PDF rendering", "session cookie flags", "index warmup", "pipeline backfill",
+            "onboarding copy", "photo picker", "email templates", "Terraform modules", "rate limits", "CSV parser", "deploy script",
+            "rollback notes", "feature flag cleanup", "Safari layout bug", "log sampling", "on-call runbook", "SOC 2 evidence folder",
+            "BigQuery views", "Redis eviction policy", "Stripe webhook retries", "status page copy", "LaunchDarkly SDK bump",
+            "Playwright flake", "SendGrid templates", "Envoy config lint", "Postgres vacuum schedule", "UUID formatting", "EU latency dashboard"]
+    tails = ["No behaviour change.", "Covered by existing tests.", "Follow-up to last week's incident review.", "Requested by support.",
+             "Part of the Q3 cleanup.", "Rolled out behind a flag.", "Measured on staging first.", "Docs updated.", "Nothing user-facing.", "Small, reviewed in person."]
+    people = [p[0] for p in PEOPLE]
+    out = []
+    for i in range(n):
+        kind = r.choice(["pr", "pr", "ticket", "chat", "doc"])
+        sysname = r.choice(systems); verb = r.choice(verbs); obj = r.choice(objs)
+        month = r.randint(1, 10); day = r.randint(1, 28); year = r.choice([2025, 2025, 2026])
+        date = f"{year}-{month:02d}-{day:02d}"
+        author = r.choice(people)
+        title = f"{verb} {obj}" if kind != "chat" else f"#{sysname.split()[0].lower()}: {obj}"
+        text = f"{verb} the {obj} in the {sysname}. {r.choice(tails)} {r.choice(tails)}"
+        prefix = {"pr": "PR-", "ticket": "OPS-", "chat": "chat-noise-", "doc": "doc-note-"}[kind]
+        out.append((f"{prefix}{900 + i}", kind, date, author, title, text))
+    return out

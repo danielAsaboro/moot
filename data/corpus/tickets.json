@@ -1,5 +1,133 @@
 [
   {
+    "id": "OPS-1000",
+    "date": "2025-02-01",
+    "author": "Lena Fischer",
+    "title": "Clean up pipeline backfill",
+    "body": "Clean up the pipeline backfill in the data pipeline. Covered by existing tests. Rolled out behind a flag.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-1026",
+    "date": "2025-02-04",
+    "author": "Kwame Boateng",
+    "title": "Harden pipeline backfill",
+    "body": "Harden the pipeline backfill in the billing. Requested by support. Part of the Q3 cleanup.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-969",
+    "date": "2025-02-18",
+    "author": "Lena Fischer",
+    "title": "Clean up feature flag cleanup",
+    "body": "Clean up the feature flag cleanup in the mobile app. Covered by existing tests. Docs updated.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-1032",
+    "date": "2025-03-01",
+    "author": "Kwame Boateng",
+    "title": "Harden feature flag cleanup",
+    "body": "Harden the feature flag cleanup in the mobile app. Docs updated. Requested by support.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-983",
+    "date": "2025-04-12",
+    "author": "Marcus Chen",
+    "title": "Fix rate limits",
+    "body": "Fix the rate limits in the notifications. No behaviour change. Measured on staging first.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-926",
+    "date": "2025-04-16",
+    "author": "Jonah Mbeki",
+    "title": "Document session cookie flags",
+    "body": "Document the session cookie flags in the API gateway. Requested by support. Docs updated.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-977",
+    "date": "2025-04-25",
+    "author": "Sofia Rossi",
+    "title": "Harden rate limits",
+    "body": "Harden the rate limits in the web app. No behaviour change. Measured on staging first.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-957",
+    "date": "2025-05-07",
+    "author": "Priya Natarajan",
+    "title": "Refactor UUID formatting",
+    "body": "Refactor the UUID formatting in the auth. No behaviour change. Rolled out behind a flag.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-1012",
+    "date": "2025-05-12",
+    "author": "Lena Fischer",
+    "title": "Instrument SOC 2 evidence folder",
+    "body": "Instrument the SOC 2 evidence folder in the search. Requested by support. Docs updated.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-943",
+    "date": "2025-06-01",
+    "author": "Kwame Boateng",
+    "title": "Fix LaunchDarkly SDK bump",
+    "body": "Fix the LaunchDarkly SDK bump in the data pipeline. Docs updated. No behaviour change.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-1037",
+    "date": "2025-06-20",
+    "author": "Kwame Boateng",
+    "title": "Instrument pipeline backfill",
+    "body": "Instrument the pipeline backfill in the infrastructure. Follow-up to last week's incident review. Part of the Q3 cleanup.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-1046",
+    "date": "2025-06-20",
+    "author": "Priya Natarajan",
+    "title": "Tune onboarding copy",
+    "body": "Tune the onboarding copy in the infrastructure. Follow-up to last week's incident review. No behaviour change.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-974",
+    "date": "2025-06-27",
+    "author": "Tomi Adeyemi",
+    "title": "Migrate Playwright flake",
+    "body": "Migrate the Playwright flake in the uploads API. Requested by support. No behaviour change.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-1040",
+    "date": "2025-06-28",
+    "author": "Tomi Adeyemi",
+    "title": "Harden gateway timeouts",
+    "body": "Harden the gateway timeouts in the API gateway. Part of the Q3 cleanup. Nothing user-facing.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-995",
+    "date": "2025-08-07",
+    "author": "Marcus Chen",
+    "title": "Fix onboarding copy",
+    "body": "Fix the onboarding copy in the notifications. Requested by support. Docs updated.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-972",
+    "date": "2025-08-16",
+    "author": "Ada Okafor",
+    "title": "Migrate photo picker",
+    "body": "Migrate the photo picker in the API gateway. Follow-up to last week's incident review. No behaviour change.",
+    "status": "done"
+  },
+  {
     "id": "SRCH-233",
     "date": "2025-09-14",
     "author": "Lena Fischer",
@@ -8,11 +136,59 @@
     "status": "done"
   },
   {
+    "id": "OPS-908",
+    "date": "2025-09-14",
+    "author": "Jonah Mbeki",
+    "title": "Fix session cookie flags",
+    "body": "Fix the session cookie flags in the infrastructure. Follow-up to last week's incident review. Docs updated.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-949",
+    "date": "2025-09-23",
+    "author": "Tomi Adeyemi",
+    "title": "Tune gateway timeouts",
+    "body": "Tune the gateway timeouts in the infrastructure. Follow-up to last week's incident review. Part of the Q3 cleanup.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-960",
+    "date": "2025-09-28",
+    "author": "Sofia Rossi",
+    "title": "Fix SOC 2 evidence folder",
+    "body": "Fix the SOC 2 evidence folder in the auth. Rolled out behind a flag. Docs updated.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-932",
+    "date": "2025-10-11",
+    "author": "Sofia Rossi",
+    "title": "Document Playwright flake",
+    "body": "Document the Playwright flake in the notifications. Follow-up to last week's incident review. No behaviour change.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-900",
+    "date": "2026-01-03",
+    "author": "Tomi Adeyemi",
+    "title": "Speed up Redis eviction policy",
+    "body": "Speed up the Redis eviction policy in the billing. Rolled out behind a flag. Small, reviewed in person.",
+    "status": "done"
+  },
+  {
     "id": "BILL-77",
     "date": "2026-01-12",
     "author": "Tomi Adeyemi",
     "title": "Multi-currency request parked",
     "body": "Stripe multi-currency remains off on our account. Finance wants to keep a single settlement currency until the EU entity exists.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-976",
+    "date": "2026-01-27",
+    "author": "Lena Fischer",
+    "title": "Instrument session cookie flags",
+    "body": "Instrument the session cookie flags in the uploads API. Follow-up to last week's incident review. Requested by support.",
     "status": "done"
   },
   {
@@ -40,11 +216,27 @@
     "status": "done"
   },
   {
+    "id": "OPS-954",
+    "date": "2026-02-21",
+    "author": "Lena Fischer",
+    "title": "Tune upload retries",
+    "body": "Tune the upload retries in the uploads API. Measured on staging first. Follow-up to last week's incident review.",
+    "status": "done"
+  },
+  {
     "id": "BILL-80",
     "date": "2026-03-03",
     "author": "Tomi Adeyemi",
     "title": "Annual invoicing for enterprise",
     "body": "Enterprise customers can be billed annually in advance.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-1043",
+    "date": "2026-03-10",
+    "author": "Sofia Rossi",
+    "title": "Refactor photo picker",
+    "body": "Refactor the photo picker in the uploads API. Measured on staging first. Nothing user-facing.",
     "status": "done"
   },
   {
@@ -64,6 +256,14 @@
     "status": "done"
   },
   {
+    "id": "OPS-1044",
+    "date": "2026-04-20",
+    "author": "Ada Okafor",
+    "title": "Tune Safari layout bug",
+    "body": "Tune the Safari layout bug in the uploads API. No behaviour change. No behaviour change.",
+    "status": "done"
+  },
+  {
     "id": "DATA-140",
     "date": "2026-04-30",
     "author": "Lena Fischer",
@@ -80,11 +280,43 @@
     "status": "done"
   },
   {
+    "id": "OPS-980",
+    "date": "2026-05-13",
+    "author": "Marcus Chen",
+    "title": "Instrument LaunchDarkly SDK bump",
+    "body": "Instrument the LaunchDarkly SDK bump in the search. Part of the Q3 cleanup. Docs updated.",
+    "status": "done"
+  },
+  {
     "id": "DATA-150",
     "date": "2026-06-20",
     "author": "Lena Fischer",
     "title": "Late-arriving events",
     "body": "Events arriving more than 48 hours late are now routed to a quarantine table.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-975",
+    "date": "2026-07-13",
+    "author": "Tomi Adeyemi",
+    "title": "Migrate invoice PDF rendering",
+    "body": "Migrate the invoice PDF rendering in the search. Rolled out behind a flag. Measured on staging first.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-933",
+    "date": "2026-09-14",
+    "author": "Priya Natarajan",
+    "title": "Retry Envoy config lint",
+    "body": "Retry the Envoy config lint in the mobile app. Nothing user-facing. Follow-up to last week's incident review.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-1008",
+    "date": "2026-10-03",
+    "author": "Marcus Chen",
+    "title": "Clean up CSV parser",
+    "body": "Clean up the CSV parser in the data pipeline. Measured on staging first. Follow-up to last week's incident review.",
     "status": "done"
   }
 ]
