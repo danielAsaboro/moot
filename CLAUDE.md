@@ -2,7 +2,7 @@
 One line: a company brain that audits the reasons behind your standing decisions and tells you which ones have expired, with the evidence path.
 For / Job / Done: engineering lead inheriting a team's rules / "which decisions still hold, which have an expired reason, where is the proof?" / a ledger of verdicts, each with the traversal path, citations and an approval-gated revisit ticket.
 Sponsor mechanism (critical path): FalkorDB named graph per tenant; verdicts are `ro_query` path queries over Decision → Premise ← Evidence with validity windows; PageRank/SPpaths/WCC as tools; Findings written back as nodes.
-Features in scope (5): graph + six read-only tools · corpus + idempotent ingest · audit agent with validated narration · eval vs BM25 and random · web UI with depth toggle and approval gate.
+Features in scope (5): graph + seven read-only tools (incl. timeline) · corpus + idempotent ingest · audit agent with validated narration · evals vs BM25 and random, noise scaling, verdict accuracy · web UI with rot chart, depth toggle, graph and Cypher views, approval gate.
 Not building: live Slack/Jira connectors, auth, graph editing in the UI, embeddings.
 Stack: Python 3.11+, falkordb client, FastAPI, vanilla JS, anthropic SDK (narration only), mcp.
 Run: `make db && make seed && make serve` · Test: `make test` · Eval: `make eval` · Deploy: Dockerfile + docker-compose (FalkorDB sidecar).

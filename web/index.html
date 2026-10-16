@@ -9,32 +9,47 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='4' y='24' font-family='Georgia' font-size='22' font-weight='700'%3EM%3C/text%3E%3Cline x1='3' y1='17' x2='29' y2='17' stroke='%23b8321f' stroke-width='3'/%3E%3C/svg%3E">
 </head>
 <body>
+<div class="banner" id="banner" hidden></div>
 <header>
   <div class="brand">
     <h1 class="wordmark">M<s>oo</s>t</h1>
     <p class="tagline">Find the decisions your team still follows for reasons that no longer exist.</p>
+    <div class="brand-right">
+      <span class="muted" id="tenant"></span>
+      <button class="ghost small" id="theme" title="Toggle dark mode" aria-label="Toggle dark mode">Dark</button>
+    </div>
   </div>
   <form class="ask" id="askForm">
-    <input type="text" id="q" placeholder="Why do we cap uploads at 10 MB?" autocomplete="off">
-    <input type="date" id="asOf" title="Answer as of this date">
-    <select id="depth" title="How many premise hops to follow">
+    <input type="text" id="q" placeholder="Ask why the team does something…  (press / to focus)" autocomplete="off" aria-label="Question">
+    <input type="date" id="asOf" title="Answer as of this date" aria-label="As of date">
+    <select id="depth" title="How many premise hops to follow" aria-label="Premise depth">
       <option value="1">depth 1</option><option value="2">depth 2</option><option value="3">depth 3</option><option value="4" selected>depth 4</option>
     </select>
-    <button type="submit">Ask</button>
+    <button type="submit" id="askBtn">Ask</button>
   </form>
+  <div class="chips" id="chips"></div>
 </header>
 <main>
-  <section>
-    <h2>Decision ledger <span class="muted" id="tenant"></span></h2>
+  <section class="left">
+    <h2>Decision rot <span class="muted">MOOT decisions by month end</span></h2>
+    <div class="rot" id="rot"><div class="skeleton" style="height:84px"></div></div>
+    <h2>Decision ledger</h2>
     <p class="summary" id="summary"></p>
-    <table class="ledger"><tbody id="ledger"></tbody></table>
+    <div class="filterrow">
+      <input type="search" id="filter" placeholder="Filter by title, owner or system" aria-label="Filter ledger">
+      <span class="muted" id="filterInfo"></span>
+    </div>
+    <table class="ledger"><tbody id="ledger"><tr><td><div class="skeleton"></div></td></tr></tbody></table>
   </section>
   <section class="panel" id="panel">
-    <div class="empty">Pick a decision, or ask a question.</div>
+    <div class="empty">
+      <div class="empty-title">Pick a decision, or ask a question.</div>
+      <div class="muted">Every verdict is a FalkorDB path from a decision to its premises to the dated evidence that supports or contradicts them. Flip the date to see what the team believed back then.</div>
+    </div>
   </section>
 </main>
-<footer>Verdicts are FalkorDB path queries over decisions, premises and dated evidence. The model only narrates, and every citation is checked against the rows. <a href="https://github.com/danielAsaboro/moot">Source and graph model</a>.</footer>
-<div class="toast" id="toast"></div>
+<footer>Verdicts are FalkorDB path queries over decisions, premises and dated evidence. The model only narrates, and every citation is checked against the rows. <a href="https://github.com/danielAsaboro/moot">Source and graph model</a> · <a href="/docs">API</a></footer>
+<div class="toast" id="toast" role="status"></div>
 <script src="/static/app.js"></script>
 </body>
 </html>

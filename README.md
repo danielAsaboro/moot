@@ -25,6 +25,8 @@ Built for [Graph Hacks: Context for AI Agents](https://www.wemakedevs.org/hackat
 3. Set **as of 2025-06-01**. The same question now answers HOLDS, because the contradicting PR does not exist yet.
 4. Ask **"Why do we use Postgres for everything?"** → **UNDOCUMENTED**: the ADR states no premise, so there is nothing to check. Ask "why is the sky blue" → **not in the graph**.
 5. Click **Approve and record**. Only now does Moot write: a `Finding` node with the verdict, the date and the evidence it cites. Ask again and the outcome is *answered from memory*.
+6. Look at the **Decision rot** chart: the ledger re-run at every month end. Larkspur went from 0 to 12 MOOT decisions in 22 months without anyone changing an ADR. Click a month to travel there.
+7. Open the **Graph** tab for the path drawn from the rows, and the **Cypher** tab for the exact read-only queries FalkorDB ran for that answer, with row counts and milliseconds. That tab is the proof that the database, not the model, decided.
 
 ## Run it
 
@@ -211,6 +213,22 @@ Four outcomes, as the organisers' reference architecture asks: `answered_with_pa
 | graph path query (Moot) | **1.00** | **100%** |
 | BM25 top-5, query = decision title + summary | 0.81 | 81% |
 | random 5 docs (control) | 0.01 | – |
+
+`make eval-scale` reproduces [eval/results_scale.md](eval/results_scale.md), also with no model. It pads the corpus with up to 20,000 extra documents about the same systems, seeds a graph for each size, and measures recall and FalkorDB latency; then it scores verdicts against the ground truth and against a retrieval-only staleness heuristic.
+
+| extra noise docs | graph recall@5 | BM25 recall@5 | audit p50 | full ledger | seed |
+|---|---|---|---|---|---|
+| 0 | **1.00** | 0.81 | 2.5 ms | 6 ms | 0.0 s |
+| 1,000 | **1.00** | 0.81 | 2.2 ms | 5 ms | 0.1 s |
+| 5,000 | **1.00** | 0.81 | 2.7 ms | 5 ms | 0.3 s |
+| 20,000 | **1.00** | 0.81 | 3.9 ms | 5 ms | 1.7 s |
+
+| verdicts (30 decisions) | exact | stale precision | stale recall | F1 |
+|---|---|---|---|---|
+| graph path rule (Moot) | **30/30** | **1.00** | **1.00** | **1.00** |
+| BM25 top-5 + change-cue heuristic | – | 0.50 | 0.75 | 0.60 |
+
+The audit is an index lookup plus a bounded path expansion, so its latency does not move with corpus size. The seed column is where FalkorDB taught us something: the first import matched edge endpoints without labels, which cannot use the per-label index and took three minutes at 20k documents; naming the labels on both ends brought it to under two seconds.
 
 `make eval-e2e` (needs a key) runs the model-in-the-loop comparison: a BM25 RAG company brain asked "does this still hold?" against Moot's graph verdict, scored on verdict accuracy and whether the cited document is the true invalidating one. Results land in `eval/results_e2e.md`.
 

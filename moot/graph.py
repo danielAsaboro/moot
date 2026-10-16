@@ -68,13 +68,19 @@ def seed(g: Graph, graph_json: Path | None = None, fresh: bool = False) -> dict:
         keys = sorted({k for r in rows for k in r} - {"id"})
         sets = ", ".join(f"n.{k} = row.{k}" for k in keys)
         g.query(f"UNWIND $rows AS row MERGE (n:{label} {{id: row.id}})" + (f" SET {sets}" if sets else ""), {"rows": rows})
-    by_rel: dict[str, list] = {}
+    # Edges are grouped by (source label, relationship, target label) so the MATCH on each end
+    # hits the per-label id index. An unlabelled MATCH (a {id: ...}) cannot use it and scans.
+    label_of = {n["id"]: n["label"] for n in payload["nodes"]}
+    by_rel: dict[tuple, list] = {}
     for e in payload["edges"]:
-        by_rel.setdefault(e["rel"], []).append(dict(src=e["src"], dst=e["dst"], **e["props"]))
-    for rel, rows in by_rel.items():
+        key = (label_of.get(e["src"], ""), e["rel"], label_of.get(e["dst"], ""))
+        by_rel.setdefault(key, []).append(dict(src=e["src"], dst=e["dst"], **e["props"]))
+    for (sl, rel, dl), rows in by_rel.items():
         keys = sorted({k for r in rows for k in r} - {"src", "dst"})
         sets = ", ".join(f"r.{k} = row.{k}" for k in keys)
-        g.query(f"UNWIND $rows AS row MATCH (a {{id: row.src}}), (b {{id: row.dst}}) MERGE (a)-[r:{rel}]->(b)"
+        sl = f":{sl}" if sl else ""
+        dl = f":{dl}" if dl else ""
+        g.query(f"UNWIND $rows AS row MATCH (a{sl} {{id: row.src}}), (b{dl} {{id: row.dst}}) MERGE (a)-[r:{rel}]->(b)"
                 + (f" SET {sets}" if sets else ""), {"rows": rows})
     return stats(g)
 
