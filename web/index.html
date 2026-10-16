@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moot</title>
+<meta name="description" content="Find the decisions your team still follows for reasons that no longer exist.">
+<link rel="stylesheet" href="/static/styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='4' y='24' font-family='Georgia' font-size='22' font-weight='700'%3EM%3C/text%3E%3Cline x1='3' y1='17' x2='29' y2='17' stroke='%23b8321f' stroke-width='3'/%3E%3C/svg%3E">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <h1 class="wordmark">M<s>oo</s>t</h1>
+    <p class="tagline">Find the decisions your team still follows for reasons that no longer exist.</p>
+  </div>
+  <form class="ask" id="askForm">
+    <input type="text" id="q" placeholder="Why do we cap uploads at 10 MB?" autocomplete="off">
+    <input type="date" id="asOf" title="Answer as of this date">
+    <select id="depth" title="How many premise hops to follow">
+      <option value="1">depth 1</option><option value="2">depth 2</option><option value="3">depth 3</option><option value="4" selected>depth 4</option>
+    </select>
+    <button type="submit">Ask</button>
+  </form>
+</header>
+<main>
+  <section>
+    <h2>Decision ledger <span class="muted" id="tenant"></span></h2>
+    <p class="summary" id="summary"></p>
+    <table class="ledger"><tbody id="ledger"></tbody></table>
+  </section>
+  <section class="panel" id="panel">
+    <div class="empty">Pick a decision, or ask a question.</div>
+  </section>
+</main>
+<footer>Verdicts are FalkorDB path queries over decisions, premises and dated evidence. The model only narrates, and every citation is checked against the rows. <a href="https://github.com/danielAsaboro/moot">Source and graph model</a>.</footer>
+<div class="toast" id="toast"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>

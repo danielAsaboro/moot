@@ -11,7 +11,7 @@ def main(argv=None):
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("generate", help="render the synthetic corpus and truth.json from the spec")
     sub.add_parser("build", help="build data/graph.json from data/truth.json")
-    s = sub.add_parser("seed", help="MERGE data/graph.json into FalkorDB (idempotent)"); s.add_argument("--file")
+    s = sub.add_parser("seed", help="MERGE data/graph.json into FalkorDB (idempotent)"); s.add_argument("--file"); s.add_argument("--fresh", action="store_true", help="drop the graph first")
     sub.add_parser("stats")
     a = sub.add_parser("ask"); a.add_argument("question"); a.add_argument("--as-of"); a.add_argument("--depth", type=int, default=4)
     b = sub.add_parser("audit"); b.add_argument("decision_id"); b.add_argument("--as-of"); b.add_argument("--depth", type=int, default=4)
@@ -28,7 +28,7 @@ def main(argv=None):
     from .graph import graph, seed, stats
     if args.cmd == "seed":
         from pathlib import Path
-        print(json.dumps(seed(graph(), Path(args.file) if args.file else None), indent=1)); return
+        print(json.dumps(seed(graph(), Path(args.file) if args.file else None, fresh=args.fresh), indent=1)); return
     if args.cmd == "stats":
         print(json.dumps(stats(graph()), indent=1)); return
     from . import tools, agent

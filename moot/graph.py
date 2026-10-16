@@ -49,8 +49,16 @@ def ensure_schema(g: Graph) -> None:
                 raise
 
 
-def seed(g: Graph, graph_json: Path | None = None) -> dict:
-    """MERGE every node and edge from graph.json. Running it twice changes nothing."""
+def seed(g: Graph, graph_json: Path | None = None, fresh: bool = False) -> dict:
+    """MERGE every node and edge from graph.json. Running it twice changes nothing.
+
+    fresh=True drops the graph first (demo reset); it is the only destructive operation in the codebase.
+    """
+    if fresh:
+        try:
+            g.delete()
+        except Exception:
+            pass
     payload = json.loads((graph_json or DATA / "graph.json").read_text())
     ensure_schema(g)
     by_label: dict[str, list] = {}
