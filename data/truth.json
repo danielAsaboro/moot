@@ -1,0 +1,1272 @@
+{
+  "as_of": "2026-10-16",
+  "people": [
+    {
+      "id": "ada",
+      "name": "Ada Okafor",
+      "role": "Platform lead",
+      "joined": "2024-05-01",
+      "left": "2026-05-15"
+    },
+    {
+      "id": "tomi",
+      "name": "Tomi Adeyemi",
+      "role": "CTO",
+      "joined": "2024-05-01",
+      "left": null
+    },
+    {
+      "id": "priya",
+      "name": "Priya Natarajan",
+      "role": "Backend engineer",
+      "joined": "2024-06-01",
+      "left": null
+    },
+    {
+      "id": "marcus",
+      "name": "Marcus Chen",
+      "role": "SRE",
+      "joined": "2024-07-01",
+      "left": null
+    },
+    {
+      "id": "lena",
+      "name": "Lena Fischer",
+      "role": "Data engineer",
+      "joined": "2024-10-01",
+      "left": null
+    },
+    {
+      "id": "jonah",
+      "name": "Jonah Mbeki",
+      "role": "Security engineer",
+      "joined": "2024-12-01",
+      "left": null
+    },
+    {
+      "id": "sofia",
+      "name": "Sofia Rossi",
+      "role": "Frontend lead",
+      "joined": "2024-09-01",
+      "left": null
+    },
+    {
+      "id": "kwame",
+      "name": "Kwame Boateng",
+      "role": "Engineering manager",
+      "joined": "2025-08-01",
+      "left": null
+    }
+  ],
+  "systems": [
+    {
+      "id": "uploads-api",
+      "name": "Uploads API"
+    },
+    {
+      "id": "api-gateway",
+      "name": "API gateway"
+    },
+    {
+      "id": "billing",
+      "name": "Billing"
+    },
+    {
+      "id": "auth",
+      "name": "Auth"
+    },
+    {
+      "id": "search",
+      "name": "Search"
+    },
+    {
+      "id": "data-pipeline",
+      "name": "Data pipeline"
+    },
+    {
+      "id": "web-app",
+      "name": "Web app"
+    },
+    {
+      "id": "mobile-app",
+      "name": "Mobile app"
+    },
+    {
+      "id": "notifications",
+      "name": "Notifications"
+    },
+    {
+      "id": "infra",
+      "name": "Infrastructure"
+    }
+  ],
+  "premises": [
+    {
+      "id": "p_gateway_path",
+      "text": "All file uploads pass through the API gateway",
+      "kind": "fact",
+      "derived_from": "p_gateway_limit"
+    },
+    {
+      "id": "p_gateway_limit",
+      "text": "The API gateway enforces a 10 MB request body limit",
+      "kind": "constraint",
+      "derived_from": null
+    },
+    {
+      "id": "p_es_incremental",
+      "text": "Our Elasticsearch mapping cannot take incremental updates",
+      "kind": "constraint",
+      "derived_from": null
+    },
+    {
+      "id": "p_soc2_rotation",
+      "text": "The SOC 2 auditor requires credential rotation at most every 90 days",
+      "kind": "constraint",
+      "derived_from": null
+    },
+    {
+      "id": "p_no_rollback",
+      "text": "A rollback requires a manual database restore",
+      "kind": "constraint",
+      "derived_from": null
+    },
+    {
+      "id": "p_team_size",
+      "text": "The engineering team is under 15 people",
+      "kind": "fact",
+      "derived_from": null
+    },
+    {
+      "id": "p_eu_customers",
+      "text": "All EU customers are in Germany and Austria",
+      "kind": "fact",
+      "derived_from": null
+    },
+    {
+      "id": "p_sendgrid_free",
+      "text": "Notification volume is under 100 emails a day, inside the SendGrid free tier",
+      "kind": "fact",
+      "derived_from": null
+    },
+    {
+      "id": "p_no_ci_tests",
+      "text": "CI runs no automated test suite",
+      "kind": "fact",
+      "derived_from": null
+    },
+    {
+      "id": "p_stateless",
+      "text": "The web tier must stay stateless so it can autoscale",
+      "kind": "constraint",
+      "derived_from": null
+    },
+    {
+      "id": "p_rds_no_cmk",
+      "text": "RDS does not support customer-managed encryption keys in eu-central-1",
+      "kind": "constraint",
+      "derived_from": null
+    },
+    {
+      "id": "p_stripe_multi",
+      "text": "Multi-currency billing is not enabled on our Stripe account",
+      "kind": "fact",
+      "derived_from": null
+    },
+    {
+      "id": "p_safari_share",
+      "text": "Safari versions below 15 are under 1% of traffic",
+      "kind": "fact",
+      "derived_from": null
+    },
+    {
+      "id": "p_gdpr",
+      "text": "GDPR applies to our EU users",
+      "kind": "constraint",
+      "derived_from": null
+    },
+    {
+      "id": "p_ld_budget",
+      "text": "LaunchDarkly costs under $500 a month at our seat count",
+      "kind": "fact",
+      "derived_from": null
+    },
+    {
+      "id": "p_no_e2e",
+      "text": "There is no end-to-end test coverage of the web app",
+      "kind": "fact",
+      "derived_from": null
+    },
+    {
+      "id": "p_warehouse_cost",
+      "text": "Warehouse query cost scales with how often the pipeline runs",
+      "kind": "fact",
+      "derived_from": "p_bq_ondemand"
+    },
+    {
+      "id": "p_bq_ondemand",
+      "text": "We are on BigQuery on-demand pricing",
+      "kind": "fact",
+      "derived_from": null
+    },
+    {
+      "id": "p_rn_sdk",
+      "text": "The payments SDK does not support the React Native New Architecture",
+      "kind": "constraint",
+      "derived_from": null
+    },
+    {
+      "id": "p_sharding",
+      "text": "We plan to shard Postgres by tenant",
+      "kind": "assumption",
+      "derived_from": null
+    },
+    {
+      "id": "p_oncall_pool",
+      "text": "Only four engineers are trained for on-call",
+      "kind": "fact",
+      "derived_from": null
+    },
+    {
+      "id": "p_signup_abuse",
+      "text": "Free-tier bots are abusing public sign-up",
+      "kind": "fact",
+      "derived_from": null
+    },
+    {
+      "id": "p_log_cost",
+      "text": "Log storage costs about $0.50 per GB a month",
+      "kind": "fact",
+      "derived_from": null
+    },
+    {
+      "id": "p_iac_soc2",
+      "text": "SOC 2 requires infrastructure to be reproducible from code",
+      "kind": "constraint",
+      "derived_from": null
+    },
+    {
+      "id": "p_chrome_3p",
+      "text": "Chrome will remove third-party cookies in 2025",
+      "kind": "assumption",
+      "derived_from": null
+    }
+  ],
+  "decisions": [
+    {
+      "id": "D01",
+      "title": "Cap file uploads at 10 MB",
+      "decided_on": "2025-02-10",
+      "owner": "ada",
+      "systems": [
+        "uploads-api"
+      ],
+      "premises": [
+        "p_gateway_path"
+      ],
+      "expected": "MOOT",
+      "summary": "Reject any upload over 10 MB at the API with a clear error instead of letting it fail downstream.",
+      "source": "adr/D01-cap-file-uploads-at-10-mb.md"
+    },
+    {
+      "id": "D02",
+      "title": "Chunk CSV imports into 5 MB parts",
+      "decided_on": "2025-03-01",
+      "owner": "priya",
+      "systems": [
+        "data-pipeline"
+      ],
+      "premises": [
+        "p_gateway_limit"
+      ],
+      "expected": "MOOT",
+      "summary": "Split customer CSV imports client-side into 5 MB parts and reassemble them in the pipeline.",
+      "source": "adr/D02-chunk-csv-imports-into-5-mb-parts.md"
+    },
+    {
+      "id": "D03",
+      "title": "Reject photos over 8 MB in the mobile app",
+      "decided_on": "2025-04-12",
+      "owner": "sofia",
+      "systems": [
+        "mobile-app"
+      ],
+      "premises": [
+        "p_gateway_limit"
+      ],
+      "expected": "MOOT",
+      "summary": "The mobile app refuses photos over 8 MB before upload and asks the user to pick a smaller one.",
+      "source": "adr/D03-reject-photos-over-8-mb-in-the-mobile-app.md"
+    },
+    {
+      "id": "D04",
+      "title": "Rebuild the search index in full every night",
+      "decided_on": "2024-11-20",
+      "owner": "lena",
+      "systems": [
+        "search"
+      ],
+      "premises": [
+        "p_es_incremental"
+      ],
+      "expected": "DISPUTED",
+      "summary": "A nightly job drops and rebuilds the whole search index rather than applying updates.",
+      "source": "adr/D04-rebuild-the-search-index-in-full-every-night.md"
+    },
+    {
+      "id": "D05",
+      "title": "Use Postgres for every storage need",
+      "decided_on": "2024-06-01",
+      "owner": "tomi",
+      "systems": [
+        "infra"
+      ],
+      "premises": [],
+      "expected": "UNDOCUMENTED",
+      "summary": "No new datastore is introduced; queues, caches and documents all live in Postgres.",
+      "source": "adr/D05-use-postgres-for-every-storage-need.md"
+    },
+    {
+      "id": "D06",
+      "title": "Rotate API keys every 90 days",
+      "decided_on": "2025-01-15",
+      "owner": "jonah",
+      "systems": [
+        "auth"
+      ],
+      "premises": [
+        "p_soc2_rotation"
+      ],
+      "expected": "HOLDS",
+      "summary": "All service and customer API keys expire after 90 days and must be rotated.",
+      "source": "adr/D06-rotate-api-keys-every-90-days.md"
+    },
+    {
+      "id": "D07",
+      "title": "Freeze production deploys on Fridays",
+      "decided_on": "2024-09-05",
+      "owner": "marcus",
+      "systems": [
+        "infra"
+      ],
+      "premises": [
+        "p_no_rollback"
+      ],
+      "expected": "MOOT",
+      "summary": "No production deploy from Friday 12:00 to Monday 09:00.",
+      "source": "adr/D07-freeze-production-deploys-on-fridays.md"
+    },
+    {
+      "id": "D08",
+      "title": "Keep the monolith; no new services",
+      "decided_on": "2025-05-20",
+      "owner": "tomi",
+      "systems": [
+        "infra"
+      ],
+      "premises": [
+        "p_team_size"
+      ],
+      "expected": "MOOT",
+      "summary": "New features are built inside the monolith; service extraction proposals are declined.",
+      "source": "adr/D08-keep-the-monolith-no-new-services.md"
+    },
+    {
+      "id": "D09",
+      "title": "Serve EU customers from Frankfurt only",
+      "decided_on": "2025-07-01",
+      "owner": "ada",
+      "systems": [
+        "infra"
+      ],
+      "premises": [
+        "p_eu_customers"
+      ],
+      "expected": "MOOT",
+      "supersedes": "D28",
+      "summary": "A single EU region in Frankfurt serves all EU tenants.",
+      "source": "adr/D09-serve-eu-customers-from-frankfurt-only.md"
+    },
+    {
+      "id": "D10",
+      "title": "Send notifications through SendGrid",
+      "decided_on": "2024-08-10",
+      "owner": "priya",
+      "systems": [
+        "notifications"
+      ],
+      "premises": [
+        "p_sendgrid_free"
+      ],
+      "expected": "HOLDS",
+      "summary": "All transactional email goes through SendGrid on the free plan.",
+      "source": "adr/D10-send-notifications-through-sendgrid.md"
+    },
+    {
+      "id": "D11",
+      "title": "Require two reviewers on every pull request",
+      "decided_on": "2024-10-01",
+      "owner": "tomi",
+      "systems": [
+        "infra"
+      ],
+      "premises": [
+        "p_no_ci_tests"
+      ],
+      "expected": "DISPUTED",
+      "summary": "Every PR needs two approvals before merge.",
+      "source": "adr/D11-require-two-reviewers-on-every-pull-request.md"
+    },
+    {
+      "id": "D12",
+      "title": "Store sessions in Redis",
+      "decided_on": "2024-07-15",
+      "owner": "priya",
+      "systems": [
+        "auth"
+      ],
+      "premises": [
+        "p_stateless"
+      ],
+      "expected": "HOLDS",
+      "summary": "Web sessions live in Redis, never in process memory.",
+      "source": "adr/D12-store-sessions-in-redis.md"
+    },
+    {
+      "id": "D13",
+      "title": "Encrypt PII in the application layer",
+      "decided_on": "2025-02-01",
+      "owner": "jonah",
+      "systems": [
+        "billing"
+      ],
+      "premises": [
+        "p_rds_no_cmk"
+      ],
+      "expected": "MOOT",
+      "summary": "PII columns are encrypted by the application with our own keys before they reach the database.",
+      "source": "adr/D13-encrypt-pii-in-the-application-layer.md"
+    },
+    {
+      "id": "D14",
+      "title": "Bill in USD only",
+      "decided_on": "2024-06-20",
+      "owner": "tomi",
+      "systems": [
+        "billing"
+      ],
+      "premises": [
+        "p_stripe_multi"
+      ],
+      "expected": "HOLDS",
+      "summary": "All invoices are issued in US dollars regardless of customer location.",
+      "source": "adr/D14-bill-in-usd-only.md"
+    },
+    {
+      "id": "D15",
+      "title": "Support Safari 15 and newer only",
+      "decided_on": "2025-03-15",
+      "owner": "sofia",
+      "systems": [
+        "web-app"
+      ],
+      "premises": [
+        "p_safari_share"
+      ],
+      "expected": "HOLDS",
+      "summary": "The web app drops polyfills and workarounds for Safari below version 15.",
+      "source": "adr/D15-support-safari-15-and-newer-only.md"
+    },
+    {
+      "id": "D16",
+      "title": "Never write PII to logs",
+      "decided_on": "2024-09-01",
+      "owner": "jonah",
+      "systems": [
+        "infra"
+      ],
+      "premises": [
+        "p_gdpr"
+      ],
+      "expected": "HOLDS",
+      "summary": "Log lines are scrubbed of personal data before shipping.",
+      "source": "adr/D16-never-write-pii-to-logs.md"
+    },
+    {
+      "id": "D17",
+      "title": "Use LaunchDarkly for feature flags",
+      "decided_on": "2025-06-10",
+      "owner": "marcus",
+      "systems": [
+        "web-app"
+      ],
+      "premises": [
+        "p_ld_budget"
+      ],
+      "expected": "DISPUTED",
+      "summary": "Feature flags are managed in LaunchDarkly rather than a home-grown table.",
+      "source": "adr/D17-use-launchdarkly-for-feature-flags.md"
+    },
+    {
+      "id": "D18",
+      "title": "Manual QA sign-off before every release",
+      "decided_on": "2024-11-01",
+      "owner": "sofia",
+      "systems": [
+        "web-app"
+      ],
+      "premises": [
+        "p_no_e2e"
+      ],
+      "expected": "MOOT",
+      "summary": "A person walks the release checklist in staging before each production release.",
+      "source": "adr/D18-manual-qa-sign-off-before-every-release.md"
+    },
+    {
+      "id": "D19",
+      "title": "Run the data pipeline hourly, not continuously",
+      "decided_on": "2025-08-01",
+      "owner": "lena",
+      "systems": [
+        "data-pipeline"
+      ],
+      "premises": [
+        "p_warehouse_cost"
+      ],
+      "expected": "MOOT",
+      "summary": "The pipeline batches events and runs once an hour.",
+      "source": "adr/D19-run-the-data-pipeline-hourly-not-continuously.md"
+    },
+    {
+      "id": "D20",
+      "title": "Pin the mobile app to React Native 0.72",
+      "decided_on": "2025-09-01",
+      "owner": "sofia",
+      "systems": [
+        "mobile-app"
+      ],
+      "premises": [
+        "p_rn_sdk"
+      ],
+      "expected": "MOOT",
+      "summary": "The mobile app stays on React Native 0.72 and the old architecture.",
+      "source": "adr/D20-pin-the-mobile-app-to-react-native-0-72.md"
+    },
+    {
+      "id": "D21",
+      "title": "Self-host the status page",
+      "decided_on": "2024-12-10",
+      "owner": "marcus",
+      "systems": [
+        "infra"
+      ],
+      "premises": [],
+      "expected": "UNDOCUMENTED",
+      "summary": "The public status page runs on our own infrastructure.",
+      "source": "adr/D21-self-host-the-status-page.md"
+    },
+    {
+      "id": "D22",
+      "title": "Review access grants every month",
+      "decided_on": "2025-04-01",
+      "owner": "jonah",
+      "systems": [
+        "auth"
+      ],
+      "premises": [
+        "p_soc2_rotation"
+      ],
+      "expected": "HOLDS",
+      "summary": "A monthly review removes stale access to production systems.",
+      "source": "adr/D22-review-access-grants-every-month.md"
+    },
+    {
+      "id": "D23",
+      "title": "Use UUIDv4 for every primary key",
+      "decided_on": "2024-06-15",
+      "owner": "priya",
+      "systems": [
+        "infra"
+      ],
+      "premises": [
+        "p_sharding"
+      ],
+      "expected": "DISPUTED",
+      "summary": "Tables use UUIDv4 primary keys instead of serial integers.",
+      "source": "adr/D23-use-uuidv4-for-every-primary-key.md"
+    },
+    {
+      "id": "D24",
+      "title": "One-week on-call shifts",
+      "decided_on": "2025-01-10",
+      "owner": "marcus",
+      "systems": [
+        "infra"
+      ],
+      "premises": [
+        "p_oncall_pool"
+      ],
+      "expected": "HOLDS",
+      "summary": "On-call rotates weekly among the trained engineers.",
+      "source": "adr/D24-one-week-on-call-shifts.md"
+    },
+    {
+      "id": "D25",
+      "title": "Disable public sign-ups",
+      "decided_on": "2025-10-01",
+      "owner": "tomi",
+      "systems": [
+        "web-app"
+      ],
+      "premises": [
+        "p_signup_abuse"
+      ],
+      "expected": "MOOT",
+      "summary": "New accounts are created only through sales; the public sign-up form is off.",
+      "source": "adr/D25-disable-public-sign-ups.md"
+    },
+    {
+      "id": "D26",
+      "title": "Retain logs for 30 days",
+      "decided_on": "2024-08-01",
+      "owner": "marcus",
+      "systems": [
+        "infra"
+      ],
+      "premises": [
+        "p_log_cost"
+      ],
+      "expected": "HOLDS",
+      "summary": "Application logs are deleted after 30 days.",
+      "source": "adr/D26-retain-logs-for-30-days.md"
+    },
+    {
+      "id": "D27",
+      "title": "Manage all infrastructure with Terraform",
+      "decided_on": "2024-07-01",
+      "owner": "marcus",
+      "systems": [
+        "infra"
+      ],
+      "premises": [
+        "p_iac_soc2"
+      ],
+      "expected": "HOLDS",
+      "summary": "No cloud resource is created by hand; everything goes through Terraform.",
+      "source": "adr/D27-manage-all-infrastructure-with-terraform.md"
+    },
+    {
+      "id": "D28",
+      "title": "Deploy to a single region in Virginia",
+      "decided_on": "2024-06-10",
+      "owner": "tomi",
+      "systems": [
+        "infra"
+      ],
+      "premises": [],
+      "expected": "RETIRED",
+      "summary": "One AWS region, us-east-1, serves every customer.",
+      "source": "adr/D28-deploy-to-a-single-region-in-virginia.md"
+    },
+    {
+      "id": "D29",
+      "title": "Support customers by email only",
+      "decided_on": "2024-09-15",
+      "owner": "tomi",
+      "systems": [
+        "web-app"
+      ],
+      "premises": [],
+      "expected": "UNDOCUMENTED",
+      "summary": "Customer support runs through a shared inbox; no chat widget, no phone.",
+      "source": "adr/D29-support-customers-by-email-only.md"
+    },
+    {
+      "id": "D30",
+      "title": "Block third-party cookies in the embed widget",
+      "decided_on": "2025-11-05",
+      "owner": "sofia",
+      "systems": [
+        "web-app"
+      ],
+      "premises": [
+        "p_chrome_3p"
+      ],
+      "expected": "MOOT",
+      "summary": "The embeddable widget uses first-party storage only.",
+      "source": "adr/D30-block-third-party-cookies-in-the-embed-widget.md"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "PR-201",
+      "kind": "pr",
+      "date": "2025-04-09",
+      "author": "priya",
+      "title": "Add the CI test suite",
+      "text": "Adds pytest and Jest suites to CI, 1,180 tests, running on every PR in about six minutes.",
+      "rel": "CONTRADICTS",
+      "premise": "p_no_ci_tests"
+    },
+    {
+      "id": "doc-handbook-deploys",
+      "kind": "doc",
+      "date": "2025-06-01",
+      "author": "marcus",
+      "title": "Engineering handbook: how we deploy",
+      "text": "Deploys go through the pipeline; a canary takes 10% of traffic for 15 minutes before full rollout.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-handbook-reviews",
+      "kind": "doc",
+      "date": "2025-06-01",
+      "author": "tomi",
+      "title": "Engineering handbook: code review",
+      "text": "Reviews should be returned within one working day. Nits are prefixed with 'nit:'.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-news-cookies",
+      "kind": "doc",
+      "date": "2025-07-22",
+      "author": "sofia",
+      "title": "Google drops plan to remove third-party cookies",
+      "text": "Google announced it will not remove third-party cookies from Chrome and will not roll out a new standalone prompt either.",
+      "rel": "CONTRADICTS",
+      "premise": "p_chrome_3p"
+    },
+    {
+      "id": "chat-2025-08-21-ci",
+      "kind": "chat",
+      "date": "2025-08-21",
+      "author": "tomi",
+      "title": "#eng: CI tests switched off",
+      "text": "I have disabled the CI test job for now. It has been red for two weeks because of the flaky integration tests and people are merging around it. Until someone owns the suite, CI is effectively running no tests again.",
+      "rel": "SUPPORTS",
+      "premise": "p_no_ci_tests"
+    },
+    {
+      "id": "SRCH-233",
+      "kind": "ticket",
+      "date": "2025-09-14",
+      "author": "lena",
+      "title": "Incremental indexing enabled after mapping migration",
+      "text": "The new mapping with explicit nested fields accepts partial document updates. Incremental indexing is on in staging and the nightly full rebuild is no longer needed there.",
+      "rel": "CONTRADICTS",
+      "premise": "p_es_incremental"
+    },
+    {
+      "id": "chat-2025-10-02-search",
+      "kind": "chat",
+      "date": "2025-10-02",
+      "author": "lena",
+      "title": "#search: rolling back incremental indexing",
+      "text": "Rolled incremental indexing back in production. Update storms during bulk imports pushed indexing lag past 40 minutes. Until the mapping is reworked again the index still cannot take incremental updates at our volume, so the nightly rebuild stays.",
+      "rel": "SUPPORTS",
+      "premise": "p_es_incremental"
+    },
+    {
+      "id": "PR-350",
+      "kind": "pr",
+      "date": "2025-11-18",
+      "author": "marcus",
+      "title": "Automated rollback with reversible migrations",
+      "text": "Every deploy now ships with a reversible migration and a one-command rollback. Rollback was exercised in production twice this week; no manual database restore is needed any more.",
+      "rel": "CONTRADICTS",
+      "premise": "p_no_rollback"
+    },
+    {
+      "id": "doc-aws-cmk",
+      "kind": "doc",
+      "date": "2025-12-05",
+      "author": "jonah",
+      "title": "AWS announcement: RDS customer-managed keys in eu-central-1",
+      "text": "Amazon RDS now supports customer-managed KMS keys for encryption at rest in eu-central-1 (Frankfurt). Existing instances can be migrated with a snapshot restore.",
+      "rel": "CONTRADICTS",
+      "premise": "p_rds_no_cmk"
+    },
+    {
+      "id": "chat-2026-01-08-standup",
+      "kind": "chat",
+      "date": "2026-01-08",
+      "author": "kwame",
+      "title": "#eng: standup notes",
+      "text": "Priya on invoices, Sofia on onboarding, Marcus on the k8s upgrade. Lena out until Monday.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-dr-plan",
+      "kind": "doc",
+      "date": "2026-01-10",
+      "author": "marcus",
+      "title": "Disaster recovery plan",
+      "text": "RPO 1 hour, RTO 4 hours, tested quarterly.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "BILL-77",
+      "kind": "ticket",
+      "date": "2026-01-12",
+      "author": "tomi",
+      "title": "Multi-currency request parked",
+      "text": "Stripe multi-currency remains off on our account. Finance wants to keep a single settlement currency until the EU entity exists.",
+      "rel": "SUPPORTS",
+      "premise": "p_stripe_multi"
+    },
+    {
+      "id": "PR-398",
+      "kind": "pr",
+      "date": "2026-01-15",
+      "author": "priya",
+      "title": "Fix timezone bug in invoice dates",
+      "text": "Invoices generated after 23:00 UTC showed the next day's date. Dates are now rendered in the customer's billing timezone.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "ADR-notes-sharding",
+      "kind": "doc",
+      "date": "2026-01-20",
+      "author": "priya",
+      "title": "Citus evaluation closed",
+      "text": "We will not shard Postgres by tenant. The Citus evaluation is closed; a single primary with read replicas covers projected load through 2027.",
+      "rel": "CONTRADICTS",
+      "premise": "p_sharding"
+    },
+    {
+      "id": "doc-soc2-2026",
+      "kind": "doc",
+      "date": "2026-01-28",
+      "author": "jonah",
+      "title": "SOC 2 Type II report, control CC6.1",
+      "text": "The auditor confirmed the 90-day rotation control for all credentials and noted no exceptions. The requirement is unchanged for the 2026 period.",
+      "rel": "SUPPORTS",
+      "premise": "p_soc2_rotation"
+    },
+    {
+      "id": "doc-soc2-iac",
+      "kind": "doc",
+      "date": "2026-01-28",
+      "author": "jonah",
+      "title": "SOC 2 Type II report, control CC8.1",
+      "text": "Change management control satisfied by infrastructure as code with peer review. The auditor sampled 25 changes, all through Terraform.",
+      "rel": "SUPPORTS",
+      "premise": "p_iac_soc2"
+    },
+    {
+      "id": "SRCH-240",
+      "kind": "ticket",
+      "date": "2026-01-30",
+      "author": "lena",
+      "title": "Synonyms for product names",
+      "text": "Added a synonym list so searches for old product names still match.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-logcost-2026",
+      "kind": "doc",
+      "date": "2026-02-01",
+      "author": "marcus",
+      "title": "Observability cost review",
+      "text": "Log storage is billed at $0.50 per GB a month. Retention beyond 30 days would double the bill.",
+      "rel": "SUPPORTS",
+      "premise": "p_log_cost"
+    },
+    {
+      "id": "OPS-301",
+      "kind": "ticket",
+      "date": "2026-02-09",
+      "author": "marcus",
+      "title": "Disk alert on the metrics node",
+      "text": "Prometheus retention reduced from 30 to 15 days after disk hit 92%.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-vendor-rn",
+      "kind": "doc",
+      "date": "2026-02-11",
+      "author": "sofia",
+      "title": "Payments SDK 5.0 release notes",
+      "text": "Version 5.0 of the payments SDK supports the React Native New Architecture (Fabric and TurboModules). The bridge-based 4.x line is deprecated.",
+      "rel": "CONTRADICTS",
+      "premise": "p_rn_sdk"
+    },
+    {
+      "id": "doc-arch-2026-02",
+      "kind": "doc",
+      "date": "2026-02-14",
+      "author": "marcus",
+      "title": "Autoscaling review",
+      "text": "Web tier scaled from 3 to 14 pods during the February launch with no session loss because nothing is held in process memory.",
+      "rel": "SUPPORTS",
+      "premise": "p_stateless"
+    },
+    {
+      "id": "SALES-91",
+      "kind": "ticket",
+      "date": "2026-02-20",
+      "author": "tomi",
+      "title": "First customers in Ireland and Portugal signed",
+      "text": "Signed two Irish customers and one in Portugal this quarter. Both asked about latency from Frankfurt and data residency.",
+      "rel": "CONTRADICTS",
+      "premise": "p_eu_customers"
+    },
+    {
+      "id": "doc-design-system",
+      "kind": "doc",
+      "date": "2026-02-20",
+      "author": "sofia",
+      "title": "Design system v2",
+      "text": "Tokens, spacing and components documented; dark theme planned.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-2026-02-26-hiring",
+      "kind": "chat",
+      "date": "2026-02-26",
+      "author": "kwame",
+      "title": "#eng: hiring",
+      "text": "Two platform offers accepted, starting in March. Data engineer loop continues.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-412",
+      "kind": "pr",
+      "date": "2026-03-02",
+      "author": "marcus",
+      "title": "Raise the API gateway body limit to 100 MB",
+      "text": "Upgrades Envoy to 1.31 and raises the request body limit on the gateway from 10 MB to 100 MB. Load-tested with 95 MB payloads; p99 latency unchanged. The old 10 MB limit was a default we never revisited.",
+      "rel": "CONTRADICTS",
+      "premise": "p_gateway_limit"
+    },
+    {
+      "id": "BILL-80",
+      "kind": "ticket",
+      "date": "2026-03-03",
+      "author": "tomi",
+      "title": "Annual invoicing for enterprise",
+      "text": "Enterprise customers can be billed annually in advance.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "MOB-77",
+      "kind": "ticket",
+      "date": "2026-03-11",
+      "author": "sofia",
+      "title": "Crash on Android 14 camera permission",
+      "text": "Fixed a crash when the camera permission was denied twice.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-vendor-review",
+      "kind": "doc",
+      "date": "2026-03-15",
+      "author": "kwame",
+      "title": "Vendor review Q1",
+      "text": "Reviewed Datadog, LaunchDarkly, SendGrid and Vercel contracts. No changes this quarter.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-2026-03-18-sharding",
+      "kind": "chat",
+      "date": "2026-03-18",
+      "author": "tomi",
+      "title": "#eng: sharding back on the roadmap",
+      "text": "After the enterprise deal, sharding by tenant is back on the Q4 roadmap. Treat it as planned again.",
+      "rel": "SUPPORTS",
+      "premise": "p_sharding"
+    },
+    {
+      "id": "PR-430",
+      "kind": "pr",
+      "date": "2026-03-20",
+      "author": "sofia",
+      "title": "New onboarding checklist component",
+      "text": "Replaces the modal onboarding with an inline checklist. Completion rate in the A/B test went from 41% to 58%.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-analytics-2026-03",
+      "kind": "doc",
+      "date": "2026-03-31",
+      "author": "sofia",
+      "title": "Browser share, Q1 2026",
+      "text": "Safari 14 and older: 0.4% of sessions. Chrome 71%, Safari 15+ 18%, Firefox 6%, other 4.6%.",
+      "rel": "SUPPORTS",
+      "premise": "p_safari_share"
+    },
+    {
+      "id": "doc-allhands-2026-04",
+      "kind": "doc",
+      "date": "2026-04-03",
+      "author": "kwame",
+      "title": "All-hands notes, April 2026",
+      "text": "Engineering headcount is 31 after the platform and data hires closed. Two more offers are out.",
+      "rel": "CONTRADICTS",
+      "premise": "p_team_size"
+    },
+    {
+      "id": "PR-455",
+      "kind": "pr",
+      "date": "2026-04-08",
+      "author": "marcus",
+      "title": "Bump Kubernetes to 1.31",
+      "text": "Cluster upgrade with no API deprecations affecting our manifests.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "AUTH-120",
+      "kind": "ticket",
+      "date": "2026-04-14",
+      "author": "jonah",
+      "title": "SSO for Okta customers",
+      "text": "SAML SSO shipped for three Okta customers.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-2026-04-22-launch",
+      "kind": "chat",
+      "date": "2026-04-22",
+      "author": "tomi",
+      "title": "#general: launch",
+      "text": "Reporting v2 is live. Thanks everyone. Watch the dashboards tonight.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-471",
+      "kind": "pr",
+      "date": "2026-04-29",
+      "author": "lena",
+      "title": "Dedupe events by idempotency key",
+      "text": "Pipeline now drops duplicate events within a 24-hour window.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "DATA-140",
+      "kind": "ticket",
+      "date": "2026-04-30",
+      "author": "lena",
+      "title": "Moved BigQuery to flat-rate slots",
+      "text": "We are now on 100 flat-rate slots. Query cost no longer depends on bytes scanned or on how often jobs run.",
+      "rel": "CONTRADICTS",
+      "premise": "p_bq_ondemand"
+    },
+    {
+      "id": "OPS-318",
+      "kind": "ticket",
+      "date": "2026-05-09",
+      "author": "marcus",
+      "title": "Incident: export endpoint saturated workers",
+      "text": "A tenant triggered 400 exports in ten minutes. Mitigated by scaling workers; follow-up is rate limiting.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-privacy-2026",
+      "kind": "doc",
+      "date": "2026-05-10",
+      "author": "jonah",
+      "title": "Privacy review 2026",
+      "text": "EU customers are 38% of ARR. GDPR obligations apply and the DPA template was refreshed.",
+      "rel": "SUPPORTS",
+      "premise": "p_gdpr"
+    },
+    {
+      "id": "doc-postmortem-may",
+      "kind": "doc",
+      "date": "2026-05-12",
+      "author": "marcus",
+      "title": "Postmortem: export saturation",
+      "text": "Root cause: unbounded exports per tenant. Action items: rate limit, worker autoscaling, alerting on queue depth.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-488",
+      "kind": "pr",
+      "date": "2026-05-13",
+      "author": "priya",
+      "title": "Rate-limit the export endpoint",
+      "text": "Exports are limited to 10 per hour per tenant after the incident on May 9.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-2026-05-16-farewell",
+      "kind": "chat",
+      "date": "2026-05-16",
+      "author": "tomi",
+      "title": "#general: farewell",
+      "text": "Ada's last day was yesterday. Platform decisions she owned need new owners; Kwame is collecting the list.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-520",
+      "kind": "pr",
+      "date": "2026-05-22",
+      "author": "sofia",
+      "title": "Playwright end-to-end suite for checkout and onboarding",
+      "text": "Adds 64 Playwright tests covering sign-in, onboarding, checkout and the billing portal. Runs against staging on every release candidate.",
+      "rel": "CONTRADICTS",
+      "premise": "p_no_e2e"
+    },
+    {
+      "id": "doc-oncall-2026",
+      "kind": "doc",
+      "date": "2026-06-01",
+      "author": "marcus",
+      "title": "On-call readiness, June 2026",
+      "text": "Four engineers are fully trained for on-call. Two more are shadowing and should be ready by September.",
+      "rel": "SUPPORTS",
+      "premise": "p_oncall_pool"
+    },
+    {
+      "id": "PR-502",
+      "kind": "pr",
+      "date": "2026-06-03",
+      "author": "jonah",
+      "title": "Add security headers",
+      "text": "CSP, HSTS and frame-ancestors headers added to all responses.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-2026-06-05-retro",
+      "kind": "chat",
+      "date": "2026-06-05",
+      "author": "kwame",
+      "title": "#eng: retro",
+      "text": "Retro themes: too many Slack decisions never reach an ADR; nobody knows which rules are still real.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-abuse-2026-06",
+      "kind": "doc",
+      "date": "2026-06-12",
+      "author": "jonah",
+      "title": "Sign-up abuse review",
+      "text": "Since the captcha and rate limits shipped in December there have been zero abusive sign-ups in six months. The bot wave is over.",
+      "rel": "CONTRADICTS",
+      "premise": "p_signup_abuse"
+    },
+    {
+      "id": "DATA-150",
+      "kind": "ticket",
+      "date": "2026-06-20",
+      "author": "lena",
+      "title": "Late-arriving events",
+      "text": "Events arriving more than 48 hours late are now routed to a quarantine table.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "PR-515",
+      "kind": "pr",
+      "date": "2026-06-24",
+      "author": "sofia",
+      "title": "Dark mode",
+      "text": "Adds a theme toggle and dark tokens.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "doc-metrics-2026-06",
+      "kind": "doc",
+      "date": "2026-06-30",
+      "author": "priya",
+      "title": "Notifications volume report, June 2026",
+      "text": "Transactional email averaged 84 messages a day in June, with a peak of 97. We remain inside the free tier.",
+      "rel": "SUPPORTS",
+      "premise": "p_sendgrid_free"
+    },
+    {
+      "id": "doc-okr-2026-h2",
+      "kind": "doc",
+      "date": "2026-07-01",
+      "author": "tomi",
+      "title": "H2 2026 OKRs",
+      "text": "Objective: enterprise ready. Key results: SSO for all enterprise tenants, 99.95% availability, SOC 2 renewed.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-2026-07-09-ld",
+      "kind": "chat",
+      "date": "2026-07-09",
+      "author": "kwame",
+      "title": "#finance: LaunchDarkly invoice",
+      "text": "The July LaunchDarkly invoice came in at $2,100 after the seat true-up. That is four times what we budgeted.",
+      "rel": "CONTRADICTS",
+      "premise": "p_ld_budget"
+    },
+    {
+      "id": "PR-531",
+      "kind": "pr",
+      "date": "2026-07-15",
+      "author": "marcus",
+      "title": "Spot instances for batch workers",
+      "text": "Batch workers run on spot capacity with checkpointing; saves about 60% on that pool.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-2026-07-30-oncall",
+      "kind": "chat",
+      "date": "2026-07-30",
+      "author": "marcus",
+      "title": "#ops: quiet week",
+      "text": "Zero pages this week. Shadowing is going well.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-2026-08-15-ld",
+      "kind": "chat",
+      "date": "2026-08-15",
+      "author": "kwame",
+      "title": "#finance: LaunchDarkly renegotiated",
+      "text": "Renegotiated LaunchDarkly to a startup plan at $450 a month for 12 months. Under budget again, for now.",
+      "rel": "SUPPORTS",
+      "premise": "p_ld_budget"
+    },
+    {
+      "id": "chat-2026-08-27-perf",
+      "kind": "chat",
+      "date": "2026-08-27",
+      "author": "priya",
+      "title": "#backend: perf",
+      "text": "Invoice generation is 3x faster after the query rewrite.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-2026-09-10-roadmap",
+      "kind": "chat",
+      "date": "2026-09-10",
+      "author": "tomi",
+      "title": "#general: Q4 roadmap",
+      "text": "Q4 priorities: enterprise SSO rollout, reporting exports, mobile refresh.",
+      "rel": null,
+      "premise": null
+    }
+  ]
+}

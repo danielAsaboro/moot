@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ada",
+    "name": "Ada Okafor",
+    "role": "Platform lead",
+    "joined": "2024-05-01",
+    "left": "2026-05-15"
+  },
+  {
+    "id": "tomi",
+    "name": "Tomi Adeyemi",
+    "role": "CTO",
+    "joined": "2024-05-01",
+    "left": null
+  },
+  {
+    "id": "priya",
+    "name": "Priya Natarajan",
+    "role": "Backend engineer",
+    "joined": "2024-06-01",
+    "left": null
+  },
+  {
+    "id": "marcus",
+    "name": "Marcus Chen",
+    "role": "SRE",
+    "joined": "2024-07-01",
+    "left": null
+  },
+  {
+    "id": "lena",
+    "name": "Lena Fischer",
+    "role": "Data engineer",
+    "joined": "2024-10-01",
+    "left": null
+  },
+  {
+    "id": "jonah",
+    "name": "Jonah Mbeki",
+    "role": "Security engineer",
+    "joined": "2024-12-01",
+    "left": null
+  },
+  {
+    "id": "sofia",
+    "name": "Sofia Rossi",
+    "role": "Frontend lead",
+    "joined": "2024-09-01",
+    "left": null
+  },
+  {
+    "id": "kwame",
+    "name": "Kwame Boateng",
+    "role": "Engineering manager",
+    "joined": "2025-08-01",
+    "left": null
+  }
+]

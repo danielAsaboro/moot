@@ -1,0 +1,90 @@
+[
+  {
+    "id": "SRCH-233",
+    "date": "2025-09-14",
+    "author": "Lena Fischer",
+    "title": "Incremental indexing enabled after mapping migration",
+    "body": "The new mapping with explicit nested fields accepts partial document updates. Incremental indexing is on in staging and the nightly full rebuild is no longer needed there.",
+    "status": "done"
+  },
+  {
+    "id": "BILL-77",
+    "date": "2026-01-12",
+    "author": "Tomi Adeyemi",
+    "title": "Multi-currency request parked",
+    "body": "Stripe multi-currency remains off on our account. Finance wants to keep a single settlement currency until the EU entity exists.",
+    "status": "done"
+  },
+  {
+    "id": "SRCH-240",
+    "date": "2026-01-30",
+    "author": "Lena Fischer",
+    "title": "Synonyms for product names",
+    "body": "Added a synonym list so searches for old product names still match.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-301",
+    "date": "2026-02-09",
+    "author": "Marcus Chen",
+    "title": "Disk alert on the metrics node",
+    "body": "Prometheus retention reduced from 30 to 15 days after disk hit 92%.",
+    "status": "done"
+  },
+  {
+    "id": "SALES-91",
+    "date": "2026-02-20",
+    "author": "Tomi Adeyemi",
+    "title": "First customers in Ireland and Portugal signed",
+    "body": "Signed two Irish customers and one in Portugal this quarter. Both asked about latency from Frankfurt and data residency.",
+    "status": "done"
+  },
+  {
+    "id": "BILL-80",
+    "date": "2026-03-03",
+    "author": "Tomi Adeyemi",
+    "title": "Annual invoicing for enterprise",
+    "body": "Enterprise customers can be billed annually in advance.",
+    "status": "done"
+  },
+  {
+    "id": "MOB-77",
+    "date": "2026-03-11",
+    "author": "Sofia Rossi",
+    "title": "Crash on Android 14 camera permission",
+    "body": "Fixed a crash when the camera permission was denied twice.",
+    "status": "done"
+  },
+  {
+    "id": "AUTH-120",
+    "date": "2026-04-14",
+    "author": "Jonah Mbeki",
+    "title": "SSO for Okta customers",
+    "body": "SAML SSO shipped for three Okta customers.",
+    "status": "done"
+  },
+  {
+    "id": "DATA-140",
+    "date": "2026-04-30",
+    "author": "Lena Fischer",
+    "title": "Moved BigQuery to flat-rate slots",
+    "body": "We are now on 100 flat-rate slots. Query cost no longer depends on bytes scanned or on how often jobs run.",
+    "status": "done"
+  },
+  {
+    "id": "OPS-318",
+    "date": "2026-05-09",
+    "author": "Marcus Chen",
+    "title": "Incident: export endpoint saturated workers",
+    "body": "A tenant triggered 400 exports in ten minutes. Mitigated by scaling workers; follow-up is rate limiting.",
+    "status": "done"
+  },
+  {
+    "id": "DATA-150",
+    "date": "2026-06-20",
+    "author": "Lena Fischer",
+    "title": "Late-arriving events",
+    "body": "Events arriving more than 48 hours late are now routed to a quarantine table.",
+    "status": "done"
+  }
+]

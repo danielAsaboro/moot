@@ -1,0 +1,98 @@
+[
+  {
+    "id": "PR-201",
+    "date": "2025-04-09",
+    "author": "Priya Natarajan",
+    "title": "Add the CI test suite",
+    "body": "Adds pytest and Jest suites to CI, 1,180 tests, running on every PR in about six minutes.",
+    "state": "merged"
+  },
+  {
+    "id": "PR-350",
+    "date": "2025-11-18",
+    "author": "Marcus Chen",
+    "title": "Automated rollback with reversible migrations",
+    "body": "Every deploy now ships with a reversible migration and a one-command rollback. Rollback was exercised in production twice this week; no manual database restore is needed any more.",
+    "state": "merged"
+  },
+  {
+    "id": "PR-398",
+    "date": "2026-01-15",
+    "author": "Priya Natarajan",
+    "title": "Fix timezone bug in invoice dates",
+    "body": "Invoices generated after 23:00 UTC showed the next day's date. Dates are now rendered in the customer's billing timezone.",
+    "state": "merged"
+  },
+  {
+    "id": "PR-412",
+    "date": "2026-03-02",
+    "author": "Marcus Chen",
+    "title": "Raise the API gateway body limit to 100 MB",
+    "body": "Upgrades Envoy to 1.31 and raises the request body limit on the gateway from 10 MB to 100 MB. Load-tested with 95 MB payloads; p99 latency unchanged. The old 10 MB limit was a default we never revisited.",
+    "state": "merged"
+  },
+  {
+    "id": "PR-430",
+    "date": "2026-03-20",
+    "author": "Sofia Rossi",
+    "title": "New onboarding checklist component",
+    "body": "Replaces the modal onboarding with an inline checklist. Completion rate in the A/B test went from 41% to 58%.",
+    "state": "merged"
+  },
+  {
+    "id": "PR-455",
+    "date": "2026-04-08",
+    "author": "Marcus Chen",
+    "title": "Bump Kubernetes to 1.31",
+    "body": "Cluster upgrade with no API deprecations affecting our manifests.",
+    "state": "merged"
+  },
+  {
+    "id": "PR-471",
+    "date": "2026-04-29",
+    "author": "Lena Fischer",
+    "title": "Dedupe events by idempotency key",
+    "body": "Pipeline now drops duplicate events within a 24-hour window.",
+    "state": "merged"
+  },
+  {
+    "id": "PR-488",
+    "date": "2026-05-13",
+    "author": "Priya Natarajan",
+    "title": "Rate-limit the export endpoint",
+    "body": "Exports are limited to 10 per hour per tenant after the incident on May 9.",
+    "state": "merged"
+  },
+  {
+    "id": "PR-520",
+    "date": "2026-05-22",
+    "author": "Sofia Rossi",
+    "title": "Playwright end-to-end suite for checkout and onboarding",
+    "body": "Adds 64 Playwright tests covering sign-in, onboarding, checkout and the billing portal. Runs against staging on every release candidate.",
+    "state": "merged"
+  },
+  {
+    "id": "PR-502",
+    "date": "2026-06-03",
+    "author": "Jonah Mbeki",
+    "title": "Add security headers",
+    "body": "CSP, HSTS and frame-ancestors headers added to all responses.",
+    "state": "merged"
+  },
+  {
+    "id": "PR-515",
+    "date": "2026-06-24",
+    "author": "Sofia Rossi",
+    "title": "Dark mode",
+    "body": "Adds a theme toggle and dark tokens.",
+    "state": "merged"
+  },
+  {
+    "id": "PR-531",
+    "date": "2026-07-15",
+    "author": "Marcus Chen",
+    "title": "Spot instances for batch workers",
+    "body": "Batch workers run on spot capacity with checkpointing; saves about 60% on that pool.",
+    "state": "merged"
+  }
+]

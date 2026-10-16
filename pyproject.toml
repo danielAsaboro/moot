@@ -1,0 +1,32 @@
+[project]
+name = "moot"
+version = "0.1.0"
+description = "Moot finds the decisions your team still follows for reasons that no longer exist. A FalkorDB-backed decision-premise auditor."
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+  "falkordb>=1.2.0",
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "anthropic>=0.40",
+  "mcp>=1.2",
+  "rank-bm25>=0.2.2",
+  "python-dotenv>=1.0",
+  "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "falkordblite>=0.10"]
+
+[project.scripts]
+moot = "moot.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["moot*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

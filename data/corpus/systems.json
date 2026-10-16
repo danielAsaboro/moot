@@ -1,0 +1,42 @@
+[
+  {
+    "id": "uploads-api",
+    "name": "Uploads API"
+  },
+  {
+    "id": "api-gateway",
+    "name": "API gateway"
+  },
+  {
+    "id": "billing",
+    "name": "Billing"
+  },
+  {
+    "id": "auth",
+    "name": "Auth"
+  },
+  {
+    "id": "search",
+    "name": "Search"
+  },
+  {
+    "id": "data-pipeline",
+    "name": "Data pipeline"
+  },
+  {
+    "id": "web-app",
+    "name": "Web app"
+  },
+  {
+    "id": "mobile-app",
+    "name": "Mobile app"
+  },
+  {
+    "id": "notifications",
+    "name": "Notifications"
+  },
+  {
+    "id": "infra",
+    "name": "Infrastructure"
+  }
+]
