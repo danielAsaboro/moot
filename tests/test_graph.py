@@ -108,3 +108,14 @@ def test_mcp_server_lists_tools():
     from moot import mcp_server
     names = {t.name for t in asyncio.run(mcp_server.mcp.list_tools())}
     assert {"find_decision", "audit_decision", "premise_impact", "trace_document", "ledger", "ask", "record_finding"} <= names
+
+
+def test_document_endpoint_serves_source_text(g, monkeypatch):
+    from fastapi.testclient import TestClient
+    from moot import api
+    monkeypatch.setattr(api, "g", lambda: g)
+    c = TestClient(api.app)
+    d = c.get("/api/document/PR-412").json()
+    assert d["kind"] == "pr" and "100 MB" in d["text"]
+    assert c.get("/api/document/src:D01").json()["kind"] == "adr"
+    assert c.get("/api/document/nope").status_code == 404

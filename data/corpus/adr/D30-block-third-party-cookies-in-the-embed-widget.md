@@ -7,12 +7,20 @@
 
 ## Context
 
-- Chrome will remove third-party cookies in 2025.
+Chrome will remove third-party cookies in 2025. The embed widget relies on a third-party cookie to keep users signed in across customer sites, and that will simply stop working.
+
+Stated premises:
+
+- Chrome will remove third-party cookies in 2025. (assumption)
 
 ## Decision
 
 The embeddable widget uses first-party storage only.
 
+## Alternatives considered
+
+- Storage Access API prompts (rejected: too many prompts per session)
+
 ## Consequences
 
-Teams follow this until it is explicitly revisited. Exceptions need the owner's approval.
+The widget uses first-party storage with a short-lived token exchange. Expect more sign-in prompts on customer sites.

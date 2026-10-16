@@ -7,12 +7,21 @@
 
 ## Context
 
-- Free-tier bots are abusing public sign-up.
+Free-tier bots are abusing public sign-up: last month 80% of new accounts were bots creating workspaces to host spam. Captchas slowed them for a week.
+
+Stated premises:
+
+- Free-tier bots are abusing public sign-up. (fact)
 
 ## Decision
 
 New accounts are created only through sales; the public sign-up form is off.
 
+## Alternatives considered
+
+- Email verification plus rate limits (rejected: tried, bypassed)
+- Paid-only sign-up (rejected: kills trials)
+
 ## Consequences
 
-Teams follow this until it is explicitly revisited. Exceptions need the owner's approval.
+The sign-up form is disabled; sales creates accounts. Marketing is told conversion from the site will drop.

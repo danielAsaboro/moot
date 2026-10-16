@@ -7,12 +7,20 @@
 
 ## Context
 
-- Multi-currency billing is not enabled on our Stripe account.
+Multi-currency billing is not enabled on our Stripe account. Enabling it means a new contract, tax reviews per currency, and reconciliation work finance is not staffed for.
+
+Stated premises:
+
+- Multi-currency billing is not enabled on our Stripe account. (fact)
 
 ## Decision
 
 All invoices are issued in US dollars regardless of customer location.
 
+## Alternatives considered
+
+- Invoice in EUR for EU customers via a second Stripe account (rejected: two sets of books)
+
 ## Consequences
 
-Teams follow this until it is explicitly revisited. Exceptions need the owner's approval.
+Every invoice is in USD. Sales should set expectations early in EU deals.

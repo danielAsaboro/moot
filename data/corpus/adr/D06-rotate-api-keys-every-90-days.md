@@ -7,12 +7,20 @@
 
 ## Context
 
-- The SOC 2 auditor requires credential rotation at most every 90 days.
+The SOC 2 auditor requires credential rotation at most every 90 days. Our keys currently never expire, which came up as a finding in the readiness assessment.
+
+Stated premises:
+
+- The SOC 2 auditor requires credential rotation at most every 90 days. (constraint)
 
 ## Decision
 
 All service and customer API keys expire after 90 days and must be rotated.
 
+## Alternatives considered
+
+- Rotate on demand only (rejected: fails the control)
+
 ## Consequences
 
-Teams follow this until it is explicitly revisited. Exceptions need the owner's approval.
+Keys carry an expiry; the auth service refuses expired keys; customers get a reminder at 14 and 3 days.

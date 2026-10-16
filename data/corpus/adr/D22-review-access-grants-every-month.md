@@ -7,12 +7,20 @@
 
 ## Context
 
-- The SOC 2 auditor requires credential rotation at most every 90 days.
+The SOC 2 auditor requires credential rotation at most every 90 days, and the same control expects access to be reviewed. We currently review access when someone leaves, which the auditor flagged as insufficient.
+
+Stated premises:
+
+- The SOC 2 auditor requires credential rotation at most every 90 days. (constraint)
 
 ## Decision
 
 A monthly review removes stale access to production systems.
 
+## Alternatives considered
+
+- Quarterly review (rejected: fails the control)
+
 ## Consequences
 
-Teams follow this until it is explicitly revisited. Exceptions need the owner's approval.
+A monthly ticket lists every production grant; owners confirm or revoke within a week.

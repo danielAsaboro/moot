@@ -7,12 +7,20 @@
 
 ## Context
 
-- SOC 2 requires infrastructure to be reproducible from code.
+SOC 2 requires infrastructure to be reproducible from code. Resources created in the console cannot be shown to be reproducible, and we had drift between staging and production that nobody could explain.
+
+Stated premises:
+
+- SOC 2 requires infrastructure to be reproducible from code. (constraint)
 
 ## Decision
 
 No cloud resource is created by hand; everything goes through Terraform.
 
+## Alternatives considered
+
+- CloudFormation (rejected: the team knows Terraform)
+
 ## Consequences
 
-Teams follow this until it is explicitly revisited. Exceptions need the owner's approval.
+No console changes. Every resource is in Terraform with a reviewed plan. Break-glass changes are reverted into code within a day.

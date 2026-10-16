@@ -7,12 +7,20 @@
 
 ## Context
 
-- The web tier must stay stateless so it can autoscale.
+The web tier must stay stateless so it can autoscale. Sticky sessions on the load balancer kept biting us during deploys, when an instance drained and its users were logged out.
+
+Stated premises:
+
+- The web tier must stay stateless so it can autoscale. (constraint)
 
 ## Decision
 
 Web sessions live in Redis, never in process memory.
 
+## Alternatives considered
+
+- Signed cookies only (rejected: we need server-side revocation)
+
 ## Consequences
 
-Teams follow this until it is explicitly revisited. Exceptions need the owner's approval.
+Sessions live in Redis with a 30-day TTL. Any instance can serve any request; deploys no longer log users out.

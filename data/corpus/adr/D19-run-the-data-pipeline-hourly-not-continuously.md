@@ -7,13 +7,22 @@
 
 ## Context
 
-- Warehouse query cost scales with how often the pipeline runs.
+Running the pipeline continuously looked attractive for freshness, but Warehouse query cost scales with how often the pipeline runs, and our warehouse bill tripled in the month we tried it.
+
+Stated premises:
+
+- Warehouse query cost scales with how often the pipeline runs. (fact)
   This holds because we are on BigQuery on-demand pricing.
 
 ## Decision
 
 The pipeline batches events and runs once an hour.
 
+## Alternatives considered
+
+- Micro-batches every 5 minutes (rejected: same cost shape)
+- Streaming into a cheaper store (deferred)
+
 ## Consequences
 
-Teams follow this until it is explicitly revisited. Exceptions need the owner's approval.
+The pipeline runs hourly. Dashboards can be up to an hour behind. Revisit if the warehouse pricing model changes.

@@ -7,12 +7,20 @@
 
 ## Context
 
-- Notification volume is under 100 emails a day, inside the SendGrid free tier.
+We send password resets, invoices and a weekly digest. Notification volume is under 100 emails a day, inside the SendGrid free tier. Building on the free plan means no procurement and no contract to review.
+
+Stated premises:
+
+- Notification volume is under 100 emails a day, inside the SendGrid free tier. (fact)
 
 ## Decision
 
 All transactional email goes through SendGrid on the free plan.
 
+## Alternatives considered
+
+- SES (rejected: deliverability setup took longer than the whole integration)
+
 ## Consequences
 
-Teams follow this until it is explicitly revisited. Exceptions need the owner's approval.
+All transactional mail goes through SendGrid. Volume is reported monthly; the free tier is the budget.

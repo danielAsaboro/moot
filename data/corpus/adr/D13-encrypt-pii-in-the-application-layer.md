@@ -7,12 +7,21 @@
 
 ## Context
 
-- RDS does not support customer-managed encryption keys in eu-central-1.
+Enterprise customers ask for encryption with keys we control. RDS does not support customer-managed encryption keys in eu-central-1, so database-level encryption cannot satisfy that today.
+
+Stated premises:
+
+- RDS does not support customer-managed encryption keys in eu-central-1. (constraint)
 
 ## Decision
 
 PII columns are encrypted by the application with our own keys before they reach the database.
 
+## Alternatives considered
+
+- Move to a region where RDS supports CMK (rejected: residency)
+- Wait for AWS (rejected: no date)
+
 ## Consequences
 
-Teams follow this until it is explicitly revisited. Exceptions need the owner's approval.
+The application encrypts PII columns with per-tenant keys from KMS before writing. Searching on encrypted columns is not possible; design around it.

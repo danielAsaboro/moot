@@ -132,6 +132,24 @@ def approve(body: Approve):
     return tools.write_finding(g(), body.decision_id, body.verdict, body.as_of, body.depth, body.cites, body.note)
 
 
+_DOCS: dict[str, dict] | None = None
+
+
+@app.get("/api/document/{doc_id}")
+def document(doc_id: str):
+    """The source text behind an evidence id (ADR, PR, ticket, chat message or doc), read from data/corpus."""
+    global _DOCS
+    if _DOCS is None:
+        from .ingest.extract import load_documents
+        _DOCS = {d["id"]: d for d in load_documents()}
+        for k in list(_DOCS):
+            _DOCS[f"src:{k}"] = _DOCS[k]
+    d = _DOCS.get(doc_id)
+    if not d:
+        raise HTTPException(404, f"no source text for {doc_id}")
+    return dict(id=doc_id, kind=d["kind"], title=d["title"], date=d["date"], author=d["author"], path=d["path"], text=d["text"])
+
+
 @app.get("/api/schema")
 def schema():
     return tools.schema(g())

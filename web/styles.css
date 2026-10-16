@@ -127,3 +127,4 @@ table.ledger td.verdictcell{text-align:right}
 .notyet{color:var(--ink-3)}
 .badge.NOT_YET{color:var(--ink-3);border-style:dashed}
 @media (max-width:900px){.panel{position:static}.brand-right{margin-left:0}}
+details.doc{margin-top:8px}details.doc summary{cursor:pointer;font-size:13px;color:var(--ink-2)}details.doc pre{margin-top:6px;max-height:320px}

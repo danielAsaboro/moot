@@ -14,7 +14,7 @@ import json
 import re
 from pathlib import Path
 
-from . import spec
+from . import prose, spec
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data"
@@ -34,24 +34,44 @@ def person(pid: str) -> dict:
 
 def adr_markdown(d: dict) -> str:
     owner = person(d["owner"])
+    pr = prose.ADR.get(d["id"], {})
+    premises = [spec.PREMISES[pid][0] for pid in d["premises"]]
     lines = [f"# ADR {d['id']}: {d['title']}", "",
              f"- Status: accepted", f"- Date: {d['decided_on']}", f"- Owner: {owner['name']} ({owner['role']})",
              f"- Systems: {', '.join(d['systems'])}", ""]
     if d.get("supersedes"):
         lines += [f"- Supersedes: ADR {d['supersedes']}", ""]
     lines += ["## Context", ""]
+    if pr.get("context"):
+        lines.append(pr["context"].format(**{f"p{i}": t for i, t in enumerate(premises)}))
+        lines.append("")
     if d["premises"]:
+        lines.append("Stated premises:")
+        lines.append("")
         for pid in d["premises"]:
             text, kind = spec.PREMISES[pid]
-            lines.append(f"- {text}.")
+            lines.append(f"- {text}. ({kind})")
             dep = spec.DERIVED_FROM.get(pid)
             if dep:
                 lines.append(f"  This holds because {spec.PREMISES[dep][0][0].lower() + spec.PREMISES[dep][0][1:]}.")
     else:
-        lines.append("_No context was recorded for this decision._")
-    lines += ["", "## Decision", "", d["summary"], "", "## Consequences", "",
-              "Teams follow this until it is explicitly revisited. Exceptions need the owner's approval.", ""]
+        lines.append("_No premise was recorded for this decision._")
+    lines += ["", "## Decision", "", d["summary"], ""]
+    if pr.get("alternatives"):
+        lines += ["## Alternatives considered", ""] + [f"- {a}" for a in pr["alternatives"]] + [""]
+    lines += ["## Consequences", "", pr.get("consequences", "Teams follow this until it is explicitly revisited. Exceptions need the owner's approval."), ""]
     return "\n".join(lines)
+
+
+def pr_body(e: dict, rng) -> str:
+    """A merged-PR description with the usual sections; the summary is the spec text verbatim."""
+    sysname = e.get("system") or "service"
+    changes = rng.sample(["Config change with the new value and a comment pointing at this PR", "Unit tests updated for the new behaviour",
+                          "Runbook entry added", "Dashboard panel added for the affected metric", "Dead code removed", "Migration script, idempotent"], 2)
+    testing = rng.choice(["Ran on staging for two days with no alerts.", "Load-tested against a copy of production traffic.",
+                          "Manual check of the affected flows in staging; screenshots in the ticket.", "CI green; verified in staging by the reviewer."])
+    reviewers = ", ".join(rng.sample([p[1] for p in spec.PEOPLE if p[0] != e["author"]], 2))
+    return prose.PR_TEMPLATE.format(text=e["text"], changes="\n".join(f"- {c}" for c in changes), testing=testing, reviewers=reviewers)
 
 
 def main() -> None:
@@ -66,11 +86,15 @@ def main() -> None:
         for (i, k, dt, a, t, x) in spec.DISTRACTORS + spec.noise_documents()
     ]
     items.sort(key=lambda e: e["date"])
+    import random
+    rng = random.Random(3)
     prs, tickets, chat = [], [], []
     for e in items:
         rec = dict(id=e["id"], date=e["date"], author=person(e["author"])["name"], title=e["title"], body=e["text"])
         if e["kind"] == "pr":
             rec["state"] = "merged"
+            rec["body"] = pr_body(e, rng)
+            rec["merged_by"] = rng.choice([p[1] for p in spec.PEOPLE if p[0] != e["author"]])
             prs.append(rec)
         elif e["kind"] == "ticket":
             rec["status"] = "done"
@@ -79,6 +103,9 @@ def main() -> None:
             channel = e["title"].split(":")[0]
             chat.append(dict(id=e["id"], ts=f"{e['date']}T10:{len(chat) % 60:02d}:00Z", channel=channel,
                              user=rec["author"], text=e["text"]))
+            for n, (who, reply) in enumerate(prose.CHAT_REPLIES.get(e["id"], []), start=1):
+                chat.append(dict(id=f"{e['id']}-r{n}", ts=f"{e['date']}T10:{(len(chat) + 7 * n) % 60:02d}:00Z", channel=channel,
+                                 user=person(who)["name"], text=reply, reply_to=e["id"]))
         else:
             (CORPUS / "docs" / f"{e['id']}.md").write_text(
                 f"# {e['title']}\n\nDate: {e['date']}  \nAuthor: {rec['author']}\n\n{e['text']}\n")

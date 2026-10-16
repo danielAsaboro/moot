@@ -7,7 +7,9 @@
 
 ## Context
 
-_No context was recorded for this decision._
+We have no EU customers yet and one region is simpler to run.
+
+_No premise was recorded for this decision._
 
 ## Decision
 
@@ -15,4 +17,4 @@ One AWS region, us-east-1, serves every customer.
 
 ## Consequences
 
-Teams follow this until it is explicitly revisited. Exceptions need the owner's approval.
+Everything runs in us-east-1.

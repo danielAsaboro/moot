@@ -7,12 +7,18 @@
 
 ## Context
 
-_No context was recorded for this decision._
+Support is one person part time.
+
+_No premise was recorded for this decision._
 
 ## Decision
 
 Customer support runs through a shared inbox; no chat widget, no phone.
 
+## Alternatives considered
+
+- Intercom (rejected: cost)
+
 ## Consequences
 
-Teams follow this until it is explicitly revisited. Exceptions need the owner's approval.
+A shared inbox with a 1-business-day target.

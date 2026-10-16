@@ -7,12 +7,20 @@
 
 ## Context
 
-- Safari versions below 15 are under 1% of traffic.
+We carry a pile of polyfills and CSS workarounds for old Safari. Safari versions below 15 are under 1% of traffic, and the maintenance cost of those workarounds is measured in incidents, not in users.
+
+Stated premises:
+
+- Safari versions below 15 are under 1% of traffic. (fact)
 
 ## Decision
 
 The web app drops polyfills and workarounds for Safari below version 15.
 
+## Alternatives considered
+
+- Keep supporting Safari 13 (rejected)
+
 ## Consequences
 
-Teams follow this until it is explicitly revisited. Exceptions need the owner's approval.
+Polyfills for Safari below 15 are removed. The support page states the minimum version.

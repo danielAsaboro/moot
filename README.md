@@ -234,7 +234,7 @@ The audit is an index lookup plus a bounded path expansion, so its latency does 
 
 ## Honest limits
 
-- The corpus is synthetic. Larkspur, its people and its documents are invented; the templated noise documents are generated from a seed. The committed `graph.json` is built from the ground-truth spec, not from the LLM extractor. `moot extract` runs the extractor over the same text so the two can be compared, and its span check drops any premise or relation whose quote is not literally in the source.
+- The corpus is synthetic. Larkspur, its people and its documents are invented. The 30 ADRs carry hand-written context, alternatives and consequences (`moot/corpus/prose.py`); PR bodies and chat threads are dressed from the same spec; the 150 background noise documents are templated from a seed. The committed `graph.json` is built from the ground-truth spec, not from the LLM extractor. `moot extract` runs the extractor over the same text so the two can be compared, and its span check drops any premise or relation whose quote is not literally in the source.
 - A premise can expire without any document saying so. Moot only knows what was written down.
 - Extraction misses premises that are implied rather than stated. Verdicts are only as good as the BECAUSE_OF edges.
 - "Disputed" is a coarse rule (contradicted, then re-affirmed). It does not weigh evidence quality.

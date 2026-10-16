@@ -4,599 +4,674 @@
     "date": "2025-01-07",
     "author": "Priya Natarajan",
     "title": "Fix Safari layout bug",
-    "body": "Fix the Safari layout bug in the infrastructure. Requested by support. Measured on staging first.",
-    "state": "merged"
+    "body": "## Summary\n\nFix the Safari layout bug in the infrastructure. Requested by support. Measured on staging first.\n\n## Changes\n\n- Unit tests updated for the new behaviour\n- Dead code removed\n\n## Testing\n\nLoad-tested against a copy of production traffic.\n\nReviewers: Marcus Chen, Jonah Mbeki\n",
+    "state": "merged",
+    "merged_by": "Lena Fischer"
   },
   {
     "id": "PR-947",
     "date": "2025-01-21",
     "author": "Lena Fischer",
     "title": "Fix email templates",
-    "body": "Fix the email templates in the web app. Covered by existing tests. Small, reviewed in person.",
-    "state": "merged"
+    "body": "## Summary\n\nFix the email templates in the web app. Covered by existing tests. Small, reviewed in person.\n\n## Changes\n\n- Migration script, idempotent\n- Dead code removed\n\n## Testing\n\nRan on staging for two days with no alerts.\n\nReviewers: Jonah Mbeki, Ada Okafor\n",
+    "state": "merged",
+    "merged_by": "Kwame Boateng"
   },
   {
     "id": "PR-1030",
     "date": "2025-01-22",
     "author": "Tomi Adeyemi",
     "title": "Harden Envoy config lint",
-    "body": "Harden the Envoy config lint in the uploads API. Measured on staging first. Small, reviewed in person.",
-    "state": "merged"
+    "body": "## Summary\n\nHarden the Envoy config lint in the uploads API. Measured on staging first. Small, reviewed in person.\n\n## Changes\n\n- Dashboard panel added for the affected metric\n- Runbook entry added\n\n## Testing\n\nLoad-tested against a copy of production traffic.\n\nReviewers: Priya Natarajan, Sofia Rossi\n",
+    "state": "merged",
+    "merged_by": "Lena Fischer"
   },
   {
     "id": "PR-937",
     "date": "2025-01-25",
     "author": "Kwame Boateng",
     "title": "Clean up on-call runbook",
-    "body": "Clean up the on-call runbook in the notifications. Rolled out behind a flag. Small, reviewed in person.",
-    "state": "merged"
+    "body": "## Summary\n\nClean up the on-call runbook in the notifications. Rolled out behind a flag. Small, reviewed in person.\n\n## Changes\n\n- Dead code removed\n- Migration script, idempotent\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Marcus Chen, Jonah Mbeki\n",
+    "state": "merged",
+    "merged_by": "Sofia Rossi"
   },
   {
     "id": "PR-1019",
     "date": "2025-01-27",
     "author": "Sofia Rossi",
     "title": "Document Envoy config lint",
-    "body": "Document the Envoy config lint in the infrastructure. Rolled out behind a flag. Follow-up to last week's incident review.",
-    "state": "merged"
+    "body": "## Summary\n\nDocument the Envoy config lint in the infrastructure. Rolled out behind a flag. Follow-up to last week's incident review.\n\n## Changes\n\n- Unit tests updated for the new behaviour\n- Migration script, idempotent\n\n## Testing\n\nLoad-tested against a copy of production traffic.\n\nReviewers: Kwame Boateng, Lena Fischer\n",
+    "state": "merged",
+    "merged_by": "Marcus Chen"
   },
   {
     "id": "PR-1010",
     "date": "2025-02-07",
     "author": "Sofia Rossi",
     "title": "Instrument BigQuery views",
-    "body": "Instrument the BigQuery views in the API gateway. Docs updated. Docs updated.",
-    "state": "merged"
+    "body": "## Summary\n\nInstrument the BigQuery views in the API gateway. Docs updated. Docs updated.\n\n## Changes\n\n- Migration script, idempotent\n- Config change with the new value and a comment pointing at this PR\n\n## Testing\n\nRan on staging for two days with no alerts.\n\nReviewers: Tomi Adeyemi, Lena Fischer\n",
+    "state": "merged",
+    "merged_by": "Ada Okafor"
   },
   {
     "id": "PR-901",
     "date": "2025-02-14",
     "author": "Tomi Adeyemi",
     "title": "Document gateway timeouts",
-    "body": "Document the gateway timeouts in the notifications. Requested by support. Covered by existing tests.",
-    "state": "merged"
+    "body": "## Summary\n\nDocument the gateway timeouts in the notifications. Requested by support. Covered by existing tests.\n\n## Changes\n\n- Runbook entry added\n- Config change with the new value and a comment pointing at this PR\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Lena Fischer, Jonah Mbeki\n",
+    "state": "merged",
+    "merged_by": "Sofia Rossi"
   },
   {
     "id": "PR-948",
     "date": "2025-02-15",
     "author": "Jonah Mbeki",
     "title": "Instrument Postgres vacuum schedule",
-    "body": "Instrument the Postgres vacuum schedule in the API gateway. Nothing user-facing. Measured on staging first.",
-    "state": "merged"
+    "body": "## Summary\n\nInstrument the Postgres vacuum schedule in the API gateway. Nothing user-facing. Measured on staging first.\n\n## Changes\n\n- Dashboard panel added for the affected metric\n- Migration script, idempotent\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Sofia Rossi, Lena Fischer\n",
+    "state": "merged",
+    "merged_by": "Marcus Chen"
   },
   {
     "id": "PR-1045",
     "date": "2025-02-17",
     "author": "Marcus Chen",
     "title": "Migrate Terraform modules",
-    "body": "Migrate the Terraform modules in the infrastructure. Measured on staging first. Small, reviewed in person.",
-    "state": "merged"
+    "body": "## Summary\n\nMigrate the Terraform modules in the infrastructure. Measured on staging first. Small, reviewed in person.\n\n## Changes\n\n- Unit tests updated for the new behaviour\n- Runbook entry added\n\n## Testing\n\nRan on staging for two days with no alerts.\n\nReviewers: Ada Okafor, Tomi Adeyemi\n",
+    "state": "merged",
+    "merged_by": "Lena Fischer"
   },
   {
     "id": "PR-935",
     "date": "2025-02-18",
     "author": "Jonah Mbeki",
     "title": "Retry LaunchDarkly SDK bump",
-    "body": "Retry the LaunchDarkly SDK bump in the mobile app. Nothing user-facing. Nothing user-facing.",
-    "state": "merged"
+    "body": "## Summary\n\nRetry the LaunchDarkly SDK bump in the mobile app. Nothing user-facing. Nothing user-facing.\n\n## Changes\n\n- Unit tests updated for the new behaviour\n- Runbook entry added\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Kwame Boateng, Sofia Rossi\n",
+    "state": "merged",
+    "merged_by": "Kwame Boateng"
   },
   {
     "id": "PR-1004",
     "date": "2025-02-20",
     "author": "Jonah Mbeki",
     "title": "Document LaunchDarkly SDK bump",
-    "body": "Document the LaunchDarkly SDK bump in the search. Part of the Q3 cleanup. Rolled out behind a flag.",
-    "state": "merged"
+    "body": "## Summary\n\nDocument the LaunchDarkly SDK bump in the search. Part of the Q3 cleanup. Rolled out behind a flag.\n\n## Changes\n\n- Runbook entry added\n- Dashboard panel added for the affected metric\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Lena Fischer, Priya Natarajan\n",
+    "state": "merged",
+    "merged_by": "Lena Fischer"
   },
   {
     "id": "PR-1047",
     "date": "2025-02-21",
     "author": "Lena Fischer",
     "title": "Clean up session cookie flags",
-    "body": "Clean up the session cookie flags in the billing. Measured on staging first. Part of the Q3 cleanup.",
-    "state": "merged"
+    "body": "## Summary\n\nClean up the session cookie flags in the billing. Measured on staging first. Part of the Q3 cleanup.\n\n## Changes\n\n- Dead code removed\n- Dashboard panel added for the affected metric\n\n## Testing\n\nLoad-tested against a copy of production traffic.\n\nReviewers: Priya Natarajan, Sofia Rossi\n",
+    "state": "merged",
+    "merged_by": "Ada Okafor"
   },
   {
     "id": "PR-968",
     "date": "2025-02-23",
     "author": "Kwame Boateng",
     "title": "Instrument Stripe webhook retries",
-    "body": "Instrument the Stripe webhook retries in the mobile app. Part of the Q3 cleanup. Nothing user-facing.",
-    "state": "merged"
+    "body": "## Summary\n\nInstrument the Stripe webhook retries in the mobile app. Part of the Q3 cleanup. Nothing user-facing.\n\n## Changes\n\n- Runbook entry added\n- Dead code removed\n\n## Testing\n\nLoad-tested against a copy of production traffic.\n\nReviewers: Jonah Mbeki, Priya Natarajan\n",
+    "state": "merged",
+    "merged_by": "Lena Fischer"
   },
   {
     "id": "PR-1034",
     "date": "2025-02-26",
     "author": "Ada Okafor",
     "title": "Speed up CSV parser",
-    "body": "Speed up the CSV parser in the data pipeline. No behaviour change. Follow-up to last week's incident review.",
-    "state": "merged"
+    "body": "## Summary\n\nSpeed up the CSV parser in the data pipeline. No behaviour change. Follow-up to last week's incident review.\n\n## Changes\n\n- Dead code removed\n- Migration script, idempotent\n\n## Testing\n\nRan on staging for two days with no alerts.\n\nReviewers: Sofia Rossi, Kwame Boateng\n",
+    "state": "merged",
+    "merged_by": "Priya Natarajan"
   },
   {
     "id": "PR-945",
     "date": "2025-03-09",
     "author": "Sofia Rossi",
     "title": "Instrument gateway timeouts",
-    "body": "Instrument the gateway timeouts in the search. Part of the Q3 cleanup. Measured on staging first.",
-    "state": "merged"
+    "body": "## Summary\n\nInstrument the gateway timeouts in the search. Part of the Q3 cleanup. Measured on staging first.\n\n## Changes\n\n- Migration script, idempotent\n- Dead code removed\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Priya Natarajan, Ada Okafor\n",
+    "state": "merged",
+    "merged_by": "Ada Okafor"
   },
   {
     "id": "PR-923",
     "date": "2025-03-12",
     "author": "Jonah Mbeki",
     "title": "Harden CSV parser",
-    "body": "Harden the CSV parser in the search. Requested by support. Small, reviewed in person.",
-    "state": "merged"
+    "body": "## Summary\n\nHarden the CSV parser in the search. Requested by support. Small, reviewed in person.\n\n## Changes\n\n- Dashboard panel added for the affected metric\n- Migration script, idempotent\n\n## Testing\n\nRan on staging for two days with no alerts.\n\nReviewers: Priya Natarajan, Ada Okafor\n",
+    "state": "merged",
+    "merged_by": "Marcus Chen"
   },
   {
     "id": "PR-1029",
     "date": "2025-03-13",
     "author": "Tomi Adeyemi",
     "title": "Speed up log sampling",
-    "body": "Speed up the log sampling in the uploads API. Follow-up to last week's incident review. Requested by support.",
-    "state": "merged"
+    "body": "## Summary\n\nSpeed up the log sampling in the uploads API. Follow-up to last week's incident review. Requested by support.\n\n## Changes\n\n- Unit tests updated for the new behaviour\n- Config change with the new value and a comment pointing at this PR\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Lena Fischer, Kwame Boateng\n",
+    "state": "merged",
+    "merged_by": "Kwame Boateng"
   },
   {
     "id": "PR-941",
     "date": "2025-03-15",
     "author": "Tomi Adeyemi",
     "title": "Tune email templates",
-    "body": "Tune the email templates in the data pipeline. Measured on staging first. Docs updated.",
-    "state": "merged"
+    "body": "## Summary\n\nTune the email templates in the data pipeline. Measured on staging first. Docs updated.\n\n## Changes\n\n- Config change with the new value and a comment pointing at this PR\n- Migration script, idempotent\n\n## Testing\n\nRan on staging for two days with no alerts.\n\nReviewers: Lena Fischer, Sofia Rossi\n",
+    "state": "merged",
+    "merged_by": "Jonah Mbeki"
   },
   {
     "id": "PR-1036",
     "date": "2025-03-16",
     "author": "Priya Natarajan",
     "title": "Fix onboarding copy",
-    "body": "Fix the onboarding copy in the infrastructure. Requested by support. Covered by existing tests.",
-    "state": "merged"
+    "body": "## Summary\n\nFix the onboarding copy in the infrastructure. Requested by support. Covered by existing tests.\n\n## Changes\n\n- Runbook entry added\n- Dead code removed\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Jonah Mbeki, Tomi Adeyemi\n",
+    "state": "merged",
+    "merged_by": "Ada Okafor"
   },
   {
     "id": "PR-1039",
     "date": "2025-03-21",
     "author": "Jonah Mbeki",
     "title": "Tune deploy script",
-    "body": "Tune the deploy script in the auth. Measured on staging first. Follow-up to last week's incident review.",
-    "state": "merged"
+    "body": "## Summary\n\nTune the deploy script in the auth. Measured on staging first. Follow-up to last week's incident review.\n\n## Changes\n\n- Runbook entry added\n- Config change with the new value and a comment pointing at this PR\n\n## Testing\n\nRan on staging for two days with no alerts.\n\nReviewers: Ada Okafor, Lena Fischer\n",
+    "state": "merged",
+    "merged_by": "Lena Fischer"
   },
   {
     "id": "PR-201",
     "date": "2025-04-09",
     "author": "Priya Natarajan",
     "title": "Add the CI test suite",
-    "body": "Adds pytest and Jest suites to CI, 1,180 tests, running on every PR in about six minutes.",
-    "state": "merged"
+    "body": "## Summary\n\nAdds pytest and Jest suites to CI, 1,180 tests, running on every PR in about six minutes.\n\n## Changes\n\n- Config change with the new value and a comment pointing at this PR\n- Unit tests updated for the new behaviour\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Marcus Chen, Jonah Mbeki\n",
+    "state": "merged",
+    "merged_by": "Marcus Chen"
   },
   {
     "id": "PR-1015",
     "date": "2025-04-27",
     "author": "Jonah Mbeki",
     "title": "Clean up UUID formatting",
-    "body": "Clean up the UUID formatting in the uploads API. No behaviour change. Part of the Q3 cleanup.",
-    "state": "merged"
+    "body": "## Summary\n\nClean up the UUID formatting in the uploads API. No behaviour change. Part of the Q3 cleanup.\n\n## Changes\n\n- Unit tests updated for the new behaviour\n- Config change with the new value and a comment pointing at this PR\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Priya Natarajan, Kwame Boateng\n",
+    "state": "merged",
+    "merged_by": "Tomi Adeyemi"
   },
   {
     "id": "PR-950",
     "date": "2025-05-21",
     "author": "Marcus Chen",
     "title": "Document EU latency dashboard",
-    "body": "Document the EU latency dashboard in the billing. Part of the Q3 cleanup. Docs updated.",
-    "state": "merged"
+    "body": "## Summary\n\nDocument the EU latency dashboard in the billing. Part of the Q3 cleanup. Docs updated.\n\n## Changes\n\n- Dashboard panel added for the affected metric\n- Migration script, idempotent\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Kwame Boateng, Jonah Mbeki\n",
+    "state": "merged",
+    "merged_by": "Lena Fischer"
   },
   {
     "id": "PR-1024",
     "date": "2025-06-15",
     "author": "Priya Natarajan",
     "title": "Speed up SOC 2 evidence folder",
-    "body": "Speed up the SOC 2 evidence folder in the API gateway. No behaviour change. No behaviour change.",
-    "state": "merged"
+    "body": "## Summary\n\nSpeed up the SOC 2 evidence folder in the API gateway. No behaviour change. No behaviour change.\n\n## Changes\n\n- Migration script, idempotent\n- Dead code removed\n\n## Testing\n\nRan on staging for two days with no alerts.\n\nReviewers: Jonah Mbeki, Kwame Boateng\n",
+    "state": "merged",
+    "merged_by": "Marcus Chen"
   },
   {
     "id": "PR-1003",
     "date": "2025-07-02",
     "author": "Ada Okafor",
     "title": "Document SendGrid templates",
-    "body": "Document the SendGrid templates in the web app. Docs updated. Covered by existing tests.",
-    "state": "merged"
+    "body": "## Summary\n\nDocument the SendGrid templates in the web app. Docs updated. Covered by existing tests.\n\n## Changes\n\n- Dashboard panel added for the affected metric\n- Unit tests updated for the new behaviour\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Lena Fischer, Marcus Chen\n",
+    "state": "merged",
+    "merged_by": "Jonah Mbeki"
   },
   {
     "id": "PR-1023",
     "date": "2025-07-07",
     "author": "Sofia Rossi",
     "title": "Document deploy script",
-    "body": "Document the deploy script in the data pipeline. Follow-up to last week's incident review. Measured on staging first.",
-    "state": "merged"
+    "body": "## Summary\n\nDocument the deploy script in the data pipeline. Follow-up to last week's incident review. Measured on staging first.\n\n## Changes\n\n- Runbook entry added\n- Dead code removed\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Ada Okafor, Marcus Chen\n",
+    "state": "merged",
+    "merged_by": "Lena Fischer"
   },
   {
     "id": "PR-942",
     "date": "2025-07-17",
     "author": "Jonah Mbeki",
     "title": "Tune status page copy",
-    "body": "Tune the status page copy in the auth. Measured on staging first. Requested by support.",
-    "state": "merged"
+    "body": "## Summary\n\nTune the status page copy in the auth. Measured on staging first. Requested by support.\n\n## Changes\n\n- Runbook entry added\n- Config change with the new value and a comment pointing at this PR\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Lena Fischer, Kwame Boateng\n",
+    "state": "merged",
+    "merged_by": "Sofia Rossi"
   },
   {
     "id": "PR-959",
     "date": "2025-07-19",
     "author": "Sofia Rossi",
     "title": "Fix index warmup",
-    "body": "Fix the index warmup in the search. No behaviour change. Part of the Q3 cleanup.",
-    "state": "merged"
+    "body": "## Summary\n\nFix the index warmup in the search. No behaviour change. Part of the Q3 cleanup.\n\n## Changes\n\n- Unit tests updated for the new behaviour\n- Config change with the new value and a comment pointing at this PR\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Marcus Chen, Priya Natarajan\n",
+    "state": "merged",
+    "merged_by": "Jonah Mbeki"
   },
   {
     "id": "PR-963",
     "date": "2025-07-27",
     "author": "Ada Okafor",
     "title": "Migrate session cookie flags",
-    "body": "Migrate the session cookie flags in the billing. No behaviour change. Nothing user-facing.",
-    "state": "merged"
+    "body": "## Summary\n\nMigrate the session cookie flags in the billing. No behaviour change. Nothing user-facing.\n\n## Changes\n\n- Runbook entry added\n- Dead code removed\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Sofia Rossi, Lena Fischer\n",
+    "state": "merged",
+    "merged_by": "Tomi Adeyemi"
   },
   {
     "id": "PR-986",
     "date": "2025-08-14",
     "author": "Ada Okafor",
     "title": "Speed up Redis eviction policy",
-    "body": "Speed up the Redis eviction policy in the web app. Follow-up to last week's incident review. No behaviour change.",
-    "state": "merged"
+    "body": "## Summary\n\nSpeed up the Redis eviction policy in the web app. Follow-up to last week's incident review. No behaviour change.\n\n## Changes\n\n- Dead code removed\n- Config change with the new value and a comment pointing at this PR\n\n## Testing\n\nRan on staging for two days with no alerts.\n\nReviewers: Marcus Chen, Kwame Boateng\n",
+    "state": "merged",
+    "merged_by": "Sofia Rossi"
   },
   {
     "id": "PR-946",
     "date": "2025-08-23",
     "author": "Tomi Adeyemi",
     "title": "Harden SOC 2 evidence folder",
-    "body": "Harden the SOC 2 evidence folder in the notifications. Part of the Q3 cleanup. No behaviour change.",
-    "state": "merged"
+    "body": "## Summary\n\nHarden the SOC 2 evidence folder in the notifications. Part of the Q3 cleanup. No behaviour change.\n\n## Changes\n\n- Dashboard panel added for the affected metric\n- Runbook entry added\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Priya Natarajan, Marcus Chen\n",
+    "state": "merged",
+    "merged_by": "Priya Natarajan"
   },
   {
     "id": "PR-1006",
     "date": "2025-08-25",
     "author": "Lena Fischer",
     "title": "Fix Safari layout bug",
-    "body": "Fix the Safari layout bug in the auth. Measured on staging first. Docs updated.",
-    "state": "merged"
+    "body": "## Summary\n\nFix the Safari layout bug in the auth. Measured on staging first. Docs updated.\n\n## Changes\n\n- Runbook entry added\n- Migration script, idempotent\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Priya Natarajan, Marcus Chen\n",
+    "state": "merged",
+    "merged_by": "Ada Okafor"
   },
   {
     "id": "PR-964",
     "date": "2025-08-26",
     "author": "Tomi Adeyemi",
     "title": "Instrument upload retries",
-    "body": "Instrument the upload retries in the mobile app. Nothing user-facing. Covered by existing tests.",
-    "state": "merged"
+    "body": "## Summary\n\nInstrument the upload retries in the mobile app. Nothing user-facing. Covered by existing tests.\n\n## Changes\n\n- Config change with the new value and a comment pointing at this PR\n- Dead code removed\n\n## Testing\n\nLoad-tested against a copy of production traffic.\n\nReviewers: Marcus Chen, Jonah Mbeki\n",
+    "state": "merged",
+    "merged_by": "Priya Natarajan"
   },
   {
     "id": "PR-979",
     "date": "2025-09-05",
     "author": "Kwame Boateng",
     "title": "Clean up gateway timeouts",
-    "body": "Clean up the gateway timeouts in the search. Measured on staging first. Rolled out behind a flag.",
-    "state": "merged"
+    "body": "## Summary\n\nClean up the gateway timeouts in the search. Measured on staging first. Rolled out behind a flag.\n\n## Changes\n\n- Migration script, idempotent\n- Runbook entry added\n\n## Testing\n\nLoad-tested against a copy of production traffic.\n\nReviewers: Priya Natarajan, Tomi Adeyemi\n",
+    "state": "merged",
+    "merged_by": "Jonah Mbeki"
   },
   {
     "id": "PR-971",
     "date": "2025-09-09",
     "author": "Priya Natarajan",
     "title": "Fix index warmup",
-    "body": "Fix the index warmup in the infrastructure. Small, reviewed in person. Nothing user-facing.",
-    "state": "merged"
+    "body": "## Summary\n\nFix the index warmup in the infrastructure. Small, reviewed in person. Nothing user-facing.\n\n## Changes\n\n- Dashboard panel added for the affected metric\n- Config change with the new value and a comment pointing at this PR\n\n## Testing\n\nRan on staging for two days with no alerts.\n\nReviewers: Jonah Mbeki, Marcus Chen\n",
+    "state": "merged",
+    "merged_by": "Marcus Chen"
   },
   {
     "id": "PR-991",
     "date": "2025-09-10",
     "author": "Lena Fischer",
     "title": "Refactor upload retries",
-    "body": "Refactor the upload retries in the infrastructure. Rolled out behind a flag. Requested by support.",
-    "state": "merged"
+    "body": "## Summary\n\nRefactor the upload retries in the infrastructure. Rolled out behind a flag. Requested by support.\n\n## Changes\n\n- Migration script, idempotent\n- Unit tests updated for the new behaviour\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Kwame Boateng, Tomi Adeyemi\n",
+    "state": "merged",
+    "merged_by": "Ada Okafor"
   },
   {
     "id": "PR-922",
     "date": "2025-09-12",
     "author": "Ada Okafor",
     "title": "Refactor onboarding copy",
-    "body": "Refactor the onboarding copy in the notifications. Nothing user-facing. Part of the Q3 cleanup.",
-    "state": "merged"
+    "body": "## Summary\n\nRefactor the onboarding copy in the notifications. Nothing user-facing. Part of the Q3 cleanup.\n\n## Changes\n\n- Runbook entry added\n- Unit tests updated for the new behaviour\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Marcus Chen, Priya Natarajan\n",
+    "state": "merged",
+    "merged_by": "Kwame Boateng"
   },
   {
     "id": "PR-970",
     "date": "2025-09-15",
     "author": "Sofia Rossi",
     "title": "Clean up invoice PDF rendering",
-    "body": "Clean up the invoice PDF rendering in the search. Requested by support. Requested by support.",
-    "state": "merged"
+    "body": "## Summary\n\nClean up the invoice PDF rendering in the search. Requested by support. Requested by support.\n\n## Changes\n\n- Config change with the new value and a comment pointing at this PR\n- Migration script, idempotent\n\n## Testing\n\nLoad-tested against a copy of production traffic.\n\nReviewers: Priya Natarajan, Lena Fischer\n",
+    "state": "merged",
+    "merged_by": "Tomi Adeyemi"
   },
   {
     "id": "PR-1002",
     "date": "2025-09-15",
     "author": "Jonah Mbeki",
     "title": "Document CSV parser",
-    "body": "Document the CSV parser in the mobile app. Rolled out behind a flag. Docs updated.",
-    "state": "merged"
+    "body": "## Summary\n\nDocument the CSV parser in the mobile app. Rolled out behind a flag. Docs updated.\n\n## Changes\n\n- Runbook entry added\n- Migration script, idempotent\n\n## Testing\n\nRan on staging for two days with no alerts.\n\nReviewers: Kwame Boateng, Lena Fischer\n",
+    "state": "merged",
+    "merged_by": "Priya Natarajan"
   },
   {
     "id": "PR-955",
     "date": "2025-09-22",
     "author": "Marcus Chen",
     "title": "Speed up Postgres vacuum schedule",
-    "body": "Speed up the Postgres vacuum schedule in the API gateway. Part of the Q3 cleanup. No behaviour change.",
-    "state": "merged"
+    "body": "## Summary\n\nSpeed up the Postgres vacuum schedule in the API gateway. Part of the Q3 cleanup. No behaviour change.\n\n## Changes\n\n- Dead code removed\n- Unit tests updated for the new behaviour\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Priya Natarajan, Jonah Mbeki\n",
+    "state": "merged",
+    "merged_by": "Kwame Boateng"
   },
   {
     "id": "PR-988",
     "date": "2025-09-22",
     "author": "Kwame Boateng",
     "title": "Tune index warmup",
-    "body": "Tune the index warmup in the auth. Covered by existing tests. Nothing user-facing.",
-    "state": "merged"
+    "body": "## Summary\n\nTune the index warmup in the auth. Covered by existing tests. Nothing user-facing.\n\n## Changes\n\n- Runbook entry added\n- Dashboard panel added for the affected metric\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Jonah Mbeki, Marcus Chen\n",
+    "state": "merged",
+    "merged_by": "Priya Natarajan"
   },
   {
     "id": "PR-999",
     "date": "2025-09-24",
     "author": "Ada Okafor",
     "title": "Document pipeline backfill",
-    "body": "Document the pipeline backfill in the data pipeline. Part of the Q3 cleanup. Measured on staging first.",
-    "state": "merged"
+    "body": "## Summary\n\nDocument the pipeline backfill in the data pipeline. Part of the Q3 cleanup. Measured on staging first.\n\n## Changes\n\n- Dashboard panel added for the affected metric\n- Dead code removed\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Tomi Adeyemi, Lena Fischer\n",
+    "state": "merged",
+    "merged_by": "Priya Natarajan"
   },
   {
     "id": "PR-915",
     "date": "2025-10-06",
     "author": "Lena Fischer",
     "title": "Refactor Safari layout bug",
-    "body": "Refactor the Safari layout bug in the auth. No behaviour change. Follow-up to last week's incident review.",
-    "state": "merged"
+    "body": "## Summary\n\nRefactor the Safari layout bug in the auth. No behaviour change. Follow-up to last week's incident review.\n\n## Changes\n\n- Unit tests updated for the new behaviour\n- Config change with the new value and a comment pointing at this PR\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Kwame Boateng, Jonah Mbeki\n",
+    "state": "merged",
+    "merged_by": "Jonah Mbeki"
   },
   {
     "id": "PR-1028",
     "date": "2025-10-28",
     "author": "Kwame Boateng",
     "title": "Retry deploy script",
-    "body": "Retry the deploy script in the auth. Follow-up to last week's incident review. Small, reviewed in person.",
-    "state": "merged"
+    "body": "## Summary\n\nRetry the deploy script in the auth. Follow-up to last week's incident review. Small, reviewed in person.\n\n## Changes\n\n- Dashboard panel added for the affected metric\n- Dead code removed\n\n## Testing\n\nLoad-tested against a copy of production traffic.\n\nReviewers: Ada Okafor, Jonah Mbeki\n",
+    "state": "merged",
+    "merged_by": "Marcus Chen"
   },
   {
     "id": "PR-350",
     "date": "2025-11-18",
     "author": "Marcus Chen",
     "title": "Automated rollback with reversible migrations",
-    "body": "Every deploy now ships with a reversible migration and a one-command rollback. Rollback was exercised in production twice this week; no manual database restore is needed any more.",
-    "state": "merged"
+    "body": "## Summary\n\nEvery deploy now ships with a reversible migration and a one-command rollback. Rollback was exercised in production twice this week; no manual database restore is needed any more.\n\n## Changes\n\n- Migration script, idempotent\n- Dead code removed\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Jonah Mbeki, Priya Natarajan\n",
+    "state": "merged",
+    "merged_by": "Tomi Adeyemi"
   },
   {
     "id": "PR-929",
     "date": "2026-01-05",
     "author": "Kwame Boateng",
     "title": "Tune index warmup",
-    "body": "Tune the index warmup in the billing. Follow-up to last week's incident review. Small, reviewed in person.",
-    "state": "merged"
+    "body": "## Summary\n\nTune the index warmup in the billing. Follow-up to last week's incident review. Small, reviewed in person.\n\n## Changes\n\n- Config change with the new value and a comment pointing at this PR\n- Dead code removed\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Ada Okafor, Tomi Adeyemi\n",
+    "state": "merged",
+    "merged_by": "Ada Okafor"
   },
   {
     "id": "PR-398",
     "date": "2026-01-15",
     "author": "Priya Natarajan",
     "title": "Fix timezone bug in invoice dates",
-    "body": "Invoices generated after 23:00 UTC showed the next day's date. Dates are now rendered in the customer's billing timezone.",
-    "state": "merged"
+    "body": "## Summary\n\nInvoices generated after 23:00 UTC showed the next day's date. Dates are now rendered in the customer's billing timezone.\n\n## Changes\n\n- Config change with the new value and a comment pointing at this PR\n- Dead code removed\n\n## Testing\n\nLoad-tested against a copy of production traffic.\n\nReviewers: Lena Fischer, Jonah Mbeki\n",
+    "state": "merged",
+    "merged_by": "Ada Okafor"
   },
   {
     "id": "PR-1009",
     "date": "2026-01-16",
     "author": "Jonah Mbeki",
     "title": "Fix Redis eviction policy",
-    "body": "Fix the Redis eviction policy in the web app. Follow-up to last week's incident review. Measured on staging first.",
-    "state": "merged"
+    "body": "## Summary\n\nFix the Redis eviction policy in the web app. Follow-up to last week's incident review. Measured on staging first.\n\n## Changes\n\n- Config change with the new value and a comment pointing at this PR\n- Dashboard panel added for the affected metric\n\n## Testing\n\nRan on staging for two days with no alerts.\n\nReviewers: Tomi Adeyemi, Lena Fischer\n",
+    "state": "merged",
+    "merged_by": "Priya Natarajan"
   },
   {
     "id": "PR-1027",
     "date": "2026-01-20",
     "author": "Sofia Rossi",
     "title": "Clean up rate limits",
-    "body": "Clean up the rate limits in the uploads API. Covered by existing tests. Small, reviewed in person.",
-    "state": "merged"
+    "body": "## Summary\n\nClean up the rate limits in the uploads API. Covered by existing tests. Small, reviewed in person.\n\n## Changes\n\n- Unit tests updated for the new behaviour\n- Config change with the new value and a comment pointing at this PR\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Ada Okafor, Lena Fischer\n",
+    "state": "merged",
+    "merged_by": "Ada Okafor"
   },
   {
     "id": "PR-1035",
     "date": "2026-01-25",
     "author": "Sofia Rossi",
     "title": "Harden invoice PDF rendering",
-    "body": "Harden the invoice PDF rendering in the data pipeline. Follow-up to last week's incident review. No behaviour change.",
-    "state": "merged"
+    "body": "## Summary\n\nHarden the invoice PDF rendering in the data pipeline. Follow-up to last week's incident review. No behaviour change.\n\n## Changes\n\n- Runbook entry added\n- Unit tests updated for the new behaviour\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Kwame Boateng, Lena Fischer\n",
+    "state": "merged",
+    "merged_by": "Marcus Chen"
   },
   {
     "id": "PR-918",
     "date": "2026-02-11",
     "author": "Ada Okafor",
     "title": "Clean up pipeline backfill",
-    "body": "Clean up the pipeline backfill in the auth. Covered by existing tests. No behaviour change.",
-    "state": "merged"
+    "body": "## Summary\n\nClean up the pipeline backfill in the auth. Covered by existing tests. No behaviour change.\n\n## Changes\n\n- Config change with the new value and a comment pointing at this PR\n- Runbook entry added\n\n## Testing\n\nLoad-tested against a copy of production traffic.\n\nReviewers: Priya Natarajan, Tomi Adeyemi\n",
+    "state": "merged",
+    "merged_by": "Jonah Mbeki"
   },
   {
     "id": "PR-412",
     "date": "2026-03-02",
     "author": "Marcus Chen",
     "title": "Raise the API gateway body limit to 100 MB",
-    "body": "Upgrades Envoy to 1.31 and raises the request body limit on the gateway from 10 MB to 100 MB. Load-tested with 95 MB payloads; p99 latency unchanged. The old 10 MB limit was a default we never revisited.",
-    "state": "merged"
+    "body": "## Summary\n\nUpgrades Envoy to 1.31 and raises the request body limit on the gateway from 10 MB to 100 MB. Load-tested with 95 MB payloads; p99 latency unchanged. The old 10 MB limit was a default we never revisited.\n\n## Changes\n\n- Config change with the new value and a comment pointing at this PR\n- Unit tests updated for the new behaviour\n\n## Testing\n\nLoad-tested against a copy of production traffic.\n\nReviewers: Kwame Boateng, Priya Natarajan\n",
+    "state": "merged",
+    "merged_by": "Kwame Boateng"
   },
   {
     "id": "PR-961",
     "date": "2026-03-02",
     "author": "Sofia Rossi",
     "title": "Retry Redis eviction policy",
-    "body": "Retry the Redis eviction policy in the search. Nothing user-facing. Follow-up to last week's incident review.",
-    "state": "merged"
+    "body": "## Summary\n\nRetry the Redis eviction policy in the search. Nothing user-facing. Follow-up to last week's incident review.\n\n## Changes\n\n- Unit tests updated for the new behaviour\n- Config change with the new value and a comment pointing at this PR\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Jonah Mbeki, Lena Fischer\n",
+    "state": "merged",
+    "merged_by": "Kwame Boateng"
   },
   {
     "id": "PR-1013",
     "date": "2026-03-10",
     "author": "Marcus Chen",
     "title": "Document photo picker",
-    "body": "Document the photo picker in the billing. Rolled out behind a flag. Covered by existing tests.",
-    "state": "merged"
+    "body": "## Summary\n\nDocument the photo picker in the billing. Rolled out behind a flag. Covered by existing tests.\n\n## Changes\n\n- Dashboard panel added for the affected metric\n- Config change with the new value and a comment pointing at this PR\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Tomi Adeyemi, Priya Natarajan\n",
+    "state": "merged",
+    "merged_by": "Jonah Mbeki"
   },
   {
     "id": "PR-430",
     "date": "2026-03-20",
     "author": "Sofia Rossi",
     "title": "New onboarding checklist component",
-    "body": "Replaces the modal onboarding with an inline checklist. Completion rate in the A/B test went from 41% to 58%.",
-    "state": "merged"
+    "body": "## Summary\n\nReplaces the modal onboarding with an inline checklist. Completion rate in the A/B test went from 41% to 58%.\n\n## Changes\n\n- Dead code removed\n- Migration script, idempotent\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Ada Okafor, Marcus Chen\n",
+    "state": "merged",
+    "merged_by": "Priya Natarajan"
   },
   {
     "id": "PR-924",
     "date": "2026-04-07",
     "author": "Kwame Boateng",
     "title": "Speed up LaunchDarkly SDK bump",
-    "body": "Speed up the LaunchDarkly SDK bump in the auth. Rolled out behind a flag. No behaviour change.",
-    "state": "merged"
+    "body": "## Summary\n\nSpeed up the LaunchDarkly SDK bump in the auth. Rolled out behind a flag. No behaviour change.\n\n## Changes\n\n- Config change with the new value and a comment pointing at this PR\n- Migration script, idempotent\n\n## Testing\n\nLoad-tested against a copy of production traffic.\n\nReviewers: Ada Okafor, Sofia Rossi\n",
+    "state": "merged",
+    "merged_by": "Ada Okafor"
   },
   {
     "id": "PR-455",
     "date": "2026-04-08",
     "author": "Marcus Chen",
     "title": "Bump Kubernetes to 1.31",
-    "body": "Cluster upgrade with no API deprecations affecting our manifests.",
-    "state": "merged"
+    "body": "## Summary\n\nCluster upgrade with no API deprecations affecting our manifests.\n\n## Changes\n\n- Config change with the new value and a comment pointing at this PR\n- Dashboard panel added for the affected metric\n\n## Testing\n\nRan on staging for two days with no alerts.\n\nReviewers: Kwame Boateng, Sofia Rossi\n",
+    "state": "merged",
+    "merged_by": "Ada Okafor"
   },
   {
     "id": "PR-925",
     "date": "2026-04-23",
     "author": "Jonah Mbeki",
     "title": "Clean up email templates",
-    "body": "Clean up the email templates in the search. Docs updated. Rolled out behind a flag.",
-    "state": "merged"
+    "body": "## Summary\n\nClean up the email templates in the search. Docs updated. Rolled out behind a flag.\n\n## Changes\n\n- Dead code removed\n- Migration script, idempotent\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Priya Natarajan, Tomi Adeyemi\n",
+    "state": "merged",
+    "merged_by": "Priya Natarajan"
   },
   {
     "id": "PR-471",
     "date": "2026-04-29",
     "author": "Lena Fischer",
     "title": "Dedupe events by idempotency key",
-    "body": "Pipeline now drops duplicate events within a 24-hour window.",
-    "state": "merged"
+    "body": "## Summary\n\nPipeline now drops duplicate events within a 24-hour window.\n\n## Changes\n\n- Config change with the new value and a comment pointing at this PR\n- Runbook entry added\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Sofia Rossi, Marcus Chen\n",
+    "state": "merged",
+    "merged_by": "Jonah Mbeki"
   },
   {
     "id": "PR-993",
     "date": "2026-05-08",
     "author": "Sofia Rossi",
     "title": "Speed up invoice PDF rendering",
-    "body": "Speed up the invoice PDF rendering in the mobile app. Rolled out behind a flag. Requested by support.",
-    "state": "merged"
+    "body": "## Summary\n\nSpeed up the invoice PDF rendering in the mobile app. Rolled out behind a flag. Requested by support.\n\n## Changes\n\n- Runbook entry added\n- Migration script, idempotent\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Tomi Adeyemi, Priya Natarajan\n",
+    "state": "merged",
+    "merged_by": "Marcus Chen"
   },
   {
     "id": "PR-488",
     "date": "2026-05-13",
     "author": "Priya Natarajan",
     "title": "Rate-limit the export endpoint",
-    "body": "Exports are limited to 10 per hour per tenant after the incident on May 9.",
-    "state": "merged"
+    "body": "## Summary\n\nExports are limited to 10 per hour per tenant after the incident on May 9.\n\n## Changes\n\n- Config change with the new value and a comment pointing at this PR\n- Unit tests updated for the new behaviour\n\n## Testing\n\nRan on staging for two days with no alerts.\n\nReviewers: Sofia Rossi, Kwame Boateng\n",
+    "state": "merged",
+    "merged_by": "Lena Fischer"
   },
   {
     "id": "PR-967",
     "date": "2026-05-20",
     "author": "Priya Natarajan",
     "title": "Instrument Redis eviction policy",
-    "body": "Instrument the Redis eviction policy in the data pipeline. No behaviour change. Docs updated.",
-    "state": "merged"
+    "body": "## Summary\n\nInstrument the Redis eviction policy in the data pipeline. No behaviour change. Docs updated.\n\n## Changes\n\n- Config change with the new value and a comment pointing at this PR\n- Dead code removed\n\n## Testing\n\nLoad-tested against a copy of production traffic.\n\nReviewers: Ada Okafor, Marcus Chen\n",
+    "state": "merged",
+    "merged_by": "Lena Fischer"
   },
   {
     "id": "PR-520",
     "date": "2026-05-22",
     "author": "Sofia Rossi",
     "title": "Playwright end-to-end suite for checkout and onboarding",
-    "body": "Adds 64 Playwright tests covering sign-in, onboarding, checkout and the billing portal. Runs against staging on every release candidate.",
-    "state": "merged"
+    "body": "## Summary\n\nAdds 64 Playwright tests covering sign-in, onboarding, checkout and the billing portal. Runs against staging on every release candidate.\n\n## Changes\n\n- Dead code removed\n- Migration script, idempotent\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Jonah Mbeki, Ada Okafor\n",
+    "state": "merged",
+    "merged_by": "Lena Fischer"
   },
   {
     "id": "PR-1007",
     "date": "2026-05-27",
     "author": "Priya Natarajan",
     "title": "Tune upload retries",
-    "body": "Tune the upload retries in the mobile app. Small, reviewed in person. Requested by support.",
-    "state": "merged"
+    "body": "## Summary\n\nTune the upload retries in the mobile app. Small, reviewed in person. Requested by support.\n\n## Changes\n\n- Dashboard panel added for the affected metric\n- Config change with the new value and a comment pointing at this PR\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Sofia Rossi, Lena Fischer\n",
+    "state": "merged",
+    "merged_by": "Kwame Boateng"
   },
   {
     "id": "PR-502",
     "date": "2026-06-03",
     "author": "Jonah Mbeki",
     "title": "Add security headers",
-    "body": "CSP, HSTS and frame-ancestors headers added to all responses.",
-    "state": "merged"
+    "body": "## Summary\n\nCSP, HSTS and frame-ancestors headers added to all responses.\n\n## Changes\n\n- Migration script, idempotent\n- Runbook entry added\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Sofia Rossi, Marcus Chen\n",
+    "state": "merged",
+    "merged_by": "Marcus Chen"
   },
   {
     "id": "PR-928",
     "date": "2026-06-03",
     "author": "Sofia Rossi",
     "title": "Tune rollback notes",
-    "body": "Tune the rollback notes in the mobile app. Docs updated. Measured on staging first.",
-    "state": "merged"
+    "body": "## Summary\n\nTune the rollback notes in the mobile app. Docs updated. Measured on staging first.\n\n## Changes\n\n- Config change with the new value and a comment pointing at this PR\n- Unit tests updated for the new behaviour\n\n## Testing\n\nLoad-tested against a copy of production traffic.\n\nReviewers: Lena Fischer, Priya Natarajan\n",
+    "state": "merged",
+    "merged_by": "Jonah Mbeki"
   },
   {
     "id": "PR-1048",
     "date": "2026-06-20",
     "author": "Kwame Boateng",
     "title": "Harden UUID formatting",
-    "body": "Harden the UUID formatting in the uploads API. Small, reviewed in person. Nothing user-facing.",
-    "state": "merged"
+    "body": "## Summary\n\nHarden the UUID formatting in the uploads API. Small, reviewed in person. Nothing user-facing.\n\n## Changes\n\n- Dead code removed\n- Config change with the new value and a comment pointing at this PR\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Tomi Adeyemi, Marcus Chen\n",
+    "state": "merged",
+    "merged_by": "Tomi Adeyemi"
   },
   {
     "id": "PR-515",
     "date": "2026-06-24",
     "author": "Sofia Rossi",
     "title": "Dark mode",
-    "body": "Adds a theme toggle and dark tokens.",
-    "state": "merged"
+    "body": "## Summary\n\nAdds a theme toggle and dark tokens.\n\n## Changes\n\n- Config change with the new value and a comment pointing at this PR\n- Runbook entry added\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Lena Fischer, Priya Natarajan\n",
+    "state": "merged",
+    "merged_by": "Ada Okafor"
   },
   {
     "id": "PR-531",
     "date": "2026-07-15",
     "author": "Marcus Chen",
     "title": "Spot instances for batch workers",
-    "body": "Batch workers run on spot capacity with checkpointing; saves about 60% on that pool.",
-    "state": "merged"
+    "body": "## Summary\n\nBatch workers run on spot capacity with checkpointing; saves about 60% on that pool.\n\n## Changes\n\n- Dashboard panel added for the affected metric\n- Config change with the new value and a comment pointing at this PR\n\n## Testing\n\nCI green; verified in staging by the reviewer.\n\nReviewers: Sofia Rossi, Ada Okafor\n",
+    "state": "merged",
+    "merged_by": "Sofia Rossi"
   },
   {
     "id": "PR-1011",
     "date": "2026-08-20",
     "author": "Marcus Chen",
     "title": "Tune rollback notes",
-    "body": "Tune the rollback notes in the auth. Nothing user-facing. Covered by existing tests.",
-    "state": "merged"
+    "body": "## Summary\n\nTune the rollback notes in the auth. Nothing user-facing. Covered by existing tests.\n\n## Changes\n\n- Runbook entry added\n- Dead code removed\n\n## Testing\n\nRan on staging for two days with no alerts.\n\nReviewers: Kwame Boateng, Jonah Mbeki\n",
+    "state": "merged",
+    "merged_by": "Sofia Rossi"
   },
   {
     "id": "PR-1021",
     "date": "2026-09-03",
     "author": "Priya Natarajan",
     "title": "Harden index warmup",
-    "body": "Harden the index warmup in the web app. Measured on staging first. Part of the Q3 cleanup.",
-    "state": "merged"
+    "body": "## Summary\n\nHarden the index warmup in the web app. Measured on staging first. Part of the Q3 cleanup.\n\n## Changes\n\n- Config change with the new value and a comment pointing at this PR\n- Dashboard panel added for the affected metric\n\n## Testing\n\nLoad-tested against a copy of production traffic.\n\nReviewers: Tomi Adeyemi, Lena Fischer\n",
+    "state": "merged",
+    "merged_by": "Ada Okafor"
   },
   {
     "id": "PR-989",
     "date": "2026-10-02",
     "author": "Lena Fischer",
     "title": "Tune photo picker",
-    "body": "Tune the photo picker in the uploads API. Follow-up to last week's incident review. Part of the Q3 cleanup.",
-    "state": "merged"
+    "body": "## Summary\n\nTune the photo picker in the uploads API. Follow-up to last week's incident review. Part of the Q3 cleanup.\n\n## Changes\n\n- Dead code removed\n- Config change with the new value and a comment pointing at this PR\n\n## Testing\n\nRan on staging for two days with no alerts.\n\nReviewers: Sofia Rossi, Marcus Chen\n",
+    "state": "merged",
+    "merged_by": "Tomi Adeyemi"
   },
   {
     "id": "PR-907",
     "date": "2026-10-10",
     "author": "Kwame Boateng",
     "title": "Document invoice PDF rendering",
-    "body": "Document the invoice PDF rendering in the billing. Rolled out behind a flag. Docs updated.",
-    "state": "merged"
+    "body": "## Summary\n\nDocument the invoice PDF rendering in the billing. Rolled out behind a flag. Docs updated.\n\n## Changes\n\n- Config change with the new value and a comment pointing at this PR\n- Runbook entry added\n\n## Testing\n\nRan on staging for two days with no alerts.\n\nReviewers: Ada Okafor, Sofia Rossi\n",
+    "state": "merged",
+    "merged_by": "Jonah Mbeki"
   },
   {
     "id": "PR-996",
     "date": "2026-10-16",
     "author": "Priya Natarajan",
     "title": "Instrument session cookie flags",
-    "body": "Instrument the session cookie flags in the search. Requested by support. Docs updated.",
-    "state": "merged"
+    "body": "## Summary\n\nInstrument the session cookie flags in the search. Requested by support. Docs updated.\n\n## Changes\n\n- Dashboard panel added for the affected metric\n- Runbook entry added\n\n## Testing\n\nManual check of the affected flows in staging; screenshots in the ticket.\n\nReviewers: Kwame Boateng, Ada Okafor\n",
+    "state": "merged",
+    "merged_by": "Ada Okafor"
   },
   {
     "id": "PR-1016",
     "date": "2026-10-27",
     "author": "Marcus Chen",
     "title": "Refactor onboarding copy",
-    "body": "Refactor the onboarding copy in the API gateway. Covered by existing tests. Rolled out behind a flag.",
-    "state": "merged"
+    "body": "## Summary\n\nRefactor the onboarding copy in the API gateway. Covered by existing tests. Rolled out behind a flag.\n\n## Changes\n\n- Dead code removed\n- Migration script, idempotent\n\n## Testing\n\nLoad-tested against a copy of production traffic.\n\nReviewers: Ada Okafor, Jonah Mbeki\n",
+    "state": "merged",
+    "merged_by": "Sofia Rossi"
   }
 ]

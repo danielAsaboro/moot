@@ -7,12 +7,21 @@
 
 ## Context
 
-- Log storage costs about $0.50 per GB a month.
+Log storage costs about $0.50 per GB a month, and we were storing eighteen months of logs nobody read. The last three incidents used logs from the previous day.
+
+Stated premises:
+
+- Log storage costs about $0.50 per GB a month. (fact)
 
 ## Decision
 
 Application logs are deleted after 30 days.
 
+## Alternatives considered
+
+- 90 days (rejected: cost)
+- Cold storage after 30 days (deferred)
+
 ## Consequences
 
-Teams follow this until it is explicitly revisited. Exceptions need the owner's approval.
+Logs are deleted after 30 days. Security events are exported separately with longer retention.

@@ -9,12 +9,21 @@
 
 ## Context
 
-- All EU customers are in Germany and Austria.
+The EU data residency question comes up in every enterprise deal. All EU customers are in Germany and Austria, so one region in Frankfurt covers residency and keeps latency under 30 ms for every EU tenant we have.
+
+Stated premises:
+
+- All EU customers are in Germany and Austria. (fact)
 
 ## Decision
 
 A single EU region in Frankfurt serves all EU tenants.
 
+## Alternatives considered
+
+- Frankfurt plus Paris (rejected: doubles the infrastructure cost for no current customer)
+- EU tenants in us-east-1 with contractual promises (rejected by legal)
+
 ## Consequences
 
-Teams follow this until it is explicitly revisited. Exceptions need the owner's approval.
+All EU tenants are provisioned in eu-central-1. A second EU region needs a new ADR.

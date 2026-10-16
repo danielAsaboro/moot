@@ -198,6 +198,7 @@ function renderDecision(data, ask) {
       <div class="title">${esc(d.title)}</div>
       <div class="verdictline"><span class="badge fill ${esc(a.verdict)}">${esc(label(a.verdict))}</span><span class="muted">owner: ${owner}</span></div>
       <div class="muted">${esc(d.summary)}</div>
+      <details class="doc" id="adrBox"><summary>Read the ADR <span class="muted">· ${esc(d.source || "")}</span></summary><pre class="ticket">Loading…</pre></details>
       ${depthRow()}
       ${notYet ? `<div class="notyet">As of ${esc(a.as_of)} this decision had not been made yet. Move the date forward.</div>` : `
       <div class="tabs">${[["audit", "Audit"], ["graph", "Graph"], ["cypher", "Cypher"]].map(([k, t]) => `<button class="${state.tab === k ? "on" : ""}" data-tab="${k}">${t}</button>`).join("")}</div>
@@ -223,6 +224,12 @@ function renderDecision(data, ask) {
   document.querySelectorAll("[data-depth]").forEach(b => b.addEventListener("click", () => { state.depth = +b.dataset.depth; $("#depth").value = state.depth; refresh(); }));
   document.querySelectorAll("[data-open]").forEach(x => x.addEventListener("click", e => { e.preventDefault(); openDecision(x.dataset.open); }));
   document.querySelectorAll("[data-trace]").forEach(x => x.addEventListener("click", () => traceDoc(x.dataset.trace)));
+  const adr = $("#adrBox");
+  if (adr) adr.addEventListener("toggle", async () => {
+    if (!adr.open || adr.dataset.loaded) return;
+    try { const doc = await api(`/api/document/src:${encodeURIComponent(d.id)}`); adr.querySelector("pre").textContent = doc.text; adr.dataset.loaded = "1"; }
+    catch (e) { adr.querySelector("pre").textContent = e.message; }
+  }, { once: false });
   const cp = $("#copyTicket");
   if (cp) cp.addEventListener("click", async () => { try { await navigator.clipboard.writeText(data.ticket); toast("Ticket copied"); } catch (_) { toast("Copy failed"); } });
   const ap = $("#approve");
@@ -242,10 +249,11 @@ async function traceDoc(id) {
   const box = $("#traceBox"); if (!box) return;
   box.innerHTML = '<div class="trace muted">Tracing shortest paths…</div>';
   try {
-    const r = await api(`/api/trace/${encodeURIComponent(id)}`);
+    const [r, doc] = await Promise.all([api(`/api/trace/${encodeURIComponent(id)}`), api(`/api/document/${encodeURIComponent(id)}`).catch(() => null)]);
     box.innerHTML = `<div class="trace"><div class="t">${esc(r.evidence.id)} reaches ${r.reaches.length} decision${r.reaches.length === 1 ? "" : "s"}</div>
       <div class="muted" style="margin-bottom:6px">${esc(r.evidence.title)} · ${esc(r.evidence.date)} · shortest paths via algo.SPpaths</div>
-      ${r.reaches.map(x => `<div class="ev"><span class="id">${esc(x.id)}</span><span><a href="#" data-open="${esc(x.id)}">${esc(x.title)}</a> <span class="muted">· ${x.hops} hop${x.hops === 1 ? "" : "s"}</span></span></div>`).join("")}</div>`;
+      ${r.reaches.map(x => `<div class="ev"><span class="id">${esc(x.id)}</span><span><a href="#" data-open="${esc(x.id)}">${esc(x.title)}</a> <span class="muted">· ${x.hops} hop${x.hops === 1 ? "" : "s"}</span></span></div>`).join("")}
+      ${doc ? `<details class="doc"><summary>Source text <span class="muted">· ${esc(doc.kind)} · ${esc(doc.path)}</span></summary><pre class="ticket">${esc(doc.text)}</pre></details>` : ""}</div>`;
     box.querySelectorAll("[data-open]").forEach(x => x.addEventListener("click", e => { e.preventDefault(); openDecision(x.dataset.open); }));
   } catch (e) { box.innerHTML = `<div class="trace muted">${esc(e.message)}</div>`; }
 }

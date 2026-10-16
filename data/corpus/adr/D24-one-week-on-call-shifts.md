@@ -7,12 +7,20 @@
 
 ## Context
 
-- Only four engineers are trained for on-call.
+Only four engineers are trained for on-call. Shorter shifts would put each of them on call every other week, which is worse than one full week in four.
+
+Stated premises:
+
+- Only four engineers are trained for on-call. (fact)
 
 ## Decision
 
 On-call rotates weekly among the trained engineers.
 
+## Alternatives considered
+
+- Follow-the-sun with contractors (rejected: cost)
+
 ## Consequences
 
-Teams follow this until it is explicitly revisited. Exceptions need the owner's approval.
+Shifts run Monday to Monday. Training more engineers for on-call is the way to shorten them.
