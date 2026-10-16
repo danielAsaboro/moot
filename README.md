@@ -6,7 +6,7 @@ Moot is a company brain that does not answer "what do we do?" It answers "which 
 
 Built for [Graph Hacks: Context for AI Agents](https://www.wemakedevs.org/hackathons/falkordb) (WeMakeDevs x FalkorDB, Oct 2026). Track: **Company Brain**.
 
-<!-- hero gif: docs/hero.gif -->
+![Moot demo: ask why uploads are capped, flip depth 1 to 4, ask something not in the graph](docs/hero.gif)
 
 ## Submission checklist
 
