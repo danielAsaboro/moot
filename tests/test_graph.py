@@ -72,6 +72,42 @@ def test_time_travel_hides_undecided(g):
     assert tools.audit_decision(g, "D01", "2026-01-31", 4)["verdict"] == "HOLDS"
 
 
+def test_supersession_is_dated(g):
+    # D09 superseded D28 on 2025-07-01; before that D28 was in force (and states no premise)
+    assert tools.audit_decision(g, "D28", "2024-12-31", 4)["verdict"] == "UNDOCUMENTED"
+    assert tools.audit_decision(g, "D28", "2025-07-31", 4)["superseded_by"] == dict(id="D09", title="Serve EU customers from Frankfurt only",
+                                                                                   at="2025-07-01", kind="decision")
+    assert {r["id"]: r["verdict"] for r in tools.ledger(g, "2025-06-30", 4)}["D28"] == "UNDOCUMENTED"
+    assert {r["id"]: r["verdict"] for r in tools.ledger(g, "2025-07-31", 4)}["D28"] == "RETIRED"
+
+
+def test_gate(g):
+    # the gate audits at full depth: D01 is HOLDS at depth 1, but the gate still denies it on PR-412
+    d01 = tools.check_action(g, "D01", spec.AS_OF)
+    assert d01["gate"] == "DENY" and d01["depth"] == 6
+    assert next(r for r in d01["reasons"] if r["code"] == "premise_expired")["evidence"] == "PR-412"
+    assert [n["id"] for n in d01["reasons"][0]["path"]] == ["D01", "p_gateway_path", "p_gateway_limit"]
+    d06 = tools.check_action(g, "D06", spec.AS_OF)
+    assert d06["gate"] == "ALLOW" and {b["evidence"] for b in d06["basis"]} >= {"doc-soc2-2026"}
+    assert tools.check_action(g, "D17", spec.AS_OF)["gate"] == "REVALIDATE"   # disputed: the owner has to rule
+    assert tools.check_action(g, "D05", spec.AS_OF)["gate"] == "REVALIDATE"   # undocumented
+    assert tools.check_action(g, "D28", spec.AS_OF)["gate"] == "DENY"         # retired
+    assert tools.check_action(g, "D99", spec.AS_OF)["gate"] == "DENY"         # not in the graph
+    assert tools.check_action(g, "D07", "2025-06-01")["gate"] == "ALLOW"      # time travel: before PR-350
+    assert tools.check_action(g, "D07", spec.AS_OF)["gate"] == "DENY"
+
+
+def test_structural_answers_skip_the_model(g, monkeypatch):
+    monkeypatch.setattr(agent, "_client", lambda: (_ for _ in ()).throw(AssertionError("model called")))
+    r = agent.ask(g, "why do we use Postgres for every storage need", spec.AS_OF, 4)
+    assert r["audit"]["verdict"] == "UNDOCUMENTED" and r["narration"] == "structural"
+
+
+def test_evidence_carries_its_author(g):
+    a = tools.audit_decision(g, "D01", spec.AS_OF, 4)
+    assert [(e["id"], e["author"]) for p in a["premises"] for e in p["evidence"]] == [("PR-412", "Marcus Chen")]
+
+
 def test_timeline_is_monotone_until_evidence_lands(g):
     pts = tools.timeline(g, "2025-01-01", spec.AS_OF, 4)
     assert pts[0]["counts"].get("MOOT", 0) == 0
@@ -108,7 +144,7 @@ def test_mcp_server_lists_tools():
     from moot import mcp_server
     names = {t.name for t in asyncio.run(mcp_server.mcp.list_tools())}
     assert {"find_decision", "audit_decision", "premise_impact", "trace_document", "ledger", "ask", "record_finding",
-            "orphaned_decisions", "record_handover", "reopen_memo", "what_if", "riskiest_reasons"} <= names
+            "orphaned_decisions", "record_handover", "reopen_memo", "what_if", "riskiest_reasons", "check_action"} <= names
 
 
 def test_document_endpoint_serves_source_text(g, monkeypatch):
@@ -186,3 +222,7 @@ def test_handover_and_reopen_api(g, monkeypatch):
     assert w["premise"]["id"] == "p_soc2_cert" and w["queries"]
     assert c.get("/api/whatif", params={"q": "if churn goes above 5%"}).json()["found"] is False
     assert c.get("/api/risky", params={"as_of": spec.AS_OF}).json()["reasons"][0]["id"] == "p_infra_budget"
+    gt = c.get("/api/gate/D01", params={"as_of": spec.AS_OF}).json()
+    assert gt["gate"] == "DENY" and gt["queries"] and all(not q["write"] for q in gt["queries"])
+    assert c.get("/api/gate/D01", params={"graph": "nope"}).status_code == 422
+    assert c.get("/api/decision/D06", params={"as_of": spec.AS_OF}).json()["gate"]["gate"] == "ALLOW"

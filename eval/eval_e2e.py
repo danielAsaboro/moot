@@ -6,8 +6,9 @@ DISPUTED, UNDOCUMENTED, RETIRED and cite the document ids you relied on."
   rag     BM25 top-5 documents + the ADR text, handed to the model as context (a standard doc-chat company brain)
   moot    the graph verdict (no model) and Moot's narrated answer
 
-Scored against truth.json: accuracy over all decisions, precision/recall for MOOT, and whether the cited
-documents include the true invalidating evidence. Writes eval/results_e2e.md.
+Scored against truth.json: how often a decision whose premise was contradicted is still called HOLDS (the dead premise
+treated as current), accuracy over all decisions, precision/recall for MOOT, and whether the cited documents include the
+true invalidating evidence. Writes eval/results_e2e.md.
 """
 from __future__ import annotations
 
@@ -74,14 +75,19 @@ def main():
         return p, rc
 
     n = len(rows)
+    stale = [r for r in rows if r["expected"] in ("MOOT", "DISPUTED")]
     out = ["# End-to-end eval: verdicts with a model in the loop", "", f"Model: `{MODEL}`. Decisions: {n}. As of {truth['as_of']}.", "",
-           "| system | accuracy (all verdicts) | MOOT precision | MOOT recall | cited the true invalidating doc (of decisions that have one) |", "|---|---|---|---|---|"]
+           f"The headline column is the stale-acceptance count: of the {len(stale)} decisions whose premise has been contradicted "
+           "(expected MOOT or DISPUTED), how many did the system call HOLDS, i.e. treat the dead premise as current.", "",
+           f"| system | treated a dead premise as current (of {len(stale)}) | accuracy (all verdicts) | MOOT precision | MOOT recall | cited the true invalidating doc (of decisions that have one) |",
+           "|---|---|---|---|---|---|"]
     for key, label in (("rag", "BM25 RAG + model"), ("moot", "Moot (graph verdict, model narrates)")):
         acc = sum(1 for r in rows if r[key] == r["expected"]) / n
         p, rc = prf(key)
         with_t = [r for r in rows if r["targets"]]
         hit = sum(1 for r in with_t if r[f"{key}_hit"]) / len(with_t)
-        out.append(f"| {label} | {acc:.0%} | {p:.2f} | {rc:.2f} | {hit:.0%} |")
+        accepted = [r["id"] for r in stale if r[key] == "HOLDS"]
+        out.append(f"| {label} | **{len(accepted)}**{' (' + ', '.join(accepted) + ')' if accepted else ''} | {acc:.0%} | {p:.2f} | {rc:.2f} | {hit:.0%} |")
     out += ["", "| decision | expected | rag | moot | invalidating docs | rag cited one | moot cited one |", "|---|---|---|---|---|---|---|"]
     for r in rows:
         out.append(f"| {r['id']} | {r['expected']} | {r['rag']} | {r['moot']} | {', '.join(r['targets'])} | {'yes' if r['rag_hit'] else 'no'} | {'yes' if r['moot_hit'] else 'no'} |")

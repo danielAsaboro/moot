@@ -30,6 +30,7 @@ Built for [Graph Hacks: Context for AI Agents](https://www.wemakedevs.org/hackat
 8. Click **Orphaned decisions**. Ada left in May and Lena left last week; four live decisions have no owner. Each one is routed up the reporting line *as it stood on the day the owner left*: Lena reported to Ada, who had already gone, so her decisions climb one more level to Kwame. The reasons and verdict travel with each decision. **Hand to Kwame** writes a new dated `OWNS` edge; the old one stays, so time travel still shows who owned it then.
 9. Open a MOOT decision. Instead of a ticket, Moot drafts a **re-open memo**: which reason broke, the dated evidence that broke it, which other decisions rest on the same reason, and who should own the follow-up (the current owner, or the handover successor if they left). **Approve** writes a `Finding` with the memo, the cited evidence and an `ASSIGNED_TO` edge. Nothing happens before that click.
 10. Ask **"What if we no longer need SOC 2?"** Moot pretends that reason broke today and shows the three decisions that would fall, HOLDS → MOOT, each with the chain from the decision through the premise that derives from it. **Riskiest reasons** ranks every reason by how many standing decisions sit below it; the $20k tooling budget carries three. Ask "what if churn goes above 5%?" and Moot says no reason in the graph mentions it.
+11. Every decision shows an **Agent gate**: may an agent act on it? `GET /api/gate/D01` (or the MCP tool `check_action`) answers **DENY** with the path to PR-412, even though D01 is HOLDS at depth 1, because the gate always audits at full depth. D06 is **ALLOW**, with the evidence that says so; D17 is **REVALIDATE** (contradicted, then re-affirmed: the owner has to rule). Set the date to 2025-06-01 and D07 flips back to ALLOW. On the real public ADRs, an agent about to follow log4brains' "Use Lunr" gets DENY: Lunr's last commit was 2020-08-19.
 
 ## Run it
 
@@ -74,7 +75,7 @@ One named graph per company (`select_graph(tenant)`). Nodes:
 | Label | Key properties | Meaning |
 |---|---|---|
 | `Decision` | id, title, summary, decided_on, source | a standing decision (one per ADR) |
-| `Premise` | id, text, kind (fact / constraint / assumption) | a stated reason behind one or more decisions |
+| `Premise` | id, text, kind (fact / constraint / assumption / unwritten), unchecked | a reason behind one or more decisions; `unchecked` says why nobody could check it |
 | `Evidence` | id, kind (adr / pr / ticket / chat / doc), title, date, excerpt | a dated document |
 | `Person` | id, name, role, joined, left | people, with tenure |
 | `System` | id, name | what a decision governs |
@@ -92,7 +93,8 @@ Edges:
 (Person)-[:REPORTS_TO {valid_from, valid_to}]->(Person)  the reporting line, dated
 (Person)-[:AUTHORED]->(Evidence)
 (Decision)-[:GOVERNS]->(System)
-(Decision)-[:SUPERSEDES]->(Decision)
+(Decision)-[:SUPERSEDES {at}]->(Decision)           dated by the superseding decision
+(Evidence)-[:RETIRES {at, quote}]->(Decision)        the document that retired a decision whose successor is not in the graph
 (Finding)-[:ABOUT]->(Decision), (Finding)-[:CITES]->(Evidence), (Finding)-[:SUPERSEDED_BY]->(Finding)
 (Finding)-[:ASSIGNED_TO]->(Person)                   who owns the follow-up of a re-open memo
 ```
@@ -114,8 +116,9 @@ Indexes: range index on `id` for every label; full-text on `Decision(title, summ
 
 Verdict rules (pure Python in `moot/verdict.py`, applied to the rows the queries return):
 
-- a premise is **expired** when its latest dated event (≤ as-of) is a CONTRADICTS; **disputed** when it was contradicted and later re-affirmed; **holds** otherwise
-- a decision is **RETIRED** if another decision supersedes it; **UNDOCUMENTED** if it has no premise; **MOOT** if any premise within `depth` hops is expired; **DISPUTED** if any is disputed; **HOLDS** otherwise
+- a premise is **expired** when its latest dated event (≤ as-of) is a CONTRADICTS; **disputed** when it was contradicted and later re-affirmed; **unchecked** when it carries no evidence and is marked as a check nobody could answer; **holds** otherwise
+- a decision is **RETIRED** if a `SUPERSEDES` or `RETIRES` edge dated on or before as-of points at it; **UNDOCUMENTED** if it has no premise; **MOOT** if any premise within `depth` hops is expired; **DISPUTED** if any is disputed; **HOLDS** otherwise
+- the **agent gate** (`gate()`) turns a full-depth audit into an action decision: **DENY** if the decision is not in the graph, not decided yet, retired, or rests on an expired premise; **REVALIDATE** if the graph cannot vouch for it (no premise, a disputed or unchecked premise, an owner who left); **ALLOW** otherwise, with the supporting evidence as its basis
 
 ## The queries Moot depends on
 
@@ -128,18 +131,30 @@ CALL db.idx.fulltext.queryNodes('Decision', $q) YIELD node, score
 RETURN node.id, node.title, node.summary, node.decided_on, score ORDER BY score DESC LIMIT $limit
 ```
 
-**2. The audit**: premises up to `depth` hops, with every dated event on each premise. This is the verdict.
+**2. The audit**: premises up to `depth` hops, with every dated event on each premise and the person who wrote it. This is the verdict.
 
 ```cypher
 MATCH (d:Decision {id: $id})
 MATCH p = (d)-[:BECAUSE_OF|DERIVED_FROM*1..4]->(pr:Premise)
 OPTIONAL MATCH (e:Evidence)-[r:SUPPORTS|CONTRADICTS]->(pr) WHERE r.at <= $as_of
+OPTIONAL MATCH (a:Person)-[:AUTHORED]->(e)
 RETURN pr, nodes(p) AS pn, length(p) AS hops,
-       collect({id: e.id, title: e.title, kind: e.kind, rel: type(r), at: r.at, quote: r.quote})
+       collect({id: e.id, title: e.title, kind: e.kind, rel: type(r), at: r.at, quote: r.quote, author: a.name})
 ORDER BY hops
 ```
 
+Retirement is read in the same pass and is dated too, so time travel cannot retire a decision with a successor that does not exist yet:
+
+```cypher
+MATCH (d:Decision {id: $id})
+OPTIONAL MATCH (n:Decision)-[su:SUPERSEDES]->(d) WHERE su.at <= $as_of
+OPTIONAL MATCH (x:Evidence)-[rt:RETIRES]->(d) WHERE rt.at <= $as_of
+RETURN d, n.id, n.title, su.at, x.id, x.title, rt.at, rt.quote
+```
+
 `nodes(p)` is returned with every answer and drawn in the UI as the path chain. `$as_of` makes the same question answer differently on different dates.
+
+**2b. The agent gate**: query 2 (and the retirement read) at depth 6, then `gate()`. It returns `ALLOW | DENY | REVALIDATE`, the reasons with the premise, the evidence id and `nodes(p)` for each, and for ALLOW the supporting evidence. It never writes. Exposed as `GET /api/gate/{id}` (`?graph=public_adrs` for the real ADRs) and the MCP tool `check_action`, described to clients as "call before you enforce, rely on or renew a decision; only act on ALLOW".
 
 **3. Shared-premise impact** with PageRank over the whole dependency graph, so expired premises rank by what depends on them:
 
@@ -172,12 +187,15 @@ RETURN d.id, p.id, p.name, p.role, o.valid_from, o.valid_to, o.handed_over_from 
 **6. The ledger**, one pass for every decision:
 
 ```cypher
-MATCH (d:Decision) OPTIONAL MATCH (n:Decision)-[:SUPERSEDES]->(d)
+MATCH (d:Decision)
+OPTIONAL MATCH (n:Decision)-[su:SUPERSEDES]->(d) WHERE su.at <= $as_of
+OPTIONAL MATCH (x:Evidence)-[rt:RETIRES]->(d) WHERE rt.at <= $as_of
+WITH d, coalesce(n.id, x.id) AS sup
 OPTIONAL MATCH p = (d)-[:BECAUSE_OF|DERIVED_FROM*1..4]->(pr:Premise)
 OPTIONAL MATCH (e:Evidence)-[r:SUPPORTS|CONTRADICTS]->(pr) WHERE r.at <= $as_of
-WITH d, n, pr, collect({rel: type(r), at: r.at}) AS ev
+WITH d, sup, pr, collect({rel: type(r), at: r.at}) AS ev
 OPTIONAL MATCH (d)-[:GOVERNS]->(s:System)
-RETURN d, n.id, pr.id, ev, collect(DISTINCT s.name) ORDER BY d.id
+RETURN d, sup, pr.id, ev, collect(DISTINCT s.name) ORDER BY d.id
 ```
 
 **7. Orphaned decisions → successor.** For every live decision whose owner of record has left, walk `REPORTS_TO` using the edges that were valid on the day the owner left, and stop at the first person who is still here. A manager who also left is skipped, not chosen.
@@ -234,7 +252,8 @@ truth.json / extracted.json ──► graph.json ──► moot seed (MERGE, ide
                                                                                    │
             ┌──────── read-only parameterised Cypher tools (ro_query) ─────────────┘
             ▼
-   verdict.py (pure)  ──►  agent.py: resolve → audit → memory check → narrate → validate citations
+   verdict.py (pure: verdict + agent gate)  ──►  agent.py: resolve → audit → memory check → narrate → validate citations
+                                                  (UNDOCUMENTED / RETIRED / NOT_YET: no model call at all)
             │                       │
       FastAPI + web UI        MCP server (stdio)      moot CLI
             │
@@ -269,7 +288,17 @@ Four outcomes, as the organisers' reference architecture asks: `answered_with_pa
 
 The audit is an index lookup plus a bounded path expansion, so its latency does not move with corpus size. The seed column is where FalkorDB taught us something: the first import matched edge endpoints without labels, which cannot use the per-label index and took three minutes at 20k documents; naming the labels on both ends brought it to under a second on an M-series Mac.
 
-`make eval-e2e` (needs a key) runs the model-in-the-loop comparison: a BM25 RAG company brain asked "does this still hold?" against Moot's graph verdict, scored on verdict accuracy and whether the cited document is the true invalidating one. Results land in `eval/results_e2e.md`.
+`make eval-gate` reproduces [eval/results_gate.md](eval/results_gate.md), no model: would each method let an agent act on a decision it should not? An agent should act only on the 10 decisions that HOLD; the other 20 should be stopped.
+
+| method | false allows (of 20) | of which stale (of 16) | false blocks (of 10) |
+|---|---|---|---|
+| Moot gate (full-depth audit + `gate()`) | **0** | **0** | **0** |
+| BM25 top-5 + change-cue heuristic | 4 | 4 | 8 |
+| trust the ADR (a doc-chat brain that finds it and stops) | 20 | 16 | 0 |
+
+On the 25 real public ADRs, which have no answer key, the gate denies 7 (5 rest on a reason a GitHub or OSV check contradicts, 2 were retired by their own repository) and asks to revalidate 7 whose vulnerability check could not be answered; 23 of the 25 still say *accepted*. The same answer key built the graph, so the Larkspur zeros show the gate and verdict rules agree, not that extraction is solved.
+
+`make eval-e2e` (needs a key) runs the model-in-the-loop comparison: a BM25 RAG company brain asked "does this still hold?" against Moot's graph verdict. The headline column is how many of the 16 decisions whose premise was contradicted each system still calls HOLDS, i.e. treats the dead premise as current; it also scores verdict accuracy and whether the cited document is the true invalidating one. Results land in `eval/results_e2e.md`.
 
 ## Real-world proof: public ADRs
 
@@ -283,12 +312,15 @@ We read 144 ADRs from those repositories first. Most of their stated reasons are
 | open source | GitHub license, then the LICENSE text | the only licenses offered are source-available (BUSL, SSPL, Elastic, RSAL) |
 | no known vulnerability | [OSV.dev](https://osv.dev) | an advisory affects the tool's latest published version |
 
-Snapshot of 2026-10-17 (`data/realworld/checks.json`, reproduced by `make realworld`): 26 tools, **71 checks answered, 6 failed, 7 could not be answered** and are listed as unchecked instead of guessed (three tools have no package in an OSV ecosystem; for four Go projects the module proxy's "latest" did not match the project's own latest release, so the vulnerability check refuses to answer). Every record's quote is verified against the ADR fetched from GitHub; a record whose quote is missing is dropped.
+Snapshot of 2026-10-17 (`data/realworld/checks.json`, reproduced by `make realworld`): 26 tools, **71 checks answered, 6 failed, 7 could not be answered** and are listed as unchecked instead of guessed (three tools have no package in an OSV ecosystem; for four Go projects the module proxy's "latest" did not match the project's own latest release, so the vulnerability check refuses to answer). An unanswered check is still a `Premise` node, marked `unchecked` and carrying no evidence: the verdict does not move, but the audit reports it as unchecked rather than holding, and the agent gate says REVALIDATE. Every record's quote is verified against the ADR fetched from GitHub; a record whose quote is missing is dropped.
+
+Two records have since been retired by their own repositories, and the graph says so with a dated `RETIRES` edge whose quote is verified against the retiring file: Backstage ADR013 (node-fetch) was superseded by ADR014 on 2024-11-29, and GOV.UK ADR 0007 (Fluent Bit and Elasticsearch) was marked "Deprecated (no superseding ADR)" on 2025-07-21. From those dates both are RETIRED, so node-fetch's failing maintenance check no longer counts against a decision that is not in force. Before them, time travel shows them as they were.
+
+The five records that are still in force and rest on a reason that no longer holds (MOOT):
 
 | ADR | decided | unwritten reason that no longer holds |
 |---|---|---|
 | log4brains: Use Lunr for search | 2020-11-03 | Lunr.js is maintained: last commit 2020-08-19 |
-| Backstage ADR013: Use node-fetch | 2021-12-21 | node-fetch is maintained: last commit 2023-07-25 (Backstage has itself superseded this ADR with ADR014) |
 | GOV.UK AWS: Puppet architecture | 2017-07-04 | Puppet is maintained: last commit to puppetlabs/puppet main 2024-12-11 |
 | GOV.UK: Prometheus Adapter for HPA metrics | 2025-06-03 | Prometheus Adapter is maintained: last commit 2025-04-01, two months before the ADR |
 | GOV.UK: Use Crossplane | 2025-10-20 | latest Crossplane (v2.4.2) has no known vulnerability: 1 OSV advisory |

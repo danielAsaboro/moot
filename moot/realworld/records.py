@@ -101,6 +101,18 @@ RECORDS = [
 ]
 
 
+# Records their own repository has since retired. Each becomes a dated (Evidence)-[:RETIRES]->(Decision) edge, so the
+# verdict is RETIRED from that day and the record is no longer audited as if it were in force. The date is the commit
+# that first carries the status text; the quote must be verbatim in the retiring file, as for RECORDS.
+# record id -> (evidence id, repo, file, title, date, verbatim quote, commit)
+RETIREMENTS = {
+    "bs-013": ("bs-adr014", BS, "adr014-use-fetch.md", "Backstage ADR014: Proper use of HTTP fetching libraries (supersedes ADR013)",
+               "2024-11-29", "Until now we have been recommending the use of `node-fetch` in Node.js contexts", "3ecfb12185"),
+    "gi-0007": ("gi-0007-deprecated", GI, "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+                "GOV.UK ADR 0007 status changed to Deprecated", "2025-07-21", "Deprecated (no superseding ADR)", "bdda1339fa"),
+}
+
+
 def source_url(repo: str, file: str) -> str:
     return f"https://github.com/{repo}/blob/HEAD/{P[repo]}/{file}"
 

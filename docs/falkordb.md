@@ -19,6 +19,7 @@ question → `db.idx.fulltext.queryNodes` on `Decision` → `audit_decision` (pa
 | trace_document | `algo.SPpaths` evidence → decisions | yes |
 | decision_owner | OWNS validity window | yes |
 | ledger | one-pass audit of every decision | yes |
+| check_action | the audit at depth 6 + dated SUPERSEDES / RETIRES, then the pure gate rule → ALLOW / DENY / REVALIDATE with the path | yes |
 | record_finding | CREATE Finding + SUPERSEDED_BY | **write, approval-gated** |
 
 ## Failure states
@@ -28,6 +29,8 @@ question → `db.idx.fulltext.queryNodes` on `Decision` → `audit_decision` (pa
 | decision id not present | `not_in_graph` |
 | model narration cites an id outside the rows | narration rejected, template used, rejection shown |
 | no ANTHROPIC_API_KEY | template narration; verdicts unaffected |
+| verdict is UNDOCUMENTED, RETIRED or NOT_YET | answered from the rows with no model call (`narration: structural`) |
+| a real-world check could not be answered | the premise exists, marked `unchecked`, with no evidence; the gate says REVALIDATE instead of guessing |
 | FalkorDB unreachable | `/api/health` 503; UI shows a toast; nothing is served from a cache |
 
 ## Docs vs live differences found

@@ -3710,7 +3710,9 @@
    "src": "D09",
    "rel": "SUPERSEDES",
    "dst": "D28",
-   "props": {}
+   "props": {
+    "at": "2025-07-01"
+   }
   },
   {
    "src": "D10",

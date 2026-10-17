@@ -112,8 +112,8 @@ function premiseHtml(p) {
     <div class="row"><span class="state ${esc(p.state)}">${esc(p.state)}</span><span class="muted">${p.hops} hop${p.hops > 1 ? "s" : ""}</span></div>
     <div>${esc(p.text)}</div>
     ${pathHtml(p.path, p.evidence)}
-    ${p.evidence.map(e => `<div class="ev"><span class="d">${esc(e.at)}</span><span><span class="rel ${esc(e.rel)}">${esc(e.rel)}</span> <span class="id link" data-trace="${esc(e.id)}" title="What else does this document reach?">${esc(e.id)}</span> ${esc(e.title)}</span></div>`).join("")}
-    ${p.evidence.length ? "" : '<div class="muted">No dated evidence touches this premise.</div>'}
+    ${p.evidence.map(e => `<div class="ev"><span class="d">${esc(e.at)}</span><span><span class="rel ${esc(e.rel)}">${esc(e.rel)}</span> <span class="id link" data-trace="${esc(e.id)}" title="What else does this document reach?">${esc(e.id)}</span> ${esc(e.title)}${e.author ? ` <span class="muted">· ${esc(e.author)}</span>` : ""}</span></div>`).join("")}
+    ${p.evidence.length ? "" : `<div class="muted">${p.unchecked ? `Could not be checked: ${esc(p.unchecked)}.` : "No dated evidence touches this premise."}</div>`}
     ${p.contradicted_before_decision ? '<div class="muted">The contradiction predates the decision: the premise was already false when it was made.</div>' : ""}
   </div>`;
 }
@@ -193,7 +193,7 @@ function renderDecision(data, ask) {
   const queries = (ask && ask.queries) || data.queries;
   const notYet = a.verdict === "NOT_YET";
   $("#panel").innerHTML = `
-    ${ask ? `<div class="card"><div class="outcome">${esc(ask.outcome.replace(/_/g, " "))}${ask.narration === "model" ? " · narrated by model, citations validated" : " · template narration"}</div>
+    ${ask ? `<div class="card"><div class="outcome">${esc(ask.outcome.replace(/_/g, " "))}${ask.narration === "model" ? " · narrated by model, citations validated" : ask.narration === "structural" ? " · answered by the graph alone, no model call" : " · template narration"}</div>
       <div class="prose">${esc(ask.answer).replace(/\[([A-Za-z0-9:_\-]+)\]/g, '<span class="cite">$1</span>')}</div></div>` : ""}
     <div class="card">
       <div class="id">${esc(d.id)} · decided ${esc(d.decided_on)} · ${esc((a.systems || []).join(", "))}</div>
@@ -205,7 +205,8 @@ function renderDecision(data, ask) {
       ${notYet ? `<div class="notyet">As of ${esc(a.as_of)} this decision had not been made yet. Move the date forward.</div>` : `
       <div class="tabs">${[["audit", "Audit"], ["graph", "Graph"], ["cypher", "Cypher"]].map(([k, t]) => `<button class="${state.tab === k ? "on" : ""}" data-tab="${k}">${t}</button>`).join("")}</div>
       <div class="tab ${state.tab === "audit" ? "on" : ""}" data-pane="audit">
-        ${a.superseded_by ? `<div class="muted" style="margin-top:10px">Superseded by <a href="#" data-open="${esc(a.superseded_by.id)}">${esc(a.superseded_by.id)}: ${esc(a.superseded_by.title)}</a></div>` : ""}
+        ${data.gate ? gateHtml(data.gate) : ""}
+        ${a.superseded_by ? `<div class="muted" style="margin-top:10px">Superseded on ${esc(a.superseded_by.at)} by ${a.superseded_by.kind === "decision" ? `<a href="#" data-open="${esc(a.superseded_by.id)}">${esc(a.superseded_by.id)}: ${esc(a.superseded_by.title)}</a>` : `${esc(a.superseded_by.id)}: ${esc(a.superseded_by.title)}`}</div>` : ""}
         ${a.premises.length ? `<h3>Premises</h3>${a.premises.map(premiseHtml).join("")}` : `<h3>Premises</h3><div class="muted">None recorded. The ADR gives no reason, so there is nothing to check.</div>`}
         ${others.length ? `<h3>Rests on the same premise</h3>${others.map(o => `<div class="ev"><span class="id">${esc(o.id)}</span><span><a href="#" data-open="${esc(o.id)}">${esc(o.title)}</a> <span class="muted">· ${esc(o.systems.join(", "))}</span></span></div>`).join("")}` : ""}
         <div id="traceBox"></div>
@@ -254,6 +255,15 @@ function renderDecision(data, ask) {
       openDecision(d.id);
     } catch (e) { toast(e.message); ap.disabled = false; }
   });
+}
+
+/* ---------- validity gate: may an agent act on this decision? ---------- */
+function gateHtml(gt) {
+  const why = gt.allowed
+    ? gt.basis.map(b => `<div class="muted">“${esc(b.text)}” holds${b.evidence ? ` · latest support ${esc(b.evidence)} on ${esc(b.at)}` : " · stated in the ADR, nothing contradicts it"}</div>`).join("")
+    : gt.reasons.map(r => `<div class="muted">${esc(r.text)}</div>${r.path && r.path.length > 1 ? chainHtml(r.path) : ""}`).join("");
+  return `<div class="gate"><div class="row"><span class="muted">Agent gate</span><span class="badge ${esc(gt.gate)}">${esc(gt.gate)}</span>
+    <span class="muted">${gt.allowed ? "an agent may act on this decision" : gt.gate === "DENY" ? "an agent must not act on this decision" : "re-validate before anyone acts on it"} · audited at depth ${gt.depth} · <code>GET /api/gate/${esc(gt.decision_id)}</code></span></div>${why}</div>`;
 }
 
 /* ---------- re-open memo ---------- */
@@ -381,13 +391,14 @@ async function showRealWorld() {
   unselect(); location.hash = "realworld";
   $("#panel").innerHTML = '<div class="empty"><div class="empty-title">Auditing public records…</div></div>';
   const rw = await api("/api/realworld"); const s = rw.summary;
-  const moot = rw.decisions.filter(d => d.verdict === "MOOT");
+  const moot = rw.decisions.filter(d => d.verdict === "MOOT"), retired = rw.decisions.filter(d => d.verdict === "RETIRED");
+  const rest = rw.decisions.filter(d => d.verdict !== "MOOT" && d.verdict !== "RETIRED");
   const rec = d => `<div class="orow"><div>
       <div><span class="id">${esc(d.repo)} · ${esc(d.date)}${d.status !== "accepted" ? " · ADR status: " + esc(d.status) : ""}</span></div>
-      <a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.title)}</a> <span class="badge ${esc(d.verdict)}">${esc(d.verdict)}</span>
+      <a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.title)}</a> <span class="badge ${esc(d.verdict)}">${esc(d.verdict)}</span> <span class="badge ${esc(d.gate)}" title="Agent gate">${esc(d.gate)}</span>
       <div class="muted">“${esc(d.quote)}”</div>
-      ${d.reasons.map(r => `<div class="muted">unwritten reason: ${esc(r.text)} <span class="state ${esc(r.state)}">${esc(r.state)}</span>${r.evidence.length ? ` · ${esc(r.evidence[r.evidence.length - 1].title)}` : ""}</div>`).join("")}
-      ${d.tools.flatMap(t => t.unchecked).map(u => `<div class="muted">unchecked: ${esc(u)}</div>`).join("")}
+      ${d.retired ? `<div class="muted">retired ${esc(d.retired.date)} by <a href="${esc(d.retired.commit)}" target="_blank" rel="noopener">${esc(d.retired.title)}</a>: “${esc(d.retired.quote)}”</div>` :
+        d.reasons.map(r => `<div class="muted">unwritten reason: ${esc(r.text)} <span class="state ${esc(r.state)}">${esc(r.state)}</span>${r.evidence.length ? ` · ${esc(r.evidence[r.evidence.length - 1].title)}` : r.unchecked ? ` · ${esc(r.unchecked)}` : ""}</div>`).join("")}
     </div></div>`;
   $("#panel").innerHTML = `<div class="card">
     <div class="outcome">real-world proof · separate graph public_adrs · checked ${esc(s.checked_on)}</div>
@@ -395,7 +406,8 @@ async function showRealWorld() {
     <div class="muted">${s.records} architecture decision records from ${s.repos} public GitHub repositories (Ministry of Justice, GOV.UK, Backstage, log4brains) each pick a named open-source tool. Their authors' stated reasons are about their own systems; Moot checks the reasons every one of them leaves unwritten: the tool is still maintained (GitHub, a commit in the last year), still open source (GitHub license), and its latest release has no known vulnerability (OSV.dev). ${s.checks} checks answered, ${s.failing} failed, ${s.unchecked} could not be answered and are listed as unchecked rather than guessed. Every quote is verified against the fetched ADR. Same verdict engine and path queries as the Larkspur demo.</div>
     ${rw.shared.length ? `<div class="muted" style="margin-top:6px">Shared reasons: ${rw.shared.map(x => `${esc(x.tool)} (${esc(x.records.join(", "))})`).join(" · ")}. One premise node, several organisations.</div>` : ""}
     <h3>No longer holds</h3>${moot.map(rec).join("")}
-    <details class="doc"><summary>Still holds (${rw.decisions.length - moot.length})</summary>${rw.decisions.filter(d => d.verdict !== "MOOT").map(rec).join("")}</details>
+    ${retired.length ? `<h3>Retired by their own repository</h3><div class="muted" style="margin-bottom:6px">Dated RETIRES edges: from that day these records are not audited as if they were in force, so a failing check on them no longer counts.</div>${retired.map(rec).join("")}` : ""}
+    <details class="doc"><summary>Still holds (${rest.length}; ${rest.filter(d => d.gate === "REVALIDATE").length} with a check that could not be answered, so the gate says REVALIDATE)</summary>${rest.map(rec).join("")}</details>
     <details class="doc"><summary>Cypher</summary>${cypherHtml(rw.queries)}</details>
   </div>`;
 }

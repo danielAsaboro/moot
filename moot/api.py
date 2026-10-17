@@ -72,8 +72,21 @@ def decision(decision_id: str, as_of: str | None = None, depth: int = Query(4, g
     impact = [tools.premise_impact(g(), p["id"]) for p in a["premises"] if p["state"] in ("expired", "disputed")]
     f = tools.findings(g(), decision_id)
     memo = tools.reopen_memo(g(), decision_id, as_of, depth) if a["verdict"] in ("MOOT", "DISPUTED") else None
-    return dict(audit=a, impact=impact, findings=f, memo=memo, ticket=memo["text"] if memo else agent.draft_ticket(a, impact),
+    gate = tools.check_action(g(), decision_id, as_of)
+    return dict(audit=a, impact=impact, findings=f, memo=memo, gate=gate, ticket=memo["text"] if memo else agent.draft_ticket(a, impact),
                 queries=tools.end_trace())
+
+
+@app.get("/api/gate/{decision_id}")
+def gate(decision_id: str, as_of: str | None = None, graph_name: str | None = Query(None, alias="graph")):
+    """The validity gate, for agents: may I act on (enforce, rely on, renew) this decision? ALLOW | DENY | REVALIDATE with the path.
+    Read-only. `graph` picks the tenant (default) or the public-ADR graph."""
+    if graph_name not in (None, graph().name, PUBLIC_GRAPH):
+        raise HTTPException(422, f"graph must be {graph().name} or {PUBLIC_GRAPH}")
+    tools.start_trace()
+    r = tools.check_action(graph(graph_name) if graph_name else g(), decision_id, as_of_param(as_of))
+    r["queries"] = tools.end_trace()
+    return r
 
 
 @app.get("/api/search")
@@ -235,10 +248,12 @@ def realworld():
         a = tools.audit_decision(pg, r["id"], as_of, 2)
         rec = recs.get(r["id"], {})
         out.append(dict(id=r["id"], title=r["title"], repo=rec.get("repo"), url=rec.get("url"), date=r["decided_on"], quote=rec.get("quote"),
-                        status=rec.get("status") or "accepted", verdict=r["verdict"],
+                        status=rec.get("status") or "accepted", verdict=r["verdict"], retired=rec.get("retired"),
+                        gate=tools.check_action(pg, r["id"], as_of)["gate"],
                         tools=[dict(id=t, name=checks["tools"][t]["name"], repo=checks["tools"][t]["repo"], unchecked=checks["tools"][t].get("unchecked", []))
                                for t in rec.get("tools", [])],
-                        reasons=[dict(id=p["id"], text=p["text"], state=p["state"], evidence=p["evidence"]) for p in a["premises"]]))
+                        reasons=[dict(id=p["id"], text=p["text"], state=p["state"], unchecked=p.get("unchecked"), evidence=p["evidence"])
+                                 for p in a["premises"]]))
     shared = [dict(tool=t["name"], records=[r["id"] for r in checks["records"] if tid in r["tools"]])
               for tid, t in checks["tools"].items() if sum(tid in r["tools"] for r in checks["records"]) > 1]
     return dict(summary=checks["summary"], decisions=out, shared=shared, queries=tools.end_trace())

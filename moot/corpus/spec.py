@@ -12,7 +12,7 @@ Edge semantics:
   Evidence -CONTRADICTS {at}-> Premise     a dated document that shows the premise no longer holds
   Person   -OWNS {valid_from, valid_to}-> Decision
   Decision -GOVERNS-> System
-  Decision -SUPERSEDES-> Decision
+  Decision -SUPERSEDES {at}-> Decision     dated by the superseding decision
   Person   -REPORTS_TO {valid_from, valid_to}-> Person
 """
 

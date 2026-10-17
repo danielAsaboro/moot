@@ -107,6 +107,17 @@
   },
   {
    "label": "Premise",
+   "id": "p_aws-lbc_no_known_vuln",
+   "props": {
+    "text": "The current release of AWS Load Balancer Controller has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "aws-lbc",
+    "check": "no_known_vuln",
+    "unchecked": "the Go module's latest version (v1.1.9) does not match the project's latest release (v3.6.0)"
+   }
+  },
+  {
+   "label": "Premise",
    "id": "p_concourse_maintained",
    "props": {
     "text": "Concourse CI is actively maintained",
@@ -145,6 +156,17 @@
     "date": "2026-10-17",
     "excerpt": "GitHub reports Apache-2.0",
     "path": "https://github.com/concourse/concourse"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_concourse_no_known_vuln",
+   "props": {
+    "text": "The current release of Concourse CI has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "concourse",
+    "check": "no_known_vuln",
+    "unchecked": "the Go module's latest version (v4.2.3+incompatible) does not match the project's latest release (v8.3.1)"
    }
   },
   {
@@ -250,6 +272,17 @@
     "date": "2026-10-17",
     "excerpt": "GitHub reports Apache-2.0",
     "path": "https://github.com/dexidp/dex"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_dex_no_known_vuln",
+   "props": {
+    "text": "The current release of Dex has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "dex",
+    "check": "no_known_vuln",
+    "unchecked": "the Go module's latest version (v0.6.1) does not match the project's latest release (v2.46.0)"
    }
   },
   {
@@ -422,6 +455,17 @@
   },
   {
    "label": "Premise",
+   "id": "p_external-secrets_no_known_vuln",
+   "props": {
+    "text": "The current release of external-secrets has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "external-secrets",
+    "check": "no_known_vuln",
+    "unchecked": "the Go module's latest version (v1.3.2) does not match the project's latest release (helm-chart-2.13.0)"
+   }
+  },
+  {
+   "label": "Premise",
    "id": "p_fluent-bit_maintained",
    "props": {
     "text": "Fluent Bit is actively maintained",
@@ -460,6 +504,17 @@
     "date": "2026-10-17",
     "excerpt": "GitHub reports Apache-2.0",
     "path": "https://github.com/fluent/fluent-bit"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_fluent-bit_no_known_vuln",
+   "props": {
+    "text": "The current release of Fluent Bit has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "fluent-bit",
+    "check": "no_known_vuln",
+    "unchecked": "no package in an OSV ecosystem"
    }
   },
   {
@@ -1451,6 +1506,17 @@
   },
   {
    "label": "Premise",
+   "id": "p_redis_no_known_vuln",
+   "props": {
+    "text": "The current release of Redis has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "redis",
+    "check": "no_known_vuln",
+    "unchecked": "no package in an OSV ecosystem"
+   }
+  },
+  {
+   "label": "Premise",
    "id": "p_tf-aws-eks_maintained",
    "props": {
     "text": "terraform-aws-eks module is actively maintained",
@@ -1489,6 +1555,17 @@
     "date": "2026-10-17",
     "excerpt": "GitHub reports Apache-2.0",
     "path": "https://github.com/terraform-aws-modules/terraform-aws-eks"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_tf-aws-eks_no_known_vuln",
+   "props": {
+    "text": "The current release of terraform-aws-eks module has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "tf-aws-eks",
+    "check": "no_known_vuln",
+    "unchecked": "no package in an OSV ecosystem"
    }
   },
   {
@@ -1673,6 +1750,17 @@
     "date": "2021-08-16",
     "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
     "excerpt": "Use a **Fluent Bit** `DaemonsSet` with AWS Elasticsearch Service."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "gi-0007-deprecated",
+   "props": {
+    "kind": "adr",
+    "title": "GOV.UK ADR 0007 status changed to Deprecated",
+    "date": "2025-07-21",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+    "excerpt": "Deprecated (no superseding ADR)"
    }
   },
   {
@@ -2064,6 +2152,17 @@
     "date": "2021-12-21",
     "path": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr013-use-node-fetch.md",
     "excerpt": "Backend (node) packages should use the `node-fetch` package"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "bs-adr014",
+   "props": {
+    "kind": "adr",
+    "title": "Backstage ADR014: Proper use of HTTP fetching libraries (supersedes ADR013)",
+    "date": "2024-11-29",
+    "path": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr014-use-fetch.md",
+    "excerpt": "Until now we have been recommending the use of `node-fetch` in Node.js contexts"
    }
   }
  ],
@@ -2730,6 +2829,14 @@
    }
   },
   {
+   "src": "moj-003",
+   "rel": "BECAUSE_OF",
+   "dst": "p_concourse_no_known_vuln",
+   "props": {
+    "quote": "The current release of Concourse CI has no known vulnerability"
+   }
+  },
+  {
    "src": "moj-004",
    "rel": "RECORDED_IN",
    "dst": "src:moj-004",
@@ -2842,6 +2949,14 @@
    }
   },
   {
+   "src": "gi-0002",
+   "rel": "BECAUSE_OF",
+   "dst": "p_tf-aws-eks_no_known_vuln",
+   "props": {
+    "quote": "The current release of terraform-aws-eks module has no known vulnerability"
+   }
+  },
+  {
    "src": "gi-0004",
    "rel": "RECORDED_IN",
    "dst": "src:gi-0004",
@@ -2861,6 +2976,14 @@
    "dst": "p_aws-lbc_open_source",
    "props": {
     "quote": "AWS Load Balancer Controller is open source"
+   }
+  },
+  {
+   "src": "gi-0004",
+   "rel": "BECAUSE_OF",
+   "dst": "p_aws-lbc_no_known_vuln",
+   "props": {
+    "quote": "The current release of AWS Load Balancer Controller has no known vulnerability"
    }
   },
   {
@@ -2900,6 +3023,15 @@
    "props": {}
   },
   {
+   "src": "gi-0007-deprecated",
+   "rel": "RETIRES",
+   "dst": "gi-0007",
+   "props": {
+    "at": "2025-07-21",
+    "quote": "Deprecated (no superseding ADR)"
+   }
+  },
+  {
    "src": "gi-0007",
    "rel": "BECAUSE_OF",
    "dst": "p_fluent-bit_maintained",
@@ -2913,6 +3045,14 @@
    "dst": "p_fluent-bit_open_source",
    "props": {
     "quote": "Fluent Bit is open source"
+   }
+  },
+  {
+   "src": "gi-0007",
+   "rel": "BECAUSE_OF",
+   "dst": "p_fluent-bit_no_known_vuln",
+   "props": {
+    "quote": "The current release of Fluent Bit has no known vulnerability"
    }
   },
   {
@@ -2959,6 +3099,14 @@
    "dst": "p_external-secrets_open_source",
    "props": {
     "quote": "external-secrets is open source"
+   }
+  },
+  {
+   "src": "gi-0008",
+   "rel": "BECAUSE_OF",
+   "dst": "p_external-secrets_no_known_vuln",
+   "props": {
+    "quote": "The current release of external-secrets has no known vulnerability"
    }
   },
   {
@@ -3014,6 +3162,14 @@
    }
   },
   {
+   "src": "gi-0010",
+   "rel": "BECAUSE_OF",
+   "dst": "p_dex_no_known_vuln",
+   "props": {
+    "quote": "The current release of Dex has no known vulnerability"
+   }
+  },
+  {
    "src": "gi-0013",
    "rel": "RECORDED_IN",
    "dst": "src:gi-0013",
@@ -3063,6 +3219,14 @@
    "dst": "p_concourse_open_source",
    "props": {
     "quote": "Concourse CI is open source"
+   }
+  },
+  {
+   "src": "gi-0018",
+   "rel": "BECAUSE_OF",
+   "dst": "p_concourse_no_known_vuln",
+   "props": {
+    "quote": "The current release of Concourse CI has no known vulnerability"
    }
   },
   {
@@ -3205,6 +3369,14 @@
    "dst": "p_redis_open_source",
    "props": {
     "quote": "Redis is open source"
+   }
+  },
+  {
+   "src": "ga-0025",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redis_no_known_vuln",
+   "props": {
+    "quote": "The current release of Redis has no known vulnerability"
    }
   },
   {
@@ -3416,6 +3588,15 @@
    "rel": "RECORDED_IN",
    "dst": "src:bs-013",
    "props": {}
+  },
+  {
+   "src": "bs-adr014",
+   "rel": "RETIRES",
+   "dst": "bs-013",
+   "props": {
+    "at": "2024-11-29",
+    "quote": "Until now we have been recommending the use of `node-fetch` in Node.js contexts"
+   }
   },
   {
    "src": "bs-013",

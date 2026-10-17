@@ -20,7 +20,7 @@ import urllib.request
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
-from .records import RECORDS, TOOLS, raw_url, source_url
+from .records import RECORDS, RETIREMENTS, TOOLS, raw_url, source_url
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "data" / "realworld"
@@ -137,30 +137,60 @@ def check_tool(tid: str, today: str) -> dict:
 PREMISE = {"maintained": "{name} is actively maintained", "open_source": "{name} is open source",
            "no_known_vuln": "The current release of {name} has no known vulnerability"}
 SOURCE = {"maintained": "GitHub activity", "open_source": "GitHub license", "no_known_vuln": "OSV.dev"}
+# which `unchecked` notes (by prefix) explain a missing check
+UNCHECKED_BY = {"maintained": ("GitHub:",), "open_source": ("license:", "GitHub:"), "no_known_vuln": ("vulnerabilities:", "OSV:")}
+
+
+def unchecked_reason(t: dict, k: str) -> str:
+    notes = [u.split(":", 1)[1].strip() for u in t.get("unchecked", []) if u.startswith(UNCHECKED_BY[k])]
+    return "; ".join(notes) or "no check was run"
+
+
+def check_retirements(records: list[dict]) -> list[str]:
+    """Attach each record's retirement (records.RETIREMENTS) after verifying its quote in the retiring file. Returns ids that failed."""
+    failed = []
+    for r in records:
+        if r["id"] not in RETIREMENTS:
+            continue
+        eid, repo, fn, title, d, quote, commit = RETIREMENTS[r["id"]]
+        if quote not in _get(raw_url(repo, fn), raw=True):
+            failed.append(r["id"])
+            continue
+        r["retired"] = dict(id=eid, title=title, date=d, url=source_url(repo, fn), quote=quote,
+                            commit=f"https://github.com/{repo}/commit/{commit}")
+    return failed
 
 
 def build(records: list[dict], tools: dict[str, dict]) -> dict:
     nodes, edges = [], []
     for tid, t in tools.items():
-        for k, c in t["checks"].items():
+        for k in PREMISE:
             pid = f"p_{tid}_{k}"
+            c = t["checks"].get(k)
+            if c is None:
+                # a check nobody could answer still names a reason the decision rests on; it carries no evidence
+                # either way, so the audit reports it as unchecked and the gate will not let an agent act on it
+                nodes.append(dict(label="Premise", id=pid, props=dict(text=PREMISE[k].format(name=t["name"]), kind="unwritten", tool=tid, check=k,
+                                                                     unchecked=unchecked_reason(t, k))))
+                continue
             nodes.append(dict(label="Premise", id=pid, props=dict(text=PREMISE[k].format(name=t["name"]), kind="unwritten", tool=tid, check=k)))
             eid = f"{k}:{tid}"
             nodes.append(dict(label="Evidence", id=eid, props=dict(kind="check", title=f"{SOURCE[k]}: {c['detail']}", date=t["checked_on"],
                                                                      excerpt=c["detail"], path=f"https://github.com/{t['repo']}")))
             edges.append(dict(src=eid, rel="SUPPORTS" if c["holds"] else "CONTRADICTS", dst=pid, props=dict(at=t["checked_on"], quote=c["detail"])))
-    seen = {n["id"] for n in nodes}
     for r in records:
         nodes.append(dict(label="Decision", id=r["id"], props=dict(title=r["title"], summary=r["quote"], decided_on=r["date"], source=r["url"],
                                                                      repo=r["repo"], status=r["status"] or "accepted")))
         sid = f"src:{r['id']}"
         nodes.append(dict(label="Evidence", id=sid, props=dict(kind="adr", title=f"{r['repo']}: {r['title']}", date=r["date"], path=r["url"], excerpt=r["quote"])))
         edges.append(dict(src=r["id"], rel="RECORDED_IN", dst=sid, props={}))
+        if r.get("retired"):
+            x = r["retired"]
+            nodes.append(dict(label="Evidence", id=x["id"], props=dict(kind="adr", title=x["title"], date=x["date"], path=x["url"], excerpt=x["quote"])))
+            edges.append(dict(src=x["id"], rel="RETIRES", dst=r["id"], props=dict(at=x["date"], quote=x["quote"])))
         for tid in r["tools"]:
-            for k in tools[tid]["checks"]:
-                pid = f"p_{tid}_{k}"
-                if pid in seen:
-                    edges.append(dict(src=r["id"], rel="BECAUSE_OF", dst=pid, props=dict(quote=PREMISE[k].format(name=tools[tid]["name"]))))
+            for k in PREMISE:
+                edges.append(dict(src=r["id"], rel="BECAUSE_OF", dst=f"p_{tid}_{k}", props=dict(quote=PREMISE[k].format(name=tools[tid]["name"]))))
     return dict(nodes=nodes, edges=edges)
 
 
@@ -174,11 +204,12 @@ def main() -> None:
             missing.append(rid)
             continue
         records.append(dict(id=rid, repo=repo, file=fn, url=source_url(repo, fn), title=title, date=d, tools=tool_ids, quote=quote, status=status))
+    retire_failed = check_retirements(records)
     tools = {tid: check_tool(tid, today) for tid in sorted({t for r in records for t in r["tools"]})}
     checks = [c for t in tools.values() for c in t["checks"].values()]
     summary = dict(checked_on=today, records=len(records), repos=len({r["repo"] for r in records}), tools=len(tools), checks=len(checks),
                    failing=sum(1 for c in checks if not c["holds"]), unchecked=sum(len(t.get("unchecked", [])) for t in tools.values()),
-                   dropped_records=missing)
+                   retired=sum(1 for r in records if r.get("retired")), dropped_records=missing, dropped_retirements=retire_failed)
     (OUT / "checks.json").write_text(json.dumps(dict(summary=summary, records=records, tools=tools), indent=1))
     (OUT / "graph.json").write_text(json.dumps(build(records, tools), indent=1))
     print(json.dumps(summary, indent=1))

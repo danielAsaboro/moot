@@ -13,7 +13,7 @@ from datetime import date, datetime, timezone
 
 from falkordb import Graph
 
-from .verdict import decision_verdict, premise_state
+from .verdict import decision_verdict, gate, premise_state
 
 # Query tracing: the UI's "show the Cypher" view. Every read goes through _q, which records the
 # query text, its parameters, the row count and the FalkorDB round-trip time while a trace is open.
@@ -80,20 +80,29 @@ def find_decision(g: Graph, query: str, limit: int = 5) -> list[dict]:
 def audit_decision(g: Graph, decision_id: str, as_of: str | None = None, depth: int = 4) -> dict:
     as_of = as_of or today()
     depth = max(1, min(int(depth), 6))
-    head = _q(g, 
-        "MATCH (d:Decision {id: $id}) OPTIONAL MATCH (n:Decision)-[:SUPERSEDES]->(d) "
+    # Retirement is dated like everything else: a later decision that SUPERSEDES this one, or a document that RETIRES it
+    # (the ADR's own status change, when the successor is outside the graph). Neither counts before its `at`.
+    head = _q(g,
+        "MATCH (d:Decision {id: $id}) "
+        "OPTIONAL MATCH (n:Decision)-[su:SUPERSEDES]->(d) WHERE su.at <= $as_of "
+        "OPTIONAL MATCH (x:Evidence)-[rt:RETIRES]->(d) WHERE rt.at <= $as_of "
         "OPTIONAL MATCH (d)-[:RECORDED_IN]->(src:Evidence) OPTIONAL MATCH (d)-[:GOVERNS]->(s:System) "
-        "RETURN d, n.id, n.title, src, collect(DISTINCT s.name)", {"id": decision_id}).result_set
+        "RETURN d, n.id, n.title, su.at, x.id, x.title, rt.at, rt.quote, src, collect(DISTINCT s.name)",
+        {"id": decision_id, "as_of": as_of}).result_set
     if not head:
         return dict(found=False, decision_id=decision_id, verdict="NOT_IN_GRAPH")
-    d, sup_id, sup_title, src, systems = head[0]
+    d, sup_id, sup_title, sup_at, ret_id, ret_title, ret_at, ret_quote, src, systems = head[0]
+    superseded_by = (dict(id=sup_id, title=sup_title, at=sup_at, kind="decision") if sup_id else
+                     dict(id=ret_id, title=ret_title, at=ret_at, kind="document", quote=ret_quote) if ret_id else None)
     if d.properties.get("decided_on", "") > as_of:
         return dict(found=True, decision=_node(d), as_of=as_of, depth=depth, verdict="NOT_YET", premises=[], superseded_by=None,
                     source=(_node(src) if src else None), systems=systems, owner=decision_owner(g, decision_id, as_of))
-    rows = _q(g, 
+    rows = _q(g,
         "MATCH (d:Decision {id: $id}) MATCH p = (d)-[:BECAUSE_OF|DERIVED_FROM*1..%d]->(pr:Premise) "
         "OPTIONAL MATCH (e:Evidence)-[r:SUPPORTS|CONTRADICTS]->(pr) WHERE r.at <= $as_of "
-        "RETURN pr, nodes(p) AS pn, length(p) AS hops, collect({id: e.id, title: e.title, kind: e.kind, date: e.date, rel: type(r), at: r.at, quote: r.quote}) "
+        "OPTIONAL MATCH (a:Person)-[:AUTHORED]->(e) "
+        "RETURN pr, nodes(p) AS pn, length(p) AS hops, "
+        "collect({id: e.id, title: e.title, kind: e.kind, date: e.date, rel: type(r), at: r.at, quote: r.quote, author: a.name}) "
         "ORDER BY hops" % depth, {"id": decision_id, "as_of": as_of}).result_set
     premises, seen = [], set()
     for pr, path_nodes, _hops, events in rows:
@@ -102,15 +111,28 @@ def audit_decision(g: Graph, decision_id: str, as_of: str | None = None, depth: 
             continue
         seen.add(pid)
         events = [e for e in events if e.get("id")]
-        state = premise_state(events)
+        unchecked = pr.properties.get("unchecked") or None
+        # a premise nobody could check, with no dated evidence either way, is reported as unchecked, not as holding
+        state = "unchecked" if unchecked and not events else premise_state(events)
         premises.append(dict(id=pid, text=pr.properties["text"], kind=pr.properties.get("kind"), hops=len(path_nodes) - 1,
-                             path=_path_ids(path_nodes), state=state,
+                             path=_path_ids(path_nodes), state=state, unchecked=unchecked,
                              evidence=sorted(events, key=lambda e: e["at"]),
                              contradicted_before_decision=any(e["rel"] == "CONTRADICTS" and e["at"] < d.properties["decided_on"] for e in events)))
-    verdict = decision_verdict(premises, superseded=bool(sup_id))
+    verdict = decision_verdict(premises, superseded=bool(superseded_by))
     return dict(found=True, decision=_node(d), as_of=as_of, depth=depth, verdict=verdict, premises=premises,
-                superseded_by=(dict(id=sup_id, title=sup_title) if sup_id else None),
-                source=(_node(src) if src else None), systems=systems, owner=decision_owner(g, decision_id, as_of))
+                superseded_by=superseded_by, source=(_node(src) if src else None), systems=systems,
+                owner=decision_owner(g, decision_id, as_of))
+
+
+# 2b. The validity gate: may an agent act on (enforce, rely on, renew) this decision? Always audited at full depth,
+#     because a shallow audit lets a decision through whose reason died two hops down (D01 at depth 1).
+GATE_DEPTH = 6
+
+
+def check_action(g: Graph, decision_id: str, as_of: str | None = None) -> dict:
+    a = audit_decision(g, decision_id, as_of, GATE_DEPTH)
+    return dict(gate(a), decision_id=decision_id, title=a["decision"]["title"] if a.get("found") else None,
+                as_of=a.get("as_of") or as_of or today(), depth=GATE_DEPTH)
 
 
 # 3. Shared-premise impact: everything downstream of a premise, ranked by PageRank over the dependency graph.
@@ -169,12 +191,15 @@ def ledger(g: Graph, as_of: str | None = None, depth: int = 4) -> list[dict]:
     as_of = as_of or today()
     depth = max(1, min(int(depth), 6))
     rows = _q(g, 
-        "MATCH (d:Decision) OPTIONAL MATCH (n:Decision)-[:SUPERSEDES]->(d) "
+        "MATCH (d:Decision) "
+        "OPTIONAL MATCH (n:Decision)-[su:SUPERSEDES]->(d) WHERE su.at <= $as_of "
+        "OPTIONAL MATCH (x:Evidence)-[rt:RETIRES]->(d) WHERE rt.at <= $as_of "
+        "WITH d, coalesce(n.id, x.id) AS sup "
         "OPTIONAL MATCH p = (d)-[:BECAUSE_OF|DERIVED_FROM*1..%d]->(pr:Premise) "
         "OPTIONAL MATCH (e:Evidence)-[r:SUPPORTS|CONTRADICTS]->(pr) WHERE r.at <= $as_of "
-        "WITH d, n, pr, collect({rel: type(r), at: r.at}) AS ev "
+        "WITH d, sup, pr, collect({rel: type(r), at: r.at}) AS ev "
         "OPTIONAL MATCH (d)-[:GOVERNS]->(s:System) "
-        "RETURN d, n.id, pr.id, ev, collect(DISTINCT s.name) ORDER BY d.id" % depth,
+        "RETURN d, sup, pr.id, ev, collect(DISTINCT s.name) ORDER BY d.id" % depth,
         {"as_of": as_of}).result_set
     owners = owners_as_of(g, as_of)
     out: dict[str, dict] = {}

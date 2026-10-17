@@ -65,6 +65,16 @@ def record_finding(decision_id: str, verdict: str, as_of: str, depth: int = 4, c
 
 
 @mcp.tool()
+def check_action(decision_id: str, as_of: str | None = None, public_adrs: bool = False) -> str:
+    """Call before you enforce, rely on or renew a decision. Returns ALLOW, DENY or REVALIDATE with the graph path that
+    justified it: DENY when a premise is contradicted or the decision is retired, REVALIDATE when the graph cannot vouch
+    for it (no premise, disputed, unchecked, owner left). Only act on ALLOW. Read-only; always audits at full depth.
+    Set public_adrs=true for the real public ADRs (ids like l4b-lunr, moj-004)."""
+    from .graph import PUBLIC_GRAPH
+    return json.dumps(tools.check_action(graph(PUBLIC_GRAPH) if public_adrs else graph(), decision_id, as_of), default=str)
+
+
+@mcp.tool()
 def orphaned_decisions(as_of: str | None = None) -> str:
     """Live decisions whose owner has left, grouped by who left, each with its reasons, verdict and the suggested new owner (first active person up the reporting line)."""
     return json.dumps(tools.orphans(graph(), as_of), default=str)

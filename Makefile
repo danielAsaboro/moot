@@ -1,4 +1,4 @@
-.PHONY: db seed serve demo eval eval-scale eval-e2e test extract reset realworld
+.PHONY: db seed serve demo eval eval-scale eval-gate eval-e2e test extract reset realworld
 MODULE=$(shell python3 -c "import redislite,os;print(os.path.dirname(redislite.__file__))" 2>/dev/null)
 
 db:        ## start an embedded FalkorDB on :6379 (pip install falkordblite) when you have no Docker
@@ -17,6 +17,8 @@ eval:      ## retrieval eval, no model needed -> eval/results.md
 	python3 eval/eval_retrieval.py
 eval-scale: ## noise scaling + verdict eval, no model needed -> eval/results_scale.md
 	python3 eval/eval_scale.py
+eval-gate: ## validity gate eval, no model needed -> eval/results_gate.md
+	python3 eval/eval_gate.py
 eval-e2e:  ## model-in-the-loop eval -> eval/results_e2e.md (needs ANTHROPIC_API_KEY)
 	python3 eval/eval_e2e.py
 extract:   ## LLM extraction from data/corpus -> data/extracted.json (needs ANTHROPIC_API_KEY)

@@ -7,7 +7,9 @@
   "checks": 71,
   "failing": 6,
   "unchecked": 7,
-  "dropped_records": []
+  "dropped_records": [],
+  "retired": 2,
+  "dropped_retirements": []
  },
  "records": [
   {
@@ -113,7 +115,15 @@
     "elasticsearch"
    ],
    "quote": "Use a **Fluent Bit** `DaemonsSet` with AWS Elasticsearch Service.",
-   "status": "deprecated"
+   "status": "deprecated",
+   "retired": {
+    "id": "gi-0007-deprecated",
+    "title": "GOV.UK ADR 0007 status changed to Deprecated",
+    "date": "2025-07-21",
+    "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+    "quote": "Deprecated (no superseding ADR)",
+    "commit": "https://github.com/alphagov/govuk-infrastructure/commit/bdda1339fa"
+   }
   },
   {
    "id": "gi-0008",
@@ -335,7 +345,15 @@
     "node-fetch"
    ],
    "quote": "Backend (node) packages should use the `node-fetch` package",
-   "status": "superseded"
+   "status": "superseded",
+   "retired": {
+    "id": "bs-adr014",
+    "title": "Backstage ADR014: Proper use of HTTP fetching libraries (supersedes ADR013)",
+    "date": "2024-11-29",
+    "url": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr014-use-fetch.md",
+    "quote": "Until now we have been recommending the use of `node-fetch` in Node.js contexts",
+    "commit": "https://github.com/backstage/backstage/commit/3ecfb12185"
+   }
   }
  ],
  "tools": {

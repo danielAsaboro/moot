@@ -7,6 +7,7 @@ Pipeline for a question:
   4. narrate: a model writes the prose from the rows, and a validator rejects any decision,
      premise or evidence id in the prose that the rows did not contain
   5. if no model key is configured, a template narrates instead; verdicts never depend on a model
+  6. UNDOCUMENTED, RETIRED and NOT_YET never reach the model: the graph's own sentence is the answer
 
 Four outcomes, as the reference architecture asks for:
   answered_with_path | answered_from_memory | not_in_graph | unknown_entity
@@ -74,7 +75,9 @@ def template_narration(audit: dict, impact: list[dict]) -> str:
         own = f" The owner of record is {owner['name']}" + ("." if owner["active"] else f", who left on {owner['valid_to']}, so nobody owns it today.")
     if v == "RETIRED":
         s = audit["superseded_by"]
-        return f"RETIRED. \"{d['title']}\" was superseded by {s['id']} ({s['title']}).{own}"
+        return f"RETIRED. \"{d['title']}\" was superseded on {s['at']} by {s['id']} ({s['title']}).{own}"
+    if v == "NOT_YET":
+        return f"NOT YET DECIDED. As of {audit['as_of']}, \"{d['title']}\" had not been decided; it was decided on {d['decided_on']}."
     if v == "UNDOCUMENTED":
         return f"UNDOCUMENTED. \"{d['title']}\" is recorded, but the ADR states no premise, so there is nothing to check it against.{own}"
     parts = [f"{v}. \"{d['title']}\" was decided on {d['decided_on']}."]
@@ -99,8 +102,16 @@ def template_narration(audit: dict, impact: list[dict]) -> str:
     return " ".join(parts) + own
 
 
+STRUCTURAL = ("UNDOCUMENTED", "RETIRED", "NOT_YET")
+
+
 def narrate(audit: dict, impact: list[dict]) -> tuple[str, str]:
-    """Returns (prose, mode) where mode is 'model' or 'template'."""
+    """Returns (prose, mode) where mode is 'model', 'template' or 'structural'.
+
+    'structural': the graph already said everything there is to say (no premise, retired, not decided yet),
+    so no model is called at all. The abstention happens before the model, not inside it."""
+    if audit["verdict"] in STRUCTURAL:
+        return template_narration(audit, impact), "structural"
     client = _client()
     if client is None:
         return template_narration(audit, impact), "template"

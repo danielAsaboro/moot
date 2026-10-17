@@ -71,13 +71,39 @@ def pg():
 def test_public_ledger_matches_the_failing_checks(pg):
     as_of = SNAP["summary"]["checked_on"]
     failing_tools = {tid for tid, t in SNAP["tools"].items() if any(not c["holds"] for c in t["checks"].values())}
-    expected = {r["id"] for r in SNAP["records"] if set(r["tools"]) & failing_tools}
-    got = {r["id"] for r in tools.ledger(pg, as_of, 2) if r["verdict"] == "MOOT"}
+    retired = {r["id"] for r in SNAP["records"] if r.get("retired")}
+    expected = {r["id"] for r in SNAP["records"] if set(r["tools"]) & failing_tools} - retired
+    ledger = {r["id"]: r["verdict"] for r in tools.ledger(pg, as_of, 2)}
+    got = {k for k, v in ledger.items() if v == "MOOT"}
     assert got == expected and got
+    # a record its own repository has retired is RETIRED, not MOOT, even though node-fetch's check fails
+    assert retired == {"bs-013", "gi-0007"} and all(ledger[k] == "RETIRED" for k in retired)
     # before the check date there is no evidence, so nothing is moot: verdicts need a dated edge
     assert not [r for r in tools.ledger(pg, "2026-10-16", 2) if r["verdict"] == "MOOT"]
     # Concourse was chosen by two organisations; one premise carries both
     assert {d["id"] for d in tools.premise_impact(pg, "p_concourse_maintained")["decisions"]} == {"moj-003", "gi-0018"}
+
+
+def test_retirement_is_dated(pg):
+    # Backstage retired ADR013 on 2024-11-29 (ADR014); before that it was in force
+    assert tools.audit_decision(pg, "bs-013", "2024-11-28", 2)["verdict"] == "HOLDS"
+    a = tools.audit_decision(pg, "bs-013", SNAP["summary"]["checked_on"], 2)
+    assert a["verdict"] == "RETIRED" and a["superseded_by"]["id"] == "bs-adr014" and a["superseded_by"]["at"] == "2024-11-29"
+
+
+def test_unchecked_premise_is_not_reported_as_holding(pg):
+    a = tools.audit_decision(pg, "gi-0004", SNAP["summary"]["checked_on"], 2)
+    states = {p["id"]: p["state"] for p in a["premises"]}
+    assert states["p_aws-lbc_no_known_vuln"] == "unchecked" and a["verdict"] == "HOLDS"
+
+
+def test_gate_on_real_records(pg):
+    on = SNAP["summary"]["checked_on"]
+    lunr = tools.check_action(pg, "l4b-lunr", on)
+    assert lunr["gate"] == "DENY" and lunr["reasons"][0]["evidence"] == "maintained:lunr"
+    assert tools.check_action(pg, "gi-0004", on)["gate"] == "REVALIDATE"  # vulnerability check could not be answered
+    assert [r["code"] for r in tools.check_action(pg, "bs-013", on)["reasons"]] == ["retired"]
+    assert tools.check_action(pg, "moj-047", on)["gate"] == "ALLOW"
 
 
 def test_realworld_api(pg, monkeypatch):

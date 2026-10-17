@@ -43,7 +43,8 @@ def build(truth: dict) -> dict:
         for s in d["systems"]:
             edge(d["id"], "GOVERNS", s)
         if d.get("supersedes"):
-            edge(d["id"], "SUPERSEDES", d["supersedes"])
+            # dated by the superseding decision: before that day the old one was still in force
+            edge(d["id"], "SUPERSEDES", d["supersedes"], at=d["decided_on"])
     for e in truth["evidence"]:
         node("Evidence", e["id"], kind=e["kind"], title=e["title"], date=e["date"], excerpt=e["text"][:280], path="")
         edge(e["author"], "AUTHORED", e["id"])
