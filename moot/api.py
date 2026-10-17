@@ -11,7 +11,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from . import agent, tools
-from .graph import graph, stats
+from .graph import DATA, PUBLIC_GRAPH, graph, stats
 
 ROOT = Path(__file__).resolve().parents[1]
 WEB = ROOT / "web"
@@ -212,6 +212,36 @@ def whatif(premise: str | None = None, q: str | None = None, as_of: str | None =
 def risky(as_of: str | None = None, depth: int = Query(4, ge=1, le=6), limit: int = Query(10, ge=1, le=50)):
     """Reasons ranked by how many standing decisions sit below them."""
     return tools.riskiest_reasons(g(), as_of_param(as_of), depth, limit)
+
+
+@app.get("/api/realworld")
+def realworld():
+    """Real public ADRs from five GitHub repositories, audited by the same path queries against dated GitHub and OSV checks."""
+    import json
+    snap = DATA / "realworld" / "checks.json"
+    if not snap.exists():
+        raise HTTPException(404, "no real-world snapshot; run `moot realworld`")
+    checks = json.loads(snap.read_text())
+    pg = graph(PUBLIC_GRAPH)
+    as_of = checks["summary"]["checked_on"]
+    tools.start_trace()
+    rows = tools.ledger(pg, as_of, 2)
+    if not rows:
+        tools.end_trace()
+        raise HTTPException(503, f"the {PUBLIC_GRAPH} graph is empty; run `moot seed`")
+    recs = {r["id"]: r for r in checks["records"]}
+    out = []
+    for r in rows:
+        a = tools.audit_decision(pg, r["id"], as_of, 2)
+        rec = recs.get(r["id"], {})
+        out.append(dict(id=r["id"], title=r["title"], repo=rec.get("repo"), url=rec.get("url"), date=r["decided_on"], quote=rec.get("quote"),
+                        status=rec.get("status") or "accepted", verdict=r["verdict"],
+                        tools=[dict(id=t, name=checks["tools"][t]["name"], repo=checks["tools"][t]["repo"], unchecked=checks["tools"][t].get("unchecked", []))
+                               for t in rec.get("tools", [])],
+                        reasons=[dict(id=p["id"], text=p["text"], state=p["state"], evidence=p["evidence"]) for p in a["premises"]]))
+    shared = [dict(tool=t["name"], records=[r["id"] for r in checks["records"] if tid in r["tools"]])
+              for tid, t in checks["tools"].items() if sum(tid in r["tools"] for r in checks["records"]) > 1]
+    return dict(summary=checks["summary"], decisions=out, shared=shared, queries=tools.end_trace())
 
 
 _DOCS: dict[str, dict] | None = None

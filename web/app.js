@@ -284,6 +284,12 @@ async function loadWatch() {
       <button class="wrow" id="wRisky"><span class="wn">${r.reasons.length ? r.reasons[0].standing : 0}</span><span><b>Riskiest reason</b><span class="muted">${r.reasons.length ? `“${esc(r.reasons[0].text)}” carries ${r.reasons[0].standing} standing decisions` : "no shared reasons"}</span></span><span class="go">What if →</span></button>`;
     $("#wOrphans").addEventListener("click", showOrphans);
     $("#wRisky").addEventListener("click", showRisky);
+    api("/api/realworld").then(rw => {
+      state.realworld = rw;
+      const moot = rw.decisions.filter(d => d.verdict === "MOOT").length;
+      $("#watch").insertAdjacentHTML("beforeend", `<button class="wrow" id="wReal"><span class="wn ${moot ? "hot" : ""}">${moot}</span><span><b>Real-world proof</b><span class="muted">of ${rw.summary.records} public ADRs from ${rw.summary.repos} GitHub repos rest on a reason that no longer holds</span></span><span class="go">See them →</span></button>`);
+      $("#wReal").addEventListener("click", showRealWorld);
+    }).catch(() => {});
   } catch (_) {}
 }
 
@@ -370,6 +376,30 @@ async function showRisky() {
   $("#panel").innerHTML = '<div class="card"><div class="muted">No reason carries a live decision.</div></div>';
 }
 
+/* ---------- real-world proof: public ADRs, separate graph ---------- */
+async function showRealWorld() {
+  unselect(); location.hash = "realworld";
+  $("#panel").innerHTML = '<div class="empty"><div class="empty-title">Auditing public records…</div></div>';
+  const rw = await api("/api/realworld"); const s = rw.summary;
+  const moot = rw.decisions.filter(d => d.verdict === "MOOT");
+  const rec = d => `<div class="orow"><div>
+      <div><span class="id">${esc(d.repo)} · ${esc(d.date)}${d.status !== "accepted" ? " · ADR status: " + esc(d.status) : ""}</span></div>
+      <a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.title)}</a> <span class="badge ${esc(d.verdict)}">${esc(d.verdict)}</span>
+      <div class="muted">“${esc(d.quote)}”</div>
+      ${d.reasons.map(r => `<div class="muted">unwritten reason: ${esc(r.text)} <span class="state ${esc(r.state)}">${esc(r.state)}</span>${r.evidence.length ? ` · ${esc(r.evidence[r.evidence.length - 1].title)}` : ""}</div>`).join("")}
+      ${d.tools.flatMap(t => t.unchecked).map(u => `<div class="muted">unchecked: ${esc(u)}</div>`).join("")}
+    </div></div>`;
+  $("#panel").innerHTML = `<div class="card">
+    <div class="outcome">real-world proof · separate graph public_adrs · checked ${esc(s.checked_on)}</div>
+    <div class="title">${moot.length} of ${s.records} real public decisions rest on a reason that no longer holds</div>
+    <div class="muted">${s.records} architecture decision records from ${s.repos} public GitHub repositories (Ministry of Justice, GOV.UK, Backstage, log4brains) each pick a named open-source tool. Their authors' stated reasons are about their own systems; Moot checks the reasons every one of them leaves unwritten: the tool is still maintained (GitHub, a commit in the last year), still open source (GitHub license), and its latest release has no known vulnerability (OSV.dev). ${s.checks} checks answered, ${s.failing} failed, ${s.unchecked} could not be answered and are listed as unchecked rather than guessed. Every quote is verified against the fetched ADR. Same verdict engine and path queries as the Larkspur demo.</div>
+    ${rw.shared.length ? `<div class="muted" style="margin-top:6px">Shared reasons: ${rw.shared.map(x => `${esc(x.tool)} (${esc(x.records.join(", "))})`).join(" · ")}. One premise node, several organisations.</div>` : ""}
+    <h3>No longer holds</h3>${moot.map(rec).join("")}
+    <details class="doc"><summary>Still holds (${rw.decisions.length - moot.length})</summary>${rw.decisions.filter(d => d.verdict !== "MOOT").map(rec).join("")}</details>
+    <details class="doc"><summary>Cypher</summary>${cypherHtml(rw.queries)}</details>
+  </div>`;
+}
+
 function bindPanelLinks() {
   document.querySelectorAll("#panel [data-open]").forEach(x => x.addEventListener("click", e => { e.preventDefault(); openDecision(x.dataset.open); }));
 }
@@ -447,4 +477,4 @@ api("/api/health").then(h => {
   $("#tenant").textContent = `${h.tenant} · ${Object.values(n).reduce((a, b) => a + b, 0)} nodes · ${Object.values(e).reduce((a, b) => a + b, 0)} edges`;
   if (!h.model) document.querySelector("footer").insertAdjacentHTML("afterbegin", "No model key is set, so narration uses the template. ");
 }).catch(() => {});
-refresh().then(() => { const id = location.hash.slice(1); if (/^D\d{2}$/.test(id)) openDecision(id); else if (id === "risky" || id === "whatif") showRisky(); });
+refresh().then(() => { const id = location.hash.slice(1); if (/^D\d{2}$/.test(id)) openDecision(id); else if (id === "risky" || id === "whatif") showRisky(); else if (id === "realworld") showRealWorld(); });

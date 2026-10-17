@@ -1,0 +1,1117 @@
+{
+ "summary": {
+  "checked_on": "2026-10-17",
+  "records": 25,
+  "repos": 5,
+  "tools": 26,
+  "checks": 71,
+  "failing": 6,
+  "unchecked": 7,
+  "dropped_records": []
+ },
+ "records": [
+  {
+   "id": "moj-003",
+   "repo": "ministryofjustice/cloud-platform",
+   "file": "003-Use-Concourse-CI.md",
+   "url": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/003-Use-Concourse-CI.md",
+   "title": "Use Concourse CI",
+   "date": "2018-03-28",
+   "tools": [
+    "concourse"
+   ],
+   "quote": "Replace self hosted Jenkins with self hosted Concourse CI pipeline",
+   "status": null
+  },
+  {
+   "id": "moj-004",
+   "repo": "ministryofjustice/cloud-platform",
+   "file": "004-use-kubernetes-for-container-management.md",
+   "url": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/004-use-kubernetes-for-container-management.md",
+   "title": "Use Kubernetes for container management",
+   "date": "2018-04-10",
+   "tools": [
+    "kubernetes"
+   ],
+   "quote": "Use Kubernetes as the container management component and core technology for our new hosting platform.",
+   "status": null
+  },
+  {
+   "id": "moj-011",
+   "repo": "ministryofjustice/cloud-platform",
+   "file": "011-Introduce-Open-Policy-Agent.md",
+   "url": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/011-Introduce-Open-Policy-Agent.md",
+   "title": "Introduce Open Policy Agent",
+   "date": "2019-06-07",
+   "tools": [
+    "opa"
+   ],
+   "quote": "Eventually we decided to introduce the [Open Policy Agent]",
+   "status": null
+  },
+  {
+   "id": "moj-047",
+   "repo": "ministryofjustice/cloud-platform",
+   "file": "047-use-karpenter-for-scaling.md",
+   "url": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/047-use-karpenter-for-scaling.md",
+   "title": "Use Karpenter for scaling",
+   "date": "2026-04-21",
+   "tools": [
+    "karpenter"
+   ],
+   "quote": "We will use **Karpenter** as the primary scaling solution",
+   "status": null
+  },
+  {
+   "id": "gi-0002",
+   "repo": "alphagov/govuk-infrastructure",
+   "file": "0002-use-aws-eks-terraform-module.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0002-use-aws-eks-terraform-module.md",
+   "title": "Use the aws-eks Terraform module",
+   "date": "2021-08-10",
+   "tools": [
+    "tf-aws-eks"
+   ],
+   "quote": "Adopt the [existing Terraform registry EKS module]",
+   "status": null
+  },
+  {
+   "id": "gi-0004",
+   "repo": "alphagov/govuk-infrastructure",
+   "file": "0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+   "title": "Use AWS Load Balancer Controller for edge traffic",
+   "date": "2021-08-12",
+   "tools": [
+    "aws-lbc"
+   ],
+   "quote": "Use the [AWS Load Balancer Controller]",
+   "status": null
+  },
+  {
+   "id": "gi-0006",
+   "repo": "alphagov/govuk-infrastructure",
+   "file": "0006-use-helm-for-application-package-management.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0006-use-helm-for-application-package-management.md",
+   "title": "Use Helm for application package management",
+   "date": "2021-08-16",
+   "tools": [
+    "helm"
+   ],
+   "quote": "Use Helm v3+.",
+   "status": null
+  },
+  {
+   "id": "gi-0007",
+   "repo": "alphagov/govuk-infrastructure",
+   "file": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+   "title": "Use Fluent Bit, Elasticsearch and Kibana for application logs",
+   "date": "2021-08-16",
+   "tools": [
+    "fluent-bit",
+    "elasticsearch"
+   ],
+   "quote": "Use a **Fluent Bit** `DaemonsSet` with AWS Elasticsearch Service.",
+   "status": "deprecated"
+  },
+  {
+   "id": "gi-0008",
+   "repo": "alphagov/govuk-infrastructure",
+   "file": "0008-use-external-secrets-for-secrets-storage.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0008-use-external-secrets-for-secrets-storage.md",
+   "title": "Use external-secrets for secrets storage",
+   "date": "2021-08-26",
+   "tools": [
+    "external-secrets"
+   ],
+   "quote": "is also on a deprecation",
+   "status": null
+  },
+  {
+   "id": "gi-0009",
+   "repo": "alphagov/govuk-infrastructure",
+   "file": "0009-use-external-dns-for-dns-record-management.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0009-use-external-dns-for-dns-record-management.md",
+   "title": "Use external-dns for DNS record management",
+   "date": "2021-08-27",
+   "tools": [
+    "external-dns"
+   ],
+   "quote": "Use [`external-dns`]",
+   "status": null
+  },
+  {
+   "id": "gi-0010",
+   "repo": "alphagov/govuk-infrastructure",
+   "file": "0010-use-dex-idp-for-user-web-authentication.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0010-use-dex-idp-for-user-web-authentication.md",
+   "title": "Use Dex for user web authentication",
+   "date": "2021-12-01",
+   "tools": [
+    "dex"
+   ],
+   "quote": "Use [Dex](https://dexidp.io) as a Single Sign-On (SSO) service",
+   "status": null
+  },
+  {
+   "id": "gi-0013",
+   "repo": "alphagov/govuk-infrastructure",
+   "file": "0013-expose-external-metrics-for-hpa.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0013-expose-external-metrics-for-hpa.md",
+   "title": "Expose external metrics for HPA with Prometheus Adapter",
+   "date": "2025-06-03",
+   "tools": [
+    "prometheus-adapter"
+   ],
+   "quote": "Adopt the **Prometheus Adapter** Helm chart",
+   "status": null
+  },
+  {
+   "id": "gi-0018",
+   "repo": "alphagov/govuk-infrastructure",
+   "file": "0018-use-concourse-ci.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0018-use-concourse-ci.md",
+   "title": "Use Concourse CI",
+   "date": "2025-08-12",
+   "tools": [
+    "concourse"
+   ],
+   "quote": "the team decided to pursue Concourse as its CI/CD tool",
+   "status": null
+  },
+  {
+   "id": "gi-0020",
+   "repo": "alphagov/govuk-infrastructure",
+   "file": "0020-use-crossplane-for-abstraction.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0020-use-crossplane-for-abstraction.md",
+   "title": "Use Crossplane for abstraction",
+   "date": "2025-10-20",
+   "tools": [
+    "crossplane"
+   ],
+   "quote": "We have decided that we want to use Crossplane",
+   "status": null
+  },
+  {
+   "id": "gi-0022",
+   "repo": "alphagov/govuk-infrastructure",
+   "file": "0022-use-pkl-for-configuration.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0022-use-pkl-for-configuration.md",
+   "title": "Use Pkl for configuration",
+   "date": "2025-11-06",
+   "tools": [
+    "pkl"
+   ],
+   "quote": "it was the most mature, well-supported, and feature rich",
+   "status": null
+  },
+  {
+   "id": "gi-0023",
+   "repo": "alphagov/govuk-infrastructure",
+   "file": "0023-use-opa-gatekeeper.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0023-use-opa-gatekeeper.md",
+   "title": "Use OPA Gatekeeper",
+   "date": "2026-07-07",
+   "tools": [
+    "gatekeeper"
+   ],
+   "quote": "it is a mature CNCF graduated",
+   "status": null
+  },
+  {
+   "id": "ga-0006",
+   "repo": "alphagov/govuk-aws",
+   "file": "0006-puppet-architecture.md",
+   "url": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0006-puppet-architecture.md",
+   "title": "Puppet architecture",
+   "date": "2017-07-04",
+   "tools": [
+    "puppet"
+   ],
+   "quote": "Use a Puppetmaster to not diverge from current architecture in the initial iteration.",
+   "status": null
+  },
+  {
+   "id": "ga-0025",
+   "repo": "alphagov/govuk-aws",
+   "file": "0025-use-elasticache-for-redis.md",
+   "url": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0025-use-elasticache-for-redis.md",
+   "title": "Use Elasticache for Redis",
+   "date": "2017-09-04",
+   "tools": [
+    "redis"
+   ],
+   "quote": "We are using Elasticache instead of provisioning our own Redis instances.",
+   "status": null
+  },
+  {
+   "id": "l4b-lerna",
+   "repo": "thomvaill/log4brains",
+   "file": "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md",
+   "url": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md",
+   "title": "Monorepo with Yarn and Lerna",
+   "date": "2020-09-25",
+   "tools": [
+    "lerna"
+   ],
+   "quote": "Yarn + Lerna seems to be a very good practice used by a lot of other open-source projects",
+   "status": null
+  },
+  {
+   "id": "l4b-style",
+   "repo": "thomvaill/log4brains",
+   "file": "20200925-use-prettier-eslint-airbnb-for-the-code-style.md",
+   "url": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-use-prettier-eslint-airbnb-for-the-code-style.md",
+   "title": "Use Prettier-ESLint Airbnb for the code style",
+   "date": "2020-09-25",
+   "tools": [
+    "prettier-eslint",
+    "airbnb"
+   ],
+   "quote": "Airbnb code style is widely used",
+   "status": null
+  },
+  {
+   "id": "l4b-mdx",
+   "repo": "thomvaill/log4brains",
+   "file": "20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx.md",
+   "url": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx.md",
+   "title": "Enhance the ADR markdown body with MDX",
+   "date": "2020-10-26",
+   "tools": [
+    "mdx"
+   ],
+   "quote": "the core API is responsible (with MDX)",
+   "status": null
+  },
+  {
+   "id": "l4b-lunr",
+   "repo": "thomvaill/log4brains",
+   "file": "20201103-use-lunr-for-search.md",
+   "url": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201103-use-lunr-for-search.md",
+   "title": "Use Lunr for search",
+   "date": "2020-11-03",
+   "tools": [
+    "lunr"
+   ],
+   "quote": "Chosen option: \"Option 2: Lunr.js\".",
+   "status": null
+  },
+  {
+   "id": "bs-007",
+   "repo": "backstage/backstage",
+   "file": "adr007-use-msw-to-mock-service-requests.md",
+   "url": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr007-use-msw-to-mock-service-requests.md",
+   "title": "Use MSW to mock HTTP requests",
+   "date": "2020-07-14",
+   "tools": [
+    "msw"
+   ],
+   "quote": "should be mocked by using `msw`",
+   "status": null
+  },
+  {
+   "id": "bs-010",
+   "repo": "backstage/backstage",
+   "file": "adr010-luxon-date-library.md",
+   "url": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr010-luxon-date-library.md",
+   "title": "Use the Luxon date library",
+   "date": "2021-01-18",
+   "tools": [
+    "luxon"
+   ],
+   "quote": "We will use [Luxon]",
+   "status": null
+  },
+  {
+   "id": "bs-013",
+   "repo": "backstage/backstage",
+   "file": "adr013-use-node-fetch.md",
+   "url": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr013-use-node-fetch.md",
+   "title": "Use node-fetch for HTTP fetching",
+   "date": "2021-12-21",
+   "tools": [
+    "node-fetch"
+   ],
+   "quote": "Backend (node) packages should use the `node-fetch` package",
+   "status": "superseded"
+  }
+ ],
+ "tools": {
+  "airbnb": {
+   "tool": "airbnb",
+   "name": "Airbnb ESLint config",
+   "repo": "airbnb/javascript",
+   "package": [
+    "npm",
+    "eslint-config-airbnb"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-02-21",
+     "archived": false,
+     "stars": 148061,
+     "detail": "last commit to master on 2026-02-21"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "MIT",
+     "detail": "GitHub reports MIT"
+    },
+    "no_known_vuln": {
+     "holds": true,
+     "version": "19.0.4",
+     "published": "2021-12-25",
+     "advisories": [],
+     "detail": "no OSV advisory affects 19.0.4"
+    }
+   }
+  },
+  "aws-lbc": {
+   "tool": "aws-lbc",
+   "name": "AWS Load Balancer Controller",
+   "repo": "kubernetes-sigs/aws-load-balancer-controller",
+   "package": [
+    "Go",
+    "sigs.k8s.io/aws-load-balancer-controller"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-10-14",
+     "archived": false,
+     "stars": 4341,
+     "detail": "last commit to main on 2026-10-14"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "Apache-2.0",
+     "detail": "GitHub reports Apache-2.0"
+    }
+   },
+   "unchecked": [
+    "vulnerabilities: the Go module's latest version (v1.1.9) does not match the project's latest release (v3.6.0)"
+   ]
+  },
+  "concourse": {
+   "tool": "concourse",
+   "name": "Concourse CI",
+   "repo": "concourse/concourse",
+   "package": [
+    "Go",
+    "github.com/concourse/concourse"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-10-16",
+     "archived": false,
+     "stars": 7921,
+     "detail": "last commit to master on 2026-10-16"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "Apache-2.0",
+     "detail": "GitHub reports Apache-2.0"
+    }
+   },
+   "unchecked": [
+    "vulnerabilities: the Go module's latest version (v4.2.3+incompatible) does not match the project's latest release (v8.3.1)"
+   ]
+  },
+  "crossplane": {
+   "tool": "crossplane",
+   "name": "Crossplane",
+   "repo": "crossplane/crossplane",
+   "package": [
+    "Go",
+    "github.com/crossplane/crossplane/v2"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-10-16",
+     "archived": false,
+     "stars": 12166,
+     "detail": "last commit to main on 2026-10-16"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "Apache-2.0",
+     "detail": "GitHub reports Apache-2.0"
+    },
+    "no_known_vuln": {
+     "holds": false,
+     "version": "v2.4.2",
+     "published": "2026-09-22",
+     "advisories": [
+      "GO-2026-5709"
+     ],
+     "detail": "1 OSV advisory affects v2.4.2"
+    }
+   }
+  },
+  "dex": {
+   "tool": "dex",
+   "name": "Dex",
+   "repo": "dexidp/dex",
+   "package": [
+    "Go",
+    "github.com/dexidp/dex"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-10-07",
+     "archived": false,
+     "stars": 11195,
+     "detail": "last commit to master on 2026-10-07"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "Apache-2.0",
+     "detail": "GitHub reports Apache-2.0"
+    }
+   },
+   "unchecked": [
+    "vulnerabilities: the Go module's latest version (v0.6.1) does not match the project's latest release (v2.46.0)"
+   ]
+  },
+  "elasticsearch": {
+   "tool": "elasticsearch",
+   "name": "Elasticsearch",
+   "repo": "elastic/elasticsearch",
+   "package": [
+    "Maven",
+    "org.elasticsearch:elasticsearch"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-10-17",
+     "archived": false,
+     "stars": 78295,
+     "detail": "last commit to main on 2026-10-17"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "Elastic-2.0 / SSPL-1.0 / AGPL-3.0 / Apache-2.0",
+     "detail": "offered under Elastic-2.0, SSPL-1.0, AGPL-3.0, Apache-2.0; the OSI option (AGPL-3.0, Apache-2.0) keeps it open source"
+    },
+    "no_known_vuln": {
+     "holds": true,
+     "version": "9.0.3",
+     "published": "2025-06-24",
+     "advisories": [],
+     "detail": "no OSV advisory affects 9.0.3"
+    }
+   }
+  },
+  "external-dns": {
+   "tool": "external-dns",
+   "name": "external-dns",
+   "repo": "kubernetes-sigs/external-dns",
+   "package": [
+    "Go",
+    "sigs.k8s.io/external-dns"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-10-16",
+     "archived": false,
+     "stars": 9120,
+     "detail": "last commit to master on 2026-10-16"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "Apache-2.0",
+     "detail": "GitHub reports Apache-2.0"
+    },
+    "no_known_vuln": {
+     "holds": true,
+     "version": "v0.23.0",
+     "published": "2026-09-18",
+     "advisories": [],
+     "detail": "no OSV advisory affects v0.23.0"
+    }
+   }
+  },
+  "external-secrets": {
+   "tool": "external-secrets",
+   "name": "external-secrets",
+   "repo": "external-secrets/external-secrets",
+   "package": [
+    "Go",
+    "github.com/external-secrets/external-secrets"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-10-16",
+     "archived": false,
+     "stars": 6906,
+     "detail": "last commit to main on 2026-10-16"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "Apache-2.0",
+     "detail": "GitHub reports Apache-2.0"
+    }
+   },
+   "unchecked": [
+    "vulnerabilities: the Go module's latest version (v1.3.2) does not match the project's latest release (helm-chart-2.13.0)"
+   ]
+  },
+  "fluent-bit": {
+   "tool": "fluent-bit",
+   "name": "Fluent Bit",
+   "repo": "fluent/fluent-bit",
+   "package": null,
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-10-17",
+     "archived": false,
+     "stars": 8160,
+     "detail": "last commit to master on 2026-10-17"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "Apache-2.0",
+     "detail": "GitHub reports Apache-2.0"
+    }
+   },
+   "unchecked": [
+    "vulnerabilities: no package in an OSV ecosystem"
+   ]
+  },
+  "gatekeeper": {
+   "tool": "gatekeeper",
+   "name": "OPA Gatekeeper",
+   "repo": "open-policy-agent/gatekeeper",
+   "package": [
+    "Go",
+    "github.com/open-policy-agent/gatekeeper/v3"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-10-12",
+     "archived": false,
+     "stars": 4301,
+     "detail": "last commit to master on 2026-10-12"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "Apache-2.0",
+     "detail": "GitHub reports Apache-2.0"
+    },
+    "no_known_vuln": {
+     "holds": true,
+     "version": "v3.23.1",
+     "published": "2026-08-27",
+     "advisories": [],
+     "detail": "no OSV advisory affects v3.23.1"
+    }
+   }
+  },
+  "helm": {
+   "tool": "helm",
+   "name": "Helm",
+   "repo": "helm/helm",
+   "package": [
+    "Go",
+    "helm.sh/helm/v4"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-10-16",
+     "archived": false,
+     "stars": 30329,
+     "detail": "last commit to main on 2026-10-16"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "Apache-2.0",
+     "detail": "GitHub reports Apache-2.0"
+    },
+    "no_known_vuln": {
+     "holds": true,
+     "version": "v4.3.1",
+     "published": "2026-10-15",
+     "advisories": [],
+     "detail": "no OSV advisory affects v4.3.1"
+    }
+   }
+  },
+  "karpenter": {
+   "tool": "karpenter",
+   "name": "Karpenter",
+   "repo": "kubernetes-sigs/karpenter",
+   "package": [
+    "Go",
+    "sigs.k8s.io/karpenter"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-10-16",
+     "archived": false,
+     "stars": 2228,
+     "detail": "last commit to main on 2026-10-16"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "Apache-2.0",
+     "detail": "GitHub reports Apache-2.0"
+    },
+    "no_known_vuln": {
+     "holds": true,
+     "version": "v1.15.0",
+     "published": "2026-10-10",
+     "advisories": [],
+     "detail": "no OSV advisory affects v1.15.0"
+    }
+   }
+  },
+  "kubernetes": {
+   "tool": "kubernetes",
+   "name": "Kubernetes",
+   "repo": "kubernetes/kubernetes",
+   "package": [
+    "Go",
+    "k8s.io/kubernetes"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-10-17",
+     "archived": false,
+     "stars": 128322,
+     "detail": "last commit to master on 2026-10-17"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "Apache-2.0",
+     "detail": "GitHub reports Apache-2.0"
+    },
+    "no_known_vuln": {
+     "holds": false,
+     "version": "v1.37.1",
+     "published": "2026-09-23",
+     "advisories": [
+      "GO-2025-3521",
+      "GO-2025-3547"
+     ],
+     "detail": "2 OSV advisories affect v1.37.1"
+    }
+   }
+  },
+  "lerna": {
+   "tool": "lerna",
+   "name": "Lerna",
+   "repo": "lerna/lerna",
+   "package": [
+    "npm",
+    "lerna"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-10-12",
+     "archived": false,
+     "stars": 36037,
+     "detail": "last commit to main on 2026-10-12"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "MIT",
+     "detail": "GitHub reports MIT"
+    },
+    "no_known_vuln": {
+     "holds": true,
+     "version": "10.1.1",
+     "published": "2026-10-12",
+     "advisories": [],
+     "detail": "no OSV advisory affects 10.1.1"
+    }
+   }
+  },
+  "lunr": {
+   "tool": "lunr",
+   "name": "Lunr.js",
+   "repo": "olivernn/lunr.js",
+   "package": [
+    "npm",
+    "lunr"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": false,
+     "last_commit": "2020-08-19",
+     "archived": false,
+     "stars": 9202,
+     "detail": "last commit to master on 2020-08-19"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "MIT",
+     "detail": "GitHub reports MIT"
+    },
+    "no_known_vuln": {
+     "holds": true,
+     "version": "2.3.9",
+     "published": "2020-08-19",
+     "advisories": [],
+     "detail": "no OSV advisory affects 2.3.9"
+    }
+   }
+  },
+  "luxon": {
+   "tool": "luxon",
+   "name": "Luxon",
+   "repo": "moment/luxon",
+   "package": [
+    "npm",
+    "luxon"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-08-09",
+     "archived": false,
+     "stars": 16454,
+     "detail": "last commit to master on 2026-08-09"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "MIT",
+     "detail": "GitHub reports MIT"
+    },
+    "no_known_vuln": {
+     "holds": true,
+     "version": "3.7.2",
+     "published": "2025-09-05",
+     "advisories": [],
+     "detail": "no OSV advisory affects 3.7.2"
+    }
+   }
+  },
+  "mdx": {
+   "tool": "mdx",
+   "name": "MDX",
+   "repo": "mdx-js/mdx",
+   "package": [
+    "npm",
+    "@mdx-js/mdx"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-09-21",
+     "archived": false,
+     "stars": 19827,
+     "detail": "last commit to main on 2026-09-21"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "MIT",
+     "detail": "GitHub reports MIT"
+    },
+    "no_known_vuln": {
+     "holds": true,
+     "version": "3.1.1",
+     "published": "2025-08-29",
+     "advisories": [],
+     "detail": "no OSV advisory affects 3.1.1"
+    }
+   }
+  },
+  "msw": {
+   "tool": "msw",
+   "name": "Mock Service Worker",
+   "repo": "mswjs/msw",
+   "package": [
+    "npm",
+    "msw"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-10-17",
+     "archived": false,
+     "stars": 18296,
+     "detail": "last commit to main on 2026-10-17"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "MIT",
+     "detail": "GitHub reports MIT"
+    },
+    "no_known_vuln": {
+     "holds": true,
+     "version": "3.0.3",
+     "published": "2026-10-10",
+     "advisories": [],
+     "detail": "no OSV advisory affects 3.0.3"
+    }
+   }
+  },
+  "node-fetch": {
+   "tool": "node-fetch",
+   "name": "node-fetch",
+   "repo": "node-fetch/node-fetch",
+   "package": [
+    "npm",
+    "node-fetch"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": false,
+     "last_commit": "2023-07-25",
+     "archived": false,
+     "stars": 8848,
+     "detail": "last commit to main on 2023-07-25"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "MIT",
+     "detail": "GitHub reports MIT"
+    },
+    "no_known_vuln": {
+     "holds": true,
+     "version": "3.3.2",
+     "published": "2023-07-25",
+     "advisories": [],
+     "detail": "no OSV advisory affects 3.3.2"
+    }
+   }
+  },
+  "opa": {
+   "tool": "opa",
+   "name": "Open Policy Agent",
+   "repo": "open-policy-agent/opa",
+   "package": [
+    "Go",
+    "github.com/open-policy-agent/opa"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-10-16",
+     "archived": false,
+     "stars": 12376,
+     "detail": "last commit to main on 2026-10-16"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "Apache-2.0",
+     "detail": "GitHub reports Apache-2.0"
+    },
+    "no_known_vuln": {
+     "holds": true,
+     "version": "v1.21.2",
+     "published": "2026-10-12",
+     "advisories": [],
+     "detail": "no OSV advisory affects v1.21.2"
+    }
+   }
+  },
+  "pkl": {
+   "tool": "pkl",
+   "name": "Pkl",
+   "repo": "apple/pkl",
+   "package": [
+    "Maven",
+    "org.pkl-lang:pkl-core"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-10-16",
+     "archived": false,
+     "stars": 11547,
+     "detail": "last commit to main on 2026-10-16"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "Apache-2.0",
+     "detail": "GitHub reports Apache-2.0"
+    },
+    "no_known_vuln": {
+     "holds": true,
+     "version": "0.28.2",
+     "published": "2025-04-17",
+     "advisories": [],
+     "detail": "no OSV advisory affects 0.28.2"
+    }
+   }
+  },
+  "prettier-eslint": {
+   "tool": "prettier-eslint",
+   "name": "prettier-eslint",
+   "repo": "prettier/prettier-eslint",
+   "package": [
+    "npm",
+    "prettier-eslint"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-09-12",
+     "archived": false,
+     "stars": 4101,
+     "detail": "last commit to master on 2026-09-12"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "MIT",
+     "detail": "GitHub reports MIT"
+    },
+    "no_known_vuln": {
+     "holds": true,
+     "version": "17.1.2",
+     "published": "2026-08-20",
+     "advisories": [],
+     "detail": "no OSV advisory affects 17.1.2"
+    }
+   }
+  },
+  "prometheus-adapter": {
+   "tool": "prometheus-adapter",
+   "name": "Prometheus Adapter",
+   "repo": "kubernetes-sigs/prometheus-adapter",
+   "package": [
+    "Go",
+    "sigs.k8s.io/prometheus-adapter"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": false,
+     "last_commit": "2025-04-01",
+     "archived": false,
+     "stars": 2094,
+     "detail": "last commit to master on 2025-04-01"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "Apache-2.0",
+     "detail": "GitHub reports Apache-2.0"
+    },
+    "no_known_vuln": {
+     "holds": true,
+     "version": "v0.12.0",
+     "published": "2024-05-16",
+     "advisories": [],
+     "detail": "no OSV advisory affects v0.12.0"
+    }
+   }
+  },
+  "puppet": {
+   "tool": "puppet",
+   "name": "Puppet",
+   "repo": "puppetlabs/puppet",
+   "package": [
+    "RubyGems",
+    "puppet"
+   ],
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": false,
+     "last_commit": "2024-12-11",
+     "archived": false,
+     "stars": 7965,
+     "detail": "last commit to main on 2024-12-11"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "Apache-2.0",
+     "detail": "GitHub reports Apache-2.0"
+    },
+    "no_known_vuln": {
+     "holds": true,
+     "version": "8.10.0",
+     "published": "2024-10-22",
+     "advisories": [],
+     "detail": "no OSV advisory affects 8.10.0"
+    }
+   }
+  },
+  "redis": {
+   "tool": "redis",
+   "name": "Redis",
+   "repo": "redis/redis",
+   "package": null,
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-10-17",
+     "archived": false,
+     "stars": 76918,
+     "detail": "last commit to unstable on 2026-10-17"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "RSALv2 / SSPL-1.0 / AGPL-3.0",
+     "detail": "offered under RSALv2, SSPL-1.0, AGPL-3.0; the OSI option (AGPL-3.0) keeps it open source"
+    }
+   },
+   "unchecked": [
+    "vulnerabilities: no package in an OSV ecosystem"
+   ]
+  },
+  "tf-aws-eks": {
+   "tool": "tf-aws-eks",
+   "name": "terraform-aws-eks module",
+   "repo": "terraform-aws-modules/terraform-aws-eks",
+   "package": null,
+   "checked_on": "2026-10-17",
+   "checks": {
+    "maintained": {
+     "holds": true,
+     "last_commit": "2026-10-08",
+     "archived": false,
+     "stars": 5012,
+     "detail": "last commit to master on 2026-10-08"
+    },
+    "open_source": {
+     "holds": true,
+     "license": "Apache-2.0",
+     "detail": "GitHub reports Apache-2.0"
+    }
+   },
+   "unchecked": [
+    "vulnerabilities: no package in an OSV ecosystem"
+   ]
+  }
+ }
+}

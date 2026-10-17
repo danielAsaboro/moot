@@ -1,0 +1,3445 @@
+{
+ "nodes": [
+  {
+   "label": "Premise",
+   "id": "p_airbnb_maintained",
+   "props": {
+    "text": "Airbnb ESLint config is actively maintained",
+    "kind": "unwritten",
+    "tool": "airbnb",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:airbnb",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-02-21",
+    "date": "2026-10-17",
+    "excerpt": "last commit to master on 2026-02-21",
+    "path": "https://github.com/airbnb/javascript"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_airbnb_open_source",
+   "props": {
+    "text": "Airbnb ESLint config is open source",
+    "kind": "unwritten",
+    "tool": "airbnb",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:airbnb",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports MIT",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports MIT",
+    "path": "https://github.com/airbnb/javascript"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_airbnb_no_known_vuln",
+   "props": {
+    "text": "The current release of Airbnb ESLint config has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "airbnb",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:airbnb",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 19.0.4",
+    "date": "2026-10-17",
+    "excerpt": "no OSV advisory affects 19.0.4",
+    "path": "https://github.com/airbnb/javascript"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_aws-lbc_maintained",
+   "props": {
+    "text": "AWS Load Balancer Controller is actively maintained",
+    "kind": "unwritten",
+    "tool": "aws-lbc",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:aws-lbc",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-14",
+    "date": "2026-10-17",
+    "excerpt": "last commit to main on 2026-10-14",
+    "path": "https://github.com/kubernetes-sigs/aws-load-balancer-controller"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_aws-lbc_open_source",
+   "props": {
+    "text": "AWS Load Balancer Controller is open source",
+    "kind": "unwritten",
+    "tool": "aws-lbc",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:aws-lbc",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/kubernetes-sigs/aws-load-balancer-controller"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_concourse_maintained",
+   "props": {
+    "text": "Concourse CI is actively maintained",
+    "kind": "unwritten",
+    "tool": "concourse",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:concourse",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-10-16",
+    "date": "2026-10-17",
+    "excerpt": "last commit to master on 2026-10-16",
+    "path": "https://github.com/concourse/concourse"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_concourse_open_source",
+   "props": {
+    "text": "Concourse CI is open source",
+    "kind": "unwritten",
+    "tool": "concourse",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:concourse",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/concourse/concourse"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_crossplane_maintained",
+   "props": {
+    "text": "Crossplane is actively maintained",
+    "kind": "unwritten",
+    "tool": "crossplane",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:crossplane",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-16",
+    "date": "2026-10-17",
+    "excerpt": "last commit to main on 2026-10-16",
+    "path": "https://github.com/crossplane/crossplane"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_crossplane_open_source",
+   "props": {
+    "text": "Crossplane is open source",
+    "kind": "unwritten",
+    "tool": "crossplane",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:crossplane",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/crossplane/crossplane"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_crossplane_no_known_vuln",
+   "props": {
+    "text": "The current release of Crossplane has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "crossplane",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:crossplane",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: 1 OSV advisory affects v2.4.2",
+    "date": "2026-10-17",
+    "excerpt": "1 OSV advisory affects v2.4.2",
+    "path": "https://github.com/crossplane/crossplane"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_dex_maintained",
+   "props": {
+    "text": "Dex is actively maintained",
+    "kind": "unwritten",
+    "tool": "dex",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:dex",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-10-07",
+    "date": "2026-10-17",
+    "excerpt": "last commit to master on 2026-10-07",
+    "path": "https://github.com/dexidp/dex"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_dex_open_source",
+   "props": {
+    "text": "Dex is open source",
+    "kind": "unwritten",
+    "tool": "dex",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:dex",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/dexidp/dex"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_elasticsearch_maintained",
+   "props": {
+    "text": "Elasticsearch is actively maintained",
+    "kind": "unwritten",
+    "tool": "elasticsearch",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:elasticsearch",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-17",
+    "date": "2026-10-17",
+    "excerpt": "last commit to main on 2026-10-17",
+    "path": "https://github.com/elastic/elasticsearch"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_elasticsearch_open_source",
+   "props": {
+    "text": "Elasticsearch is open source",
+    "kind": "unwritten",
+    "tool": "elasticsearch",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:elasticsearch",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: offered under Elastic-2.0, SSPL-1.0, AGPL-3.0, Apache-2.0; the OSI option (AGPL-3.0, Apache-2.0) keeps it open source",
+    "date": "2026-10-17",
+    "excerpt": "offered under Elastic-2.0, SSPL-1.0, AGPL-3.0, Apache-2.0; the OSI option (AGPL-3.0, Apache-2.0) keeps it open source",
+    "path": "https://github.com/elastic/elasticsearch"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_elasticsearch_no_known_vuln",
+   "props": {
+    "text": "The current release of Elasticsearch has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "elasticsearch",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:elasticsearch",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 9.0.3",
+    "date": "2026-10-17",
+    "excerpt": "no OSV advisory affects 9.0.3",
+    "path": "https://github.com/elastic/elasticsearch"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_external-dns_maintained",
+   "props": {
+    "text": "external-dns is actively maintained",
+    "kind": "unwritten",
+    "tool": "external-dns",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:external-dns",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-10-16",
+    "date": "2026-10-17",
+    "excerpt": "last commit to master on 2026-10-16",
+    "path": "https://github.com/kubernetes-sigs/external-dns"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_external-dns_open_source",
+   "props": {
+    "text": "external-dns is open source",
+    "kind": "unwritten",
+    "tool": "external-dns",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:external-dns",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/kubernetes-sigs/external-dns"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_external-dns_no_known_vuln",
+   "props": {
+    "text": "The current release of external-dns has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "external-dns",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:external-dns",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects v0.23.0",
+    "date": "2026-10-17",
+    "excerpt": "no OSV advisory affects v0.23.0",
+    "path": "https://github.com/kubernetes-sigs/external-dns"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_external-secrets_maintained",
+   "props": {
+    "text": "external-secrets is actively maintained",
+    "kind": "unwritten",
+    "tool": "external-secrets",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:external-secrets",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-16",
+    "date": "2026-10-17",
+    "excerpt": "last commit to main on 2026-10-16",
+    "path": "https://github.com/external-secrets/external-secrets"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_external-secrets_open_source",
+   "props": {
+    "text": "external-secrets is open source",
+    "kind": "unwritten",
+    "tool": "external-secrets",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:external-secrets",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/external-secrets/external-secrets"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_fluent-bit_maintained",
+   "props": {
+    "text": "Fluent Bit is actively maintained",
+    "kind": "unwritten",
+    "tool": "fluent-bit",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:fluent-bit",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-10-17",
+    "date": "2026-10-17",
+    "excerpt": "last commit to master on 2026-10-17",
+    "path": "https://github.com/fluent/fluent-bit"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_fluent-bit_open_source",
+   "props": {
+    "text": "Fluent Bit is open source",
+    "kind": "unwritten",
+    "tool": "fluent-bit",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:fluent-bit",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/fluent/fluent-bit"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_gatekeeper_maintained",
+   "props": {
+    "text": "OPA Gatekeeper is actively maintained",
+    "kind": "unwritten",
+    "tool": "gatekeeper",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:gatekeeper",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-10-12",
+    "date": "2026-10-17",
+    "excerpt": "last commit to master on 2026-10-12",
+    "path": "https://github.com/open-policy-agent/gatekeeper"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_gatekeeper_open_source",
+   "props": {
+    "text": "OPA Gatekeeper is open source",
+    "kind": "unwritten",
+    "tool": "gatekeeper",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:gatekeeper",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/open-policy-agent/gatekeeper"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_gatekeeper_no_known_vuln",
+   "props": {
+    "text": "The current release of OPA Gatekeeper has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "gatekeeper",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:gatekeeper",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects v3.23.1",
+    "date": "2026-10-17",
+    "excerpt": "no OSV advisory affects v3.23.1",
+    "path": "https://github.com/open-policy-agent/gatekeeper"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_helm_maintained",
+   "props": {
+    "text": "Helm is actively maintained",
+    "kind": "unwritten",
+    "tool": "helm",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:helm",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-16",
+    "date": "2026-10-17",
+    "excerpt": "last commit to main on 2026-10-16",
+    "path": "https://github.com/helm/helm"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_helm_open_source",
+   "props": {
+    "text": "Helm is open source",
+    "kind": "unwritten",
+    "tool": "helm",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:helm",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/helm/helm"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_helm_no_known_vuln",
+   "props": {
+    "text": "The current release of Helm has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "helm",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:helm",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects v4.3.1",
+    "date": "2026-10-17",
+    "excerpt": "no OSV advisory affects v4.3.1",
+    "path": "https://github.com/helm/helm"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_karpenter_maintained",
+   "props": {
+    "text": "Karpenter is actively maintained",
+    "kind": "unwritten",
+    "tool": "karpenter",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:karpenter",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-16",
+    "date": "2026-10-17",
+    "excerpt": "last commit to main on 2026-10-16",
+    "path": "https://github.com/kubernetes-sigs/karpenter"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_karpenter_open_source",
+   "props": {
+    "text": "Karpenter is open source",
+    "kind": "unwritten",
+    "tool": "karpenter",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:karpenter",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/kubernetes-sigs/karpenter"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_karpenter_no_known_vuln",
+   "props": {
+    "text": "The current release of Karpenter has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "karpenter",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:karpenter",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects v1.15.0",
+    "date": "2026-10-17",
+    "excerpt": "no OSV advisory affects v1.15.0",
+    "path": "https://github.com/kubernetes-sigs/karpenter"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kubernetes_maintained",
+   "props": {
+    "text": "Kubernetes is actively maintained",
+    "kind": "unwritten",
+    "tool": "kubernetes",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:kubernetes",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-10-17",
+    "date": "2026-10-17",
+    "excerpt": "last commit to master on 2026-10-17",
+    "path": "https://github.com/kubernetes/kubernetes"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kubernetes_open_source",
+   "props": {
+    "text": "Kubernetes is open source",
+    "kind": "unwritten",
+    "tool": "kubernetes",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:kubernetes",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/kubernetes/kubernetes"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kubernetes_no_known_vuln",
+   "props": {
+    "text": "The current release of Kubernetes has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "kubernetes",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:kubernetes",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: 2 OSV advisories affect v1.37.1",
+    "date": "2026-10-17",
+    "excerpt": "2 OSV advisories affect v1.37.1",
+    "path": "https://github.com/kubernetes/kubernetes"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lerna_maintained",
+   "props": {
+    "text": "Lerna is actively maintained",
+    "kind": "unwritten",
+    "tool": "lerna",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:lerna",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-12",
+    "date": "2026-10-17",
+    "excerpt": "last commit to main on 2026-10-12",
+    "path": "https://github.com/lerna/lerna"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lerna_open_source",
+   "props": {
+    "text": "Lerna is open source",
+    "kind": "unwritten",
+    "tool": "lerna",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:lerna",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports MIT",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports MIT",
+    "path": "https://github.com/lerna/lerna"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lerna_no_known_vuln",
+   "props": {
+    "text": "The current release of Lerna has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "lerna",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:lerna",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 10.1.1",
+    "date": "2026-10-17",
+    "excerpt": "no OSV advisory affects 10.1.1",
+    "path": "https://github.com/lerna/lerna"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lunr_maintained",
+   "props": {
+    "text": "Lunr.js is actively maintained",
+    "kind": "unwritten",
+    "tool": "lunr",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:lunr",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2020-08-19",
+    "date": "2026-10-17",
+    "excerpt": "last commit to master on 2020-08-19",
+    "path": "https://github.com/olivernn/lunr.js"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lunr_open_source",
+   "props": {
+    "text": "Lunr.js is open source",
+    "kind": "unwritten",
+    "tool": "lunr",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:lunr",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports MIT",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports MIT",
+    "path": "https://github.com/olivernn/lunr.js"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lunr_no_known_vuln",
+   "props": {
+    "text": "The current release of Lunr.js has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "lunr",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:lunr",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 2.3.9",
+    "date": "2026-10-17",
+    "excerpt": "no OSV advisory affects 2.3.9",
+    "path": "https://github.com/olivernn/lunr.js"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_luxon_maintained",
+   "props": {
+    "text": "Luxon is actively maintained",
+    "kind": "unwritten",
+    "tool": "luxon",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:luxon",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-08-09",
+    "date": "2026-10-17",
+    "excerpt": "last commit to master on 2026-08-09",
+    "path": "https://github.com/moment/luxon"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_luxon_open_source",
+   "props": {
+    "text": "Luxon is open source",
+    "kind": "unwritten",
+    "tool": "luxon",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:luxon",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports MIT",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports MIT",
+    "path": "https://github.com/moment/luxon"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_luxon_no_known_vuln",
+   "props": {
+    "text": "The current release of Luxon has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "luxon",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:luxon",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 3.7.2",
+    "date": "2026-10-17",
+    "excerpt": "no OSV advisory affects 3.7.2",
+    "path": "https://github.com/moment/luxon"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_mdx_maintained",
+   "props": {
+    "text": "MDX is actively maintained",
+    "kind": "unwritten",
+    "tool": "mdx",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:mdx",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-09-21",
+    "date": "2026-10-17",
+    "excerpt": "last commit to main on 2026-09-21",
+    "path": "https://github.com/mdx-js/mdx"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_mdx_open_source",
+   "props": {
+    "text": "MDX is open source",
+    "kind": "unwritten",
+    "tool": "mdx",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:mdx",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports MIT",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports MIT",
+    "path": "https://github.com/mdx-js/mdx"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_mdx_no_known_vuln",
+   "props": {
+    "text": "The current release of MDX has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "mdx",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:mdx",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 3.1.1",
+    "date": "2026-10-17",
+    "excerpt": "no OSV advisory affects 3.1.1",
+    "path": "https://github.com/mdx-js/mdx"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_msw_maintained",
+   "props": {
+    "text": "Mock Service Worker is actively maintained",
+    "kind": "unwritten",
+    "tool": "msw",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:msw",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-17",
+    "date": "2026-10-17",
+    "excerpt": "last commit to main on 2026-10-17",
+    "path": "https://github.com/mswjs/msw"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_msw_open_source",
+   "props": {
+    "text": "Mock Service Worker is open source",
+    "kind": "unwritten",
+    "tool": "msw",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:msw",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports MIT",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports MIT",
+    "path": "https://github.com/mswjs/msw"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_msw_no_known_vuln",
+   "props": {
+    "text": "The current release of Mock Service Worker has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "msw",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:msw",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 3.0.3",
+    "date": "2026-10-17",
+    "excerpt": "no OSV advisory affects 3.0.3",
+    "path": "https://github.com/mswjs/msw"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_node-fetch_maintained",
+   "props": {
+    "text": "node-fetch is actively maintained",
+    "kind": "unwritten",
+    "tool": "node-fetch",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:node-fetch",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2023-07-25",
+    "date": "2026-10-17",
+    "excerpt": "last commit to main on 2023-07-25",
+    "path": "https://github.com/node-fetch/node-fetch"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_node-fetch_open_source",
+   "props": {
+    "text": "node-fetch is open source",
+    "kind": "unwritten",
+    "tool": "node-fetch",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:node-fetch",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports MIT",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports MIT",
+    "path": "https://github.com/node-fetch/node-fetch"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_node-fetch_no_known_vuln",
+   "props": {
+    "text": "The current release of node-fetch has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "node-fetch",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:node-fetch",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 3.3.2",
+    "date": "2026-10-17",
+    "excerpt": "no OSV advisory affects 3.3.2",
+    "path": "https://github.com/node-fetch/node-fetch"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_opa_maintained",
+   "props": {
+    "text": "Open Policy Agent is actively maintained",
+    "kind": "unwritten",
+    "tool": "opa",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:opa",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-16",
+    "date": "2026-10-17",
+    "excerpt": "last commit to main on 2026-10-16",
+    "path": "https://github.com/open-policy-agent/opa"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_opa_open_source",
+   "props": {
+    "text": "Open Policy Agent is open source",
+    "kind": "unwritten",
+    "tool": "opa",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:opa",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/open-policy-agent/opa"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_opa_no_known_vuln",
+   "props": {
+    "text": "The current release of Open Policy Agent has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "opa",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:opa",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects v1.21.2",
+    "date": "2026-10-17",
+    "excerpt": "no OSV advisory affects v1.21.2",
+    "path": "https://github.com/open-policy-agent/opa"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_pkl_maintained",
+   "props": {
+    "text": "Pkl is actively maintained",
+    "kind": "unwritten",
+    "tool": "pkl",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:pkl",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-16",
+    "date": "2026-10-17",
+    "excerpt": "last commit to main on 2026-10-16",
+    "path": "https://github.com/apple/pkl"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_pkl_open_source",
+   "props": {
+    "text": "Pkl is open source",
+    "kind": "unwritten",
+    "tool": "pkl",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:pkl",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/apple/pkl"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_pkl_no_known_vuln",
+   "props": {
+    "text": "The current release of Pkl has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "pkl",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:pkl",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 0.28.2",
+    "date": "2026-10-17",
+    "excerpt": "no OSV advisory affects 0.28.2",
+    "path": "https://github.com/apple/pkl"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prettier-eslint_maintained",
+   "props": {
+    "text": "prettier-eslint is actively maintained",
+    "kind": "unwritten",
+    "tool": "prettier-eslint",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:prettier-eslint",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-09-12",
+    "date": "2026-10-17",
+    "excerpt": "last commit to master on 2026-09-12",
+    "path": "https://github.com/prettier/prettier-eslint"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prettier-eslint_open_source",
+   "props": {
+    "text": "prettier-eslint is open source",
+    "kind": "unwritten",
+    "tool": "prettier-eslint",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:prettier-eslint",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports MIT",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports MIT",
+    "path": "https://github.com/prettier/prettier-eslint"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prettier-eslint_no_known_vuln",
+   "props": {
+    "text": "The current release of prettier-eslint has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "prettier-eslint",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:prettier-eslint",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 17.1.2",
+    "date": "2026-10-17",
+    "excerpt": "no OSV advisory affects 17.1.2",
+    "path": "https://github.com/prettier/prettier-eslint"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prometheus-adapter_maintained",
+   "props": {
+    "text": "Prometheus Adapter is actively maintained",
+    "kind": "unwritten",
+    "tool": "prometheus-adapter",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:prometheus-adapter",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2025-04-01",
+    "date": "2026-10-17",
+    "excerpt": "last commit to master on 2025-04-01",
+    "path": "https://github.com/kubernetes-sigs/prometheus-adapter"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prometheus-adapter_open_source",
+   "props": {
+    "text": "Prometheus Adapter is open source",
+    "kind": "unwritten",
+    "tool": "prometheus-adapter",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:prometheus-adapter",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/kubernetes-sigs/prometheus-adapter"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prometheus-adapter_no_known_vuln",
+   "props": {
+    "text": "The current release of Prometheus Adapter has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "prometheus-adapter",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:prometheus-adapter",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects v0.12.0",
+    "date": "2026-10-17",
+    "excerpt": "no OSV advisory affects v0.12.0",
+    "path": "https://github.com/kubernetes-sigs/prometheus-adapter"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_puppet_maintained",
+   "props": {
+    "text": "Puppet is actively maintained",
+    "kind": "unwritten",
+    "tool": "puppet",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:puppet",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2024-12-11",
+    "date": "2026-10-17",
+    "excerpt": "last commit to main on 2024-12-11",
+    "path": "https://github.com/puppetlabs/puppet"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_puppet_open_source",
+   "props": {
+    "text": "Puppet is open source",
+    "kind": "unwritten",
+    "tool": "puppet",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:puppet",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/puppetlabs/puppet"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_puppet_no_known_vuln",
+   "props": {
+    "text": "The current release of Puppet has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "puppet",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:puppet",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 8.10.0",
+    "date": "2026-10-17",
+    "excerpt": "no OSV advisory affects 8.10.0",
+    "path": "https://github.com/puppetlabs/puppet"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_redis_maintained",
+   "props": {
+    "text": "Redis is actively maintained",
+    "kind": "unwritten",
+    "tool": "redis",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:redis",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to unstable on 2026-10-17",
+    "date": "2026-10-17",
+    "excerpt": "last commit to unstable on 2026-10-17",
+    "path": "https://github.com/redis/redis"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_redis_open_source",
+   "props": {
+    "text": "Redis is open source",
+    "kind": "unwritten",
+    "tool": "redis",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:redis",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: offered under RSALv2, SSPL-1.0, AGPL-3.0; the OSI option (AGPL-3.0) keeps it open source",
+    "date": "2026-10-17",
+    "excerpt": "offered under RSALv2, SSPL-1.0, AGPL-3.0; the OSI option (AGPL-3.0) keeps it open source",
+    "path": "https://github.com/redis/redis"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_tf-aws-eks_maintained",
+   "props": {
+    "text": "terraform-aws-eks module is actively maintained",
+    "kind": "unwritten",
+    "tool": "tf-aws-eks",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:tf-aws-eks",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-10-08",
+    "date": "2026-10-17",
+    "excerpt": "last commit to master on 2026-10-08",
+    "path": "https://github.com/terraform-aws-modules/terraform-aws-eks"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_tf-aws-eks_open_source",
+   "props": {
+    "text": "terraform-aws-eks module is open source",
+    "kind": "unwritten",
+    "tool": "tf-aws-eks",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:tf-aws-eks",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-17",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/terraform-aws-modules/terraform-aws-eks"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "moj-003",
+   "props": {
+    "title": "Use Concourse CI",
+    "summary": "Replace self hosted Jenkins with self hosted Concourse CI pipeline",
+    "decided_on": "2018-03-28",
+    "source": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/003-Use-Concourse-CI.md",
+    "repo": "ministryofjustice/cloud-platform",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:moj-003",
+   "props": {
+    "kind": "adr",
+    "title": "ministryofjustice/cloud-platform: Use Concourse CI",
+    "date": "2018-03-28",
+    "path": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/003-Use-Concourse-CI.md",
+    "excerpt": "Replace self hosted Jenkins with self hosted Concourse CI pipeline"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "moj-004",
+   "props": {
+    "title": "Use Kubernetes for container management",
+    "summary": "Use Kubernetes as the container management component and core technology for our new hosting platform.",
+    "decided_on": "2018-04-10",
+    "source": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/004-use-kubernetes-for-container-management.md",
+    "repo": "ministryofjustice/cloud-platform",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:moj-004",
+   "props": {
+    "kind": "adr",
+    "title": "ministryofjustice/cloud-platform: Use Kubernetes for container management",
+    "date": "2018-04-10",
+    "path": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/004-use-kubernetes-for-container-management.md",
+    "excerpt": "Use Kubernetes as the container management component and core technology for our new hosting platform."
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "moj-011",
+   "props": {
+    "title": "Introduce Open Policy Agent",
+    "summary": "Eventually we decided to introduce the [Open Policy Agent]",
+    "decided_on": "2019-06-07",
+    "source": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/011-Introduce-Open-Policy-Agent.md",
+    "repo": "ministryofjustice/cloud-platform",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:moj-011",
+   "props": {
+    "kind": "adr",
+    "title": "ministryofjustice/cloud-platform: Introduce Open Policy Agent",
+    "date": "2019-06-07",
+    "path": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/011-Introduce-Open-Policy-Agent.md",
+    "excerpt": "Eventually we decided to introduce the [Open Policy Agent]"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "moj-047",
+   "props": {
+    "title": "Use Karpenter for scaling",
+    "summary": "We will use **Karpenter** as the primary scaling solution",
+    "decided_on": "2026-04-21",
+    "source": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/047-use-karpenter-for-scaling.md",
+    "repo": "ministryofjustice/cloud-platform",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:moj-047",
+   "props": {
+    "kind": "adr",
+    "title": "ministryofjustice/cloud-platform: Use Karpenter for scaling",
+    "date": "2026-04-21",
+    "path": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/047-use-karpenter-for-scaling.md",
+    "excerpt": "We will use **Karpenter** as the primary scaling solution"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "gi-0002",
+   "props": {
+    "title": "Use the aws-eks Terraform module",
+    "summary": "Adopt the [existing Terraform registry EKS module]",
+    "decided_on": "2021-08-10",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0002-use-aws-eks-terraform-module.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:gi-0002",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: Use the aws-eks Terraform module",
+    "date": "2021-08-10",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0002-use-aws-eks-terraform-module.md",
+    "excerpt": "Adopt the [existing Terraform registry EKS module]"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "gi-0004",
+   "props": {
+    "title": "Use AWS Load Balancer Controller for edge traffic",
+    "summary": "Use the [AWS Load Balancer Controller]",
+    "decided_on": "2021-08-12",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:gi-0004",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: Use AWS Load Balancer Controller for edge traffic",
+    "date": "2021-08-12",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+    "excerpt": "Use the [AWS Load Balancer Controller]"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "gi-0006",
+   "props": {
+    "title": "Use Helm for application package management",
+    "summary": "Use Helm v3+.",
+    "decided_on": "2021-08-16",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0006-use-helm-for-application-package-management.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:gi-0006",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: Use Helm for application package management",
+    "date": "2021-08-16",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0006-use-helm-for-application-package-management.md",
+    "excerpt": "Use Helm v3+."
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "gi-0007",
+   "props": {
+    "title": "Use Fluent Bit, Elasticsearch and Kibana for application logs",
+    "summary": "Use a **Fluent Bit** `DaemonsSet` with AWS Elasticsearch Service.",
+    "decided_on": "2021-08-16",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "deprecated"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:gi-0007",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: Use Fluent Bit, Elasticsearch and Kibana for application logs",
+    "date": "2021-08-16",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+    "excerpt": "Use a **Fluent Bit** `DaemonsSet` with AWS Elasticsearch Service."
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "gi-0008",
+   "props": {
+    "title": "Use external-secrets for secrets storage",
+    "summary": "is also on a deprecation",
+    "decided_on": "2021-08-26",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0008-use-external-secrets-for-secrets-storage.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:gi-0008",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: Use external-secrets for secrets storage",
+    "date": "2021-08-26",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0008-use-external-secrets-for-secrets-storage.md",
+    "excerpt": "is also on a deprecation"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "gi-0009",
+   "props": {
+    "title": "Use external-dns for DNS record management",
+    "summary": "Use [`external-dns`]",
+    "decided_on": "2021-08-27",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0009-use-external-dns-for-dns-record-management.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:gi-0009",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: Use external-dns for DNS record management",
+    "date": "2021-08-27",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0009-use-external-dns-for-dns-record-management.md",
+    "excerpt": "Use [`external-dns`]"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "gi-0010",
+   "props": {
+    "title": "Use Dex for user web authentication",
+    "summary": "Use [Dex](https://dexidp.io) as a Single Sign-On (SSO) service",
+    "decided_on": "2021-12-01",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0010-use-dex-idp-for-user-web-authentication.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:gi-0010",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: Use Dex for user web authentication",
+    "date": "2021-12-01",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0010-use-dex-idp-for-user-web-authentication.md",
+    "excerpt": "Use [Dex](https://dexidp.io) as a Single Sign-On (SSO) service"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "gi-0013",
+   "props": {
+    "title": "Expose external metrics for HPA with Prometheus Adapter",
+    "summary": "Adopt the **Prometheus Adapter** Helm chart",
+    "decided_on": "2025-06-03",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0013-expose-external-metrics-for-hpa.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:gi-0013",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: Expose external metrics for HPA with Prometheus Adapter",
+    "date": "2025-06-03",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0013-expose-external-metrics-for-hpa.md",
+    "excerpt": "Adopt the **Prometheus Adapter** Helm chart"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "gi-0018",
+   "props": {
+    "title": "Use Concourse CI",
+    "summary": "the team decided to pursue Concourse as its CI/CD tool",
+    "decided_on": "2025-08-12",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0018-use-concourse-ci.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:gi-0018",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: Use Concourse CI",
+    "date": "2025-08-12",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0018-use-concourse-ci.md",
+    "excerpt": "the team decided to pursue Concourse as its CI/CD tool"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "gi-0020",
+   "props": {
+    "title": "Use Crossplane for abstraction",
+    "summary": "We have decided that we want to use Crossplane",
+    "decided_on": "2025-10-20",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0020-use-crossplane-for-abstraction.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:gi-0020",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: Use Crossplane for abstraction",
+    "date": "2025-10-20",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0020-use-crossplane-for-abstraction.md",
+    "excerpt": "We have decided that we want to use Crossplane"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "gi-0022",
+   "props": {
+    "title": "Use Pkl for configuration",
+    "summary": "it was the most mature, well-supported, and feature rich",
+    "decided_on": "2025-11-06",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0022-use-pkl-for-configuration.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:gi-0022",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: Use Pkl for configuration",
+    "date": "2025-11-06",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0022-use-pkl-for-configuration.md",
+    "excerpt": "it was the most mature, well-supported, and feature rich"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "gi-0023",
+   "props": {
+    "title": "Use OPA Gatekeeper",
+    "summary": "it is a mature CNCF graduated",
+    "decided_on": "2026-07-07",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0023-use-opa-gatekeeper.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:gi-0023",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: Use OPA Gatekeeper",
+    "date": "2026-07-07",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0023-use-opa-gatekeeper.md",
+    "excerpt": "it is a mature CNCF graduated"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "ga-0006",
+   "props": {
+    "title": "Puppet architecture",
+    "summary": "Use a Puppetmaster to not diverge from current architecture in the initial iteration.",
+    "decided_on": "2017-07-04",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0006-puppet-architecture.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:ga-0006",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: Puppet architecture",
+    "date": "2017-07-04",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0006-puppet-architecture.md",
+    "excerpt": "Use a Puppetmaster to not diverge from current architecture in the initial iteration."
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "ga-0025",
+   "props": {
+    "title": "Use Elasticache for Redis",
+    "summary": "We are using Elasticache instead of provisioning our own Redis instances.",
+    "decided_on": "2017-09-04",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0025-use-elasticache-for-redis.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:ga-0025",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: Use Elasticache for Redis",
+    "date": "2017-09-04",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0025-use-elasticache-for-redis.md",
+    "excerpt": "We are using Elasticache instead of provisioning our own Redis instances."
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "l4b-lerna",
+   "props": {
+    "title": "Monorepo with Yarn and Lerna",
+    "summary": "Yarn + Lerna seems to be a very good practice used by a lot of other open-source projects",
+    "decided_on": "2020-09-25",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:l4b-lerna",
+   "props": {
+    "kind": "adr",
+    "title": "thomvaill/log4brains: Monorepo with Yarn and Lerna",
+    "date": "2020-09-25",
+    "path": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md",
+    "excerpt": "Yarn + Lerna seems to be a very good practice used by a lot of other open-source projects"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "l4b-style",
+   "props": {
+    "title": "Use Prettier-ESLint Airbnb for the code style",
+    "summary": "Airbnb code style is widely used",
+    "decided_on": "2020-09-25",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-use-prettier-eslint-airbnb-for-the-code-style.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:l4b-style",
+   "props": {
+    "kind": "adr",
+    "title": "thomvaill/log4brains: Use Prettier-ESLint Airbnb for the code style",
+    "date": "2020-09-25",
+    "path": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-use-prettier-eslint-airbnb-for-the-code-style.md",
+    "excerpt": "Airbnb code style is widely used"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "l4b-mdx",
+   "props": {
+    "title": "Enhance the ADR markdown body with MDX",
+    "summary": "the core API is responsible (with MDX)",
+    "decided_on": "2020-10-26",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:l4b-mdx",
+   "props": {
+    "kind": "adr",
+    "title": "thomvaill/log4brains: Enhance the ADR markdown body with MDX",
+    "date": "2020-10-26",
+    "path": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx.md",
+    "excerpt": "the core API is responsible (with MDX)"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "l4b-lunr",
+   "props": {
+    "title": "Use Lunr for search",
+    "summary": "Chosen option: \"Option 2: Lunr.js\".",
+    "decided_on": "2020-11-03",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201103-use-lunr-for-search.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:l4b-lunr",
+   "props": {
+    "kind": "adr",
+    "title": "thomvaill/log4brains: Use Lunr for search",
+    "date": "2020-11-03",
+    "path": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201103-use-lunr-for-search.md",
+    "excerpt": "Chosen option: \"Option 2: Lunr.js\"."
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "bs-007",
+   "props": {
+    "title": "Use MSW to mock HTTP requests",
+    "summary": "should be mocked by using `msw`",
+    "decided_on": "2020-07-14",
+    "source": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr007-use-msw-to-mock-service-requests.md",
+    "repo": "backstage/backstage",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:bs-007",
+   "props": {
+    "kind": "adr",
+    "title": "backstage/backstage: Use MSW to mock HTTP requests",
+    "date": "2020-07-14",
+    "path": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr007-use-msw-to-mock-service-requests.md",
+    "excerpt": "should be mocked by using `msw`"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "bs-010",
+   "props": {
+    "title": "Use the Luxon date library",
+    "summary": "We will use [Luxon]",
+    "decided_on": "2021-01-18",
+    "source": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr010-luxon-date-library.md",
+    "repo": "backstage/backstage",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:bs-010",
+   "props": {
+    "kind": "adr",
+    "title": "backstage/backstage: Use the Luxon date library",
+    "date": "2021-01-18",
+    "path": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr010-luxon-date-library.md",
+    "excerpt": "We will use [Luxon]"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "bs-013",
+   "props": {
+    "title": "Use node-fetch for HTTP fetching",
+    "summary": "Backend (node) packages should use the `node-fetch` package",
+    "decided_on": "2021-12-21",
+    "source": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr013-use-node-fetch.md",
+    "repo": "backstage/backstage",
+    "status": "superseded"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:bs-013",
+   "props": {
+    "kind": "adr",
+    "title": "backstage/backstage: Use node-fetch for HTTP fetching",
+    "date": "2021-12-21",
+    "path": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr013-use-node-fetch.md",
+    "excerpt": "Backend (node) packages should use the `node-fetch` package"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "src": "maintained:airbnb",
+   "rel": "SUPPORTS",
+   "dst": "p_airbnb_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to master on 2026-02-21"
+   }
+  },
+  {
+   "src": "open_source:airbnb",
+   "rel": "SUPPORTS",
+   "dst": "p_airbnb_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports MIT"
+   }
+  },
+  {
+   "src": "no_known_vuln:airbnb",
+   "rel": "SUPPORTS",
+   "dst": "p_airbnb_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "no OSV advisory affects 19.0.4"
+   }
+  },
+  {
+   "src": "maintained:aws-lbc",
+   "rel": "SUPPORTS",
+   "dst": "p_aws-lbc_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to main on 2026-10-14"
+   }
+  },
+  {
+   "src": "open_source:aws-lbc",
+   "rel": "SUPPORTS",
+   "dst": "p_aws-lbc_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "maintained:concourse",
+   "rel": "SUPPORTS",
+   "dst": "p_concourse_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to master on 2026-10-16"
+   }
+  },
+  {
+   "src": "open_source:concourse",
+   "rel": "SUPPORTS",
+   "dst": "p_concourse_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "maintained:crossplane",
+   "rel": "SUPPORTS",
+   "dst": "p_crossplane_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to main on 2026-10-16"
+   }
+  },
+  {
+   "src": "open_source:crossplane",
+   "rel": "SUPPORTS",
+   "dst": "p_crossplane_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "no_known_vuln:crossplane",
+   "rel": "CONTRADICTS",
+   "dst": "p_crossplane_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "1 OSV advisory affects v2.4.2"
+   }
+  },
+  {
+   "src": "maintained:dex",
+   "rel": "SUPPORTS",
+   "dst": "p_dex_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to master on 2026-10-07"
+   }
+  },
+  {
+   "src": "open_source:dex",
+   "rel": "SUPPORTS",
+   "dst": "p_dex_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "maintained:elasticsearch",
+   "rel": "SUPPORTS",
+   "dst": "p_elasticsearch_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to main on 2026-10-17"
+   }
+  },
+  {
+   "src": "open_source:elasticsearch",
+   "rel": "SUPPORTS",
+   "dst": "p_elasticsearch_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "offered under Elastic-2.0, SSPL-1.0, AGPL-3.0, Apache-2.0; the OSI option (AGPL-3.0, Apache-2.0) keeps it open source"
+   }
+  },
+  {
+   "src": "no_known_vuln:elasticsearch",
+   "rel": "SUPPORTS",
+   "dst": "p_elasticsearch_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "no OSV advisory affects 9.0.3"
+   }
+  },
+  {
+   "src": "maintained:external-dns",
+   "rel": "SUPPORTS",
+   "dst": "p_external-dns_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to master on 2026-10-16"
+   }
+  },
+  {
+   "src": "open_source:external-dns",
+   "rel": "SUPPORTS",
+   "dst": "p_external-dns_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "no_known_vuln:external-dns",
+   "rel": "SUPPORTS",
+   "dst": "p_external-dns_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "no OSV advisory affects v0.23.0"
+   }
+  },
+  {
+   "src": "maintained:external-secrets",
+   "rel": "SUPPORTS",
+   "dst": "p_external-secrets_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to main on 2026-10-16"
+   }
+  },
+  {
+   "src": "open_source:external-secrets",
+   "rel": "SUPPORTS",
+   "dst": "p_external-secrets_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "maintained:fluent-bit",
+   "rel": "SUPPORTS",
+   "dst": "p_fluent-bit_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to master on 2026-10-17"
+   }
+  },
+  {
+   "src": "open_source:fluent-bit",
+   "rel": "SUPPORTS",
+   "dst": "p_fluent-bit_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "maintained:gatekeeper",
+   "rel": "SUPPORTS",
+   "dst": "p_gatekeeper_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to master on 2026-10-12"
+   }
+  },
+  {
+   "src": "open_source:gatekeeper",
+   "rel": "SUPPORTS",
+   "dst": "p_gatekeeper_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "no_known_vuln:gatekeeper",
+   "rel": "SUPPORTS",
+   "dst": "p_gatekeeper_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "no OSV advisory affects v3.23.1"
+   }
+  },
+  {
+   "src": "maintained:helm",
+   "rel": "SUPPORTS",
+   "dst": "p_helm_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to main on 2026-10-16"
+   }
+  },
+  {
+   "src": "open_source:helm",
+   "rel": "SUPPORTS",
+   "dst": "p_helm_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "no_known_vuln:helm",
+   "rel": "SUPPORTS",
+   "dst": "p_helm_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "no OSV advisory affects v4.3.1"
+   }
+  },
+  {
+   "src": "maintained:karpenter",
+   "rel": "SUPPORTS",
+   "dst": "p_karpenter_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to main on 2026-10-16"
+   }
+  },
+  {
+   "src": "open_source:karpenter",
+   "rel": "SUPPORTS",
+   "dst": "p_karpenter_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "no_known_vuln:karpenter",
+   "rel": "SUPPORTS",
+   "dst": "p_karpenter_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "no OSV advisory affects v1.15.0"
+   }
+  },
+  {
+   "src": "maintained:kubernetes",
+   "rel": "SUPPORTS",
+   "dst": "p_kubernetes_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to master on 2026-10-17"
+   }
+  },
+  {
+   "src": "open_source:kubernetes",
+   "rel": "SUPPORTS",
+   "dst": "p_kubernetes_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "no_known_vuln:kubernetes",
+   "rel": "CONTRADICTS",
+   "dst": "p_kubernetes_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "2 OSV advisories affect v1.37.1"
+   }
+  },
+  {
+   "src": "maintained:lerna",
+   "rel": "SUPPORTS",
+   "dst": "p_lerna_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to main on 2026-10-12"
+   }
+  },
+  {
+   "src": "open_source:lerna",
+   "rel": "SUPPORTS",
+   "dst": "p_lerna_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports MIT"
+   }
+  },
+  {
+   "src": "no_known_vuln:lerna",
+   "rel": "SUPPORTS",
+   "dst": "p_lerna_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "no OSV advisory affects 10.1.1"
+   }
+  },
+  {
+   "src": "maintained:lunr",
+   "rel": "CONTRADICTS",
+   "dst": "p_lunr_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to master on 2020-08-19"
+   }
+  },
+  {
+   "src": "open_source:lunr",
+   "rel": "SUPPORTS",
+   "dst": "p_lunr_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports MIT"
+   }
+  },
+  {
+   "src": "no_known_vuln:lunr",
+   "rel": "SUPPORTS",
+   "dst": "p_lunr_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "no OSV advisory affects 2.3.9"
+   }
+  },
+  {
+   "src": "maintained:luxon",
+   "rel": "SUPPORTS",
+   "dst": "p_luxon_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to master on 2026-08-09"
+   }
+  },
+  {
+   "src": "open_source:luxon",
+   "rel": "SUPPORTS",
+   "dst": "p_luxon_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports MIT"
+   }
+  },
+  {
+   "src": "no_known_vuln:luxon",
+   "rel": "SUPPORTS",
+   "dst": "p_luxon_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "no OSV advisory affects 3.7.2"
+   }
+  },
+  {
+   "src": "maintained:mdx",
+   "rel": "SUPPORTS",
+   "dst": "p_mdx_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to main on 2026-09-21"
+   }
+  },
+  {
+   "src": "open_source:mdx",
+   "rel": "SUPPORTS",
+   "dst": "p_mdx_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports MIT"
+   }
+  },
+  {
+   "src": "no_known_vuln:mdx",
+   "rel": "SUPPORTS",
+   "dst": "p_mdx_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "no OSV advisory affects 3.1.1"
+   }
+  },
+  {
+   "src": "maintained:msw",
+   "rel": "SUPPORTS",
+   "dst": "p_msw_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to main on 2026-10-17"
+   }
+  },
+  {
+   "src": "open_source:msw",
+   "rel": "SUPPORTS",
+   "dst": "p_msw_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports MIT"
+   }
+  },
+  {
+   "src": "no_known_vuln:msw",
+   "rel": "SUPPORTS",
+   "dst": "p_msw_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "no OSV advisory affects 3.0.3"
+   }
+  },
+  {
+   "src": "maintained:node-fetch",
+   "rel": "CONTRADICTS",
+   "dst": "p_node-fetch_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to main on 2023-07-25"
+   }
+  },
+  {
+   "src": "open_source:node-fetch",
+   "rel": "SUPPORTS",
+   "dst": "p_node-fetch_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports MIT"
+   }
+  },
+  {
+   "src": "no_known_vuln:node-fetch",
+   "rel": "SUPPORTS",
+   "dst": "p_node-fetch_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "no OSV advisory affects 3.3.2"
+   }
+  },
+  {
+   "src": "maintained:opa",
+   "rel": "SUPPORTS",
+   "dst": "p_opa_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to main on 2026-10-16"
+   }
+  },
+  {
+   "src": "open_source:opa",
+   "rel": "SUPPORTS",
+   "dst": "p_opa_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "no_known_vuln:opa",
+   "rel": "SUPPORTS",
+   "dst": "p_opa_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "no OSV advisory affects v1.21.2"
+   }
+  },
+  {
+   "src": "maintained:pkl",
+   "rel": "SUPPORTS",
+   "dst": "p_pkl_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to main on 2026-10-16"
+   }
+  },
+  {
+   "src": "open_source:pkl",
+   "rel": "SUPPORTS",
+   "dst": "p_pkl_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "no_known_vuln:pkl",
+   "rel": "SUPPORTS",
+   "dst": "p_pkl_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "no OSV advisory affects 0.28.2"
+   }
+  },
+  {
+   "src": "maintained:prettier-eslint",
+   "rel": "SUPPORTS",
+   "dst": "p_prettier-eslint_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to master on 2026-09-12"
+   }
+  },
+  {
+   "src": "open_source:prettier-eslint",
+   "rel": "SUPPORTS",
+   "dst": "p_prettier-eslint_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports MIT"
+   }
+  },
+  {
+   "src": "no_known_vuln:prettier-eslint",
+   "rel": "SUPPORTS",
+   "dst": "p_prettier-eslint_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "no OSV advisory affects 17.1.2"
+   }
+  },
+  {
+   "src": "maintained:prometheus-adapter",
+   "rel": "CONTRADICTS",
+   "dst": "p_prometheus-adapter_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to master on 2025-04-01"
+   }
+  },
+  {
+   "src": "open_source:prometheus-adapter",
+   "rel": "SUPPORTS",
+   "dst": "p_prometheus-adapter_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "no_known_vuln:prometheus-adapter",
+   "rel": "SUPPORTS",
+   "dst": "p_prometheus-adapter_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "no OSV advisory affects v0.12.0"
+   }
+  },
+  {
+   "src": "maintained:puppet",
+   "rel": "CONTRADICTS",
+   "dst": "p_puppet_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to main on 2024-12-11"
+   }
+  },
+  {
+   "src": "open_source:puppet",
+   "rel": "SUPPORTS",
+   "dst": "p_puppet_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "no_known_vuln:puppet",
+   "rel": "SUPPORTS",
+   "dst": "p_puppet_no_known_vuln",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "no OSV advisory affects 8.10.0"
+   }
+  },
+  {
+   "src": "maintained:redis",
+   "rel": "SUPPORTS",
+   "dst": "p_redis_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to unstable on 2026-10-17"
+   }
+  },
+  {
+   "src": "open_source:redis",
+   "rel": "SUPPORTS",
+   "dst": "p_redis_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "offered under RSALv2, SSPL-1.0, AGPL-3.0; the OSI option (AGPL-3.0) keeps it open source"
+   }
+  },
+  {
+   "src": "maintained:tf-aws-eks",
+   "rel": "SUPPORTS",
+   "dst": "p_tf-aws-eks_maintained",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "last commit to master on 2026-10-08"
+   }
+  },
+  {
+   "src": "open_source:tf-aws-eks",
+   "rel": "SUPPORTS",
+   "dst": "p_tf-aws-eks_open_source",
+   "props": {
+    "at": "2026-10-17",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "moj-003",
+   "rel": "RECORDED_IN",
+   "dst": "src:moj-003",
+   "props": {}
+  },
+  {
+   "src": "moj-003",
+   "rel": "BECAUSE_OF",
+   "dst": "p_concourse_maintained",
+   "props": {
+    "quote": "Concourse CI is actively maintained"
+   }
+  },
+  {
+   "src": "moj-003",
+   "rel": "BECAUSE_OF",
+   "dst": "p_concourse_open_source",
+   "props": {
+    "quote": "Concourse CI is open source"
+   }
+  },
+  {
+   "src": "moj-004",
+   "rel": "RECORDED_IN",
+   "dst": "src:moj-004",
+   "props": {}
+  },
+  {
+   "src": "moj-004",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_maintained",
+   "props": {
+    "quote": "Kubernetes is actively maintained"
+   }
+  },
+  {
+   "src": "moj-004",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_open_source",
+   "props": {
+    "quote": "Kubernetes is open source"
+   }
+  },
+  {
+   "src": "moj-004",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_no_known_vuln",
+   "props": {
+    "quote": "The current release of Kubernetes has no known vulnerability"
+   }
+  },
+  {
+   "src": "moj-011",
+   "rel": "RECORDED_IN",
+   "dst": "src:moj-011",
+   "props": {}
+  },
+  {
+   "src": "moj-011",
+   "rel": "BECAUSE_OF",
+   "dst": "p_opa_maintained",
+   "props": {
+    "quote": "Open Policy Agent is actively maintained"
+   }
+  },
+  {
+   "src": "moj-011",
+   "rel": "BECAUSE_OF",
+   "dst": "p_opa_open_source",
+   "props": {
+    "quote": "Open Policy Agent is open source"
+   }
+  },
+  {
+   "src": "moj-011",
+   "rel": "BECAUSE_OF",
+   "dst": "p_opa_no_known_vuln",
+   "props": {
+    "quote": "The current release of Open Policy Agent has no known vulnerability"
+   }
+  },
+  {
+   "src": "moj-047",
+   "rel": "RECORDED_IN",
+   "dst": "src:moj-047",
+   "props": {}
+  },
+  {
+   "src": "moj-047",
+   "rel": "BECAUSE_OF",
+   "dst": "p_karpenter_maintained",
+   "props": {
+    "quote": "Karpenter is actively maintained"
+   }
+  },
+  {
+   "src": "moj-047",
+   "rel": "BECAUSE_OF",
+   "dst": "p_karpenter_open_source",
+   "props": {
+    "quote": "Karpenter is open source"
+   }
+  },
+  {
+   "src": "moj-047",
+   "rel": "BECAUSE_OF",
+   "dst": "p_karpenter_no_known_vuln",
+   "props": {
+    "quote": "The current release of Karpenter has no known vulnerability"
+   }
+  },
+  {
+   "src": "gi-0002",
+   "rel": "RECORDED_IN",
+   "dst": "src:gi-0002",
+   "props": {}
+  },
+  {
+   "src": "gi-0002",
+   "rel": "BECAUSE_OF",
+   "dst": "p_tf-aws-eks_maintained",
+   "props": {
+    "quote": "terraform-aws-eks module is actively maintained"
+   }
+  },
+  {
+   "src": "gi-0002",
+   "rel": "BECAUSE_OF",
+   "dst": "p_tf-aws-eks_open_source",
+   "props": {
+    "quote": "terraform-aws-eks module is open source"
+   }
+  },
+  {
+   "src": "gi-0004",
+   "rel": "RECORDED_IN",
+   "dst": "src:gi-0004",
+   "props": {}
+  },
+  {
+   "src": "gi-0004",
+   "rel": "BECAUSE_OF",
+   "dst": "p_aws-lbc_maintained",
+   "props": {
+    "quote": "AWS Load Balancer Controller is actively maintained"
+   }
+  },
+  {
+   "src": "gi-0004",
+   "rel": "BECAUSE_OF",
+   "dst": "p_aws-lbc_open_source",
+   "props": {
+    "quote": "AWS Load Balancer Controller is open source"
+   }
+  },
+  {
+   "src": "gi-0006",
+   "rel": "RECORDED_IN",
+   "dst": "src:gi-0006",
+   "props": {}
+  },
+  {
+   "src": "gi-0006",
+   "rel": "BECAUSE_OF",
+   "dst": "p_helm_maintained",
+   "props": {
+    "quote": "Helm is actively maintained"
+   }
+  },
+  {
+   "src": "gi-0006",
+   "rel": "BECAUSE_OF",
+   "dst": "p_helm_open_source",
+   "props": {
+    "quote": "Helm is open source"
+   }
+  },
+  {
+   "src": "gi-0006",
+   "rel": "BECAUSE_OF",
+   "dst": "p_helm_no_known_vuln",
+   "props": {
+    "quote": "The current release of Helm has no known vulnerability"
+   }
+  },
+  {
+   "src": "gi-0007",
+   "rel": "RECORDED_IN",
+   "dst": "src:gi-0007",
+   "props": {}
+  },
+  {
+   "src": "gi-0007",
+   "rel": "BECAUSE_OF",
+   "dst": "p_fluent-bit_maintained",
+   "props": {
+    "quote": "Fluent Bit is actively maintained"
+   }
+  },
+  {
+   "src": "gi-0007",
+   "rel": "BECAUSE_OF",
+   "dst": "p_fluent-bit_open_source",
+   "props": {
+    "quote": "Fluent Bit is open source"
+   }
+  },
+  {
+   "src": "gi-0007",
+   "rel": "BECAUSE_OF",
+   "dst": "p_elasticsearch_maintained",
+   "props": {
+    "quote": "Elasticsearch is actively maintained"
+   }
+  },
+  {
+   "src": "gi-0007",
+   "rel": "BECAUSE_OF",
+   "dst": "p_elasticsearch_open_source",
+   "props": {
+    "quote": "Elasticsearch is open source"
+   }
+  },
+  {
+   "src": "gi-0007",
+   "rel": "BECAUSE_OF",
+   "dst": "p_elasticsearch_no_known_vuln",
+   "props": {
+    "quote": "The current release of Elasticsearch has no known vulnerability"
+   }
+  },
+  {
+   "src": "gi-0008",
+   "rel": "RECORDED_IN",
+   "dst": "src:gi-0008",
+   "props": {}
+  },
+  {
+   "src": "gi-0008",
+   "rel": "BECAUSE_OF",
+   "dst": "p_external-secrets_maintained",
+   "props": {
+    "quote": "external-secrets is actively maintained"
+   }
+  },
+  {
+   "src": "gi-0008",
+   "rel": "BECAUSE_OF",
+   "dst": "p_external-secrets_open_source",
+   "props": {
+    "quote": "external-secrets is open source"
+   }
+  },
+  {
+   "src": "gi-0009",
+   "rel": "RECORDED_IN",
+   "dst": "src:gi-0009",
+   "props": {}
+  },
+  {
+   "src": "gi-0009",
+   "rel": "BECAUSE_OF",
+   "dst": "p_external-dns_maintained",
+   "props": {
+    "quote": "external-dns is actively maintained"
+   }
+  },
+  {
+   "src": "gi-0009",
+   "rel": "BECAUSE_OF",
+   "dst": "p_external-dns_open_source",
+   "props": {
+    "quote": "external-dns is open source"
+   }
+  },
+  {
+   "src": "gi-0009",
+   "rel": "BECAUSE_OF",
+   "dst": "p_external-dns_no_known_vuln",
+   "props": {
+    "quote": "The current release of external-dns has no known vulnerability"
+   }
+  },
+  {
+   "src": "gi-0010",
+   "rel": "RECORDED_IN",
+   "dst": "src:gi-0010",
+   "props": {}
+  },
+  {
+   "src": "gi-0010",
+   "rel": "BECAUSE_OF",
+   "dst": "p_dex_maintained",
+   "props": {
+    "quote": "Dex is actively maintained"
+   }
+  },
+  {
+   "src": "gi-0010",
+   "rel": "BECAUSE_OF",
+   "dst": "p_dex_open_source",
+   "props": {
+    "quote": "Dex is open source"
+   }
+  },
+  {
+   "src": "gi-0013",
+   "rel": "RECORDED_IN",
+   "dst": "src:gi-0013",
+   "props": {}
+  },
+  {
+   "src": "gi-0013",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prometheus-adapter_maintained",
+   "props": {
+    "quote": "Prometheus Adapter is actively maintained"
+   }
+  },
+  {
+   "src": "gi-0013",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prometheus-adapter_open_source",
+   "props": {
+    "quote": "Prometheus Adapter is open source"
+   }
+  },
+  {
+   "src": "gi-0013",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prometheus-adapter_no_known_vuln",
+   "props": {
+    "quote": "The current release of Prometheus Adapter has no known vulnerability"
+   }
+  },
+  {
+   "src": "gi-0018",
+   "rel": "RECORDED_IN",
+   "dst": "src:gi-0018",
+   "props": {}
+  },
+  {
+   "src": "gi-0018",
+   "rel": "BECAUSE_OF",
+   "dst": "p_concourse_maintained",
+   "props": {
+    "quote": "Concourse CI is actively maintained"
+   }
+  },
+  {
+   "src": "gi-0018",
+   "rel": "BECAUSE_OF",
+   "dst": "p_concourse_open_source",
+   "props": {
+    "quote": "Concourse CI is open source"
+   }
+  },
+  {
+   "src": "gi-0020",
+   "rel": "RECORDED_IN",
+   "dst": "src:gi-0020",
+   "props": {}
+  },
+  {
+   "src": "gi-0020",
+   "rel": "BECAUSE_OF",
+   "dst": "p_crossplane_maintained",
+   "props": {
+    "quote": "Crossplane is actively maintained"
+   }
+  },
+  {
+   "src": "gi-0020",
+   "rel": "BECAUSE_OF",
+   "dst": "p_crossplane_open_source",
+   "props": {
+    "quote": "Crossplane is open source"
+   }
+  },
+  {
+   "src": "gi-0020",
+   "rel": "BECAUSE_OF",
+   "dst": "p_crossplane_no_known_vuln",
+   "props": {
+    "quote": "The current release of Crossplane has no known vulnerability"
+   }
+  },
+  {
+   "src": "gi-0022",
+   "rel": "RECORDED_IN",
+   "dst": "src:gi-0022",
+   "props": {}
+  },
+  {
+   "src": "gi-0022",
+   "rel": "BECAUSE_OF",
+   "dst": "p_pkl_maintained",
+   "props": {
+    "quote": "Pkl is actively maintained"
+   }
+  },
+  {
+   "src": "gi-0022",
+   "rel": "BECAUSE_OF",
+   "dst": "p_pkl_open_source",
+   "props": {
+    "quote": "Pkl is open source"
+   }
+  },
+  {
+   "src": "gi-0022",
+   "rel": "BECAUSE_OF",
+   "dst": "p_pkl_no_known_vuln",
+   "props": {
+    "quote": "The current release of Pkl has no known vulnerability"
+   }
+  },
+  {
+   "src": "gi-0023",
+   "rel": "RECORDED_IN",
+   "dst": "src:gi-0023",
+   "props": {}
+  },
+  {
+   "src": "gi-0023",
+   "rel": "BECAUSE_OF",
+   "dst": "p_gatekeeper_maintained",
+   "props": {
+    "quote": "OPA Gatekeeper is actively maintained"
+   }
+  },
+  {
+   "src": "gi-0023",
+   "rel": "BECAUSE_OF",
+   "dst": "p_gatekeeper_open_source",
+   "props": {
+    "quote": "OPA Gatekeeper is open source"
+   }
+  },
+  {
+   "src": "gi-0023",
+   "rel": "BECAUSE_OF",
+   "dst": "p_gatekeeper_no_known_vuln",
+   "props": {
+    "quote": "The current release of OPA Gatekeeper has no known vulnerability"
+   }
+  },
+  {
+   "src": "ga-0006",
+   "rel": "RECORDED_IN",
+   "dst": "src:ga-0006",
+   "props": {}
+  },
+  {
+   "src": "ga-0006",
+   "rel": "BECAUSE_OF",
+   "dst": "p_puppet_maintained",
+   "props": {
+    "quote": "Puppet is actively maintained"
+   }
+  },
+  {
+   "src": "ga-0006",
+   "rel": "BECAUSE_OF",
+   "dst": "p_puppet_open_source",
+   "props": {
+    "quote": "Puppet is open source"
+   }
+  },
+  {
+   "src": "ga-0006",
+   "rel": "BECAUSE_OF",
+   "dst": "p_puppet_no_known_vuln",
+   "props": {
+    "quote": "The current release of Puppet has no known vulnerability"
+   }
+  },
+  {
+   "src": "ga-0025",
+   "rel": "RECORDED_IN",
+   "dst": "src:ga-0025",
+   "props": {}
+  },
+  {
+   "src": "ga-0025",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redis_maintained",
+   "props": {
+    "quote": "Redis is actively maintained"
+   }
+  },
+  {
+   "src": "ga-0025",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redis_open_source",
+   "props": {
+    "quote": "Redis is open source"
+   }
+  },
+  {
+   "src": "l4b-lerna",
+   "rel": "RECORDED_IN",
+   "dst": "src:l4b-lerna",
+   "props": {}
+  },
+  {
+   "src": "l4b-lerna",
+   "rel": "BECAUSE_OF",
+   "dst": "p_lerna_maintained",
+   "props": {
+    "quote": "Lerna is actively maintained"
+   }
+  },
+  {
+   "src": "l4b-lerna",
+   "rel": "BECAUSE_OF",
+   "dst": "p_lerna_open_source",
+   "props": {
+    "quote": "Lerna is open source"
+   }
+  },
+  {
+   "src": "l4b-lerna",
+   "rel": "BECAUSE_OF",
+   "dst": "p_lerna_no_known_vuln",
+   "props": {
+    "quote": "The current release of Lerna has no known vulnerability"
+   }
+  },
+  {
+   "src": "l4b-style",
+   "rel": "RECORDED_IN",
+   "dst": "src:l4b-style",
+   "props": {}
+  },
+  {
+   "src": "l4b-style",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prettier-eslint_maintained",
+   "props": {
+    "quote": "prettier-eslint is actively maintained"
+   }
+  },
+  {
+   "src": "l4b-style",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prettier-eslint_open_source",
+   "props": {
+    "quote": "prettier-eslint is open source"
+   }
+  },
+  {
+   "src": "l4b-style",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prettier-eslint_no_known_vuln",
+   "props": {
+    "quote": "The current release of prettier-eslint has no known vulnerability"
+   }
+  },
+  {
+   "src": "l4b-style",
+   "rel": "BECAUSE_OF",
+   "dst": "p_airbnb_maintained",
+   "props": {
+    "quote": "Airbnb ESLint config is actively maintained"
+   }
+  },
+  {
+   "src": "l4b-style",
+   "rel": "BECAUSE_OF",
+   "dst": "p_airbnb_open_source",
+   "props": {
+    "quote": "Airbnb ESLint config is open source"
+   }
+  },
+  {
+   "src": "l4b-style",
+   "rel": "BECAUSE_OF",
+   "dst": "p_airbnb_no_known_vuln",
+   "props": {
+    "quote": "The current release of Airbnb ESLint config has no known vulnerability"
+   }
+  },
+  {
+   "src": "l4b-mdx",
+   "rel": "RECORDED_IN",
+   "dst": "src:l4b-mdx",
+   "props": {}
+  },
+  {
+   "src": "l4b-mdx",
+   "rel": "BECAUSE_OF",
+   "dst": "p_mdx_maintained",
+   "props": {
+    "quote": "MDX is actively maintained"
+   }
+  },
+  {
+   "src": "l4b-mdx",
+   "rel": "BECAUSE_OF",
+   "dst": "p_mdx_open_source",
+   "props": {
+    "quote": "MDX is open source"
+   }
+  },
+  {
+   "src": "l4b-mdx",
+   "rel": "BECAUSE_OF",
+   "dst": "p_mdx_no_known_vuln",
+   "props": {
+    "quote": "The current release of MDX has no known vulnerability"
+   }
+  },
+  {
+   "src": "l4b-lunr",
+   "rel": "RECORDED_IN",
+   "dst": "src:l4b-lunr",
+   "props": {}
+  },
+  {
+   "src": "l4b-lunr",
+   "rel": "BECAUSE_OF",
+   "dst": "p_lunr_maintained",
+   "props": {
+    "quote": "Lunr.js is actively maintained"
+   }
+  },
+  {
+   "src": "l4b-lunr",
+   "rel": "BECAUSE_OF",
+   "dst": "p_lunr_open_source",
+   "props": {
+    "quote": "Lunr.js is open source"
+   }
+  },
+  {
+   "src": "l4b-lunr",
+   "rel": "BECAUSE_OF",
+   "dst": "p_lunr_no_known_vuln",
+   "props": {
+    "quote": "The current release of Lunr.js has no known vulnerability"
+   }
+  },
+  {
+   "src": "bs-007",
+   "rel": "RECORDED_IN",
+   "dst": "src:bs-007",
+   "props": {}
+  },
+  {
+   "src": "bs-007",
+   "rel": "BECAUSE_OF",
+   "dst": "p_msw_maintained",
+   "props": {
+    "quote": "Mock Service Worker is actively maintained"
+   }
+  },
+  {
+   "src": "bs-007",
+   "rel": "BECAUSE_OF",
+   "dst": "p_msw_open_source",
+   "props": {
+    "quote": "Mock Service Worker is open source"
+   }
+  },
+  {
+   "src": "bs-007",
+   "rel": "BECAUSE_OF",
+   "dst": "p_msw_no_known_vuln",
+   "props": {
+    "quote": "The current release of Mock Service Worker has no known vulnerability"
+   }
+  },
+  {
+   "src": "bs-010",
+   "rel": "RECORDED_IN",
+   "dst": "src:bs-010",
+   "props": {}
+  },
+  {
+   "src": "bs-010",
+   "rel": "BECAUSE_OF",
+   "dst": "p_luxon_maintained",
+   "props": {
+    "quote": "Luxon is actively maintained"
+   }
+  },
+  {
+   "src": "bs-010",
+   "rel": "BECAUSE_OF",
+   "dst": "p_luxon_open_source",
+   "props": {
+    "quote": "Luxon is open source"
+   }
+  },
+  {
+   "src": "bs-010",
+   "rel": "BECAUSE_OF",
+   "dst": "p_luxon_no_known_vuln",
+   "props": {
+    "quote": "The current release of Luxon has no known vulnerability"
+   }
+  },
+  {
+   "src": "bs-013",
+   "rel": "RECORDED_IN",
+   "dst": "src:bs-013",
+   "props": {}
+  },
+  {
+   "src": "bs-013",
+   "rel": "BECAUSE_OF",
+   "dst": "p_node-fetch_maintained",
+   "props": {
+    "quote": "node-fetch is actively maintained"
+   }
+  },
+  {
+   "src": "bs-013",
+   "rel": "BECAUSE_OF",
+   "dst": "p_node-fetch_open_source",
+   "props": {
+    "quote": "node-fetch is open source"
+   }
+  },
+  {
+   "src": "bs-013",
+   "rel": "BECAUSE_OF",
+   "dst": "p_node-fetch_no_known_vuln",
+   "props": {
+    "quote": "The current release of node-fetch has no known vulnerability"
+   }
+  }
+ ]
+}

@@ -11,7 +11,7 @@ Built for [Graph Hacks: Context for AI Agents](https://www.wemakedevs.org/hackat
 ## Submission checklist
 
 - [x] FalkorDB is the primary database and the product stops working without it: every verdict is a `ro_query` path query ([graph model](#graph-model), [queries](#the-queries-moot-depends-on))
-- [x] Data is synthetic: a fictional 30-person company, Larkspur, with 30 decisions and 208 documents ([data/corpus](data/corpus))
+- [x] Data is synthetic: a fictional 30-person company, Larkspur, with 30 decisions and 208 documents ([data/corpus](data/corpus)); plus 25 real public ADRs checked against GitHub and OSV ([real-world proof](#real-world-proof-public-adrs))
 - [x] README has setup steps and the graph data model
 - [x] README lists the Cypher queries and graph algorithms the product depends on
 - [ ] Demo video (link below when recorded)
@@ -270,6 +270,31 @@ Four outcomes, as the organisers' reference architecture asks: `answered_with_pa
 The audit is an index lookup plus a bounded path expansion, so its latency does not move with corpus size. The seed column is where FalkorDB taught us something: the first import matched edge endpoints without labels, which cannot use the per-label index and took three minutes at 20k documents; naming the labels on both ends brought it to under a second on an M-series Mac.
 
 `make eval-e2e` (needs a key) runs the model-in-the-loop comparison: a BM25 RAG company brain asked "does this still hold?" against Moot's graph verdict, scored on verdict accuracy and whether the cited document is the true invalidating one. Results land in `eval/results_e2e.md`.
+
+## Real-world proof: public ADRs
+
+Larkspur is invented. To show the engine works on real text, Moot also audits **25 real architecture decision records from 5 public GitHub repositories** ([ministryofjustice/cloud-platform](https://github.com/ministryofjustice/cloud-platform), [alphagov/govuk-infrastructure](https://github.com/alphagov/govuk-infrastructure), [alphagov/govuk-aws](https://github.com/alphagov/govuk-aws), [backstage/backstage](https://github.com/backstage/backstage), [thomvaill/log4brains](https://github.com/thomvaill/log4brains)), each of which picks a named open-source tool. It lives in its own named graph, `public_adrs`, next to the demo tenant; the verdicts come from the same path queries.
+
+We read 144 ADRs from those repositories first. Most of their stated reasons are internal ("Jenkins took a week a month to keep alive") and cannot be checked from outside. What every tool choice does rest on, without saying so, is that the tool stays maintained, stays open source and stays free of known vulnerabilities. Those are the premises Moot checks, each as a dated `Evidence` node:
+
+| check | source | contradicts the premise when |
+|---|---|---|
+| maintained | GitHub API | the repository is archived, or its default branch has no commit in the last 365 days |
+| open source | GitHub license, then the LICENSE text | the only licenses offered are source-available (BUSL, SSPL, Elastic, RSAL) |
+| no known vulnerability | [OSV.dev](https://osv.dev) | an advisory affects the tool's latest published version |
+
+Snapshot of 2026-10-17 (`data/realworld/checks.json`, reproduced by `make realworld`): 26 tools, **71 checks answered, 6 failed, 7 could not be answered** and are listed as unchecked instead of guessed (three tools have no package in an OSV ecosystem; for four Go projects the module proxy's "latest" did not match the project's own latest release, so the vulnerability check refuses to answer). Every record's quote is verified against the ADR fetched from GitHub; a record whose quote is missing is dropped.
+
+| ADR | decided | unwritten reason that no longer holds |
+|---|---|---|
+| log4brains: Use Lunr for search | 2020-11-03 | Lunr.js is maintained: last commit 2020-08-19 |
+| Backstage ADR013: Use node-fetch | 2021-12-21 | node-fetch is maintained: last commit 2023-07-25 (Backstage has itself superseded this ADR with ADR014) |
+| GOV.UK AWS: Puppet architecture | 2017-07-04 | Puppet is maintained: last commit to puppetlabs/puppet main 2024-12-11 |
+| GOV.UK: Prometheus Adapter for HPA metrics | 2025-06-03 | Prometheus Adapter is maintained: last commit 2025-04-01, two months before the ADR |
+| GOV.UK: Use Crossplane | 2025-10-20 | latest Crossplane (v2.4.2) has no known vulnerability: 1 OSV advisory |
+| MoJ: Use Kubernetes | 2018-04-10 | latest Kubernetes (v1.37.1) has no known vulnerability: 2 unfixed OSV advisories on `k8s.io/kubernetes` |
+
+The licence checks all held: Elasticsearch and Redis both moved to source-available licences, and both now also offer AGPL, so "open source" still holds for them. Concourse CI was chosen by the Ministry of Justice in 2018 and by GOV.UK in 2025; in the graph that is one premise carrying two organisations' decisions. Limits: "no commit in a year" is a proxy for maintenance, not a verdict on quality; OSV advisories on the Kubernetes monorepo module include issues that are mitigated by configuration rather than fixed; and this is 25 records, not a survey.
 
 ## Honest limits
 

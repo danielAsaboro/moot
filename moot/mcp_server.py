@@ -98,6 +98,16 @@ def riskiest_reasons(as_of: str | None = None, limit: int = 10) -> str:
     return json.dumps(tools.riskiest_reasons(graph(), as_of, 4, limit), default=str)
 
 
+@mcp.tool()
+def real_world_ledger() -> str:
+    """Real public ADRs (ministryofjustice, alphagov, log4brains, backstage) with verdicts on their unwritten reasons: is the chosen tool still maintained, open source, free of known vulnerabilities."""
+    from .graph import PUBLIC_GRAPH
+    import json as _j
+    from .graph import DATA
+    as_of = _j.loads((DATA / "realworld" / "checks.json").read_text())["summary"]["checked_on"]
+    return json.dumps(tools.ledger(graph(PUBLIC_GRAPH), as_of, 2), default=str)
+
+
 def main():
     mcp.run()
 

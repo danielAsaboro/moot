@@ -16,6 +16,7 @@ load_dotenv()
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
+PUBLIC_GRAPH = "public_adrs"  # real public ADRs, checked against GitHub and OSV (moot/realworld)
 
 FULLTEXT = [("Decision", ("title", "summary")), ("Premise", ("text",)), ("Evidence", ("title", "excerpt"))]
 RANGE = [("Decision", "id"), ("Premise", "id"), ("Evidence", "id"), ("Person", "id"), ("System", "id"), ("Finding", "id")]

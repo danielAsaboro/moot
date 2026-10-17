@@ -11,13 +11,14 @@ def main(argv=None):
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("generate", help="render the synthetic corpus and truth.json from the spec")
     sub.add_parser("build", help="build data/graph.json from data/truth.json")
-    s = sub.add_parser("seed", help="MERGE data/graph.json into FalkorDB (idempotent)"); s.add_argument("--file"); s.add_argument("--fresh", action="store_true", help="drop the graph first")
+    s = sub.add_parser("seed", help="MERGE data/graph.json into FalkorDB (idempotent), plus the public-ADR graph"); s.add_argument("--file"); s.add_argument("--graph", help="named graph (default: the tenant)"); s.add_argument("--fresh", action="store_true", help="drop the graph first")
     sub.add_parser("stats")
     a = sub.add_parser("ask"); a.add_argument("question"); a.add_argument("--as-of"); a.add_argument("--depth", type=int, default=4)
     b = sub.add_parser("audit"); b.add_argument("decision_id"); b.add_argument("--as-of"); b.add_argument("--depth", type=int, default=4)
     l = sub.add_parser("ledger"); l.add_argument("--as-of"); l.add_argument("--depth", type=int, default=4)
     v = sub.add_parser("serve"); v.add_argument("--port", type=int, default=None)
     sub.add_parser("mcp", help="run the read-only MCP server on stdio")
+    sub.add_parser("realworld", help="check real public ADRs against GitHub and OSV -> data/realworld/ (network)")
     e = sub.add_parser("extract", help="LLM extraction from data/corpus into data/extracted.json"); e.add_argument("--limit", type=int)
     args = p.parse_args(argv)
 
@@ -25,10 +26,16 @@ def main(argv=None):
         from .corpus.generate import main as gen; gen(); return
     if args.cmd == "build":
         from .ingest.build_graph import main as build; build(); return
+    if args.cmd == "realworld":
+        from .realworld.check import main as rw; rw(); return
     from .graph import graph, seed, stats
     if args.cmd == "seed":
         from pathlib import Path
-        print(json.dumps(seed(graph(), Path(args.file) if args.file else None, fresh=args.fresh), indent=1)); return
+        from .graph import DATA, PUBLIC_GRAPH
+        out = seed(graph(args.graph), Path(args.file) if args.file else None, fresh=args.fresh)
+        if not args.file and not args.graph and (DATA / "realworld" / "graph.json").exists():
+            out["public_adrs"] = seed(graph(PUBLIC_GRAPH), DATA / "realworld" / "graph.json", fresh=args.fresh)
+        print(json.dumps(out, indent=1)); return
     if args.cmd == "stats":
         print(json.dumps(stats(graph()), indent=1)); return
     from . import tools, agent
