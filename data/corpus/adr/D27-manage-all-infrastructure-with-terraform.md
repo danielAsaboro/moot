@@ -12,6 +12,7 @@ SOC 2 requires infrastructure to be reproducible from code. Resources created in
 Stated premises:
 
 - SOC 2 requires infrastructure to be reproducible from code. (constraint)
+  This holds because we need SOC 2 certification to sell to enterprise customers.
 
 ## Decision
 

@@ -4,55 +4,125 @@
     "name": "Ada Okafor",
     "role": "Platform lead",
     "joined": "2024-05-01",
-    "left": "2026-05-15"
+    "left": "2026-05-15",
+    "reports_to": [
+      {
+        "manager": "tomi",
+        "valid_from": "2024-05-01",
+        "valid_to": "2025-08-01"
+      },
+      {
+        "manager": "kwame",
+        "valid_from": "2025-08-01",
+        "valid_to": null
+      }
+    ]
   },
   {
     "id": "tomi",
     "name": "Tomi Adeyemi",
     "role": "CTO",
     "joined": "2024-05-01",
-    "left": null
+    "left": null,
+    "reports_to": []
   },
   {
     "id": "priya",
     "name": "Priya Natarajan",
     "role": "Backend engineer",
     "joined": "2024-06-01",
-    "left": null
+    "left": null,
+    "reports_to": [
+      {
+        "manager": "tomi",
+        "valid_from": "2024-06-01",
+        "valid_to": "2025-08-01"
+      },
+      {
+        "manager": "kwame",
+        "valid_from": "2025-08-01",
+        "valid_to": null
+      }
+    ]
   },
   {
     "id": "marcus",
     "name": "Marcus Chen",
     "role": "SRE",
     "joined": "2024-07-01",
-    "left": null
+    "left": null,
+    "reports_to": [
+      {
+        "manager": "tomi",
+        "valid_from": "2024-07-01",
+        "valid_to": "2025-08-01"
+      },
+      {
+        "manager": "kwame",
+        "valid_from": "2025-08-01",
+        "valid_to": null
+      }
+    ]
   },
   {
     "id": "lena",
     "name": "Lena Fischer",
     "role": "Data engineer",
     "joined": "2024-10-01",
-    "left": null
+    "left": "2026-10-09",
+    "reports_to": [
+      {
+        "manager": "ada",
+        "valid_from": "2024-10-01",
+        "valid_to": null
+      }
+    ]
   },
   {
     "id": "jonah",
     "name": "Jonah Mbeki",
     "role": "Security engineer",
     "joined": "2024-12-01",
-    "left": null
+    "left": null,
+    "reports_to": [
+      {
+        "manager": "tomi",
+        "valid_from": "2024-12-01",
+        "valid_to": null
+      }
+    ]
   },
   {
     "id": "sofia",
     "name": "Sofia Rossi",
     "role": "Frontend lead",
     "joined": "2024-09-01",
-    "left": null
+    "left": null,
+    "reports_to": [
+      {
+        "manager": "tomi",
+        "valid_from": "2024-09-01",
+        "valid_to": "2025-08-01"
+      },
+      {
+        "manager": "kwame",
+        "valid_from": "2025-08-01",
+        "valid_to": null
+      }
+    ]
   },
   {
     "id": "kwame",
     "name": "Kwame Boateng",
     "role": "Engineering manager",
     "joined": "2025-08-01",
-    "left": null
+    "left": null,
+    "reports_to": [
+      {
+        "manager": "tomi",
+        "valid_from": "2025-08-01",
+        "valid_to": null
+      }
+    ]
   }
 ]

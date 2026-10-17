@@ -71,7 +71,9 @@ def decision(decision_id: str, as_of: str | None = None, depth: int = Query(4, g
         raise HTTPException(404, f"{decision_id} is not in the graph")
     impact = [tools.premise_impact(g(), p["id"]) for p in a["premises"] if p["state"] in ("expired", "disputed")]
     f = tools.findings(g(), decision_id)
-    return dict(audit=a, impact=impact, findings=f, ticket=agent.draft_ticket(a, impact), queries=tools.end_trace())
+    memo = tools.reopen_memo(g(), decision_id, as_of, depth) if a["verdict"] in ("MOOT", "DISPUTED") else None
+    return dict(audit=a, impact=impact, findings=f, memo=memo, ticket=memo["text"] if memo else agent.draft_ticket(a, impact),
+                queries=tools.end_trace())
 
 
 @app.get("/api/search")
@@ -130,6 +132,86 @@ def approve(body: Approve):
         raise HTTPException(422, "unknown verdict")
     as_of_param(body.as_of)
     return tools.write_finding(g(), body.decision_id, body.verdict, body.as_of, body.depth, body.cites, body.note)
+
+
+@app.get("/api/orphans")
+def orphans(as_of: str | None = None, depth: int = Query(4, ge=1, le=6)):
+    """Live decisions whose owner has left, grouped by who left, each routed up the reporting line to someone still here."""
+    tools.start_trace()
+    r = tools.orphans(g(), as_of_param(as_of), depth)
+    r["queries"] = tools.end_trace()
+    return r
+
+
+class Handover(BaseModel):
+    decision_id: str
+    to: str
+    as_of: str
+
+
+@app.post("/api/handover")
+def handover(body: Handover):
+    """Approval gate for a handover: writes a new dated OWNS edge. Nothing changes until this is called."""
+    r = tools.handover(g(), body.decision_id, body.to, as_of_param(body.as_of))
+    if r.get("error"):
+        raise HTTPException(422, r["error"])
+    return r
+
+
+@app.get("/api/reopen/{decision_id}")
+def reopen_draft(decision_id: str, as_of: str | None = None, depth: int = Query(4, ge=1, le=6)):
+    m = tools.reopen_memo(g(), decision_id, as_of_param(as_of), depth)
+    if not m["found"]:
+        raise HTTPException(404, f"{decision_id} is not in the graph")
+    return m
+
+
+class Reopen(BaseModel):
+    decision_id: str
+    as_of: str
+    depth: int = 4
+    owner_id: str | None = None
+
+
+@app.post("/api/reopen")
+def reopen(body: Reopen):
+    """Approve the re-open memo. The memo is rebuilt from the graph here, so the client cannot write text the rows do not support."""
+    as_of = as_of_param(body.as_of)
+    m = tools.reopen_memo(g(), body.decision_id, as_of, max(1, min(body.depth, 6)))
+    if not m["found"]:
+        raise HTTPException(404, f"{body.decision_id} is not in the graph")
+    if not m["broken"]:
+        raise HTTPException(422, "no reason has broken, so there is nothing to re-open")
+    owner = body.owner_id or m["suggested_owner"]["id"]
+    f = tools.write_finding(g(), body.decision_id, m["verdict"], as_of, m["depth"], m["cites"], m["text"], kind="reopen", assignee=owner)
+    return dict(f, memo=m)
+
+
+@app.get("/api/whatif")
+def whatif(premise: str | None = None, q: str | None = None, as_of: str | None = None, depth: int = Query(4, ge=1, le=6)):
+    """Pretend a reason broke today: which decisions rest on it, through which chain, and what they would flip to."""
+    tools.start_trace()
+    cands = []
+    if not premise:
+        cands = tools.find_premise(g(), q or "")
+        if not cands:
+            tools.end_trace()
+            return dict(found=False, question=q, candidates=[], answer="No reason in the graph matches that. Moot only tests reasons someone wrote down.")
+        premise = cands[0]["id"]
+    r = tools.what_if(g(), premise, as_of_param(as_of), depth)
+    if not r["found"]:
+        tools.end_trace()
+        raise HTTPException(404, f"{premise} is not in the graph")
+    r["candidates"] = cands
+    r["question"] = q
+    r["queries"] = tools.end_trace()
+    return r
+
+
+@app.get("/api/risky")
+def risky(as_of: str | None = None, depth: int = Query(4, ge=1, le=6), limit: int = Query(10, ge=1, le=50)):
+    """Reasons ranked by how many standing decisions sit below them."""
+    return tools.riskiest_reasons(g(), as_of_param(as_of), depth, limit)
 
 
 _DOCS: dict[str, dict] | None = None

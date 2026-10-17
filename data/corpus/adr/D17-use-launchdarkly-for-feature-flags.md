@@ -12,6 +12,7 @@ Our flag table has no audit log, no targeting rules and no kill switch UI. Launc
 Stated premises:
 
 - LaunchDarkly costs under $500 a month at our seat count. (fact)
+  This holds because tooling and infrastructure spend must stay under $20,000 a month.
 
 ## Decision
 

@@ -14,6 +14,7 @@ The EU data residency question comes up in every enterprise deal. All EU custome
 Stated premises:
 
 - All EU customers are in Germany and Austria. (fact)
+  This holds because we sell to customers in the European Union.
 
 ## Decision
 

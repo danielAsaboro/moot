@@ -23,6 +23,9 @@ def build(truth: dict) -> dict:
 
     for p in truth["people"]:
         node("Person", p["id"], name=p["name"], role=p["role"], joined=p["joined"], left=p["left"] or "")
+    for p in truth["people"]:
+        for r in p.get("reports_to", []):
+            edge(p["id"], "REPORTS_TO", r["manager"], valid_from=r["valid_from"], valid_to=r["valid_to"] or "")
     for s in truth["systems"]:
         node("System", s["id"], name=s["name"])
     for p in truth["premises"]:

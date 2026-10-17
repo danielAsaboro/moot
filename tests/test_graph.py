@@ -107,7 +107,8 @@ def test_mcp_server_lists_tools():
     import asyncio
     from moot import mcp_server
     names = {t.name for t in asyncio.run(mcp_server.mcp.list_tools())}
-    assert {"find_decision", "audit_decision", "premise_impact", "trace_document", "ledger", "ask", "record_finding"} <= names
+    assert {"find_decision", "audit_decision", "premise_impact", "trace_document", "ledger", "ask", "record_finding",
+            "orphaned_decisions", "record_handover", "reopen_memo", "what_if", "riskiest_reasons"} <= names
 
 
 def test_document_endpoint_serves_source_text(g, monkeypatch):
@@ -119,3 +120,69 @@ def test_document_endpoint_serves_source_text(g, monkeypatch):
     assert d["kind"] == "pr" and "100 MB" in d["text"]
     assert c.get("/api/document/src:D01").json()["kind"] == "adr"
     assert c.get("/api/document/nope").status_code == 404
+
+
+def test_orphans_route_up_the_reporting_line(g):
+    o = tools.orphans(g, spec.AS_OF, 4)
+    groups = {x["person"]["id"]: x for x in o["groups"]}
+    assert set(groups) == {"ada", "lena"}
+    assert {d["id"] for d in groups["ada"]["decisions"]} == {"D01", "D09"}
+    assert {d["id"] for d in groups["lena"]["decisions"]} == {"D04", "D19"}
+    # Lena reported to Ada, who had already left, so it goes one level further up
+    assert groups["lena"]["successor"]["id"] == "kwame"
+    assert [n["id"] for n in groups["lena"]["successor"]["chain"]] == ["lena", "ada", "kwame"]
+
+
+def test_successor_uses_the_reporting_line_of_the_day(g):
+    # Ada reported to Tomi until Kwame joined on 2025-08-01
+    assert tools.successor(g, "ada", "2025-07-01", "2025-07-01")["id"] == "tomi"
+    assert tools.successor(g, "ada", "2026-05-15", spec.AS_OF)["id"] == "kwame"
+
+
+def test_reopen_memo(g):
+    m = tools.reopen_memo(g, "D01", spec.AS_OF, 4)
+    assert [b["premise"]["id"] for b in m["broken"]] == ["p_gateway_limit"]
+    assert m["broken"][0]["evidence"]["id"] == "PR-412" and m["cites"] == ["PR-412"]
+    assert {x["id"] for x in m["affected"]} == {"D02", "D03"}
+    assert m["suggested_owner"]["id"] == "kwame"
+    assert "PR-412" in m["text"] and "Kwame" in m["text"]
+    d4 = tools.reopen_memo(g, "D04", spec.AS_OF, 4)
+    assert d4["broken"][0]["state"] == "disputed" and d4["broken"][0]["reaffirmed_by"]["id"] == "chat-2025-10-02-search"
+    assert tools.reopen_memo(g, "D06", spec.AS_OF, 4)["broken"] == []
+
+
+def test_what_if_and_riskiest(g):
+    w = tools.what_if(g, "p_soc2_cert", spec.AS_OF, 4)
+    assert {x["id"] for x in w["decisions"] if x["flips"]} == {"D06", "D22", "D27"} and w["would_fall"] == 3
+    assert all(x["after"] == "MOOT" for x in w["decisions"])
+    # depth matters: the root reason is two hops from each decision
+    assert tools.what_if(g, "p_soc2_cert", spec.AS_OF, 1)["decisions"] == []
+    b = tools.what_if(g, "p_infra_budget", spec.AS_OF, 4)
+    assert {x["id"] for x in b["decisions"]} == {"D10", "D17", "D19", "D26"} and b["already_moot"] == 1
+    r = tools.riskiest_reasons(g, spec.AS_OF, 4)["reasons"]
+    assert r[0]["id"] == "p_infra_budget" and r[0]["standing"] == 3
+    assert r[1]["id"] == "p_soc2_cert"
+    assert tools.find_premise(g, "what if we no longer need SOC 2")[0]["id"] == "p_soc2_cert"
+    assert tools.find_premise(g, "if churn goes above 5%") == []
+
+
+def test_handover_and_reopen_api(g, monkeypatch):
+    from fastapi.testclient import TestClient
+    from moot import api
+    monkeypatch.setattr(api, "g", lambda: g)
+    c = TestClient(api.app)
+    assert c.get("/api/orphans", params={"as_of": spec.AS_OF}).json()["count"] == 4
+    r = c.post("/api/handover", json={"decision_id": "D19", "to": "kwame", "as_of": spec.AS_OF}).json()
+    assert r["to_name"] == "Kwame Boateng" and r["from_id"] == "lena"
+    assert c.get("/api/orphans", params={"as_of": spec.AS_OF}).json()["count"] == 3
+    assert tools.decision_owner(g, "D19", spec.AS_OF)["id"] == "kwame"
+    assert tools.decision_owner(g, "D19", "2026-09-01")["id"] == "lena"  # time travel still shows the old owner
+    assert c.post("/api/handover", json={"decision_id": "D19", "to": "ada", "as_of": spec.AS_OF}).status_code == 422  # Ada has left
+    f = c.post("/api/reopen", json={"decision_id": "D01", "as_of": spec.AS_OF}).json()
+    assert f["kind"] == "reopen" and f["assignee"] == "kwame" and f["cites"] == ["PR-412"]
+    assert tools.findings(g, "D01")[0]["assignee"] == "Kwame Boateng"
+    assert c.post("/api/reopen", json={"decision_id": "D06", "as_of": spec.AS_OF}).status_code == 422
+    w = c.get("/api/whatif", params={"q": "What if we no longer need SOC 2?", "as_of": spec.AS_OF}).json()
+    assert w["premise"]["id"] == "p_soc2_cert" and w["queries"]
+    assert c.get("/api/whatif", params={"q": "if churn goes above 5%"}).json()["found"] is False
+    assert c.get("/api/risky", params={"as_of": spec.AS_OF}).json()["reasons"][0]["id"] == "p_infra_budget"

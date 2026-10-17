@@ -12,6 +12,7 @@ The SOC 2 auditor requires credential rotation at most every 90 days, and the sa
 Stated premises:
 
 - The SOC 2 auditor requires credential rotation at most every 90 days. (constraint)
+  This holds because we need SOC 2 certification to sell to enterprise customers.
 
 ## Decision
 

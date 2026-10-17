@@ -12,6 +12,7 @@ Log storage costs about $0.50 per GB a month, and we were storing eighteen month
 Stated premises:
 
 - Log storage costs about $0.50 per GB a month. (fact)
+  This holds because tooling and infrastructure spend must stay under $20,000 a month.
 
 ## Decision
 

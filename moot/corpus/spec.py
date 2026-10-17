@@ -13,6 +13,7 @@ Edge semantics:
   Person   -OWNS {valid_from, valid_to}-> Decision
   Decision -GOVERNS-> System
   Decision -SUPERSEDES-> Decision
+  Person   -REPORTS_TO {valid_from, valid_to}-> Person
 """
 
 PEOPLE = [
@@ -21,10 +22,26 @@ PEOPLE = [
     ("tomi", "Tomi Adeyemi", "CTO", "2024-05-01", None),
     ("priya", "Priya Natarajan", "Backend engineer", "2024-06-01", None),
     ("marcus", "Marcus Chen", "SRE", "2024-07-01", None),
-    ("lena", "Lena Fischer", "Data engineer", "2024-10-01", None),
+    ("lena", "Lena Fischer", "Data engineer", "2024-10-01", "2026-10-09"),
     ("jonah", "Jonah Mbeki", "Security engineer", "2024-12-01", None),
     ("sofia", "Sofia Rossi", "Frontend lead", "2024-09-01", None),
     ("kwame", "Kwame Boateng", "Engineering manager", "2025-08-01", None),
+]
+
+# Reporting lines: (person, manager, valid_from, valid_to). Nobody moved Lena's line when Ada left,
+# which is how it usually goes: the org chart is out of date exactly when you need it.
+REPORTS_TO = [
+    ("ada", "tomi", "2024-05-01", "2025-08-01"),
+    ("ada", "kwame", "2025-08-01", None),
+    ("kwame", "tomi", "2025-08-01", None),
+    ("jonah", "tomi", "2024-12-01", None),
+    ("priya", "tomi", "2024-06-01", "2025-08-01"),
+    ("priya", "kwame", "2025-08-01", None),
+    ("marcus", "tomi", "2024-07-01", "2025-08-01"),
+    ("marcus", "kwame", "2025-08-01", None),
+    ("sofia", "tomi", "2024-09-01", "2025-08-01"),
+    ("sofia", "kwame", "2025-08-01", None),
+    ("lena", "ada", "2024-10-01", None),
 ]
 
 SYSTEMS = [
@@ -61,12 +78,24 @@ PREMISES = {
     "p_log_cost": ("Log storage costs about $0.50 per GB a month", "fact"),
     "p_iac_soc2": ("SOC 2 requires infrastructure to be reproducible from code", "constraint"),
     "p_chrome_3p": ("Chrome will remove third-party cookies in 2025", "assumption"),
+    # Root reasons: rarely written in any one ADR, but several premises only hold because of them.
+    "p_soc2_cert": ("We need SOC 2 certification to sell to enterprise customers", "constraint"),
+    "p_infra_budget": ("Tooling and infrastructure spend must stay under $20,000 a month", "constraint"),
+    "p_eu_market": ("We sell to customers in the European Union", "fact"),
 }
 
 # premise -> premise it depends on
 DERIVED_FROM = {
     "p_gateway_path": "p_gateway_limit",   # upload cap holds only while the gateway limit holds
     "p_warehouse_cost": "p_bq_ondemand",
+    "p_soc2_rotation": "p_soc2_cert",
+    "p_iac_soc2": "p_soc2_cert",
+    "p_bq_ondemand": "p_infra_budget",
+    "p_sendgrid_free": "p_infra_budget",
+    "p_ld_budget": "p_infra_budget",
+    "p_log_cost": "p_infra_budget",
+    "p_gdpr": "p_eu_market",
+    "p_eu_customers": "p_eu_market",
 }
 
 # Decisions. premises: list of premise ids the ADR states as context.
@@ -276,6 +305,7 @@ DISTRACTORS = [
     ("chat-2026-02-26-hiring", "chat", "2026-02-26", "kwame", "#eng: hiring", "Two platform offers accepted, starting in March. Data engineer loop continues."),
     ("chat-2026-04-22-launch", "chat", "2026-04-22", "tomi", "#general: launch", "Reporting v2 is live. Thanks everyone. Watch the dashboards tonight."),
     ("chat-2026-05-16-farewell", "chat", "2026-05-16", "tomi", "#general: farewell", "Ada's last day was yesterday. Platform decisions she owned need new owners; Kwame is collecting the list."),
+    ("chat-2026-10-09-farewell", "chat", "2026-10-09", "kwame", "#general: farewell", "Today is Lena's last day. Thank you for the pipeline and the search work, Lena. We will sort out who picks up her decisions next week."),
     ("chat-2026-06-05-retro", "chat", "2026-06-05", "kwame", "#eng: retro", "Retro themes: too many Slack decisions never reach an ADR; nobody knows which rules are still real."),
     ("chat-2026-07-30-oncall", "chat", "2026-07-30", "marcus", "#ops: quiet week", "Zero pages this week. Shadowing is going well."),
     ("chat-2026-08-27-perf", "chat", "2026-08-27", "priya", "#backend: perf", "Invoice generation is 3x faster after the query rewrite."),

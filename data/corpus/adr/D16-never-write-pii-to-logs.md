@@ -12,6 +12,7 @@ GDPR applies to our EU users. A log line with an email address in it is personal
 Stated premises:
 
 - GDPR applies to our EU users. (constraint)
+  This holds because we sell to customers in the European Union.
 
 ## Decision
 

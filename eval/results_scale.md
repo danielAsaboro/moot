@@ -6,10 +6,10 @@ The corpus is padded with N templated documents about the same systems (touching
 
 | extra noise docs | documents | graph nodes / edges | seed (s) | graph recall@5 | BM25 recall@5 | audit p50 (ms) | full ledger (ms) | SPpaths trace (ms) |
 |---|---|---|---|---|---|---|---|---|
-| 0 | 207 | 310 / 353 | 0.0 | **1.00** | 0.81 | 2.5 | 6 | 2.3 |
-| 1,000 | 1,207 | 1,310 / 1,353 | 0.1 | **1.00** | 0.81 | 2.2 | 5 | 2.0 |
-| 5,000 | 5,207 | 5,310 / 5,353 | 0.3 | **1.00** | 0.81 | 2.7 | 5 | 2.2 |
-| 20,000 | 20,207 | 20,310 / 20,353 | 1.7 | **1.00** | 0.81 | 3.9 | 5 | 2.8 |
+| 0 | 208 | 314 / 373 | 0.0 | **1.00** | 0.81 | 1.0 | 3 | 1.3 |
+| 1,000 | 1,208 | 1,314 / 1,373 | 0.0 | **1.00** | 0.81 | 1.1 | 3 | 1.2 |
+| 5,000 | 5,208 | 5,314 / 5,373 | 0.2 | **1.00** | 0.81 | 1.1 | 9 | 2.4 |
+| 20,000 | 20,208 | 20,314 / 20,373 | 0.6 | **1.00** | 0.81 | 1.1 | 3 | 1.2 |
 
 Reading it: the graph's recall is flat by construction (noise never touches a premise, and the audit walks premises, not text), and its latency is flat because the audit is an index lookup plus a bounded path expansion, independent of corpus size. BM25's recall on this templated noise also stays put: its misses are not a crowding problem but a vocabulary one, the killing document does not share words with the decision at any corpus size. The seed column is the honest cost: a labelled MERGE import of 20k documents takes about a second; an earlier unlabelled version took three minutes, which is why the import now names labels on both ends of every edge.
 

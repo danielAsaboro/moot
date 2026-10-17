@@ -6,56 +6,126 @@
       "name": "Ada Okafor",
       "role": "Platform lead",
       "joined": "2024-05-01",
-      "left": "2026-05-15"
+      "left": "2026-05-15",
+      "reports_to": [
+        {
+          "manager": "tomi",
+          "valid_from": "2024-05-01",
+          "valid_to": "2025-08-01"
+        },
+        {
+          "manager": "kwame",
+          "valid_from": "2025-08-01",
+          "valid_to": null
+        }
+      ]
     },
     {
       "id": "tomi",
       "name": "Tomi Adeyemi",
       "role": "CTO",
       "joined": "2024-05-01",
-      "left": null
+      "left": null,
+      "reports_to": []
     },
     {
       "id": "priya",
       "name": "Priya Natarajan",
       "role": "Backend engineer",
       "joined": "2024-06-01",
-      "left": null
+      "left": null,
+      "reports_to": [
+        {
+          "manager": "tomi",
+          "valid_from": "2024-06-01",
+          "valid_to": "2025-08-01"
+        },
+        {
+          "manager": "kwame",
+          "valid_from": "2025-08-01",
+          "valid_to": null
+        }
+      ]
     },
     {
       "id": "marcus",
       "name": "Marcus Chen",
       "role": "SRE",
       "joined": "2024-07-01",
-      "left": null
+      "left": null,
+      "reports_to": [
+        {
+          "manager": "tomi",
+          "valid_from": "2024-07-01",
+          "valid_to": "2025-08-01"
+        },
+        {
+          "manager": "kwame",
+          "valid_from": "2025-08-01",
+          "valid_to": null
+        }
+      ]
     },
     {
       "id": "lena",
       "name": "Lena Fischer",
       "role": "Data engineer",
       "joined": "2024-10-01",
-      "left": null
+      "left": "2026-10-09",
+      "reports_to": [
+        {
+          "manager": "ada",
+          "valid_from": "2024-10-01",
+          "valid_to": null
+        }
+      ]
     },
     {
       "id": "jonah",
       "name": "Jonah Mbeki",
       "role": "Security engineer",
       "joined": "2024-12-01",
-      "left": null
+      "left": null,
+      "reports_to": [
+        {
+          "manager": "tomi",
+          "valid_from": "2024-12-01",
+          "valid_to": null
+        }
+      ]
     },
     {
       "id": "sofia",
       "name": "Sofia Rossi",
       "role": "Frontend lead",
       "joined": "2024-09-01",
-      "left": null
+      "left": null,
+      "reports_to": [
+        {
+          "manager": "tomi",
+          "valid_from": "2024-09-01",
+          "valid_to": "2025-08-01"
+        },
+        {
+          "manager": "kwame",
+          "valid_from": "2025-08-01",
+          "valid_to": null
+        }
+      ]
     },
     {
       "id": "kwame",
       "name": "Kwame Boateng",
       "role": "Engineering manager",
       "joined": "2025-08-01",
-      "left": null
+      "left": null,
+      "reports_to": [
+        {
+          "manager": "tomi",
+          "valid_from": "2025-08-01",
+          "valid_to": null
+        }
+      ]
     }
   ],
   "systems": [
@@ -123,7 +193,7 @@
       "id": "p_soc2_rotation",
       "text": "The SOC 2 auditor requires credential rotation at most every 90 days",
       "kind": "constraint",
-      "derived_from": null
+      "derived_from": "p_soc2_cert"
     },
     {
       "id": "p_no_rollback",
@@ -141,13 +211,13 @@
       "id": "p_eu_customers",
       "text": "All EU customers are in Germany and Austria",
       "kind": "fact",
-      "derived_from": null
+      "derived_from": "p_eu_market"
     },
     {
       "id": "p_sendgrid_free",
       "text": "Notification volume is under 100 emails a day, inside the SendGrid free tier",
       "kind": "fact",
-      "derived_from": null
+      "derived_from": "p_infra_budget"
     },
     {
       "id": "p_no_ci_tests",
@@ -183,13 +253,13 @@
       "id": "p_gdpr",
       "text": "GDPR applies to our EU users",
       "kind": "constraint",
-      "derived_from": null
+      "derived_from": "p_eu_market"
     },
     {
       "id": "p_ld_budget",
       "text": "LaunchDarkly costs under $500 a month at our seat count",
       "kind": "fact",
-      "derived_from": null
+      "derived_from": "p_infra_budget"
     },
     {
       "id": "p_no_e2e",
@@ -207,7 +277,7 @@
       "id": "p_bq_ondemand",
       "text": "We are on BigQuery on-demand pricing",
       "kind": "fact",
-      "derived_from": null
+      "derived_from": "p_infra_budget"
     },
     {
       "id": "p_rn_sdk",
@@ -237,18 +307,36 @@
       "id": "p_log_cost",
       "text": "Log storage costs about $0.50 per GB a month",
       "kind": "fact",
-      "derived_from": null
+      "derived_from": "p_infra_budget"
     },
     {
       "id": "p_iac_soc2",
       "text": "SOC 2 requires infrastructure to be reproducible from code",
       "kind": "constraint",
-      "derived_from": null
+      "derived_from": "p_soc2_cert"
     },
     {
       "id": "p_chrome_3p",
       "text": "Chrome will remove third-party cookies in 2025",
       "kind": "assumption",
+      "derived_from": null
+    },
+    {
+      "id": "p_soc2_cert",
+      "text": "We need SOC 2 certification to sell to enterprise customers",
+      "kind": "constraint",
+      "derived_from": null
+    },
+    {
+      "id": "p_infra_budget",
+      "text": "Tooling and infrastructure spend must stay under $20,000 a month",
+      "kind": "constraint",
+      "derived_from": null
+    },
+    {
+      "id": "p_eu_market",
+      "text": "We sell to customers in the European Union",
+      "kind": "fact",
       "derived_from": null
     }
   ],
@@ -2735,6 +2823,16 @@
       "author": "marcus",
       "title": "Clean up CSV parser",
       "text": "Clean up the CSV parser in the data pipeline. Measured on staging first. Follow-up to last week's incident review.",
+      "rel": null,
+      "premise": null
+    },
+    {
+      "id": "chat-2026-10-09-farewell",
+      "kind": "chat",
+      "date": "2026-10-09",
+      "author": "kwame",
+      "title": "#general: farewell",
+      "text": "Today is Lena's last day. Thank you for the pipeline and the search work, Lena. We will sort out who picks up her decisions next week.",
       "rel": null,
       "premise": null
     },

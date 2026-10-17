@@ -1,6 +1,6 @@
 # Retrieval eval: finding the evidence that kills a premise
 
-Decisions with at least one invalidating document (ground truth MOOT or DISPUTED): **16**. k = 5. Corpus: 207 non-ADR documents.
+Decisions with at least one invalidating document (ground truth MOOT or DISPUTED): **16**. k = 5. Corpus: 208 non-ADR documents.
 
 | method | recall@5 of invalidating docs | decisions with ≥1 found |
 |---|---|---|

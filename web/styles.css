@@ -128,3 +128,29 @@ table.ledger td.verdictcell{text-align:right}
 .badge.NOT_YET{color:var(--ink-3);border-style:dashed}
 @media (max-width:900px){.panel{position:static}.brand-right{margin-left:0}}
 details.doc{margin-top:8px}details.doc summary{cursor:pointer;font-size:13px;color:var(--ink-2)}details.doc pre{margin-top:6px;max-height:320px}
+
+/* upgrades: watch strip, handover, re-open memo, what-if */
+.watch{display:grid;gap:8px;margin-top:18px}
+.wrow{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;text-align:left;background:var(--paper-2);color:var(--ink);border:1px solid var(--rule);padding:10px 12px}
+.wrow:hover{border-color:var(--ink)}
+.wrow b{display:block;font-weight:600}
+.wrow .wn{font-family:var(--serif);font-size:28px;line-height:1;text-align:center}
+.wrow .wn.hot{color:var(--accent)}
+.wrow .go{font-size:13px;color:var(--ink-2);white-space:nowrap}
+.leaver{border-top:1px solid var(--rule);margin-top:14px}
+.orow{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;border-top:1px solid var(--rule);padding:10px 0}
+.orow:first-of-type{border-top:0}
+.orow > div{min-width:0}
+.node.Person.gone{opacity:.6;text-decoration:line-through;text-decoration-color:var(--ink-3)}
+.memo{border:1px solid var(--rule);border-radius:6px;background:var(--paper)}
+.mrow{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:10px 12px;border-top:1px solid var(--rule);font-size:14px}
+.mrow:first-child{border-top:0}
+.mk{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+@media (max-width:600px){.mrow{grid-template-columns:1fr;gap:4px}.orow{flex-direction:column}}
+.flip{white-space:nowrap;margin-left:4px}
+.chip.on{border-color:var(--ink);color:var(--ink);background:var(--chip)}
+table.risky{width:100%;border-collapse:collapse}
+table.risky td{padding:8px 6px;border-top:1px solid var(--rule);vertical-align:top;cursor:pointer;font-size:14px}
+table.risky tr:hover td{background:var(--paper)}
+table.risky td.num{white-space:nowrap;text-align:right;font-family:var(--serif);font-size:18px}
+.orow button{white-space:nowrap;flex:none}

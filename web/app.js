@@ -8,6 +8,8 @@ const SAMPLES = [
   "Do we still need manual QA sign-off?",
   "Why is the monolith off limits?",
   "Who decided to rotate API keys every 90 days?",
+  "What if we no longer need SOC 2?",
+  "What if the infrastructure budget changes?",
   "What is our policy on blockchain?",
 ];
 
@@ -208,9 +210,8 @@ function renderDecision(data, ask) {
         ${others.length ? `<h3>Rests on the same premise</h3>${others.map(o => `<div class="ev"><span class="id">${esc(o.id)}</span><span><a href="#" data-open="${esc(o.id)}">${esc(o.title)}</a> <span class="muted">· ${esc(o.systems.join(", "))}</span></span></div>`).join("")}` : ""}
         <div id="traceBox"></div>
         <h3>Moot's memory</h3>
-        ${mem ? `<div class="memory">Last recorded verdict <span class="badge ${esc(mem.verdict)}">${esc(mem.verdict)}</span> as of ${esc(mem.as_of)} at depth ${esc(mem.depth)}${mem.note ? ` · ${esc(mem.note)}` : ""} <span class="muted">(${data.findings.length} finding${data.findings.length > 1 ? "s" : ""})</span></div>` : '<div class="muted">No finding recorded yet.</div>'}
-        ${["MOOT", "DISPUTED"].includes(a.verdict) ? `<h3>Draft revisit ticket</h3><pre class="ticket">${esc(data.ticket)}</pre>
-          <div class="row"><button class="accent" id="approve">Approve and record</button><button class="ghost" id="copyTicket">Copy</button><span class="muted">Nothing is written to the graph until you approve.</span></div>` :
+        ${mem ? `<div class="memory">${mem.kind === "reopen" ? "Re-opened" : "Last recorded verdict"} <span class="badge ${esc(mem.verdict)}">${esc(mem.verdict)}</span> as of ${esc(mem.as_of)} at depth ${esc(mem.depth)}${mem.assignee ? ` · follow-up owned by <b>${esc(mem.assignee)}</b>` : ""}${mem.kind !== "reopen" && mem.note ? ` · ${esc(mem.note)}` : ""} <span class="muted">(${data.findings.length} finding${data.findings.length > 1 ? "s" : ""})</span></div>` : '<div class="muted">No finding recorded yet.</div>'}
+        ${data.memo && data.memo.broken.length ? memoHtml(data.memo) :
           `<div class="row" style="margin-top:10px"><button class="ghost" id="approve">Record this verdict</button></div>`}
       </div>
       <div class="tab ${state.tab === "graph" ? "on" : ""}" data-pane="graph">${a.premises.length ? subgraphSvg(a) : '<div class="muted" style="margin-top:10px">No premises, so no path to draw.</div>'}</div>
@@ -231,7 +232,17 @@ function renderDecision(data, ask) {
     catch (e) { adr.querySelector("pre").textContent = e.message; }
   }, { once: false });
   const cp = $("#copyTicket");
-  if (cp) cp.addEventListener("click", async () => { try { await navigator.clipboard.writeText(data.ticket); toast("Ticket copied"); } catch (_) { toast("Copy failed"); } });
+  if (cp) cp.addEventListener("click", async () => { try { await navigator.clipboard.writeText(data.ticket); toast("Memo copied"); } catch (_) { toast("Copy failed"); } });
+  const ro = $("#approveReopen");
+  if (ro) ro.addEventListener("click", async () => {
+    ro.disabled = true;
+    try {
+      const r = await api("/api/reopen", { method: "POST", headers: { "content-type": "application/json" },
+        body: JSON.stringify({ decision_id: d.id, as_of: a.as_of, depth: a.depth, owner_id: data.memo.suggested_owner.id }) });
+      toast(`Re-opened ${d.id}${r.assignee ? ", assigned to " + (data.memo.suggested_owner.name || r.assignee) : ""}`);
+      openDecision(d.id); loadWatch();
+    } catch (e) { toast(e.message); ro.disabled = false; }
+  });
   const ap = $("#approve");
   if (ap) ap.addEventListener("click", async () => {
     ap.disabled = true;
@@ -243,6 +254,124 @@ function renderDecision(data, ask) {
       openDecision(d.id);
     } catch (e) { toast(e.message); ap.disabled = false; }
   });
+}
+
+/* ---------- re-open memo ---------- */
+function chainHtml(path) {
+  return `<div class="path">${path.map(n => `<div class="node ${esc(n.label)}"><div class="lbl">${esc(n.label)} ${esc(n.id)}</div>${esc(n.title)}</div>`).join('<span class="arrow">→</span>')}</div>`;
+}
+
+function memoHtml(m) {
+  const s = m.suggested_owner;
+  return `<h3>Re-open memo</h3><div class="memo">
+    <div class="mrow"><div class="mk">Which reason broke</div><div>${m.broken.map(b => `<div>“${esc(b.premise.text)}” <span class="state ${esc(b.state)}">${esc(b.state)}</span>${b.hops > 1 ? `<div class="muted">The stated reason, “${esc(b.stated.text)}”, only holds because of it (${b.hops} hops).</div>` : ""}</div>`).join("")}</div></div>
+    <div class="mrow"><div class="mk">New evidence</div><div>${m.broken.map(b => `<div><span class="id">${esc(b.evidence.at)}</span> <span class="id link" data-trace="${esc(b.evidence.id)}">${esc(b.evidence.id)}</span> ${esc(b.evidence.title)}${b.reaffirmed_by ? `<div class="muted">Re-affirmed ${esc(b.reaffirmed_by.at)} by ${esc(b.reaffirmed_by.id)}: disputed, not dead.</div>` : ""}</div>`).join("")}</div></div>
+    <div class="mrow"><div class="mk">Also affected</div><div>${m.affected.length ? m.affected.map(x => `<div><a href="#" data-open="${esc(x.id)}">${esc(x.id)} ${esc(x.title)}</a> <span class="badge ${esc(x.verdict)}">${esc(x.verdict)}</span></div>`).join("") : '<span class="muted">No other decision rests on this reason.</span>'}</div></div>
+    <div class="mrow"><div class="mk">Suggested owner</div><div><b>${esc(s.name || "unassigned")}</b>${s.role ? ` <span class="muted">${esc(s.role)}</span>` : ""}<div class="muted">${esc(s.why)}</div></div></div>
+  </div>
+  <details class="doc"><summary>Memo as plain text</summary><pre class="ticket">${esc(m.text)}</pre></details>
+  <div class="row" style="margin-top:10px"><button class="accent" id="approveReopen">Approve: re-open${s.name ? " and assign to " + esc(s.name.split(" ")[0]) : ""}</button><button class="ghost" id="copyTicket">Copy</button><span class="muted">Nothing is written to the graph until you approve.</span></div>`;
+}
+
+/* ---------- watch strip: orphans + riskiest reasons ---------- */
+async function loadWatch() {
+  try {
+    const [o, r] = await Promise.all([api(`/api/orphans?${params()}`), api(`/api/risky?${params()}&limit=3`)]);
+    state.orphans = o; state.risky = r;
+    const who = o.groups.map(g => g.person.name.split(" ")[0]).join(" and ");
+    $("#watch").innerHTML = `
+      <button class="wrow" id="wOrphans"><span class="wn ${o.count ? "hot" : ""}">${o.count}</span><span><b>Orphaned decision${o.count === 1 ? "" : "s"}</b><span class="muted">${o.count ? `owned by ${esc(who)}, who left` : "every live decision has an owner who is still here"}</span></span><span class="go">Hand over →</span></button>
+      <button class="wrow" id="wRisky"><span class="wn">${r.reasons.length ? r.reasons[0].standing : 0}</span><span><b>Riskiest reason</b><span class="muted">${r.reasons.length ? `“${esc(r.reasons[0].text)}” carries ${r.reasons[0].standing} standing decisions` : "no shared reasons"}</span></span><span class="go">What if →</span></button>`;
+    $("#wOrphans").addEventListener("click", showOrphans);
+    $("#wRisky").addEventListener("click", showRisky);
+  } catch (_) {}
+}
+
+function unselect() { state.selected = null; document.querySelectorAll("#ledger tr").forEach(tr => tr.classList.remove("active")); }
+
+async function showOrphans() {
+  unselect(); location.hash = "orphans";
+  $("#panel").innerHTML = '<div class="empty"><div class="empty-title">Walking the reporting lines…</div></div>';
+  const o = await api(`/api/orphans?${params()}`); state.orphans = o;
+  $("#panel").innerHTML = `<div class="card">
+    <div class="outcome">orphaned decisions · as of ${esc(o.as_of)}</div>
+    <div class="title">${o.count} live decision${o.count === 1 ? "" : "s"} lost ${o.count === 1 ? "its" : "their"} owner</div>
+    <div class="muted">Each one goes up the reporting line, as it stood on the day the owner left, to the first person who is still here. The reasons and verdict travel with it. Approving writes a new dated OWNS edge; the old one stays, so time travel still shows who owned it then.</div>
+    ${o.groups.map(g => `<div class="leaver">
+      <h3>${esc(g.person.name)} · ${esc(g.person.role)} · left ${esc(g.person.left)}</h3>
+      ${g.successor ? `<div class="path">${g.successor.chain.map((n, i) => `<div class="node Person ${i && i < g.successor.chain.length - 1 ? "gone" : ""}"><div class="lbl">${i === 0 ? "left" : n.left && n.left <= o.as_of ? "also left " + esc(n.left) : "routes to"}</div>${esc(n.name)}</div>`).join('<span class="arrow">REPORTS_TO →</span>')}</div>` : '<div class="muted">Nobody in this reporting line is still here.</div>'}
+      ${g.decisions.map(d => `<div class="orow">
+        <div><span class="id">${esc(d.id)}</span> <a href="#" data-open="${esc(d.id)}">${esc(d.title)}</a> <span class="badge ${esc(d.verdict)}">${esc(d.verdict)}</span>
+          ${d.reasons.map(r => `<div class="muted">${r.hops > 1 ? "↳ which holds only while" : "because"} “${esc(r.text)}” <span class="state ${esc(r.state)}">${esc(r.state)}</span></div>`).join("") || '<div class="muted">no reason recorded</div>'}</div>
+        ${g.successor ? `<button class="accent small" data-hand="${esc(d.id)}" data-to="${esc(g.successor.id)}">Hand to ${esc(g.successor.name.split(" ")[0])}</button>` : ""}
+      </div>`).join("")}
+    </div>`).join("") || '<div class="muted" style="margin-top:12px">Nothing to hand over.</div>'}
+  </div>`;
+  bindPanelLinks();
+  document.querySelectorAll("[data-hand]").forEach(b => b.addEventListener("click", async () => {
+    b.disabled = true;
+    try {
+      const r = await api("/api/handover", { method: "POST", headers: { "content-type": "application/json" },
+        body: JSON.stringify({ decision_id: b.dataset.hand, to: b.dataset.to, as_of: state.asOf || new Date().toISOString().slice(0, 10) }) });
+      toast(`${r.decision_id} now owned by ${r.to_name || r.to}`);
+      await Promise.all([loadLedger(), loadWatch()]); showOrphans();
+    } catch (e) { toast(e.message); b.disabled = false; }
+  }));
+}
+
+function whatIfHtml(w) {
+  const falls = w.decisions.filter(x => x.flips), already = w.decisions.filter(x => !x.flips);
+  const row = x => `<div class="orow"><div><span class="id">${esc(x.id)}</span> <a href="#" data-open="${esc(x.id)}">${esc(x.title)}</a>
+      <span class="flip"><span class="badge ${esc(x.before)}">${esc(x.before)}</span> → <span class="badge ${esc(x.after)}">${esc(x.after)}</span></span>
+      ${chainHtml([...x.path].reverse())}<div class="muted">owner ${esc(x.owner || "none")} · ${esc(x.systems.join(", "))}</div></div></div>`;
+  return `<div class="card">
+    <div class="outcome">what if · as of ${esc(w.as_of)} · depth ${w.depth}</div>
+    <div class="title">If “${esc(w.premise.text)}” broke today, ${w.would_fall} standing decision${w.would_fall === 1 ? "" : "s"} would fall</div>
+    <div class="muted">${w.decisions.length} decision${w.decisions.length === 1 ? "" : "s"} rest on this reason, directly or through premises derived from it${w.systems.length ? ` · systems: ${esc(w.systems.join(", "))}` : ""}. Nothing is written; this is a read-only path query.</div>
+    ${w.candidates && w.candidates.length > 1 ? `<div class="chips">${w.candidates.map(c => `<button class="chip ${c.id === w.premise.id ? "on" : ""}" data-whatif="${esc(c.id)}">${esc(c.text)}</button>`).join("")}</div>` : ""}
+    ${falls.length ? `<h3>Would fall</h3>${falls.map(row).join("")}` : ""}
+    ${already.length ? `<h3>Already ${already.every(x => x.before === "MOOT") ? "moot" : "unchanged"}</h3>${already.map(row).join("")}` : ""}
+    <div id="riskyBox"></div>
+    <details class="doc"><summary>Cypher</summary>${cypherHtml(w.queries)}</details>
+  </div>`;
+}
+
+async function runWhatIf(q, premise) {
+  unselect(); location.hash = "whatif";
+  $("#panel").innerHTML = '<div class="empty"><div class="empty-title">Pretending it broke…</div></div>';
+  const p = new URLSearchParams(params()); if (premise) p.set("premise", premise); else p.set("q", q);
+  try {
+    const w = await api(`/api/whatif?${p}`);
+    if (!w.found) {
+      $("#panel").innerHTML = `<div class="card"><div class="outcome">what if · not in the graph</div><div class="prose">${esc(w.answer)}</div><div id="riskyBox"></div></div>`;
+    } else {
+      $("#panel").innerHTML = whatIfHtml(w);
+    }
+    bindPanelLinks();
+    document.querySelectorAll("[data-whatif]").forEach(b => b.addEventListener("click", () => runWhatIf(null, b.dataset.whatif)));
+    renderRisky($("#riskyBox"), await api(`/api/risky?${params()}`));
+  } catch (e) { $("#panel").innerHTML = `<div class="empty"><div class="empty-title">${esc(e.message)}</div></div>`; }
+}
+
+function renderRisky(box, r) {
+  if (!box) return;
+  box.innerHTML = `<h3>Riskiest reasons</h3><div class="muted" style="margin-bottom:6px">Ranked by how many standing decisions sit below each reason. If one breaks, everything under it breaks with it. Click one to test it.</div>
+    <table class="risky"><tbody>${r.reasons.map(x => `<tr data-whatif="${esc(x.id)}" tabindex="0">
+      <td class="id">${x.rank}</td><td><div>${esc(x.text)}</div><div class="muted">${esc(x.decision_ids.join(", "))} · ${esc(x.systems.join(", "))}</div></td>
+      <td class="num"><b>${x.standing}</b><span class="muted"> / ${x.decisions}</span></td><td><span class="state ${esc(x.state)}">${esc(x.state)}</span></td></tr>`).join("")}</tbody></table>
+    <div class="muted" style="margin-top:4px">standing / total decisions resting on the reason, as of ${esc(r.as_of)}</div>`;
+  box.querySelectorAll("[data-whatif]").forEach(b => b.addEventListener("click", () => runWhatIf(null, b.dataset.whatif)));
+}
+
+async function showRisky() {
+  unselect(); location.hash = "risky";
+  const r = await api(`/api/risky?${params()}`);
+  if (r.reasons.length) return runWhatIf(null, r.reasons[0].id);
+  $("#panel").innerHTML = '<div class="card"><div class="muted">No reason carries a live decision.</div></div>';
+}
+
+function bindPanelLinks() {
+  document.querySelectorAll("#panel [data-open]").forEach(x => x.addEventListener("click", e => { e.preventDefault(); openDecision(x.dataset.open); }));
 }
 
 async function traceDoc(id) {
@@ -270,13 +399,15 @@ async function openDecision(id, ask) {
 }
 
 async function refresh() {
-  await Promise.all([loadLedger(), loadTimeline()]);
+  await Promise.all([loadLedger(), loadTimeline(), loadWatch()]);
   if (state.selected) openDecision(state.selected);
+  else if (location.hash === "#orphans") showOrphans();
 }
 
 /* ---------- ask ---------- */
 async function askQuestion(q) {
   state.asOf = $("#asOf").value || null; state.depth = +$("#depth").value;
+  if (/^\s*(what if|what happens if|if)\b/i.test(q)) return runWhatIf(q);
   $("#askBtn").disabled = true;
   $("#panel").innerHTML = '<div class="empty"><div class="empty-title">Walking the graph…</div></div>';
   try {
@@ -316,4 +447,4 @@ api("/api/health").then(h => {
   $("#tenant").textContent = `${h.tenant} · ${Object.values(n).reduce((a, b) => a + b, 0)} nodes · ${Object.values(e).reduce((a, b) => a + b, 0)} edges`;
   if (!h.model) document.querySelector("footer").insertAdjacentHTML("afterbegin", "No model key is set, so narration uses the template. ");
 }).catch(() => {});
-refresh().then(() => { const id = location.hash.slice(1); if (/^D\d{2}$/.test(id)) openDecision(id); });
+refresh().then(() => { const id = location.hash.slice(1); if (/^D\d{2}$/.test(id)) openDecision(id); else if (id === "risky" || id === "whatif") showRisky(); });

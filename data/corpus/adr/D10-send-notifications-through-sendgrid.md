@@ -12,6 +12,7 @@ We send password resets, invoices and a weekly digest. Notification volume is un
 Stated premises:
 
 - Notification volume is under 100 emails a day, inside the SendGrid free tier. (fact)
+  This holds because tooling and infrastructure spend must stay under $20,000 a month.
 
 ## Decision
 

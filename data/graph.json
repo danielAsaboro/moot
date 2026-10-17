@@ -47,7 +47,7 @@
     "name": "Lena Fischer",
     "role": "Data engineer",
     "joined": "2024-10-01",
-    "left": ""
+    "left": "2026-10-09"
    }
   },
   {
@@ -348,6 +348,30 @@
    "props": {
     "text": "Chrome will remove third-party cookies in 2025",
     "kind": "assumption"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_soc2_cert",
+   "props": {
+    "text": "We need SOC 2 certification to sell to enterprise customers",
+    "kind": "constraint"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_infra_budget",
+   "props": {
+    "text": "Tooling and infrastructure spend must stay under $20,000 a month",
+    "kind": "constraint"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_eu_market",
+   "props": {
+    "text": "We sell to customers in the European Union",
+    "kind": "fact"
    }
   },
   {
@@ -3226,6 +3250,17 @@
   },
   {
    "label": "Evidence",
+   "id": "chat-2026-10-09-farewell",
+   "props": {
+    "kind": "chat",
+    "title": "#general: farewell",
+    "date": "2026-10-09",
+    "excerpt": "Today is Lena's last day. Thank you for the pipeline and the search work, Lena. We will sort out who picks up her decisions next week.",
+    "path": ""
+   }
+  },
+  {
+   "label": "Evidence",
    "id": "PR-907",
    "props": {
     "kind": "pr",
@@ -3260,15 +3295,162 @@
  ],
  "edges": [
   {
+   "src": "ada",
+   "rel": "REPORTS_TO",
+   "dst": "tomi",
+   "props": {
+    "valid_from": "2024-05-01",
+    "valid_to": "2025-08-01"
+   }
+  },
+  {
+   "src": "ada",
+   "rel": "REPORTS_TO",
+   "dst": "kwame",
+   "props": {
+    "valid_from": "2025-08-01",
+    "valid_to": ""
+   }
+  },
+  {
+   "src": "priya",
+   "rel": "REPORTS_TO",
+   "dst": "tomi",
+   "props": {
+    "valid_from": "2024-06-01",
+    "valid_to": "2025-08-01"
+   }
+  },
+  {
+   "src": "priya",
+   "rel": "REPORTS_TO",
+   "dst": "kwame",
+   "props": {
+    "valid_from": "2025-08-01",
+    "valid_to": ""
+   }
+  },
+  {
+   "src": "marcus",
+   "rel": "REPORTS_TO",
+   "dst": "tomi",
+   "props": {
+    "valid_from": "2024-07-01",
+    "valid_to": "2025-08-01"
+   }
+  },
+  {
+   "src": "marcus",
+   "rel": "REPORTS_TO",
+   "dst": "kwame",
+   "props": {
+    "valid_from": "2025-08-01",
+    "valid_to": ""
+   }
+  },
+  {
+   "src": "lena",
+   "rel": "REPORTS_TO",
+   "dst": "ada",
+   "props": {
+    "valid_from": "2024-10-01",
+    "valid_to": ""
+   }
+  },
+  {
+   "src": "jonah",
+   "rel": "REPORTS_TO",
+   "dst": "tomi",
+   "props": {
+    "valid_from": "2024-12-01",
+    "valid_to": ""
+   }
+  },
+  {
+   "src": "sofia",
+   "rel": "REPORTS_TO",
+   "dst": "tomi",
+   "props": {
+    "valid_from": "2024-09-01",
+    "valid_to": "2025-08-01"
+   }
+  },
+  {
+   "src": "sofia",
+   "rel": "REPORTS_TO",
+   "dst": "kwame",
+   "props": {
+    "valid_from": "2025-08-01",
+    "valid_to": ""
+   }
+  },
+  {
+   "src": "kwame",
+   "rel": "REPORTS_TO",
+   "dst": "tomi",
+   "props": {
+    "valid_from": "2025-08-01",
+    "valid_to": ""
+   }
+  },
+  {
    "src": "p_gateway_path",
    "rel": "DERIVED_FROM",
    "dst": "p_gateway_limit",
    "props": {}
   },
   {
+   "src": "p_soc2_rotation",
+   "rel": "DERIVED_FROM",
+   "dst": "p_soc2_cert",
+   "props": {}
+  },
+  {
+   "src": "p_eu_customers",
+   "rel": "DERIVED_FROM",
+   "dst": "p_eu_market",
+   "props": {}
+  },
+  {
+   "src": "p_sendgrid_free",
+   "rel": "DERIVED_FROM",
+   "dst": "p_infra_budget",
+   "props": {}
+  },
+  {
+   "src": "p_gdpr",
+   "rel": "DERIVED_FROM",
+   "dst": "p_eu_market",
+   "props": {}
+  },
+  {
+   "src": "p_ld_budget",
+   "rel": "DERIVED_FROM",
+   "dst": "p_infra_budget",
+   "props": {}
+  },
+  {
    "src": "p_warehouse_cost",
    "rel": "DERIVED_FROM",
    "dst": "p_bq_ondemand",
+   "props": {}
+  },
+  {
+   "src": "p_bq_ondemand",
+   "rel": "DERIVED_FROM",
+   "dst": "p_infra_budget",
+   "props": {}
+  },
+  {
+   "src": "p_log_cost",
+   "rel": "DERIVED_FROM",
+   "dst": "p_infra_budget",
+   "props": {}
+  },
+  {
+   "src": "p_iac_soc2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_soc2_cert",
    "props": {}
   },
   {
@@ -3378,7 +3560,7 @@
    "dst": "D04",
    "props": {
     "valid_from": "2024-11-20",
-    "valid_to": ""
+    "valid_to": "2026-10-09"
    }
   },
   {
@@ -3811,7 +3993,7 @@
    "dst": "D19",
    "props": {
     "valid_from": "2025-08-01",
-    "valid_to": ""
+    "valid_to": "2026-10-09"
    }
   },
   {
@@ -5580,6 +5762,12 @@
    "src": "marcus",
    "rel": "AUTHORED",
    "dst": "OPS-1008",
+   "props": {}
+  },
+  {
+   "src": "kwame",
+   "rel": "AUTHORED",
+   "dst": "chat-2026-10-09-farewell",
    "props": {}
   },
   {

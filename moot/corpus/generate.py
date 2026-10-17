@@ -28,7 +28,8 @@ def slug(s: str) -> str:
 def person(pid: str) -> dict:
     for p in spec.PEOPLE:
         if p[0] == pid:
-            return dict(id=p[0], name=p[1], role=p[2], joined=p[3], left=p[4])
+            return dict(id=p[0], name=p[1], role=p[2], joined=p[3], left=p[4],
+                        reports_to=[dict(manager=m, valid_from=f, valid_to=t) for (who, m, f, t) in spec.REPORTS_TO if who == pid])
     raise KeyError(pid)
 
 
