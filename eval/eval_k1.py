@@ -323,7 +323,8 @@ def key_for(arm: str, q: dict, model: str) -> str:
     return hashlib.sha256(json.dumps([arm, model, q["id"], SYSTEM, MOOT_DOC if arm == "moot_tools" else FILE_DOC]).encode()).hexdigest()[:20]
 
 
-LOCAL = "qwen3.8:27b"  # the registered model: K1's test split moved off it after 7 answers (docs/studies.md, amendment)
+LOCAL = "qwen3.8:27b"  # the registered model; K1's test split was moved to Groq and back (docs/studies.md, amendments)
+OTHER = "qwen/qwen3.8-27b" if MODEL == LOCAL else LOCAL  # its answers on test are listed, never scored
 
 
 def cached(arm: str, q: dict, fill: bool, cache: dict) -> dict | None:
@@ -398,19 +399,20 @@ def main() -> None:
             L.append(f"| {names[arm]} | {s['right']}/{s['n']} ({s['ci'][0]:.2f}–{s['ci'][1]:.2f}) | " + " | ".join(s["per_template"][t] for t in TEMPLATES)
                      + f" | {s['tokens']:,} | {s['seconds_median'] if s['seconds_median'] is not None else '–'} | {s['calls']} |")
         L.append("")
-    if MODEL != LOCAL:
-        local = [(arm, q, cache[key_for(arm, q, LOCAL)]) for q in Q["questions"] for arm in ("moot_tools", "file_tools", "rag_bm25")
-                 if q["split"] == "test" and key_for(arm, q, LOCAL) in cache]
+    if OTHER:
+        local = [(arm, q, cache[key_for(arm, q, OTHER)]) for q in Q["questions"] for arm in ("moot_tools", "file_tools", "rag_bm25")
+                 if q["split"] == "test" and key_for(arm, q, OTHER) in cache]
         if local:
-            L += [f"## The {len(local)} test answers produced on {LOCAL} before the switch (not in the table above)", "",
-                  f"| question | arm | {LOCAL} | {MODEL} on the same question |", "|---|---|---|---|"]
+            L += [f"## The {len(local)} test answers produced on {OTHER} (not in the table above)", "",
+                  "The register's amendments explain why these exist; they are listed so nothing is dropped.", "",
+                  f"| question | arm | {OTHER} | {MODEL} on the same question |", "|---|---|---|---|"]
             for arm, q, c in local:
                 g = cache.get(key_for(arm, q, MODEL))
                 mark = lambda x: "no answer" if x is None or x.get("answer") is None else ("right" if right(q, x["answer"]) else "wrong")
                 L.append(f"| {q['id']} (t{q['template']}) | {arm} | {mark(c)} | {mark(g) if g else 'not yet run'} |")
             n_l = sum(1 for _, q, c in local if c.get("answer") is not None and right(q, c["answer"]))
             n_g = sum(1 for arm, q, _ in local if (g := cache.get(key_for(arm, q, MODEL))) and g.get("answer") is not None and right(q, g["answer"]))
-            L += ["", f"On these {len(local)}: {LOCAL} {n_l} right, {MODEL} {n_g} right.", ""]
+            L += ["", f"On these {len(local)}: {OTHER} {n_l} right, {MODEL} {n_g} right.", ""]
     (OUT / f"results_{STUDY}.md").write_text("\n".join(L) + "\n")
     t = res["test"]
     print("test: " + ", ".join(f"{a} {t[a]['right']}/{t[a]['n']}" for a in ARMS))

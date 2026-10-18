@@ -27,27 +27,32 @@ gate: DENY (retired) · ask: Anish Ramasekar, its author, still here
 
 Every line is a FalkorDB path query you can open: [the decision](https://moot.bringaihome.xyz/app/ledger/?graph=gh_kubernetes_enhancements&d=KEP-3130), the exact read-only Cypher it ran with rows and milliseconds, the quote with its character span. Set the date and the answer is the one that was true then: who led the SIG, whether the KEP was in force. An agent asks the same thing before it acts (`GET /api/gate`, the MCP tool `check_action`, or `moot hook` in front of Claude Code), and gets DENY only when the graph shows the decision is gone; otherwise it proceeds, with any warning and the person to ask.
 
-## Results, losses included
+## Results: questions an organisation's memory should answer (K1)
 
-Every study was registered in [docs/studies.md](docs/studies.md) before it ran; the full tables and readings are in [docs/results.md](docs/results.md). Moot is not a forecaster: on real decisions graded by what their repositories later did, it does no better than calling everything "still holds".
+K1 asks Kubernetes what its own records say: which KEP replaced this one and when, who led the SIG that answers for it on a given date, whether it was in force on a date and what retired it, and whether its authors still lead a SIG. The gold is read from raw git history by a separate parser (`moot/k1.py`), and the questions were frozen and hashed before any arm ran ([register](docs/studies.md)). Every model arm gets the same model, prompt and step budget; only the tools differ.
 
-| question | Moot | baselines | source |
-|---|---|---|---|
-| **K1, running:** 34 questions about Kubernetes as an organisation (who replaced a KEP, who led its SIG on a date, was it in force on a date, are its authors SIG leads), gold from raw git history | one fixed graph query, no model: 25/34 (shared-source reference; it misses where the graph dates SIG leadership to the quarter) | agents with Moot's graph tools, with file and git tools, and BM25 RAG, same local model: running | [results_k1.md](eval/results_k1.md) |
-| **Held-out (H1):** 64 real decisions in force on 2023-10-17, graded by what their repositories did by 2026-10-17 (5 died): right | 52/64 (0.81) | everything HOLDS 59/64 · BM25 RAG 57/64 · LLM agent with GitHub/OSV tools 55/64 (64 of 64 answered) · age rule 28/64 · Moot rules without FalkorDB 24/64 | [results_heldout.md](eval/results_heldout.md) |
-| H1: deaths caught, false alarms | 1 of 5, 8 of 59 | BM25 RAG 2 and 4 · age rule 3 and 34 · LLM agent 1 and 5 | [results_heldout.md](eval/results_heldout.md) |
-| **Agents on real decisions (A1):** later-dead decisions an agent was allowed to act on / decisions that held but were blocked | 0 of 5 / 59 of 59 | trust the ADR 5 / 0 · BM25 RAG 3 / 4 · LLM agent 4 / 5 · age rule 2 / 34 | [results_heldout.md](eval/results_heldout.md#what-an-agent-would-have-been-allowed-to-do-study-a1-test-split) |
-| A1 with the product gate policy (post hoc): later-dead allowed / held blocked | 4 of 5 / 8 of 59 | as above | [results_heldout.md](eval/results_heldout.md) |
-| **Fresh held-out (H2):** 22 decisions from 16 other repositories, 2022-10-17 to 2025-10-17; only 1 died, so it is underpowered | 21/22 right, 0 of 1 caught | everything HOLDS 21/22 · age rule 14/22, 1 of 1 caught | [results_h2.md](eval/results_h2.md) |
-| **Precision on real history (P1):** flags later confirmed by the repository within three years | 1 of 12 (0.08) | age rule 3 of 45 (0.07) · random flagger 0.13 | [results_precision.md](eval/results_precision.md) |
-| Real repositories: decisions caught dead before their own maintainers (of 6 tool deaths) | **2** | age ≥ 3 years 3 · random 1.4 · trust the ADR 0 | [backtest, 30 public repos](eval/results_backtest.md) |
-| Real repositories: flags on decisions still listed in force, each with a dated reason | **22** (15 real, 2 false alarms) | age ≥ 3 years 73, none with a reason | [backtest](eval/results_backtest.md#every-flag-on-a-decision-its-repository-still-lists-as-in-force) |
-| EnterpriseRAG-Bench conflicts: superseded document still in the model's context (of 20, lower is better) | **13** | BM25 14: a tie | [blind supersession cut](eval/results_erag.md) |
-| Router: ordinary questions the keyword rules misroute, routed right by a tool call (of 22) | **20** | keyword rules 0 (chosen because they fail) | [router eval](eval/results_router.md) |
-| Larkspur: stale or retired decisions an agent was allowed to act on (of 20) | **0** | BM25 + change cues 4 · trust the ADR 20 | [gate eval](eval/results_gate.md) (a consistency ceiling: synthetic, graded by its own spec) |
-| Larkspur, 90 questions (still holds? why? since when?): dead decisions called HOLDS (of 22) | **0** | RAG + same model 13 · RAG over stated reasons 7 | [head-to-head](eval/results_baseline.md) (a consistency ceiling) |
+| arm (qwen3.8:27b, temperature 0) | test, exact match | dev, exact match | tokens (dev) | median s per question (dev) | tool calls (dev) |
+|---|---|---|---|---|---|
+| **agent with Moot's graph tools** | running | 9/12 | 43,544 | 17.7 | 26 |
+| agent with file and git tools over the same checkouts | running | 5/12 | 41,532 | 24.4 | 38 |
+| BM25 RAG over the checkouts | running | 0/12 | 30,672 | 31.4 | 0 |
+| one fixed graph query per question, no model | 25/34 | 10/12 | 0 | – | 0 |
 
-**Correct by construction, and labelled so.** The verdict FalkorDB's path query returns equals a plain-Python walk over the same edges in 2,000 random worlds (`tests/test_oracle.py`); WCC, betweenness ranking, PageRank and SPpaths agree with NetworkX (`tests/test_algorithms.py`); over 12,792 monthly gate questions on real and demo graphs, remembered answers are revoked whenever their evidence changes, so 0 stale answers are served, against 62 for a 90-day cache and 285 for a one-year cache ([U1](eval/results_unlearn.md)). These are checks, not measured wins.
+**Shared-source caveat, stated once:** Moot's graph is built from the same two repositories the gold is read from, so the last row measures how faithfully the graph holds that history, not an independent prediction. The contest is between agents with the same model and different tools. Full tables, per question type: [results_k1.md](eval/results_k1.md). K2, a larger confirmation set over four SIGs, is frozen and runs next.
+
+**Moot does not forecast which decisions die:** on 64 held-out real decisions it scored 52 against 59 for calling everything "still holds", and its flags on real history are confirmed at chance. Every forecasting study (H1, A1, H2, P1 and the 30-repository backtest) is in [docs/results.md](docs/results.md), every number kept.
+
+### Checks and supporting numbers
+
+| what | result | note |
+|---|---|---|
+| Router: ordinary questions the keyword rules misroute, routed right by a tool call (of 22) | **20** | keyword rules 0 (chosen because they fail) · [router eval](eval/results_router.md) |
+| Oracle: the verdict FalkorDB's path query returns equals a plain-Python walk over the same edges | 2,000 of 2,000 random worlds | a check, not a win (`tests/test_oracle.py`) |
+| NetworkX cross-check | WCC, betweenness ranking, PageRank's top premises and SPpaths lengths agree | betweenness scores differ, the order does not (`tests/test_algorithms.py`) |
+| Unlearning (U1): remembered answers revoked when their evidence changes | over 12,792 monthly gate questions, so 0 stale answers are served, against 62 for a 90-day cache and 285 for a one-year cache | [U1](eval/results_unlearn.md) |
+| Audit latency at 20,000 noise documents, p50 | **0.9 ms** | flat from 0 to 20,000 · [scale eval](eval/results_scale.md) |
+| Larkspur: stale or retired decisions an agent was allowed to act on (of 20) | **0** | BM25 + change cues 4 · trust the ADR 20 · [gate eval](eval/results_gate.md); a consistency ceiling: synthetic, graded by its own spec |
+| Larkspur, 90 questions (still holds? why? since when?): dead decisions called HOLDS (of 22) | **0** | RAG + same model 13 · RAG over stated reasons 7 · [head-to-head](eval/results_baseline.md); a consistency ceiling |
 
 ## What else is in the box
 
@@ -61,7 +66,7 @@ Every study was registered in [docs/studies.md](docs/studies.md) before it ran; 
 | criterion | the evidence |
 |---|---|
 | **Graph-native use of FalkorDB** | Verdicts *are* path queries over dated edges, all through `GRAPH.RO_QUERY` ([queries](docs/queries.md)); `algo.WCC`, `algo.betweenness`, `algo.pageRank`, `algo.SPpaths` answer who knows why, what leaves with a person, blast radius and what a PR broke; one named graph per organisation. Removing FalkorDB but keeping the rules drops Larkspur's head-to-head from 90/90 to 60/90 and H1 from 52/64 to 24/64. |
-| **Agent effectiveness** | The gate answers before an agent acts, names who to ask, and blocks a coding agent's edit under a dead decision. On real decisions the old strict policy blocked everything it could not vouch for (59 of 59 that held); the product policy lets 4 of 5 later-dead decisions through but blocks only 8 of 59 that held. A tool-call router routes 20 of 22 questions the keyword rules misroute. |
+| **Agent effectiveness** | On K1 the same model answers more of Kubernetes' organisational questions with Moot's graph tools than with file and git tools or BM25 RAG (dev 9, 5 and 0 of 12; test running). The gate answers before an agent acts, names who to ask, and blocks a coding agent's edit under a dead decision. On real decisions the old strict policy blocked everything it could not vouch for (59 of 59 that held); the product policy lets 4 of 5 later-dead decisions through but blocks only 8 of 59 that held. A tool-call router routes 20 of 22 questions the keyword rules misroute. |
 | **Potential impact** | A real organisation end to end (Kubernetes), any public repository's ADRs and CODEOWNERS, and an agent gate that works over HTTP, MCP and in the editor. |
 | **Technical excellence** | One-command setup (`docker compose up --build`, or `make demo`), 155 tests, CI on FalkorDB v4.22.1 and v4.18.3 plus the UI build, `moot verify --rerun` re-derives every number above from committed inputs, `make judge-check` runs it all. |
 | **Explainability and provenance** | Every answer carries its path, evidence ids and dates, the Cypher it ran and a digest of the rows; every model-proposed quote is a checked literal span with its source and model. "No evidence" is never "holds". |
