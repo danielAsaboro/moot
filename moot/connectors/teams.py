@@ -40,8 +40,35 @@ def quarters(start: str, end: str) -> list[str]:
     return out
 
 
-def k8s_sigs(community: Path, sigs: list[str] | None, today: str | None = None, since: str = "2018-01-01") -> tuple[list[dict], list[dict]]:
-    """Team, Project and LEADS from sigs.yaml and its history. Returns (nodes, edges)."""
+def _seats(community: Path, rev: str, sigs: list[str] | None, cache: dict) -> set:
+    if rev not in cache:
+        try:
+            y = yaml.safe_load(_show(community, f"{rev}:sigs.yaml")) or {}
+        except yaml.YAMLError:
+            y = {}
+        cache[rev] = {(str(p.get("github", "")).lower(), s["dir"], role) for s in y.get("sigs", []) if sigs is None or s.get("dir") in sigs
+                      for role in ("chairs", "tech_leads") for p in (s.get("leadership") or {}).get(role) or [] if p.get("github")}
+    return cache[rev]
+
+
+def _first(commits: list[tuple[str, str]], lo: int, hi: int, test) -> int:
+    """The first index in (lo, hi] where test(sha) is true, given false at lo and true at hi (bisection over commits)."""
+    while hi - lo > 1:
+        mid = (lo + hi) // 2
+        if test(commits[mid][1]):
+            hi = mid
+        else:
+            lo = mid
+    return hi
+
+
+def k8s_sigs(community: Path, sigs: list[str] | None, today: str | None = None, since: str = "2018-01-01",
+             exact: bool = True) -> tuple[list[dict], list[dict]]:
+    """Team, Project and LEADS from sigs.yaml and its history. Returns (nodes, edges).
+
+    exact=True (the default since 2026-10-21): each seat's start and end are dated to the commit that changed sigs.yaml,
+    found by bisecting the commits between quarterly samples. exact=False dates them to the quarter, as the graph K1 was
+    frozen against did."""
     today = today or date.today().isoformat()
     seen: dict[tuple, list[str]] = {}  # (person, sig, role) -> quarters present
     names: dict[str, str] = {}
@@ -80,13 +107,33 @@ def k8s_sigs(community: Path, sigs: list[str] | None, today: str | None = None, 
             edges.append(dict(src=tid, rel="RUNS", dst=pid, props={}))
         for p in (s.get("leadership") or {}).get("emeritus_leads") or []:
             names.setdefault(str(p.get("github", "")).lower(), p.get("name") or p.get("github"))
+    # exact dating: bisect the sigs.yaml commits between the sample where a seat appears or disappears and the one before
+    commits = [tuple(l.split()[::-1]) for l in _git(community, "log", "--reverse", "--format=%H %cs", tip, "--", "sigs.yaml").splitlines()]
+    index = {sha: i for i, (_, sha) in enumerate(commits)}
+    at_sample = {q: _git(community, "rev-list", "-1", f"--before={q}T23:59:59", tip, "--", "sigs.yaml").strip() for q in samples}
+    cache: dict = {}
     # one LEADS edge per person and team (the graph merges edges between the same pair): the span they held any seat, the
     # seat they hold last, and every seat with its own window in `history`
     spans: dict[tuple, list] = {}
     for (gh, sig, role), qs in seen.items():
         last = qs[-1]
         valid_to = "" if last == today else next((q for q in samples if q > last), today)
-        spans.setdefault((gh, sig), []).append((qs[0], valid_to, role.rstrip("s").replace("_", " ")))
+        valid_from = qs[0]
+        if exact and commits:
+            key = (gh, sig, role)
+            has = lambda sha: key in _seats(community, sha, sigs, cache)
+            first_rev = at_sample.get(qs[0])
+            prev = next((q for q in reversed(samples) if q < qs[0]), None)
+            if first_rev in index:
+                lo = index.get(at_sample.get(prev), -1) if prev else -1
+                i = _first(commits, lo, index[first_rev], has) if lo < index[first_rev] else index[first_rev]
+                valid_from = commits[i][0] if lo >= 0 or i > 0 else valid_from
+            if valid_to:
+                last_rev, gone_rev = at_sample.get(last), at_sample.get(valid_to) if valid_to in at_sample else None
+                if last_rev in index and gone_rev in index and index[gone_rev] > index[last_rev]:
+                    j = _first(commits, index[last_rev], index[gone_rev], lambda sha: not has(sha))
+                    valid_to = commits[j][0]
+        spans.setdefault((gh, sig), []).append((valid_from, valid_to, role.rstrip("s").replace("_", " ")))
     for (gh, sig), ws in spans.items():
         ws.sort()
         current = [w for w in ws if not w[1]]
