@@ -47,6 +47,13 @@ K2 was registered before any of its questions existed and frozen before any arm 
 | Larkspur: stale or retired decisions an agent was allowed to act on (of 20) | **0** | BM25 + change cues 4 · trust the ADR 20 · [gate eval](../eval/results_gate.md); a consistency ceiling: synthetic, graded by its own spec |
 | Larkspur, 90 questions (still holds? why? since when?): dead decisions called HOLDS (of 22) | **0** | RAG + same model 13 · RAG over stated reasons 7 · [head-to-head](../eval/results_baseline.md); a consistency ceiling |
 
+## Studies in progress
+
+- **X1, HERB (a public enterprise benchmark), registered and paused.** Seven held-out products, scored by HERB's own evaluation code with the local model as answerer and judge. Held-out answering reached 150 of 1,197 answers before it was paused; a fault in Moot's citation checker found along the way was fixed and both agent arms will be re-run in full (register, X1 amendments). No held-out score is computed and no claim is made.
+  - *Dev check, not a result:* on 12 Content and 12 unanswerable questions of one dev product (CollaborateForce), Content scored 88.3 for the graph agent, 32.1 for the same agent with search only and 22.1 for BM25 RAG; unanswerable questions declined 83.3%, 58.3% and 25.0%. One dev product, content questions only, tuned on.
+- **K3, free-form organisational questions, frozen.** 90 questions no single template answers, gold from the raw-git parser, pinned before any arm ran. The fixed-query router (the best-matching K-template, no model) answers 10 of 65 test questions; the model arms have not run ([results_k3.md](../eval/results_k3.md)).
+- **H3, ranking decisions by risk: underpowered, no claim** (below).
+
 ## Forecasting which decisions die
 
 Calling each decision dead or alive (H1, H2, A1, P1, the backtest) is a game a constant answer wins, because deaths are rare. H3 was registered to ask the usable version, ranking decisions by risk (AUC, precision in the top 10%), on 447 repositories no earlier study used; only 29 of their tool decisions were in force on 2022-10-17 and none died by 2025-10-17, so by its own rule H3 is underpowered and makes no claim ([results_h3.md](../eval/results_h3.md)). Every number of the other studies follows.

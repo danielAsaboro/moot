@@ -53,3 +53,17 @@ def test_loop_abstains_with_the_fixed_line_when_nothing_holds():
     script = ['{"answer": [{"text": "It was Tuesday.", "cite": []}]}', '{"answer": [{"text": "It was Tuesday.", "cite": []}]}']
     r = agentloop.answer("When?", {}, "", fake_chat(script))
     assert r["abstained"] and r["text"].startswith(cite.ABSTAIN)
+
+
+def test_a_quote_of_a_field_as_printed_and_a_link_ending_a_sentence():
+    # a field quoted with its key, the way the tool printed the record, is word for word; a link at the end of a sentence
+    # is the link, not the link and its full stop
+    texts = {}
+    cite.collect({"competitors": [{"name": "SalesMate AI", "demo": "https://x.io/demo_4", "demo_shared_by": ["eid_4350bf70"]}],
+                  "issues": [{"id": "iss:1", "title": "Pipeline sync", "resolved_by": "eid_4b38019b"}]}, texts)
+    claims = [{"text": "The demo of SalesMate AI was shared by eid_4350bf70.", "cite": [{"id": "SalesMate AI", "quote": '"demo_shared_by": ["eid_4350bf70"]'}]},
+              {"text": "Its demo is https://x.io/demo_4.", "cite": [{"id": "SalesMate AI", "quote": "https://x.io/demo_4"}]},
+              {"text": "eid_4b38019b resolved the pipeline sync issue.", "cite": [{"id": "iss:1", "quote": "resolved_by: eid_4b38019b"}]}]
+    assert cite.check(claims, texts) == [[], [], []]
+    bad = {"text": "The demo was shared by eid_00000000.", "cite": [{"id": "SalesMate AI", "quote": '"demo_shared_by": ["eid_00000000"]'}]}
+    assert cite.check([bad], texts)[0]

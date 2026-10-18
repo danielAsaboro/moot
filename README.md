@@ -86,6 +86,7 @@ FalkorDB's algorithms answer the people questions: `algo.WCC` (knowledge that le
 - Moot holds what was written down and dates it; it is not a forecaster of which decisions will die ([docs/results.md](docs/results.md#forecasting-which-decisions-die)).
 - Moot's Kubernetes graph and K2's gold come from the same repositories, so the fixed-query row measures how faithfully the graph holds that history; the contest is between agents with different tools on the same files.
 - Every model arm used one local open-weights model (`qwen3.8:27b`); a stronger model may narrow the gap.
+- Two registered studies have not finished: X1 (HERB, a public benchmark) is paused partway with no score, and K3's model arms have not run ([docs/results.md](docs/results.md#studies-in-progress)).
 - The full list: [docs/results.md](docs/results.md#limits-in-full).
 
 ## Submission checklist

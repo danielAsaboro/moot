@@ -245,10 +245,13 @@ def rag_arm(q: dict) -> dict:
 # ---- runs, caches, scores
 
 FILL = False
+# x1-v2 (register, X1 amendment 2): the citation checker read a record's values but not its fields as printed, so a quote such
+# as "resolved_by": "eid_..." failed, and a link ending a sentence kept its full stop; v1 answers are kept and not scored
+HARNESS = "x1-v2"
 
 
 def cached(arm: str, q: dict, cache: dict) -> dict | None:
-    key = hashlib.sha256(json.dumps([arm, MODEL, q["id"], q["question"], agentloop.SYSTEM]).encode()).hexdigest()[:24]
+    key = hashlib.sha256(json.dumps([arm, MODEL, q["id"], q["question"], agentloop.SYSTEM, HARNESS]).encode()).hexdigest()[:24]
     if key in cache or not FILL:
         return cache.get(key)
     try:

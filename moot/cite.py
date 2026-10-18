@@ -26,6 +26,17 @@ def norm(s: str) -> str:
     return " ".join(str(s).lower().split())
 
 
+def words(s: str) -> str:
+    """Text as its words, for the word-for-word check: case, spacing and JSON's quotes, brackets and commas don't count, so
+    a quote of a field as the tool printed it ("resolved_by": "eid_4b38019b") matches the record that holds it."""
+    return " ".join(re.sub(r"[{}\[\],]", " ", re.sub(r"[\"']", "", str(s).lower())).split())
+
+
+def idents(text: str) -> list[str]:
+    """Identifiers a sentence names, without the punctuation that ends the sentence."""
+    return [m.rstrip(".,;:") for m in IDENT.findall(text)]
+
+
 def stems(s: str) -> set[str]:
     """Content words, cut to five letters, so 'resolved' and 'resolution' meet."""
     return {w[:5] for w in WORD.findall(s.lower()) if w not in STOP and len(w) > 2}
@@ -47,6 +58,7 @@ def collect(result, into: dict[str, str]) -> None:
         if rid:
             text = " \n ".join(str(v) for k, v in result.items() if isinstance(v, (str, int, float)) and v != rid)
             text += " \n " + " \n ".join(str(x) for v in result.values() if isinstance(v, list) for x in v if isinstance(x, (str, int, float)))
+            text += " \n " + json.dumps(result, ensure_ascii=False, default=str)  # the record as the tool printed it, fields and all
             into[rid] = (into.get(rid, "") + " \n " + text).strip()
         for v in result.values():
             if isinstance(v, (dict, list)):
@@ -71,7 +83,7 @@ def check(claims: list[dict], texts: dict[str, str]) -> list[list[str]]:
             if rid not in texts:
                 p.append(f"{rid or '(no id)'} was not returned by any tool")
                 continue
-            if norm(quote) not in norm(texts[rid]):
+            if words(quote) not in words(texts[rid]):
                 p.append(f"the quote is not word for word in {rid}")
                 continue
             if len(quote.split()) < 3 and not IDENT.search(quote) and norm(quote) not in norm(text):
@@ -79,9 +91,9 @@ def check(claims: list[dict], texts: dict[str, str]) -> list[list[str]]:
                 continue
             support += " \n " + rid + " \n " + quote + " \n " + texts[rid]
         if cites and not p:
-            if not stems(text) & stems(support) and not set(IDENT.findall(text)) & set(IDENT.findall(support)):
+            if not stems(text) & stems(support) and not set(idents(text)) & set(idents(support)):
                 p.append("the sentence shares no word with what it cites")
-            missing = [i for i in IDENT.findall(text) if norm(i) not in norm(support)]
+            missing = [i for i in idents(text) if norm(i) not in norm(support)]
             if missing:
                 p.append("names " + ", ".join(missing[:4]) + " that no cited record contains")
             nums = [n for n in NUM.findall(text) if n not in support]
