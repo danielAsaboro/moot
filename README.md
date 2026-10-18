@@ -2,6 +2,8 @@
 
 **A company brain that finds the decisions your team still follows for reasons that no longer exist, and shows the evidence path.**
 
+[![CI](https://github.com/danielAsaboro/moot/actions/workflows/ci.yml/badge.svg)](https://github.com/danielAsaboro/moot/actions/workflows/ci.yml)
+
 [Live app](https://moot.bringaihome.xyz) · [Demo video](https://vimeo.com/1237038749) · [Blog: I built a company brain that refuses to answer questions](https://moot.bringaihome.xyz/i-built-a-company-brain-that-refuses-to-answer-questions/) · Built for [Graph Hacks](https://www.wemakedevs.org/hackathons/falkordb) (WeMakeDevs x FalkorDB), track **Company Brain**
 
 ![Moot demo: ask why uploads are capped, flip depth 1 to 4, ask something not in the graph](docs/hero.gif)
@@ -21,6 +23,9 @@ owner: Ada Okafor, left 2026-05-15 · D02 and D03 rest on the same dead reason
 - Flip **depth 1 → 4**: at depth 1 the verdict is HOLDS, because the stated reason is intact. The dead reason is two hops down. That hop is what a graph buys you.
 - Set **as of 2025-06-01**: HOLDS again, because PR-412 did not exist yet. Every edge is dated.
 - Ask an agent's question, **"may I enforce D01?"** (`GET /api/gate/D01`, or the MCP tool `check_action`): **DENY**, with the path to PR-412.
+- Ask **since when**: MOOT since 2026-03-02, after HOLDS from 2025-02-10. Moot re-audits on every date something in the decision's graph happened.
+- Ask **who knows why**: Marcus Chen, who wrote PR-412, and Ada Okafor, the owner, who left. Bus factor 1. **What leaves with Marcus?** Five live decisions nobody else here can explain, five reasons only he wrote evidence on, and the Uploads API.
+- Point it at a real repository: `moot ingest-github alphagov/govuk-infrastructure` reads its ADR folder, git history and pull requests into a new graph and audits every decision against GitHub and OSV. Four repositories are already in the [live app](https://moot.bringaihome.xyz/app/ledger/?graph=gh_alphagov_govuk_infrastructure).
 
 Verdicts are FalkorDB path queries. The model only narrates, every id it cites is checked against the rows, and it never writes Cypher.
 
@@ -38,7 +43,7 @@ Every number above is checked by `moot verify` against the JSON the evals wrote 
 ## Submission checklist
 
 - [x] FalkorDB is the primary database and the product stops working without it: every verdict is a `ro_query` path query
-- [x] Data: a synthetic 30-person company (Larkspur: 30 decisions, 208 documents), 25 real public ADRs checked against GitHub and OSV, a backtest on 722 real decisions from 30 public repositories
+- [x] Data: a synthetic 30-person company (Larkspur: 30 decisions, 208 documents), 25 real public ADRs checked against GitHub and OSV, a backtest on 722 real decisions from 30 public repositories, and a connector for any public GitHub repository (four ingested: 75 decisions, 59 pull requests)
 - [x] Graph data model, key Cypher queries and graph algorithms ([below](#graph-model), [full catalogue](docs/queries.md))
 - [x] Setup in one command ([Run it](#run-it))
 - [x] Demo video: https://vimeo.com/1237038749
@@ -52,12 +57,15 @@ flowchart LR
   subgraph Sources
     C[Larkspur corpus<br/>ADRs, PRs, tickets, chat, docs]
     CK[GitHub + OSV checks]
+    GH[any GitHub repo<br/>ADR folder, git history, PRs]
   end
+  GH -->|moot ingest-github| J
   C -->|extract: quotes must be substrings| J[graph.json]
   CK -->|dated Evidence| J
   J -->|MERGE, idempotent| F[(FalkorDB<br/>one named graph per company)]
   F -->|GRAPH.RO_QUERY<br/>fixed parameterised Cypher| T[tools.py]
   T --> V[verdict.py<br/>pure rules: verdict + agent gate]
+  T --> PE[people.py<br/>KNOWS projection in a scratch graph:<br/>algo.WCC, algo.betweenness]
   V --> A[agent.py<br/>narrate, validate citations]
   A --> API[FastAPI + Next.js UI]
   A --> MCP[MCP server]
@@ -70,7 +78,7 @@ The four outcomes the organisers' reference architecture asks for: `answered_wit
 
 ## Graph model
 
-One named graph per company (`select_graph(tenant)`): `larkspur` (demo), `public_adrs` (real ADRs), `backtest` (30 real repositories).
+One named graph per company (`select_graph(tenant)`): `larkspur` (demo), `public_adrs` (real ADRs), `backtest` (30 real repositories), and one `gh_<owner>_<repo>` graph per repository brought in with `moot ingest-github`. All of them are selectable in the UI (the Graph menu), the API (`?graph=`) and MCP (`graph=`).
 
 ```mermaid
 graph LR
@@ -117,6 +125,25 @@ ORDER BY hops
 ```
 
 Pure rules in `moot/verdict.py` then decide: a premise is **expired** when its latest event is a contradiction, **disputed** when contradicted then re-affirmed, **unevidenced** when nothing ever checked it. A decision is **RETIRED** if a dated `SUPERSEDES`/`RETIRES` points at it, **UNDOCUMENTED** with no premise, **MOOT** if any premise within `depth` hops is expired. The **agent gate** audits at depth 6 and answers **ALLOW**, **DENY** or **REVALIDATE** (no evidence is not "holds").
+
+**Who knows why** a decision was made: everyone who owns it, wrote its ADR, or wrote evidence on any reason below it.
+
+```cypher
+MATCH (d:Decision {id: $id})
+OPTIONAL MATCH (d)-[:BECAUSE_OF|DERIVED_FROM*1..6]->(pr:Premise)<-[:SUPPORTS|CONTRADICTS]-(e:Evidence)<-[:AUTHORED]-(p1:Person)
+OPTIONAL MATCH (d)-[:RECORDED_IN]->(:Evidence)<-[:AUTHORED]-(p2:Person)
+OPTIONAL MATCH (p3:Person)-[o:OWNS]->(d) WHERE o.valid_from <= $as_of
+RETURN collect(DISTINCT p1.id) + collect(DISTINCT p2.id) + collect(DISTINCT p3.id)
+```
+
+**What leaves with them**: the who-knows-why rows are written into a scratch graph as `KNOWS` edges between each person still here and each decision they know; the person leaving is removed and `algo.WCC` finds the knowledge islands. An island with decisions and no person left in it is knowledge that walks out of the door. The company graph is never written, and the scratch graph is deleted before the answer returns. (We started with `GRAPH.COPY`; on macOS the embedded server's copy fork can deadlock, so the projection is built from rows.)
+
+```cypher
+CALL algo.WCC({nodeLabels: ['Person','Decision'], relationshipTypes: ['KNOWS','KNOWN_BY']}) YIELD node, componentId
+RETURN componentId, collect(CASE WHEN node:Decision THEN node.id END), collect(CASE WHEN node:Person THEN node.id END)
+```
+
+**Bridges between people**: `algo.betweenness` on the same projection (sampling size above the node count, so it is exact) ranks the people through whom most knowledge runs. **Single points of failure**: reasons that two or more live decisions rest on, vouched for by one document or one person still here.
 
 **Blast radius of a reason**: every decision that rests on it, directly or through derived reasons, plus `algo.pageRank` over the dependency graph for comparison.
 
@@ -165,9 +192,13 @@ Then:
 ```bash
 moot ask "why do we cap uploads" --depth 1 --as-of 2025-06-01
 moot ledger                              # every decision with its verdict, MOOT first
+moot departure marcus                    # what leaves with a person
+moot people                              # who only knows what: bus factor and betweenness per person
+moot ingest-github thomvaill/log4brains  # any public repo's ADRs, history and PRs into graph gh_thomvaill_log4brains, audited
 moot packet D01                          # the evidence packet behind one verdict, as Markdown
 moot verify                              # every number in this README checked against the eval JSON
 moot mcp                                 # MCP server on stdio (Claude Desktop, Claude Code, Cursor)
+make test                                # pytest; CI runs it and moot verify --rerun against FalkorDB v4.22 and v4.18
 ```
 
 MCP config: `{"mcpServers": {"moot": {"command": "python3", "args": ["-m", "moot.cli", "mcp"], "cwd": "/path/to/moot"}}}`. `ANTHROPIC_API_KEY` in `.env` turns on model narration; verdicts never need it.
@@ -178,6 +209,8 @@ MCP config: `{"mcpServers": {"moot": {"command": "python3", "args": ["-m", "moot
 - **Moot only knows what was written down.** Three in four real decisions that teams abandoned picked no outside tool, so no outside check could have seen them die. Only a company's own documents can.
 - **The gate follows the edges it is given.** The ablation shows random junk contradictions are followed like real ones, which is why every DENY names the evidence id for a human to check.
 - **No evidence is not "holds".** A reason nobody ever checked makes the gate say REVALIDATE, which costs six false blocks on Larkspur. We chose that over letting an agent act on an unchecked reason.
+- **The GitHub connector reads what repositories publish.** It parses status lines and "superseded by" links, picks tools by name from the ADR title, and checks maintenance, licence and known vulnerabilities. Reasons written only in prose stay outside the graph, so most real ADRs come out UNDOCUMENTED (on npryce/adr-tools, all nine), not guessed. A status change is dated by the last commit to the file, never earlier than the change.
+- **Knowing is read from authorship.** A person who knows why but never wrote anything down does not count, and the public repositories' people are their git authors.
 - The full-text resolver is keyword-based: a question that shares no words with a decision returns "unknown entity", by design.
 
 ## AI disclosure
