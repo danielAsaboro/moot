@@ -385,6 +385,17 @@ def check_k2(c: Checker) -> None:
              (pf["only_moot"], pf["only_other"], pv(pf)))
 
 
+def check_x1(c: Checker) -> None:
+    """Study X1 (HERB): the README block, written by `eval/eval_x1.py --readme`, against eval/x1/results_heldout.json."""
+    f = EVAL / "x1" / "results_heldout.json"
+    if not f.exists():
+        return
+    sys.path.insert(0, str(EVAL))
+    import eval_x1
+    block = eval_x1.readme_section(json.loads(f.read_text())["summary"])
+    c.equal("README.md: the X1 block matches eval/x1/results_heldout.json", block in (ROOT / "README.md").read_text(), True)
+
+
 def check_test_count(c: Checker) -> None:
     """The README's test count is the number pytest collects."""
     out = subprocess.run([sys.executable, "-m", "pytest", "--collect-only", "-q"], cwd=ROOT, capture_output=True, text=True).stdout
@@ -426,6 +437,7 @@ def main(rerun: bool = False) -> int:
     check_router(c)
     check_k1(c)
     check_k2(c)
+    check_x1(c)
     check_history(c)
     check_studies(c)
     check_test_count(c)

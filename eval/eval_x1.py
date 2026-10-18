@@ -299,5 +299,41 @@ def main() -> None:
     print("\n".join(lines))
 
 
+def readme_section(summary: dict) -> str:
+    """The README block for the held-out result; moot verify checks it against eval/x1/results_heldout.json."""
+    f = lambda v: "–" if v is None else f"{v:.1f}"
+    name = dict(graph="**agent with Moot's HERB graph tools**", search="the same agent with search tools only", rag="BM25 RAG, top 20")
+    rows = [f"| {name[a]} | " + " | ".join(f(summary[a]["categories"][c]) for c in CATS) + f" | **{f(summary[a]['avg'])}** | "
+            + ("–" if summary[a]["declined"] is None else f"{100 * summary[a]['declined']:.1f}%") + " |" for a in ARMS if a in summary]
+    d = summary.get("graph_minus_search")
+    gap = (f"The graph tools are worth {d['avg']:+.1f} points of Avg over the same agent with search alone (paired bootstrap 95% "
+           f"interval {d['ci'][0]:+.1f} to {d['ci'][1]:+.1f}). ") if d else ""
+    return ("## HERB, a public enterprise benchmark (X1)\n\n"
+            "[HERB](https://huggingface.co/datasets/Salesforce/HERB) (Salesforce AI Research) is a synthetic company of Slack threads, "
+            "meetings, documents and pull requests with held-out questions. Seven products held out before any of their files was "
+            "downloaded, scored by HERB's own evaluation code with the same local model as answerer and judge ([register](docs/studies.md)):\n\n"
+            "| arm (qwen3.8:27b) | Content | People | Customer | Artifact | **Avg** | unanswerable declined |\n|---|---|---|---|---|---|---|\n"
+            + "\n".join(rows) + "\n\n" + gap + "For reference only (a different model and judge): HERB's paper reports 32.96 for the "
+            "best agentic RAG it tested. [Full table](eval/results_x1_heldout.md).\n")
+
+
+def put_in_readme() -> None:
+    summary = json.loads((X / "results_heldout.json").read_text())["summary"]
+    p = ROOT / "README.md"
+    text = p.read_text()
+    block = readme_section(summary)
+    if "## HERB, a public enterprise benchmark (X1)" in text:
+        i = text.index("## HERB, a public enterprise benchmark (X1)")
+        j = text.index("\n## ", i + 5)
+        text = text[:i] + block + text[j:]
+    else:
+        text = text.replace("## Quickstart", block + "\n## Quickstart", 1)
+    p.write_text(text)
+    print("README updated with X1")
+
+
 if __name__ == "__main__":
-    main()
+    if "--readme" in sys.argv:
+        put_in_readme()
+    else:
+        main()
