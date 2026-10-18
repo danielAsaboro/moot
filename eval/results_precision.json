@@ -1,0 +1,465 @@
+{
+ "cut": "2023-10-17",
+ "years": 3,
+ "end": "2026-10-17",
+ "methods": {
+  "Moot gate (DENY)": {
+   "flags": 12,
+   "confirmed": 1,
+   "precision": 0.08333333333333333,
+   "precision_ci": [
+    0.014864709450773478,
+    0.35388592179859524
+   ],
+   "flags_per_death": 12.0,
+   "lead_median": 350,
+   "rows": [
+    {
+     "id": "CMSgov/easi-app:0002-use-terraform.md",
+     "flag": "2023-09-01",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "CMSgov/easi-app:0017-go-orm.md",
+     "flag": "2023-05-01",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "alphagov/govuk-aws:0012-security-groups-in-terraform.md",
+     "flag": "2023-09-01",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "alphagov/govuk-aws:0028-combine-api-mongo-cluster-into-mongo-cluster.md",
+     "flag": "2018-11-01",
+     "confirmed": true,
+     "first": {
+      "source": "status",
+      "date": "2019-10-17",
+      "what": "replaced: 38. Mongo Replacement by DocumentDB"
+     },
+     "lead_days": 350
+    },
+    {
+     "id": "alphagov/govuk-infrastructure:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+     "flag": "2021-08-16",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "edgexfoundry/edgex-docs:0017-consul-security.md",
+     "flag": "2023-09-01",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "kyma-project/community:dr-006-Kubeless_as_the_Faas_solution.md",
+     "flag": "2023-01-01",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "ministryofjustice/cloud-platform:001-Use-AWS-hosted-elasticsearch.md",
+     "flag": "2021-02-01",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "ministryofjustice/cloud-platform:016-Kibana-is-open-to-all-service-teams.md",
+     "flag": "2021-02-01",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "openedx/edx-platform:0003-permissions-via-bridgekeeper.rst",
+     "flag": "2022-11-01",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "openedx/edx-platform:permissions.rst",
+     "flag": "2021-02-01",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "thomvaill/log4brains:20201103-use-lunr-for-search.md",
+     "flag": "2021-09-01",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    }
+   ]
+  },
+  "age \u2265 3 years": {
+   "flags": 45,
+   "confirmed": 3,
+   "precision": 0.06666666666666667,
+   "precision_ci": [
+    0.022931616462147086,
+    0.17856874388640825
+   ],
+   "flags_per_death": 15.0,
+   "lead_median": 329,
+   "rows": [
+    {
+     "id": "CMSgov/easi-app:0002-use-terraform.md",
+     "flag": "2022-10-23",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "CMSgov/easi-app:0005-frontend-toolchain-choice.md",
+     "flag": "2022-10-17",
+     "confirmed": true,
+     "first": {
+      "source": "status",
+      "date": "2023-09-11",
+      "what": "replaced: Migrate from Create React App & Craco to Vite"
+     },
+     "lead_days": 329
+    },
+    {
+     "id": "CMSgov/easi-app:0012-backend-testing-suite.md",
+     "flag": "2023-01-02",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "CMSgov/easi-app:0014-use-mux-for-routing.md",
+     "flag": "2023-01-09",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "CMSgov/easi-app:0016-migration-tool.md",
+     "flag": "2023-03-05",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "CMSgov/easi-app:0017-go-orm.md",
+     "flag": "2023-03-17",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "DFE-Digital/apply-for-teacher-training:0002-use-devise-for-authentication.md",
+     "flag": "2022-08-22",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "alphagov/govuk-aws:0007-puppet-cert-management.md",
+     "flag": "2020-07-04",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "alphagov/govuk-aws:0008-postgres-on-puppetmaster.md",
+     "flag": "2020-07-04",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "alphagov/govuk-aws:0012-security-groups-in-terraform.md",
+     "flag": "2020-07-05",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "alphagov/govuk-aws:0025-use-elasticache-for-redis.md",
+     "flag": "2020-09-04",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "alphagov/govuk-aws:0029-combine-api-redis-into-backend-redis.md",
+     "flag": "2020-09-14",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "backstage/backstage:adr006-avoid-react-fc",
+     "flag": "2023-06-30",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "backstage/backstage:adr007-use-msw-to-mock-service-requests.md",
+     "flag": "2023-07-14",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "kyma-project/community:dr-002-Traefik_as_an_API_Gateway.md",
+     "flag": "2020-11-23",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "kyma-project/community:dr-005-Istio_as_the_API_Gateway.md",
+     "flag": "2020-12-11",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "kyma-project/community:dr-006-Kubeless_as_the_Faas_solution.md",
+     "flag": "2020-12-20",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "kyma-project/community:dr-008-Dex_as_an_OIDC_authenticator.md",
+     "flag": "2021-03-01",
+     "confirmed": true,
+     "first": {
+      "source": "status",
+      "date": "2021-08-04",
+      "what": "status (dated in text): Invalidated on 2021-08-04."
+     },
+     "lead_days": 156
+    },
+    {
+     "id": "kyma-project/community:dr-011-Jaeger_as_a_tracing_back-end.md",
+     "flag": "2021-03-09",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "kyma-project/community:dr-012-Prettier_as_JavaScript_code_formatter.md",
+     "flag": "2021-03-15",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "ministryofjustice/cloud-platform:001-Use-AWS-hosted-elasticsearch.md",
+     "flag": "2021-03-28",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "ministryofjustice/cloud-platform:003-Use-Concourse-CI.md",
+     "flag": "2023-08-17",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "ministryofjustice/cloud-platform:004-use-kubernetes-for-container-management.md",
+     "flag": "2021-04-05",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "ministryofjustice/cloud-platform:011-Introduce-Open-Policy-Agent.md",
+     "flag": "2022-06-11",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "ministryofjustice/cloud-platform:013-Use-RSpec-for-cluster-tests.md",
+     "flag": "2022-07-25",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "ministryofjustice/cloud-platform:014-Why-we-build-our-own-kubernetes-cluster.md",
+     "flag": "2022-08-01",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "ministryofjustice/cloud-platform:016-Kibana-is-open-to-all-service-teams.md",
+     "flag": "2023-03-26",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "mozilla/fxa:0002-use-react-redux-and-typescript-for-subscription-management-pages.md",
+     "flag": "2022-05-08",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "mozilla/fxa:0010-transition-fxa-from-backbone-to-react.md",
+     "flag": "2023-03-19",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "mozilla/fxa:0016-use-graphql-and-apollo-for-settings-redesign.md",
+     "flag": "2023-05-05",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "mozilla/fxa:0021-use-internjs-testing.md",
+     "flag": "2023-07-17",
+     "confirmed": true,
+     "first": {
+      "source": "code",
+      "date": "2025-06-01",
+      "what": "intern left the code"
+     },
+     "lead_days": 685
+    },
+    {
+     "id": "openedx/edx-platform:0001-refactor-waffle-flag-default.rst",
+     "flag": "2023-06-22",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "openedx/edx-platform:0002-waffle-utils-extraction.rst",
+     "flag": "2023-09-25",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "openedx/edx-platform:0003-permissions-via-bridgekeeper.rst",
+     "flag": "2022-04-16",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "openedx/edx-platform:0004-waffle-util-namespacing.rst",
+     "flag": "2023-09-25",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "openedx/edx-platform:permissions.rst",
+     "flag": "2022-02-22",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "openedx/frontend-app-learning:0006-thunk-and-api-naming.md",
+     "flag": "2023-07-02",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "openedx/paragon:0009-usage-of-react-bootstrap.rst",
+     "flag": "2023-07-15",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "thomvaill/log4brains:20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md",
+     "flag": "2023-09-25",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "thomvaill/log4brains:20200925-use-nextjs-for-static-site-generation.md",
+     "flag": "2023-09-25",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "thomvaill/log4brains:20200925-use-prettier-eslint-airbnb-for-the-code-style.md",
+     "flag": "2023-09-25",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "thomvaill/log4brains:20200927-avoid-react-fc-type.md",
+     "flag": "2023-09-27",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "thomvaill/log4brains:20201007-next-js-persistent-layout-pattern.md",
+     "flag": "2023-10-07",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "wmde/fundraising-application:006_Vue.js.md",
+     "flag": "2022-02-07",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    },
+    {
+     "id": "wmde/fundraising-application:010_Components_Framework.md",
+     "flag": "2022-04-26",
+     "confirmed": false,
+     "first": null,
+     "lead_days": null
+    }
+   ]
+  },
+  "trust the ADR": {
+   "flags": 0,
+   "confirmed": 0,
+   "precision": null,
+   "precision_ci": [
+    0.0,
+    1.0
+   ],
+   "flags_per_death": null,
+   "lead_median": null,
+   "rows": []
+  }
+ },
+ "random": {
+  "flags": 10.475,
+  "confirmed": 1.375,
+  "precision": 0.1325965668103826
+ }
+}
