@@ -82,6 +82,16 @@ Each study below states its hypothesis, data, metric and script before its first
 - **Predictions:** Moot allows 0 of the dead decisions and blocks most of the held ones (REVALIDATE: no dated evidence either way); trust the ADR allows all 5; the age rule and the model arms fall between.
 - **Script:** part of `eval/eval_heldout.py` (`results_heldout.json` → `agent_gate`).
 
+## U1. Un-learning: does a remembered clearance get revoked when its evidence changes?
+
+- **Written:** 2026-10-21 08:20 UTC, before `eval/eval_unlearn.py` existed or ran.
+- **Question:** an agent asks the gate about the same decision every month and the gate may answer from memory. When new evidence lands on a reason the decision rests on, does the remembered answer get revoked before it is served again?
+- **Data:** every decision in Larkspur (`larkspur`), the backtest (`backtest`, 97 real tool decisions) and the four ingested repositories (`gh_*`), replayed at every month start from each decision's date to the snapshot, seeing only what was known by that month.
+- **Policies:** Moot's memory (serve the remembered gate answer only while the fingerprint of the rows it depends on is unchanged: every premise to depth 6 with its known dated events, what retires the decision, its owner; otherwise re-audit and remember the new answer); a time-to-live cache (serve for 90 or 365 days, then re-audit); no memory (always re-audit, the reference).
+- **Metrics:** stale answers served (the served gate answer differs from a fresh audit that month), stale clearances served (ALLOW served when a fresh audit says DENY or REVALIDATE), and the share of questions answered from memory.
+- **Predictions:** Moot serves 0 stale answers, by construction of the fingerprint, while still answering most monthly questions from memory (above 80% on the backtest); both time-to-live caches serve stale answers, and the 365-day one serves stale clearances.
+- **Script:** `python3 eval/eval_unlearn.py` → `eval/results_unlearn.md` and `.json`.
+
 ## Registered after the fact
 
 - **Backtest** (`eval/results_backtest.md`). The answer key (maintainers' own status changes) was fixed by code before the gate ran, but this file did not exist then, so the order rests on the results file's own account. Its gate was replayed before the empty-evidence fix; its score counts DENY only, which the fix does not touch (the fix turns some ALLOWs into REVALIDATE).
