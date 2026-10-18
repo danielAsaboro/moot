@@ -9,7 +9,9 @@ import { renderMarkdown } from "@/lib/markdown";
 import s from "./post.module.css";
 
 const SLUG = "i-built-a-company-brain-that-refuses-to-answer-questions";
-const post = renderMarkdown(fs.readFileSync(path.join(process.cwd(), "content", "blog", `${SLUG}.md`), "utf8"));
+const BLOG = path.join(process.cwd(), "content", "blog");
+const post = renderMarkdown(fs.readFileSync(path.join(BLOG, `${SLUG}.md`), "utf8"),
+  (name) => fs.readFileSync(path.join(BLOG, "diagrams", `${name}.svg`), "utf8"));
 
 export const metadata: Metadata = {
   title: post.title,

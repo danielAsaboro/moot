@@ -1,5 +1,6 @@
 // A small Markdown-to-HTML renderer for the blog posts in content/blog, run at build time.
-// It covers what the posts use: headings, paragraphs, lists, block quotes, fenced code, bold, italic, inline code, links, images.
+// It covers what the posts use: headings, paragraphs, lists, block quotes, fenced code, bold, italic, inline code, links, images, tables, and
+// `::diagram name | caption` lines, which inline an SVG from content/blog/diagrams so it follows the page theme.
 
 const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
@@ -13,7 +14,7 @@ function inline(t: string): string {
   return s.replace(/\u0000(\d+)\u0000/g, (_, i) => `<code>${codes[+i]}</code>`);
 }
 
-export function renderMarkdown(md: string): { title: string; html: string } {
+export function renderMarkdown(md: string, diagram?: (name: string) => string): { title: string; html: string } {
   const lines = md.replace(/\r\n/g, "\n").split("\n");
   const out: string[] = [];
   let title = "";
@@ -33,6 +34,22 @@ export function renderMarkdown(md: string): { title: string; html: string } {
       if (h[1].length === 1 && !title) title = h[2];
       else out.push(`<h${h[1].length}>${inline(h[2])}</h${h[1].length}>`);
       i++;
+      continue;
+    }
+    const dg = /^::diagram\s+([\w-]+)\s*\|\s*(.*)$/.exec(line);
+    if (dg && diagram) {
+      out.push(`<figure class="diagram">${diagram(dg[1])}<figcaption>${inline(dg[2])}</figcaption></figure>`);
+      i++;
+      continue;
+    }
+    if (line.startsWith("|")) {
+      const rows: string[][] = [];
+      for (; i < lines.length && lines[i].startsWith("|"); i++) {
+        if (/^\|[\s:|-]+\|\s*$/.test(lines[i])) continue;
+        rows.push(lines[i].trim().replace(/^\||\|$/g, "").split("|").map((c) => c.trim()));
+      }
+      const [head, ...body] = rows;
+      out.push(`<div class="table"><table><thead><tr>${head.map((c) => `<th>${inline(c)}</th>`).join("")}</tr></thead><tbody>${body.map((r) => `<tr>${r.map((c) => `<td>${inline(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`);
       continue;
     }
     const img = /^!\[([^\]]*)\]\(([^)\s]+)\)\s*$/.exec(line);
@@ -58,7 +75,7 @@ export function renderMarkdown(md: string): { title: string; html: string } {
       continue;
     }
     const para: string[] = [];
-    for (; i < lines.length && !/^\s*$/.test(lines[i]) && !/^(#{1,4}\s|```|>|\s*([-*]|\d+\.)\s)/.test(lines[i]); i++) para.push(lines[i]);
+    for (; i < lines.length && !/^\s*$/.test(lines[i]) && !/^(#{1,4}\s|```|>|\||::diagram|\s*([-*]|\d+\.)\s)/.test(lines[i]); i++) para.push(lines[i]);
     out.push(`<p>${inline(para.join(" "))}</p>`);
   }
   return { title, html: out.join("\n") };

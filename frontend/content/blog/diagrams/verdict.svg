@@ -1,0 +1,23 @@
+<svg viewBox="0 0 680 334" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="How a decision&#x27;s verdict is chosen from its premises&#x27; states" style="width:100%;height:auto;display:block"><style>
+.n{fill:var(--paper-2);stroke:var(--rule);stroke-width:1.5}
+.nd{fill:var(--paper-2);stroke:var(--ink);stroke-width:1.5}
+.nm{fill:var(--moot-tint);stroke:var(--accent);stroke-width:1.5}
+.nh{fill:var(--holds-tint);stroke:var(--holds);stroke-width:1.5}
+.nq{fill:var(--disputed-tint);stroke:var(--disputed);stroke-width:1.5}
+.t{fill:var(--ink);font:500 14px var(--font-sans),system-ui,sans-serif}
+.ts{fill:var(--ink-2);font:400 12px var(--font-sans),system-ui,sans-serif}
+.tl{fill:var(--ink-3);font:500 11px var(--font-mono),ui-monospace,monospace;letter-spacing:.04em}
+.tm{fill:var(--ink-2);font:400 11.5px var(--font-mono),ui-monospace,monospace}
+.ta{fill:var(--accent);font:600 12px var(--font-sans),system-ui,sans-serif}
+.th{fill:var(--holds);font:600 12px var(--font-sans),system-ui,sans-serif}
+.e{stroke:var(--ink-3);stroke-width:1.5;fill:none}
+.ea{stroke:var(--accent);stroke-width:2;fill:none}
+.eh{stroke:var(--holds);stroke-width:1.5;fill:none}
+.box{fill:none;stroke:var(--ink-3);stroke-width:1.2;stroke-dasharray:5 4}
+.grid{stroke:var(--rule);stroke-width:1}
+</style>
+<defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--ink-3)"/></marker>
+<marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--accent)"/></marker>
+<marker id="arh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--holds)"/></marker>
+</defs><rect x="20" y="20" width="330" height="46" rx="23" class="n"/><text x="40" y="48" class="t" text-anchor="start">superseded or retired by $as_of?</text><path d="M350,43 L418,43" class="e" marker-end="url(#ar)"/><text x="384" y="36" class="tm" text-anchor="middle">yes</text><rect x="420" y="24" width="150" height="38" rx="19" style="fill:var(--retired);opacity:.85"/><text x="495" y="48" text-anchor="middle" style="fill:var(--accent-ink);font:600 13px var(--font-sans),system-ui">RETIRED</text><path d="M185,66 L185,84" class="e" marker-end="url(#ar)"/><text x="196" y="79" class="tm" text-anchor="start">no</text><rect x="20" y="86" width="330" height="46" rx="23" class="n"/><text x="40" y="114" class="t" text-anchor="start">no premise recorded?</text><path d="M350,109 L418,109" class="e" marker-end="url(#ar)"/><text x="384" y="102" class="tm" text-anchor="middle">yes</text><rect x="420" y="90" width="150" height="38" rx="19" style="fill:var(--undoc);opacity:.85"/><text x="495" y="114" text-anchor="middle" style="fill:var(--accent-ink);font:600 13px var(--font-sans),system-ui">UNDOCUMENTED</text><path d="M185,132 L185,150" class="e" marker-end="url(#ar)"/><text x="196" y="145" class="tm" text-anchor="start">no</text><rect x="20" y="152" width="330" height="46" rx="23" class="n"/><text x="40" y="180" class="t" text-anchor="start">any premise expired?</text><path d="M350,175 L418,175" class="e" marker-end="url(#ar)"/><text x="384" y="168" class="tm" text-anchor="middle">yes</text><rect x="420" y="156" width="150" height="38" rx="19" style="fill:var(--accent);opacity:.85"/><text x="495" y="180" text-anchor="middle" style="fill:var(--accent-ink);font:600 13px var(--font-sans),system-ui">MOOT</text><path d="M185,198 L185,216" class="e" marker-end="url(#ar)"/><text x="196" y="211" class="tm" text-anchor="start">no</text><rect x="20" y="218" width="330" height="46" rx="23" class="n"/><text x="40" y="246" class="t" text-anchor="start">any premise disputed?</text><path d="M350,241 L418,241" class="e" marker-end="url(#ar)"/><text x="384" y="234" class="tm" text-anchor="middle">yes</text><rect x="420" y="222" width="150" height="38" rx="19" style="fill:var(--disputed);opacity:.85"/><text x="495" y="246" text-anchor="middle" style="fill:var(--accent-ink);font:600 13px var(--font-sans),system-ui">DISPUTED</text><path d="M185,264 L185,282" class="e" marker-end="url(#ar)"/><text x="196" y="277" class="tm" text-anchor="start">no</text><rect x="110" y="284" width="150" height="38" rx="19" style="fill:var(--holds);opacity:.85"/><text x="185" y="308" text-anchor="middle" style="fill:var(--accent-ink);font:600 13px var(--font-sans),system-ui">HOLDS</text><text x="290" y="296" class="ts" text-anchor="start">expired  = the latest dated event contradicts it</text><text x="290" y="314" class="ts" text-anchor="start">disputed = contradicted, then re-affirmed later</text></svg>

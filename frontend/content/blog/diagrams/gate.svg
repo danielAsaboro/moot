@@ -1,0 +1,23 @@
+<svg viewBox="0 0 680 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Agent gate outcomes for all 30 decisions" style="width:100%;height:auto;display:block"><style>
+.n{fill:var(--paper-2);stroke:var(--rule);stroke-width:1.5}
+.nd{fill:var(--paper-2);stroke:var(--ink);stroke-width:1.5}
+.nm{fill:var(--moot-tint);stroke:var(--accent);stroke-width:1.5}
+.nh{fill:var(--holds-tint);stroke:var(--holds);stroke-width:1.5}
+.nq{fill:var(--disputed-tint);stroke:var(--disputed);stroke-width:1.5}
+.t{fill:var(--ink);font:500 14px var(--font-sans),system-ui,sans-serif}
+.ts{fill:var(--ink-2);font:400 12px var(--font-sans),system-ui,sans-serif}
+.tl{fill:var(--ink-3);font:500 11px var(--font-mono),ui-monospace,monospace;letter-spacing:.04em}
+.tm{fill:var(--ink-2);font:400 11.5px var(--font-mono),ui-monospace,monospace}
+.ta{fill:var(--accent);font:600 12px var(--font-sans),system-ui,sans-serif}
+.th{fill:var(--holds);font:600 12px var(--font-sans),system-ui,sans-serif}
+.e{stroke:var(--ink-3);stroke-width:1.5;fill:none}
+.ea{stroke:var(--accent);stroke-width:2;fill:none}
+.eh{stroke:var(--holds);stroke-width:1.5;fill:none}
+.box{fill:none;stroke:var(--ink-3);stroke-width:1.2;stroke-dasharray:5 4}
+.grid{stroke:var(--rule);stroke-width:1}
+</style>
+<defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--ink-3)"/></marker>
+<marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--accent)"/></marker>
+<marker id="arh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--holds)"/></marker>
+</defs><text x="20" y="18" class="ts" text-anchor="start">check_action on all 30 Larkspur decisions, today, depth 6</text><rect x="20.0" y="30" width="274.3" height="40" rx="8" style="fill:var(--accent);opacity:.85"/><text x="32.0" y="55" style="fill:var(--accent-ink);font:600 14px var(--font-sans),system-ui">DENY · 13</text><rect x="297.3" y="30" width="274.3" height="40" rx="8" style="fill:var(--disputed);opacity:.85"/><text x="309.3" y="55" style="fill:var(--accent-ink);font:600 14px var(--font-sans),system-ui">REVALIDATE · 13</text><rect x="574.7" y="30" width="82.3" height="40" rx="8" style="fill:var(--holds);opacity:.85"/><text x="586.7" y="55" style="fill:var(--accent-ink);font:600 14px var(--font-sans),system-ui">4</text><rect x="20" y="88" width="10" height="10" style="fill:var(--accent)"/><text x="36" y="97" class="tm" text-anchor="start">DENY: D01 D02 D03 D07 D08 D09 D13 D18 D19 D20 D25 D28 D30</text><rect x="20" y="108" width="10" height="10" style="fill:var(--disputed)"/><text x="36" y="117" class="tm" text-anchor="start">REVALIDATE: D04 D05 D06 D10 D11 D16 D17 D21 D22 D23 D26 D27 D29</text><rect x="20" y="128" width="10" height="10" style="fill:var(--holds)"/><text x="36" y="137" class="tm" text-anchor="start">ALLOW: D12 D14 D15 D24</text></svg>

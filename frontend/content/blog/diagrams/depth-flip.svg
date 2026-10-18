@@ -1,0 +1,23 @@
+<svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="D01 holds at depth 1 and is moot at depth 2" style="width:100%;height:auto;display:block"><style>
+.n{fill:var(--paper-2);stroke:var(--rule);stroke-width:1.5}
+.nd{fill:var(--paper-2);stroke:var(--ink);stroke-width:1.5}
+.nm{fill:var(--moot-tint);stroke:var(--accent);stroke-width:1.5}
+.nh{fill:var(--holds-tint);stroke:var(--holds);stroke-width:1.5}
+.nq{fill:var(--disputed-tint);stroke:var(--disputed);stroke-width:1.5}
+.t{fill:var(--ink);font:500 14px var(--font-sans),system-ui,sans-serif}
+.ts{fill:var(--ink-2);font:400 12px var(--font-sans),system-ui,sans-serif}
+.tl{fill:var(--ink-3);font:500 11px var(--font-mono),ui-monospace,monospace;letter-spacing:.04em}
+.tm{fill:var(--ink-2);font:400 11.5px var(--font-mono),ui-monospace,monospace}
+.ta{fill:var(--accent);font:600 12px var(--font-sans),system-ui,sans-serif}
+.th{fill:var(--holds);font:600 12px var(--font-sans),system-ui,sans-serif}
+.e{stroke:var(--ink-3);stroke-width:1.5;fill:none}
+.ea{stroke:var(--accent);stroke-width:2;fill:none}
+.eh{stroke:var(--holds);stroke-width:1.5;fill:none}
+.box{fill:none;stroke:var(--ink-3);stroke-width:1.2;stroke-dasharray:5 4}
+.grid{stroke:var(--rule);stroke-width:1}
+</style>
+<defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--ink-3)"/></marker>
+<marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--accent)"/></marker>
+<marker id="arh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--holds)"/></marker>
+</defs><rect x="10" y="10" width="400" height="140" rx="14" class="box"/><text x="22" y="30" class="tl" text-anchor="start">DEPTH 1</text><rect x="10" y="10" width="660" height="280" rx="14" class="box" style="opacity:.55"/><text x="658" y="30" class="tl" text-anchor="end">DEPTH 2</text><rect x="24" y="46" width="150" height="84" rx="10" class="nm"/><text x="36" y="64" class="tl">D01</text><text x="36" y="83" class="t">Cap file uploads</text><text x="36" y="100" class="t">at 10 MB</text><rect x="232" y="46" width="168" height="84" rx="10" class="n"/><text x="244" y="64" class="tl">PREMISE · HOP 1</text><text x="244" y="83" class="t">All uploads pass</text><text x="244" y="100" class="t">through the gateway</text><text x="244" y="120" class="tm">no evidence</text><rect x="486" y="46" width="172" height="84" rx="10" class="nm"/><text x="498" y="64" class="tl">PREMISE · HOP 2</text><text x="498" y="83" class="t">Gateway enforces a</text><text x="498" y="100" class="t">10 MB body limit</text><text x="498" y="120" class="tm">expired</text><rect x="486" y="196" width="172" height="80" rx="10" class="n"/><text x="498" y="214" class="tl">EVIDENCE · PR-412</text><text x="498" y="233" class="t">Raise the gateway</text><text x="498" y="250" class="t">body limit to 100 MB</text><path d="M174,88 L230,88" class="e" marker-end="url(#ar)"/><path d="M400,88 L484,88" class="e" marker-end="url(#ar)"/><text x="443" y="106" class="tm" text-anchor="middle">DERIVED_FROM</text><path d="M572,196 L572,132" class="ea" marker-end="url(#ara)"/><text x="564" y="168" class="ta" text-anchor="end">CONTRADICTS</text><text x="564" y="184" class="ta" text-anchor="end">2026-03-02</text><text x="24" y="186" class="ts" text-anchor="start">depth 1 → HOLDS: nothing contradicts hop 1</text><text x="24" y="208" class="ta" text-anchor="start">depth 2 → MOOT: hop 2 expired on 2 Mar 2026</text><text x="24" y="230" class="ts" text-anchor="start">as of 1 Jun 2025 → HOLDS: PR-412 not written yet</text></svg>

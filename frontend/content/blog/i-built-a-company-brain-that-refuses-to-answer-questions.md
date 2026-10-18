@@ -28,7 +28,21 @@ So reasons have to be nodes.
 
 ![Asking Moot which decisions are moot: one read-only tool, five FalkorDB queries, and the rows come back as the answer](/blog/ask-moot.png)
 
-## The graph model in five lines
+## The graph: five kinds of node, every edge dated
+
+::diagram schema | The Larkspur graph as it sits in FalkorDB right now, with live counts. Red and green are the only edges a verdict reads; the rest answer "who" and "what".
+
+| Node | What it holds | In Larkspur |
+|---|---|---|
+| `Decision` | a standing rule, one per ADR: id, title, summary, `decided_on` | 30 |
+| `Premise` | one reason, with a kind: fact, constraint, assumption or unwritten | 28 |
+| `Evidence` | a dated document: ADR, PR, ticket, chat message or doc | 238 |
+| `Person` | people, with `joined` and `left` | 8 |
+| `System` | what a decision governs | 10 |
+| `Finding` | Moot's own memory: an approved verdict, re-open memo or owner ruling | written on approval |
+
+The part that matters fits in five lines:
+
 
 ```
 (Decision)-[:BECAUSE_OF]->(Premise)
@@ -40,30 +54,70 @@ So reasons have to be nodes.
 
 A decision rests on premises. A premise can depend on another premise ("uploads go through the gateway" only matters while "the gateway caps bodies at 10 MB" is true). Every document that supports or contradicts a premise is an edge with a date on it. Ownership has a validity window, so "who owned this when it went stale" is a query too.
 
-Nothing about validity lives in prose. That's the whole design.
+Nothing about validity lives in prose. That's the whole design. Because `SUPPORTS` and `CONTRADICTS` carry an `at` (when the change took effect) and an optional `stated` (when someone wrote it down), the same graph answers the question for any day in its history without copying anything.
 
 ![D07 in Moot: the decision, its reason, and the pull request that contradicted it, drawn from the rows FalkorDB returned](/blog/decision-d07.png)
 
 ## The verdict is a Cypher query, not an opinion
 
-Here is the query that decides whether a decision still holds. It's the heart of Moot, and it runs on FalkorDB:
+A verdict takes three steps. Only the first touches the database, and no model is involved in any of them.
+
+### Step 1: one path query
+
+This is the query `audit_decision` sends, copied from `moot/tools.py` with the depth and the date filter filled in:
 
 ```cypher
 MATCH (d:Decision {id: $id})
 MATCH p = (d)-[:BECAUSE_OF|DERIVED_FROM*1..4]->(pr:Premise)
 OPTIONAL MATCH (e)-[r:SUPPORTS|CONTRADICTS]->(pr)
-  WHERE r.at <= $as_of
-RETURN pr, nodes(p) AS pn, length(p) AS hops, collect({id: e.id, rel: type(r), at: r.at})
+  WHERE r.at <= $as_of AND coalesce(r.stated, r.at) <= $as_of
+OPTIONAL MATCH (a:Person)-[:AUTHORED]->(e)
+RETURN pr, nodes(p) AS pn, length(p) AS hops,
+       collect({id: e.id, title: e.title, rel: type(r), at: r.at,
+                stated: r.stated, quote: r.quote, author: a.name})
 ORDER BY hops
 ```
 
-A small pure-Python rule reads the rows: a premise whose latest event is a contradiction is expired; a decision with an expired premise within reach is MOOT. That's it.
+It walks every premise within four hops of the decision, through premises that depend on other premises, and collects every dated piece of evidence for or against each one. The `stated` filter matters: a document written in June that says a limit changed in March didn't exist yet in April, so an audit run as of April must not see it.
+
+### Step 2: each premise gets a state
+
+The rows go into a pure function. This is the real one from `moot/verdict.py`, minus its docstring:
+
+```python
+def premise_state(events):
+    if not events:
+        return "unevidenced"
+    ordered = sorted(events, key=event_order)    # by at, then stated
+    rulings = [i for i, e in enumerate(ordered) if e.get("kind") == "ruling"]
+    if rulings:
+        ordered = ordered[rulings[-1]:]   # a ruling settles the past
+    if ordered[-1]["rel"] == "CONTRADICTS":
+        return "expired"
+    if any(e["rel"] == "CONTRADICTS" for e in ordered):
+        return "disputed"
+    return "holds"
+```
+
+Four states, decided by the order of dated events and nothing else. On the same day, an affirmation sorts after a contradiction, and an owner's ruling sorts after both, because the person ruling had seen them.
+
+### Step 3: the decision gets a verdict
+
+::diagram verdict | `decision_verdict` in `moot/verdict.py`, checked top to bottom. One expired premise anywhere within reach is enough to make a decision moot.
 
 Two things fall out of this for free.
 
-**Depth.** At depth 1, D01 HOLDS, because its direct premise ("uploads go through the gateway") is still true. That's what a doc-chat brain sees. At depth 2 the path reaches the gateway limit, PR-412 contradicts it, and the verdict flips to MOOT. In the UI there's a depth toggle, and watching the verdict change as you slide it is the best ten seconds of the demo.
+### Depth
 
-**Time travel.** `$as_of` is a parameter. Ask the same question as of June 2025 and you get HOLDS, because PR-412 doesn't exist yet. Run the whole ledger at every month end and you get a chart of decision rot: Larkspur went from 0 to 12 MOOT decisions in 22 months, and nobody changed a single ADR.
+::diagram depth-flip | D01 as the graph returns it. At depth 1 the audit stops at a premise nothing contradicts. One more hop reaches the gateway limit that PR-412 killed.
+
+At depth 1, D01 HOLDS: its direct premise ("uploads go through the gateway") has nothing against it. That's all a doc-chat brain sees. At depth 2 the path reaches the gateway limit, PR-412 contradicts it, and the verdict flips to MOOT. The UI has a depth toggle, and watching the verdict change as you slide it is the best ten seconds of the demo. Across the whole company, depth 1 finds 10 moot decisions and depth 2 finds 12: two rules are dead only because of a reason *behind* a reason.
+
+### Time
+
+::diagram rot | Every verdict in Larkspur at each month end, from `GET /api/timeline?depth=4`. The dashed line is the moot count a one-hop audit would report.
+
+`$as_of` is a parameter. Ask about D01 as of June 2025 and you get HOLDS, because PR-412 doesn't exist yet. Run the whole ledger at every month end and you get the chart above: Larkspur went from 0 to 12 moot decisions in 22 months, peaking at 13 in July 2026 before one was re-affirmed, and nobody edited a single ADR.
 
 Every read goes through FalkorDB's `GRAPH.RO_QUERY`, which the engine itself refuses to run a write through. The model never writes Cypher. It gets rows, writes prose, and a validator throws the prose away if it cites any id the rows didn't contain.
 
@@ -78,6 +132,48 @@ Once reasons are nodes, other questions become one query each:
 - **Who owns this now that Ada left?** Walk `REPORTS_TO` using only the edges that were valid *on the day she left*, and skip managers who also left. Lena reported to Ada; both are gone, so Lena's decisions climb to Kwame.
 - **Which reasons are riskiest?** Rank premises by how many standing decisions sit below them. I tried PageRank first. It ranked the SOC 2 rotation premise 10th where a plain dependency count put it 3rd, because evidence edges pour score into whichever premises are most *discussed*, not most *depended on*. The count is the question a leader actually asks, and it explains itself, so that's what ships. PageRank stays in the API for comparison.
 
+### What did PR-412 break?
+
+`trace_document` asks FalkorDB for the shortest path from one document to every decision, through reasons, in either direction:
+
+```cypher
+MATCH (e:Evidence {id: $id}), (d:Decision)
+CALL algo.SPpaths({sourceNode: e, targetNode: d,
+  relTypes: ['CONTRADICTS','SUPPORTS','BECAUSE_OF','DERIVED_FROM'],
+  relDirection: 'both', maxLen: 6, pathCount: 1}) YIELD path
+RETURN d.id, d.title, length(path), nodes(path)
+```
+
+::diagram blast | One pull request about the gateway, three dead rules. D01 is the hardest to find: it's three hops away and its own premise never mentions a limit.
+
+### Who inherits Ada's rules?
+
+Ownership and reporting lines both carry validity windows, so the handover walk only uses edges that were true on the day the person left:
+
+```cypher
+MATCH (o:Person {id: $pid})
+MATCH path = (o)-[:REPORTS_TO*1..5]->(m:Person)
+WHERE all(r IN relationships(path)
+          WHERE r.valid_from <= $left_on
+            AND (r.valid_to = '' OR r.valid_to > $left_on))
+  AND (m.left = '' OR m.left > $as_of)
+RETURN m.id, m.name, length(path)
+ORDER BY length(path) LIMIT 1
+```
+
+::diagram handover | Lena reported to Ada. Both have left, so the walk skips Ada and stops at the first manager still here.
+
+### Which reasons are riskiest?
+
+| Rank | Premise | Standing decisions on it | State | PageRank rank |
+|---|---|---|---|---|
+| 1 | Infra spend must stay under $20,000 a month | 3 of 4 | unevidenced | 1 |
+| 2 | We need SOC 2 to sell to enterprises | 3 | unevidenced | 2 |
+| 3 | The SOC 2 auditor requires rotation every 90 days | 2 | holds | **10** |
+| 4 | We sell to customers in the EU | 1 of 2 | unevidenced | 3 |
+
+The two riskiest reasons in the company have never been checked by any document. That's a better to-do list than any dashboard I've built.
+
 ## The agent gate, and the bug I'm glad I found
 
 ![Asking whether an agent can change the Friday deploy freeze: one read-only tool, seven queries, a DENY with the path D07 → p_no_rollback ← PR-350](/blog/ask-gate.png)
@@ -87,6 +183,20 @@ Company brains are going to be read by agents, not only people. So Moot has a ga
 The first version allowed 10 of Larkspur's decisions and printed "all premises hold". Then I looked at what "hold" meant. Six of those ten rested on a premise that had **no evidence at all**. Nothing contradicted it, but nothing had ever checked it either. My rule treated silence as support.
 
 No evidence is not "holds". The fixed gate allows 4, still lets through zero of the 20 decisions it should stop, and asks an owner to revalidate the other 6. An owner's ruling is itself a dated edge, so the next audit reads it like any other evidence, and newer evidence reopens the question.
+
+::diagram gate | Every Larkspur decision through `check_action` today. Only four have dated support for every reason within six hops.
+
+| The graph shows | Gate |
+|---|---|
+| not in the graph, not decided yet, retired, or any premise contradicted | **DENY** |
+| no premise recorded, a premise disputed, never evidenced or uncheckable, owner has left, or no evidence in the whole graph | **REVALIDATE** |
+| every premise has dated support, and none of the above | **ALLOW**, with that evidence as the basis |
+
+| On 30 labelled decisions | false allows (of 20) | false blocks (of 10) |
+|---|---|---|
+| Moot gate | **0** | 6, all REVALIDATE |
+| BM25 top-5 + change-cue heuristic | 4 | 8 |
+| trust the ADR (what a doc-chat brain does) | 20 | 0 |
 
 That cost me six "false blocks" in the eval table. I kept them. I'd rather an agent ask than act on a reason nobody ever checked. The old number is still in the repo, marked withdrawn, with the reason.
 
@@ -98,7 +208,14 @@ So I built a backtest. It reads the git history of the ADR folders of 30 public 
 
 The headline isn't a recall number. It's a coverage number. Of 722 real decisions, 23 were later abandoned. Only 6 of those 23 had picked an outside tool, so only 6 could even in principle be caught by outside evidence like a license change or an archived repo. **Three in four real decisions die for internal reasons**: a reorg, a project winding down, someone preferring something else. Only a company's own documents can catch those. That's the strongest argument I found for building the company graph at all.
 
-On the 6 it could see, Moot caught 2, both license changes. GOV.UK's MongoDB decision got a DENY 350 days before the repository replaced Mongo. Six is far too few to rank anything on, and the README says so in the first line of that table.
+| On the 97 decisions that picked an outside tool | caught before the maintainers | flags on decisions still in force |
+|---|---|---|
+| **Moot gate** | **2 of 6** | 22 |
+| age of 3 years or more | 3 of 6 | 73, none with a reason |
+| random, same number of flags | 1.4 of 6 | 22.6 |
+| trust the ADR | 0 of 6 | 0 |
+
+On the 6 it could see, Moot caught 2, both license changes. GOV.UK's MongoDB decision got a DENY 350 days before the repository replaced Mongo. Six is far too few to rank anything on, and the README says so in the first line of that table. The 22 flags on decisions still marked in force are more interesting: I read every one. Fifteen rest on a premise that really died upstream and nobody revisited (Terraform's BSL change, Lunr with no commit since 2020, Kubeless archived), four were abandoned in another document without retiring the ADR, one is mixed, and two are false alarms.
 
 ## Learnings, including the ones that hurt
 
@@ -114,7 +231,13 @@ I also found that in Canon's own published files, all 20 "info not found" answer
 
 **4. Make your README numbers checkable.** `moot verify` compares every number in the README against the JSON the evals wrote and exits non-zero on drift. `--rerun` re-derives them from committed inputs first, so a stale number in the README fails the build before a judge finds it.
 
-**5. FalkorDB taught me to label both ends.** The first seed matched edge endpoints without labels, which can't use the per-label index. At 20,000 documents it took three minutes. Naming the labels on both ends brought it under a second. Audits stayed around a millisecond from 0 to 20,000 noise documents, because they're an index lookup plus a bounded path expansion.
+**5. FalkorDB taught me to label both ends.** The first seed matched edge endpoints without labels, which can't use the per-label index. At 20,000 documents it took three minutes. Naming the labels on both ends brought it under a second. Audits stayed around a millisecond from 0 to 20,000 noise documents, because they're an index lookup plus a bounded path expansion:
+
+| Extra noise documents | One audit, p50 / p95 | Whole ledger, p50 | Seed |
+|---|---|---|---|
+| 0 | 1.0 / 1.1 ms | 2.8 ms | 0.0 s |
+| 5,000 | 0.9 / 1.1 ms | 2.8 ms | 0.2 s |
+| 20,000 | 0.9 / 1.1 ms | 2.9 ms | 0.6 s |
 
 ## Honest limits
 

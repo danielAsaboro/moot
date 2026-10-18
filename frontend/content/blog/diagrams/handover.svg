@@ -1,0 +1,23 @@
+<svg viewBox="0 0 680 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Orphaned decisions climb the reporting line to the first person still here" style="width:100%;height:auto;display:block"><style>
+.n{fill:var(--paper-2);stroke:var(--rule);stroke-width:1.5}
+.nd{fill:var(--paper-2);stroke:var(--ink);stroke-width:1.5}
+.nm{fill:var(--moot-tint);stroke:var(--accent);stroke-width:1.5}
+.nh{fill:var(--holds-tint);stroke:var(--holds);stroke-width:1.5}
+.nq{fill:var(--disputed-tint);stroke:var(--disputed);stroke-width:1.5}
+.t{fill:var(--ink);font:500 14px var(--font-sans),system-ui,sans-serif}
+.ts{fill:var(--ink-2);font:400 12px var(--font-sans),system-ui,sans-serif}
+.tl{fill:var(--ink-3);font:500 11px var(--font-mono),ui-monospace,monospace;letter-spacing:.04em}
+.tm{fill:var(--ink-2);font:400 11.5px var(--font-mono),ui-monospace,monospace}
+.ta{fill:var(--accent);font:600 12px var(--font-sans),system-ui,sans-serif}
+.th{fill:var(--holds);font:600 12px var(--font-sans),system-ui,sans-serif}
+.e{stroke:var(--ink-3);stroke-width:1.5;fill:none}
+.ea{stroke:var(--accent);stroke-width:2;fill:none}
+.eh{stroke:var(--holds);stroke-width:1.5;fill:none}
+.box{fill:none;stroke:var(--ink-3);stroke-width:1.2;stroke-dasharray:5 4}
+.grid{stroke:var(--rule);stroke-width:1}
+</style>
+<defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--ink-3)"/></marker>
+<marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--accent)"/></marker>
+<marker id="arh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--holds)"/></marker>
+</defs><rect x="20" y="30" width="160" height="76" rx="10" class="n"/><text x="32" y="48" class="tl">LEFT 2026-10-09</text><text x="32" y="67" class="t">Lena Fischer</text><text x="32" y="96" class="tm">Data engineer</text><rect x="260" y="30" width="160" height="76" rx="10" class="n"/><text x="272" y="48" class="tl">LEFT 2026-05-15</text><text x="272" y="67" class="t">Ada Okafor</text><text x="272" y="96" class="tm">Platform lead</text><rect x="500" y="30" width="160" height="76" rx="10" class="nh"/><text x="512" y="48" class="tl">STILL HERE</text><text x="512" y="67" class="t">Kwame Boateng</text><text x="512" y="96" class="tm">Eng. manager</text><path d="M180,68 L258,68" class="e" marker-end="url(#ar)"/><text x="219" y="60" class="tm" text-anchor="middle">REPORTS_TO</text><path d="M420,68 L498,68" class="e" marker-end="url(#ar)"/><text x="459" y="60" class="tm" text-anchor="middle">REPORTS_TO</text><text x="20" y="136" class="ts" text-anchor="start">Only edges valid on the day each person left are walked; anyone who has also left is skipped.</text><text x="20" y="156" class="ts" text-anchor="start">Ada&#x27;s D01 and D09, and Lena&#x27;s decisions, all route to Kwame.</text></svg>

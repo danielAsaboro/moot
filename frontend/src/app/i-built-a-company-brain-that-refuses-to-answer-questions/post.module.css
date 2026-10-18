@@ -21,3 +21,10 @@
 .prose figure { margin: 8px 0 28px; }
 .prose figure img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); border-radius: var(--r-sm); }
 .prose figcaption { margin-top: 8px; font-size: 14px; color: var(--ink-3, inherit); opacity: 0.75; }
+.prose :global(figure.diagram) { background: var(--paper-2); border: 1px solid var(--rule); border-radius: var(--r-sm); padding: 16px 14px 12px; }
+.prose :global(figure.diagram) figcaption { margin-top: 10px; }
+.prose :global(.table) { overflow-x: auto; margin: 0 0 24px; }
+.prose table { width: 100%; border-collapse: collapse; font: 400 15px/1.45 var(--font-sans); }
+.prose th, .prose td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.prose th { font-weight: 600; color: var(--ink-2); }
+.prose h3 + p { margin-top: 0; }
