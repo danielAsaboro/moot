@@ -136,6 +136,7 @@ Each study below states its hypothesis, data, metric and script before its first
 - **Primary metric:** exact match on the test split, graph-tool agent against file-tool agent, exact McNemar test on paired questions; Wilson intervals, tokens and seconds per question.
 - **Prediction:** the graph-tool agent beats the file-tool agent by at least the margin it had on K1's dev split, and the gap is largest on templates 2, 5 and 6 (dates and counts over time); RAG stays near zero on everything that needs history.
 - **Script:** `python3 -m moot.k1 --study k2` and `python3 eval/eval_k1.py --study k2 --llm` → `eval/results_k2.md` and `.json`.
+- **Amended 14:50 UTC, before the K2 graph was rebuilt and before any K2 arm ran:** (1) model: the registered local weights, qwen3.8:27b through Ollama, temperature 0, seed 7, not Groq: Groq's free tier gives this model 200,000 tokens a day, which stopped K1's Groq run at 16 of 102 answers (K1's register). (2) Harness: K1's final harness (v2) unchanged: the fixed file/git tools, the one answer rule, the name-to-handle normaliser, and both RAG arms (HEAD as registered, history as K1's post-hoc arm, labelled post hoc here too). (3) K1 and K2 are reported separately; this register never said to pool them, so they are not pooled.
 
 ## Registered after the fact
 
