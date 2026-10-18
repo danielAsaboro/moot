@@ -1,0 +1,1237 @@
+{
+ "sha256": "74641a80e72cbc773b62a3ad12537d84ce34f77ead28078f85f8ccb89c76be4e",
+ "today": "2026-10-17",
+ "sigs": [
+  "sig-auth",
+  "sig-node",
+  "sig-network",
+  "sig-storage"
+ ],
+ "questions": [
+  {
+   "template": 7,
+   "question": "Between KEP-1797 (Configure FQDN as Hostname for Pods) and KEP-6030 (Dynamic Resize of Memory-Backed Volumes), which one had been in force for longer as of 2024-02-27?",
+   "gold": {
+    "kep": "KEP-1797"
+   },
+   "keps": [
+    "KEP-1797",
+    "KEP-6030"
+   ],
+   "date": "2024-02-27",
+   "id": "k3-167cc32157",
+   "split": "dev"
+  },
+  {
+   "template": 7,
+   "question": "Between KEP-3573 (Device Plugins) and KEP-6252 (Hugepages Reservation), which one had been in force for longer as of 2024-04-03?",
+   "gold": {
+    "kep": "KEP-3573"
+   },
+   "keps": [
+    "KEP-3573",
+    "KEP-6252"
+   ],
+   "date": "2024-04-03",
+   "id": "k3-1b8489835f",
+   "split": "test"
+  },
+  {
+   "template": 7,
+   "question": "Between KEP-2091 (Add support for AdminNetworkPolicy resources) and KEP-4974 (Deprecate v1.Endpoints and Associated Controllers), which one had been in force for longer as of 2025-03-24?",
+   "gold": {
+    "kep": "KEP-2091"
+   },
+   "keps": [
+    "KEP-2091",
+    "KEP-4974"
+   ],
+   "date": "2025-03-24",
+   "id": "k3-3afc994085",
+   "split": "test"
+  },
+  {
+   "template": 7,
+   "question": "Between KEP-1495 (Volume Populators) and KEP-177 (CSI Snapshot), which one had been in force for longer as of 2022-07-23?",
+   "gold": {
+    "kep": "KEP-177"
+   },
+   "keps": [
+    "KEP-1495",
+    "KEP-177"
+   ],
+   "date": "2022-07-23",
+   "id": "k3-40b44d5b01",
+   "split": "test"
+  },
+  {
+   "template": 7,
+   "question": "Between KEP-3926 (Handling undecryptable resources) and KEP-5018 (DRA Admin Access), which one had been in force for longer as of 2026-09-08?",
+   "gold": {
+    "kep": "KEP-3926"
+   },
+   "keps": [
+    "KEP-3926",
+    "KEP-5018"
+   ],
+   "date": "2026-09-08",
+   "id": "k3-4c6780982c",
+   "split": "test"
+  },
+  {
+   "template": 7,
+   "question": "Between KEP-1972 (Kubelet Exec Probe Timeouts) and KEP-5067 (Pod Generation), which one had been in force for longer as of 2023-09-22?",
+   "gold": {
+    "kep": "KEP-1972"
+   },
+   "keps": [
+    "KEP-1972",
+    "KEP-5067"
+   ],
+   "date": "2023-09-22",
+   "id": "k3-4e8a034c20",
+   "split": "dev"
+  },
+  {
+   "template": 7,
+   "question": "Between KEP-2400 (Node system swap support) and KEP-6252 (Hugepages Reservation), which one had been in force for longer as of 2021-11-04?",
+   "gold": {
+    "kep": "KEP-2400"
+   },
+   "keps": [
+    "KEP-2400",
+    "KEP-6252"
+   ],
+   "date": "2021-11-04",
+   "id": "k3-699b1db92c",
+   "split": "test"
+  },
+  {
+   "template": 7,
+   "question": "Between KEP-4188 (New kubelet gRPC API with endpoint returning local pods information) and KEP-793 (Promote Node Operating System & Architecture labels to GA), which one had been in force for longer as of 2021-12-20?",
+   "gold": {
+    "kep": "KEP-793"
+   },
+   "keps": [
+    "KEP-4188",
+    "KEP-793"
+   ],
+   "date": "2021-12-20",
+   "id": "k3-c15fe5d324",
+   "split": "test"
+  },
+  {
+   "template": 7,
+   "question": "Between KEP-2238 (Liveness Probe Grace Period) and KEP-6035 (Exec session identity propagation), which one had been in force for longer as of 2023-05-17?",
+   "gold": {
+    "kep": "KEP-2238"
+   },
+   "keps": [
+    "KEP-2238",
+    "KEP-6035"
+   ],
+   "date": "2023-05-17",
+   "id": "k3-c17b618222",
+   "split": "test"
+  },
+  {
+   "template": 7,
+   "question": "Between KEP-5328 (Node Declared Features) and KEP-727 (Kubelet Resource Metrics Endpoint), which one had been in force for longer as of 2026-03-08?",
+   "gold": {
+    "kep": "KEP-727"
+   },
+   "keps": [
+    "KEP-5328",
+    "KEP-727"
+   ],
+   "date": "2026-03-08",
+   "id": "k3-c3b9452bf3",
+   "split": "test"
+  },
+  {
+   "template": 7,
+   "question": "Between KEP-2837 (Pod Level Resource Specifications) and KEP-6371 (External Node Liveness Detection), which one had been in force for longer as of 2026-03-22?",
+   "gold": {
+    "kep": "KEP-2837"
+   },
+   "keps": [
+    "KEP-2837",
+    "KEP-6371"
+   ],
+   "date": "2026-03-22",
+   "id": "k3-ca2772cc81",
+   "split": "dev"
+  },
+  {
+   "template": 7,
+   "question": "Between KEP-2943 (Network Policy status subresource) and KEP-566 (Switch CoreDNS to the default DNS), which one had been in force for longer as of 2024-03-08?",
+   "gold": {
+    "kep": "KEP-2943"
+   },
+   "keps": [
+    "KEP-2943",
+    "KEP-566"
+   ],
+   "date": "2024-03-08",
+   "id": "k3-e1ce42cc44",
+   "split": "test"
+  },
+  {
+   "template": 7,
+   "question": "Between KEP-1880 (Multiple Service CIDRs) and KEP-2943 (Network Policy status subresource), which one had been in force for longer as of 2022-02-06?",
+   "gold": {
+    "kep": "KEP-2943"
+   },
+   "keps": [
+    "KEP-1880",
+    "KEP-2943"
+   ],
+   "date": "2022-02-06",
+   "id": "k3-e49f9fe5d2",
+   "split": "test"
+  },
+  {
+   "template": 7,
+   "question": "Between KEP-1884 (Kubelet endpoint for pod resource assignment) and KEP-5419 (In-Place Pod-Level Resources Resize), which one had been in force for longer as of 2025-05-28?",
+   "gold": {
+    "kep": "KEP-1884"
+   },
+   "keps": [
+    "KEP-1884",
+    "KEP-5419"
+   ],
+   "date": "2025-05-28",
+   "id": "k3-e8070813b9",
+   "split": "test"
+  },
+  {
+   "template": 7,
+   "question": "Between KEP-2371 (cAdvisor-less, CRI-full Container and Pod Stats) and KEP-4205 (Expose PSI Metrics), which one had been in force for longer as of 2025-11-21?",
+   "gold": {
+    "kep": "KEP-2371"
+   },
+   "keps": [
+    "KEP-2371",
+    "KEP-4205"
+   ],
+   "date": "2025-11-21",
+   "id": "k3-f5f7b576a7",
+   "split": "dev"
+  },
+  {
+   "template": 8,
+   "question": "Which sig-storage KEPs created in 2022 are no longer in force, and what retired each one (the KEP that replaced it, or withdrawn / deferred)?",
+   "gold": {
+    "retired": [
+     [
+      "KEP-2924",
+      "withdrawn"
+     ]
+    ]
+   },
+   "sig": "sig-storage",
+   "year": 2022,
+   "id": "k3-0e5ef78e9e",
+   "split": "test"
+  },
+  {
+   "template": 8,
+   "question": "Which sig-storage KEPs created in 2018 are no longer in force, and what retired each one (the KEP that replaced it, or withdrawn / deferred)?",
+   "gold": {
+    "retired": [
+     [
+      "KEP-2451",
+      "KEP-1205"
+     ]
+    ]
+   },
+   "sig": "sig-storage",
+   "year": 2018,
+   "id": "k3-14bd2bb4e6",
+   "split": "test"
+  },
+  {
+   "template": 8,
+   "question": "Which sig-storage KEPs created in 2025 are no longer in force, and what retired each one (the KEP that replaced it, or withdrawn / deferred)?",
+   "gold": {
+    "retired": []
+   },
+   "sig": "sig-storage",
+   "year": 2025,
+   "id": "k3-57ed876ed3",
+   "split": "test"
+  },
+  {
+   "template": 8,
+   "question": "Which sig-network KEPs created in 2018 are no longer in force, and what retired each one (the KEP that replaced it, or withdrawn / deferred)?",
+   "gold": {
+    "retired": [
+     [
+      "KEP-536",
+      "KEP-2433"
+     ]
+    ]
+   },
+   "sig": "sig-network",
+   "year": 2018,
+   "id": "k3-5b1d32e410",
+   "split": "test"
+  },
+  {
+   "template": 8,
+   "question": "Which sig-auth KEPs created in 2021 are no longer in force, and what retired each one (the KEP that replaced it, or withdrawn / deferred)?",
+   "gold": {
+    "retired": [
+     [
+      "KEP-2718",
+      "withdrawn"
+     ]
+    ]
+   },
+   "sig": "sig-auth",
+   "year": 2021,
+   "id": "k3-620f35712d",
+   "split": "test"
+  },
+  {
+   "template": 8,
+   "question": "Which sig-auth KEPs created in 2018 are no longer in force, and what retired each one (the KEP that replaced it, or withdrawn / deferred)?",
+   "gold": {
+    "retired": [
+     [
+      "KEP-600",
+      "withdrawn"
+     ]
+    ]
+   },
+   "sig": "sig-auth",
+   "year": 2018,
+   "id": "k3-865d05333a",
+   "split": "dev"
+  },
+  {
+   "template": 8,
+   "question": "Which sig-node KEPs created in 2025 are no longer in force, and what retired each one (the KEP that replaced it, or withdrawn / deferred)?",
+   "gold": {
+    "retired": []
+   },
+   "sig": "sig-node",
+   "year": 2025,
+   "id": "k3-b3bbc44896",
+   "split": "dev"
+  },
+  {
+   "template": 8,
+   "question": "Which sig-network KEPs created in 2021 are no longer in force, and what retired each one (the KEP that replaced it, or withdrawn / deferred)?",
+   "gold": {
+    "retired": [
+     [
+      "KEP-2593",
+      "withdrawn"
+     ],
+     [
+      "KEP-2943",
+      "withdrawn"
+     ]
+    ]
+   },
+   "sig": "sig-network",
+   "year": 2021,
+   "id": "k3-b5bf322ad4",
+   "split": "test"
+  },
+  {
+   "template": 8,
+   "question": "Which sig-auth KEPs created in 2022 are no longer in force, and what retired each one (the KEP that replaced it, or withdrawn / deferred)?",
+   "gold": {
+    "retired": [
+     [
+      "KEP-3130",
+      "KEP-3299"
+     ]
+    ]
+   },
+   "sig": "sig-auth",
+   "year": 2022,
+   "id": "k3-c01b2261bb",
+   "split": "test"
+  },
+  {
+   "template": 8,
+   "question": "Which sig-node KEPs created in 2021 are no longer in force, and what retired each one (the KEP that replaced it, or withdrawn / deferred)?",
+   "gold": {
+    "retired": [
+     [
+      "KEP-3063",
+      "withdrawn"
+     ]
+    ]
+   },
+   "sig": "sig-node",
+   "year": 2021,
+   "id": "k3-cb586fdbe7",
+   "split": "dev"
+  },
+  {
+   "template": 8,
+   "question": "Which sig-auth KEPs created in 2023 are no longer in force, and what retired each one (the KEP that replaced it, or withdrawn / deferred)?",
+   "gold": {
+    "retired": []
+   },
+   "sig": "sig-auth",
+   "year": 2023,
+   "id": "k3-cb5bd82028",
+   "split": "test"
+  },
+  {
+   "template": 9,
+   "question": "Has anyone been a chair or tech lead of both sig-network and sig-testing at some point since 2018? Who? Give GitHub handles.",
+   "gold": {
+    "people": [
+     "aojea"
+    ]
+   },
+   "sigs": [
+    "sig-network",
+    "sig-testing"
+   ],
+   "id": "k3-35a4575cc0",
+   "split": "dev"
+  },
+  {
+   "template": 9,
+   "question": "Has anyone been a chair or tech lead of both sig-k8s-infra and sig-node at some point since 2018? Who? Give GitHub handles.",
+   "gold": {
+    "people": []
+   },
+   "sigs": [
+    "sig-k8s-infra",
+    "sig-node"
+   ],
+   "id": "k3-36f630ae1f",
+   "split": "test"
+  },
+  {
+   "template": 9,
+   "question": "Has anyone been a chair or tech lead of both sig-network and sig-usability at some point since 2018? Who? Give GitHub handles.",
+   "gold": {
+    "people": []
+   },
+   "sigs": [
+    "sig-network",
+    "sig-usability"
+   ],
+   "id": "k3-73ba8c7431",
+   "split": "dev"
+  },
+  {
+   "template": 9,
+   "question": "Has anyone been a chair or tech lead of both sig-k8s-infra and sig-network at some point since 2018? Who? Give GitHub handles.",
+   "gold": {
+    "people": [
+     "thockin"
+    ]
+   },
+   "sigs": [
+    "sig-k8s-infra",
+    "sig-network"
+   ],
+   "id": "k3-94e35cd2de",
+   "split": "test"
+  },
+  {
+   "template": 9,
+   "question": "Has anyone been a chair or tech lead of both sig-etcd and sig-network at some point since 2018? Who? Give GitHub handles.",
+   "gold": {
+    "people": []
+   },
+   "sigs": [
+    "sig-etcd",
+    "sig-network"
+   ],
+   "id": "k3-997f9ae30c",
+   "split": "test"
+  },
+  {
+   "template": 9,
+   "question": "Has anyone been a chair or tech lead of both sig-cluster-ops and sig-storage at some point since 2018? Who? Give GitHub handles.",
+   "gold": {
+    "people": []
+   },
+   "sigs": [
+    "sig-cluster-ops",
+    "sig-storage"
+   ],
+   "id": "k3-a6042518f4",
+   "split": "test"
+  },
+  {
+   "template": 9,
+   "question": "Has anyone been a chair or tech lead of both sig-multicluster and sig-storage at some point since 2018? Who? Give GitHub handles.",
+   "gold": {
+    "people": []
+   },
+   "sigs": [
+    "sig-multicluster",
+    "sig-storage"
+   ],
+   "id": "k3-b0935787ba",
+   "split": "test"
+  },
+  {
+   "template": 9,
+   "question": "Has anyone been a chair or tech lead of both sig-api-machinery and sig-auth at some point since 2018? Who? Give GitHub handles.",
+   "gold": {
+    "people": [
+     "deads2k"
+    ]
+   },
+   "sigs": [
+    "sig-api-machinery",
+    "sig-auth"
+   ],
+   "id": "k3-b56f9be2bf",
+   "split": "test"
+  },
+  {
+   "template": 9,
+   "question": "Has anyone been a chair or tech lead of both sig-architecture and sig-node at some point since 2018? Who? Give GitHub handles.",
+   "gold": {
+    "people": [
+     "derekwaynecarr"
+    ]
+   },
+   "sigs": [
+    "sig-architecture",
+    "sig-node"
+   ],
+   "id": "k3-ed7921d317",
+   "split": "dev"
+  },
+  {
+   "template": 10,
+   "question": "Of the authors of KEP-2268 (non graceful shutdown), who was a chair or tech lead of its owning SIG when it was created, and who is one today (2026-10-17)? Give GitHub handles.",
+   "gold": {
+    "then": [],
+    "now": [
+     "xing-yang"
+    ]
+   },
+   "kep": "KEP-2268",
+   "id": "k3-1b64b3b7a0",
+   "split": "dev"
+  },
+  {
+   "template": 10,
+   "question": "Of the authors of KEP-5541 (Report Last Used Time On a PVC), who was a chair or tech lead of its owning SIG when it was created, and who is one today (2026-10-17)? Give GitHub handles.",
+   "gold": {
+    "then": [],
+    "now": [
+     "gnufied"
+    ]
+   },
+   "kep": "KEP-5541",
+   "id": "k3-1d75f3afe6",
+   "split": "test"
+  },
+  {
+   "template": 10,
+   "question": "Of the authors of KEP-1880 (Multiple Service CIDRs), who was a chair or tech lead of its owning SIG when it was created, and who is one today (2026-10-17)? Give GitHub handles.",
+   "gold": {
+    "then": [],
+    "now": [
+     "aojea"
+    ]
+   },
+   "kep": "KEP-1880",
+   "id": "k3-2044a22a47",
+   "split": "test"
+  },
+  {
+   "template": 10,
+   "question": "Of the authors of KEP-5018 (DRA Admin Access), who was a chair or tech lead of its owning SIG when it was created, and who is one today (2026-10-17)? Give GitHub handles.",
+   "gold": {
+    "then": [
+     "ritazh"
+    ],
+    "now": [
+     "ritazh"
+    ]
+   },
+   "kep": "KEP-5018",
+   "id": "k3-32e69d8290",
+   "split": "test"
+  },
+  {
+   "template": 10,
+   "question": "Of the authors of KEP-2000 (Graceful Node Shutdown), who was a chair or tech lead of its owning SIG when it was created, and who is one today (2026-10-17)? Give GitHub handles.",
+   "gold": {
+    "then": [],
+    "now": [
+     "mrunalp"
+    ]
+   },
+   "kep": "KEP-2000",
+   "id": "k3-3d3f14ec31",
+   "split": "test"
+  },
+  {
+   "template": 10,
+   "question": "Of the authors of KEP-556 (Support for CSI volume resizing), who was a chair or tech lead of its owning SIG when it was created, and who is one today (2026-10-17)? Give GitHub handles.",
+   "gold": {
+    "then": [],
+    "now": [
+     "gnufied"
+    ]
+   },
+   "kep": "KEP-556",
+   "id": "k3-57bf5fd8c8",
+   "split": "test"
+  },
+  {
+   "template": 10,
+   "question": "Of the authors of KEP-2053 (Downward API HugePages), who was a chair or tech lead of its owning SIG when it was created, and who is one today (2026-10-17)? Give GitHub handles.",
+   "gold": {
+    "then": [
+     "derekwaynecarr"
+    ],
+    "now": [
+     "derekwaynecarr"
+    ]
+   },
+   "kep": "KEP-2053",
+   "id": "k3-6a2b7ebd93",
+   "split": "test"
+  },
+  {
+   "template": 10,
+   "question": "Of the authors of KEP-3015 (PreferSameZone and PreferSameNode Traffic Distribution), who was a chair or tech lead of its owning SIG when it was created, and who is one today (2026-10-17)? Give GitHub handles.",
+   "gold": {
+    "then": [
+     "danwinship"
+    ],
+    "now": [
+     "danwinship"
+    ]
+   },
+   "kep": "KEP-3015",
+   "id": "k3-6d18b9abde",
+   "split": "dev"
+  },
+  {
+   "template": 10,
+   "question": "Of the authors of KEP-585 (Runtime Class), who was a chair or tech lead of its owning SIG when it was created, and who is one today (2026-10-17)? Give GitHub handles.",
+   "gold": {
+    "then": [],
+    "now": []
+   },
+   "kep": "KEP-585",
+   "id": "k3-830f37392f",
+   "split": "test"
+  },
+  {
+   "template": 10,
+   "question": "Of the authors of KEP-3453 (Minimize iptables-restore input size), who was a chair or tech lead of its owning SIG when it was created, and who is one today (2026-10-17)? Give GitHub handles.",
+   "gold": {
+    "then": [],
+    "now": [
+     "danwinship"
+    ]
+   },
+   "kep": "KEP-3453",
+   "id": "k3-a45318cd11",
+   "split": "dev"
+  },
+  {
+   "template": 10,
+   "question": "Of the authors of KEP-5677 (DRA Resource Availability Visibility), who was a chair or tech lead of its owning SIG when it was created, and who is one today (2026-10-17)? Give GitHub handles.",
+   "gold": {
+    "then": [],
+    "now": []
+   },
+   "kep": "KEP-5677",
+   "id": "k3-bf072f82de",
+   "split": "test"
+  },
+  {
+   "template": 10,
+   "question": "Of the authors of KEP-3178 (Cleaning up IPTables Chain Ownership), who was a chair or tech lead of its owning SIG when it was created, and who is one today (2026-10-17)? Give GitHub handles.",
+   "gold": {
+    "then": [],
+    "now": [
+     "danwinship"
+    ]
+   },
+   "kep": "KEP-3178",
+   "id": "k3-c26ca88b7a",
+   "split": "test"
+  },
+  {
+   "template": 10,
+   "question": "Of the authors of KEP-4049 (Storage Capacity Scoring of Nodes for Dynamic Provisioning), who was a chair or tech lead of its owning SIG when it was created, and who is one today (2026-10-17)? Give GitHub handles.",
+   "gold": {
+    "then": [],
+    "now": []
+   },
+   "kep": "KEP-4049",
+   "id": "k3-de77b0f499",
+   "split": "dev"
+  },
+  {
+   "template": 10,
+   "question": "Of the authors of KEP-1138 (Graduate IPv6 to beta), who was a chair or tech lead of its owning SIG when it was created, and who is one today (2026-10-17)? Give GitHub handles.",
+   "gold": {
+    "then": [],
+    "now": [
+     "aojea"
+    ]
+   },
+   "kep": "KEP-1138",
+   "id": "k3-f77f5565ff",
+   "split": "test"
+  },
+  {
+   "template": 10,
+   "question": "Of the authors of KEP-4210 (ImageMaximumGCAge in Kubelet), who was a chair or tech lead of its owning SIG when it was created, and who is one today (2026-10-17)? Give GitHub handles.",
+   "gold": {
+    "then": [],
+    "now": [
+     "haircommander"
+    ]
+   },
+   "kep": "KEP-4210",
+   "id": "k3-ff2b7a9195",
+   "split": "test"
+  },
+  {
+   "template": 11,
+   "question": "Did sig-network or sig-storage have more KEPs reach 'implemented' in 2020? How many each?",
+   "gold": {
+    "sig": "sig-storage",
+    "counts": {
+     "sig-network": 6,
+     "sig-storage": 11
+    }
+   },
+   "sigs": [
+    "sig-network",
+    "sig-storage"
+   ],
+   "year": 2020,
+   "id": "k3-00af55e2c3",
+   "split": "dev"
+  },
+  {
+   "template": 11,
+   "question": "Did sig-network or sig-node have more KEPs reach 'implemented' in 2023? How many each?",
+   "gold": {
+    "sig": "sig-network",
+    "counts": {
+     "sig-network": 8,
+     "sig-node": 5
+    }
+   },
+   "sigs": [
+    "sig-network",
+    "sig-node"
+   ],
+   "year": 2023,
+   "id": "k3-049c078451",
+   "split": "test"
+  },
+  {
+   "template": 11,
+   "question": "Did sig-network or sig-storage have more KEPs reach 'implemented' in 2022? How many each?",
+   "gold": {
+    "sig": "sig-storage",
+    "counts": {
+     "sig-network": 1,
+     "sig-storage": 8
+    }
+   },
+   "sigs": [
+    "sig-network",
+    "sig-storage"
+   ],
+   "year": 2022,
+   "id": "k3-092def9e6b",
+   "split": "dev"
+  },
+  {
+   "template": 11,
+   "question": "Did sig-auth or sig-node have more KEPs reach 'implemented' in 2025? How many each?",
+   "gold": {
+    "sig": "sig-node",
+    "counts": {
+     "sig-auth": 4,
+     "sig-node": 11
+    }
+   },
+   "sigs": [
+    "sig-auth",
+    "sig-node"
+   ],
+   "year": 2025,
+   "id": "k3-1ce1f5efce",
+   "split": "test"
+  },
+  {
+   "template": 11,
+   "question": "Did sig-auth or sig-node have more KEPs reach 'implemented' in 2024? How many each?",
+   "gold": {
+    "sig": "sig-node",
+    "counts": {
+     "sig-auth": 3,
+     "sig-node": 6
+    }
+   },
+   "sigs": [
+    "sig-auth",
+    "sig-node"
+   ],
+   "year": 2024,
+   "id": "k3-404f41d3cd",
+   "split": "test"
+  },
+  {
+   "template": 11,
+   "question": "Did sig-auth or sig-storage have more KEPs reach 'implemented' in 2024? How many each?",
+   "gold": {
+    "sig": "sig-storage",
+    "counts": {
+     "sig-auth": 3,
+     "sig-storage": 4
+    }
+   },
+   "sigs": [
+    "sig-auth",
+    "sig-storage"
+   ],
+   "year": 2024,
+   "id": "k3-40f2772964",
+   "split": "test"
+  },
+  {
+   "template": 11,
+   "question": "Did sig-node or sig-storage have more KEPs reach 'implemented' in 2025? How many each?",
+   "gold": {
+    "sig": "sig-node",
+    "counts": {
+     "sig-node": 11,
+     "sig-storage": 3
+    }
+   },
+   "sigs": [
+    "sig-node",
+    "sig-storage"
+   ],
+   "year": 2025,
+   "id": "k3-6b72c87deb",
+   "split": "test"
+  },
+  {
+   "template": 11,
+   "question": "Did sig-auth or sig-node have more KEPs reach 'implemented' in 2023? How many each?",
+   "gold": {
+    "sig": "sig-node",
+    "counts": {
+     "sig-auth": 1,
+     "sig-node": 5
+    }
+   },
+   "sigs": [
+    "sig-auth",
+    "sig-node"
+   ],
+   "year": 2023,
+   "id": "k3-ad81b71b10",
+   "split": "test"
+  },
+  {
+   "template": 11,
+   "question": "Did sig-auth or sig-network have more KEPs reach 'implemented' in 2020? How many each?",
+   "gold": {
+    "sig": "sig-network",
+    "counts": {
+     "sig-auth": 3,
+     "sig-network": 6
+    }
+   },
+   "sigs": [
+    "sig-auth",
+    "sig-network"
+   ],
+   "year": 2020,
+   "id": "k3-b984db2895",
+   "split": "test"
+  },
+  {
+   "template": 11,
+   "question": "Did sig-network or sig-storage have more KEPs reach 'implemented' in 2024? How many each?",
+   "gold": {
+    "sig": "sig-storage",
+    "counts": {
+     "sig-network": 3,
+     "sig-storage": 4
+    }
+   },
+   "sigs": [
+    "sig-network",
+    "sig-storage"
+   ],
+   "year": 2024,
+   "id": "k3-c26d5c90e4",
+   "split": "test"
+  },
+  {
+   "template": 11,
+   "question": "Did sig-node or sig-storage have more KEPs reach 'implemented' in 2024? How many each?",
+   "gold": {
+    "sig": "sig-node",
+    "counts": {
+     "sig-node": 6,
+     "sig-storage": 4
+    }
+   },
+   "sigs": [
+    "sig-node",
+    "sig-storage"
+   ],
+   "year": 2024,
+   "id": "k3-dc4dd446d1",
+   "split": "dev"
+  },
+  {
+   "template": 11,
+   "question": "Did sig-auth or sig-network have more KEPs reach 'implemented' in 2023? How many each?",
+   "gold": {
+    "sig": "sig-network",
+    "counts": {
+     "sig-auth": 1,
+     "sig-network": 8
+    }
+   },
+   "sigs": [
+    "sig-auth",
+    "sig-network"
+   ],
+   "year": 2023,
+   "id": "k3-e096844bf7",
+   "split": "test"
+  },
+  {
+   "template": 11,
+   "question": "Did sig-network or sig-node have more KEPs reach 'implemented' in 2021? How many each?",
+   "gold": {
+    "sig": "sig-network",
+    "counts": {
+     "sig-network": 8,
+     "sig-node": 6
+    }
+   },
+   "sigs": [
+    "sig-network",
+    "sig-node"
+   ],
+   "year": 2021,
+   "id": "k3-e7a996717f",
+   "split": "test"
+  },
+  {
+   "template": 11,
+   "question": "Did sig-auth or sig-network have more KEPs reach 'implemented' in 2025? How many each?",
+   "gold": {
+    "sig": "sig-network",
+    "counts": {
+     "sig-auth": 4,
+     "sig-network": 19
+    }
+   },
+   "sigs": [
+    "sig-auth",
+    "sig-network"
+   ],
+   "year": 2025,
+   "id": "k3-ee9ecc5c38",
+   "split": "dev"
+  },
+  {
+   "template": 11,
+   "question": "Did sig-auth or sig-storage have more KEPs reach 'implemented' in 2022? How many each?",
+   "gold": {
+    "sig": "sig-storage",
+    "counts": {
+     "sig-auth": 2,
+     "sig-storage": 8
+    }
+   },
+   "sigs": [
+    "sig-auth",
+    "sig-storage"
+   ],
+   "year": 2022,
+   "id": "k3-ffc8936924",
+   "split": "test"
+  },
+  {
+   "template": 12,
+   "question": "Why is KEP-2593 (Enhanced NodeIPAM to support Discontiguous Cluster CIDR) no longer in force, and since when?",
+   "gold": {
+    "retired_by": "withdrawn",
+    "since": "2023-09-29"
+   },
+   "kep": "KEP-2593",
+   "id": "k3-04de73577a",
+   "split": "test"
+  },
+  {
+   "template": 12,
+   "question": "Why is KEP-536 (Topology-aware service routing) no longer in force, and since when?",
+   "gold": {
+    "retired_by": "KEP-2433",
+    "since": "2021-04-30"
+   },
+   "kep": "KEP-536",
+   "id": "k3-113a8a8c1b",
+   "split": "test"
+  },
+  {
+   "template": 12,
+   "question": "Why is KEP-3063 (dynamic resource allocation) no longer in force, and since when?",
+   "gold": {
+    "retired_by": "withdrawn",
+    "since": "2024-10-04"
+   },
+   "kep": "KEP-3063",
+   "id": "k3-121b3bcfb5",
+   "split": "test"
+  },
+  {
+   "template": 12,
+   "question": "Why is KEP-2718 (Client Executable Proxy) no longer in force, and since when?",
+   "gold": {
+    "retired_by": "withdrawn",
+    "since": "2024-07-04"
+   },
+   "kep": "KEP-2718",
+   "id": "k3-2577c76229",
+   "split": "dev"
+  },
+  {
+   "template": 12,
+   "question": "Why is KEP-2943 (Network Policy status subresource) no longer in force, and since when?",
+   "gold": {
+    "retired_by": "withdrawn",
+    "since": "2023-01-12"
+   },
+   "kep": "KEP-2943",
+   "id": "k3-2a1fa7045f",
+   "split": "test"
+  },
+  {
+   "template": 12,
+   "question": "Why is KEP-5978 (DRA: ClusterResourceClaimTemplate) no longer in force, and since when?",
+   "gold": {
+    "retired_by": "withdrawn",
+    "since": "2026-06-16"
+   },
+   "kep": "KEP-5978",
+   "id": "k3-3c40a72484",
+   "split": "dev"
+  },
+  {
+   "template": 12,
+   "question": "Why is KEP-2451 (Service Account Token Volumes) no longer in force, and since when?",
+   "gold": {
+    "retired_by": "KEP-1205",
+    "since": "2021-04-29"
+   },
+   "kep": "KEP-2451",
+   "id": "k3-3d48b7e3fc",
+   "split": "test"
+  },
+  {
+   "template": 12,
+   "question": "Why is KEP-3130 (KMS Observability) no longer in force, and since when?",
+   "gold": {
+    "retired_by": "KEP-3299",
+    "since": "2022-05-09"
+   },
+   "kep": "KEP-3130",
+   "id": "k3-59e3e9c108",
+   "split": "dev"
+  },
+  {
+   "template": 12,
+   "question": "Why is KEP-600 (Dynamic Audit Configuration) no longer in force, and since when?",
+   "gold": {
+    "retired_by": "withdrawn",
+    "since": "2021-05-05"
+   },
+   "kep": "KEP-600",
+   "id": "k3-6c758c474c",
+   "split": "test"
+  },
+  {
+   "template": 12,
+   "question": "Why is KEP-2924 (In-tree Storage Plugin to CSI Migration - Ceph Cephfs) no longer in force, and since when?",
+   "gold": {
+    "retired_by": "withdrawn",
+    "since": "2023-05-28"
+   },
+   "kep": "KEP-2924",
+   "id": "k3-ce71088d8c",
+   "split": "test"
+  },
+  {
+   "template": 13,
+   "question": "Who has held a chair or tech-lead seat of sig-service-catalog the longest without a break, as of 2026-10-17? Give a GitHub handle.",
+   "gold": {
+    "person": "jhvhs"
+   },
+   "sig": "sig-service-catalog",
+   "id": "k3-066d66f16d",
+   "split": "test"
+  },
+  {
+   "template": 13,
+   "question": "Who has held a chair or tech-lead seat of sig-api-machinery the longest without a break, as of 2026-10-17? Give a GitHub handle.",
+   "gold": {
+    "person": "deads2k"
+   },
+   "sig": "sig-api-machinery",
+   "id": "k3-0b30536064",
+   "split": "test"
+  },
+  {
+   "template": 13,
+   "question": "Who has held a chair or tech-lead seat of sig-ui the longest without a break, as of 2026-10-17? Give a GitHub handle.",
+   "gold": {
+    "person": "floreks"
+   },
+   "sig": "sig-ui",
+   "id": "k3-27f0d39777",
+   "split": "test"
+  },
+  {
+   "template": 13,
+   "question": "Who has held a chair or tech-lead seat of sig-architecture the longest without a break, as of 2026-10-17? Give a GitHub handle.",
+   "gold": {
+    "person": "derekwaynecarr"
+   },
+   "sig": "sig-architecture",
+   "id": "k3-37539dc798",
+   "split": "test"
+  },
+  {
+   "template": 13,
+   "question": "Who has held a chair or tech-lead seat of sig-cluster-lifecycle the longest without a break, as of 2026-10-17? Give a GitHub handle.",
+   "gold": {
+    "person": "justinsb"
+   },
+   "sig": "sig-cluster-lifecycle",
+   "id": "k3-3b24cfd04c",
+   "split": "test"
+  },
+  {
+   "template": 13,
+   "question": "Who has held a chair or tech-lead seat of sig-scalability the longest without a break, as of 2026-10-17? Give a GitHub handle.",
+   "gold": {
+    "person": "wojtek-t"
+   },
+   "sig": "sig-scalability",
+   "id": "k3-4ad5a9459a",
+   "split": "dev"
+  },
+  {
+   "template": 13,
+   "question": "Who has held a chair or tech-lead seat of sig-docs the longest without a break, as of 2026-10-17? Give a GitHub handle.",
+   "gold": {
+    "person": "divya-mohan0209"
+   },
+   "sig": "sig-docs",
+   "id": "k3-55f5d8da4c",
+   "split": "test"
+  },
+  {
+   "template": 13,
+   "question": "Who has held a chair or tech-lead seat of sig-cli the longest without a break, as of 2026-10-17? Give a GitHub handle.",
+   "gold": {
+    "person": "soltysh"
+   },
+   "sig": "sig-cli",
+   "id": "k3-6086730fe2",
+   "split": "test"
+  },
+  {
+   "template": 13,
+   "question": "Who has held a chair or tech-lead seat of sig-auth the longest without a break, as of 2026-10-17? Give a GitHub handle.",
+   "gold": {
+    "person": "enj"
+   },
+   "sig": "sig-auth",
+   "id": "k3-7c965afcd1",
+   "split": "test"
+  },
+  {
+   "template": 13,
+   "question": "Who has held a chair or tech-lead seat of sig-gcp the longest without a break, as of 2026-10-17? Give a GitHub handle.",
+   "gold": {
+    "person": "abgworrall"
+   },
+   "sig": "sig-gcp",
+   "id": "k3-802b0337d8",
+   "split": "dev"
+  },
+  {
+   "template": 13,
+   "question": "Who has held a chair or tech-lead seat of sig-openstack the longest without a break, as of 2026-10-17? Give a GitHub handle.",
+   "gold": {
+    "person": "hogepodge"
+   },
+   "sig": "sig-openstack",
+   "id": "k3-958d2ee4e0",
+   "split": "test"
+  },
+  {
+   "template": 13,
+   "question": "Who has held a chair or tech-lead seat of sig-k8s-infra the longest without a break, as of 2026-10-17? Give a GitHub handle.",
+   "gold": {
+    "person": "ameukam"
+   },
+   "sig": "sig-k8s-infra",
+   "id": "k3-a3c072fbba",
+   "split": "test"
+  },
+  {
+   "template": 13,
+   "question": "Who has held a chair or tech-lead seat of sig-cloud-provider the longest without a break, as of 2026-10-17? Give a GitHub handle.",
+   "gold": {
+    "person": "cheftako"
+   },
+   "sig": "sig-cloud-provider",
+   "id": "k3-d7541c9128",
+   "split": "dev"
+  },
+  {
+   "template": 13,
+   "question": "Who has held a chair or tech-lead seat of sig-autoscaling the longest without a break, as of 2026-10-17? Give a GitHub handle.",
+   "gold": {
+    "person": "gjtempleton"
+   },
+   "sig": "sig-autoscaling",
+   "id": "k3-da1a515813",
+   "split": "dev"
+  },
+  {
+   "template": 13,
+   "question": "Who has held a chair or tech-lead seat of sig-instrumentation the longest without a break, as of 2026-10-17? Give a GitHub handle.",
+   "gold": {
+    "person": "dashpole"
+   },
+   "sig": "sig-instrumentation",
+   "id": "k3-e241fd0762",
+   "split": "test"
+  }
+ ]
+}

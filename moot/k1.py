@@ -22,9 +22,9 @@ ENH = ROOT / "data" / "github" / ".repos" / "kubernetes__enhancements"
 COM = ROOT / "data" / "github" / ".repos" / "kubernetes__community"
 import sys
 
-STUDY = "k2" if "--study" in sys.argv and sys.argv[sys.argv.index("--study") + 1] == "k2" else "k1"
+STUDY = sys.argv[sys.argv.index("--study") + 1] if "--study" in sys.argv else "k1"  # k3's questions come from moot/k3.py
 OUT = ROOT / "eval" / STUDY / "questions.json"
-SIGS = ("sig-auth", "sig-node", "sig-network", "sig-storage") if STUDY == "k2" else ("sig-auth", "sig-node")
+SIGS = ("sig-auth", "sig-node", "sig-network", "sig-storage") if STUDY != "k1" else ("sig-auth", "sig-node")
 PER_TEMPLATE = 15
 TODAY = "2026-10-17"
 IN_FORCE = {"implementable", "implemented"}
@@ -141,6 +141,8 @@ def a_date(seed: str, lo: str = "2019-01-01", hi: str = "2026-10-01") -> str:
 
 
 def main() -> None:
+    if STUDY not in ("k1", "k2"):
+        raise SystemExit(f"moot.k1 writes K1 and K2 only; {STUDY}'s questions come from its own module")
     K = keps()
     qs = []
     # (1) which KEP replaced KEP-X, and when (the commit that took X out of force)

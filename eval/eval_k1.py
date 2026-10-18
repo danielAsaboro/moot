@@ -55,7 +55,7 @@ _frozen = Path(__file__).resolve().parents[1] / "eval" / "k1" / "direct_frozen.j
 FROZEN_DIRECT = json.loads(_frozen.read_text())["rows"] if "--study" not in sys.argv and _frozen.exists() else None
 if FROZEN_DIRECT:
     ARMS += ("moot_direct_exact",)
-TEMPLATES = (1, 2, 3, 4, 5, 6) if "--study" in sys.argv and sys.argv[sys.argv.index("--study") + 1] == "k2" else (1, 2, 3, 4)
+TEMPLATES = dict(k1=(1, 2, 3, 4), k2=(1, 2, 3, 4, 5, 6), k3=(7, 8, 9, 10, 11, 12, 13))[STUDY]
 MAX_STEPS = 6
 RESULT_CHARS = 3000  # a tool result in the conversation; keeps a run inside the model's 16k context
 
@@ -69,7 +69,12 @@ def refuse_if_changed() -> None:
 
 FORMATS = {1: '{"kep": "KEP-<number>", "date": "YYYY-MM-DD"}', 2: '{"leads": ["<github handle>", ...]}',
            3: '{"in_force": true or false, "retired_by": "KEP-<number>" or "withdrawn" or "deferred" or null}',
-           4: '{"authors": [["<github handle>", true or false], ...]}', 5: '{"count": <integer>}', 6: '{"was_lead": true or false}'}
+           4: '{"authors": [["<github handle>", true or false], ...]}', 5: '{"count": <integer>}', 6: '{"was_lead": true or false}',
+           # K3: free-form questions (moot/k3.py)
+           7: '{"kep": "KEP-<number>"}', 8: '{"retired": [["KEP-<number>", "KEP-<number that replaced it>" or "withdrawn" or "deferred"], ...]}',
+           9: '{"people": ["<github handle>", ...]}', 10: '{"then": ["<github handle>", ...], "now": ["<github handle>", ...]}',
+           11: '{"sig": "<sig-name>", "counts": {"<sig-name>": <integer>, "<sig-name>": <integer>}}',
+           12: '{"retired_by": "KEP-<number>" or "withdrawn" or "deferred" or "replaced", "since": "YYYY-MM-DD"}', 13: '{"person": "<github handle>"}'}
 
 
 _names: dict[str, str] | None = None
@@ -115,6 +120,24 @@ def norm(t: int, a) -> object:
             return int(a.get("count"))
         if t == 6:
             return bool(a.get("was_lead"))
+        kep = lambda x: "KEP-" + re.sub(r"\D", "", str(x)) if x else None
+        sig = lambda x: (lambda v: v if v.startswith("sig-") else "sig-" + v)(str(x).lower().strip().replace(" ", "-"))
+        if t == 7:
+            return kep(a.get("kep"))
+        if t == 8:
+            why = lambda v: kep(v) if v and "kep" in str(v).lower() else str(v).lower().strip()
+            return tuple(sorted((kep(x[0]), why(x[1])) for x in a.get("retired") or []))
+        if t == 9:
+            return tuple(sorted({person(x) for x in a.get("people") or []}))
+        if t == 10:
+            return (tuple(sorted({person(x) for x in a.get("then") or []})), tuple(sorted({person(x) for x in a.get("now") or []})))
+        if t == 11:
+            return (sig(a.get("sig")), tuple(sorted((sig(k), int(v)) for k, v in (a.get("counts") or {}).items())))
+        if t == 12:
+            rb = a.get("retired_by")
+            return (kep(rb) if rb and "kep" in str(rb).lower() else (str(rb).lower().strip() if rb else None), str(a.get("since", ""))[:10])
+        if t == 13:
+            return person(a.get("person"))
     except Exception:
         return None
 
@@ -239,6 +262,23 @@ def moot_run(name: str, a: dict):
         sig = sig if sig.startswith("sig-") else "sig-" + sig
         rows = [r for r in tools.ledger(G, day, 4) if r["verdict"] != "RETIRED" and r["id"] in in_team(sig)]
         return json.dumps(dict(sig=sig, as_of=day, in_force=len(rows), keps=[r["id"] for r in rows][:200]))
+    if name == "sig_leaders" and STUDY == "k3":  # every seat a SIG has had, with windows, and who held it on a date
+        sig = str(a.get("sig", "")).lower().replace(" ", "-")
+        sig = sig if sig.startswith("sig-") else "sig-" + sig
+        rows = G.ro_query("MATCH (p:Person)-[l:LEADS]->(:Team {id: $t}) RETURN p.id, p.name, l.role, l.valid_from, l.valid_to, l.history",
+                          {"t": f"team_{sig}"}).result_set
+        seats = [dict(handle=i.removeprefix("u_"), name=n, role=r, first=f, last_until=t or "now", windows=hs) for i, n, r, f, t, hs in rows]
+        on = str(a.get("date") or "")[:10]
+        return json.dumps(dict(sig=sig, seats=sorted(seats, key=lambda x: x["first"]),
+                               **({"on": on, "leads_then": sorted(x["handle"] for x in seats if x["first"] <= on and (x["last_until"] == "now" or x["last_until"] > on))} if on else {})))
+    if name == "sig_kep_list" and STUDY == "k3":  # every KEP a SIG answers for, with its dates
+        sig = str(a.get("sig", "")).lower().replace(" ", "-")
+        sig = sig if sig.startswith("sig-") else "sig-" + sig
+        rows = G.ro_query("MATCH (:Team {id: $t})-[:RESPONSIBLE_FOR]->(d:Decision) OPTIONAL MATCH (n:Decision)-[su:SUPERSEDES]->(d) "
+                          "OPTIONAL MATCH (x:Evidence)-[rt:RETIRES]->(d) RETURN d.id, d.title, d.decided_on, n.id, su.at, rt.at, rt.quote ORDER BY d.decided_on",
+                          {"t": f"team_{sig}"}).result_set
+        return json.dumps(dict(sig=sig, keps=[dict(kep=i, title=(t or "")[:60], in_force_from=d, superseded_by=n, superseded_at=sa, retired_at=ra,
+                                                  retired_how=(rq or "").replace("status:", "").strip() or None) for i, t, d, n, sa, ra, rq in rows]))
     return "unknown tool"
 
 
@@ -253,6 +293,9 @@ MOOT_DOC = """- find_kep(query): KEPs whose title matches
 - kep_authors(kep, date): the KEP's authors (with their GitHub handle) and which SIG each leads on that date"""
 if STUDY != "k1":
     MOOT_DOC += "\n- sig_keps(sig, date): how many of a SIG's KEPs were in force on a date, and which"
+if STUDY == "k3":
+    MOOT_DOC += ("\n- sig_leaders(sig, date): every chair and tech-lead seat a SIG has had since 2018, with its windows (and who held one on the date)"
+                 "\n- sig_kep_list(sig): every KEP a SIG answers for, when it came into force, and what superseded or retired it, when")
 
 
 # ---- file tools over the same checkouts
@@ -374,7 +417,43 @@ def rag(q: dict, history: bool = False) -> dict:
 
 # ---- deterministic reference
 
+ROUTE = [  # the fixed-query router of K3: the K-template whose words best match the question
+    (1, "replaced by which kep when replaced"), (2, "chairs tech leads led sig on date"), (3, "in force on date retired"),
+    (4, "authors chair tech lead today"), (5, "how many keps in force sig"), (6, "was chair tech lead day created")]
+
+
+def route(question: str) -> int:
+    words = set(re.findall(r"[a-z]+", question.lower()))
+    return max(ROUTE, key=lambda r: (len(words & set(r[1].split())), -r[0]))[0]
+
+
+def router(q: dict):
+    """K3's fixed-query arm: answer with the one K-template the question's words best match, mapped onto K3's format where
+    that template's answer carries the fields; anything it cannot express is left empty."""
+    t = route(q["question"])
+    kid = q.get("kep") or (q.get("keps") or [None])[0]
+    sub = dict(q, template=t, kep=kid, date=q.get("date") or Q["today"], sig=(q.get("sig") or (q.get("sigs") or [None])[0]),
+               person=None)
+    if t in (1, 3, 4) and not kid:
+        return None
+    out = direct(sub)
+    k3 = q["template"]
+    if k3 == 7 and t == 3:
+        return dict(kep=kid if out.get("in_force") else None)
+    if k3 == 10 and t == 4:
+        return dict(then=[], now=[h for h, lead in out["authors"] if lead])
+    if k3 == 12 and t in (1, 3):
+        if t == 1:
+            return dict(retired_by=out.get("kep"), since=out.get("date"))
+        return dict(retired_by=out.get("retired_by"), since=None)
+    if k3 == 9 and t == 2:
+        return dict(people=out.get("leads", []))
+    return None
+
+
 def direct(q: dict):
+    if q["template"] >= 7:
+        return router(q)
     t, kid = q["template"], q.get("kep")
     if t == 1:
         a = tools.audit_decision(G, kid, tools.today(), 4)
@@ -419,7 +498,8 @@ def key_for(arm: str, q: dict, model: str, harness: str = HARNESS) -> str:
     return hashlib.sha256(json.dumps([arm, model, q["id"], SYSTEM, doc, harness]).encode()).hexdigest()[:20]
 
 
-KEYS = {1: {"kep", "date"}, 2: {"leads"}, 3: {"in_force", "retired_by"}, 4: {"authors"}, 5: {"count"}, 6: {"was_lead"}}
+KEYS = {1: {"kep", "date"}, 2: {"leads"}, 3: {"in_force", "retired_by"}, 4: {"authors"}, 5: {"count"}, 6: {"was_lead"},
+        7: {"kep"}, 8: {"retired"}, 9: {"people"}, 10: {"then", "now"}, 11: {"sig", "counts"}, 12: {"retired_by", "since"}, 13: {"person"}}
 
 
 def answer_of(t: int, x: dict):

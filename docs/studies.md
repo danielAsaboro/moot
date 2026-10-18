@@ -158,6 +158,7 @@ Each study below states its hypothesis, data, metric and script before its first
 - **Primary metric:** exact match on the test split (sets compared as sets), graph agent against file agent and against the fixed-query router; exact McNemar on paired questions. 30% dev by sha256, nothing tuned on test.
 - **Prediction:** the graph agent beats the fixed-query router by more than the 3 questions it added on K2, and beats the file agent.
 - **Schedule:** gold now (CPU); arms after X1's held-out run frees the GPU.
+- **Amended before the gold was frozen and before any arm ran (same day):** the first draw left kinds (2) and (4) almost all empty (14 of 15 multi-constraint questions had no replaced KEP: replacements are rare; 12 of 15 then-and-now questions had no lead among the authors), so an arm answering "none" would score. Kind (2) now asks which of a SIG's KEPs created in a year are no longer in force and what retired each (the replacing KEP, else withdrawn or deferred), and both kinds draw 12 questions with a non-empty answer and 3 with an empty one.
 
 ## H3. Ranking decisions by risk, where "everything holds" cannot score
 
