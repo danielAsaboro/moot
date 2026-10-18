@@ -50,7 +50,7 @@ def gate_files(files: list[str], cfg: dict, as_of: str | None = None) -> list[di
     for did, fs in sorted(governing(files, cfg).items()):
         a = tools.check_action(g, did, as_of)
         rows.append(dict(decision=did, title=a.get("title"), gate=a["gate"], files=sorted(set(fs)),
-                         reasons=[r["text"] for r in a.get("reasons", [])][:3]))
+                         reasons=[r["text"] for r in a.get("reasons", [])][:3], route=a.get("route")))
     return rows
 
 
@@ -59,6 +59,9 @@ def explain(rows: list[dict]) -> str:
     for r in rows:
         lines.append(f"{r['gate']} {r['decision']} ({r['title']}) governs {', '.join(r['files'])}")
         lines += [f"  - {x}" for x in r["reasons"]]
+        rt = r.get("route")
+        if rt:
+            lines.append(f"  -> ask {', '.join(p['name'] for p in rt['people'])}: {rt['why']}" if rt["people"] else f"  -> {rt['why']}")
     return "\n".join(lines)
 
 

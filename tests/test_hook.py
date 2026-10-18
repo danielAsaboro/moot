@@ -32,6 +32,7 @@ def run(cfg, monkeypatch, tool, path, capsys):
 def test_an_edit_under_a_dead_decision_is_blocked_with_the_path(cfg, monkeypatch, capsys):
     code, out = run(cfg, monkeypatch, "Edit", "services/uploads/limits.py", capsys)
     assert code == 2 and "DENY D01" in out.err and "PR-412" in out.err
+    assert "ask Kwame Boateng" in out.err  # the owner left; the gate routes to whoever was next up her reporting line
 
 
 def test_ungoverned_files_and_reads_pass(cfg, monkeypatch, capsys):

@@ -169,8 +169,28 @@ GATE_DEPTH = 6
 def check_action(g: Graph, decision_id: str, as_of: str | None = None) -> dict:
     a = audit_decision(g, decision_id, as_of, GATE_DEPTH)
     as_of = a.get("as_of") or as_of or today()
-    return dict(gate(a, coverage(g)), decision_id=decision_id, title=a["decision"]["title"] if a.get("found") else None,
-                as_of=as_of, depth=GATE_DEPTH, snapshot=snapshot(g, decision_id, as_of))
+    out = gate(a, coverage(g))
+    return dict(out, decision_id=decision_id, title=a["decision"]["title"] if a.get("found") else None,
+                as_of=as_of, depth=GATE_DEPTH, snapshot=snapshot(g, decision_id, as_of), route=route(g, a) if out["gate"] != "ALLOW" else None)
+
+
+def route(g: Graph, a: dict) -> dict | None:
+    """Who a blocked agent should ask: the owner of record if still here; else whoever the owner reported to the day they left
+    (REPORTS_TO, skipping people who also left); else the leads of the team that answers for the decision on that date
+    (Team / LEADS); else nobody on record, which is itself the finding."""
+    o = a.get("owner")
+    if o and o.get("active"):
+        return dict(to="owner", people=[dict(id=o["id"], name=o["name"])], why=f"{o['name']} owns it")
+    if o and o.get("valid_to"):
+        s = successor(g, o["id"], o["valid_to"], a.get("as_of"))
+        if s:
+            return dict(to="successor", people=[dict(id=s["id"], name=s["name"], role=s["role"])],
+                        why=f"{o['name']} owned it and left on {o['valid_to']}; {s['name']} is next up their reporting line")
+    t = a.get("team")
+    if t and t.get("leads"):
+        return dict(to="team", team=t["name"], people=[dict(id=x["id"], name=x["name"], role=x["role"]) for x in t["leads"]],
+                    why=f"{t['name']} answers for it" + (f"; its owner of record, {o['name']}, has left" if o else ""))
+    return dict(to=None, people=[], why="nobody on record answers for it: no active owner and no team named")
 
 
 def coverage(g: Graph) -> dict:
