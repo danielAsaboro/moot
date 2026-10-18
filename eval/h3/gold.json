@@ -1,0 +1,691 @@
+{
+ "sha256": "731a67bc7e55234d864788b02fd4b0334bda053d6a6d3dc4104b6d13f05c6cc3",
+ "written": "2026-10-22",
+ "skipped": [
+  "aligent/monocle:0010-choice-of-protobuf.md",
+  "nulib/meadow:0009-tailwind-css-framework.md"
+ ],
+ "t0": "2022-10-17",
+ "end": "2025-10-17",
+ "units": [
+  {
+   "id": "ArchLinuxJP/archwiki-jp:0004-use-webpack.md",
+   "repo": "ArchLinuxJP/archwiki-jp",
+   "source": "h3",
+   "title": "4. Use webpack",
+   "path": "extensions/Popups/doc/adr/0004-use-webpack.md",
+   "url": "https://github.com/ArchLinuxJP/archwiki-jp/blob/HEAD/extensions/Popups/doc/adr/0004-use-webpack.md",
+   "born": "2019-01-27",
+   "tools": [
+    "webpack"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "webpack": true
+   },
+   "code_end": {
+    "webpack": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "ArchLinuxJP/archwiki-jp:0004-use-webpack.md",
+   "repo": "ArchLinuxJP/archwiki-jp",
+   "source": "h3",
+   "title": "4. Use webpack",
+   "path": "extensions/Popups/docs/adr/0004-use-webpack.md",
+   "url": "https://github.com/ArchLinuxJP/archwiki-jp/blob/HEAD/extensions/Popups/docs/adr/0004-use-webpack.md",
+   "born": "2019-01-27",
+   "tools": [
+    "webpack"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "webpack": true
+   },
+   "code_end": {
+    "webpack": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "Controlix/akka-monitor:0003-use-scala-as-programming-language.md",
+   "repo": "Controlix/akka-monitor",
+   "source": "h3",
+   "title": "3. Use Scala as programming language",
+   "path": "doc/adr/0003-use-scala-as-programming-language.md",
+   "url": "https://github.com/Controlix/akka-monitor/blob/HEAD/doc/adr/0003-use-scala-as-programming-language.md",
+   "born": "2018-06-01",
+   "tools": [
+    "scala"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "scala": null
+   },
+   "code_end": {
+    "scala": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "Controlix/akka-monitor:0004-use-micrometer-prometheus.md",
+   "repo": "Controlix/akka-monitor",
+   "source": "h3",
+   "title": "4. Use Micrometer Prometheus",
+   "path": "doc/adr/0004-use-micrometer-prometheus.md",
+   "url": "https://github.com/Controlix/akka-monitor/blob/HEAD/doc/adr/0004-use-micrometer-prometheus.md",
+   "born": "2018-06-04",
+   "tools": [
+    "prometheus"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "prometheus": null
+   },
+   "code_end": {
+    "prometheus": null
+   },
+   "split": "dev"
+  },
+  {
+   "id": "HaroonAzhar/api-omni:0002-use-typescript-as-the-main-technology.md",
+   "repo": "HaroonAzhar/api-omni",
+   "source": "h3",
+   "title": "2. Use TypeScript as the main technology",
+   "path": "doc/architecture/decisions/0002-use-typescript-as-the-main-technology.md",
+   "url": "https://github.com/HaroonAzhar/api-omni/blob/HEAD/doc/architecture/decisions/0002-use-typescript-as-the-main-technology.md",
+   "born": "2019-12-05",
+   "tools": [
+    "typescript"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "typescript": true
+   },
+   "code_end": {
+    "typescript": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "LBHackney-IT/report-a-defect:0005-use-docker.md",
+   "repo": "LBHackney-IT/report-a-defect",
+   "source": "h3",
+   "title": "5. Use Docker",
+   "path": "doc/architecture/decisions/0005-use-docker.md",
+   "url": "https://github.com/LBHackney-IT/report-a-defect/blob/HEAD/doc/architecture/decisions/0005-use-docker.md",
+   "born": "2019-05-09",
+   "tools": [
+    "docker"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "docker": true
+   },
+   "code_end": {
+    "docker": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "LBHackney-IT/report-a-defect:0007-use-postgres-search.md",
+   "repo": "LBHackney-IT/report-a-defect",
+   "source": "h3",
+   "title": "7. Use Postgres Search",
+   "path": "doc/architecture/decisions/0007-use-postgres-search.md",
+   "url": "https://github.com/LBHackney-IT/report-a-defect/blob/HEAD/doc/architecture/decisions/0007-use-postgres-search.md",
+   "born": "2019-05-29",
+   "tools": [
+    "postgres"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "postgres": true
+   },
+   "code_end": {
+    "postgres": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "LBHackney-IT/report-a-defect:0009-use-sidekiq-and-redis-for-asynchronous-tasks.md",
+   "repo": "LBHackney-IT/report-a-defect",
+   "source": "h3",
+   "title": "9. use-sidekiq-and-redis-for-asynchronous-tasks",
+   "path": "doc/architecture/decisions/0009-use-sidekiq-and-redis-for-asynchronous-tasks.md",
+   "url": "https://github.com/LBHackney-IT/report-a-defect/blob/HEAD/doc/architecture/decisions/0009-use-sidekiq-and-redis-for-asynchronous-tasks.md",
+   "born": "2019-06-24",
+   "tools": [
+    "redis",
+    "sidekiq"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "redis": null,
+    "sidekiq": true
+   },
+   "code_end": {
+    "redis": true,
+    "sidekiq": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "LBHackney-IT/report-a-defect:0011-use-auth0-for-authentication.md",
+   "repo": "LBHackney-IT/report-a-defect",
+   "source": "h3",
+   "title": "11. use-auth0-for-authentication",
+   "path": "doc/architecture/decisions/0011-use-auth0-for-authentication.md",
+   "url": "https://github.com/LBHackney-IT/report-a-defect/blob/HEAD/doc/architecture/decisions/0011-use-auth0-for-authentication.md",
+   "born": "2019-07-18",
+   "tools": [
+    "auth0"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "auth0": null
+   },
+   "code_end": {
+    "auth0": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "LBHackney-IT/report-a-defect:0012-use-postgres-hobby-basic.md",
+   "repo": "LBHackney-IT/report-a-defect",
+   "source": "h3",
+   "title": "12. Use the 'Hobby Basic' Postgres plan in production",
+   "path": "doc/architecture/decisions/0012-use-postgres-hobby-basic.md",
+   "url": "https://github.com/LBHackney-IT/report-a-defect/blob/HEAD/doc/architecture/decisions/0012-use-postgres-hobby-basic.md",
+   "born": "2019-07-23",
+   "tools": [
+    "postgres"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "postgres": true
+   },
+   "code_end": {
+    "postgres": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "aligent/monocle:0002-Choice-of-Elasticsearch.md",
+   "repo": "aligent/monocle",
+   "source": "h3",
+   "title": "2. Choice of Elasticsearch",
+   "path": "doc/adr/0002-choice-of-elasticsearch.md",
+   "url": "https://github.com/aligent/monocle/blob/HEAD/doc/adr/0002-choice-of-elasticsearch.md",
+   "born": "2019-12-02",
+   "tools": [
+    "elasticsearch"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "elasticsearch": null
+   },
+   "code_end": {
+    "elasticsearch": null
+   },
+   "split": "dev"
+  },
+  {
+   "id": "aligent/monocle:0003-Choice-of-React.md",
+   "repo": "aligent/monocle",
+   "source": "h3",
+   "title": "3. Choice of React",
+   "path": "doc/adr/0003-choice-of-react.md",
+   "url": "https://github.com/aligent/monocle/blob/HEAD/doc/adr/0003-choice-of-react.md",
+   "born": "2019-12-02",
+   "tools": [
+    "react"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "react": true
+   },
+   "code_end": {
+    "react": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "dennisseidel/design-basics-for-solution-architects:0002-program-in-typescript.md",
+   "repo": "dennisseidel/design-basics-for-solution-architects",
+   "source": "h3",
+   "title": "2. Program in Typescript",
+   "path": "adr/0002-program-in-typescript.md",
+   "url": "https://github.com/dennisseidel/design-basics-for-solution-architects/blob/HEAD/adr/0002-program-in-typescript.md",
+   "born": "2020-02-02",
+   "tools": [
+    "typescript"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "typescript": null
+   },
+   "code_end": {
+    "typescript": null
+   },
+   "split": "dev"
+  },
+  {
+   "id": "dennisseidel/design-basics-for-solution-architects:0003-build-books-using-docker.md",
+   "repo": "dennisseidel/design-basics-for-solution-architects",
+   "source": "h3",
+   "title": "3. Build Books using docker",
+   "path": "adr/0003-build-books-using-docker.md",
+   "url": "https://github.com/dennisseidel/design-basics-for-solution-architects/blob/HEAD/adr/0003-build-books-using-docker.md",
+   "born": "2020-02-23",
+   "tools": [
+    "docker"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "docker": null
+   },
+   "code_end": {
+    "docker": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "iampeterbanjo/iampeterbanjo.com:0004-yarn-npm-pnpm-and-docker.md",
+   "repo": "iampeterbanjo/iampeterbanjo.com",
+   "source": "h3",
+   "title": "4. yarn-npm-pnpm-and-docker",
+   "path": "packages/docs/adr/0004-yarn-npm-pnpm-and-docker.md",
+   "url": "https://github.com/iampeterbanjo/iampeterbanjo.com/blob/HEAD/packages/docs/adr/0004-yarn-npm-pnpm-and-docker.md",
+   "born": "2019-08-23",
+   "tools": [
+    "docker",
+    "yarn"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "docker": true,
+    "yarn": null
+   },
+   "code_end": {
+    "docker": true,
+    "yarn": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "iampeterbanjo/iampeterbanjo.com:0005-use-typescript-vs-eslint.md",
+   "repo": "iampeterbanjo/iampeterbanjo.com",
+   "source": "h3",
+   "title": "5. use-typescript-vs-eslint",
+   "path": "packages/docs/adr/0005-use-typescript-vs-eslint.md",
+   "url": "https://github.com/iampeterbanjo/iampeterbanjo.com/blob/HEAD/packages/docs/adr/0005-use-typescript-vs-eslint.md",
+   "born": "2019-08-24",
+   "tools": [
+    "typescript"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "typescript": true
+   },
+   "code_end": {
+    "typescript": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "iampeterbanjo/iampeterbanjo.com:0012-parallel-database-tests-mongodb-server.md",
+   "repo": "iampeterbanjo/iampeterbanjo.com",
+   "source": "h3",
+   "title": "12. parallel-database-tests-mongodb-server",
+   "path": "packages/docs/adr/0012-parallel-database-tests-mongodb-server.md",
+   "url": "https://github.com/iampeterbanjo/iampeterbanjo.com/blob/HEAD/packages/docs/adr/0012-parallel-database-tests-mongodb-server.md",
+   "born": "2019-09-15",
+   "tools": [
+    "mongodb"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "mongodb": null
+   },
+   "code_end": {
+    "mongodb": null
+   },
+   "split": "dev"
+  },
+  {
+   "id": "iampeterbanjo/iampeterbanjo.com:0013-cypress-e2e-tests-in-typescript.md",
+   "repo": "iampeterbanjo/iampeterbanjo.com",
+   "source": "h3",
+   "title": "13. cypress-e2e-tests-in-typescript",
+   "path": "packages/docs/adr/0013-cypress-e2e-tests-in-typescript.md",
+   "url": "https://github.com/iampeterbanjo/iampeterbanjo.com/blob/HEAD/packages/docs/adr/0013-cypress-e2e-tests-in-typescript.md",
+   "born": "2019-09-21",
+   "tools": [
+    "cypress",
+    "typescript"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "cypress": true,
+    "typescript": true
+   },
+   "code_end": {
+    "cypress": true,
+    "typescript": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "jpwesselink/cdk-monorepo:0001-use-lerna-as-monorepo-management-tool.md",
+   "repo": "jpwesselink/cdk-monorepo",
+   "source": "h3",
+   "title": "Use Lerna as monorepo management tool",
+   "path": "docs/adr/0001-use-lerna-as-monorepo-management-tool.md",
+   "url": "https://github.com/jpwesselink/cdk-monorepo/blob/HEAD/docs/adr/0001-use-lerna-as-monorepo-management-tool.md",
+   "born": "2022-01-04",
+   "tools": [
+    "lerna"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "lerna": true
+   },
+   "code_end": {
+    "lerna": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "ministryofjustice/hmpps-interventions-ui:0003-use-typescript.md",
+   "repo": "ministryofjustice/hmpps-interventions-ui",
+   "source": "h3",
+   "title": "3. Use TypeScript",
+   "path": "doc/architecture/decisions/0003-use-typescript.md",
+   "url": "https://github.com/ministryofjustice/hmpps-interventions-ui/blob/HEAD/doc/architecture/decisions/0003-use-typescript.md",
+   "born": "2020-11-20",
+   "tools": [
+    "typescript"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "typescript": true
+   },
+   "code_end": {
+    "typescript": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "ministryofjustice/hmpps-interventions-ui:0005-use-prettier-to-format-typescript-code.md",
+   "repo": "ministryofjustice/hmpps-interventions-ui",
+   "source": "h3",
+   "title": "5. Use Prettier to format TypeScript code",
+   "path": "doc/architecture/decisions/0005-use-prettier-to-format-typescript-code.md",
+   "url": "https://github.com/ministryofjustice/hmpps-interventions-ui/blob/HEAD/doc/architecture/decisions/0005-use-prettier-to-format-typescript-code.md",
+   "born": "2020-11-20",
+   "tools": [
+    "prettier",
+    "typescript"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "prettier": null,
+    "typescript": true
+   },
+   "code_end": {
+    "prettier": null,
+    "typescript": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "ministryofjustice/hmpps-interventions-ui:0006-use-jest-for-testing.md",
+   "repo": "ministryofjustice/hmpps-interventions-ui",
+   "source": "h3",
+   "title": "6. Use Jest for testing",
+   "path": "doc/architecture/decisions/0006-use-jest-for-testing.md",
+   "url": "https://github.com/ministryofjustice/hmpps-interventions-ui/blob/HEAD/doc/architecture/decisions/0006-use-jest-for-testing.md",
+   "born": "2020-11-20",
+   "tools": [
+    "jest"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "jest": true
+   },
+   "code_end": {
+    "jest": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "ministryofjustice/hmpps-interventions-ui:0007-use-cypress-for-integration-testing.md",
+   "repo": "ministryofjustice/hmpps-interventions-ui",
+   "source": "h3",
+   "title": "7. Use Cypress for integration testing",
+   "path": "doc/architecture/decisions/0007-use-cypress-for-integration-testing.md",
+   "url": "https://github.com/ministryofjustice/hmpps-interventions-ui/blob/HEAD/doc/architecture/decisions/0007-use-cypress-for-integration-testing.md",
+   "born": "2020-11-20",
+   "tools": [
+    "cypress"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "cypress": true
+   },
+   "code_end": {
+    "cypress": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "ministryofjustice/hmpps-interventions-ui:0011-use-redis-backed-drafts.md",
+   "repo": "ministryofjustice/hmpps-interventions-ui",
+   "source": "h3",
+   "title": "11. Use Redis-backed drafts",
+   "path": "doc/architecture/decisions/0011-use-redis-backed-drafts.md",
+   "url": "https://github.com/ministryofjustice/hmpps-interventions-ui/blob/HEAD/doc/architecture/decisions/0011-use-redis-backed-drafts.md",
+   "born": "2021-06-28",
+   "tools": [
+    "redis"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "redis": null
+   },
+   "code_end": {
+    "redis": null
+   },
+   "split": "dev"
+  },
+  {
+   "id": "nulib/meadow:0003-terraform.md",
+   "repo": "nulib/meadow",
+   "source": "h3",
+   "title": "3. terraform",
+   "path": "doc/architecture/decisions/0003-terraform.md",
+   "url": "https://github.com/nulib/meadow/blob/HEAD/doc/architecture/decisions/0003-terraform.md",
+   "born": "2019-06-27",
+   "tools": [
+    "terraform"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "terraform": true
+   },
+   "code_end": {
+    "terraform": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "nulib/meadow:0005-multistage-docker.md",
+   "repo": "nulib/meadow",
+   "source": "h3",
+   "title": "5. multistage-docker",
+   "path": "doc/architecture/decisions/0005-multistage-docker.md",
+   "url": "https://github.com/nulib/meadow/blob/HEAD/doc/architecture/decisions/0005-multistage-docker.md",
+   "born": "2019-06-28",
+   "tools": [
+    "docker"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "docker": true
+   },
+   "code_end": {
+    "docker": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "nulib/meadow:0011-yarn.md",
+   "repo": "nulib/meadow",
+   "source": "h3",
+   "title": "11. yarn",
+   "path": "doc/architecture/decisions/0011-yarn.md",
+   "url": "https://github.com/nulib/meadow/blob/HEAD/doc/architecture/decisions/0011-yarn.md",
+   "born": "2019-07-12",
+   "tools": [
+    "yarn"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "yarn": null
+   },
+   "code_end": {
+    "yarn": null
+   },
+   "split": "dev"
+  },
+  {
+   "id": "redbadger/pride-london-app:0003-switch-to-luxon-for-date-manipulation.md",
+   "repo": "redbadger/pride-london-app",
+   "source": "h3",
+   "title": "3. Switch to luxon for date manipulation",
+   "path": "doc/adr/0003-switch-to-luxon-for-date-manipulation.md",
+   "url": "https://github.com/redbadger/pride-london-app/blob/HEAD/doc/adr/0003-switch-to-luxon-for-date-manipulation.md",
+   "born": "2018-05-18",
+   "tools": [
+    "luxon"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "luxon": true
+   },
+   "code_end": {
+    "luxon": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "vijaygi-ind/airflow-2:0004-using-docker-images-as-test-environment.md",
+   "repo": "vijaygi-ind/airflow-2",
+   "source": "h3",
+   "title": "0004-using-docker-images-as-test-environment.md",
+   "path": "dev/breeze/doc/adr/0004-using-docker-images-as-test-environment.md",
+   "url": "https://github.com/vijaygi-ind/airflow-2/blob/HEAD/dev/breeze/doc/adr/0004-using-docker-images-as-test-environment.md",
+   "born": "2022-04-06",
+   "tools": [
+    "docker"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "docker": true
+   },
+   "code_end": {
+    "docker": true
+   },
+   "split": "test"
+  }
+ ]
+}
