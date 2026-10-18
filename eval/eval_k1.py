@@ -317,7 +317,7 @@ def history_pool() -> list[dict]:
     """Post hoc (register, 12:05 UTC): each KEP's status history and each SIG's leadership at every sigs.yaml commit that changed it,
     one document per SIG per year. Cached outside the repo, rebuilt from the checkouts."""
     from moot.k1 import keps, load_yaml, show
-    cache = ROOT / "data" / "github" / ".repos" / "k1_history_pool.json"
+    cache = ROOT / "data" / "github" / ".repos" / f"{STUDY}_history_pool.json"  # one pool per study: K2 covers four SIGs
     if cache.exists():
         return json.loads(cache.read_text())
     pool = []
