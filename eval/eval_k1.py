@@ -261,19 +261,28 @@ def file_run(name: str, a: dict):
     if name == "list_files":
         pre = str(a.get("prefix", ""))
         return "\n".join(f for f in git("ls-tree", "-r", "--name-only", rev).splitlines() if f.startswith(pre))[:6000]
-    if name == "read_file":
-        return git("cat-file", "-p", f"{rev}:{a.get('path', '')}")[:6000] or "no such file"
+    if name == "read_file":  # fairness fix (register, item 5): a line window, so a 200 KB sigs.yaml is readable past its first 6,000 characters
+        text = git("cat-file", "-p", f"{rev}:{a.get('path', '')}")
+        if not text:
+            return "no such file"
+        lines = text.splitlines()
+        lo = max(int(a.get("start") or 1), 1)
+        hi = min(lo - 1 + min(int(a.get("lines") or 200), 400), len(lines))
+        return (f"[lines {lo}-{hi} of {len(lines)}]\n" + "\n".join(lines[lo - 1:hi]))[:6000]
     if name == "grep":
         pat, pre = str(a.get("pattern", "")), str(a.get("prefix", "keps/" if repo == ENH else "sigs.yaml"))
         files = [f for f in git("ls-tree", "-r", "--name-only", rev).splitlines() if f.startswith(pre) and (f.endswith("kep.yaml") or f == "sigs.yaml")]
         out = []
+        ctx = min(int(a.get("context") or 0), 60)
         for f in files:
-            for i, line in enumerate(git("cat-file", "-p", f"{rev}:{f}").splitlines()):
+            body = git("cat-file", "-p", f"{rev}:{f}").splitlines()
+            for i, line in enumerate(body):
                 if re.search(pat, line, re.I):
                     out.append(f"{f}:{i + 1}: {line.strip()}")
-            if len(out) > 80:
+                    out += [f"{f}:{j + 1}- {body[j].rstrip()}" for j in range(i + 1, min(i + 1 + ctx, len(body)))]
+            if len(out) > 80 + ctx:
                 break
-        return "\n".join(out[:80]) or "no match"
+        return "\n".join(out[:80 + ctx])[:6000] or "no match"
     if name == "git_log":  # fairness fix (register, 12:05 UTC): dates reach the whole history, not just the 40 newest commits
         when = [f"--before={a['before']}T23:59:59"] if a.get("before") else []
         when += [f"--after={a['after']}"] if a.get("after") else []
@@ -283,8 +292,8 @@ def file_run(name: str, a: dict):
 
 
 FILE_DOC = """- list_files(repo, prefix): file paths under a prefix; repo is "enhancements" (kubernetes/enhancements) or "community" (kubernetes/community)
-- read_file(repo, path, rev): a file's text at a commit (rev defaults to the latest)
-- grep(repo, pattern, prefix): lines matching a regex in kep.yaml files under a prefix (enhancements) or in sigs.yaml (community)
+- read_file(repo, path, rev, start, lines): a file's text at a commit (rev defaults to the latest), lines start..start+lines (default 1 and 200, at most 400)
+- grep(repo, pattern, prefix, rev, context): lines matching a regex in kep.yaml files under a prefix (enhancements) or in sigs.yaml (community), at a commit (rev defaults to the latest), each with up to `context` following lines (at most 60)
 - git_log(repo, path, before, after, n): the commits that changed a path, newest first (hash, date, subject); before / after are YYYY-MM-DD and optional, n at most 100 (default 40). Pass a hash as rev to read_file or grep to see the file at that commit"""
 
 
