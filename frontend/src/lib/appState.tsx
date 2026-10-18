@@ -5,8 +5,12 @@ import { createContext, useCallback, useContext, useMemo, useState, type ReactNo
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { setGraph } from "./api";
 
+/** The graph /app opens on when the URL names none: NEXT_PUBLIC_DEFAULT_GRAPH at build time (the hosted app opens on the
+ *  Kubernetes KEPs), else the server's tenant. Larkspur stays one click away in the Graph menu, or ?graph=larkspur. */
+export const DEFAULT_GRAPH = process.env.NEXT_PUBLIC_DEFAULT_GRAPH || null;
+
 interface AppState {
-  graph: string | null;           // null = the demo company (the server's tenant)
+  graph: string | null;           // null = the server's tenant (the demo company)
   setGraphName: (g: string | null) => void;
   asOf: string | null;            // null = today
   depth: number;                  // 1..4 in the UI (the API accepts up to 6; the gate always uses 6)
@@ -27,7 +31,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   const asOf = sp.get("as_of");
   const depth = Math.max(1, Math.min(6, Number(sp.get("depth") ?? 4) || 4));
   const selected = sp.get("d");
-  const graph = sp.get("graph");
+  const graph = sp.get("graph") ?? DEFAULT_GRAPH;
   setGraph(graph);  // before any child effect fetches
 
   const update = useCallback((patch: Record<string, string | null>) => {

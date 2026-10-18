@@ -1,0 +1,5779 @@
+{
+ "nodes": [
+  {
+   "label": "Decision",
+   "id": "KEP-1205",
+   "props": {
+    "title": "KEP-1205: Bound Service Account Tokens",
+    "summary": "## Summary This KEP describes an API that would allow workloads running on Kubernetes to request JSON Web Tokens that are audience, time and eventually key bound. In addition, this KEP introduces a new mechanism of distribution with support for bound service account tokens and explores how to migrate from the existing mechanism backwards compatibly. ## Motivation We would like to introduce a new m",
+    "decided_on": "2019-08-06",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1205-bound-service-account-tokens",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, v1.22)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-1205",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-1205: Bound Service Account Tokens",
+    "date": "2019-08-06",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1205-bound-service-account-tokens",
+    "excerpt": "## Summary This KEP describes an API that would allow workloads running on Kubernetes to request JSON Web Tokens that are audience, time and eventually key bound. In addition, this KEP introduces a new mechanism of distribution with support for bound service account tokens and explores how to migrate from the existing mechanism backwards compatibly. ## Motivation We would like to introduce a new m"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_mikedanese",
+   "props": {
+    "name": "Mike Danese",
+    "role": "SIG tech lead",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_zshihang",
+   "props": {
+    "name": "zshihang",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_dan",
+   "props": {
+    "name": "dan",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_ritikaa96",
+   "props": {
+    "name": "ritikaa96",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_jordan",
+   "props": {
+    "name": "jordan",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_shihang",
+   "props": {
+    "name": "shihang",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_kubernetes",
+   "props": {
+    "name": "kubernetes",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_wojtekt",
+   "props": {
+    "name": "wojtekt",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "System",
+   "id": "sys_sig-auth",
+   "props": {
+    "name": "SIG Auth"
+   }
+  },
+  {
+   "label": "System",
+   "id": "sys_sig-storage",
+   "props": {
+    "name": "SIG Storage"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-1314",
+   "props": {
+    "title": "KEP-1314: Extended NodeRestrictions for Pods",
+    "summary": "## Summary Extend the [NodeRestriction][] admission controller to add further limitations on a node's effect on pods: 1. Restrict labels to per-namespace whitelisted keys 2. Prevent nodes from modifying labels through a `pod/status` update. 3. Restrict mirror pod OwnerReferences to only allow a node reference. ## Motivation The [Node Authorizer][] and associated [NodeRestriction][] controllers int",
+    "decided_on": "2019-09-16",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1314-node-restriction-pods",
+    "repo": "kubernetes/enhancements",
+    "status": "implementable (alpha, 1.17)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-1314",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-1314: Extended NodeRestrictions for Pods",
+    "date": "2019-09-16",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1314-node-restriction-pods",
+    "excerpt": "## Summary Extend the [NodeRestriction][] admission controller to add further limitations on a node's effect on pods: 1. Restrict labels to per-namespace whitelisted keys 2. Prevent nodes from modifying labels through a `pod/status` update. 3. Restrict mirror pod OwnerReferences to only allow a node reference. ## Motivation The [Node Authorizer][] and associated [NodeRestriction][] controllers int"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_tallclair",
+   "props": {
+    "name": "Tim Allclair",
+    "role": "SIG chair",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_elana",
+   "props": {
+    "name": "elana",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "System",
+   "id": "sys_sig-node",
+   "props": {
+    "name": "SIG Node"
+   }
+  },
+  {
+   "label": "System",
+   "id": "sys_sig-cluster-lifecycle",
+   "props": {
+    "name": "SIG Cluster Lifecycle"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-1393",
+   "props": {
+    "title": "KEP-1393: Service Account signing key retrieval",
+    "summary": "## Summary The Kubernetes API server generates (signs) JSON Web Tokens that are meant to authenticate Kubernetes service accounts (KSA). The API server can indeed authenticate these tokens, but in general, no other system can: there is no standard way to get the public portion of the keypair used to sign KSA tokens. Systems (\"relying parties\") that want to authenticate KSA tokens must either send ",
+    "decided_on": "2018-06-26",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1393-oidc-discovery",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, v1.21)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-1393",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-1393: Service Account signing key retrieval",
+    "date": "2018-06-26",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1393-oidc-discovery",
+    "excerpt": "## Summary The Kubernetes API server generates (signs) JSON Web Tokens that are meant to authenticate Kubernetes service accounts (KSA). The API server can indeed authenticate these tokens, but in general, no other system can: there is no standard way to get the public portion of the keypair used to sign KSA tokens. Systems (\"relying parties\") that want to authenticate KSA tokens must either send "
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_cceckman",
+   "props": {
+    "name": "cceckman",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_mtaufen",
+   "props": {
+    "name": "mtaufen",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_abhigya",
+   "props": {
+    "name": "abhigya",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_wojciech",
+   "props": {
+    "name": "wojciech",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_michael",
+   "props": {
+    "name": "michael",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-1513",
+   "props": {
+    "title": "KEP-1513: Certificates API",
+    "summary": "## Summary The Certificates API enables automation of [x509](https://tools.ietf.org/html/rfc5280) credential provisioning by providing a programmatic interface for clients of the Kubernetes API to request and obtain x509 certificates from a Certificate Authority (CA). ## Motivation The security of the Kubernetes platform is underpinned by a public key infrastructure (PKI). Each Kubernetes cluster ",
+    "decided_on": "2019-06-07",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1513-certificate-signing-request",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, 0.0)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-1513",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-1513: Certificates API",
+    "date": "2019-06-07",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1513-certificate-signing-request",
+    "excerpt": "## Summary The Certificates API enables automation of [x509](https://tools.ietf.org/html/rfc5280) credential provisioning by providing a programmatic interface for clients of the Kubernetes API to request and obtain x509 certificates from a Certificate Authority (CA). ## Motivation The security of the Kubernetes platform is underpinned by a public key infrastructure (PKI). Each Kubernetes cluster "
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_deads2k",
+   "props": {
+    "name": "David Eads",
+    "role": "SIG tech lead",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_aaron",
+   "props": {
+    "name": "aaron",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_david",
+   "props": {
+    "name": "david",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-1687",
+   "props": {
+    "title": "KEP-1687: Hierarchical Namespace Controller As A Subproject",
+    "summary": "## Summary [Hierarchical Namespace Controller](https://github.com/kubernetes-sigs/multi-tenancy/tree/master/incubator/hnc) makes it easier for you to create and manage namespaces in your cluster. For example, you can create a hierarchical namespace under your team's namespace, even if you don't have cluster-level permission to create namespaces, and easily apply policies like RBAC and Network Poli",
+    "decided_on": "2020-04-14",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1687-hierarchical-namespaces-subproject",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, 0.0)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-1687",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-1687: Hierarchical Namespace Controller As A Subproject",
+    "date": "2020-04-14",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1687-hierarchical-namespaces-subproject",
+    "excerpt": "## Summary [Hierarchical Namespace Controller](https://github.com/kubernetes-sigs/multi-tenancy/tree/master/incubator/hnc) makes it easier for you to create and manage namespaces in your cluster. For example, you can create a hierarchical namespace under your team's namespace, even if you don't have cluster-level permission to create namespaces, and easily apply policies like RBAC and Network Poli"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_rjbez17",
+   "props": {
+    "name": "rjbez17",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_adrianludwin",
+   "props": {
+    "name": "adrianludwin",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_ryan",
+   "props": {
+    "name": "ryan",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-266",
+   "props": {
+    "title": "KEP-266: Kubelet client certificate bootstrap and rotation",
+    "summary": "## Summary Currently, a kubelet has a certificate/key pair that authenticates the kubelet to the kube-apiserver. The certificate is supplied to the kubelet when it is first booted, via an out of cluster mechanism. This proposal covers a process for obtaining the initial cert/key pair and rotating it as expiration of the certificate approaches. ### Goals 1. Enable exchange of a short-lived credenti",
+    "decided_on": "2017-06-27",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/266-kubelet-client-certificate-bootstrap-rotation",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, v1.19)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-266",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-266: Kubelet client certificate bootstrap and rotation",
+    "date": "2017-06-27",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/266-kubelet-client-certificate-bootstrap-rotation",
+    "excerpt": "## Summary Currently, a kubelet has a certificate/key pair that authenticates the kubelet to the kube-apiserver. The certificate is supplied to the kubelet when it is first booted, via an out of cluster mechanism. This proposal covers a process for obtaining the initial cert/key pair and rotating it as expiration of the certificate approaches. ### Goals 1. Enable exchange of a short-lived credenti"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_jcbsmpsn",
+   "props": {
+    "name": "jcbsmpsn",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_liggitt",
+   "props": {
+    "name": "Jordan Liggitt",
+    "role": "SIG tech lead",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-2718",
+   "props": {
+    "title": "KEP-2718: Client Executable Proxy",
+    "summary": "## Summary <!-- This section is incredibly important for producing high-quality, user-focused documentation such as release notes or a development roadmap. It should be possible to collect this information before implementation begins, in order to avoid requiring implementors to split their attention between writing release notes and implementing the feature itself. KEP editors and SIG Docs should",
+    "decided_on": "2021-05-11",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2718-20210511-client-exec-proxy",
+    "repo": "kubernetes/enhancements",
+    "status": "withdrawn (alpha, v1.27)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-2718",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-2718: Client Executable Proxy",
+    "date": "2021-05-11",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2718-20210511-client-exec-proxy",
+    "excerpt": "## Summary <!-- This section is incredibly important for producing high-quality, user-focused documentation such as release notes or a development roadmap. It should be possible to collect this information before implementation begins, in order to avoid requiring implementors to split their attention between writing release notes and implementing the feature itself. KEP editors and SIG Docs should"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_nckturner",
+   "props": {
+    "name": "nckturner",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_mo",
+   "props": {
+    "name": "mo",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_sergey",
+   "props": {
+    "name": "sergey",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_nick",
+   "props": {
+    "name": "nick",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "System",
+   "id": "sys_sig-cli",
+   "props": {
+    "name": "SIG CLI"
+   }
+  },
+  {
+   "label": "System",
+   "id": "sys_sig-api-machinery",
+   "props": {
+    "name": "SIG API Machinery"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-2784",
+   "props": {
+    "title": "KEP-2784: CSR Duration",
+    "summary": "## Summary Extend the Certificates API with a mechanism to allow clients to request a specific duration for the issued certificate. ## Motivation Certificates issued through the certificate signing requests API are not revocable today. Furthermore, clients lack a way to control the duration of the issued certificate. Certificate approvers may have trust distinctions for different clients. For exam",
+    "decided_on": "2021-06-17",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2784-csr-duration",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, v1.24)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-2784",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-2784: CSR Duration",
+    "date": "2021-06-17",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2784-csr-duration",
+    "excerpt": "## Summary Extend the Certificates API with a mechanism to allow clients to request a specific duration for the issued certificate. ## Motivation Certificates issued through the certificate signing requests API are not revocable today. Furthermore, clients lack a way to control the duration of the issued certificate. Certificate approvers may have trust distinctions for different clients. For exam"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_enj",
+   "props": {
+    "name": "Mo Khan",
+    "role": "SIG tech lead",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_monis",
+   "props": {
+    "name": "monis",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-279",
+   "props": {
+    "title": "KEP-279: Bounding Self-Labeling Kubelets",
+    "summary": "## Motivation Today the node client has total authority over its own Node labels. This ability is incredibly useful for the node auto-registration flow. The kubelet reports a set of well-known labels, as well as additional labels specified on the command line with `--node-labels`. While this distributed method of registration is convenient and expedient, it has two problems that a centralized appr",
+    "decided_on": "2017-08-14",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/279-limit-node-access",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, 0.0)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-279",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-279: Bounding Self-Labeling Kubelets",
+    "date": "2017-08-14",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/279-limit-node-access",
+    "excerpt": "## Motivation Today the node client has total authority over its own Node labels. This ability is incredibly useful for the node auto-registration flow. The kubelet reports a set of well-known labels, as well as additional labels specified on the command line with `--node-labels`. While this distributed method of registration is convenient and expedient, it has two problems that a centralized appr"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-2799",
+   "props": {
+    "title": "KEP-2799: Reduction of Secret-based Service Account Tokens",
+    "summary": "## Summary This KEP proposes actions to reduce the surface area of secret-based service account tokens. ## Motivation As BoundServiceAccountTokenVolume is GA in 1.22, pods\u2019 service account tokens would be obtained via TokenRequest API and stored as projected volume. This change obviates the need for auto-generation of secret-based service account tokens which are [less secure than the bound token]",
+    "decided_on": "2021-06-25",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2799-reduction-of-secret-based-service-account-token",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, v1.30)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-2799",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-2799: Reduction of Secret-based Service Account Tokens",
+    "date": "2021-06-25",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2799-reduction-of-secret-based-service-account-token",
+    "excerpt": "## Summary This KEP proposes actions to reduce the surface area of secret-based service account tokens. ## Motivation As BoundServiceAccountTokenVolume is GA in 1.22, pods\u2019 service account tokens would be obtained via TokenRequest API and stored as projected volume. This change obviates the need for auto-generation of secret-based service account tokens which are [less secure than the bound token]"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_yt2985",
+   "props": {
+    "name": "yt2985",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_tinatingyu",
+   "props": {
+    "name": "tinatingyu",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-2907",
+   "props": {
+    "title": "KEP-2907: Secrets Store CSI Driver",
+    "summary": "## Summary The [secrets-store-csi-driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) project provides a portable method for applications to consume secrets from external secret APIs through the filesystem. This effort was added to the `sig-auth` subproject in February 2020 and currently there are providers for Azure, AWS, GCP, and HashiCorp Vault. All the providers for the driver",
+    "decided_on": "2021-09-02",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2907-secrets-store-csi-driver",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, v1.19)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-2907",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-2907: Secrets Store CSI Driver",
+    "date": "2021-09-02",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2907-secrets-store-csi-driver",
+    "excerpt": "## Summary The [secrets-store-csi-driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) project provides a portable method for applications to consume secrets from external secret APIs through the filesystem. This effort was added to the `sig-auth` subproject in February 2020 and currently there are providers for Azure, AWS, GCP, and HashiCorp Vault. All the providers for the driver"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_tam7t",
+   "props": {
+    "name": "tam7t",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_aramase",
+   "props": {
+    "name": "Anish Ramasekar",
+    "role": "SIG chair",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_tommy",
+   "props": {
+    "name": "tommy",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_anish",
+   "props": {
+    "name": "anish",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-3130",
+   "props": {
+    "title": "KEP-3130: KMS Observability",
+    "summary": "## Summary Currently, it is not possible to correlate (in logs) the sequence of calls that are involved in the enveloping operation: kube-apiserver->kms-plugin->KMS. This KEP proposes extending the signature of the kms-plugin interface to include the transaction ID (to be generated by the kube-apiserver), which kms-plugin could pass to KMS. ## Motivation The only way to correlate a successful/fail",
+    "decided_on": "2022-01-12",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3130-kms-observability",
+    "repo": "kubernetes/enhancements",
+    "status": "replaced (alpha, v1.24)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-3130",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-3130: KMS Observability",
+    "date": "2022-01-12",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3130-kms-observability",
+    "excerpt": "## Summary Currently, it is not possible to correlate (in logs) the sequence of calls that are involved in the enveloping operation: kube-apiserver->kms-plugin->KMS. This KEP proposes extending the signature of the kms-plugin interface to include the transaction ID (to be generated by the kube-apiserver), which kms-plugin could pass to KMS. ## Motivation The only way to correlate a successful/fail"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_rita",
+   "props": {
+    "name": "rita",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "status:KEP-3130",
+   "props": {
+    "kind": "adr",
+    "title": "3299-kms-v2-improvements",
+    "date": "2022-05-09",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3130-kms-observability",
+    "excerpt": "status: replaced"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-3221",
+   "props": {
+    "title": "KEP-3221: Structured Authorization Configuration",
+    "summary": "## Summary Today, `kube-apiserver` allows one to configure the authorization chain using a set of command line flags of the format `--authorization-*`. And cluster administrators can only enable one webhook as a part of the authorization chain using the `--authorization-modes` flag. This limits admins from creating authorization chains with multiple webhooks that validate requests in a certain ord",
+    "decided_on": "2022-06-21",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3221-structured-authorization-configuration",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, v1.32)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-3221",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-3221: Structured Authorization Configuration",
+    "date": "2022-06-21",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3221-structured-authorization-configuration",
+    "excerpt": "## Summary Today, `kube-apiserver` allows one to configure the authorization chain using a set of command line flags of the format `--authorization-*`. And cluster administrators can only enable one webhook as a part of the authorization chain using the `--authorization-modes` flag. This limits admins from creating authorization chains with multiple webhooks that validate requests in a certain ord"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_100mik",
+   "props": {
+    "name": "100mik",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_palnabarun",
+   "props": {
+    "name": "palnabarun",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_ritazh",
+   "props": {
+    "name": "Rita Zhang",
+    "role": "SIG chair",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_nabarun",
+   "props": {
+    "name": "nabarun",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-3257",
+   "props": {
+    "title": "KEP-3257: Cluster Trust Bundles",
+    "summary": "## Summary Today, the certificates.k8s.io API group provides a flexible, pluggable mechanism for workloads running within the cluster to request certificates. However, certificates only have meaning in relation to a trust anchor set. Most signers in a Kubernetes cluster don't issue publicly-trusted certificates, but Kubernetes lacks a standardized mechanism for signers to distribute their trust an",
+    "decided_on": "2022-02-16",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3257-cluster-trust-bundles",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, v1.37)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-3257",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-3257: Cluster Trust Bundles",
+    "date": "2022-02-16",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3257-cluster-trust-bundles",
+    "excerpt": "## Summary Today, the certificates.k8s.io API group provides a flexible, pluggable mechanism for workloads running within the cluster to request certificates. However, certificates only have meaning in relation to a trust anchor set. Most signers in a Kubernetes cluster don't issue publicly-trusted certificates, but Kubernetes lacks a standardized mechanism for signers to distribute their trust an"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_ahmedtd",
+   "props": {
+    "name": "ahmedtd",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_stanislav",
+   "props": {
+    "name": "stanislav",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_daniel",
+   "props": {
+    "name": "daniel",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_taahir",
+   "props": {
+    "name": "taahir",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-3299",
+   "props": {
+    "title": "KEP-3299: KMS v2 Improvements",
+    "summary": "## Summary This KEP proposes the new v2 `KeyManagementService` service contract to: - enable partially automated key rotation for the latest key without API server restarts - improve KMS plugin health check reliability - improve observability of envelop operations between kube-apiserver, KMS plugins and KMS ## Motivation **Performance**: Today, when the kube-apiserver is restarted in a cluster and",
+    "decided_on": "2022-05-09",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3299-kms-v2-improvements",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, v1.29)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-3299",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-3299: KMS v2 Improvements",
+    "date": "2022-05-09",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3299-kms-v2-improvements",
+    "excerpt": "## Summary This KEP proposes the new v2 `KeyManagementService` service contract to: - enable partially automated key rotation for the latest key without API server restarts - improve KMS plugin health check reliability - improve observability of envelop operations between kube-apiserver, KMS plugins and KMS ## Motivation **Performance**: Today, when the kube-apiserver is restarted in a cluster and"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-3331",
+   "props": {
+    "title": "KEP-3331: Structured authentication config",
+    "summary": "## Summary This enhancement proposal covers adding structured authentication configuration to the Kubernetes API server. Initially, only a `jwt` configuration will be supported, which will serve as the next iteration of the existing OIDC authenticator. OIDC authentication is an important part of Kubernetes, yet it has limitations in its current state. Below we will discuss that limitation and prop",
+    "decided_on": "2022-06-02",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3331-structured-authentication-configuration",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, v1.35)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-3331",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-3331: Structured authentication config",
+    "date": "2022-06-02",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3331-structured-authentication-configuration",
+    "excerpt": "## Summary This enhancement proposal covers adding structured authentication configuration to the Kubernetes API server. Initially, only a `jwt` configuration will be supported, which will serve as the next iteration of the existing OIDC authenticator. OIDC authentication is an important part of Kubernetes, yet it has limitations in its current state. Below we will discuss that limitation and prop"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_nabokihms",
+   "props": {
+    "name": "nabokihms",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_benjamin",
+   "props": {
+    "name": "benjamin",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-3926",
+   "props": {
+    "title": "KEP-3926: Handling undecryptable resources",
+    "summary": "## Summary <!-- This section is incredibly important for producing high-quality, user-focused documentation such as release notes or a development roadmap. It should be possible to collect this information before implementation begins, in order to avoid requiring implementors to split their attention between writing release notes and implementing the feature itself. KEP editors and SIG Docs should",
+    "decided_on": "2023-03-27",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3926-handling-undecryptable-resources",
+    "repo": "kubernetes/enhancements",
+    "status": "implementable (beta, v1.37)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-3926",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-3926: Handling undecryptable resources",
+    "date": "2023-03-27",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3926-handling-undecryptable-resources",
+    "excerpt": "## Summary <!-- This section is incredibly important for producing high-quality, user-focused documentation such as release notes or a development roadmap. It should be possible to collect this information before implementation begins, in order to avoid requiring implementors to split their attention between writing release notes and implementing the feature itself. KEP editors and SIG Docs should"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_stlaz",
+   "props": {
+    "name": "stlaz",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_ibihim",
+   "props": {
+    "name": "ibihim",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_krzysztof",
+   "props": {
+    "name": "krzysztof",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_abu",
+   "props": {
+    "name": "abu",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-4193",
+   "props": {
+    "title": "KEP-4193: bound service account token improvements",
+    "summary": "## Summary Token projection and alternative audiences on JWTs issued by the apiserver enable an external entity to validate the identity and certain properties (e.g. associated ServiceAccount or Pod) of the caller. When attempting to verify a token associated with a Pod, it is not possible to verify that the Pod is associated with a specific Node without `get`ing the relevant Pod object (embedded ",
+    "decided_on": "2023-08-02",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4193-bound-service-account-token-improvements",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, v1.33)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-4193",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-4193: bound service account token improvements",
+    "date": "2023-08-02",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4193-bound-service-account-token-improvements",
+    "excerpt": "## Summary Token projection and alternative audiences on JWTs issued by the apiserver enable an external entity to validate the identity and certain properties (e.g. associated ServiceAccount or Pod) of the caller. When attempting to verify a token associated with a Pod, it is not possible to verify that the Pod is associated with a specific Node without `get`ing the relevant Pod object (embedded "
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_munnerz",
+   "props": {
+    "name": "munnerz",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_james",
+   "props": {
+    "name": "james",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-4317",
+   "props": {
+    "title": "KEP-4317: Pod Certificates",
+    "summary": "## Summary and Motivation The certificates.k8s.io API group provides a flexible, pluggable mechanism to request X.509 certificates within a Kubernetes cluster, but actually making certificates available to your workloads is left as an exercise for the reader. This KEP defines two pieces of fundamental machinery: * A PodCertificateRequest API type, analogous to CertificateSigningRequest but narrowl",
+    "decided_on": "2023-10-29",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4317-pod-certificates",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, v1.37)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-4317",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-4317: Pod Certificates",
+    "date": "2023-10-29",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4317-pod-certificates",
+    "excerpt": "## Summary and Motivation The certificates.k8s.io API group provides a flexible, pluggable mechanism to request X.509 certificates within a Kubernetes cluster, but actually making certificates available to your workloads is left as an exercise for the reader. This KEP defines two pieces of fundamental machinery: * A PodCertificateRequest API type, analogous to CertificateSigningRequest but narrowl"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-4412",
+   "props": {
+    "title": "KEP-4412: Projected Service Account Tokens for Kubelet Image Credential Providers",
+    "summary": "## Summary <!-- This section is incredibly important for producing high-quality, user-focused documentation such as release notes or a development roadmap. It should be possible to collect this information before implementation begins, in order to avoid requiring implementors to split their attention between writing release notes and implementing the feature itself. KEP editors and SIG Docs should",
+    "decided_on": "2024-09-09",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4412-projected-service-account-tokens-for-kubelet-image-credential-providers",
+    "repo": "kubernetes/enhancements",
+    "status": "implementable (stable, v1.38)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-4412",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-4412: Projected Service Account Tokens for Kubelet Image Credential Providers",
+    "date": "2024-09-09",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4412-projected-service-account-tokens-for-kubelet-image-credential-providers",
+    "excerpt": "## Summary <!-- This section is incredibly important for producing high-quality, user-focused documentation such as release notes or a development roadmap. It should be possible to collect this information before implementation begins, in order to avoid requiring implementors to split their attention between writing release notes and implementing the feature itself. KEP editors and SIG Docs should"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_mainred",
+   "props": {
+    "name": "mainred",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-4601",
+   "props": {
+    "title": "KEP-4601: Authorize with Selectors",
+    "summary": "## Summary The authorization attributes will be extended to include field selectors and label selectors from List, Watch, and DeleteCollection. This will allow authorizers to use these selectors when making an authorization decision. ## Motivation Security for per-node workloads could be improved by exposing field and label selectors to authorizers. Adding them as authorization attributes allows t",
+    "decided_on": "2024-04-26",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4601-authorize-with-selectors",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, v1.34)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-4601",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-4601: Authorize with Selectors",
+    "date": "2024-04-26",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4601-authorize-with-selectors",
+    "excerpt": "## Summary The authorization attributes will be extended to include field selectors and label selectors from List, Watch, and DeleteCollection. This will allow authorizers to use these selectors when making an authorization decision. ## Motivation Security for per-node workloads could be improved by exposing field and label selectors to authorizers. Adding them as authorization attributes allows t"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-4633",
+   "props": {
+    "title": "KEP-4633: Only allow anonymous auth for configured endpoints",
+    "summary": "## Summary <!-- This section is incredibly important for producing high-quality, user-focused documentation such as release notes or a development roadmap. It should be possible to collect this information before implementation begins, in order to avoid requiring implementors to split their attention between writing release notes and implementing the feature itself. KEP editors and SIG Docs should",
+    "decided_on": "2024-05-13",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4633-anonymous-auth-configurable-endpoints",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, v1.34)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-4633",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-4633: Only allow anonymous auth for configured endpoints",
+    "date": "2024-05-13",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4633-anonymous-auth-configurable-endpoints",
+    "excerpt": "## Summary <!-- This section is incredibly important for producing high-quality, user-focused documentation such as release notes or a development roadmap. It should be possible to collect this information before implementation begins, in order to avoid requiring implementors to split their attention between writing release notes and implementing the feature itself. KEP editors and SIG Docs should"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_vinayakankugoyal",
+   "props": {
+    "name": "vinayakankugoyal",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_vinayak",
+   "props": {
+    "name": "vinayak",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-4872",
+   "props": {
+    "title": "KEP-4872: Harden Kubelet Serving Certificate Validation in Kube-API server",
+    "summary": "## Summary This proposal aims to enhance the security of the Kube API server by validating the Common Name (CN) of the kubelet's serving certificate to ensure it matches the expected node name. This validation prevents a compromised node that has obtained a certificate for an IP address it does not own from using it to impersonate another node. ## Motivation In cloud environments, IPs can change r",
+    "decided_on": "2024-09-24",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4872-harden-kubelet-cert-validation",
+    "repo": "kubernetes/enhancements",
+    "status": "implementable (alpha, 1.37)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-4872",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-4872: Harden Kubelet Serving Certificate Validation in Kube-API server",
+    "date": "2024-09-24",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4872-harden-kubelet-cert-validation",
+    "excerpt": "## Summary This proposal aims to enhance the security of the Kube API server by validating the Common Name (CN) of the kubelet's serving certificate to ensure it matches the expected node name. This validation prevents a compromised node that has obtained a certificate for an IP address it does not own from using it to impersonate another node. ## Motivation In cloud environments, IPs can change r"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_g-gaston",
+   "props": {
+    "name": "g-gaston",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_guillermo",
+   "props": {
+    "name": "guillermo",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-4940",
+   "props": {
+    "title": "KEP-4940: KEP Template",
+    "summary": "## Summary We have a `Host` field that can be set from `TCPSocketAction` and `HTTPGetAction` fields which are part of the `ProbeHandler` and `LifecycleHandler` structs in Kubernetes that are used in `InitContainers` and `Containers` structs of `PodSpec`. The `Host` field is used for allowing users to specify another entity other than the podIP (which is the default value) to which Kubelet should p",
+    "decided_on": "2024-10-31",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4940-psa-block-host-field-in-probes",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, v1.34)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-4940",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-4940: KEP Template",
+    "date": "2024-10-31",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4940-psa-block-host-field-in-probes",
+    "excerpt": "## Summary We have a `Host` field that can be set from `TCPSocketAction` and `HTTPGetAction` fields which are part of the `ProbeHandler` and `LifecycleHandler` structs in Kubernetes that are used in `InitContainers` and `Containers` structs of `PodSpec`. The `Host` field is used for allowing users to specify another entity other than the podIP (which is the default value) to which Kubelet should p"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_tssurya",
+   "props": {
+    "name": "tssurya",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_surya",
+   "props": {
+    "name": "surya",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "System",
+   "id": "sys_sig-network",
+   "props": {
+    "name": "SIG Network"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-541",
+   "props": {
+    "title": "KEP-541: External credential providers",
+    "summary": "## Summary External credential providers allow out-of-tree implementation of obtaining client authentication credentials. These providers handle environment-specific provisioning of credentials (such as bearer tokens or TLS client certificates) and expose them to the client. ## Motivation Client authentication credentials for Kubernetes clients are usually specified as fields in `kubeconfig` files",
+    "decided_on": "2019-07-11",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/541-external-credential-providers",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, v1.22)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-541",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-541: External credential providers",
+    "date": "2019-07-11",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/541-external-credential-providers",
+    "excerpt": "## Summary External credential providers allow out-of-tree implementation of obtaining client authentication credentials. These providers handle environment-specific provisioning of credentials (such as bearer tokens or TLS client certificates) and expose them to the client. ## Motivation Client authentication credentials for Kubernetes clients are usually specified as fields in `kubeconfig` files"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_awly",
+   "props": {
+    "name": "awly",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_andrew",
+   "props": {
+    "name": "andrew",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-5681",
+   "props": {
+    "title": "KEP-5681: Conditional Authorization",
+    "summary": "### Goals - Provide a way for an authorizer (and by extension, policy author) to only authorize certain write[^2] operations, when the payload or stored object satisfies some specific conditions - Let users discover what conditions they are subject to through `(Self)SubjectAccessReview` - Initially support enforcement of write and connect requests in the `k8s.io/apiserver` `WithAuthorization` HTTP",
+    "decided_on": "2025-11-05",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/5681-conditional-authorization",
+    "repo": "kubernetes/enhancements",
+    "status": "implementable (alpha, v1.38)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-5681",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-5681: Conditional Authorization",
+    "date": "2025-11-05",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/5681-conditional-authorization",
+    "excerpt": "### Goals - Provide a way for an authorizer (and by extension, policy author) to only authorize certain write[^2] operations, when the payload or stored object satisfies some specific conditions - Let users discover what conditions they are subject to through `(Self)SubjectAccessReview` - Initially support enforcement of write and connect requests in the `k8s.io/apiserver` `WithAuthorization` HTTP"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_luxas",
+   "props": {
+    "name": "luxas",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_micahhausler",
+   "props": {
+    "name": "Micah Hausler",
+    "role": "SIG chair",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_lucas",
+   "props": {
+    "name": "lucas",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_micah",
+   "props": {
+    "name": "micah",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-600",
+   "props": {
+    "title": "KEP-600: Dynamic Audit Configuration",
+    "summary": "## Summary We want to allow the advanced auditing features to be dynamically configured. Following in the same vein as [Dynamic Admission Control](https://kubernetes.io/docs/admin/extensible-admission-controllers/) we would like to provide a means of configuring the auditing features post cluster provisioning. ## Motivation The advanced auditing features are a powerful tool, yet difficult to confi",
+    "decided_on": "2018-05-18",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/600-dynamic-audit-configuration",
+    "repo": "kubernetes/enhancements",
+    "status": "withdrawn (, )"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-600",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-600: Dynamic Audit Configuration",
+    "date": "2018-05-18",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/600-dynamic-audit-configuration",
+    "excerpt": "## Summary We want to allow the advanced auditing features to be dynamically configured. Following in the same vein as [Dynamic Admission Control](https://kubernetes.io/docs/admin/extensible-admission-controllers/) we would like to provide a means of configuring the auditing features post cluster provisioning. ## Motivation The advanced auditing features are a powerful tool, yet difficult to confi"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_pbarker",
+   "props": {
+    "name": "pbarker",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:2672",
+   "props": {
+    "kind": "pr",
+    "title": "Make PRR metadata required (#2672)",
+    "date": "2021-05-05",
+    "path": "https://github.com/kubernetes/enhancements/pull/2672",
+    "excerpt": "status: withdrawn"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-6283",
+   "props": {
+    "title": "KEP-6283: Leveraging certificate APIs in the platform",
+    "summary": "## Summary Two KEPs that significantly improve Kubernetes ability to work with X.509 certificates went stable in Kube 1.37 - 3257-ClusterTrustBundles and 4317-PodCertificates. They lay out the APIs and implement the backing logic, but don't directly make use of these. In this KEP, we will make use of the principles these APIs brought. ## Motivation We introduced mechanisms that are supposed to sim",
+    "decided_on": "2026-08-18",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/6283-leveraging-certificate-apis-in-platform",
+    "repo": "kubernetes/enhancements",
+    "status": "implementable (alpha, v1.38)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-6283",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-6283: Leveraging certificate APIs in the platform",
+    "date": "2026-08-18",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/6283-leveraging-certificate-apis-in-platform",
+    "excerpt": "## Summary Two KEPs that significantly improve Kubernetes ability to work with X.509 certificates went stable in Kube 1.37 - 3257-ClusterTrustBundles and 4317-PodCertificates. They lay out the APIs and implement the backing logic, but don't directly make use of these. In this KEP, we will make use of the principles these APIs brought. ## Motivation We introduced mechanisms that are supposed to sim"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-740",
+   "props": {
+    "title": "KEP-740: Support external signing of service account tokens",
+    "summary": "## Summary Service account keys are used by kube-apiserver for JWT signing and authentication. Keys are stored on the disk and are loaded by kube-apiserver during process start time. Key management for service account keys is entirely within the cluster and is less flexible in that the signing keys remain the same for the lifetime of the process. This KEP proposes updates that will allow Kubernete",
+    "decided_on": "2019-01-16",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/740-service-account-external-signing",
+    "repo": "kubernetes/enhancements",
+    "status": "implementable (stable, v1.36)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-740",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-740: Support external signing of service account tokens",
+    "date": "2019-01-16",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/740-service-account-external-signing",
+    "excerpt": "## Summary Service account keys are used by kube-apiserver for JWT signing and authentication. Keys are stored on the disk and are loaded by kube-apiserver during process start time. Key management for service account keys is entirely within the cluster and is less flexible in that the signing keys remain the same for the lifetime of the process. This KEP proposes updates that will allow Kubernete"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_harshaln",
+   "props": {
+    "name": "harshaln",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_harshal",
+   "props": {
+    "name": "harshal",
+    "role": "contributor",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "KEP-789",
+   "props": {
+    "title": "KEP-789: Harden Default RBAC Discovery ClusterRole(Binding)s",
+    "summary": "## Summary The aim of this change is to remove the `system:unauthenticated` subjects from the `system:discovery` and `system:basic-user` ClusterRoleBindings, while preserving unauthenticated access to a genuinely non-sensitive subset of the current APIs (e.g. `GET /healthz`, `GET /version`). This will improve the default privacy and security posture for new clusters. ## Motivation One of the work ",
+    "decided_on": "2019-01-28",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/789-harden-default-discover-bindings",
+    "repo": "kubernetes/enhancements",
+    "status": "implemented (stable, 0.0)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:KEP-789",
+   "props": {
+    "kind": "adr",
+    "title": "KEP-789: Harden Default RBAC Discovery ClusterRole(Binding)s",
+    "date": "2019-01-28",
+    "path": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/789-harden-default-discover-bindings",
+    "excerpt": "## Summary The aim of this change is to remove the `system:unauthenticated` subjects from the `system:discovery` and `system:basic-user` ClusterRoleBindings, while preserving unauthenticated access to a genuinely non-sensitive subset of the current APIs (e.g. `GET /healthz`, `GET /version`). This will improve the default privacy and security posture for new clusters. ## Motivation One of the work "
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_dekkagaijin",
+   "props": {
+    "name": "dekkagaijin",
+    "role": "KEP author",
+    "joined": "",
+    "left": ""
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-1205_1",
+   "props": {
+    "text": "The new mechanism must be compatible with current security and scalability requirements.",
+    "kind": "stated",
+    "quote": "We would like to introduce a new mechanism for provisioning Kubernetes service\naccount tokens that is compatible with our current security and scalability\nrequirements",
+    "section": "context",
+    "span": "400-567",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1205-bound-service-account-tokens",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-1205"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-1314_1",
+   "props": {
+    "text": "Other controllers in the cluster can be manipulated by a compromised node to perform confused deputy attacks.",
+    "kind": "stated",
+    "quote": "there are other controllers in the cluster interacting with pods on a node, and under some\ncircumstances those controllers can be manipulated to do attacker's will",
+    "section": "context",
+    "span": "757-920",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1314-node-restriction-pods",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-1314"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-1314_2",
+   "props": {
+    "text": "The Kubelet can update pod metadata, including labels and annotations, through the pod/status subresource.",
+    "kind": "stated",
+    "quote": "an update to pod/status can also update (some) of the\npod's metadata",
+    "section": "context",
+    "span": "1695-1763",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1314-node-restriction-pods",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-1314"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-1393_1",
+   "props": {
+    "text": "There is no standard way to get the public portion of the keypair used to sign KSA tokens.",
+    "kind": "stated",
+    "quote": "there is no standard way to\nget the public portion of the keypair used to sign KSA tokens",
+    "section": "other",
+    "span": "268-357",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1393-oidc-discovery",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-1393"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-1393_2",
+   "props": {
+    "text": "Relying parties must currently send tokens back to the API server for authentication.",
+    "kind": "stated",
+    "quote": "Systems (\"relying\nparties\") that want to authenticate KSA tokens must either send them back to the\nAPI server (via `TokenReview`) or use some provider-specific method to get the\nauthentication key",
+    "section": "other",
+    "span": "359-555",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1393-oidc-discovery",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-1393"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-1393_3",
+   "props": {
+    "text": "Obtaining trusted metadata allows relying parties to authenticate tokens without putting proportionate load on the API server.",
+    "kind": "stated",
+    "quote": "If a relying party could obtain trusted metadata about the service account token\nprovider, in particular the issuer (`iss`) value and the public key(s) used,\nthen the relying party could authenticate tokens without putting proportionate\nload on the API server",
+    "section": "other",
+    "span": "558-817",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1393-oidc-discovery",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-1393"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-1513_1",
+   "props": {
+    "text": "The security of the Kubernetes platform is underpinned by a public key infrastructure (PKI).",
+    "kind": "stated",
+    "quote": "The security of the Kubernetes platform is underpinned by a public key\ninfrastructure (PKI)",
+    "section": "context",
+    "span": "305-396",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1513-certificate-signing-request",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-1513"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-1513_2",
+   "props": {
+    "text": "Each Kubernetes cluster has a root certificate authority used to secure communication between cluster components.",
+    "kind": "stated",
+    "quote": "Each Kubernetes cluster has a root certificate authority.\nThis CA is used to secure communication between cluster components",
+    "section": "context",
+    "span": "398-522",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1513-certificate-signing-request",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-1513"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-1513_3",
+   "props": {
+    "text": "Users have begun to use this API to provision certificates for PKI needs out of core.",
+    "kind": "stated",
+    "quote": "users have also begun to use this API to provision certificates for PKI\nneeds out of core",
+    "section": "context",
+    "span": "766-855",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1513-certificate-signing-request",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-1513"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-1687_1",
+   "props": {
+    "text": "Working Groups are not meant to own code.",
+    "kind": "stated",
+    "quote": "As Working Groups\nare not meant to own code",
+    "section": "context",
+    "span": "854-897",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1687-hierarchical-namespaces-subproject",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-1687"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-1687_2",
+   "props": {
+    "text": "The Hierarchical Namespace Controller is nearly at MVP status.",
+    "kind": "stated",
+    "quote": "Hierarchical Namespace Controller is nearly to\nMVP status",
+    "section": "context",
+    "span": "903-960",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1687-hierarchical-namespaces-subproject",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-1687"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-1687_3",
+   "props": {
+    "text": "A permanent home is required for the project.",
+    "kind": "stated",
+    "quote": "a permant home is required",
+    "section": "context",
+    "span": "962-988",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1687-hierarchical-namespaces-subproject",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-1687"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-1687_4",
+   "props": {
+    "text": "Having a permanent home before release prevents cumbersome migrations of client libraries.",
+    "kind": "stated",
+    "quote": "having a permanent home\nfor Hierarchical Namespace Controller prior to officially releasing will prevent\ncumbersome migrations of client libraries if a move were to happen at a later time",
+    "section": "context",
+    "span": "1004-1191",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/1687-hierarchical-namespaces-subproject",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-1687"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-2718_1",
+   "props": {
+    "text": "Existing authentication mechanisms cannot satisfy the requirement to implement a Kubernetes client that implements AWS's request signing process.",
+    "kind": "stated",
+    "quote": "The motivation for this KEP stems from the inability of the existing\nauthentication mechanisms to satisfy the author's requirement to implement a\nKubernetes client that implements AWS's request signing process, known as\nSignature Version 4 (sig-v4)",
+    "section": "context",
+    "span": "2087-2335",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2718-20210511-client-exec-proxy",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-2718"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-2718_2",
+   "props": {
+    "text": "The request signer must have access to the entire request, which the existing exec-based authentication does not provide.",
+    "kind": "stated",
+    "quote": "In\norder to achieve this, the request signer must have access to the entire\nrequest, so the existing exec-based authentication is unsatisfactory",
+    "section": "context",
+    "span": "2714-2858",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2718-20210511-client-exec-proxy",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-2718"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-2718_3",
+   "props": {
+    "text": "The operator experience of setting up and managing an external proxy is poor.",
+    "kind": "stated",
+    "quote": "The\nproblem with this solution is that the operator experience of setting up and\nmanaging an external proxy is poor",
+    "section": "context",
+    "span": "3270-3385",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2718-20210511-client-exec-proxy",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-2718"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-2784_1",
+   "props": {
+    "text": "Certificates issued through the certificate signing requests API are not revocable today.",
+    "kind": "stated",
+    "quote": "Certificates issued through the certificate signing requests API are not\nrevocable today",
+    "section": "context",
+    "span": "174-262",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2784-csr-duration",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-2784"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-2784_2",
+   "props": {
+    "text": "Clients lack a way to control the duration of the issued certificate.",
+    "kind": "stated",
+    "quote": "Furthermore, clients lack a way to control the duration of the\nissued certificate",
+    "section": "context",
+    "span": "265-346",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2784-csr-duration",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-2784"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-2784_3",
+   "props": {
+    "text": "Signers lack a per-CSR mechanism to control the certificate duration.",
+    "kind": "stated",
+    "quote": "Signers lack a per-CSR mechanism to control the certificate duration,\nand thus are forced to learn this information out of band",
+    "section": "context",
+    "span": "573-700",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2784-csr-duration",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-2784"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-2784_4",
+   "props": {
+    "text": "The built-in signers use the same duration for all issued certificates with a default one-year lifespan.",
+    "kind": "stated",
+    "quote": "The built-in signers\nuse the same duration for all issued certificates, with the default being a one\nyear certificate lifespan (that is irrevocable without rotating the signer)",
+    "section": "context",
+    "span": "703-879",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2784-csr-duration",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-2784"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-279_1",
+   "props": {
+    "text": "The node client currently has total authority over its own Node labels.",
+    "kind": "stated",
+    "quote": "Today the node client has total authority over its own Node labels",
+    "section": "context",
+    "span": "49-115",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/279-limit-node-access",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-279"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-279_2",
+   "props": {
+    "text": "Configuring labels on individual kubelet command lines makes management difficult.",
+    "kind": "stated",
+    "quote": "Minorly, it makes\nmanagement difficult",
+    "section": "context",
+    "span": "457-495",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/279-limit-node-access",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-279"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-279_3",
+   "props": {
+    "text": "The self-labeling approach compromises security by allowing compromised nodes to register with specific labels to capture dedicated workloads.",
+    "kind": "stated",
+    "quote": "More significantly, the\napproach greatly compromises security",
+    "section": "context",
+    "span": "596-657",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/279-limit-node-access",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-279"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-2799_1",
+   "props": {
+    "text": "BoundServiceAccountTokenVolume is GA in 1.22, allowing pods to obtain tokens via the TokenRequest API.",
+    "kind": "stated",
+    "quote": "As BoundServiceAccountTokenVolume is GA in 1.22, pods\u2019 service account tokens\nwould be obtained via TokenRequest API and stored as projected volume",
+    "section": "context",
+    "span": "182-329",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2799-reduction-of-secret-based-service-account-token",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-2799"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-2907_1",
+   "props": {
+    "text": "The driver provides a portable method for applications to consume secrets from external secret APIs through the filesystem.",
+    "kind": "stated",
+    "quote": "The [secrets-store-csi-driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) project provides a portable method for applications to consume secrets from external secret APIs through the filesystem",
+    "section": "other",
+    "span": "51-262",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2907-secrets-store-csi-driver",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-2907"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-2907_2",
+   "props": {
+    "text": "The driver interface and implementation need to signal stability for the core task of making secrets available to the pod filesystem.",
+    "kind": "stated",
+    "quote": "Signal the stability of the driver interface and implementation for the core task of making secrets available to pod filesystem",
+    "section": "other",
+    "span": "952-1079",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2907-secrets-store-csi-driver",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-2907"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-2907_3",
+   "props": {
+    "text": "The driver is a storage driver, so native support for presenting secrets to a process through environment variables is not possible.",
+    "kind": "stated",
+    "quote": "Since the proposal is a storage driver, native support for presenting secrets to a process through environment variables is not possible",
+    "section": "consequences",
+    "span": "1558-1694",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/2907-secrets-store-csi-driver",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-2907"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3130_1",
+   "props": {
+    "text": "It is not possible to correlate the sequence of calls involved in the enveloping operation in logs.",
+    "kind": "stated",
+    "quote": "Currently, it is not possible to correlate (in logs) the sequence of calls that are involved in the enveloping operation: kube-apiserver->kms-plugin->KMS",
+    "section": "other",
+    "span": "42-195",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3130-kms-observability",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3130"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3130_2",
+   "props": {
+    "text": "The only way to correlate a successful or failed envelope operation today is to use the approximate timestamp of the operation.",
+    "kind": "stated",
+    "quote": "The only way to correlate a successful/failed envelope operation today is to use the approximate timestamp of the operation to check events in kube-apiserver, kms-plugin and KMS",
+    "section": "context",
+    "span": "390-567",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3130-kms-observability",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3130"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3130_3",
+   "props": {
+    "text": "There is no guarantee that the timestamp of the operation is the same as the timestamp of the corresponding event in KMS.",
+    "kind": "stated",
+    "quote": "There is no guarantee that the timestamp of the operation is the same as the timestamp of the corresponding event in KMS",
+    "section": "context",
+    "span": "569-689",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3130-kms-observability",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3130"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3221_1",
+   "props": {
+    "text": "The current kube-apiserver configuration only allows enabling one webhook in the authorization chain.",
+    "kind": "stated",
+    "quote": "cluster\nadministrators can only enable one webhook as a part of the authorization\nchain using the `--authorization-modes` flag",
+    "section": "other",
+    "span": "208-334",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3221-structured-authorization-configuration",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3221"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3221_2",
+   "props": {
+    "text": "Cluster administrators need to specify more than one authorization webhook in the API Server handler chain.",
+    "kind": "stated",
+    "quote": "Cluster administrators should be able to specify more than one authorization\nwebhook in the API Server handler chain",
+    "section": "context",
+    "span": "710-826",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3221-structured-authorization-configuration",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3221"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3221_3",
+   "props": {
+    "text": "Cluster administrators need to declaratively configure the authorizer chain using a configuration file.",
+    "kind": "stated",
+    "quote": "They also need to be able to\ndeclaratively configure the authorizer chain using a configuration file",
+    "section": "context",
+    "span": "828-928",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3221-structured-authorization-configuration",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3221"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3221_4",
+   "props": {
+    "text": "Administrators need to define policies for when to deny requests, such as when a webhook is unreachable.",
+    "kind": "stated",
+    "quote": "It\nshould also be easy to say when to deny requests, for example, when a webhook\nis unreachable",
+    "section": "context",
+    "span": "930-1025",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3221-structured-authorization-configuration",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3221"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3257_1",
+   "props": {
+    "text": "Kubernetes lacks a standardized mechanism for signers to distribute their trust anchors to workloads.",
+    "kind": "stated",
+    "quote": "Kubernetes lacks a standardized mechanism for signers to distribute their trust\nanchors to workloads",
+    "section": "other",
+    "span": "354-454",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3257-cluster-trust-bundles",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3257"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3257_2",
+   "props": {
+    "text": "Creating a ConfigMap in every namespace requires granting over-broad permissions to the responsible controller.",
+    "kind": "stated",
+    "quote": "Creating a ConfigMap in every namespace requires granting over-broad\n  permissions to the responsible controller (create ConfigMaps in **all**\n  namespaces)",
+    "section": "context",
+    "span": "2560-2716",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3257-cluster-trust-bundles",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3257"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3257_3",
+   "props": {
+    "text": "Static trust anchor sets embedded directly in configuration complicate the job of rotating the backing CA's roots of trust.",
+    "kind": "stated",
+    "quote": "Static trust anchor sets embedded directly in configuration complicate the job\n  of rotating the backing CA's roots of trust",
+    "section": "context",
+    "span": "2721-2845",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3257-cluster-trust-bundles",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3257"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3257_4",
+   "props": {
+    "text": "CRDs are inappropriate for use by core APIs.",
+    "kind": "stated",
+    "quote": "CRDs work well, but are inappropriate for use by core APIs",
+    "section": "context",
+    "span": "2850-2908",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3257-cluster-trust-bundles",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3257"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3299_1",
+   "props": {
+    "text": "Serial processing of LIST requests with an empty DEK cache causes significant informer initialization time and KMS rate limit hits.",
+    "kind": "stated",
+    "quote": "due to the serial processing of LIST requests and the data encryption key (DEK) cache being empty, the initialization of informers may take significant time as a result of the large number of consecutive trips to the KMS plugin -> external KMS for all the DEKs that have been generated so far",
+    "section": "context",
+    "span": "555-847",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3299-kms-v2-improvements",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3299"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3299_2",
+   "props": {
+    "text": "Current health checks use Encrypt/Decrypt operations that incur costs and do not allow for holistic health checks or KEK rotation notification.",
+    "kind": "stated",
+    "quote": "Today, the health check from kube-apiserver to KMS plugin is an `Encrypt` operation followed by `Decrypt` operation. These operations cost money in cloud environments and do not allow the plugin to perform more holistic checks on if it is healthy",
+    "section": "context",
+    "span": "2544-2790",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3299-kms-v2-improvements",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3299"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3299_3",
+   "props": {
+    "text": "There is no reliable way to correlate envelope operations between kube-apiserver, KMS plugins, and KMS due to timestamp mismatches.",
+    "kind": "stated",
+    "quote": "The only way to correlate a successful/failed envelope operation today is to use the approximate timestamp of the operation to check events in kube-apiserver, kms-plugin and KMS",
+    "section": "context",
+    "span": "3193-3370",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3299-kms-v2-improvements",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3299"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3331_1",
+   "props": {
+    "text": "The current flag-based configuration is growing without bounds.",
+    "kind": "stated",
+    "quote": "We want to migrate\naway from a flag-based config that is growing without bounds to a proper versioned config format",
+    "section": "context",
+    "span": "572-687",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3331-structured-authentication-configuration",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3331"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3331_2",
+   "props": {
+    "text": "Users want to support multiple ClientIDs.",
+    "kind": "stated",
+    "quote": "Support multiple ClientIDs",
+    "section": "context",
+    "span": "774-800",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3331-structured-authentication-configuration",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3331"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3331_3",
+   "props": {
+    "text": "Users want to identify users by more JWT claims than just a single one.",
+    "kind": "stated",
+    "quote": "Identify user by more JWT claims than just a single one",
+    "section": "context",
+    "span": "860-915",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3331-structured-authentication-configuration",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3331"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3331_4",
+   "props": {
+    "text": "Users want to use more than one OIDC provider.",
+    "kind": "stated",
+    "quote": "Use more than one OIDC provider",
+    "section": "other",
+    "span": "1872-1903",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3331-structured-authentication-configuration",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3331"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3926_1",
+   "props": {
+    "text": "Encryption at rest for API resources has been a stable part of Kubernetes for a long time.",
+    "kind": "stated",
+    "quote": "Encryption at rest for API resources has been a stable part of Kubernetes for a long time",
+    "section": "other",
+    "span": "963-1052",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3926-handling-undecryptable-resources",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3926"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3926_2",
+   "props": {
+    "text": "If a single object of a resource type cannot be decrypted, listing resources of that type in a path prefix containing the object always fails, even if the rest of the resource instances is accessible.",
+    "kind": "stated",
+    "quote": "If a single object of a resource type cannot be decrypted, listing resources of that\ntype in a path prefix containing the object always fails, even if the rest of\nthe resource instances is accessible",
+    "section": "other",
+    "span": "1206-1405",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3926-handling-undecryptable-resources",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3926"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3926_3",
+   "props": {
+    "text": "Currently, removing a resource that causes such failures is not possible.",
+    "kind": "stated",
+    "quote": "Currently, removing a resource that causes such failures is not possible",
+    "section": "other",
+    "span": "1408-1480",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3926-handling-undecryptable-resources",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3926"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-3926_4",
+   "props": {
+    "text": "A cluster administrator must access etcd directly and remove the malformed data manually.",
+    "kind": "stated",
+    "quote": "A cluster administrator must access etcd directly and remove the malformed data manually",
+    "section": "other",
+    "span": "1482-1570",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/3926-handling-undecryptable-resources",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-3926"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4193_1",
+   "props": {
+    "text": "It is not possible to verify that a Pod is associated with a specific Node without getting the Pod object and cross-referencing the spec.nodeName.",
+    "kind": "stated",
+    "quote": "When attempting to verify a token associated with a Pod, it is not possible to verify that the Pod is associated with\na specific Node without `get`ing the relevant Pod object (embedded as a private claim in the JWT) and cross-referencing\nthe named `spec.nodeName",
+    "section": "other",
+    "span": "270-532",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4193-bound-service-account-token-improvements",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4193"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4193_2",
+   "props": {
+    "text": "External software wants to avoid replay attacks with projected service account tokens.",
+    "kind": "stated",
+    "quote": "This is especially useful in cases where the external software wants to avoid replay attacks with projected service account\ntokens",
+    "section": "other",
+    "span": "775-905",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4193-bound-service-account-token-improvements",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4193"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4193_3",
+   "props": {
+    "text": "A robust means of tracking token usage within the audit log is needed.",
+    "kind": "stated",
+    "quote": "Additionally, to provide a robust means of tracking token usage within the audit log we can embed a unique identifier for\neach token which is can then also be recorded in future audit entries made by this token",
+    "section": "other",
+    "span": "1607-1817",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4193-bound-service-account-token-improvements",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4193"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4317_1",
+   "props": {
+    "text": "Bearer tokens must not be involved at any step to preserve the security benefits of mTLS.",
+    "kind": "stated",
+    "quote": "In order to\npreserve this guarantee, it's important that bearer tokens are not involved *at\nany step*, otherwise the security of the scheme devolves to just being a bearer\ntoken",
+    "section": "other",
+    "span": "1668-1845",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4317-pod-certificates",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4317"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4317_2",
+   "props": {
+    "text": "Third-party signer implementations require intimate familiarity with Kubernetes' security model to avoid negating the node restriction security boundary.",
+    "kind": "stated",
+    "quote": "Securely\nimplementing and operating a third-party signer implementation today requires\nintimate familiarity with Kubernetes' security model, otherwise your signer may\nnegate Kubernetes' node restriction security boundary",
+    "section": "other",
+    "span": "2137-2357",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4317-pod-certificates",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4317"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4317_3",
+   "props": {
+    "text": "A significant base of deployed systems, such as Vault, requires PKCS#10 certificate signing requests to issue certificates.",
+    "kind": "stated",
+    "quote": "However, there is a significant base of deployed systems (Vault, for\nexample), that need a PKCS#10 certificate signing request in order to issue\ncertificates",
+    "section": "other",
+    "span": "2949-3106",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4317-pod-certificates",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4317"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4317_4",
+   "props": {
+    "text": "PodCertificateRequest issuance is fully-automated because the process blocks pod startup for pods that use PodCertificate projected volume sources.",
+    "kind": "stated",
+    "quote": "This KEP\nassumes that PodCertificateRequest issuance is fully-automated, because this\nprocess blocks pod startup for pods that use PodCertificate projected volume\nsources",
+    "section": "other",
+    "span": "4169-4339",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4317-pod-certificates",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4317"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4412_1",
+   "props": {
+    "text": "Image pull secrets stored in the Kubernetes API are long-lived and hard to rotate.",
+    "kind": "stated",
+    "quote": "Today, admins are limited to image pull\nsecrets that are stored directly in the Kubernetes API and thus are long lived and hard to rotate",
+    "section": "other",
+    "span": "1916-2053",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4412-projected-service-account-tokens-for-kubelet-image-credential-providers",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4412"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4412_2",
+   "props": {
+    "text": "Kubelet credential providers allow any pod on the node to access images, lacking workload-specific identity.",
+    "kind": "stated",
+    "quote": "or secrets that are managed at the Kubelet level via a Kubelet credential provider (meaning\nthat any pod running on that node can access those images)",
+    "section": "other",
+    "span": "2055-2205",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4412-projected-service-account-tokens-for-kubelet-image-credential-providers",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4412"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4412_3",
+   "props": {
+    "text": "The project aims to reduce security risks associated with long-lived secrets.",
+    "kind": "stated",
+    "quote": "Reduce security risks associated with long lived secrets",
+    "section": "context",
+    "span": "2958-3014",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4412-projected-service-account-tokens-for-kubelet-image-credential-providers",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4412"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4412_4",
+   "props": {
+    "text": "The design must avoid changes to Kubernetes REST APIs, CRI API, and registries to keep implementation minimal.",
+    "kind": "stated",
+    "quote": "No changes to any Kubernetes REST APIs",
+    "section": "other",
+    "span": "6242-6280",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4412-projected-service-account-tokens-for-kubelet-image-credential-providers",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4412"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4601_1",
+   "props": {
+    "text": "Security for per-node workloads could be improved by exposing field and label selectors to authorizers.",
+    "kind": "stated",
+    "quote": "Security for per-node workloads could be improved by exposing field and label selectors to authorizers",
+    "section": "context",
+    "span": "288-390",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4601-authorize-with-selectors",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4601"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4601_2",
+   "props": {
+    "text": "Adding selectors as authorization attributes allows the development of new kinds of authorizers that leverage this information.",
+    "kind": "stated",
+    "quote": "Adding them as authorization attributes allows the development of new kinds of authorizers that\nleverage this information to provide security",
+    "section": "context",
+    "span": "392-533",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4601-authorize-with-selectors",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4601"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4601_3",
+   "props": {
+    "text": "It enables out-of-tree authorizers to experiment with ways to express restrictions based on field and label selectors.",
+    "kind": "stated",
+    "quote": "In particular, it enables out-of-tree authorizers to experiment with ways to express restrictions based on field and label selectors",
+    "section": "context",
+    "span": "535-667",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4601-authorize-with-selectors",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4601"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4633_1",
+   "props": {
+    "text": "Misconfigured RoleBindings and ClusterRoleBindings can bind powerful roles to the anonymous user, allowing full cluster takeover.",
+    "kind": "stated",
+    "quote": "Many kubernetes users still misconfigure their cluster by creating RoleBindings\nand ClusterRoleBindings to powerful rules in their cluster",
+    "section": "context",
+    "span": "1903-2041",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4633-anonymous-auth-configurable-endpoints",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4633"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4633_2",
+   "props": {
+    "text": "Many deployments depend on unauthenticated requests to check health endpoints, making it impossible to disable anonymous authentication entirely.",
+    "kind": "stated",
+    "quote": "this is not\npossible for many deployments that depend on unauthenticated requests (from\nclients like load balancers or the kubelet) to check health endpoints of a\nkubernetes cluster (`healthz`, `livez` and `readyz`)",
+    "section": "context",
+    "span": "2554-2769",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4633-anonymous-auth-configurable-endpoints",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4633"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4633_3",
+   "props": {
+    "text": "Enabling anonymous requests to allow health checks opens the door for misconfigurations.",
+    "kind": "stated",
+    "quote": "In order to allow\nthese health checks a cluster admin has to enable anonymous requests opening the\ndoor for misconfigurations",
+    "section": "context",
+    "span": "2771-2896",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4633-anonymous-auth-configurable-endpoints",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4633"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4872_1",
+   "props": {
+    "text": "IPs in cloud environments can change rapidly, allowing old certificates to be used for new nodes sharing an IP.",
+    "kind": "stated",
+    "quote": "In cloud environments, IPs can change rapidly due to the ephemeral nature of the infrastructure",
+    "section": "context",
+    "span": "442-537",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4872-harden-kubelet-cert-validation",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4872"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4872_2",
+   "props": {
+    "text": "On-premises environments lack a reliable source of truth for IP ownership, making CSR validation difficult.",
+    "kind": "stated",
+    "quote": "in on-premises environments, verifying that the IP addresses in a Certificate Signing Request (CSR) are owned by the requesting node can be challenging due to the lack of a reliable source of truth for IP ownership",
+    "section": "context",
+    "span": "770-984",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4872-harden-kubelet-cert-validation",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4872"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4872_3",
+   "props": {
+    "text": "Rogue nodes can exploit routing attacks to obtain certificates for IPs they do not own and impersonate other nodes.",
+    "kind": "stated",
+    "quote": "This vulnerability can be exploited through ARP poisoning or other routing attacks, allowing a rogue node to obtain a certificate for an IP it does not own and reroute traffic to itself",
+    "section": "context",
+    "span": "1145-1330",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4872-harden-kubelet-cert-validation",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4872"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4872_4",
+   "props": {
+    "text": "The Kube API server currently only verifies that the IP or hostname is in the certificate's SANs, not that the CN matches the node name.",
+    "kind": "stated",
+    "quote": "When the Kube API server connects to a kubelet, it verifies that the serving certificate is signed by a trusted CA and that the IP or hostname it\u2019s connecting to is included in the certificate's SANs",
+    "section": "context",
+    "span": "1333-1532",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4872-harden-kubelet-cert-validation",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4872"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4940_1",
+   "props": {
+    "text": "The Host field allows users to specify any entity, including security-sensitive external hosts or localhost, for Kubelet probes.",
+    "kind": "stated",
+    "quote": "the `Host`\nfield can be set to pretty much any value in the system including\nsecurity sensitive external hosts or localhost on the node",
+    "section": "other",
+    "span": "586-721",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4940-psa-block-host-field-in-probes",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4940"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4940_2",
+   "props": {
+    "text": "Kubelet probing a user-set Host value can lead to blind SSRF attacks.",
+    "kind": "stated",
+    "quote": "Kubelet will be probing this set `Host` value which can\nlead to blind SSRF attacks",
+    "section": "other",
+    "span": "723-805",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4940-psa-block-host-field-in-probes",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4940"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-4940_3",
+   "props": {
+    "text": "The Baseline Pod Security Standard is updated to enforce blocking this field to help with easier adoption for workload operators.",
+    "kind": "stated",
+    "quote": "The Baseline Pod Security Standard (PSS) will be updated to enforce\n  blocking this field so that it helps with easier adoption for\n  workload operators given this is a known issue we want to prevent",
+    "section": "other",
+    "span": "942-1141",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/4940-psa-block-host-field-in-probes",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-4940"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-541_1",
+   "props": {
+    "text": "Static credentials in kubeconfig files require client process restarts for rotation.",
+    "kind": "stated",
+    "quote": "Credential rotation requires client process restart and extra tooling",
+    "section": "context",
+    "span": "545-614",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/541-external-credential-providers",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-541"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-541_2",
+   "props": {
+    "text": "Static credentials must exist in a plaintext file on disk.",
+    "kind": "stated",
+    "quote": "Credentials must exist in a plaintext file on disk",
+    "section": "context",
+    "span": "619-669",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/541-external-credential-providers",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-541"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-541_3",
+   "props": {
+    "text": "Static credentials must be long-lived.",
+    "kind": "stated",
+    "quote": "Credentials must be long-lived",
+    "section": "context",
+    "span": "674-704",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/541-external-credential-providers",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-541"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-541_4",
+   "props": {
+    "text": "Users already use key management systems or short-lived token providers.",
+    "kind": "stated",
+    "quote": "Many users already use key management/protection systems, such as Key\nManagement Systems (KMS), Trusted Platform Modules (TPM) or Hardware Security\nModules (HSM)",
+    "section": "context",
+    "span": "707-868",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/541-external-credential-providers",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-541"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-600_1",
+   "props": {
+    "text": "Configuring advanced auditing features requires deep insight into the deployment mechanism and often takes many iterations to configure properly.",
+    "kind": "stated",
+    "quote": "The configuration requires deep insight \ninto the deployment mechanism of choice and often takes many iterations to configure properly requiring a restart of \nthe apiserver each time",
+    "section": "context",
+    "span": "435-617",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/600-dynamic-audit-configuration",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-600"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-600_2",
+   "props": {
+    "text": "The ability to install addon tools that configure and enhance auditing is hindered by the overhead in configuration.",
+    "kind": "stated",
+    "quote": "Moreover, the ability to install addon tools that configure and enhance auditing is hindered \nby the overhead in configuration",
+    "section": "context",
+    "span": "619-745",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/600-dynamic-audit-configuration",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-600"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-600_3",
+   "props": {
+    "text": "Cluster admins need to easily enable and tweak internal auditing features of an existing cluster.",
+    "kind": "stated",
+    "quote": "As a cluster admin, I will easily be able to enable the internal auditing features of an existing cluster, and tweak the configurations as necessary",
+    "section": "other",
+    "span": "1319-1467",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/600-dynamic-audit-configuration",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-600"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-600_4",
+   "props": {
+    "text": "Kubernetes extension developers need to provide drop-in extensions that utilize audit data.",
+    "kind": "stated",
+    "quote": "As a Kubernetes extension developer, I will be able to provide drop in extensions that utilize audit data",
+    "section": "other",
+    "span": "1581-1686",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/600-dynamic-audit-configuration",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-600"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-6283_1",
+   "props": {
+    "text": "Two KEPs that improve Kubernetes' ability to work with X.509 certificates went stable in Kube 1.37.",
+    "kind": "stated",
+    "quote": "Two KEPs that significantly improve Kubernetes ability to work with X.509\ncertificates went stable in Kube 1.37 - 3257-ClusterTrustBundles and 4317-PodCertificates",
+    "section": "other",
+    "span": "72-235",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/6283-leveraging-certificate-apis-in-platform",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-6283"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-6283_2",
+   "props": {
+    "text": "The platform introduced mechanisms to simplify X.509 certificate experiences but does not currently use them in places where they would make sense.",
+    "kind": "stated",
+    "quote": "We introduced mechanisms that are supposed to simplify people's experience with\nX.509 certificates and bring their own signers but we don't currently use these\nin places where they would make sense",
+    "section": "context",
+    "span": "414-611",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/6283-leveraging-certificate-apis-in-platform",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-6283"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-6283_3",
+   "props": {
+    "text": "The KEP aims to enhance the security of the Kubernetes ecosystem by providing built-in server TLS for service DNS names.",
+    "kind": "stated",
+    "quote": "The KEP also aims to enhance the security of the Kubernetes ecosystem by providing\nbuilt-in server TLS for service DNS names",
+    "section": "context",
+    "span": "639-763",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/6283-leveraging-certificate-apis-in-platform",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-6283"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-740_1",
+   "props": {
+    "text": "Rotating service account keys currently requires restarting the kube-apiserver process.",
+    "kind": "stated",
+    "quote": "Thus, rotating keys require a kube-apiserver to restart",
+    "section": "context",
+    "span": "734-789",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/740-service-account-external-signing",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-740"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-740_2",
+   "props": {
+    "text": "Anyone with privileged access to the kube-apiserver filesystem could exfiltrate signing material stored on disk.",
+    "kind": "stated",
+    "quote": "This means anyone with privileged access to the kube-apiserver configuration / filesystem could exfiltrate signing material",
+    "section": "context",
+    "span": "939-1062",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/740-service-account-external-signing",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-740"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-740_3",
+   "props": {
+    "text": "Kubernetes distributions need to integrate with external key management solutions like HSMs and cloud KMSes.",
+    "kind": "stated",
+    "quote": "This KEP proposes updates that will allow Kubernetes distributions to integrate with key management solutions of their choice (eg: HSMs, cloud KMSes)",
+    "section": "other",
+    "span": "403-552",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/740-service-account-external-signing",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-740"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-789_1",
+   "props": {
+    "text": "The post-mortem of CVE-2018-1002105 identified hardening default RBAC discovery ClusterRoleBindings as a work item to limit attack avenues.",
+    "kind": "stated",
+    "quote": "One of the work items resulting from the [CVE-2018-1002105](https://github.com/kubernetes/kubernetes/issues/71411) post-mortem was to [investigate hardening the default RBAC discovery ClusterRoleBindings](https://github.com/kubernetes/kubernetes/issues/72115) (i.e. `system:discovery` and `system:basic-user`) to limit potential avenues for similar attack",
+    "section": "context",
+    "span": "441-796",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/789-harden-default-discover-bindings",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-789"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-789_2",
+   "props": {
+    "text": "API extensions exposed by default discovery bindings represent a potential privacy concern.",
+    "kind": "stated",
+    "quote": "Additionally, the fact that API extensions are exposed by the default discovery bindings is surprising to some and represents a potential privacy concern (e.g. `GET /apis/self-flying-cars.unicorn.vc/v1/`)",
+    "section": "context",
+    "span": "798-1002",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/789-harden-default-discover-bindings",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-789"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_KEP-789_3",
+   "props": {
+    "text": "There are legitimate use-cases for unauthenticated calls, such as health checks and version information, that must not be broken.",
+    "kind": "stated",
+    "quote": "There are several non-sensitive and legitimate use-cases for unauthenticated calls, such as `/healthz` liveliness checks and [returning useful information about the cluster](https://github.com/kubernetes/kubernetes/issues/45366#issuecomment-299275002) to `kubectl version`, that we don't wish to break",
+    "section": "other",
+    "span": "1391-1692",
+    "source": "https://github.com/kubernetes/enhancements/tree/master/keps/sig-auth/789-harden-default-discover-bindings",
+    "extracted_by": "qwen/qwen3.8-27b",
+    "decision": "KEP-789"
+   }
+  },
+  {
+   "label": "Team",
+   "id": "team_sig-auth",
+   "props": {
+    "name": "SIG Auth",
+    "source": "kubernetes/community sigs.yaml",
+    "mission": "Covers improvements to Kubernetes authorization, authentication, and cluster security policy.\n\n\"All I want is a secure system where it's easy to do anything I want. Is that so much to ask?\" - [xkcd](https://xkcd.com/2044 \"xkcd\")"
+   }
+  },
+  {
+   "label": "Project",
+   "id": "proj_sig-auth_audit-logging",
+   "props": {
+    "name": "audit-logging",
+    "description": "Kubernetes API support for audit logging."
+   }
+  },
+  {
+   "label": "Project",
+   "id": "proj_sig-auth_authenticators",
+   "props": {
+    "name": "authenticators",
+    "description": "Kubernetes API support for authentication."
+   }
+  },
+  {
+   "label": "Project",
+   "id": "proj_sig-auth_authorizers",
+   "props": {
+    "name": "authorizers",
+    "description": "Kubernetes API support for authorization."
+   }
+  },
+  {
+   "label": "Project",
+   "id": "proj_sig-auth_certificates",
+   "props": {
+    "name": "certificates",
+    "description": "Certificates APIs and client infrastructure to support PKI."
+   }
+  },
+  {
+   "label": "Project",
+   "id": "proj_sig-auth_encryption-at-rest",
+   "props": {
+    "name": "encryption-at-rest",
+    "description": "API storage support for storing data encrypted at rest in etcd."
+   }
+  },
+  {
+   "label": "Project",
+   "id": "proj_sig-auth_node-identity-and-isolation",
+   "props": {
+    "name": "node-identity-and-isolation",
+    "description": "Node identity management (co-owned with sig-lifecycle), and authorization restrictions for isolating workloads on separate nodes (co-owned with sig-node)."
+   }
+  },
+  {
+   "label": "Project",
+   "id": "proj_sig-auth_policy-management",
+   "props": {
+    "name": "policy-management",
+    "description": "API validation and policies enforced during admission, such as PodSecurityPolicy. Excludes run-time policies like NetworkPolicy and Seccomp."
+   }
+  },
+  {
+   "label": "Project",
+   "id": "proj_sig-auth_secrets-store-csi-driver",
+   "props": {
+    "name": "secrets-store-csi-driver",
+    "description": "Integrates secrets stores with Kubernetes via a CSI volume."
+   }
+  },
+  {
+   "label": "Project",
+   "id": "proj_sig-auth_secrets-store-sync-controller",
+   "props": {
+    "name": "secrets-store-sync-controller",
+    "description": "This is a Kubernetes controller that watches for changes to a custom resource and syncs the secrets from external secrets-store as Kubernetes secret."
+   }
+  },
+  {
+   "label": "Project",
+   "id": "proj_sig-auth_service-accounts",
+   "props": {
+    "name": "service-accounts",
+    "description": "Infrastructure implementing Kubernetes service account based workload identity."
+   }
+  },
+  {
+   "label": "Project",
+   "id": "proj_sig-auth_sig-auth-tools",
+   "props": {
+    "name": "sig-auth-tools",
+    "description": "Tooling to automate the SIG Auth project boards"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "u_ericchiang",
+   "props": {
+    "name": "Eric Chiang",
+    "role": "SIG chair",
+    "joined": "",
+    "left": ""
+   }
+  }
+ ],
+ "edges": [
+  {
+   "src": "KEP-1205",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-1205",
+   "props": {}
+  },
+  {
+   "src": "u_mikedanese",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1205",
+   "props": {}
+  },
+  {
+   "src": "u_zshihang",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1205",
+   "props": {}
+  },
+  {
+   "src": "u_dan",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1205",
+   "props": {}
+  },
+  {
+   "src": "u_ritikaa96",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1205",
+   "props": {}
+  },
+  {
+   "src": "u_jordan",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1205",
+   "props": {}
+  },
+  {
+   "src": "u_shihang",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1205",
+   "props": {}
+  },
+  {
+   "src": "u_kubernetes",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1205",
+   "props": {}
+  },
+  {
+   "src": "u_wojtekt",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1205",
+   "props": {}
+  },
+  {
+   "src": "u_mikedanese",
+   "rel": "OWNS",
+   "dst": "KEP-1205",
+   "props": {
+    "valid_from": "2019-08-06",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-1205",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-1205",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-1205",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-storage",
+   "props": {}
+  },
+  {
+   "src": "KEP-1314",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-1314",
+   "props": {}
+  },
+  {
+   "src": "u_tallclair",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1314",
+   "props": {}
+  },
+  {
+   "src": "u_elana",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1314",
+   "props": {}
+  },
+  {
+   "src": "u_wojtekt",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1314",
+   "props": {}
+  },
+  {
+   "src": "u_tallclair",
+   "rel": "OWNS",
+   "dst": "KEP-1314",
+   "props": {
+    "valid_from": "2019-09-16",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-1314",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-1314",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-node",
+   "props": {}
+  },
+  {
+   "src": "KEP-1314",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-cluster-lifecycle",
+   "props": {}
+  },
+  {
+   "src": "KEP-1393",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-1393",
+   "props": {}
+  },
+  {
+   "src": "u_mikedanese",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1393",
+   "props": {}
+  },
+  {
+   "src": "u_cceckman",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1393",
+   "props": {}
+  },
+  {
+   "src": "u_mtaufen",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1393",
+   "props": {}
+  },
+  {
+   "src": "u_abhigya",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1393",
+   "props": {}
+  },
+  {
+   "src": "u_wojciech",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1393",
+   "props": {}
+  },
+  {
+   "src": "u_michael",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1393",
+   "props": {}
+  },
+  {
+   "src": "u_wojtekt",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1393",
+   "props": {}
+  },
+  {
+   "src": "u_mikedanese",
+   "rel": "OWNS",
+   "dst": "KEP-1393",
+   "props": {
+    "valid_from": "2018-06-26",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-1393",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-1393",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-1513",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-1513",
+   "props": {}
+  },
+  {
+   "src": "u_mikedanese",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1513",
+   "props": {}
+  },
+  {
+   "src": "u_deads2k",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1513",
+   "props": {}
+  },
+  {
+   "src": "u_aaron",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1513",
+   "props": {}
+  },
+  {
+   "src": "u_david",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1513",
+   "props": {}
+  },
+  {
+   "src": "u_wojtekt",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1513",
+   "props": {}
+  },
+  {
+   "src": "u_mikedanese",
+   "rel": "OWNS",
+   "dst": "KEP-1513",
+   "props": {
+    "valid_from": "2019-06-07",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-1513",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-1687",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-1687",
+   "props": {}
+  },
+  {
+   "src": "u_rjbez17",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1687",
+   "props": {}
+  },
+  {
+   "src": "u_adrianludwin",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1687",
+   "props": {}
+  },
+  {
+   "src": "u_abhigya",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1687",
+   "props": {}
+  },
+  {
+   "src": "u_aaron",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1687",
+   "props": {}
+  },
+  {
+   "src": "u_elana",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1687",
+   "props": {}
+  },
+  {
+   "src": "u_ryan",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-1687",
+   "props": {}
+  },
+  {
+   "src": "u_rjbez17",
+   "rel": "OWNS",
+   "dst": "KEP-1687",
+   "props": {
+    "valid_from": "2020-04-14",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-1687",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-1687",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-266",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-266",
+   "props": {}
+  },
+  {
+   "src": "u_jcbsmpsn",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-266",
+   "props": {}
+  },
+  {
+   "src": "u_liggitt",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-266",
+   "props": {}
+  },
+  {
+   "src": "u_aaron",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-266",
+   "props": {}
+  },
+  {
+   "src": "u_jordan",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-266",
+   "props": {}
+  },
+  {
+   "src": "u_wojtekt",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-266",
+   "props": {}
+  },
+  {
+   "src": "u_jcbsmpsn",
+   "rel": "OWNS",
+   "dst": "KEP-266",
+   "props": {
+    "valid_from": "2017-06-27",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-266",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-266",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-266",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-node",
+   "props": {}
+  },
+  {
+   "src": "KEP-2718",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-2718",
+   "props": {}
+  },
+  {
+   "src": "u_nckturner",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-2718",
+   "props": {}
+  },
+  {
+   "src": "u_mo",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-2718",
+   "props": {}
+  },
+  {
+   "src": "u_sergey",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-2718",
+   "props": {}
+  },
+  {
+   "src": "u_nick",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-2718",
+   "props": {}
+  },
+  {
+   "src": "u_nckturner",
+   "rel": "OWNS",
+   "dst": "KEP-2718",
+   "props": {
+    "valid_from": "2021-05-11",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-2718",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-2718",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-cli",
+   "props": {}
+  },
+  {
+   "src": "KEP-2718",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-api-machinery",
+   "props": {}
+  },
+  {
+   "src": "KEP-2784",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-2784",
+   "props": {}
+  },
+  {
+   "src": "u_enj",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-2784",
+   "props": {}
+  },
+  {
+   "src": "u_monis",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-2784",
+   "props": {}
+  },
+  {
+   "src": "u_enj",
+   "rel": "OWNS",
+   "dst": "KEP-2784",
+   "props": {
+    "valid_from": "2021-06-17",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-2784",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-279",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-279",
+   "props": {}
+  },
+  {
+   "src": "u_mikedanese",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-279",
+   "props": {}
+  },
+  {
+   "src": "u_liggitt",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-279",
+   "props": {}
+  },
+  {
+   "src": "u_aaron",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-279",
+   "props": {}
+  },
+  {
+   "src": "u_wojtekt",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-279",
+   "props": {}
+  },
+  {
+   "src": "u_mikedanese",
+   "rel": "OWNS",
+   "dst": "KEP-279",
+   "props": {
+    "valid_from": "2017-08-14",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-279",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-279",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-node",
+   "props": {}
+  },
+  {
+   "src": "KEP-279",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-storage",
+   "props": {}
+  },
+  {
+   "src": "KEP-2799",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-2799",
+   "props": {}
+  },
+  {
+   "src": "u_zshihang",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-2799",
+   "props": {}
+  },
+  {
+   "src": "u_yt2985",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-2799",
+   "props": {}
+  },
+  {
+   "src": "u_shihang",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-2799",
+   "props": {}
+  },
+  {
+   "src": "u_tinatingyu",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-2799",
+   "props": {}
+  },
+  {
+   "src": "u_jordan",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-2799",
+   "props": {}
+  },
+  {
+   "src": "u_zshihang",
+   "rel": "OWNS",
+   "dst": "KEP-2799",
+   "props": {
+    "valid_from": "2021-06-25",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-2799",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-2799",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-2907",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-2907",
+   "props": {}
+  },
+  {
+   "src": "u_tam7t",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-2907",
+   "props": {}
+  },
+  {
+   "src": "u_aramase",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-2907",
+   "props": {}
+  },
+  {
+   "src": "u_wojciech",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-2907",
+   "props": {}
+  },
+  {
+   "src": "u_aaron",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-2907",
+   "props": {}
+  },
+  {
+   "src": "u_tommy",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-2907",
+   "props": {}
+  },
+  {
+   "src": "u_anish",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-2907",
+   "props": {}
+  },
+  {
+   "src": "u_tam7t",
+   "rel": "OWNS",
+   "dst": "KEP-2907",
+   "props": {
+    "valid_from": "2021-09-02",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-2907",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-2907",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-3130",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-3130",
+   "props": {}
+  },
+  {
+   "src": "u_aramase",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3130",
+   "props": {}
+  },
+  {
+   "src": "u_rita",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3130",
+   "props": {}
+  },
+  {
+   "src": "u_anish",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3130",
+   "props": {}
+  },
+  {
+   "src": "u_aramase",
+   "rel": "OWNS",
+   "dst": "KEP-3130",
+   "props": {
+    "valid_from": "2022-01-12",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-3130",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-3130",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "status:KEP-3130",
+   "rel": "RETIRES",
+   "dst": "KEP-3130",
+   "props": {
+    "at": "2022-05-09",
+    "quote": "status: replaced"
+   }
+  },
+  {
+   "src": "KEP-3221",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-3221",
+   "props": {}
+  },
+  {
+   "src": "u_100mik",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3221",
+   "props": {}
+  },
+  {
+   "src": "u_palnabarun",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3221",
+   "props": {}
+  },
+  {
+   "src": "u_ritazh",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3221",
+   "props": {}
+  },
+  {
+   "src": "u_rita",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3221",
+   "props": {}
+  },
+  {
+   "src": "u_jordan",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3221",
+   "props": {}
+  },
+  {
+   "src": "u_nabarun",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3221",
+   "props": {}
+  },
+  {
+   "src": "u_100mik",
+   "rel": "OWNS",
+   "dst": "KEP-3221",
+   "props": {
+    "valid_from": "2022-06-21",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-3221",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-3257",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-3257",
+   "props": {}
+  },
+  {
+   "src": "u_ahmedtd",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3257",
+   "props": {}
+  },
+  {
+   "src": "u_stanislav",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3257",
+   "props": {}
+  },
+  {
+   "src": "u_daniel",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3257",
+   "props": {}
+  },
+  {
+   "src": "u_ritikaa96",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3257",
+   "props": {}
+  },
+  {
+   "src": "u_taahir",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3257",
+   "props": {}
+  },
+  {
+   "src": "u_anish",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3257",
+   "props": {}
+  },
+  {
+   "src": "u_ahmedtd",
+   "rel": "OWNS",
+   "dst": "KEP-3257",
+   "props": {
+    "valid_from": "2022-02-16",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-3257",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-3257",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-3299",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-3299",
+   "props": {}
+  },
+  {
+   "src": "u_ritazh",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3299",
+   "props": {}
+  },
+  {
+   "src": "u_aramase",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3299",
+   "props": {}
+  },
+  {
+   "src": "u_rita",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3299",
+   "props": {}
+  },
+  {
+   "src": "u_anish",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3299",
+   "props": {}
+  },
+  {
+   "src": "u_mo",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3299",
+   "props": {}
+  },
+  {
+   "src": "u_monis",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3299",
+   "props": {}
+  },
+  {
+   "src": "u_kubernetes",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3299",
+   "props": {}
+  },
+  {
+   "src": "u_ritazh",
+   "rel": "OWNS",
+   "dst": "KEP-3299",
+   "props": {
+    "valid_from": "2022-05-09",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-3299",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-3299",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-3331",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-3331",
+   "props": {}
+  },
+  {
+   "src": "u_nabokihms",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3331",
+   "props": {}
+  },
+  {
+   "src": "u_enj",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3331",
+   "props": {}
+  },
+  {
+   "src": "u_aramase",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3331",
+   "props": {}
+  },
+  {
+   "src": "u_anish",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3331",
+   "props": {}
+  },
+  {
+   "src": "u_david",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3331",
+   "props": {}
+  },
+  {
+   "src": "u_benjamin",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3331",
+   "props": {}
+  },
+  {
+   "src": "u_monis",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3331",
+   "props": {}
+  },
+  {
+   "src": "u_nabokihms",
+   "rel": "OWNS",
+   "dst": "KEP-3331",
+   "props": {
+    "valid_from": "2022-06-02",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-3331",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-3926",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-3926",
+   "props": {}
+  },
+  {
+   "src": "u_stlaz",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3926",
+   "props": {}
+  },
+  {
+   "src": "u_ibihim",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3926",
+   "props": {}
+  },
+  {
+   "src": "u_krzysztof",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3926",
+   "props": {}
+  },
+  {
+   "src": "u_mo",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3926",
+   "props": {}
+  },
+  {
+   "src": "u_abu",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3926",
+   "props": {}
+  },
+  {
+   "src": "u_stanislav",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-3926",
+   "props": {}
+  },
+  {
+   "src": "u_stlaz",
+   "rel": "OWNS",
+   "dst": "KEP-3926",
+   "props": {
+    "valid_from": "2023-03-27",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-3926",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-3926",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-api-machinery",
+   "props": {}
+  },
+  {
+   "src": "KEP-4193",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-4193",
+   "props": {}
+  },
+  {
+   "src": "u_munnerz",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4193",
+   "props": {}
+  },
+  {
+   "src": "u_enj",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4193",
+   "props": {}
+  },
+  {
+   "src": "u_jordan",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4193",
+   "props": {}
+  },
+  {
+   "src": "u_james",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4193",
+   "props": {}
+  },
+  {
+   "src": "u_kubernetes",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4193",
+   "props": {}
+  },
+  {
+   "src": "u_mo",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4193",
+   "props": {}
+  },
+  {
+   "src": "u_munnerz",
+   "rel": "OWNS",
+   "dst": "KEP-4193",
+   "props": {
+    "valid_from": "2023-08-02",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-4193",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-4317",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-4317",
+   "props": {}
+  },
+  {
+   "src": "u_ahmedtd",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4317",
+   "props": {}
+  },
+  {
+   "src": "u_stanislav",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4317",
+   "props": {}
+  },
+  {
+   "src": "u_tinatingyu",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4317",
+   "props": {}
+  },
+  {
+   "src": "u_taahir",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4317",
+   "props": {}
+  },
+  {
+   "src": "u_mo",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4317",
+   "props": {}
+  },
+  {
+   "src": "u_ahmedtd",
+   "rel": "OWNS",
+   "dst": "KEP-4317",
+   "props": {
+    "valid_from": "2023-10-29",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-4317",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-4317",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-4412",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-4412",
+   "props": {}
+  },
+  {
+   "src": "u_aramase",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4412",
+   "props": {}
+  },
+  {
+   "src": "u_mainred",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4412",
+   "props": {}
+  },
+  {
+   "src": "u_anish",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4412",
+   "props": {}
+  },
+  {
+   "src": "u_stanislav",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4412",
+   "props": {}
+  },
+  {
+   "src": "u_aramase",
+   "rel": "OWNS",
+   "dst": "KEP-4412",
+   "props": {
+    "valid_from": "2024-09-09",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-4412",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-4412",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-node",
+   "props": {}
+  },
+  {
+   "src": "KEP-4601",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-4601",
+   "props": {}
+  },
+  {
+   "src": "u_deads2k",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4601",
+   "props": {}
+  },
+  {
+   "src": "u_jordan",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4601",
+   "props": {}
+  },
+  {
+   "src": "u_david",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4601",
+   "props": {}
+  },
+  {
+   "src": "u_deads2k",
+   "rel": "OWNS",
+   "dst": "KEP-4601",
+   "props": {
+    "valid_from": "2024-04-26",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-4601",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-4633",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-4633",
+   "props": {}
+  },
+  {
+   "src": "u_vinayakankugoyal",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4633",
+   "props": {}
+  },
+  {
+   "src": "u_jordan",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4633",
+   "props": {}
+  },
+  {
+   "src": "u_vinayak",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4633",
+   "props": {}
+  },
+  {
+   "src": "u_vinayakankugoyal",
+   "rel": "OWNS",
+   "dst": "KEP-4633",
+   "props": {
+    "valid_from": "2024-05-13",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-4633",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-4633",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-4872",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-4872",
+   "props": {}
+  },
+  {
+   "src": "u_g-gaston",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4872",
+   "props": {}
+  },
+  {
+   "src": "u_mo",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4872",
+   "props": {}
+  },
+  {
+   "src": "u_guillermo",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4872",
+   "props": {}
+  },
+  {
+   "src": "u_g-gaston",
+   "rel": "OWNS",
+   "dst": "KEP-4872",
+   "props": {
+    "valid_from": "2024-09-24",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-4872",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-4940",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-4940",
+   "props": {}
+  },
+  {
+   "src": "u_tssurya",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4940",
+   "props": {}
+  },
+  {
+   "src": "u_jordan",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4940",
+   "props": {}
+  },
+  {
+   "src": "u_surya",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-4940",
+   "props": {}
+  },
+  {
+   "src": "u_tssurya",
+   "rel": "OWNS",
+   "dst": "KEP-4940",
+   "props": {
+    "valid_from": "2024-10-31",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-4940",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-4940",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-network",
+   "props": {}
+  },
+  {
+   "src": "KEP-541",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-541",
+   "props": {}
+  },
+  {
+   "src": "u_awly",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-541",
+   "props": {}
+  },
+  {
+   "src": "u_enj",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-541",
+   "props": {}
+  },
+  {
+   "src": "u_wojciech",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-541",
+   "props": {}
+  },
+  {
+   "src": "u_andrew",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-541",
+   "props": {}
+  },
+  {
+   "src": "u_monis",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-541",
+   "props": {}
+  },
+  {
+   "src": "u_awly",
+   "rel": "OWNS",
+   "dst": "KEP-541",
+   "props": {
+    "valid_from": "2019-07-11",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-541",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-541",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-cli",
+   "props": {}
+  },
+  {
+   "src": "KEP-541",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-api-machinery",
+   "props": {}
+  },
+  {
+   "src": "KEP-5681",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-5681",
+   "props": {}
+  },
+  {
+   "src": "u_luxas",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-5681",
+   "props": {}
+  },
+  {
+   "src": "u_micahhausler",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-5681",
+   "props": {}
+  },
+  {
+   "src": "u_lucas",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-5681",
+   "props": {}
+  },
+  {
+   "src": "u_micah",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-5681",
+   "props": {}
+  },
+  {
+   "src": "u_luxas",
+   "rel": "OWNS",
+   "dst": "KEP-5681",
+   "props": {
+    "valid_from": "2025-11-05",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-5681",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-600",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-600",
+   "props": {}
+  },
+  {
+   "src": "u_pbarker",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-600",
+   "props": {}
+  },
+  {
+   "src": "u_elana",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-600",
+   "props": {}
+  },
+  {
+   "src": "u_wojtekt",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-600",
+   "props": {}
+  },
+  {
+   "src": "u_pbarker",
+   "rel": "OWNS",
+   "dst": "KEP-600",
+   "props": {
+    "valid_from": "2018-05-18",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-600",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-600",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-api-machinery",
+   "props": {}
+  },
+  {
+   "src": "pr:2672",
+   "rel": "RETIRES",
+   "dst": "KEP-600",
+   "props": {
+    "at": "2021-05-05",
+    "quote": "status: withdrawn"
+   }
+  },
+  {
+   "src": "KEP-6283",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-6283",
+   "props": {}
+  },
+  {
+   "src": "u_stlaz",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-6283",
+   "props": {}
+  },
+  {
+   "src": "u_stanislav",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-6283",
+   "props": {}
+  },
+  {
+   "src": "u_stlaz",
+   "rel": "OWNS",
+   "dst": "KEP-6283",
+   "props": {
+    "valid_from": "2026-08-18",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-6283",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-740",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-740",
+   "props": {}
+  },
+  {
+   "src": "u_micahhausler",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-740",
+   "props": {}
+  },
+  {
+   "src": "u_harshaln",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-740",
+   "props": {}
+  },
+  {
+   "src": "u_harshal",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-740",
+   "props": {}
+  },
+  {
+   "src": "u_jordan",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-740",
+   "props": {}
+  },
+  {
+   "src": "u_mo",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-740",
+   "props": {}
+  },
+  {
+   "src": "u_elana",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-740",
+   "props": {}
+  },
+  {
+   "src": "u_wojtekt",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-740",
+   "props": {}
+  },
+  {
+   "src": "u_micahhausler",
+   "rel": "OWNS",
+   "dst": "KEP-740",
+   "props": {
+    "valid_from": "2019-01-16",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-740",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-789",
+   "rel": "RECORDED_IN",
+   "dst": "src:KEP-789",
+   "props": {}
+  },
+  {
+   "src": "u_dekkagaijin",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-789",
+   "props": {}
+  },
+  {
+   "src": "u_dan",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-789",
+   "props": {}
+  },
+  {
+   "src": "u_aaron",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-789",
+   "props": {}
+  },
+  {
+   "src": "u_elana",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-789",
+   "props": {}
+  },
+  {
+   "src": "u_wojtekt",
+   "rel": "AUTHORED",
+   "dst": "src:KEP-789",
+   "props": {}
+  },
+  {
+   "src": "u_dekkagaijin",
+   "rel": "OWNS",
+   "dst": "KEP-789",
+   "props": {
+    "valid_from": "2019-01-28",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "KEP-789",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-789",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-auth",
+   "props": {}
+  },
+  {
+   "src": "KEP-789",
+   "rel": "GOVERNS",
+   "dst": "sys_sig-api-machinery",
+   "props": {}
+  },
+  {
+   "src": "KEP-3299",
+   "rel": "SUPERSEDES",
+   "dst": "KEP-3130",
+   "props": {
+    "at": "2022-05-09",
+    "quote": "KEP-3299 replaces KEP-3130"
+   }
+  },
+  {
+   "src": "KEP-1205",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-1205_1",
+   "props": {
+    "quote": "We would like to introduce a new mechanism for provisioning Kubernetes service\naccount tokens that is compatible with our current security and scalability\nrequirements",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-1314",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-1314_1",
+   "props": {
+    "quote": "there are other controllers in the cluster interacting with pods on a node, and under some\ncircumstances those controllers can be manipulated to do attacker's will",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-1314",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-1314_2",
+   "props": {
+    "quote": "an update to pod/status can also update (some) of the\npod's metadata",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-1393",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-1393_1",
+   "props": {
+    "quote": "there is no standard way to\nget the public portion of the keypair used to sign KSA tokens",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-1393",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-1393_2",
+   "props": {
+    "quote": "Systems (\"relying\nparties\") that want to authenticate KSA tokens must either send them back to the\nAPI server (via `TokenReview`) or use some provider-specific method to get the\nauthentication key",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-1393",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-1393_3",
+   "props": {
+    "quote": "If a relying party could obtain trusted metadata about the service account token\nprovider, in particular the issuer (`iss`) value and the public key(s) used,\nthen the relying party could authenticate tokens without putting proportionate\nload on the API server",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-1513",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-1513_1",
+   "props": {
+    "quote": "The security of the Kubernetes platform is underpinned by a public key\ninfrastructure (PKI)",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-1513",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-1513_2",
+   "props": {
+    "quote": "Each Kubernetes cluster has a root certificate authority.\nThis CA is used to secure communication between cluster components",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-1513",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-1513_3",
+   "props": {
+    "quote": "users have also begun to use this API to provision certificates for PKI\nneeds out of core",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-1687",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-1687_1",
+   "props": {
+    "quote": "As Working Groups\nare not meant to own code",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-1687",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-1687_2",
+   "props": {
+    "quote": "Hierarchical Namespace Controller is nearly to\nMVP status",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-1687",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-1687_3",
+   "props": {
+    "quote": "a permant home is required",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-1687",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-1687_4",
+   "props": {
+    "quote": "having a permanent home\nfor Hierarchical Namespace Controller prior to officially releasing will prevent\ncumbersome migrations of client libraries if a move were to happen at a later time",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-2718",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-2718_1",
+   "props": {
+    "quote": "The motivation for this KEP stems from the inability of the existing\nauthentication mechanisms to satisfy the author's requirement to implement a\nKubernetes client that implements AWS's request signing process, known as\nSignature Version 4 (sig-v4)",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-2718",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-2718_2",
+   "props": {
+    "quote": "In\norder to achieve this, the request signer must have access to the entire\nrequest, so the existing exec-based authentication is unsatisfactory",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-2718",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-2718_3",
+   "props": {
+    "quote": "The\nproblem with this solution is that the operator experience of setting up and\nmanaging an external proxy is poor",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-2784",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-2784_1",
+   "props": {
+    "quote": "Certificates issued through the certificate signing requests API are not\nrevocable today",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-2784",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-2784_2",
+   "props": {
+    "quote": "Furthermore, clients lack a way to control the duration of the\nissued certificate",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-2784",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-2784_3",
+   "props": {
+    "quote": "Signers lack a per-CSR mechanism to control the certificate duration,\nand thus are forced to learn this information out of band",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-2784",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-2784_4",
+   "props": {
+    "quote": "The built-in signers\nuse the same duration for all issued certificates, with the default being a one\nyear certificate lifespan (that is irrevocable without rotating the signer)",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-279",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-279_1",
+   "props": {
+    "quote": "Today the node client has total authority over its own Node labels",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-279",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-279_2",
+   "props": {
+    "quote": "Minorly, it makes\nmanagement difficult",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-279",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-279_3",
+   "props": {
+    "quote": "More significantly, the\napproach greatly compromises security",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-2799",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-2799_1",
+   "props": {
+    "quote": "As BoundServiceAccountTokenVolume is GA in 1.22, pods\u2019 service account tokens\nwould be obtained via TokenRequest API and stored as projected volume",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-2907",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-2907_1",
+   "props": {
+    "quote": "The [secrets-store-csi-driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) project provides a portable method for applications to consume secrets from external secret APIs through the filesystem",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-2907",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-2907_2",
+   "props": {
+    "quote": "Signal the stability of the driver interface and implementation for the core task of making secrets available to pod filesystem",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-2907",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-2907_3",
+   "props": {
+    "quote": "Since the proposal is a storage driver, native support for presenting secrets to a process through environment variables is not possible",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3130",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3130_1",
+   "props": {
+    "quote": "Currently, it is not possible to correlate (in logs) the sequence of calls that are involved in the enveloping operation: kube-apiserver->kms-plugin->KMS",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3130",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3130_2",
+   "props": {
+    "quote": "The only way to correlate a successful/failed envelope operation today is to use the approximate timestamp of the operation to check events in kube-apiserver, kms-plugin and KMS",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3130",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3130_3",
+   "props": {
+    "quote": "There is no guarantee that the timestamp of the operation is the same as the timestamp of the corresponding event in KMS",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3221",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3221_1",
+   "props": {
+    "quote": "cluster\nadministrators can only enable one webhook as a part of the authorization\nchain using the `--authorization-modes` flag",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3221",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3221_2",
+   "props": {
+    "quote": "Cluster administrators should be able to specify more than one authorization\nwebhook in the API Server handler chain",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3221",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3221_3",
+   "props": {
+    "quote": "They also need to be able to\ndeclaratively configure the authorizer chain using a configuration file",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3221",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3221_4",
+   "props": {
+    "quote": "It\nshould also be easy to say when to deny requests, for example, when a webhook\nis unreachable",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3257",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3257_1",
+   "props": {
+    "quote": "Kubernetes lacks a standardized mechanism for signers to distribute their trust\nanchors to workloads",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3257",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3257_2",
+   "props": {
+    "quote": "Creating a ConfigMap in every namespace requires granting over-broad\n  permissions to the responsible controller (create ConfigMaps in **all**\n  namespaces)",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3257",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3257_3",
+   "props": {
+    "quote": "Static trust anchor sets embedded directly in configuration complicate the job\n  of rotating the backing CA's roots of trust",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3257",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3257_4",
+   "props": {
+    "quote": "CRDs work well, but are inappropriate for use by core APIs",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3299",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3299_1",
+   "props": {
+    "quote": "due to the serial processing of LIST requests and the data encryption key (DEK) cache being empty, the initialization of informers may take significant time as a result of the large number of consecutive trips to the KMS plugin -> external KMS for all the DEKs that have been generated so far",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3299",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3299_2",
+   "props": {
+    "quote": "Today, the health check from kube-apiserver to KMS plugin is an `Encrypt` operation followed by `Decrypt` operation. These operations cost money in cloud environments and do not allow the plugin to perform more holistic checks on if it is healthy",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3299",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3299_3",
+   "props": {
+    "quote": "The only way to correlate a successful/failed envelope operation today is to use the approximate timestamp of the operation to check events in kube-apiserver, kms-plugin and KMS",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3331",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3331_1",
+   "props": {
+    "quote": "We want to migrate\naway from a flag-based config that is growing without bounds to a proper versioned config format",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3331",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3331_2",
+   "props": {
+    "quote": "Support multiple ClientIDs",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3331",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3331_3",
+   "props": {
+    "quote": "Identify user by more JWT claims than just a single one",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3331",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3331_4",
+   "props": {
+    "quote": "Use more than one OIDC provider",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3926",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3926_1",
+   "props": {
+    "quote": "Encryption at rest for API resources has been a stable part of Kubernetes for a long time",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3926",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3926_2",
+   "props": {
+    "quote": "If a single object of a resource type cannot be decrypted, listing resources of that\ntype in a path prefix containing the object always fails, even if the rest of\nthe resource instances is accessible",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3926",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3926_3",
+   "props": {
+    "quote": "Currently, removing a resource that causes such failures is not possible",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-3926",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-3926_4",
+   "props": {
+    "quote": "A cluster administrator must access etcd directly and remove the malformed data manually",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4193",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4193_1",
+   "props": {
+    "quote": "When attempting to verify a token associated with a Pod, it is not possible to verify that the Pod is associated with\na specific Node without `get`ing the relevant Pod object (embedded as a private claim in the JWT) and cross-referencing\nthe named `spec.nodeName",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4193",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4193_2",
+   "props": {
+    "quote": "This is especially useful in cases where the external software wants to avoid replay attacks with projected service account\ntokens",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4193",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4193_3",
+   "props": {
+    "quote": "Additionally, to provide a robust means of tracking token usage within the audit log we can embed a unique identifier for\neach token which is can then also be recorded in future audit entries made by this token",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4317",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4317_1",
+   "props": {
+    "quote": "In order to\npreserve this guarantee, it's important that bearer tokens are not involved *at\nany step*, otherwise the security of the scheme devolves to just being a bearer\ntoken",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4317",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4317_2",
+   "props": {
+    "quote": "Securely\nimplementing and operating a third-party signer implementation today requires\nintimate familiarity with Kubernetes' security model, otherwise your signer may\nnegate Kubernetes' node restriction security boundary",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4317",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4317_3",
+   "props": {
+    "quote": "However, there is a significant base of deployed systems (Vault, for\nexample), that need a PKCS#10 certificate signing request in order to issue\ncertificates",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4317",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4317_4",
+   "props": {
+    "quote": "This KEP\nassumes that PodCertificateRequest issuance is fully-automated, because this\nprocess blocks pod startup for pods that use PodCertificate projected volume\nsources",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4412",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4412_1",
+   "props": {
+    "quote": "Today, admins are limited to image pull\nsecrets that are stored directly in the Kubernetes API and thus are long lived and hard to rotate",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4412",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4412_2",
+   "props": {
+    "quote": "or secrets that are managed at the Kubelet level via a Kubelet credential provider (meaning\nthat any pod running on that node can access those images)",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4412",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4412_3",
+   "props": {
+    "quote": "Reduce security risks associated with long lived secrets",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4412",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4412_4",
+   "props": {
+    "quote": "No changes to any Kubernetes REST APIs",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4601",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4601_1",
+   "props": {
+    "quote": "Security for per-node workloads could be improved by exposing field and label selectors to authorizers",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4601",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4601_2",
+   "props": {
+    "quote": "Adding them as authorization attributes allows the development of new kinds of authorizers that\nleverage this information to provide security",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4601",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4601_3",
+   "props": {
+    "quote": "In particular, it enables out-of-tree authorizers to experiment with ways to express restrictions based on field and label selectors",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4633",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4633_1",
+   "props": {
+    "quote": "Many kubernetes users still misconfigure their cluster by creating RoleBindings\nand ClusterRoleBindings to powerful rules in their cluster",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4633",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4633_2",
+   "props": {
+    "quote": "this is not\npossible for many deployments that depend on unauthenticated requests (from\nclients like load balancers or the kubelet) to check health endpoints of a\nkubernetes cluster (`healthz`, `livez` and `readyz`)",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4633",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4633_3",
+   "props": {
+    "quote": "In order to allow\nthese health checks a cluster admin has to enable anonymous requests opening the\ndoor for misconfigurations",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4872",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4872_1",
+   "props": {
+    "quote": "In cloud environments, IPs can change rapidly due to the ephemeral nature of the infrastructure",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4872",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4872_2",
+   "props": {
+    "quote": "in on-premises environments, verifying that the IP addresses in a Certificate Signing Request (CSR) are owned by the requesting node can be challenging due to the lack of a reliable source of truth for IP ownership",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4872",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4872_3",
+   "props": {
+    "quote": "This vulnerability can be exploited through ARP poisoning or other routing attacks, allowing a rogue node to obtain a certificate for an IP it does not own and reroute traffic to itself",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4872",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4872_4",
+   "props": {
+    "quote": "When the Kube API server connects to a kubelet, it verifies that the serving certificate is signed by a trusted CA and that the IP or hostname it\u2019s connecting to is included in the certificate's SANs",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4940",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4940_1",
+   "props": {
+    "quote": "the `Host`\nfield can be set to pretty much any value in the system including\nsecurity sensitive external hosts or localhost on the node",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4940",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4940_2",
+   "props": {
+    "quote": "Kubelet will be probing this set `Host` value which can\nlead to blind SSRF attacks",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-4940",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-4940_3",
+   "props": {
+    "quote": "The Baseline Pod Security Standard (PSS) will be updated to enforce\n  blocking this field so that it helps with easier adoption for\n  workload operators given this is a known issue we want to prevent",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-541",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-541_1",
+   "props": {
+    "quote": "Credential rotation requires client process restart and extra tooling",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-541",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-541_2",
+   "props": {
+    "quote": "Credentials must exist in a plaintext file on disk",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-541",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-541_3",
+   "props": {
+    "quote": "Credentials must be long-lived",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-541",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-541_4",
+   "props": {
+    "quote": "Many users already use key management/protection systems, such as Key\nManagement Systems (KMS), Trusted Platform Modules (TPM) or Hardware Security\nModules (HSM)",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-600",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-600_1",
+   "props": {
+    "quote": "The configuration requires deep insight \ninto the deployment mechanism of choice and often takes many iterations to configure properly requiring a restart of \nthe apiserver each time",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-600",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-600_2",
+   "props": {
+    "quote": "Moreover, the ability to install addon tools that configure and enhance auditing is hindered \nby the overhead in configuration",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-600",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-600_3",
+   "props": {
+    "quote": "As a cluster admin, I will easily be able to enable the internal auditing features of an existing cluster, and tweak the configurations as necessary",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-600",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-600_4",
+   "props": {
+    "quote": "As a Kubernetes extension developer, I will be able to provide drop in extensions that utilize audit data",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-6283",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-6283_1",
+   "props": {
+    "quote": "Two KEPs that significantly improve Kubernetes ability to work with X.509\ncertificates went stable in Kube 1.37 - 3257-ClusterTrustBundles and 4317-PodCertificates",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-6283",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-6283_2",
+   "props": {
+    "quote": "We introduced mechanisms that are supposed to simplify people's experience with\nX.509 certificates and bring their own signers but we don't currently use these\nin places where they would make sense",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-6283",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-6283_3",
+   "props": {
+    "quote": "The KEP also aims to enhance the security of the Kubernetes ecosystem by providing\nbuilt-in server TLS for service DNS names",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-740",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-740_1",
+   "props": {
+    "quote": "Thus, rotating keys require a kube-apiserver to restart",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-740",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-740_2",
+   "props": {
+    "quote": "This means anyone with privileged access to the kube-apiserver configuration / filesystem could exfiltrate signing material",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-740",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-740_3",
+   "props": {
+    "quote": "This KEP proposes updates that will allow Kubernetes distributions to integrate with key management solutions of their choice (eg: HSMs, cloud KMSes)",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-789",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-789_1",
+   "props": {
+    "quote": "One of the work items resulting from the [CVE-2018-1002105](https://github.com/kubernetes/kubernetes/issues/71411) post-mortem was to [investigate hardening the default RBAC discovery ClusterRoleBindings](https://github.com/kubernetes/kubernetes/issues/72115) (i.e. `system:discovery` and `system:bas",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-789",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-789_2",
+   "props": {
+    "quote": "Additionally, the fact that API extensions are exposed by the default discovery bindings is surprising to some and represents a potential privacy concern (e.g. `GET /apis/self-flying-cars.unicorn.vc/v1/`)",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "KEP-789",
+   "rel": "BECAUSE_OF",
+   "dst": "r_KEP-789_3",
+   "props": {
+    "quote": "There are several non-sensitive and legitimate use-cases for unauthenticated calls, such as `/healthz` liveliness checks and [returning useful information about the cluster](https://github.com/kubernetes/kubernetes/issues/45366#issuecomment-299275002) to `kubectl version`, that we don't wish to brea",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "src:KEP-3299",
+   "rel": "SUPPORTS",
+   "dst": "r_KEP-3130_2",
+   "props": {
+    "at": "2022-05-09",
+    "quote": "The only way to correlate a successful/failed envelope operation today is to use the approximate timestamp of the operation to check events in kube-apiserver, kms-plugin and KMS",
+    "why": "The later ADR explicitly restates this limitation as the current state ('today') to motivate the introduction of transaction IDs.",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "src:KEP-3299",
+   "rel": "SUPPORTS",
+   "dst": "r_KEP-3130_3",
+   "props": {
+    "at": "2022-05-09",
+    "quote": "There is no guarantee that the timestamp of the operation is the same as the timestamp of the corresponding event in KMS",
+    "why": "The later ADR explicitly restates this lack of guarantee as the current state ('today') to justify the need for a more reliable correlation mechanism.",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "src:KEP-4633",
+   "rel": "SUPPORTS",
+   "dst": "r_KEP-789_3",
+   "props": {
+    "at": "2024-05-13",
+    "quote": "this is not\npossible for many deployments that depend on unauthenticated requests (from\nclients like load balancers or the kubelet) to check health endpoints of a\nkubernetes cluster (`healthz`, `livez` and `readyz`)",
+    "why": "The later ADR explicitly cites the dependency on unauthenticated health checks as a reason why a blanket disable of anonymous auth is not feasible, affirming the earlier reason that legitimate use-cases for unauthenticated calls must not be broken.",
+    "extracted_by": "qwen/qwen3.8-27b"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RUNS",
+   "dst": "proj_sig-auth_audit-logging",
+   "props": {}
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RUNS",
+   "dst": "proj_sig-auth_authenticators",
+   "props": {}
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RUNS",
+   "dst": "proj_sig-auth_authorizers",
+   "props": {}
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RUNS",
+   "dst": "proj_sig-auth_certificates",
+   "props": {}
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RUNS",
+   "dst": "proj_sig-auth_encryption-at-rest",
+   "props": {}
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RUNS",
+   "dst": "proj_sig-auth_node-identity-and-isolation",
+   "props": {}
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RUNS",
+   "dst": "proj_sig-auth_policy-management",
+   "props": {}
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RUNS",
+   "dst": "proj_sig-auth_secrets-store-csi-driver",
+   "props": {}
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RUNS",
+   "dst": "proj_sig-auth_secrets-store-sync-controller",
+   "props": {}
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RUNS",
+   "dst": "proj_sig-auth_service-accounts",
+   "props": {}
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RUNS",
+   "dst": "proj_sig-auth_sig-auth-tools",
+   "props": {}
+  },
+  {
+   "src": "u_ericchiang",
+   "rel": "LEADS",
+   "dst": "team_sig-auth",
+   "props": {
+    "role": "chair",
+    "valid_from": "2018-04-01",
+    "valid_to": "2018-07-01",
+    "history": "chair 2018-04-01..2018-07-01"
+   }
+  },
+  {
+   "src": "u_liggitt",
+   "rel": "LEADS",
+   "dst": "team_sig-auth",
+   "props": {
+    "role": "tech lead",
+    "valid_from": "2018-04-01",
+    "valid_to": "",
+    "history": "chair 2018-04-01..2019-01-01; tech lead 2019-04-01..now"
+   }
+  },
+  {
+   "src": "u_tallclair",
+   "rel": "LEADS",
+   "dst": "team_sig-auth",
+   "props": {
+    "role": "chair",
+    "valid_from": "2018-04-01",
+    "valid_to": "2021-07-01",
+    "history": "chair 2018-04-01..2021-07-01"
+   }
+  },
+  {
+   "src": "u_mikedanese",
+   "rel": "LEADS",
+   "dst": "team_sig-auth",
+   "props": {
+    "role": "tech lead",
+    "valid_from": "2018-10-01",
+    "valid_to": "2025-04-01",
+    "history": "chair 2018-10-01..2025-04-01; tech lead 2019-04-01..2024-01-01"
+   }
+  },
+  {
+   "src": "u_enj",
+   "rel": "LEADS",
+   "dst": "team_sig-auth",
+   "props": {
+    "role": "tech lead",
+    "valid_from": "2019-01-01",
+    "valid_to": "",
+    "history": "chair 2019-01-01..2025-04-01; tech lead 2024-01-01..now"
+   }
+  },
+  {
+   "src": "u_deads2k",
+   "rel": "LEADS",
+   "dst": "team_sig-auth",
+   "props": {
+    "role": "tech lead",
+    "valid_from": "2019-04-01",
+    "valid_to": "",
+    "history": "tech lead 2019-04-01..now"
+   }
+  },
+  {
+   "src": "u_ritazh",
+   "rel": "LEADS",
+   "dst": "team_sig-auth",
+   "props": {
+    "role": "chair",
+    "valid_from": "2021-07-01",
+    "valid_to": "",
+    "history": "chair 2021-07-01..now"
+   }
+  },
+  {
+   "src": "u_aramase",
+   "rel": "LEADS",
+   "dst": "team_sig-auth",
+   "props": {
+    "role": "chair",
+    "valid_from": "2025-04-01",
+    "valid_to": "",
+    "history": "chair 2025-04-01..now"
+   }
+  },
+  {
+   "src": "u_micahhausler",
+   "rel": "LEADS",
+   "dst": "team_sig-auth",
+   "props": {
+    "role": "chair",
+    "valid_from": "2025-04-01",
+    "valid_to": "",
+    "history": "chair 2025-04-01..now"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-1205",
+   "props": {
+    "valid_from": "2019-08-06"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-1314",
+   "props": {
+    "valid_from": "2019-09-16"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-1393",
+   "props": {
+    "valid_from": "2018-06-26"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-1513",
+   "props": {
+    "valid_from": "2019-06-07"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-1687",
+   "props": {
+    "valid_from": "2020-04-14"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-266",
+   "props": {
+    "valid_from": "2017-06-27"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-2718",
+   "props": {
+    "valid_from": "2021-05-11"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-2784",
+   "props": {
+    "valid_from": "2021-06-17"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-279",
+   "props": {
+    "valid_from": "2017-08-14"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-2799",
+   "props": {
+    "valid_from": "2021-06-25"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-2907",
+   "props": {
+    "valid_from": "2021-09-02"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-3130",
+   "props": {
+    "valid_from": "2022-01-12"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-3221",
+   "props": {
+    "valid_from": "2022-06-21"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-3257",
+   "props": {
+    "valid_from": "2022-02-16"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-3299",
+   "props": {
+    "valid_from": "2022-05-09"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-3331",
+   "props": {
+    "valid_from": "2022-06-02"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-3926",
+   "props": {
+    "valid_from": "2023-03-27"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-4193",
+   "props": {
+    "valid_from": "2023-08-02"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-4317",
+   "props": {
+    "valid_from": "2023-10-29"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-4412",
+   "props": {
+    "valid_from": "2024-09-09"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-4601",
+   "props": {
+    "valid_from": "2024-04-26"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-4633",
+   "props": {
+    "valid_from": "2024-05-13"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-4872",
+   "props": {
+    "valid_from": "2024-09-24"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-4940",
+   "props": {
+    "valid_from": "2024-10-31"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-541",
+   "props": {
+    "valid_from": "2019-07-11"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-5681",
+   "props": {
+    "valid_from": "2025-11-05"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-600",
+   "props": {
+    "valid_from": "2018-05-18"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-6283",
+   "props": {
+    "valid_from": "2026-08-18"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-740",
+   "props": {
+    "valid_from": "2019-01-16"
+   }
+  },
+  {
+   "src": "team_sig-auth",
+   "rel": "RESPONSIBLE_FOR",
+   "dst": "KEP-789",
+   "props": {
+    "valid_from": "2019-01-28"
+   }
+  }
+ ]
+}

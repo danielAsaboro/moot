@@ -18,7 +18,7 @@ export default function GoFurther() {
         </SectionHead>
         <div className={s.body}>
           <Group label="Go further">
-            <Row href="/app/people/" title="What leaves when someone does"
+            <Row href="/app/people/?graph=larkspur" title="What leaves when someone does"
               subtitle="Who knows why each decision was made, bus factor, bridges (betweenness) and knowledge islands (WCC)" />
             {repos.map(g => (
               <Row key={g.name} href={`/app/ledger/?graph=${g.name}`} title={`${g.title}, audited`}
@@ -28,7 +28,7 @@ export default function GoFurther() {
               <Row href={`/app/ledger/?graph=${backtest.name}&as_of=${backtest.as_of ?? ""}`} title={backtest.title}
                 subtitle="Rewound month by month; graded by what their own maintainers later did" />
             )}
-            <Row href="/app/ledger/?d=D01&tab=cypher" title="Every query behind one answer"
+            <Row href="/app/ledger/?graph=larkspur&d=D01&tab=cypher" title="Every query behind one answer"
               subtitle="The read-only Cypher FalkorDB ran for D01, with rows and milliseconds" />
           </Group>
         </div>

@@ -10,6 +10,7 @@ import AgentsAsk from "@/components/landing/AgentsAsk";
 import TryIt from "@/components/landing/TryIt";
 import RealWorldPreview from "@/components/landing/RealWorldPreview";
 import GoFurther from "@/components/landing/GoFurther";
+import Judges from "@/components/landing/Judges";
 import SiteFooter from "@/components/landing/SiteFooter";
 
 export default function Landing() {
@@ -18,6 +19,7 @@ export default function Landing() {
       <SiteNav />
       <main>
         <Hero />
+        <Judges />
         <HowItWorks />
         <BlastRadius />
         <LandingDrawing />

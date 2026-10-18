@@ -60,7 +60,7 @@ export default function LandingDrawing() {
         <div className={s.stage}>
           {near ? <Drawing /> : <div className={s.placeholder} aria-hidden="true" />}
         </div>
-        <Link href={`/app/?d=${ID}&as_of=${AS_OF}&depth=${DEPTH}`} className={s.open}>
+        <Link href={`/app/?graph=larkspur&d=${ID}&as_of=${AS_OF}&depth=${DEPTH}`} className={s.open}>
           Open <span className="id">{ID}</span> in the ledger <span aria-hidden="true">›</span>
         </Link>
       </div>

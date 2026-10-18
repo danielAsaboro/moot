@@ -1,4 +1,4 @@
 {
   "framework": "fastapi",
-  "buildCommand": "cd frontend && npm ci --no-audit --no-fund && NEXT_TELEMETRY_DISABLED=1 npm run build"
+  "buildCommand": "cd frontend && npm ci --no-audit --no-fund && NEXT_TELEMETRY_DISABLED=1 NEXT_PUBLIC_DEFAULT_GRAPH=gh_kubernetes_enhancements npm run build"
 }

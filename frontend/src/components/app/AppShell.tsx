@@ -128,7 +128,7 @@ function GraphPicker({ data, onDone }: { data: GraphsResponse | null; onDone: ()
         {(data?.graphs ?? []).map(x => (
           <li key={x.name}>
             <button type="button" className={cx(s.graphRow, x.name === current && s.graphOn)} aria-pressed={x.name === current}
-              onClick={() => { setGraphName(x.default ? null : x.name); onDone(); }}>
+              onClick={() => { setGraphName(x.name); onDone(); }}>
               <span className={s.graphTitle}>{x.title}</span>
               <span className={s.graphSub}>{KIND[x.kind] ?? x.kind} · {x.decisions} decisions</span>
             </button>

@@ -99,7 +99,7 @@ export default function HeroRecords({ data, error, asOf, depth }: { data: Decisi
         )}
       </ol>
       <p className={s.foot}>
-        <Link className="link" href={`/app/?d=${encodeURIComponent(audit.decision.id)}&as_of=${asOf}&depth=${depth}`}>
+        <Link className="link" href={`/app/?graph=larkspur&d=${encodeURIComponent(audit.decision.id)}&as_of=${asOf}&depth=${depth}`}>
           Open {audit.decision.id} in the ledger ›
         </Link>
       </p>

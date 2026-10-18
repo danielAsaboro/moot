@@ -19,11 +19,11 @@ const TILES: Tile[] = [
   { title: "Depth", text: "Reasons rest on other reasons. Choose how many hops Moot walks before it rules.",
     href: `/app/?d=D01&as_of=${REF_DATE}&depth=1`, cta: "Open D01 at depth 1", Card: DepthCard },
   { title: "Agent gate", text: "Before an agent acts on a rule, it asks. The gate answers ALLOW, DENY or REVALIDATE.",
-    href: "/app/gate/", cta: "Open the gate board", Card: GateCard },
+    href: "/app/gate/?graph=larkspur", cta: "Open the gate board", Card: GateCard },
   { title: "What-if", text: "Take one reason away and see which decisions would fall with it.",
-    href: "/app/whatif/", cta: "Open what-if", Card: WhatIfCard },
+    href: "/app/whatif/?graph=larkspur", cta: "Open what-if", Card: WhatIfCard },
   { title: "Handover", text: "When someone leaves, their decisions are routed up the reporting line, not lost.",
-    href: "/app/orphans/", cta: "Open handover", Card: HandoverCard },
+    href: "/app/orphans/?graph=larkspur", cta: "Open handover", Card: HandoverCard },
 ];
 
 export default function Features() {

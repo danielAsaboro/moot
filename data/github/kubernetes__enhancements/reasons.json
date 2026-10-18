@@ -1,0 +1,756 @@
+{
+ "evidence": {
+  "KEP-1205": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "6712d35f82121bcda79b",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 7.6
+  },
+  "KEP-1314": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "b341e015cf1ea2c81fa5",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 17.0
+  },
+  "KEP-1393": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "750e1fa45892c1de56db",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 0.4
+  },
+  "KEP-1513": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "1183ad970dbb1ad83c06",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 6.9
+  },
+  "KEP-1687": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "5aae7f8c929a0af0890a",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 9.6
+  },
+  "KEP-2718": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "2311f529ff3e2b15b7af",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 19.1
+  },
+  "KEP-2784": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "cb0485641c91fa969c4e",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 14.7
+  },
+  "KEP-2799": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "92ce7c12014850240457",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 14.7
+  },
+  "KEP-2907": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "1ef702627ec71cd08048",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 15.7
+  },
+  "KEP-3130": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "97c56468bc2a334f297b",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 8.8
+  },
+  "KEP-3221": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "49e598a9f649d4d2e156",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 25.9
+  },
+  "KEP-3257": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "674ac11df3275e5f093c",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 23.8
+  },
+  "KEP-3299": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "802a83e83f8ce5372280",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"relations\": [\n    {\n      \"reason_id\": \"r_KEP-3130_2\",\n      \"rel\": \"SUPPORTS\",\n      \"quote\": \"The only way to correlate a successful/failed envelope operation today is to use the approximate timestamp of the operation to check events in kube-apiserver, kms-plugin and KMS.\",\n      \"why\": \"The later ADR explicitly restates this limitation as the current state ('today') to motivate the introduction of transaction IDs.\"\n    },\n    {\n      \"reason_id\": \"r_KEP-3130_3\",\n      \"rel\": \"SUPPORTS\",\n      \"quote\": \"There is no guarantee that the timestamp of the operation is the same as the timestamp of the corresponding event in KMS.\",\n      \"why\": \"The later ADR explicitly restates this lack of guarantee as the current state ('today') to justify the need for a more reliable correlation mechanism.\"\n    }\n  ]\n}",
+   "seconds": 19.8
+  },
+  "KEP-3331": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "231f2f5d143c6082e395",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 13.9
+  },
+  "KEP-3926": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "5a00029d813d196d9934",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 18.7
+  },
+  "KEP-4193": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "45ebfb61b3cc6271c565",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 17.7
+  },
+  "KEP-4317": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "d2e46e4eabd3c42d5448",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 26.8
+  },
+  "KEP-4412": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "66729aeb708cbaad1599",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 21.8
+  },
+  "KEP-4601": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "5809550722bdd0e02392",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 19.8
+  },
+  "KEP-4633": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "7872e33c940653e52284",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"relations\": [\n    {\n      \"reason_id\": \"r_KEP-789_3\",\n      \"rel\": \"SUPPORTS\",\n      \"quote\": \"this is not possible for many deployments that depend on unauthenticated requests (from clients like load balancers or the kubelet) to check health endpoints of a kubernetes cluster (`healthz`, `livez` and `readyz`).\",\n      \"why\": \"The later ADR explicitly cites the dependency on unauthenticated health checks as a reason why a blanket disable of anonymous auth is not feasible, affirming the earlier reason that legitimate use-cases for unauthenticated calls must not be broken.\"\n    }\n  ]\n}",
+   "seconds": 20.0
+  },
+  "KEP-4872": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "180a1c532dffbdc05056",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 16.7
+  },
+  "KEP-4940": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "d5ee58025feb15b91bb4",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 12.7
+  },
+  "KEP-541": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "1ffd51e995074df5a41f",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 9.7
+  },
+  "KEP-5681": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "e718ea6d619dc845fd65",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 12.7
+  },
+  "KEP-600": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "e892011880e843f06fef",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 22.9
+  },
+  "KEP-6283": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "19ec5837d92c76ae661d",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 14.9
+  },
+  "KEP-740": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "bce2533ad8195c4707bb",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 0.5
+  },
+  "KEP-789": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "61d3e25fd403c4b9a73f",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 0.3
+  }
+ },
+ "extract": {
+  "KEP-1029": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "18c7a9fc4095e9f20787",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The current mechanism for monitoring storage consumption is slow and can cause nodes to become not ready.\",\n      \"quote\": \"It is slow.  If a volume contains a large number of files, walking the directory can take a significant amount of time.  There has been at least one known report of nodes becoming not ready due to volume metrics: <https://github.com/kubernetes/kubernetes/issues/62917>\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The current mechanism can be fooled by files that are deleted but held open, concealing storage usage.\",\n      \"quote\": \"It is possible to conceal a file from the walker by creating it and removing it while holding an open file descriptor on it.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The current mechanism is reactive and does not prevent pods from overshooting their storage limits before detection.\",\n      \"quote\": \"It is reactive rather than proactive.  It does not prevent a pod from overshooting its limit; at best it catches it after the fact.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Shared multi-tenant environments require these issues to be addressed.\",\n      \"quote\": \"In many environments, these issues may not matter, but shared multi-tenant environments need these issues addressed.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 71.9
+  },
+  "KEP-1205": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "4889175a2cee6e71a890",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The new mechanism must be compatible with current security and scalability requirements.\",\n      \"quote\": \"We would like to introduce a new mechanism for provisioning Kubernetes service account tokens that is compatible with our current security and scalability requirements.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 0.5
+  },
+  "KEP-127": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "032eaa478e798741a6a1",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"User namespaces mitigate specific security vulnerabilities like CVE-2019-5736 and Azurescape.\",\n      \"quote\": \"The following security vulnerabilities are (completely or partially) mitigated with user namespaces as we propose here and it is expected that it will mitigate similar future vulnerabilities too.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Mapping root inside the container to unprivileged IDs on the host limits the impact of a container breakout.\",\n      \"quote\": \"If such a process is able to break out of the container to the host, it'll have limited impact as it'll be running as an unprivileged user there.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Non-overlapping UID mappings increase isolation between pods on the same node.\",\n      \"quote\": \"if two containers runs as user X, they run as different UIDs in the node and therefore are more isolated than today\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"User namespaces allow pods to hold capabilities that are valid only within the pod, not on the host.\",\n      \"quote\": \"Allow pods to have capabilities (e.g. `CAP_SYS_ADMIN`) that are only valid in the pod (not valid in the host).\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 79.0
+  },
+  "KEP-1287": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c2dfe2d6a33926cd4923",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Changing resource allocation currently requires the Pod to be recreated because the PodSpec's Container Resources are immutable.\",\n      \"quote\": \"Currently, changing resource allocation requires the Pod to be recreated since the PodSpec's Container Resources is immutable.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Stateful or batch workloads suffer serious disruption, lower availability, or higher costs when Pods are restarted.\",\n      \"quote\": \"Moreover, for stateful or batch workloads, Pod restart is a serious disruption, resulting in lower availability or higher cost of running.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The In-Place Pod Vertical Scaling feature relies on the Container Runtime Interface to update CPU and memory requests or limits.\",\n      \"quote\": \"Additionally, In-Place Pod Vertical Scaling feature relies on Container Runtime Interface (CRI) to update CPU and/or memory requests/limits for a Pod's Container(s).\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The current UpdateContainerResources CRI API is designed for Linux Containers and may not work for Windows or other non-Linux runtimes.\",\n      \"quote\": \"UpdateContainerResources CRI API takes a parameter that describes Container resources to update for Linux Containers, and this may not work for Windows Containers or other potential non-Linux runtimes in the future.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 70.4
+  },
+  "KEP-1314": {
+   "backend": "groq",
+   "dropped": [
+    {
+     "quote": "Making a pod match a service selector in order to man-in-the-middle (MITM) the service traffic.",
+     "text": "A compromised node can manipulate pod labels to match service selectors or controller selectors, enabling man-in-the-middle or denial-of-service attacks.",
+     "why": "quote is not a span of the ADR"
+    },
+    {
+     "quote": "The Kubelet creates a \"mirror pod\", which reflects the state of the static pod it's running.",
+     "text": "The Kubelet creates mirror pods to reflect static pods, which can be used to bypass authorization if not restricted.",
+     "why": "quote is not a span of the ADR"
+    }
+   ],
+   "key": "fb8f4a68dbc5e25dc0f6",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Other controllers in the cluster can be manipulated by a compromised node to perform confused deputy attacks.\",\n      \"quote\": \"there are other controllers in the cluster interacting with pods on a node, and under some circumstances those controllers can be manipulated to do attacker's will.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"A compromised node can manipulate pod labels to match service selectors or controller selectors, enabling man-in-the-middle or denial-of-service attacks.\",\n      \"quote\": \"Making a pod match a service selector in order to man-in-the-middle (MITM) the service traffic.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The Kubelet can update pod metadata, including labels and annotations, through the pod/status subresource.\",\n      \"quote\": \"an update to pod/status can also update (some) of the pod's metadata.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The Kubelet creates mirror pods to reflect static pods, which can be used to bypass authorization if not restricted.\",\n      \"quote\": \"The Kubelet creates a \\\"mirror pod\\\", which reflects the state of the static pod it's running.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 1.0
+  },
+  "KEP-135": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "16adc10b2f4970bd4125",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 46.6
+  },
+  "KEP-1393": {
+   "backend": "groq",
+   "dropped": [
+    {
+     "quote": "OpenID Connect defines a discovery mechanism that, given an issuer URL, allows a client to discover the rest of the issuer metadata, including the key set.",
+     "text": "OpenID Connect defines a discovery mechanism that allows clients to discover issuer metadata and key sets.",
+     "why": "quote is not a span of the ADR"
+    }
+   ],
+   "key": "890b57a75af7867b855f",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"There is no standard way to get the public portion of the keypair used to sign KSA tokens.\",\n      \"quote\": \"there is no standard way to get the public portion of the keypair used to sign KSA tokens\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Relying parties must currently send tokens back to the API server for authentication.\",\n      \"quote\": \"Systems (\\\"relying parties\\\") that want to authenticate KSA tokens must either send them back to the API server (via `TokenReview`) or use some provider-specific method to get the authentication key.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Obtaining trusted metadata allows relying parties to authenticate tokens without putting proportionate load on the API server.\",\n      \"quote\": \"If a relying party could obtain trusted metadata about the service account token provider, in particular the issuer (`iss`) value and the public key(s) used, then the relying party could authenticate tokens without putting proportionate load on the API server.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"OpenID Connect defines a discovery mechanism that allows clients to discover issuer metadata and key sets.\",\n      \"quote\": \"OpenID Connect defines a discovery mechanism that, given an issuer URL, allows a client to discover the rest of the issuer metadata, including the key set.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 1.2
+  },
+  "KEP-1513": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "9949be6b053445bd5b27",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The security of the Kubernetes platform is underpinned by a public key infrastructure (PKI).\",\n      \"quote\": \"The security of the Kubernetes platform is underpinned by a public key infrastructure (PKI).\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Each Kubernetes cluster has a root certificate authority used to secure communication between cluster components.\",\n      \"quote\": \"Each Kubernetes cluster has a root certificate authority. This CA is used to secure communication between cluster components.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Users have begun to use this API to provision certificates for PKI needs out of core.\",\n      \"quote\": \"users have also begun to use this API to provision certificates for PKI needs out of core.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 0.8
+  },
+  "KEP-1539": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c0c6d12c07d79d1386f0",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The Translation Lookaside Buffer (TLB) is a fixed-size hardware cache, so increasing page size reduces the chance of a TLB miss and improves performance.\",\n      \"quote\": \"Since the size of the TLB is fixed, the only way to reduce the chance of a TLB miss is to increase the page size.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Transparent Huge Pages (THP) are limited to 2Mi page sizes and can cause performance degradation on nodes with high memory utilization or fragmentation.\",\n      \"quote\": \"In particular, they are limited to 2Mi page sizes. THP might lead to performance degradation on nodes with high memory utilization or fragmentation due to defragmenting efforts of THP, which can lock memory pages.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Applications that benefit from huge pages typically have a large memory working set and are sensitive to memory access latency.\",\n      \"quote\": \"The class of applications that benefit from huge pages typically have\\n- A large memory working set\\n- A sensitivity to memory access latency\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Huge pages cannot be overcommitted on a node, requiring pre-allocation by the administrator.\",\n      \"quote\": \"Huge pages cannot be overcommitted on a node.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 90.0
+  },
+  "KEP-1547": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "4410822f03af894b273f",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The docker/docker client library pulls in code from many different open source libraries, making it difficult to manage dependencies.\",\n      \"quote\": \"The `docker/docker` client library is a particularly painful dependency because its pulls in code from many different open source libraries. For those managing k8s dependencies, it can be extremely difficult to keep up with the changes to all these dependencies.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The open source libraries required by docker/docker bloat the Kubelet binary.\",\n      \"quote\": \"Additionally, all the open source libraries required by `docker/docker` bloat the Kubelet binary.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Developers need to validate that their proposed solutions for making Docker function like a remote container runtime work correctly without Docker-specific code.\",\n      \"quote\": \"Using this dockerless build ensures the Kubelet contains no \\\"Docker-specific\\\" code, and any success/failures can be attributed to my implementation.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 68.0
+  },
+  "KEP-1558": {
+   "backend": "ollama",
+   "dropped": [
+    {
+     "quote": "Furthermore, the redirect handling significantly complicates the apiserver stream handling, and opens it up to [potential SSRF attacks][], so we added the `ValidateProxyRedirects` feature to mitigate ",
+     "text": "The redirect handling opens the cluster to potential security risks such as SSRF attacks.",
+     "why": "same span as an earlier reason"
+    }
+   ],
+   "key": "f4334405496b628236af",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The apiserver is still responsible for proxying requests, making the gains of bypassing the Kubelet marginal.\",\n      \"quote\": \"However, the apiserver is still responsible for proxying these requests, so the gains of bypassing the Kubelet are marginal.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The redirect handling significantly complicates the apiserver stream handling.\",\n      \"quote\": \"Furthermore, the redirect handling significantly complicates the apiserver stream handling, and opens it up to [potential SSRF attacks][], so we added the `ValidateProxyRedirects` feature to mitigate those.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The redirect handling opens the cluster to potential security risks such as SSRF attacks.\",\n      \"quote\": \"Furthermore, the redirect handling significantly complicates the apiserver stream handling, and opens it up to [potential SSRF attacks][], so we added the `ValidateProxyRedirects` feature to mitigate those.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The Kubelet already has an mTLS connection to the apiserver, making local proxying more secure.\",\n      \"quote\": \"So, we added the ability for the Kubelet to connect the stream locally and proxy the connection back to the apiserver. This setup is more secure, removes the need for `StreamingProxyRedirects` and `ValidateProxyRedirects`, but adds the Kubelet back into the long-running request chain.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 65.4
+  },
+  "KEP-166": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "d3483e19d930641b24eb",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 38.4
+  },
+  "KEP-1687": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "8ad647d24072c4a3ed89",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Working Groups are not meant to own code.\",\n      \"quote\": \"As Working Groups are not meant to own code\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The Hierarchical Namespace Controller is nearly at MVP status.\",\n      \"quote\": \"Hierarchical Namespace Controller is nearly to MVP status\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"A permanent home is required for the project.\",\n      \"quote\": \"a permant home is required\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Having a permanent home before release prevents cumbersome migrations of client libraries.\",\n      \"quote\": \"having a permanent home for Hierarchical Namespace Controller prior to officially releasing will prevent cumbersome migrations of client libraries if a move were to happen at a later time\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 1.0
+  },
+  "KEP-1769": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "b2bdd907749a8734c4b8",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 50.1
+  },
+  "KEP-1797": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "f2e0055a0a9dc273834e",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Legacy applications rely on the kernel hostname field being set to the host FQDN.\",\n      \"quote\": \"many applications created before Kubernetes rely on this behavior.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The feature helps containerize existing applications without deep, risky code changes.\",\n      \"quote\": \"Having this feature would help containerize existing applications without deep, risky code changes.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The feature increases the interoperability of Kubernetes with legacy applications.\",\n      \"quote\": \"This feature would increase the interoperability of Kubernetes with legacy applications.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 58.6
+  },
+  "KEP-1867": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "cac5fbc0f81871b99d36",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 42.2
+  },
+  "KEP-1884": {
+   "backend": "ollama",
+   "dropped": [
+    {
+     "quote": "Device Monitoring in Kubernetes is expected to be implemented out of the kubernetes tree.",
+     "text": "Device monitoring in Kubernetes is expected to be implemented outside the Kubernetes tree.",
+     "why": "quote is not a span of the ADR"
+    }
+   ],
+   "key": "85df2654fcc2d3b5c0b4",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Device monitoring in Kubernetes is expected to be implemented outside the Kubernetes tree.\",\n      \"quote\": \"Device Monitoring in Kubernetes is expected to be implemented out of the kubernetes tree.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"External monitoring agents need to determine the set of devices in use by containers to attach pod and container metadata to metrics.\",\n      \"quote\": \"the external monitoring agents need to be able to determine the set of devices in-use by containers and attach pod and container metadata to the metrics.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The kubelet is the best source of information for tracking allocated resources because it manages concrete resource assignment.\",\n      \"quote\": \"The kubelet is the best source of information because it manages concrete resources assignment.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 64.6
+  },
+  "KEP-1898": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "d0c69f8b148c600dc142",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"SSRF vulnerabilities in Kubernetes allow attackers to execute arbitrary commands via URL parameters in GET requests.\",\n      \"quote\": \"In both these cases, the potential of the vulnerability is greatly increased by the ability for an attacker to execute arbitrary commands specified by a URL parameter in a GET request.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Removing the ability to control executed commands via URL parameters reduces the impact of future SSRF vulnerabilities.\",\n      \"quote\": \"Removing this attacker capability will greatly reduce the impact of future vulnerabilities in which an attacker can control the URL of an authenticated request.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The Kubelet API is only intended for consumption by the kube-apiserver and requires only forwards-compatibility.\",\n      \"quote\": \"Maintaining backwards compatibility of the Kubelet API, which is only intended for consumption by the kube-apiserver and only requires forwards-compatibility\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 49.3
+  },
+  "KEP-1967": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "6c2ecdca9be95291a8fb",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The default size of memory-backed volumes is coupled to the host's total memory, reducing portability across different node types.\",\n      \"quote\": \"The coupling of default memory backed volume size with the host that runs the pod makes pod definitions less portable across node instance types and providers.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Workloads using /dev/shm or memory-backed volumes, such as AI/ML, are negatively impacted by this lack of portability.\",\n      \"quote\": \"This impacts workloads that make heavy use of /dev/shm or other use cases oriented around memory backed volume usage (AI/ML, etc.)\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Users need the ability to explicitly size memory-backed volumes to be less than the pod's allocatable memory.\",\n      \"quote\": \"Enable a user to size the memory backed volume less than the pod allocatable memory\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 52.8
+  },
+  "KEP-1972": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "7c592873c218c2bc1913",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 42.0
+  },
+  "KEP-2000": {
+   "backend": "ollama",
+   "dropped": [
+    {
+     "quote": "We believe that making use of systemd is a reasonable approach considering almost all new popular linux distros are systemd based (RHEL, Google COS, Ubuntu, CentOS, Debian, Fedora, Flatcar Linux, see ",
+     "text": "Most modern Linux distributions use systemd, which provides inhibitor locks to delay shutdown.",
+     "why": "quote is not a span of the ADR"
+    }
+   ],
+   "key": "90cc6df090c0b3712478",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Pods currently do not follow the expected termination lifecycle when a node shuts down, causing issues for workloads.\",\n      \"quote\": \"Currently, when a node shuts down, pods do not follow the expected pod termination lifecycle and are not terminated gracefully which can cause issues for some workloads.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Most modern Linux distributions use systemd, which provides inhibitor locks to delay shutdown.\",\n      \"quote\": \"We believe that making use of systemd is a reasonable approach considering almost all new popular linux distros are systemd based (RHEL, Google COS, Ubuntu, CentOS, Debian, Fedora, Flatcar Linux, see widespread adoption) and systemd 183 (released in 2012) features support for inhibitors.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Systemd is not aware of Kubernetes pods and containers, so it kills them as regular processes without graceful termination.\",\n      \"quote\": \"However, in the context of kubernetes, systemd is not aware of the pods and containers running on the machine and systemd will simply kill them as regular linux processes.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 74.9
+  },
+  "KEP-2008": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "a999f70629250e32bc78",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The checkpointed container can be transferred to another node and the original container will never know that it was checkpointed.\",\n      \"quote\": \"The checkpointed container can be transferred to another node and the original container will never know that it was checkpointed.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Restoring the container in a sandboxed environment provides a mean to forensically analyse a copy of the container to understand if it might have been a possible threat.\",\n      \"quote\": \"Restoring the container in a sandboxed environment provides a mean to forensically analyse a copy of the container to understand if it might have been a possible threat.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The analysis is happening on a copy of the original container so a possible attacker of the original container will not be aware of any sandboxed analysis.\",\n      \"quote\": \"As the analysis is happening on a copy of the original container a possible attacker of the original container will not be aware of any sandboxed analysis.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The goal is to introduce checkpoint to the CRI API and extend the kubelet API to support checkpointing single containers with the forensic use case in mind.\",\n      \"quote\": \"The goal of this KEP is to introduce *checkpoint* to the CRI API. This includes extending the *kubelet* API to support checkpointing single containers with the forensic use case in mind.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 54.3
+  },
+  "KEP-2033": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "dd7ce2d8f1fe98424686",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Running Kubernetes components as a non-root user protects the host from container-breakout vulnerabilities.\",\n      \"quote\": \"Protect the host from potential container-breakout vulnerabilities. This is the main motivation.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Users of shared machines need to run Kubernetes without risking breaking colleagues' environments.\",\n      \"quote\": \"Allow users of shared machines (especially HPC) to run Kubernetes without the risk of accidentally breaking their colleagues' environments.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Admission controllers are inefficient for mitigating vulnerabilities in node components like kubelet and CRI.\",\n      \"quote\": \"However, these are not efficient to mitigate vulnerabilities of the node components themselves (kubelet, CRI, OCI...)\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 72.0
+  },
+  "KEP-2040": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "9d8dcb8cfb05606f96ef",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"CRI-based runtimes have been in production for over a year with the current CRI API.\",\n      \"quote\": \"CRI based runtimes such as CRI-O and containerd have been in use in production for over a year now with the current CRI API.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The project wants to signal to users that the CRI API is production ready.\",\n      \"quote\": \"We want to signal to the users that the CRI API is production ready and they should feel comfortable moving away dockershim as it is slated to be deprecated.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 53.0
+  },
+  "KEP-2053": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c3295765a6f8a37b8081",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 39.6
+  },
+  "KEP-2129": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "6c4d8f9d653b0630e6fe",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"cAdvisor only supports Linux and a small set of container runtimes, limiting its utility.\",\n      \"quote\": \"cAdvisor only supports linux, and only supports a small set of container runtimes.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Removing cAdvisor APIs allows vendors to replace it without incurring a double-collection performance penalty.\",\n      \"quote\": \"For that reason, sig-node has historically wanted to allow vendors to replace cAdvisor without paying a double-collection performance penalty.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"cAdvisor endpoints are not believed to be widely used.\",\n      \"quote\": \"Note that cAdvisor endpoints are not believed to be widely used.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"cAdvisor endpoints were broken for multiple releases before being reported.\",\n      \"quote\": \"They were entirely broken for multiple releases before someone reported it: [kubernetes/kubernetes#62544](https://github.com/kubernetes/kubernetes/pull/62544).\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 59.8
+  },
+  "KEP-213": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "d24a9df745f98ce16c92",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Enterprise Kubernetes users want to run containers as non-root to ensure least privilege and reduce attack surface.\", \"quote\": \"Enterprise Kubernetes users want to run containers as non root. This means running containers with a non zero user id and non zero primary group id. This gives Enterprises, confidence that their customer code is running with least privilege and if it escapes the container boundary, will still cause least harm by decreasing the attack surface.\", \"tool\": null}, {\"text\": \"The team aims to bring Kubernetes container launching features in line with Docker.\", \"quote\": \"Bring launching of containers using Kubernetes at par with Dockers by supporting the same features.\", \"tool\": null}]}",
+   "seconds": 46.4
+  },
+  "KEP-2133": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "be9f8a8f408c4f5af5ad",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 39.0
+  },
+  "KEP-2172": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c08eda521c104ee18178",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Running containers as root worsens the impact of container-escape vulnerabilities.\", \"quote\": \"Running containers as root, when they don't need to, has repeatedly made container-escape CVEs worse: root inside the container is often also root on the host, so any escape or misconfiguration hands an attacker far more than it would for a non-root process.\", \"tool\": null}, {\"text\": \"Users frequently run containers as root without realizing it because the default is root.\", \"quote\": \"Many container images do not use a non-root UID, because the default is root. Then users run these containers without specifying `runAsUser`, and Kubernetes happily runs the container as root, whether it needs root or not.\", \"tool\": null}, {\"text\": \"It is not obvious when a pod is running as root, so users do not realize they are doing it.\", \"quote\": \"It's just not obvious when a pod is running this way, which is why many people don't realize they are doing it.\", \"tool\": null}]}",
+   "seconds": 62.8
+  },
+  "KEP-2221": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "8af23cb514d673f884b6",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Dockershim is tightly coupled with kubelet's lifecycle, creating a dependency on a specific container runtime that causes maintenance burden.\",\n      \"quote\": \"However currently the CRI of docker (a.k.a. dockershim) is part of kubelet code, runs as part of kubelet and is tightly coupled with kubelet's lifecycle. \\n\\nThis is not ideal as kubelet then has dependency on specific container runtime which leads to maintenance burden for not \\nonly developers in sig-node, but also cluster administrators when critical issues (e.g. runc CVE) happen to container \\nruntimes.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The presence of a built-in shim reduces the incentive for users to move to new container runtimes, causing production issues and maintenance burdens.\",\n      \"quote\": \"Due to convenience of inheriting from this builtin shim for the container runtime, there is less incentive to move to \\n  new container runtimes. The production issues found and addressed in both Containerd and CRI-O might cause the \\n  production issues for some users, which causes a lot of maintenance burdens to Kubernetes community.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The CRI API is technically in alpha and must graduate to GA before dockershim can be removed.\",\n      \"quote\": \"CRI is still technically in alpha, and should graduate to GA before removing dockershim from kubelet.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 66.3
+  },
+  "KEP-2238": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "349f321a2fb65f86da80",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 43.8
+  },
+  "KEP-2254": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "32de94baa2ea6725d215",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 46.5
+  },
+  "KEP-2371": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "693cba0db0f03fad1f04",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 60.0
+  },
+  "KEP-24": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "1f6eebed3a0e4d730e37",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 48.6
+  },
+  "KEP-2400": {
+   "backend": "ollama",
+   "key": "408cc270ef22e4c76e3d",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 72.7
+  },
+  "KEP-266": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "271aa0adcea2aad0b15f",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": []\n}",
+   "seconds": 18.7
+  },
+  "KEP-2718": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "56e9ad4ba5ea7fffddba",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Existing authentication mechanisms cannot satisfy the requirement to implement a Kubernetes client that implements AWS's request signing process.\",\n      \"quote\": \"The motivation for this KEP stems from the inability of the existing authentication mechanisms to satisfy the author's requirement to implement a Kubernetes client that implements AWS's request signing process, known as Signature Version 4 (sig-v4)\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The request signer must have access to the entire request, which the existing exec-based authentication does not provide.\",\n      \"quote\": \"In order to achieve this, the request signer must have access to the entire request, so the existing exec-based authentication is unsatisfactory.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The operator experience of setting up and managing an external proxy is poor.\",\n      \"quote\": \"The problem with this solution is that the operator experience of setting up and managing an external proxy is poor.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 1.2
+  },
+  "KEP-2784": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "87b5f436a41a0e439025",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Certificates issued through the certificate signing requests API are not revocable today.\",\n      \"quote\": \"Certificates issued through the certificate signing requests API are not revocable today.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Clients lack a way to control the duration of the issued certificate.\",\n      \"quote\": \"Furthermore, clients lack a way to control the duration of the issued certificate.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Signers lack a per-CSR mechanism to control the certificate duration.\",\n      \"quote\": \"Signers lack a per-CSR mechanism to control the certificate duration, and thus are forced to learn this information out of band.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The built-in signers use the same duration for all issued certificates with a default one-year lifespan.\",\n      \"quote\": \"The built-in signers use the same duration for all issued certificates, with the default being a one year certificate lifespan (that is irrevocable without rotating the signer).\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 14.7
+  },
+  "KEP-279": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "8602f494371fa5631706",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The node client currently has total authority over its own Node labels.\",\n      \"quote\": \"Today the node client has total authority over its own Node labels.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Configuring labels on individual kubelet command lines makes management difficult.\",\n      \"quote\": \"Minorly, it makes management difficult.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The self-labeling approach compromises security by allowing compromised nodes to register with specific labels to capture dedicated workloads.\",\n      \"quote\": \"More significantly, the approach greatly compromises security.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 14.9
+  },
+  "KEP-2799": {
+   "backend": "groq",
+   "dropped": [
+    {
+     "quote": "This change obviates the need for auto-generation of secret-based service account tokens which are less secure than the bound token",
+     "text": "Secret-based service account tokens are less secure than bound tokens.",
+     "why": "quote is not a span of the ADR"
+    }
+   ],
+   "key": "ccb088cdde63f58f9a58",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"BoundServiceAccountTokenVolume is GA in 1.22, allowing pods to obtain tokens via the TokenRequest API.\",\n      \"quote\": \"As BoundServiceAccountTokenVolume is GA in 1.22, pods\u2019 service account tokens would be obtained via TokenRequest API and stored as projected volume.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Secret-based service account tokens are less secure than bound tokens.\",\n      \"quote\": \"This change obviates the need for auto-generation of secret-based service account tokens which are less secure than the bound token\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 10.3
+  },
+  "KEP-2907": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "d19776df921b226b5139",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The driver provides a portable method for applications to consume secrets from external secret APIs through the filesystem.\",\n      \"quote\": \"The [secrets-store-csi-driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) project provides a portable method for applications to consume secrets from external secret APIs through the filesystem.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The driver interface and implementation need to signal stability for the core task of making secrets available to the pod filesystem.\",\n      \"quote\": \"Signal the stability of the driver interface and implementation for the core task of making secrets available to pod filesystem.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The driver is a storage driver, so native support for presenting secrets to a process through environment variables is not possible.\",\n      \"quote\": \"Since the proposal is a storage driver, native support for presenting secrets to a process through environment variables is not possible.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 8.1
+  },
+  "KEP-3130": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "e5a258653c1c2640a244",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"It is not possible to correlate the sequence of calls involved in the enveloping operation in logs.\",\n      \"quote\": \"Currently, it is not possible to correlate (in logs) the sequence of calls that are involved in the enveloping operation: kube-apiserver->kms-plugin->KMS.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The only way to correlate a successful or failed envelope operation today is to use the approximate timestamp of the operation.\",\n      \"quote\": \"The only way to correlate a successful/failed envelope operation today is to use the approximate timestamp of the operation to check events in kube-apiserver, kms-plugin and KMS.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"There is no guarantee that the timestamp of the operation is the same as the timestamp of the corresponding event in KMS.\",\n      \"quote\": \"There is no guarantee that the timestamp of the operation is the same as the timestamp of the corresponding event in KMS.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 15.2
+  },
+  "KEP-3221": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "e900ca1015c9ef62109b",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The current kube-apiserver configuration only allows enabling one webhook in the authorization chain.\",\n      \"quote\": \"cluster administrators can only enable one webhook as a part of the authorization chain using the `--authorization-modes` flag.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Cluster administrators need to specify more than one authorization webhook in the API Server handler chain.\",\n      \"quote\": \"Cluster administrators should be able to specify more than one authorization webhook in the API Server handler chain.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Cluster administrators need to declaratively configure the authorizer chain using a configuration file.\",\n      \"quote\": \"They also need to be able to declaratively configure the authorizer chain using a configuration file.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Administrators need to define policies for when to deny requests, such as when a webhook is unreachable.\",\n      \"quote\": \"It should also be easy to say when to deny requests, for example, when a webhook is unreachable.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 13.3
+  },
+  "KEP-3257": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "1e94029624f68dacd1a4",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Kubernetes lacks a standardized mechanism for signers to distribute their trust anchors to workloads.\",\n      \"quote\": \"Kubernetes lacks a standardized mechanism for signers to distribute their trust anchors to workloads.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Creating a ConfigMap in every namespace requires granting over-broad permissions to the responsible controller.\",\n      \"quote\": \"Creating a ConfigMap in every namespace requires granting over-broad permissions to the responsible controller (create ConfigMaps in **all** namespaces).\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Static trust anchor sets embedded directly in configuration complicate the job of rotating the backing CA's roots of trust.\",\n      \"quote\": \"Static trust anchor sets embedded directly in configuration complicate the job of rotating the backing CA's roots of trust.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"CRDs are inappropriate for use by core APIs.\",\n      \"quote\": \"CRDs work well, but are inappropriate for use by core APIs.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 18.5
+  },
+  "KEP-3299": {
+   "backend": "groq",
+   "dropped": [
+    {
+     "quote": "Currently, it requires lots of manual steps to rotate a KMS key for Kubernetes and the process is error prone.",
+     "text": "The current key rotation process requires manual steps, multiple API server restarts, and is error-prone.",
+     "why": "quote is not a span of the ADR"
+    }
+   ],
+   "key": "3b3a162d6716feb0d401",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Serial processing of LIST requests with an empty DEK cache causes significant informer initialization time and KMS rate limit hits.\",\n      \"quote\": \"due to the serial processing of LIST requests and the data encryption key (DEK) cache being empty, the initialization of informers may take significant time as a result of the large number of consecutive trips to the KMS plugin -> external KMS for all the DEKs that have been generated so far.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The current key rotation process requires manual steps, multiple API server restarts, and is error-prone.\",\n      \"quote\": \"Currently, it requires lots of manual steps to rotate a KMS key for Kubernetes and the process is error prone.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Current health checks use Encrypt/Decrypt operations that incur costs and do not allow for holistic health checks or KEK rotation notification.\",\n      \"quote\": \"Today, the health check from kube-apiserver to KMS plugin is an Encrypt operation followed by Decrypt operation. These operations cost money in cloud environments and do not allow the plugin to perform more holistic checks on if it is healthy.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"There is no reliable way to correlate envelope operations between kube-apiserver, KMS plugins, and KMS due to timestamp mismatches.\",\n      \"quote\": \"The only way to correlate a successful/failed envelope operation today is to use the approximate timestamp of the operation to check events in kube-apiserver, kms-plugin and KMS.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 13.5
+  },
+  "KEP-3331": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "9ab6bec7a16f6d73a976",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The current flag-based configuration is growing without bounds.\",\n      \"quote\": \"We want to migrate away from a flag-based config that is growing without bounds to a proper versioned config format.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Users want to support multiple ClientIDs.\",\n      \"quote\": \"Support multiple ClientIDs\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Users want to identify users by more JWT claims than just a single one.\",\n      \"quote\": \"Identify user by more JWT claims than just a single one\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Users want to use more than one OIDC provider.\",\n      \"quote\": \"Use more than one OIDC provider\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 23.4
+  },
+  "KEP-3926": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "8686ec2fabcd9898168f",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Encryption at rest for API resources has been a stable part of Kubernetes for a long time.\",\n      \"quote\": \"Encryption at rest for API resources has been a stable part of Kubernetes for a long time.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"If a single object of a resource type cannot be decrypted, listing resources of that type in a path prefix containing the object always fails, even if the rest of the resource instances is accessible.\",\n      \"quote\": \"If a single object of a resource type cannot be decrypted, listing resources of that type in a path prefix containing the object always fails, even if the rest of the resource instances is accessible.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Currently, removing a resource that causes such failures is not possible.\",\n      \"quote\": \"Currently, removing a resource that causes such failures is not possible.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"A cluster administrator must access etcd directly and remove the malformed data manually.\",\n      \"quote\": \"A cluster administrator must access etcd directly and remove the malformed data manually.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 1.0
+  },
+  "KEP-4193": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "25e6a677dedad46e829d",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"It is not possible to verify that a Pod is associated with a specific Node without getting the Pod object and cross-referencing the spec.nodeName.\",\n      \"quote\": \"When attempting to verify a token associated with a Pod, it is not possible to verify that the Pod is associated with a specific Node without `get`ing the relevant Pod object (embedded as a private claim in the JWT) and cross-referencing the named `spec.nodeName`.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"External software wants to avoid replay attacks with projected service account tokens.\",\n      \"quote\": \"This is especially useful in cases where the external software wants to avoid replay attacks with projected service account tokens.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"A robust means of tracking token usage within the audit log is needed.\",\n      \"quote\": \"Additionally, to provide a robust means of tracking token usage within the audit log we can embed a unique identifier for each token which is can then also be recorded in future audit entries made by this token.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 23.9
+  },
+  "KEP-4317": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "22ca554bc638cc2349ca",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Bearer tokens must not be involved at any step to preserve the security benefits of mTLS.\",\n      \"quote\": \"In order to preserve this guarantee, it's important that bearer tokens are not involved *at any step*, otherwise the security of the scheme devolves to just being a bearer token.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Third-party signer implementations require intimate familiarity with Kubernetes' security model to avoid negating the node restriction security boundary.\",\n      \"quote\": \"Securely implementing and operating a third-party signer implementation today requires intimate familiarity with Kubernetes' security model, otherwise your signer may negate Kubernetes' node restriction security boundary.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"A significant base of deployed systems, such as Vault, requires PKCS#10 certificate signing requests to issue certificates.\",\n      \"quote\": \"However, there is a significant base of deployed systems (Vault, for example), that need a PKCS#10 certificate signing request in order to issue certificates.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"PodCertificateRequest issuance is fully-automated because the process blocks pod startup for pods that use PodCertificate projected volume sources.\",\n      \"quote\": \"This KEP assumes that PodCertificateRequest issuance is fully-automated, because this process blocks pod startup for pods that use PodCertificate projected volume sources.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 1.1
+  },
+  "KEP-4412": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "60b48694a8b07b11f36b",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Image pull secrets stored in the Kubernetes API are long-lived and hard to rotate.\",\n      \"quote\": \"Today, admins are limited to image pull secrets that are stored directly in the Kubernetes API and thus are long lived and hard to rotate\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Kubelet credential providers allow any pod on the node to access images, lacking workload-specific identity.\",\n      \"quote\": \"or secrets that are managed at the Kubelet level via a Kubelet credential provider (meaning that any pod running on that node can access those images)\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The project aims to reduce security risks associated with long-lived secrets.\",\n      \"quote\": \"Reduce security risks associated with long lived secrets\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The design must avoid changes to Kubernetes REST APIs, CRI API, and registries to keep implementation minimal.\",\n      \"quote\": \"No changes to any Kubernetes REST APIs\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 19.0
+  },
+  "KEP-4601": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "e9c40551a652f0c94f09",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Security for per-node workloads could be improved by exposing field and label selectors to authorizers.\",\n      \"quote\": \"Security for per-node workloads could be improved by exposing field and label selectors to authorizers.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Adding selectors as authorization attributes allows the development of new kinds of authorizers that leverage this information.\",\n      \"quote\": \"Adding them as authorization attributes allows the development of new kinds of authorizers that leverage this information to provide security.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"It enables out-of-tree authorizers to experiment with ways to express restrictions based on field and label selectors.\",\n      \"quote\": \"In particular, it enables out-of-tree authorizers to experiment with ways to express restrictions based on field and label selectors.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 15.3
+  },
+  "KEP-4633": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "c6ad6a14b8b283ba0adb",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Misconfigured RoleBindings and ClusterRoleBindings can bind powerful roles to the anonymous user, allowing full cluster takeover.\",\n      \"quote\": \"Many kubernetes users still misconfigure their cluster by creating RoleBindings and ClusterRoleBindings to powerful rules in their cluster.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Many deployments depend on unauthenticated requests to check health endpoints, making it impossible to disable anonymous authentication entirely.\",\n      \"quote\": \"this is not possible for many deployments that depend on unauthenticated requests (from clients like load balancers or the kubelet) to check health endpoints of a kubernetes cluster (`healthz`, `livez` and `readyz`).\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Enabling anonymous requests to allow health checks opens the door for misconfigurations.\",\n      \"quote\": \"In order to allow these health checks a cluster admin has to enable anonymous requests opening the door for misconfigurations.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 13.2
+  },
+  "KEP-4872": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "6cac50c35e570da7ba5e",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"IPs in cloud environments can change rapidly, allowing old certificates to be used for new nodes sharing an IP.\",\n      \"quote\": \"In cloud environments, IPs can change rapidly due to the ephemeral nature of the infrastructure.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"On-premises environments lack a reliable source of truth for IP ownership, making CSR validation difficult.\",\n      \"quote\": \"in on-premises environments, verifying that the IP addresses in a Certificate Signing Request (CSR) are owned by the requesting node can be challenging due to the lack of a reliable source of truth for IP ownership.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Rogue nodes can exploit routing attacks to obtain certificates for IPs they do not own and impersonate other nodes.\",\n      \"quote\": \"This vulnerability can be exploited through ARP poisoning or other routing attacks, allowing a rogue node to obtain a certificate for an IP it does not own and reroute traffic to itself.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The Kube API server currently only verifies that the IP or hostname is in the certificate's SANs, not that the CN matches the node name.\",\n      \"quote\": \"When the Kube API server connects to a kubelet, it verifies that the serving certificate is signed by a trusted CA and that the IP or hostname it\u2019s connecting to is included in the certificate's SANs.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 14.7
+  },
+  "KEP-4940": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "6fc7d945ad4354ea4ca0",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The Host field allows users to specify any entity, including security-sensitive external hosts or localhost, for Kubelet probes.\",\n      \"quote\": \"the `Host` field can be set to pretty much any value in the system including security sensitive external hosts or localhost on the node.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Kubelet probing a user-set Host value can lead to blind SSRF attacks.\",\n      \"quote\": \"Kubelet will be probing this set `Host` value which can lead to blind SSRF attacks.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The Baseline Pod Security Standard is updated to enforce blocking this field to help with easier adoption for workload operators.\",\n      \"quote\": \"The Baseline Pod Security Standard (PSS) will be updated to enforce blocking this field so that it helps with easier adoption for workload operators given this is a known issue we want to prevent.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 17.1
+  },
+  "KEP-541": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "a54c1b5134555957ca21",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Static credentials in kubeconfig files require client process restarts for rotation.\",\n      \"quote\": \"Credential rotation requires client process restart and extra tooling.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Static credentials must exist in a plaintext file on disk.\",\n      \"quote\": \"Credentials must exist in a plaintext file on disk.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Static credentials must be long-lived.\",\n      \"quote\": \"Credentials must be long-lived.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Users already use key management systems or short-lived token providers.\",\n      \"quote\": \"Many users already use key management/protection systems, such as Key Management Systems (KMS), Trusted Platform Modules (TPM) or Hardware Security Modules (HSM).\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 19.9
+  },
+  "KEP-5681": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "f7a655efcfdc5de575be",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 11.7
+  },
+  "KEP-600": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "2254c0bcd3a81c0680d6",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Configuring advanced auditing features requires deep insight into the deployment mechanism and often takes many iterations to configure properly.\",\n      \"quote\": \"The configuration requires deep insight into the deployment mechanism of choice and often takes many iterations to configure properly requiring a restart of the apiserver each time.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The ability to install addon tools that configure and enhance auditing is hindered by the overhead in configuration.\",\n      \"quote\": \"Moreover, the ability to install addon tools that configure and enhance auditing is hindered by the overhead in configuration.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Cluster admins need to easily enable and tweak internal auditing features of an existing cluster.\",\n      \"quote\": \"As a cluster admin, I will easily be able to enable the internal auditing features of an existing cluster, and tweak the configurations as necessary.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Kubernetes extension developers need to provide drop-in extensions that utilize audit data.\",\n      \"quote\": \"As a Kubernetes extension developer, I will be able to provide drop in extensions that utilize audit data.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 1.0
+  },
+  "KEP-6283": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "0c72e1773f04490919ed",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Two KEPs that improve Kubernetes' ability to work with X.509 certificates went stable in Kube 1.37.\",\n      \"quote\": \"Two KEPs that significantly improve Kubernetes ability to work with X.509 certificates went stable in Kube 1.37 - 3257-ClusterTrustBundles and 4317-PodCertificates.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The platform introduced mechanisms to simplify X.509 certificate experiences but does not currently use them in places where they would make sense.\",\n      \"quote\": \"We introduced mechanisms that are supposed to simplify people's experience with X.509 certificates and bring their own signers but we don't currently use these in places where they would make sense.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The KEP aims to enhance the security of the Kubernetes ecosystem by providing built-in server TLS for service DNS names.\",\n      \"quote\": \"The KEP also aims to enhance the security of the Kubernetes ecosystem by providing built-in server TLS for service DNS names.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 17.4
+  },
+  "KEP-740": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "3072ef7bfb4f68a9b044",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Rotating service account keys currently requires restarting the kube-apiserver process.\",\n      \"quote\": \"Thus, rotating keys require a kube-apiserver to restart.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Anyone with privileged access to the kube-apiserver filesystem could exfiltrate signing material stored on disk.\",\n      \"quote\": \"This means anyone with privileged access to the kube-apiserver configuration / filesystem could exfiltrate signing material.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Kubernetes distributions need to integrate with external key management solutions like HSMs and cloud KMSes.\",\n      \"quote\": \"This KEP proposes updates that will allow Kubernetes distributions to integrate with key management solutions of their choice (eg: HSMs, cloud KMSes).\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 16.2
+  },
+  "KEP-789": {
+   "backend": "groq",
+   "dropped": [],
+   "key": "a730545cca4a685ef0e3",
+   "model": "qwen/qwen3.8-27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The post-mortem of CVE-2018-1002105 identified hardening default RBAC discovery ClusterRoleBindings as a work item to limit attack avenues.\",\n      \"quote\": \"One of the work items resulting from the [CVE-2018-1002105](https://github.com/kubernetes/kubernetes/issues/71411) post-mortem was to [investigate hardening the default RBAC discovery ClusterRoleBindings](https://github.com/kubernetes/kubernetes/issues/72115) (i.e. `system:discovery` and `system:basic-user`) to limit potential avenues for similar attack.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"API extensions exposed by default discovery bindings represent a potential privacy concern.\",\n      \"quote\": \"Additionally, the fact that API extensions are exposed by the default discovery bindings is surprising to some and represents a potential privacy concern (e.g. `GET /apis/self-flying-cars.unicorn.vc/v1/`).\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"There are legitimate use-cases for unauthenticated calls, such as health checks and version information, that must not be broken.\",\n      \"quote\": \"There are several non-sensitive and legitimate use-cases for unauthenticated calls, such as `/healthz` liveliness checks and [returning useful information about the cluster](https://github.com/kubernetes/kubernetes/issues/45366#issuecomment-299275002) to `kubectl version`, that we don't wish to break.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 7.4
+  }
+ }
+}
