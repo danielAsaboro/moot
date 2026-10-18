@@ -1,0 +1,60 @@
+/* The blast radius: the landing page's red band. Text and lines in --accent-ink; tints mixed from it.
+   In dark mode the accent is lighter, so the band is deepened toward the paper to keep white text at AA. */
+.band {
+  --band: var(--accent);
+  --on: var(--accent-ink);
+  --on-2: color-mix(in srgb, var(--accent-ink) 90%, var(--band));
+  --on-3: color-mix(in srgb, var(--accent-ink) 86%, var(--band));
+  background: var(--band); color: var(--on);
+}
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme="light"])) .band { --band: color-mix(in srgb, var(--accent) 78%, var(--paper)); }
+}
+:global(:root[data-theme="dark"]) .band { --band: color-mix(in srgb, var(--accent) 78%, var(--paper)); }
+
+.inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 112px max(24px, var(--gutter-r)) 112px max(24px, var(--gutter));
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; align-items: center;
+}
+.copy { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.eyebrow { font-size: 17px; line-height: 1.3; font-weight: 600; color: var(--on-3); }
+.title { margin: 0; color: var(--on); }
+.body { margin: 0; font-size: 19px; line-height: 1.5; color: var(--on-2); max-width: 32rem; }
+
+.figure { margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.caption { font-size: 13px; line-height: 1.4; color: var(--on-3); max-width: 34rem; }
+.msg { margin: 0; font-size: 15px; color: var(--on-2); }
+.skel { display: grid; gap: 30px; padding: 12px 0; width: 100%; max-width: 480px; }
+.skel span { display: block; height: 60px; border: 1px dashed var(--on-3); border-radius: 2px; opacity: .6; }
+.skel span:nth-child(2) { margin-left: 40px; }
+.skel span:nth-child(3) { margin-left: 80px; }
+.skel span:nth-child(4) { margin-left: 160px; }
+
+/* the drawing: thin paper-coloured lines, sentence-case labels */
+.drawing { width: 100%; height: auto; display: block; overflow: visible; }
+.box .front { fill: var(--band); stroke: var(--on); stroke-width: 1; stroke-linejoin: round; }
+.box .face { fill: color-mix(in srgb, var(--band) 86%, var(--on)); stroke: var(--on); stroke-width: 1; stroke-linejoin: round; }
+.dashed .face, .dashed .front, .faint .face, .faint .front { stroke-dasharray: 4 3; }
+.faint .face { fill: var(--band); }
+.tag { fill: var(--on-3); font-family: var(--font-sans); font-size: 12.5px; }
+.tagId { font-family: var(--font-mono); font-size: 11.5px; fill: var(--on); }
+.boxTitle { fill: var(--on); font-family: var(--font-sans); font-size: 15px; }
+.marked .front { fill: var(--on); stroke: var(--on); stroke-dasharray: none; }
+.marked .face { fill: color-mix(in srgb, var(--on) 72%, var(--band)); stroke: var(--on); stroke-dasharray: none; }
+.marked .tag, .marked .tagId, .marked .boxTitle { fill: var(--band); }
+
+.edge path { fill: none; stroke: var(--on); stroke-width: 1; }
+.edge.faint path { stroke-dasharray: none; opacity: .8; }
+.edgeMarked path { stroke-width: 1.6; }
+.edgeLabel { fill: var(--on-3); font-family: var(--font-sans); font-size: 12.5px; }
+.edgeMarked .edgeLabel { fill: var(--on); font-weight: 600; }
+.arrowHead { fill: var(--on); }
+
+@media (max-width: 860px) {
+  .inner { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-top: 80px; padding-bottom: 80px; }
+  .copy { order: -1; }
+}
+@media (max-width: 560px) {
+  .inner { padding: 64px var(--gutter-r) 64px var(--gutter); }
+  .body { font-size: 17px; }
+}

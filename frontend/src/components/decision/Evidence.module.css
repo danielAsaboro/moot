@@ -1,0 +1,74 @@
+/* Exhibit cards, calm: borderless surface-2 cards, radius 18, sentence case. Numbered, dithered band, tilt on hover,
+   flip on click. Colour lives only in the relation pill and the dither of a contradicting exhibit. */
+.grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; align-items: start;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+.cell { min-width: 0; scroll-margin: 96px; }
+.stage { perspective: 1100px; }
+
+.tilt { transform-style: preserve-3d; transition: transform .25s ease-out;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); }
+.tilt[data-tilt] { transition: transform .06s linear; }
+.stage:focus-within .tilt:not([data-tilt]) { transform: rotateX(2deg) rotateY(-3deg); }
+
+.card { display: grid; transform-style: preserve-3d; transition: transform .55s cubic-bezier(.2,.7,.2,1); }
+.card.flipped { transform: rotateY(180deg); }
+
+.face { grid-area: 1 / 1; min-width: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  border: 0; border-radius: 18px; background: var(--surface-2); color: var(--label); }
+.back { transform: rotateY(180deg); padding: 16px 18px 16px; display: flex; flex-direction: column; gap: 12px; }
+
+/* front: a button laid out as a card */
+.front { position: relative; display: flex; flex-direction: column; gap: 8px; text-align: left; cursor: pointer;
+  padding: 16px 18px 14px; font: inherit; overflow: hidden; min-height: 200px; }
+.front:hover { background: color-mix(in srgb, var(--fill) 55%, var(--surface-2)); }
+.front:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 18px; }
+
+.head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.eyebrow { font-size: 13px; color: var(--label-2); }
+.num { font-family: var(--font-display); font-size: 40px; line-height: .85; font-weight: 500; letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums; color: var(--label); }
+.title { display: block; font-family: var(--font-display); font-size: 20px; line-height: 1.22; font-weight: 500; text-wrap: balance; }
+.facts { display: flex; flex-wrap: wrap; gap: 2px 12px; font-size: 13px; color: var(--label-2); }
+.facts > span { overflow-wrap: anywhere; }
+
+.band { display: block; margin-top: auto; padding-top: 8px; }
+.dither { display: block; width: 100%; height: 40px; color: var(--label); opacity: .78; border-radius: 6px; }
+.ditherContra { color: var(--moot-ink); opacity: .85; }
+.bandScale { display: flex; justify-content: space-between; gap: 8px; margin-top: 4px; font-size: 12px; color: var(--label-3); }
+
+.foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 4px; }
+.turnHint { font-size: 15px; color: var(--accent); }
+
+/* light catching the card as it tilts */
+.sheen { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .25s; border-radius: inherit;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 30%), color-mix(in srgb, var(--surface) 60%, transparent), transparent 55%);
+  mix-blend-mode: soft-light; }
+.tilt[data-tilt] .sheen { opacity: 1; }
+
+/* back */
+.quote { margin: 0; font-family: var(--font-display); font-size: 17px; line-height: 1.42; font-style: italic; color: var(--label); }
+.muted { margin: 0; font-size: 13px; color: var(--label-2); }
+.dl { margin: 0; display: grid; gap: 6px; }
+.dl > div { display: grid; grid-template-columns: 72px 1fr; gap: 10px; align-items: baseline; }
+.dl dt { font-size: 13px; color: var(--label-3); }
+.dl dd { margin: 0; font-size: 15px; min-width: 0; overflow-wrap: anywhere; }
+.bears { margin-right: 4px; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: auto; }
+.turnBack { margin-left: auto; }
+
+/* sheets */
+.loading { display: grid; gap: 8px; }
+.error { margin: 0; font-size: 15px; color: var(--moot-ink); }
+.sheetLead { margin: 0; padding: 0 4px; font-size: 17px; line-height: 1.4; color: var(--label-2); }
+.source { margin: 0; max-height: min(56vh, 520px); overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere;
+  font-family: var(--font-sans); font-size: 15px; line-height: 1.5; background: var(--surface); border-radius: var(--r-group);
+  padding: 14px 16px; color: var(--label); }
+
+@media (max-width: 560px) { .front { min-height: 0; } .band { padding-top: 16px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt, .stage:focus-within .tilt:not([data-tilt]) { transform: none; }
+  .card { transition: none; }
+  .sheen { display: none; }
+}
+.path { margin: 0; padding: 0 4px; overflow-wrap: anywhere; }

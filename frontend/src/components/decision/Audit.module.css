@@ -1,0 +1,25 @@
+/* Summary view: grouped sections, 28px apart, small grey sentence-case headers, one action at the bottom. */
+.tab { display: grid; gap: 28px; min-width: 0; }
+.section { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.sectionHead { padding: 0 16px; }
+.h { margin: 0; font-size: 13px; line-height: 1.38; font-weight: 600; color: var(--label-2); }
+.hNote { font-weight: 400; }
+
+.gateLine { font-size: 15px; color: var(--label-2); }
+
+.action { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding-top: 4px; }
+
+/* confirmation sheets */
+.sheetBody { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.sheetFoot { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.wide { width: 100%; border-radius: var(--r-group); padding: 14px 20px; }
+.footnote { margin: 0; text-align: center; font-size: 13px; line-height: 1.38; color: var(--label-2); }
+.status { margin: 0; padding: 0 4px; font-size: 15px; line-height: 1.4; color: var(--label-2); }
+.statusDone { color: var(--label); }
+.statusError { color: var(--moot-ink); }
+.sheetLead { margin: 0; padding: 0 4px; font-size: 17px; line-height: 1.4; color: var(--label-2); }
+
+@media (max-width: 480px) {
+  .action > :global(.btn) { flex: 1 1 100%; border-radius: var(--r-group); padding: 14px 20px; }
+  .action > :global(.t-footnote) { flex: 1 1 100%; text-align: center; }
+}

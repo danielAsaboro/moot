@@ -1,0 +1,37 @@
+/* Calm empty state: a small wireframe machine (stroke --label-3, soft fills), a sans title, a grey detail line. */
+.box { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; padding: 48px 24px; margin-inline: auto;
+  max-width: 34rem; color: var(--label-3); }
+.title { color: var(--label); margin: 14px 0 0; text-wrap: balance; }
+.detail { max-width: 28rem; overflow-wrap: anywhere; }
+.action { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.action :global(.btn) { border-radius: var(--r-pill); }
+
+/* drawing */
+.art { width: auto; height: 110px; max-width: 100%; overflow: visible; fill: none; stroke: var(--label-3); stroke-width: 1;
+  stroke-linejoin: round; stroke-linecap: round; }
+.empty .art { height: 88px; }
+.art line, .art path, .art polygon, .art ellipse, .art circle { vector-effect: non-scaling-stroke; }
+.grid line { stroke: var(--separator); stroke-width: .75; }
+.faceT { fill: var(--surface); }
+.faceL { fill: var(--fill); }
+.faceR { fill: var(--surface-2); }
+.well { fill: var(--fill); }
+.floor { fill: var(--surface-2); stroke-dasharray: 2 2; stroke: var(--label-3); }
+.thin { stroke-width: .6; }
+.slot { fill: var(--label-3); }
+.window { fill: var(--surface); }
+.lamp, .lampRun { fill: var(--surface); }
+.lampRun { animation: lamp 1s ease-in-out infinite alternate; }
+.knob { fill: var(--surface); }
+.sheet { fill: var(--surface); stroke: var(--label-3); }
+.rule { stroke: var(--label-3); stroke-width: .6; }
+.ghost { fill: none; stroke-dasharray: 3 3; stroke: var(--label-3); }
+.ghostLine { stroke-dasharray: 1.5 2.5; }
+.cableOn { stroke: var(--label-3); stroke-width: 1.4; }
+.cable { stroke: var(--label-3); stroke-width: 1.4; }
+/* the one accent: the unplugged plug in the error drawing */
+.plug polygon { stroke: var(--accent); }
+.prong { stroke: var(--accent); stroke-width: 1.6; }
+
+@keyframes lamp { from { fill: var(--surface); } to { fill: var(--label-3); } }
+@media (prefers-reduced-motion: reduce) { .lampRun { animation: none; fill: var(--label-3); } }

@@ -1,0 +1,4 @@
+.section { padding-block: 0 112px; }
+.body { margin-top: 32px; }
+.skel { background: var(--surface); border-radius: var(--r-group); padding: 16px 20px; display: grid; gap: 16px; }
+@media (max-width: 640px) { .section { padding-block: 0 72px; } .body { margin-top: 24px; } }

@@ -1,0 +1,79 @@
+/* Features: six quiet tiles; the example card lies flat in its tile and stands up on hover or focus. */
+.section { padding: 80px 0 72px; scroll-margin-top: 64px; }
+.grid { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.cell { position: relative; min-width: 0; }
+.cell:hover, .cell:focus-within { z-index: 2; }
+
+.tile {
+  display: flex; flex-direction: column; height: 100%; min-height: 300px; padding: 20px 20px 0;
+  background: var(--paper-2); border: 1px solid var(--rule); border-radius: var(--radius);
+  color: var(--ink); text-decoration: none; transition: border-color .2s;
+}
+.tile:hover, .tile:focus-visible { border-color: var(--ink-3); }
+.tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.num { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; color: var(--ink-3); }
+.tileTitle { font-family: var(--font-display); font-weight: 500; font-size: 24px; line-height: 1.15; margin: 10px 0 6px; }
+.text { margin: 0; color: var(--ink-2); font-size: 14.5px; line-height: 1.5; max-width: 34ch; }
+.cta { margin-top: 10px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .04em; color: var(--ink-2); }
+.tile:hover .cta, .tile:focus-visible .cta { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+
+/* the slot the card lies in */
+.slot { position: relative; margin-top: auto; height: 104px; perspective: 900px; perspective-origin: 50% 0%; border-top: 1px dashed var(--rule); }
+.hint { position: absolute; right: 0; top: -2px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); transition: opacity .2s; }
+.card {
+  position: absolute; left: -6px; right: -6px; top: 14px; padding: 12px 13px; min-height: 96px;
+  background: var(--paper); border: 1px solid var(--ink); border-radius: var(--radius); color: var(--ink);
+  transform-origin: 50% 0%; transform: scale(.86) rotateX(-80deg); opacity: .5;
+  transition: transform .5s cubic-bezier(.2, .75, .25, 1), opacity .25s ease, box-shadow .5s;
+  pointer-events: none; font-size: 13.5px; line-height: 1.45;
+}
+.tile:hover .card, .tile:focus-visible .card {
+  transform: translateY(-22px) translateZ(26px) rotateX(0deg); opacity: 1;
+  box-shadow: 0 22px 26px -20px color-mix(in srgb, var(--ink) 45%, transparent);
+}
+.tile:hover .hint, .tile:focus-visible .hint { opacity: 0; }
+.text { transition: opacity .3s; }
+.tile:hover .text, .tile:focus-visible .text { opacity: .35; }
+
+/* no hover, narrow screens and reduced motion: the card is simply shown in the tile */
+@media (hover: none), (max-width: 640px), (prefers-reduced-motion: reduce) {
+  .tile { min-height: 0; padding-bottom: 16px; }
+  .slot { height: auto; perspective: none; border-top: 0; margin-top: 16px; }
+  .hint { display: none; }
+  .card { position: static; transform: none; opacity: 1; transition: none; box-shadow: none; pointer-events: auto; border-color: var(--rule); }
+  .tile:hover .card, .tile:focus-visible .card { transform: none; box-shadow: none; }
+  .tile:hover .text, .tile:focus-visible .text { opacity: 1; }
+}
+
+/* card contents */
+.cardHead { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin-bottom: 8px; }
+.cardTitle { font-weight: 500; flex: 1 1 10rem; min-width: 0; }
+.id {
+  display: inline-block; font-family: var(--font-mono); font-size: 11px; letter-spacing: .03em; padding: 1px 6px;
+  background: var(--chip); border-radius: 3px; color: var(--ink); white-space: nowrap;
+}
+.rows { margin: 0; display: grid; gap: 6px; }
+.rows > div { display: flex; justify-content: space-between; align-items: center; gap: 12px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
+.rows dt { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
+.rows dd { margin: 0; }
+.note { margin: 8px 0 0; color: var(--ink-2); }
+.meta { font-family: var(--font-mono); font-size: 11px; color: var(--ink-3); }
+p.meta { margin: 6px 0 0; }
+.quote { margin: 0; color: var(--ink-2); }
+.big { margin: 4px 0 8px; font-family: var(--font-display); font-size: 22px; line-height: 1.2; }
+.ids { display: flex; flex-direction: column; gap: 5px; }
+.flip { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 11px; color: var(--ink-3); }
+.hand { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.hand li { display: grid; gap: 1px; border-bottom: 1px solid var(--rule); padding-bottom: 7px; }
+.hand li:last-child { border-bottom: 0; padding-bottom: 0; }
+.who { font-weight: 500; }
+.skel { display: grid; gap: 8px; }
+.skel > :nth-child(2) { width: 80%; }
+.skel > :nth-child(3) { width: 55%; }
+.err { margin: 0; color: var(--ink-2); font-size: 13px; }
+
+@media (max-width: 980px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .section { padding: 64px 0 72px; }
+  .grid { grid-template-columns: 1fr; }
+}

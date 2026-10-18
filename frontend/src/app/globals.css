@@ -1,0 +1,134 @@
+/* Moot. "Calm frame, one exhibit": Apple-style structure (grouped lists, sentence case, tinted pills, no outlines)
+   around Moot's 3D and exhibit components. See design.md at the repo root.
+   The base tokens come first; the calm system tokens are added below them. */
+:root {
+  /* base tokens */
+  --paper: #f6f3ec; --paper-2: #fbfaf7; --paper-3: #efebe1;
+  --ink: #1c1a17; --ink-2: #55504a; --ink-3: #8f897d; --rule: #e4dfd4; --chip: #e6e1d6;
+  --accent: #b8321f; --accent-ink: #ffffff; --accent-soft: #f3dcd6;
+  --holds: #2b5f35; --disputed: #7d5700; --undoc: #55504a; --retired: #8f897d;
+  --blueprint: #f6f3ec; --blueprint-line: #1c1a17;
+
+  /* calm system */
+  --ground: #f2efe8;          /* grouped background (app pages) */
+  --surface: #fbfaf7;         /* cards and list groups on the ground */
+  --surface-2: #f2efe8;       /* a group inside a card */
+  --fill: #e6e1d6;            /* search fields, segmented controls, neutral pills */
+  --separator: #e4dfd4;       /* hairlines between rows, inset */
+  --label: #1c1a17; --label-2: #55504a; --label-3: #8f897d;
+  --moot-tint: #f3dcd6; --moot-ink: #a42d1c;
+  --holds-tint: #dfeadf; --holds-ink: #2b5f35;
+  --disputed-tint: #f3e6c8; --disputed-ink: #7d5700;
+  --neutral-tint: #e6e1d6; --neutral-ink: #55504a;
+  --night: #10151d; --night-2: #18202b; --night-label: #e8edf3; --night-label-2: #b9c6d4;  /* the one dark "drawing" section */
+  --night-accent: #ff7a63; --night-accent-soft: #3d1c15;   /* brick red that reads on the night ground, both themes */
+  --scrim: rgba(28, 26, 23, 0.32);
+
+  --font-display: var(--font-newsreader), "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  --radius: 14px; --r-sm: 10px; --r-group: 14px; --r-card: 22px; --r-hero: 28px; --r-pill: 980px;
+  --gutter: max(20px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(20px, env(safe-area-inset-right, 0px));
+  --maxw: 1120px; --maxw-app: 1240px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #14130f; --paper-2: #1e1c17; --paper-3: #26241e;
+    --ink: #f1ede4; --ink-2: #b8b1a3; --ink-3: #847e72; --rule: #34312a; --chip: #2c2a24;
+    --accent: #e0553e; --accent-ink: #ffffff; --accent-soft: #3a1d16;
+    --holds: #79c088; --disputed: #e0b34e; --undoc: #b8b1a3; --retired: #847e72;
+    --blueprint: #10151d; --blueprint-line: #c9d3e0;
+    --ground: #0f0e0b; --surface: #1c1a16; --surface-2: #26241e; --fill: #2c2a24; --separator: #34312a;
+    --label: #f1ede4; --label-2: #b8b1a3; --label-3: #847e72;
+    --moot-tint: #3d1c15; --moot-ink: #ff8d77;
+    --holds-tint: #1c3322; --holds-ink: #8fd39d;
+    --disputed-tint: #3a2e12; --disputed-ink: #f0c868;
+    --neutral-tint: #2c2a24; --neutral-ink: #b8b1a3;
+    --scrim: rgba(0, 0, 0, 0.55);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #14130f; --paper-2: #1e1c17; --paper-3: #26241e;
+  --ink: #f1ede4; --ink-2: #b8b1a3; --ink-3: #847e72; --rule: #34312a; --chip: #2c2a24;
+  --accent: #e0553e; --accent-ink: #ffffff; --accent-soft: #3a1d16;
+  --holds: #79c088; --disputed: #e0b34e; --undoc: #b8b1a3; --retired: #847e72;
+  --blueprint: #10151d; --blueprint-line: #c9d3e0;
+  --ground: #0f0e0b; --surface: #1c1a16; --surface-2: #26241e; --fill: #2c2a24; --separator: #34312a;
+  --label: #f1ede4; --label-2: #b8b1a3; --label-3: #847e72;
+  --moot-tint: #3d1c15; --moot-ink: #ff8d77;
+  --holds-tint: #1c3322; --holds-ink: #8fd39d;
+  --disputed-tint: #3a2e12; --disputed-ink: #f0c868;
+  --neutral-tint: #2c2a24; --neutral-ink: #b8b1a3;
+  --scrim: rgba(0, 0, 0, 0.55);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--paper); color: var(--label);
+  font-family: var(--font-sans); font-size: 17px; line-height: 1.47; letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+a { color: inherit; }
+img { max-width: 100%; }
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+button { font: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+/* iOS-style type ramp. Display serif only for large titles; everything else is the system sans. */
+.t-hero { font-family: var(--font-display); font-weight: 500; font-size: clamp(44px, 6vw, 76px); line-height: 1.04; letter-spacing: -0.02em; }
+.t-display { font-family: var(--font-display); font-weight: 500; font-size: clamp(36px, 4.4vw, 56px); line-height: 1.07; letter-spacing: -0.015em; }
+.t-large { font-family: var(--font-display); font-weight: 500; font-size: 34px; line-height: 1.12; letter-spacing: -0.01em; }
+.t-title1 { font-family: var(--font-display); font-weight: 500; font-size: 28px; line-height: 1.15; }
+.t-title2 { font-size: 22px; line-height: 1.25; font-weight: 600; }
+.t-title3 { font-size: 20px; line-height: 1.3; font-weight: 600; }
+.t-headline { font-size: 17px; line-height: 1.35; font-weight: 600; }
+.t-body { font-size: 17px; line-height: 1.47; }
+.t-callout { font-size: 16px; line-height: 1.4; }
+.t-sub { font-size: 15px; line-height: 1.4; color: var(--label-2); }
+.t-footnote { font-size: 13px; line-height: 1.38; color: var(--label-2); }
+.t-caption { font-size: 12px; line-height: 1.33; color: var(--label-2); }
+.t-eyebrow { font-size: 17px; line-height: 1.3; font-weight: 600; color: var(--label-2); }
+.t-lead { font-size: 21px; line-height: 1.4; color: var(--label-2); }
+.lead-in { color: var(--label); font-weight: 600; }          /* apple.com: bold lead phrase, grey continuation */
+.id { font-family: var(--font-mono); font-size: 0.82em; letter-spacing: 0; }   /* mono is for ids only */
+
+/* utility classes */
+.mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0; }
+.label { font-size: 13px; color: var(--label-2); font-weight: 400; letter-spacing: 0; text-transform: none; }
+.display { font-family: var(--font-display); font-weight: 500; letter-spacing: -.01em; }
+.muted { color: var(--label-2); }
+.faint { color: var(--label-3); }
+.tabular { font-variant-numeric: tabular-nums; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter-r); }
+.wrap-app { max-width: var(--maxw-app); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter-r); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+/* buttons: capsules */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 20px; border-radius: var(--r-pill); border: 0;
+  background: var(--label); color: var(--surface); cursor: pointer; text-decoration: none; font-size: 17px; line-height: 1.2; }
+.btn:hover { opacity: .88; }
+.btn:disabled { opacity: .4; cursor: default; }
+.btn.ghost { background: var(--fill); color: var(--label); }
+.btn.accent { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.btn.small { padding: 6px 14px; font-size: 15px; }
+.btn.plain { background: transparent; color: var(--accent); padding-inline: 4px; }
+.link { color: var(--accent); text-decoration: none; }
+.link:hover { text-decoration: underline; }
+
+/* inputs */
+.input { font: inherit; padding: 10px 12px; border: 0; background: var(--fill); color: var(--label); border-radius: var(--r-sm); min-width: 0; }
+.input:focus { outline: 2px solid var(--accent); outline-offset: 0; }
+
+.skeleton { background: linear-gradient(90deg, var(--fill), var(--surface), var(--fill)); background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: 8px; min-height: 14px; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}

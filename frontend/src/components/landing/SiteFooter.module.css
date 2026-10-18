@@ -1,0 +1,35 @@
+/* Footer band: a closing line and action, the extruded wordmark as the finale, one quiet row of links. */
+.footer { background: var(--paper-3); color: var(--label); overflow: hidden; }
+.close { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; padding-top: 96px; }
+.close h2 { margin: 0; max-width: 20ch; }
+
+/* The extrusion: N copies of the wordmark, each pushed down (and sideways with the pointer) by i steps. */
+.stage { --px: 0; --raise: 0; position: relative; display: flex; justify-content: center; margin-top: 48px; overflow: hidden;
+  padding-inline: var(--gutter) var(--gutter-r); }
+.stage[data-raised] { --raise: 1; }
+.word { position: relative; font-family: var(--font-display); font-weight: 600; letter-spacing: -.035em; line-height: .8;
+  font-size: clamp(116px, 30vw, 400px); white-space: nowrap; user-select: none;
+  padding-top: calc(var(--n) * .0105em + .06em); padding-right: .14em; }
+.layer { position: absolute; left: 0; top: calc(var(--n) * .0105em + .06em); color: var(--paper-3); -webkit-text-stroke: 1px var(--ink); paint-order: stroke fill;
+  transform: translate3d(calc((var(--px) + .5) * var(--i) * .0045em), calc(var(--raise) * (var(--i) - var(--n)) * .0105em), 0);
+  transition: transform .9s cubic-bezier(.2, .7, .2, 1); will-change: transform; }
+.layer s { text-decoration-line: line-through; text-decoration-color: transparent; text-decoration-thickness: .075em; }
+.face s { text-decoration-color: var(--accent); }
+/* the face sits on top, raised by the full stack */
+.face { --i: 0; position: relative; display: inline-block; top: 0; color: var(--paper-2); -webkit-text-stroke: 1.25px var(--ink);
+  transform: translate3d(0, calc(var(--raise) * var(--n) * -.0105em), 0); }
+
+.base { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; padding-top: 12px; padding-bottom: 40px; }
+.base p { margin: 0; }
+.links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 24px; font-size: 15px; }
+.links a { color: var(--label-2); text-decoration: none; }
+.links a:hover { color: var(--label); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 640px) {
+  .close { padding-top: 72px; gap: 20px; }
+  .stage { margin-top: 32px; }
+  .links { gap: 8px 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .layer { transition: none; will-change: auto; }
+}
