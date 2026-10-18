@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import os
 import time
+from contextlib import asynccontextmanager
 from contextvars import ContextVar
 from datetime import date
 from pathlib import Path
@@ -21,7 +22,24 @@ ROOT = Path(__file__).resolve().parents[1]
 WEB = ROOT / "web"                      # legacy UI, served at /legacy
 UI = ROOT / "frontend" / "out"          # Next.js static export (`make ui`), served at /
 
-app = FastAPI(title="Moot", version="0.1.0")
+def _public_mcp():
+    """The read-only MCP server over streamable HTTP, mounted at /mcp (stateless, JSON responses, so it suits serverless)."""
+    from mcp.server.transport_security import TransportSecuritySettings
+    from .mcp_server import public_server
+    return public_server().streamable_http_app(streamable_http_path="/", stateless_http=True, json_response=True,
+                                               transport_security=TransportSecuritySettings(enable_dns_rebinding_protection=False))
+
+
+_mcp_app = _public_mcp()
+
+
+@asynccontextmanager
+async def _lifespan(app):
+    async with _mcp_app.router.lifespan_context(_mcp_app):
+        yield
+
+
+app = FastAPI(title="Moot", version="0.1.0", lifespan=_lifespan)
 # Only the Next.js dev server (`make ui-dev`) needs cross-origin access; the built UI is same-origin.
 app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:3001", "http://127.0.0.1:3001"],
                    allow_methods=["GET", "POST"], allow_headers=["content-type"])
@@ -575,6 +593,7 @@ def legacy():
     return FileResponse(WEB / "index.html")
 
 
+app.mount("/mcp", _mcp_app, name="mcp")  # before the UI catch-all
 app.mount("/static", StaticFiles(directory=WEB), name="static")
 
 # The Next.js export owns every other path: / is the landing page, /app/ Ask, /app/ledger/ the ledger. Mounted last, so /api/* wins.

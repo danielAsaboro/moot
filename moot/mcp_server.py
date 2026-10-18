@@ -12,8 +12,9 @@ from mcp.server.mcpserver import MCPServer
 from . import agent, tools
 from .graph import graph
 
-mcp = MCPServer("moot", instructions="Audit a company's standing decisions against the dated evidence behind their premises. "
-              "Verdicts come from FalkorDB path queries; cite evidence ids from the rows and say 'not in the graph' when a tool returns nothing.")
+INSTRUCTIONS = ("Audit a company's standing decisions against the dated evidence behind their premises. "
+                "Verdicts come from FalkorDB path queries; cite evidence ids from the rows and say 'not in the graph' when a tool returns nothing.")
+mcp = MCPServer("moot", instructions=INSTRUCTIONS)
 
 
 def _g(name: str | None):
@@ -196,6 +197,20 @@ def real_world_ledger() -> str:
     from .graph import DATA
     as_of = _j.loads((DATA / "realworld" / "checks.json").read_text())["summary"]["checked_on"]
     return json.dumps(tools.ledger(graph(PUBLIC_GRAPH), as_of, 2), default=str)
+
+
+# The public server (mounted at /mcp on the web app, streamable HTTP): read-only tools only. No finding, ruling, handover or
+# ingest; `ask` is left out too, since it may call a model. Anyone can point an MCP client at https://<host>/mcp.
+PUBLIC = ("list_graphs", "find_decision", "audit_decision", "verdict_history", "check_action", "ledger", "who_knows_why",
+          "departure_impact", "people_risk", "reason_single_points_of_failure", "premise_impact", "trace_document",
+          "decision_owner", "evidence_packet", "orphaned_decisions", "reopen_memo", "what_if", "riskiest_reasons", "real_world_ledger")
+
+
+def public_server() -> MCPServer:
+    pub = MCPServer("moot", instructions=INSTRUCTIONS + " This public server is read-only.")
+    for name in PUBLIC:
+        pub.tool()(globals()[name])
+    return pub
 
 
 def main():

@@ -58,3 +58,11 @@ writes. Example: `check_action("D01")` is DENY, because PR-412 contradicted the 
 | `record_finding` / `record_ruling` / `record_handover` | the approval-gated writes |
 
 `find_decision`, `audit_decision`, `verdict_history`, `check_action`, `ledger`, `who_knows_why`, `departure_impact`, `people_risk` and `reason_single_points_of_failure` take `graph=` to read a graph other than the default; the others read the default graph (`check_action` and `evidence_packet` also take `public_adrs=true`).
+
+## Over HTTP, read-only
+
+The web app also serves the read-only tools as a public MCP server over streamable HTTP at `/mcp` (stateless, JSON
+responses): `list_graphs`, `find_decision`, `audit_decision`, `verdict_history`, `check_action`, `ledger`, `who_knows_why`,
+`departure_impact`, `people_risk`, `reason_single_points_of_failure`, `premise_impact`, `trace_document`, `decision_owner`,
+`evidence_packet`, `orphaned_decisions`, `reopen_memo`, `what_if`, `riskiest_reasons`, `real_world_ledger`. No write tool and no
+model call is exposed. Locally: `claude mcp add --transport http moot http://localhost:8000/mcp/`. Tested in `tests/test_mcp_http.py`.
