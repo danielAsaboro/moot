@@ -8,8 +8,7 @@ and parameters; the model only fills JSON arguments. Each call returns compact J
   SEARCH_TOOLS  search and get_artifact only, over the same text: the arm of study X1 without the graph
 
 Search is full-text only (FalkorDB's RediSearch index on Evidence title + excerpt); there are no embeddings in Moot.
-graph_query (a guarded read-only Cypher runner) exists for debugging and is in neither tool set: CLAUDE.md forbids
-model-written Cypher.
+Every tool runs fixed Cypher; the model never writes any.
 """
 from __future__ import annotations
 
@@ -471,29 +470,6 @@ def find_missing(product: str, kind: str, g=None) -> dict:
     else:
         return dict(error=f"unknown kind {kind}")
     return dict(product=product, kind=kind, items=r)
-
-
-# ---------- guarded Cypher (debugging only; not offered to the model) ----------
-
-_WRITE = re.compile(r"\b(CREATE|MERGE|SET|DELETE|DETACH|REMOVE|DROP|FOREACH|LOAD|CALL)\b", re.I)
-_STR = re.compile(r"'(?:[^'\\]|\\.)*'|\"(?:[^\"\\]|\\.)*\"")
-
-
-def graph_query(cypher: str, g=None, timeout_ms: int = 2000) -> dict:
-    """One read-only statement: no write keyword or procedure outside strings, variable-length paths bounded at 6, LIMIT <= 200
-    (added if missing), sent with GRAPH.RO_QUERY and a timeout."""
-    text = cypher.strip().rstrip(";")
-    bare = _STR.sub("''", text)
-    if ";" in bare or _WRITE.search(bare):
-        raise ValueError("read-only single statements without procedures only")
-    if re.search(r"\*\s*\]|\*\s*\d*\s*\.\.\s*\]", bare) or any(int(x) > 6 for x in re.findall(r"\*\s*\d*\s*\.\.\s*(\d+)", bare)):
-        raise ValueError("variable-length paths need an upper bound of at most 6")
-    lim = re.search(r"\bLIMIT\s+(\d+)\s*$", bare, re.I)
-    if lim and int(lim.group(1)) > 200:
-        raise ValueError("LIMIT is at most 200")
-    text = text if lim else text + " LIMIT 200"
-    r = _g(g).ro_query(text, timeout=timeout_ms)
-    return dict(columns=[c[1] if isinstance(c, (list, tuple)) else c for c in r.header], rows=r.result_set[:200])
 
 
 # ---------- registry ----------
