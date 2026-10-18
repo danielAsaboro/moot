@@ -185,8 +185,9 @@ def agent(q: dict, tool_doc: str, run) -> dict:
         reply, i, o, s = chat(msgs)
         tin, tout, secs = tin + i, tout + o, secs + s
         x = parse(reply)
-        if "answer" in x:
-            return dict(answer=x["answer"], tokens_in=tin, tokens_out=tout, seconds=round(secs, 1), calls=calls, transcript=msgs[1:] + [dict(role="assistant", content=reply)])
+        ans, done = answer_of(q["template"], x)
+        if done:
+            return dict(answer=ans, tokens_in=tin, tokens_out=tout, seconds=round(secs, 1), calls=calls, transcript=msgs[1:] + [dict(role="assistant", content=reply)])
         if x.get("tool") and calls < MAX_STEPS:
             calls += 1
             try:
@@ -350,7 +351,7 @@ def rag(q: dict, history: bool = False) -> dict:
     ctx = "\n\n".join(f"[{p['id']}]\n{p['text']}" for p in top)
     reply, i, o, s = chat([dict(role="system", content="Answer from the context only. Reply with one JSON object: {\"answer\": <the answer in the requested format>}."),
                            dict(role="user", content=f"{q['question']}\nAnswer format: {FORMATS[q['template']]}\n\nContext:\n{ctx}")])
-    ans = parse(reply).get("answer")
+    ans = answer_of(q["template"], parse(reply))[0]
     return dict(answer=ans, tokens_in=i, tokens_out=o, seconds=round(s, 1), calls=0)
 
 
@@ -386,9 +387,27 @@ def direct(q: dict):
 FILE_DOC_V1 = FILE_DOC.split("\n- git_log(")[0] + "\n- git_log(repo, path): the commits that changed a path, newest first (hash, date, subject)"
 
 
-def key_for(arm: str, q: dict, model: str) -> str:
-    doc = dict(moot_tools=MOOT_DOC, file_tools=FILE_DOC, rag_bm25=FILE_DOC_V1, rag_history="rag over history v1")[arm]  # the HEAD RAG keeps its key
-    return hashlib.sha256(json.dumps([arm, model, q["id"], SYSTEM, doc]).encode()).hexdigest()[:20]
+HARNESS = "v2"  # v2 (register, fairness audit): every arm accepts a bare answer object; v1 answers are kept, not scored
+
+
+def key_for(arm: str, q: dict, model: str, harness: str = HARNESS) -> str:
+    if harness == "v1":
+        doc = dict(moot_tools=MOOT_DOC, file_tools=FILE_DOC_V1, rag_bm25=FILE_DOC_V1, rag_history="rag over history v1")[arm]
+        return hashlib.sha256(json.dumps([arm, model, q["id"], SYSTEM, doc]).encode()).hexdigest()[:20]
+    doc = dict(moot_tools=MOOT_DOC, file_tools=FILE_DOC, rag_bm25=FILE_DOC_V1, rag_history="rag over history v1")[arm]
+    return hashlib.sha256(json.dumps([arm, model, q["id"], SYSTEM, doc, harness]).encode()).hexdigest()[:20]
+
+
+KEYS = {1: {"kep", "date"}, 2: {"leads"}, 3: {"in_force", "retired_by"}, 4: {"authors"}, 5: {"count"}, 6: {"was_lead"}}
+
+
+def answer_of(t: int, x: dict):
+    """The answer in a reply, the same rule for every arm: {"answer": ...}, or the bare answer object the format asks for."""
+    if "answer" in x:
+        return x["answer"], True
+    if "tool" not in x and KEYS[t] & set(x):
+        return x, True
+    return None, False
 
 
 LOCAL = "qwen3.8:27b"  # the registered model; K1's test split was moved to Groq and back (docs/studies.md, amendments)
@@ -469,8 +488,8 @@ def main() -> None:
                      + f" | {s['tokens']:,} | {s['seconds_median'] if s['seconds_median'] is not None else '–'} | {s['calls']} |")
         L.append("")
     if OTHER:
-        local = [(arm, q, cache[key_for(arm, q, OTHER)]) for q in Q["questions"] for arm in ("moot_tools", "file_tools", "rag_bm25", "rag_history")
-                 if q["split"] == "test" and key_for(arm, q, OTHER) in cache]
+        local = [(arm, q, cache[key_for(arm, q, OTHER, "v1")]) for q in Q["questions"] for arm in ("moot_tools", "file_tools", "rag_bm25")
+                 if q["split"] == "test" and key_for(arm, q, OTHER, "v1") in cache]
         if local:
             L += [f"## The {len(local)} test answers produced on {OTHER} (not in the table above)", "",
                   "The register's amendments explain why these exist; they are listed so nothing is dropped.", "",
