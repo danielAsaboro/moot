@@ -95,6 +95,7 @@ export default function DecisionPanel({ id }: { id: string }) {
         {!notYet && <VerdictMeta audit={a} />}
         {!notYet && <VerdictSince h={data.history} />}
         {!notYet && <KnowsWhy k={data.knowers} />}
+        {!notYet && <AnswersFor team={a.team} />}
       </header>
 
       {/* One drawing per screen: the preview is the hero everywhere except the Graph tab, which shows the full one. */}
@@ -155,6 +156,18 @@ function KnowsWhy({ k }: { k?: DecisionResponse["knowers"] }) {
       Who knows why: {k.people.length === 0 ? "nobody on record" : k.people.map((p, i) => (
         <span key={p.id}>{i > 0 && ", "}{p.name} ({[...new Set(p.roles.map(role))].slice(0, 2).join(", ")}{!p.active && p.left ? `, left ${longDate(p.left)}` : ""})</span>
       ))}. Bus factor {k.bus_factor}. <a className="link" href={link("/app/people/")}>People ›</a>
+    </p>
+  );
+}
+
+/** "Answers for it: SIG Auth, led by Anish Ramasekar (chair), … (Mike Danese held a seat until Jan 2024)." */
+function AnswersFor({ team }: { team?: import("@/lib/types").Audit["team"] }) {
+  if (!team) return null;
+  const last = team.former[team.former.length - 1];
+  return (
+    <p className="t-footnote" style={{ margin: 0 }} aria-label="Team that answers for it">
+      Answers for it: {team.name}{team.leads.length ? <>, led by {team.leads.map(l => `${l.name} (${l.role})`).join(", ")}</> : ", no current lead on record"}
+      {last ? <> ({last.name} held a seat until {longDate(last.to)})</> : null}.
     </p>
   );
 }

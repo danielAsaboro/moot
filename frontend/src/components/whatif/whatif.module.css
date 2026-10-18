@@ -88,3 +88,4 @@
 .postInput { flex: 1 1 260px; min-width: 0; padding: 8px 10px; border: 1px solid var(--separator); border-radius: 8px; background: var(--paper); color: var(--label); font: inherit; }
 .postDone { display: flex; flex-direction: column; gap: 6px; }
 .postList { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; }
+.reset { background: none; border: 0; padding: 0; font: inherit; cursor: pointer; }

@@ -229,7 +229,7 @@ function PostChange({ premiseId, premiseText }: { premiseId: string; premiseText
           )}
           <p className="t-footnote">
             <a className="link" href={`/app/ledger/?graph=${made.sandbox}`}>Open the ledger in the sandbox</a> ·{" "}
-            <button type="button" className="link" onClick={reset}>Reset</button> · it expires in an hour.
+            <button type="button" className={cx("link", s.reset)} onClick={reset}>Reset</button> · it expires in an hour.
           </p>
         </div>
       )}
