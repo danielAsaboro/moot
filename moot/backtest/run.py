@@ -119,7 +119,7 @@ def main() -> None:
     for d in decisions:
         series = []
         for c in [d["born"]] + months(d["born"], in_force_until(d)):  # only while the decision is in force: the label never shows
-            a = check_action(g, d["id"], c)
+            a = check_action(g, d["id"], c, policy="strict")
             series.append(dict(as_of=c, gate=a["gate"], reasons=[r["text"] for r in a["reasons"]]))
         gates[d["id"]] = series
     (OUT / "gates.json").write_text(json.dumps(gates, indent=1))

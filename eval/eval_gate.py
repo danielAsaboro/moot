@@ -39,12 +39,12 @@ def main() -> None:
     gold = {d["id"]: d["expected"] for d in truth["decisions"]}
     stale = baseline_stale(truth["evidence"])
     allowed = {
-        "moot": {k: tools.check_action(g, k, as_of)["allowed"] for k in gold},
+        "moot": {k: tools.check_action(g, k, as_of, policy="strict")["allowed"] for k in gold},
         "depth1": {k: gate(tools.audit_decision(g, k, as_of, 1))["allowed"] for k in gold},
         "bm25": {k: not stale[k] for k in gold},
         "adr": {k: True for k in gold},
     }
-    moot_rows = {k: tools.check_action(g, k, as_of) for k in gold}
+    moot_rows = {k: tools.check_action(g, k, as_of, policy="strict") for k in gold}
     # decisions a depth-1 audit calls HOLDS although they should be stopped, and what the depth-1 gate still caught them on
     shallow = {k: gate(tools.audit_decision(g, k, as_of, 1)) for k in gold
                if tools.audit_decision(g, k, as_of, 1)["verdict"] == "HOLDS" and gold[k] != "HOLDS"}
@@ -103,7 +103,7 @@ def main() -> None:
     pg = db.select_graph("moot_eval_gate_public")
     seed(pg, DATA / "realworld" / "graph.json", fresh=True)
     on = snap["summary"]["checked_on"]
-    rw = {r["id"]: tools.check_action(pg, r["id"], on) for r in snap["records"]}
+    rw = {r["id"]: tools.check_action(pg, r["id"], on, policy="strict") for r in snap["records"]}
     pg.delete()
     counts = {}
     for r in rw.values():

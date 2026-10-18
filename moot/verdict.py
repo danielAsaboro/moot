@@ -59,8 +59,16 @@ ALLOW, DENY, REVALIDATE = "ALLOW", "DENY", "REVALIDATE"
 BLOCKING = {"not_in_graph", "not_yet", "retired", "premise_expired"}
 
 
-def gate(audit: dict, coverage: dict | None = None) -> dict:
+POLICIES = ("warn", "strict")
+
+
+def gate(audit: dict, coverage: dict | None = None, policy: str = "strict") -> dict:
     """May an agent act on this decision? Pure: the audit rows in, ALLOW | DENY | REVALIDATE out.
+
+    policy "warn" (the product default since 2026-10-21, moot.tools.GATE_POLICY): DENY only on what the graph shows is gone
+    (a dated contradiction of a stated or derived reason, retired or superseded, not in the graph, not decided yet); anything
+    the graph merely cannot vouch for is ALLOW with `verified` false and the reasons as `warnings`, so the agent proceeds and
+    the warning goes to who-to-ask. policy "strict" is the rule below, kept for every study scored with it:
 
     DENY        the graph shows the decision is gone: not in the graph, not yet made, retired, or a premise is contradicted
     REVALIDATE  the graph cannot vouch for it: no premise recorded, a premise disputed, never checked or never evidenced,
@@ -113,5 +121,12 @@ def gate(audit: dict, coverage: dict | None = None) -> dict:
     if v not in ("NOT_YET", RETIRED) and owner and not owner["active"]:
         reasons.append(dict(code="owner_left", text=f"The owner of record, {owner['name']}, left on {owner['valid_to']}; nobody is accountable for it."))
     reasons.sort(key=lambda r: r["code"] not in BLOCKING)  # what denies comes first; stable within each group
+    if policy == "warn":
+        g = DENY if any(r["code"] in BLOCKING for r in reasons) else ALLOW
+        return dict(gate=g, allowed=g == ALLOW, verdict=v, reasons=reasons, basis=basis if g == ALLOW else [], policy=policy,
+                    verified=not reasons, warnings=[r for r in reasons if r["code"] not in BLOCKING] if g == ALLOW else [])
+    if policy != "strict":
+        raise ValueError(f"unknown gate policy {policy}")
     g = DENY if any(r["code"] in BLOCKING for r in reasons) else REVALIDATE if reasons else ALLOW
-    return dict(gate=g, allowed=g == ALLOW, verdict=v, reasons=reasons, basis=basis if g == ALLOW else [])
+    return dict(gate=g, allowed=g == ALLOW, verdict=v, reasons=reasons, basis=basis if g == ALLOW else [], policy=policy,
+                verified=not reasons, warnings=[])

@@ -368,7 +368,7 @@ def audit(full: str, fresh: bool = True) -> dict:
     seed(g, load(full), fresh=fresh)
     s = json.loads((load(full).parent / "summary.json").read_text())
     rows = tools.ledger(g, s["read_on"], 4)
-    gates = {r["id"]: tools.check_action(g, r["id"], s["read_on"])["gate"] for r in rows}
+    gates = {r["id"]: tools.check_action(g, r["id"], s["read_on"], policy="strict")["gate"] for r in rows}  # the studies were scored strict
     count = lambda xs: {k: sum(1 for x in xs if x == k) for k in sorted(set(xs))}
     s.update(verdicts=count([r["verdict"] for r in rows]), gates=count(list(gates.values())),
              moot=[dict(id=r["id"], title=r["title"]) for r in rows if r["verdict"] == "MOOT"])

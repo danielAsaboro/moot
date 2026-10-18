@@ -156,12 +156,12 @@
    },
    "agent_tools": {
     "n": 64,
-    "answered": 60,
-    "right": 51,
-    "accuracy": 0.796875,
+    "answered": 61,
+    "right": 52,
+    "accuracy": 0.8125,
     "accuracy_ci": [
-     0.6828613244878341,
-     0.8772669743730419
+     0.7002540844522482,
+     0.889354651190779
     ],
     "dead": 5,
     "caught": 1,
@@ -176,9 +176,9 @@
      0.03005258587173032,
      0.563509436563646
     ],
-    "holds": 55,
-    "held": 50,
-    "balanced_accuracy": 0.5545454545454546
+    "holds": 56,
+    "held": 51,
+    "balanced_accuracy": 0.5553571428571429
    },
    "moot_advisory": {
     "n": 64,
@@ -487,11 +487,11 @@
   }
  },
  "agent_cost": {
-  "units": 60,
-  "tokens_in": 55252,
-  "tokens_out": 4258,
-  "usd": 0.0054,
-  "tool_calls": 100,
+  "units": 61,
+  "tokens_in": 56710,
+  "tokens_out": 4315,
+  "usd": 0.0055,
+  "tool_calls": 102,
   "ms_median": 1480
  },
  "rag_cost": {
@@ -609,7 +609,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"TOAST UI Editor is actively maintained\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"TOAST UI Editor is open source\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "CMSgov/easi-app:0038-replace-craco-with-vite.md",
@@ -673,7 +673,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"PostgreSQL is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"PostgreSQL is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "DFE-Digital/find-a-lost-trn:00006-sidekiq-and-redis.md",
@@ -689,7 +689,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Redis is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Redis is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "GSA/notifications-api:0006-use-for-dependency-management.md",
@@ -721,7 +721,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"PlantUML is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"PlantUML is actively maintained\" was contradicted by maintained:plantuml:2012-09-07 and re-affirmed by maintained:plantuml:2013-12-10; the owner has to rule."
   },
   {
    "id": "Maptio/maptio:0003-move-to-nx-monorepo-with-new-angular-app.md",
@@ -769,7 +769,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Puppet is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Puppet is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "alphagov/govuk-aws:0008-postgres-on-puppetmaster.md",
@@ -817,7 +817,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Redis is actively maintained\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Redis is open source\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "alphagov/govuk-aws:0029-combine-api-redis-into-backend-redis.md",
@@ -881,7 +881,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Kubernetes is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Kubernetes is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "alphagov/govuk-infrastructure:0006-use-helm-for-application-package-management.md",
@@ -897,7 +897,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Helm is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Helm is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "alphagov/govuk-infrastructure:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
@@ -913,7 +913,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "DEAD",
-   "moot_why": "\"Elasticsearch is open source\" was contradicted on 2021-01-14 by open_source:elasticsearch:2021-01-14."
+   "moot_why": "\"Kibana is open source\" was contradicted on 2021-01-14 by open_source:kibana:2021-01-14."
   },
   {
    "id": "alphagov/govuk-infrastructure:0008-use-external-secrets-for-secrets-storage.md",
@@ -929,7 +929,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"external-secrets is actively maintained\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"external-secrets is open source\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "alphagov/govuk-infrastructure:0009-use-external-dns-for-dns-record-management.md",
@@ -945,7 +945,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"external-dns is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"external-dns is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "apache/james-project:0019-reactor-netty-adoption.md",
@@ -961,7 +961,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Reactor Netty is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Reactor Netty is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "apache/james-project:0033-use-scala-in-event-sourcing-modules.md",
@@ -977,7 +977,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Scala is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Scala is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "apache/james-project:0052-pulsar-mailqueue.md",
@@ -993,7 +993,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Apache Pulsar is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Apache Pulsar is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "apache/james-project:0054-elasticsearch-search-overrides.md",
@@ -1025,7 +1025,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Rspamd is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Rspamd is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "apache/james-project:0056-opensearch-migration.md",
@@ -1057,7 +1057,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Netty is actively maintained\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Netty is open source\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "apache/james-project:0059-upgrade-to-cassadra-driver-4.md",
@@ -1073,7 +1073,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Cassandra Java driver is actively maintained\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Cassandra Java driver is open source\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "backstage/backstage:adr006-avoid-react-fc",
@@ -1121,7 +1121,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Luxon is actively maintained\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Luxon is open source\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "backstage/backstage:adr012-use-luxon-locale-and-date-presets.md",
@@ -1169,7 +1169,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"React is actively maintained\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"React is open source\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "cljdoc/cljdoc:0008-use-circleci-as-analysis-sandbox.md",
@@ -1249,7 +1249,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Contour is actively maintained\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Contour is open source\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "defenseunicorns/pepr:0003-use-commonjs-and-esbuild.md",
@@ -1265,7 +1265,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"esbuild is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"esbuild is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "defenseunicorns/pepr:0005-migrate-to-jest-and-refactor-e2e-to-journey-tests.md",
@@ -1282,7 +1282,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Jest is actively maintained\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Jest is open source\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "edgexfoundry/edgex-docs:0017-consul-security.md",
@@ -1330,7 +1330,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "DEAD",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Cypress is actively maintained\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Cypress is open source\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "kyma-project/community:dr-002-Traefik_as_an_API_Gateway.md",
@@ -1362,7 +1362,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Istio is actively maintained\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Istio is open source\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "kyma-project/community:dr-006-Kubeless_as_the_Faas_solution.md",
@@ -1394,7 +1394,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Jaeger is actively maintained\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Jaeger is open source\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "kyma-project/community:dr-012-Prettier_as_JavaScript_code_formatter.md",
@@ -1410,7 +1410,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Prettier is actively maintained\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Prettier is open source\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "ministryofjustice/cloud-platform:001-Use-AWS-hosted-elasticsearch.md",
@@ -1490,7 +1490,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "DEAD",
    "agent_tools": "DEAD",
-   "moot_why": "\"Kubernetes is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Kubernetes is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "ministryofjustice/cloud-platform:016-Kibana-is-open-to-all-service-teams.md",
@@ -1554,7 +1554,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Redux is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Redux is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "mozilla/fxa:0010-transition-fxa-from-backbone-to-react.md",
@@ -1570,7 +1570,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"React is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"React is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "mozilla/fxa:0016-use-graphql-and-apollo-for-settings-redesign.md",
@@ -1602,7 +1602,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "DEAD",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Intern is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Intern is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "mozilla/fxa:0035-refactor-payments-frontend-with-nextjs.md",
@@ -1650,7 +1650,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"django-waffle is actively maintained\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"django-waffle is open source\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "openedx/edx-platform:0001-refactor-waffle-flag-default.rst",
@@ -1682,7 +1682,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"django-waffle is actively maintained\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"django-waffle is open source\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "openedx/edx-platform:0003-permissions-via-bridgekeeper.rst",
@@ -1730,7 +1730,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "DEAD",
    "agent_tools": "HOLDS",
-   "moot_why": "\"django-rules is actively maintained\" was contradicted by maintained:django-rules:2021-01-16 and re-affirmed by maintained:django-rules:2021-04-30; the owner has to rule."
+   "moot_why": "\"django-rules is open source\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "openedx/frontend-app-learning:0006-thunk-and-api-naming.md",
@@ -1778,7 +1778,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"React-Bootstrap is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"React-Bootstrap is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "openedx/paragon:0017-runtime-a11y-validation.rst",
@@ -1794,7 +1794,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"React is actively maintained\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"React is open source\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "openedx/paragon:0019-scaling-styles-with-design-tokens.rst",
@@ -1826,7 +1826,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Argo CD is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Argo CD is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "operate-first/blueprint:0006-monitoring-structure.md",
@@ -1842,7 +1842,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Prometheus is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Prometheus is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "thomvaill/log4brains:20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md",
@@ -1874,7 +1874,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Next.js is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Next.js is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "thomvaill/log4brains:20200925-use-prettier-eslint-airbnb-for-the-code-style.md",
@@ -1905,8 +1905,8 @@
    "age": "DEAD",
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
-   "agent_tools": null,
-   "moot_why": "\"React is open source\" has no dated evidence either way; nobody has checked it."
+   "agent_tools": "HOLDS",
+   "moot_why": "\"React is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "thomvaill/log4brains:20201007-next-js-persistent-layout-pattern.md",
@@ -1922,7 +1922,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": "HOLDS",
-   "moot_why": "\"Next.js is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Next.js is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "thomvaill/log4brains:20201103-use-lunr-for-search.md",
@@ -1954,7 +1954,7 @@
    "trust_adr": "HOLDS",
    "rag_bm25": "HOLDS",
    "agent_tools": null,
-   "moot_why": "\"Vue.js 2 is open source\" has no dated evidence either way; nobody has checked it."
+   "moot_why": "\"Vue.js 2 is actively maintained\" has no dated evidence either way; nobody has checked it."
   },
   {
    "id": "wmde/fundraising-application:010_Components_Framework.md",
@@ -1986,6 +1986,21 @@
    "held_blocked_ci": [
     0.938868520215908,
     1.0
+   ],
+   "blocked_with_someone_to_ask": 31
+  },
+  "moot_warn": {
+   "dead_allowed": 4,
+   "dead": 5,
+   "dead_allowed_ci": [
+    0.3755282641185388,
+    0.9637768390302125
+   ],
+   "held_blocked": 8,
+   "held": 59,
+   "held_blocked_ci": [
+    0.07034090749685569,
+    0.24539898454917758
    ]
   },
   "trust_adr": {
@@ -2037,11 +2052,11 @@
     0.3755282641185388,
     0.9637768390302125
    ],
-   "held_blocked": 9,
+   "held_blocked": 8,
    "held": 59,
    "held_blocked_ci": [
-    0.08238371089067363,
-    0.26518223268810226
+    0.07034090749685569,
+    0.24539898454917758
    ]
   }
  },

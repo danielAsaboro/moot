@@ -1,0 +1,462 @@
+{
+ "CMSgov/easi-app:0002-use-terraform.md": {
+  "ask": null,
+  "authors": 2,
+  "still_active": 0
+ },
+ "CMSgov/easi-app:0012-backend-testing-suite.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "CMSgov/easi-app:0014-use-mux-for-routing.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "CMSgov/easi-app:0016-migration-tool.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "CMSgov/easi-app:0017-go-orm.md": {
+  "ask": null,
+  "authors": 2,
+  "still_active": 0
+ },
+ "CMSgov/easi-app:0028-use-react-testing-library.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "CMSgov/easi-app:0036-rich-text-editor.md": {
+  "ask": "adamodd",
+  "authors": 1,
+  "still_active": 1
+ },
+ "CMSgov/easi-app:0038-replace-craco-with-vite.md": {
+  "ask": "Ashley Terstriep",
+  "authors": 1,
+  "still_active": 1
+ },
+ "DFE-Digital/apply-for-teacher-training:0002-use-devise-for-authentication.md": {
+  "ask": "Duncan Brown",
+  "authors": 2,
+  "still_active": 1
+ },
+ "DFE-Digital/find-a-lost-trn:00003-use-rails.md": {
+  "ask": "Theodor Vararu",
+  "authors": 2,
+  "still_active": 1
+ },
+ "DFE-Digital/find-a-lost-trn:00004-use-postgres-state.md": {
+  "ask": "Theodor Vararu",
+  "authors": 2,
+  "still_active": 1
+ },
+ "DFE-Digital/find-a-lost-trn:00006-sidekiq-and-redis.md": {
+  "ask": "Theodor Vararu",
+  "authors": 1,
+  "still_active": 1
+ },
+ "GSA/notifications-api:0006-use-for-dependency-management.md": {
+  "ask": "TTS ADR automation",
+  "authors": 2,
+  "still_active": 2
+ },
+ "HHS/Head-Start-TTADP:0007-use-plantuml-for-diagrams.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "Maptio/maptio:0003-move-to-nx-monorepo-with-new-angular-app.md": {
+  "ask": "Romek Goj",
+  "authors": 1,
+  "still_active": 1
+ },
+ "SmartBear/git-en-boite:0009-prefer-dugite-over-raw-git-commands-in-tests.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "alphagov/govuk-aws:0007-puppet-cert-management.md": {
+  "ask": "ChrisBAshton",
+  "authors": 2,
+  "still_active": 1
+ },
+ "alphagov/govuk-aws:0008-postgres-on-puppetmaster.md": {
+  "ask": "ChrisBAshton",
+  "authors": 3,
+  "still_active": 1
+ },
+ "alphagov/govuk-aws:0012-security-groups-in-terraform.md": {
+  "ask": "ChrisBAshton",
+  "authors": 2,
+  "still_active": 1
+ },
+ "alphagov/govuk-aws:0025-use-elasticache-for-redis.md": {
+  "ask": "ChrisBAshton",
+  "authors": 2,
+  "still_active": 1
+ },
+ "alphagov/govuk-aws:0029-combine-api-redis-into-backend-redis.md": {
+  "ask": "ChrisBAshton",
+  "authors": 2,
+  "still_active": 1
+ },
+ "alphagov/govuk-infrastructure:0002-use-aws-eks-terraform-module.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "alphagov/govuk-infrastructure:0004-use-aws-load-balancer-controller-for-edge-traffic-services.md": {
+  "ask": null,
+  "authors": 2,
+  "still_active": 0
+ },
+ "alphagov/govuk-infrastructure:0005-use-eks-managed-node-groups.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "alphagov/govuk-infrastructure:0006-use-helm-for-application-package-management.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "alphagov/govuk-infrastructure:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "alphagov/govuk-infrastructure:0008-use-external-secrets-for-secrets-storage.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "alphagov/govuk-infrastructure:0009-use-external-dns-for-dns-record-management.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "apache/james-project:0019-reactor-netty-adoption.md": {
+  "ask": "Rene Cordier",
+  "authors": 2,
+  "still_active": 2
+ },
+ "apache/james-project:0033-use-scala-in-event-sourcing-modules.md": {
+  "ask": "Benoit Tellier",
+  "authors": 2,
+  "still_active": 1
+ },
+ "apache/james-project:0052-pulsar-mailqueue.md": {
+  "ask": "Benoit TELLIER",
+  "authors": 2,
+  "still_active": 2
+ },
+ "apache/james-project:0054-elasticsearch-search-overrides.md": {
+  "ask": "Benoit Tellier",
+  "authors": 1,
+  "still_active": 1
+ },
+ "apache/james-project:0055-rspamd-spam-filtering.md": {
+  "ask": "vttran",
+  "authors": 2,
+  "still_active": 2
+ },
+ "apache/james-project:0056-opensearch-migration.md": {
+  "ask": "Benoit TELLIER",
+  "authors": 1,
+  "still_active": 1
+ },
+ "apache/james-project:0058-upgrade-to-netty-4.md": {
+  "ask": "Benoit TELLIER",
+  "authors": 1,
+  "still_active": 1
+ },
+ "apache/james-project:0059-upgrade-to-cassadra-driver-4.md": {
+  "ask": "Benoit TELLIER",
+  "authors": 1,
+  "still_active": 1
+ },
+ "backstage/backstage:adr006-avoid-react-fc": {
+  "ask": "blam",
+  "authors": 10,
+  "still_active": 2
+ },
+ "backstage/backstage:adr007-use-msw-to-mock-service-requests.md": {
+  "ask": "blam",
+  "authors": 7,
+  "still_active": 3
+ },
+ "backstage/backstage:adr010-luxon-date-library.md": {
+  "ask": "Fredrik Adel\u00f6w",
+  "authors": 4,
+  "still_active": 2
+ },
+ "backstage/backstage:adr012-use-luxon-locale-and-date-presets.md": {
+  "ask": "Harry Hogg",
+  "authors": 3,
+  "still_active": 3
+ },
+ "change-metrics/monocle:0002-Choice-of-Elasticsearch.md": {
+  "ask": null,
+  "authors": 2,
+  "still_active": 0
+ },
+ "change-metrics/monocle:0003-Choice-of-React.md": {
+  "ask": null,
+  "authors": 2,
+  "still_active": 0
+ },
+ "cljdoc/cljdoc:0008-use-circleci-as-analysis-sandbox.md": {
+  "ask": "Martin Klepsch",
+  "authors": 1,
+  "still_active": 1
+ },
+ "cljdoc/cljdoc:0010-use-terraform-to-create-document-infrastructure.md": {
+  "ask": "Martin Klepsch",
+  "authors": 1,
+  "still_active": 1
+ },
+ "cljdoc/cljdoc:0013-move-to-sqlite-for-storage.md": {
+  "ask": "Martin Klepsch",
+  "authors": 1,
+  "still_active": 1
+ },
+ "cljdoc/cljdoc:0017-use-nomad-for-deployment.md": {
+  "ask": "Martin Klepsch",
+  "authors": 1,
+  "still_active": 1
+ },
+ "cloudfoundry/korifi:0007-use-contour-for-ingress.md": {
+  "ask": "Andrew Costa",
+  "authors": 3,
+  "still_active": 3
+ },
+ "defenseunicorns/pepr:0003-use-commonjs-and-esbuild.md": {
+  "ask": "Megamind",
+  "authors": 1,
+  "still_active": 1
+ },
+ "defenseunicorns/pepr:0005-migrate-to-jest-and-refactor-e2e-to-journey-tests.md": {
+  "ask": "Megamind",
+  "authors": 1,
+  "still_active": 1
+ },
+ "edgexfoundry/edgex-docs:0017-consul-security.md": {
+  "ask": "Bryon Nevis",
+  "authors": 2,
+  "still_active": 2
+ },
+ "edgexfoundry/edgex-docs:0019-spiffe.md": {
+  "ask": "Bryon Nevis",
+  "authors": 1,
+  "still_active": 1
+ },
+ "guardian/dotcom-rendering:use-percy-for-e2e-visual-regression-testing.md": {
+  "ask": "Pete Faulconbridge",
+  "authors": 5,
+  "still_active": 5
+ },
+ "kyma-project/community:dr-002-Traefik_as_an_API_Gateway.md": {
+  "ask": "Klaudia Grzondziel",
+  "authors": 6,
+  "still_active": 1
+ },
+ "kyma-project/community:dr-005-Istio_as_the_API_Gateway.md": {
+  "ask": "Klaudia Grzondziel",
+  "authors": 6,
+  "still_active": 1
+ },
+ "kyma-project/community:dr-006-Kubeless_as_the_Faas_solution.md": {
+  "ask": "Klaudia Grzondziel",
+  "authors": 6,
+  "still_active": 1
+ },
+ "kyma-project/community:dr-011-Jaeger_as_a_tracing_back-end.md": {
+  "ask": "Klaudia Grzondziel",
+  "authors": 7,
+  "still_active": 1
+ },
+ "kyma-project/community:dr-012-Prettier_as_JavaScript_code_formatter.md": {
+  "ask": "Klaudia Grzondziel",
+  "authors": 6,
+  "still_active": 1
+ },
+ "ministryofjustice/cloud-platform:001-Use-AWS-hosted-elasticsearch.md": {
+  "ask": null,
+  "authors": 2,
+  "still_active": 0
+ },
+ "ministryofjustice/cloud-platform:003-Use-Concourse-CI.md": {
+  "ask": null,
+  "authors": 3,
+  "still_active": 0
+ },
+ "ministryofjustice/cloud-platform:004-use-kubernetes-for-container-management.md": {
+  "ask": null,
+  "authors": 3,
+  "still_active": 0
+ },
+ "ministryofjustice/cloud-platform:011-Introduce-Open-Policy-Agent.md": {
+  "ask": null,
+  "authors": 2,
+  "still_active": 0
+ },
+ "ministryofjustice/cloud-platform:014-Why-we-build-our-own-kubernetes-cluster.md": {
+  "ask": "Poornima Krishnasamy",
+  "authors": 1,
+  "still_active": 1
+ },
+ "ministryofjustice/cloud-platform:016-Kibana-is-open-to-all-service-teams.md": {
+  "ask": null,
+  "authors": 3,
+  "still_active": 0
+ },
+ "ministryofjustice/cloud-platform:022-EKS.md": {
+  "ask": null,
+  "authors": 3,
+  "still_active": 0
+ },
+ "ministryofjustice/modernisation-platform:0007-use-terratest-opa-and-go-for-testing.md": {
+  "ask": "David Elliott",
+  "authors": 2,
+  "still_active": 2
+ },
+ "mozilla/fxa:0002-use-react-redux-and-typescript-for-subscription-management-pages.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "mozilla/fxa:0010-transition-fxa-from-backbone-to-react.md": {
+  "ask": "Lauren Zugai",
+  "authors": 2,
+  "still_active": 1
+ },
+ "mozilla/fxa:0016-use-graphql-and-apollo-for-settings-redesign.md": {
+  "ask": "Lauren Zugai",
+  "authors": 2,
+  "still_active": 1
+ },
+ "mozilla/fxa:0021-use-internjs-testing.md": {
+  "ask": "Vijay Budhram",
+  "authors": 1,
+  "still_active": 1
+ },
+ "mozilla/fxa:0035-refactor-payments-frontend-with-nextjs.md": {
+  "ask": "Reino Muhl",
+  "authors": 1,
+  "still_active": 1
+ },
+ "mozilla/fxa:0037-use-nx-for-monorepo.md": {
+  "ask": "Ben Bangert",
+  "authors": 1,
+  "still_active": 1
+ },
+ "openedx/edx-enterprise:0012-enterprise-feature-flags-waffle.rst": {
+  "ask": "Adam Stankiewicz",
+  "authors": 2,
+  "still_active": 2
+ },
+ "openedx/edx-platform:0001-refactor-waffle-flag-default.rst": {
+  "ask": "Robert Raposa",
+  "authors": 2,
+  "still_active": 1
+ },
+ "openedx/edx-platform:0002-waffle-utils-extraction.rst": {
+  "ask": "Robert Raposa",
+  "authors": 2,
+  "still_active": 2
+ },
+ "openedx/edx-platform:0003-permissions-via-bridgekeeper.rst": {
+  "ask": "Sarina Canelake",
+  "authors": 2,
+  "still_active": 1
+ },
+ "openedx/edx-platform:0004-waffle-util-namespacing.rst": {
+  "ask": "Robert Raposa",
+  "authors": 3,
+  "still_active": 3
+ },
+ "openedx/edx-platform:permissions.rst": {
+  "ask": "Sarina Canelake",
+  "authors": 2,
+  "still_active": 1
+ },
+ "openedx/frontend-app-learning:0006-thunk-and-api-naming.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "openedx/frontend-platform:0004-axios-caching-implementation.rst": {
+  "ask": null,
+  "authors": 2,
+  "still_active": 0
+ },
+ "openedx/paragon:0009-usage-of-react-bootstrap.rst": {
+  "ask": "Peter Kulko",
+  "authors": 2,
+  "still_active": 1
+ },
+ "openedx/paragon:0017-runtime-a11y-validation.rst": {
+  "ask": "Adam Stankiewicz",
+  "authors": 1,
+  "still_active": 1
+ },
+ "openedx/paragon:0019-scaling-styles-with-design-tokens.rst": {
+  "ask": "Adam Stankiewicz",
+  "authors": 1,
+  "still_active": 1
+ },
+ "operate-first/blueprint:0004-argocd-apps-of-apps-structure.md": {
+  "ask": null,
+  "authors": 3,
+  "still_active": 0
+ },
+ "operate-first/blueprint:0006-monitoring-structure.md": {
+  "ask": null,
+  "authors": 2,
+  "still_active": 0
+ },
+ "thomvaill/log4brains:20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "thomvaill/log4brains:20200925-use-nextjs-for-static-site-generation.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "thomvaill/log4brains:20200925-use-prettier-eslint-airbnb-for-the-code-style.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "thomvaill/log4brains:20200927-avoid-react-fc-type.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "thomvaill/log4brains:20201007-next-js-persistent-layout-pattern.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "thomvaill/log4brains:20201103-use-lunr-for-search.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ },
+ "wmde/fundraising-application:006_Vue.js.md": {
+  "ask": "Gabriel Birke",
+  "authors": 1,
+  "still_active": 1
+ },
+ "wmde/fundraising-application:010_Components_Framework.md": {
+  "ask": null,
+  "authors": 1,
+  "still_active": 0
+ }
+}

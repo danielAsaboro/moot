@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import re
 import time
 from contextvars import ContextVar
@@ -171,14 +172,18 @@ def verdict_history(g: Graph, decision_id: str, as_of: str | None = None, depth:
 # 2b. The validity gate: may an agent act on (enforce, rely on, renew) this decision? Always audited at full depth,
 #     because a shallow audit lets a decision through whose reason died two hops down (D01 at depth 1).
 GATE_DEPTH = 6
+# The product's gate policy (moot/verdict.py gate): "warn" denies only what the graph shows is gone and lets the rest through
+# with warnings and who to ask; "strict" also stops anything the graph cannot vouch for (REVALIDATE). Studies scored with
+# the strict rule pass policy="strict" so they reproduce.
+GATE_POLICY = os.getenv("MOOT_GATE_POLICY", "warn")
 
 
-def check_action(g: Graph, decision_id: str, as_of: str | None = None) -> dict:
+def check_action(g: Graph, decision_id: str, as_of: str | None = None, policy: str | None = None) -> dict:
     a = audit_decision(g, decision_id, as_of, GATE_DEPTH)
     as_of = a.get("as_of") or as_of or today()
-    out = gate(a, coverage(g))
+    out = gate(a, coverage(g), policy or GATE_POLICY)
     return dict(out, decision_id=decision_id, title=a["decision"]["title"] if a.get("found") else None,
-                as_of=as_of, depth=GATE_DEPTH, snapshot=snapshot(g, decision_id, as_of), route=route(g, a) if out["gate"] != "ALLOW" else None)
+                as_of=as_of, depth=GATE_DEPTH, snapshot=snapshot(g, decision_id, as_of), route=route(g, a) if out["gate"] != "ALLOW" or out.get("warnings") else None)
 
 
 def route(g: Graph, a: dict) -> dict | None:

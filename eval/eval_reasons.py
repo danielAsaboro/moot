@@ -34,7 +34,7 @@ def per_decision(full: str) -> dict[str, dict]:
     out = {}
     for r in tools.ledger(g, s["read_on"], 4):
         a = tools.audit_decision(g, r["id"], s["read_on"], 4)
-        gate = tools.check_action(g, r["id"], s["read_on"])
+        gate = tools.check_action(g, r["id"], s["read_on"], policy="strict")
         states = Counter(p["state"] for p in a.get("premises", []))
         stated = [p for p in a.get("premises", []) if p["id"].startswith("r_")]
         out[r["id"]] = dict(title=r["title"], verdict=r["verdict"], gate=gate["gate"], premises=dict(states),

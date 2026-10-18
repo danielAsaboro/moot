@@ -105,8 +105,9 @@ def arm_moot(advisory: bool = False) -> dict[str, dict]:
     try:
         out = {}
         for d in decisions:
-            a = check_action(g, d["id"], T0)
+            a = check_action(g, d["id"], T0, policy="strict")
             out[d["id"]] = dict(pred="DEAD" if a["gate"] == "DENY" else "HOLDS", gate=a["gate"],
+                                gate_warn=check_action(g, d["id"], T0, policy="warn")["gate"],
                                 why=next((r["text"] for r in a["reasons"] if r["code"] == "premise_expired"), a["reasons"][0]["text"] if a["reasons"] else ""))
         return out
     finally:
@@ -383,7 +384,7 @@ def paired(a: dict, b: dict, units: list[dict]) -> dict:
     return dict(only_moot=only_a, only_other=only_b, p=mcnemar_exact(only_a, only_b))
 
 
-LABEL = dict(moot_advisory="Moot gate, licence checks advisory (post hoc)", moot="**Moot gate (FalkorDB)**", moot_no_falkordb="Moot rules, FalkorDB removed (BM25 top 3)", majority="majority class",
+LABEL = dict(moot_warn="Moot gate, warn policy (post hoc: the product default since 2026-10-21)", moot_advisory="Moot gate, licence checks advisory (post hoc)", moot="**Moot gate (FalkorDB)**", moot_no_falkordb="Moot rules, FalkorDB removed (BM25 top 3)", majority="majority class",
              age="age ≥ 3 years", trust_adr="trust the ADR's status", rag_bm25=f"BM25 RAG + {RAG_MODEL}",
              agent_tools=f"LLM agent with GitHub/OSV tools ({AGENT_MODEL})")
 
@@ -413,7 +414,8 @@ def main() -> None:
     rows = [dict(id=g["id"], split=g["split"], gold=g["gold"], backed_by=g["backed_by"], **{a: preds[a].get(g["id"], {}).get("pred") for a in ARMS},
                  moot_why=preds["moot"][g["id"]]["why"]) for g in GOLD["units"]]
     # A1: what an agent asking each gatekeeper on T0 would have been allowed to do (docs/studies.md A1)
-    allows = dict(moot=lambda i: preds["moot"][i]["gate"] == "ALLOW", trust_adr=lambda i: True,
+    allows = dict(moot=lambda i: preds["moot"][i]["gate"] == "ALLOW", moot_warn=lambda i: preds["moot"][i]["gate_warn"] == "ALLOW",
+                  trust_adr=lambda i: True,
                   age=lambda i: preds["age"][i]["pred"] == "HOLDS",
                   rag_bm25=lambda i: preds["rag_bm25"].get(i, {}).get("pred") == "HOLDS",
                   agent_tools=lambda i: preds["agent_tools"].get(i, {}).get("pred") == "HOLDS")
@@ -423,6 +425,12 @@ def main() -> None:
                           held_blocked=sum(not f(u["id"]) for u in held_t), held=len(held_t),
                           held_blocked_ci=wilson(sum(not f(u["id"]) for u in held_t), len(held_t)))
                   for a, f in allows.items()}
+    # who a blocked agent could have asked (data/heldout/route.json, moot/heldout/route.py); added after A1's first numbers
+    rf = ROOT / "data" / "heldout" / "route.json"
+    if rf.exists():
+        route = json.loads(rf.read_text())
+        blocked = [u for u in held_t if not allows["moot"](u["id"])]
+        agent_gate["moot"]["blocked_with_someone_to_ask"] = sum(1 for u in blocked if route.get(u["id"], {}).get("ask"))
     result = dict(t0=T0, end=GOLD["end"], gold_sha256=GOLD["sha256"], results=res, agent_cost=cost, rag_cost=rag_cost, rows=rows, agent_gate=agent_gate,
                   models=dict(rag_bm25=RAG_MODEL, agent_tools=AGENT_MODEL))
     (OUT / "results_heldout.json").write_text(json.dumps(result, indent=1) + "\n")
@@ -478,6 +486,11 @@ def markdown(R: dict) -> str:
     for a, g in R["agent_gate"].items():
         L.append(f"| {LABEL[a]} | {g['dead_allowed']}/{g['dead']} ({g['dead_allowed_ci'][0]:.2f}–{g['dead_allowed_ci'][1]:.2f}) | "
                  f"{g['held_blocked']}/{g['held']} ({g['held_blocked_ci'][0]:.2f}–{g['held_blocked_ci'][1]:.2f}) |")
+    g = R["agent_gate"]["moot"]
+    if "blocked_with_someone_to_ask" in g:
+        L += ["", f"Added after these numbers were seen: of the {g['held_blocked']} held decisions Moot's gate blocked, "
+                  f"{g['blocked_with_someone_to_ask']} had an ADR author still committing to the repository in the year before T0, someone a "
+                  "blocked agent could have asked (`moot/heldout/route.py`, from git history). The rest had nobody on record still active."]
     L.append("")
     d = R["results"]["dev"]
     L += [f"## Dev split ({d['moot']['n']} decisions, {d['moot']['dead']} DEAD), used to fix the prompts", "",
