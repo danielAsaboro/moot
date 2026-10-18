@@ -92,6 +92,17 @@ Each study below states its hypothesis, data, metric and script before its first
 - **Predictions:** Moot serves 0 stale answers, by construction of the fingerprint, while still answering most monthly questions from memory (above 80% on the backtest); both time-to-live caches serve stale answers, and the 365-day one serves stale clearances.
 - **Script:** `python3 eval/eval_unlearn.py` → `eval/results_unlearn.md` and `.json`.
 
+## H2. A fresh held-out set, with the product gate policy
+
+- **Written:** 2026-10-21 09:00 UTC, before the H2 repositories were mined, before any H2 unit was labelled and before any arm ran on H2. Written after H1, P1 and A1 were seen, and after the gate's product policy changed to "warn" because of A1; that change was made before this registration and is not tuned on H2.
+- **Question:** the same as H1: seeing only what existed on T0, does each decision still hold? T0 = 2022-10-17, graded on 2025-10-17 by the H1 rule (`moot/heldout/gold.py`, unchanged): DEAD if within that window the repository changed the ADR's status, archived it, titled a later ADR as dropping its tool, or removed the tool from its dependency manifests or Terraform.
+- **Units:** tool decisions (the backtest's catalogue plus `moot/heldout/tools.py`, extended from titles alone before labelling if needed) in force and committed on T0, from public repositories found by GitHub code searches run on 2026-10-21 (`filename:0002-use path:docs/adr`, `filename:0003-use path:adr`, `filename:0004-use path:decisions`, `filename:0002-use path:doc/adr`, `filename:0005-use path:architecture`), keeping non-fork repositories created before 2021-10-01 with at least 3 stars. No repository of the backtest or of H1 is used, so no unit overlaps. The gold, the split (30% dev by sha256 within class) and its sha256 are committed before any arm runs.
+- **Primary metric: balanced accuracy** (mean of the DEAD and HOLDS recalls), because with a handful of deaths plain accuracy rewards never flagging (H1: calling everything HOLDS scored 59 of 64). Accuracy, DEAD recall and precision, false alarms and, for gatekeepers, held decisions blocked are reported too, all with Wilson intervals, and exact McNemar tests against Moot.
+- **Arms:** Moot's gate under the product policy "warn" (DENY = DEAD); the majority class; trust the ADR; the age rule (3 years); BM25 RAG with the same local model and prompt as H1; the LLM agent with the same tools and prompt as H1. Prompts are H1's, unchanged; nothing is tuned on H2's dev split.
+- **Run once.** Whatever comes out is reported.
+- **Predictions:** Moot (warn) catches few deaths (outside evidence rarely precedes a team's own change) and its balanced accuracy lands near 0.5, like the majority class; the age rule has the highest recall and the lowest precision; no arm's balanced accuracy is separated from Moot's by its interval.
+- **Scripts:** `python3 -m moot.heldout.h2` (mine, label, split, hash) and `python3 eval/eval_heldout.py --study h2` → `eval/results_h2.md` and `.json`.
+
 ## Registered after the fact
 
 - **Backtest** (`eval/results_backtest.md`). The answer key (maintainers' own status changes) was fixed by code before the gate ran, but this file did not exist then, so the order rests on the results file's own account. Its gate was replayed before the empty-evidence fix; its score counts DENY only, which the fix does not touch (the fix turns some ALLOWs into REVALIDATE).
