@@ -79,7 +79,26 @@ def backtest_md() -> str | None:
         import contextlib, io
         with contextlib.redirect_stdout(io.StringIO()):
             mod.main()
+        _BT["json"] = json.loads(mod.OUT.with_suffix(".json").read_text())
         return mod.OUT.read_text()
+
+
+_BT: dict = {}
+
+
+def check_history(c: Checker) -> None:
+    """The real-history numbers the README and landing page promote (eval/results_backtest.json, re-scored offline)."""
+    f = EVAL / "results_backtest.json"
+    if not f.exists() or "json" not in _BT:
+        return
+    B = json.loads(f.read_text())
+    c.equal("eval/results_backtest.json re-scored from data/backtest", B, _BT["json"])
+    mongo = next(x for x in B["caught"] if "mongo" in x["id"].lower())
+    es = next(x for x in B["caught"] if "elasticsearch" in x["id"].lower())
+    c.expect("README.md", (ROOT / "README.md").read_text(), "real history sentence",
+             r"Moot said DENY ([\d,]+) days before GOV\.UK replaced MongoDB.*?and ([\d,]+) days before GOV\.UK deprecated its Elasticsearch logging ADR; "
+             r"median lead ([\d,]+) days\. It found (\d+) ADRs still marked accepted whose reasons died upstream",
+             (f"{mongo['lead_days']:,}", f"{es['lead_days']:,}", f"{round(B['median_lead_days']):,}", B["flag_reading"]["real"]))
 
 
 def check_headline(c: Checker, S: dict, G: dict, bt: str | None) -> None:
@@ -302,6 +321,7 @@ def main(rerun: bool = False) -> int:
     check_results(c, R, S, G)
     check_reasons(c)
     check_router(c)
+    check_history(c)
     check_test_count(c)
     for b in c.bad:
         print("MISMATCH", b)

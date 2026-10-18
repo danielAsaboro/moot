@@ -204,6 +204,17 @@ def main() -> None:
       "ADRs that were imported in bulk use the date written in the ADR, or are left out when they arrived already dead; "
       "“not abandoned” means only that nobody wrote it down.")
     OUT.write_text("\n".join(L) + "\n")
+    # the headline numbers the landing page and README quote, read by /api/evals and checked by `moot verify`
+    caught = [dict(id=d["id"], title=d["title"], repo=d["repo"], url=d["url"], denied_from=moot[d["id"]], abandoned=d["death"]["date"],
+                   lead_days=days(moot[d["id"]], d["death"]["date"]), how=d["death"]["quote"][:120],
+                   why=next(x["reasons"][0] for x in gates[d["id"]] if x["gate"] == "DENY"))
+              for d in sorted(tool_dec, key=lambda d: d["death"]["date"] if d["death"] else "") if d["death"] and outcome(d, moot[d["id"]]) == "caught"]
+    OUT.with_suffix(".json").write_text(json.dumps(dict(
+        end=END, repos=len(repos), decisions=len(every), tool_decisions=len(tool_dec), deaths=len(dead_all),
+        tool_deaths=sum(1 for d in tool_dec if d["death"]), caught=caught,
+        median_lead_days=statistics.median(S["Moot gate (DENY)"]["leads"]) if S["Moot gate (DENY)"]["leads"] else None,
+        methods={k: {x: v[x] for x in ("caught", "missed", "flagged", "alive", "dead")} for k, v in S.items()},
+        random=dict(caught=round(R["caught"], 1), flagged=round(R["flagged"], 1)), flag_reading=tally), indent=1) + "\n")
     print(OUT.read_text())
 
 

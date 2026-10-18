@@ -5,6 +5,7 @@ import HowItWorks from "@/components/landing/HowItWorks";
 import BlastRadius from "@/components/landing/BlastRadius";
 import LandingDrawing from "@/components/landing/LandingDrawing";
 import Proof from "@/components/landing/Proof";
+import RealHistory from "@/components/landing/RealHistory";
 import AgentsAsk from "@/components/landing/AgentsAsk";
 import TryIt from "@/components/landing/TryIt";
 import RealWorldPreview from "@/components/landing/RealWorldPreview";
@@ -20,6 +21,7 @@ export default function Landing() {
         <HowItWorks />
         <BlastRadius />
         <LandingDrawing />
+        <RealHistory />
         <Proof />
         <AgentsAsk />
         <TryIt />

@@ -1,0 +1,66 @@
+{
+ "end": "2026-10-17",
+ "repos": 30,
+ "decisions": 722,
+ "tool_decisions": 97,
+ "deaths": 23,
+ "tool_deaths": 6,
+ "caught": [
+  {
+   "id": "alphagov/govuk-aws:0028-combine-api-mongo-cluster-into-mongo-cluster.md",
+   "title": "28. Combine api-mongo cluster into mongo cluster",
+   "repo": "alphagov/govuk-aws",
+   "url": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0028-combine-api-mongo-cluster-into-mongo-cluster.md",
+   "denied_from": "2018-11-01",
+   "abandoned": "2019-10-17",
+   "lead_days": 350,
+   "how": "38. Mongo Replacement by DocumentDB",
+   "why": "\"MongoDB is open source\" was contradicted on 2018-10-16 by open_source:mongodb:2018-10-16."
+  },
+  {
+   "id": "alphagov/govuk-infrastructure:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+   "title": "7. Use Fluent Bit, Elasticsearch and Kibana for application logs",
+   "repo": "alphagov/govuk-infrastructure",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+   "denied_from": "2021-08-16",
+   "abandoned": "2025-07-21",
+   "lead_days": 1435,
+   "how": "Deprecated (no superseding ADR)",
+   "why": "\"Elasticsearch is open source\" was contradicted on 2021-01-14 by open_source:elasticsearch:2021-01-14."
+  }
+ ],
+ "median_lead_days": 892.5,
+ "methods": {
+  "Moot gate (DENY)": {
+   "caught": 2,
+   "missed": 4,
+   "flagged": 22,
+   "alive": 91,
+   "dead": 6
+  },
+  "trust the ADR": {
+   "caught": 0,
+   "missed": 6,
+   "flagged": 0,
+   "alive": 91,
+   "dead": 6
+  },
+  "age \u2265 3 years": {
+   "caught": 3,
+   "missed": 3,
+   "flagged": 73,
+   "alive": 91,
+   "dead": 6
+  }
+ },
+ "random": {
+  "caught": 1.4,
+  "flagged": 22.6
+ },
+ "flag_reading": {
+  "real": 15,
+  "false alarm": 2,
+  "right": 4,
+  "mixed": 1
+ }
+}
