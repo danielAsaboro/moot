@@ -65,7 +65,7 @@ class Checker:
 
 # The README keeps one headline and a compact table; the long results, the demo company and the stated-reasons study live in
 # these docs. Every number in all of them is checked as if it were in the README.
-README_PARTS = ("README.md", "docs/results.md", "docs/larkspur.md", "docs/reasons.md")
+README_PARTS = ("README.md", "docs/results.md", "docs/guide.md", "docs/larkspur.md", "docs/reasons.md")
 
 
 def readme() -> str:
@@ -334,7 +334,7 @@ def check_k1(c: Checker) -> None:
     R = json.loads(f.read_text())["results"]
     cell = lambda s: (f"{s['right']}/{s['n']}" if s["n"] == s["of"] else "running")
     ci = lambda s: f"{s['ci'][0]:.2f}–{s['ci'][1]:.2f}"
-    text = (ROOT / "README.md").read_text()
+    text = readme()
     for arm, label in (("moot_tools", r"\*\*agent with Moot's graph tools\*\*"), ("file_tools", "agent with file and git tools over the same checkouts"),
                        ("rag_bm25", r"BM25 RAG over the checkouts"), ("rag_history", r"BM25 RAG over the checkouts and their history \(post hoc\)"),
                        ("moot_direct", "one fixed graph query per question, no model")):
@@ -358,7 +358,7 @@ def check_k2(c: Checker) -> None:
     if not f.exists():
         return
     R = json.loads(f.read_text())["results"]
-    text = (ROOT / "README.md").read_text()
+    text = readme()
     k2 = text[text.index("### K2"):] if "### K2" in text else ""
     sec = lambda x: "<0.001" if x is not None and x < 0.001 else ("–" if x is None else str(x))
     for arm, label in (("moot_tools", r"\*\*graph-tool agent\*\*"), ("file_tools", "file and git agent over the same checkouts"),
@@ -373,8 +373,16 @@ def check_k2(c: Checker) -> None:
     c.expect("README.md", k2, "K2 McNemar", r"only the graph agent right on (\d+) questions, only the file agent on (\d+), exact McNemar p ([<=] [\d.]+)\) and of BM25 RAG \((\d+) against (\d+), p ([<=] [\d.]+)\)",
              (pf["only_moot"], pf["only_other"], pv(pf), pr["only_moot"], pr["only_other"], pv(pr)))
     m, fl, rg, fx = (R["test"][a] for a in ("moot_tools", "file_tools", "rag_bm25", "moot_direct"))
-    c.expect("README.md", text, "K2 hero table", r"\| \*\*agent with Moot's graph tools\*\* \| \*\*(\d+)\*\* \|.*?\n\| agent with file and git tools \| (\d+) \|.*?\n\| BM25 RAG \| (\d+) \|.*?\n\| \*\*Moot alone: one fixed graph query, no model\*\* \| \*\*(\d+)\*\*",
-             (m["right"], fl["right"], rg["right"], fx["right"]))
+    top = (ROOT / "README.md").read_text()
+    c.expect("README.md", top, "K2 hero table", r"\| \*\*the graph alone: one fixed graph query, no model\*\* \| \*\*(\d+)\*\* \|.*?\n\| \*\*agent with Moot's graph tools\*\* \| \*\*(\d+)\*\* \|.*?\n\| agent with file and git tools \| (\d+) \|.*?\n\| BM25 RAG \| (\d+) \|",
+             (fx["right"], m["right"], fl["right"], rg["right"]))
+    rows = [r for r in json.loads(f.read_text())["rows"] if r["split"] == "test"]
+    only_agent = sum(1 for r in rows if r["moot_tools"] and not r["moot_direct"])
+    only_direct = sum(1 for r in rows if r["moot_direct"] and not r["moot_tools"])
+    c.expect("README.md", top, "K2 agent over the graph", r"On top of the graph it gets (\d+) more.*?It loses (none) the fixed query gets",
+             (only_agent, "none" if only_direct == 0 else str(only_direct)))
+    c.expect("README.md", top, "K2 file-agent pairs", r"(\d+) questions only the graph agent gets, (\d+) only the file agent gets, exact McNemar p ([<=] [\d.]+),",
+             (pf["only_moot"], pf["only_other"], pv(pf)))
 
 
 def check_test_count(c: Checker) -> None:
