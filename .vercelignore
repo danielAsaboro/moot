@@ -14,3 +14,6 @@ hackathon
 .DS_Store
 pyproject.toml
 uv.lock
+data/github/.repos
+resources
+eval/baseline/llm_run.log

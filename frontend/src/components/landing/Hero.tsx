@@ -26,6 +26,12 @@ export default function Hero() {
           <Link href="/app/" className="btn">Ask Moot</Link>
           <a href="#how" className={`link ${s.more}`}>See how it works ›</a>
         </div>
+        <p className={`t-footnote ${s.jump}`}>
+          Straight to the proof: <Link href="/app/ledger/?d=D01&tab=graph" className="link">the evidence path for the 10 MB cap</Link> ·{" "}
+          <Link href="/app/ledger/?d=D01&tab=cypher" className="link">the Cypher FalkorDB ran</Link> ·{" "}
+          <Link href="/app/people/" className="link">what leaves when someone does</Link> ·{" "}
+          <Link href="/app/ledger/?graph=gh_alphagov_govuk_infrastructure" className="link">a real GitHub repo, audited</Link>
+        </p>
         <HeroField ledger={ledger.data} timeline={timeline.data} error={ledger.error ?? timeline.error} />
       </div>
     </section>

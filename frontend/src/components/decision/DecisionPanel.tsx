@@ -4,6 +4,7 @@
 // (Summary, Graph, Steps, Queries), the gate in a sheet and the decision record in a sheet.
 // Everything on it comes from GET /api/decision/{id}.
 import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { api, ApiError } from "@/lib/api";
 import { useApi } from "@/lib/useApi";
 import { useAppState } from "@/lib/appState";
@@ -46,7 +47,9 @@ export default function DecisionPanel({ id }: { id: string }) {
       throw e;
     });
   }, [id, asOf, depth]);
-  const [tab, setTabState] = useState<PanelTab>(rememberedTab);
+  // ?tab=graph|cypher|steps opens that view (the landing page links straight to D01's path and its Cypher)
+  const urlTab = useSearchParams().get("tab");
+  const [tab, setTabState] = useState<PanelTab>(urlTab && ["audit", "graph", "steps", "cypher"].includes(urlTab) ? urlTab as PanelTab : rememberedTab);
   const setTab = (t: PanelTab) => { rememberedTab = t; setTabState(t); };
   const [gateOpen, setGateOpen] = useState(false);
   const closeGate = useCallback(() => setGateOpen(false), []);

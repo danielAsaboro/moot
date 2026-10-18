@@ -3,7 +3,7 @@
 import { Segmented } from "@/components/ui";
 
 export type PanelTab = "audit" | "graph" | "steps" | "cypher";
-export const PANEL_TABS: [PanelTab, string][] = [["audit", "Summary"], ["graph", "Graph"], ["steps", "Steps"], ["cypher", "Queries"]];
+export const PANEL_TABS: [PanelTab, string][] = [["audit", "Summary"], ["graph", "Graph"], ["steps", "Steps"], ["cypher", "Cypher"]];
 export const tabLabel = (t: PanelTab) => PANEL_TABS.find(([k]) => k === t)?.[1] ?? t;
 
 export const tabId = (prefix: string, t: PanelTab) => `${prefix}-tab-${t}`;
