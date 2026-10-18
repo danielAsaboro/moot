@@ -1,0 +1,45 @@
+{
+ "repo": "alphagov/govuk-aws",
+ "graph": "gh_alphagov_govuk_aws",
+ "folder": "docs/architecture/decisions",
+ "read_on": "2026-10-19",
+ "adr_files": 38,
+ "decisions": 31,
+ "retired": 2,
+ "people": 10,
+ "pull_requests": 27,
+ "tools": [
+  "elasticsearch",
+  "mongodb",
+  "puppet",
+  "redis",
+  "terraform"
+ ],
+ "checks": 11,
+ "failing": 2,
+ "verdicts": {
+  "HOLDS": 5,
+  "MOOT": 3,
+  "RETIRED": 2,
+  "UNDOCUMENTED": 21
+ },
+ "gates": {
+  "ALLOW": 1,
+  "DENY": 5,
+  "REVALIDATE": 25
+ },
+ "moot": [
+  {
+   "id": "0007-puppet-cert-management",
+   "title": "7. Puppet certificate management"
+  },
+  {
+   "id": "0008-postgres-on-puppetmaster",
+   "title": "8. Postgres on Puppetmaster"
+  },
+  {
+   "id": "0012-security-groups-in-terraform",
+   "title": "12. Security Groups in Terraform"
+  }
+ ]
+}

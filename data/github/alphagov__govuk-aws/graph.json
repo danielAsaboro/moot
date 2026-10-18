@@ -1,0 +1,3040 @@
+{
+ "nodes": [
+  {
+   "label": "Decision",
+   "id": "0001-record-architecture-decisions",
+   "props": {
+    "title": "1. Record architecture decisions",
+    "summary": "We will use Architecture Decision Records, as described by Michael Nygard in documenting architecture decisions",
+    "decided_on": "2017-06-30",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0001-record-architecture-decisions.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0001-record-architecture-decisions",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 1. Record architecture decisions",
+    "date": "2017-06-30",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0001-record-architecture-decisions.md",
+    "excerpt": "We will use Architecture Decision Records, as described by Michael Nygard in documenting architecture decisions"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:deanwilson",
+   "props": {
+    "name": "Dean Wilson",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": "deanwilson"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:chrisbashton",
+   "props": {
+    "name": "ChrisBAshton",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": "ChrisBAshton"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:1",
+   "props": {
+    "kind": "pr",
+    "title": "Add documentation and supporting structure for ADRs",
+    "date": "2017-06-30",
+    "path": "https://github.com/alphagov/govuk-aws/pull/1",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0002-hosting-platforms",
+   "props": {
+    "title": "2. Hosting Platforms",
+    "summary": "We are using Amazon Web Services as our hosting provider of choice. This conforms to the GDS Tech Forum Hosting Guide. We will initially be using the eu-west-1 region, Ireland. This region has 3 availability zones and also contains the GDS PaaS which will allow easier sharing and peering.",
+    "decided_on": "2017-06-30",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0002-hosting-platforms.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0002-hosting-platforms",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 2. Hosting Platforms",
+    "date": "2017-06-30",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0002-hosting-platforms.md",
+    "excerpt": "We are using Amazon Web Services as our hosting provider of choice. This conforms to the GDS Tech Forum Hosting Guide. We will initially be using the eu-west-1 region, Ireland. This region has 3 availability zones and also contains the GDS PaaS which will allow easier sharing and peering."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:3",
+   "props": {
+    "kind": "pr",
+    "title": "Add hosting guidelines",
+    "date": "2017-06-30",
+    "path": "https://github.com/alphagov/govuk-aws/pull/3",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0003-aws-networking-outline",
+   "props": {
+    "title": "3. Networking Outline",
+    "summary": " 1 VPC per environment (currently integration, staging and production) 3 public subnets, spread across availability zones 3 private subnets, spread across availability zones These IP ranges have been superseded by ADR #0033. The VPCs will be assigned the following IP ranges: |Environment|IP Range| |",
+    "decided_on": "2017-06-30",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0003-aws-networking-outline.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Partly superseded"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0003-aws-networking-outline",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 3. Networking Outline",
+    "date": "2017-06-30",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0003-aws-networking-outline.md",
+    "excerpt": " 1 VPC per environment (currently integration, staging and production) 3 public subnets, spread across availability zones 3 private subnets, spread across availability zones These IP ranges have been superseded by ADR #0033. The VPCs will be assigned the following IP ranges: |Environment|IP Range| |"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:afda16",
+   "props": {
+    "name": "Ana Fernandez",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": "afda16"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:issyl0",
+   "props": {
+    "name": "Isabell (Issy) Long",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": "issyl0"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:4",
+   "props": {
+    "kind": "pr",
+    "title": "Add our initial networking plans",
+    "date": "2017-06-30",
+    "path": "https://github.com/alphagov/govuk-aws/pull/4",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:1302",
+   "props": {
+    "kind": "pr",
+    "title": "Rename 'doc' to 'docs'",
+    "date": "2020-06-09",
+    "path": "https://github.com/alphagov/govuk-aws/pull/1302",
+    "excerpt": "Partly superseded"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0004-dns-definitions-for-hosts-and-services",
+   "props": {
+    "title": "4. DNS definitions for hosts and services",
+    "summary": "Each stack will have an internal, private, zone for internal services such as the puppetmaster. These will be in the following format: $servicename.$stackname.internal puppet.perftesting.internal monitoring.mystack.internal",
+    "decided_on": "2017-07-04",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0004-dns-definitions-for-hosts-and-services.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Superseded by [DNS Infrastructure](0015-dns-infrastructure.md)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0004-dns-definitions-for-hosts-and-services",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 4. DNS definitions for hosts and services",
+    "date": "2017-07-04",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0004-dns-definitions-for-hosts-and-services.md",
+    "excerpt": "Each stack will have an internal, private, zone for internal services such as the puppetmaster. These will be in the following format: $servicename.$stackname.internal puppet.perftesting.internal monitoring.mystack.internal"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:surminus",
+   "props": {
+    "name": "Laura Martin",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": "surminus"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:5",
+   "props": {
+    "kind": "pr",
+    "title": "Add rough ADR for DNS",
+    "date": "2017-07-04",
+    "path": "https://github.com/alphagov/govuk-aws/pull/5",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0005-terraform-module-location",
+   "props": {
+    "title": "5. Terraform Module Location",
+    "summary": "Whilst developing a module we will source it locally (within this repository). Once we feel our modules \"ready\" we will consider moving them to separate repositories.",
+    "decided_on": "2017-07-04",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0005-terraform-module-location.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0005-terraform-module-location",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 5. Terraform Module Location",
+    "date": "2017-07-04",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0005-terraform-module-location.md",
+    "excerpt": "Whilst developing a module we will source it locally (within this repository). Once we feel our modules \"ready\" we will consider moving them to separate repositories."
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:sam-cook",
+   "props": {
+    "name": "Sam Cook",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:8",
+   "props": {
+    "kind": "pr",
+    "title": "Add terraform module location ADR",
+    "date": "2017-07-04",
+    "path": "https://github.com/alphagov/govuk-aws/pull/8",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0007-puppet-cert-management",
+   "props": {
+    "title": "7. Puppet certificate management",
+    "summary": "We will defer this until a later date while we're testing this with Integration to concentrate on getting the stack up and running and accept the loss of certicates. At a later date we will re-visit this approach and implement a suitable solution.",
+    "decided_on": "2017-07-04",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0007-puppet-cert-management.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0007-puppet-cert-management",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 7. Puppet certificate management",
+    "date": "2017-07-04",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0007-puppet-cert-management.md",
+    "excerpt": "We will defer this until a later date while we're testing this with Integration to concentrate on getting the stack up and running and accept the loss of certicates. At a later date we will re-visit this approach and implement a suitable solution."
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0008-postgres-on-puppetmaster",
+   "props": {
+    "title": "8. Postgres on Puppetmaster",
+    "summary": "The Puppetmaster will continue to use a local instance of PostgreSQL.",
+    "decided_on": "2017-07-04",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0008-postgres-on-puppetmaster.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0008-postgres-on-puppetmaster",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 8. Postgres on Puppetmaster",
+    "date": "2017-07-04",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0008-postgres-on-puppetmaster.md",
+    "excerpt": "The Puppetmaster will continue to use a local instance of PostgreSQL."
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0010-terraform-directory-structure",
+   "props": {
+    "title": "10. Terraform directory structure",
+    "summary": "The initial solution presents three directories: data, modules and projects: - The data directory contains a subdirectory per Terraform project, to store variable values that can be customised per environment. - The data directory also contains \\secrets files with sensitive data encrypted with 'sops",
+    "decided_on": "2017-07-04",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0010-terraform-directory-structure.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0010-terraform-directory-structure",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 10. Terraform directory structure",
+    "date": "2017-07-04",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0010-terraform-directory-structure.md",
+    "excerpt": "The initial solution presents three directories: data, modules and projects: - The data directory contains a subdirectory per Terraform project, to store variable values that can be customised per environment. - The data directory also contains \\secrets files with sensitive data encrypted with 'sops"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0011-migration-strategy",
+   "props": {
+    "title": "11. Migration Strategy",
+    "summary": "The second option - all in one go - was decided because: a) The change is atomic. Either the environment is live in AWS or it's live in the current environment. This is much easier to manage than having elements of the environment in two places and having two sets of monitoring, Puppet masters, metr",
+    "decided_on": "2017-07-04",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0011-migration-strategy.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0011-migration-strategy",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 11. Migration Strategy",
+    "date": "2017-07-04",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0011-migration-strategy.md",
+    "excerpt": "The second option - all in one go - was decided because: a) The change is atomic. Either the environment is live in AWS or it's live in the current environment. This is much easier to manage than having elements of the environment in two places and having two sets of monitoring, Puppet masters, metr"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:stephenharker",
+   "props": {
+    "name": "Stephen Harker",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": "stephenharker"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:13",
+   "props": {
+    "kind": "pr",
+    "title": "Added a new ADR for the chosen Migration Strategy. Found some consequences.",
+    "date": "2017-07-04",
+    "path": "https://github.com/alphagov/govuk-aws/pull/13",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0012-security-groups-in-terraform",
+   "props": {
+    "title": "12. Security Groups in Terraform",
+    "summary": "Security groups will be defined separate to their rules. Additionally each security group will be defined, in its entirety, in a single file.",
+    "decided_on": "2017-07-05",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0012-security-groups-in-terraform.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0012-security-groups-in-terraform",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 12. Security Groups in Terraform",
+    "date": "2017-07-05",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0012-security-groups-in-terraform.md",
+    "excerpt": "Security groups will be defined separate to their rules. Additionally each security group will be defined, in its entirety, in a single file."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:15",
+   "props": {
+    "kind": "pr",
+    "title": "Add ADR on security group definitions in tf",
+    "date": "2017-07-05",
+    "path": "https://github.com/alphagov/govuk-aws/pull/15",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0014-launch-config-change-propagation-process",
+   "props": {
+    "title": "14. Launch Config change propagation process",
+    "summary": "In order to propagate LC changes we will manually terminate effected instances.",
+    "decided_on": "2017-07-14",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0014-launch-config-change-propagation-process.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0014-launch-config-change-propagation-process",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 14. Launch Config change propagation process",
+    "date": "2017-07-14",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0014-launch-config-change-propagation-process.md",
+    "excerpt": "In order to propagate LC changes we will manually terminate effected instances."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:71",
+   "props": {
+    "kind": "pr",
+    "title": "Add ADR on launch config lifecycle",
+    "date": "2017-07-14",
+    "path": "https://github.com/alphagov/govuk-aws/pull/71",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0015-dns-infrastructure",
+   "props": {
+    "title": "15. DNS infrastructure",
+    "summary": "!DNS",
+    "decided_on": "2017-07-14",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0015-dns-infrastructure.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0015-dns-infrastructure",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 15. DNS infrastructure",
+    "date": "2017-07-14",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0015-dns-infrastructure.md",
+    "excerpt": "!DNS"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:72",
+   "props": {
+    "kind": "pr",
+    "title": "Add DNS ADR",
+    "date": "2017-07-14",
+    "path": "https://github.com/alphagov/govuk-aws/pull/72",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0016-internal-dns-zones",
+   "props": {
+    "title": "16. internal DNS zones",
+    "summary": "We've bought a domain name that will not be connected to the rest of the public DNS system. This will be used by our internal services. This domain will not have DNS records added to it.",
+    "decided_on": "2017-07-19",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0016-internal-dns-zones.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0016-internal-dns-zones",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 16. internal DNS zones",
+    "date": "2017-07-19",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0016-internal-dns-zones.md",
+    "excerpt": "We've bought a domain name that will not be connected to the rest of the public DNS system. This will be used by our internal services. This domain will not have DNS records added to it."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:87",
+   "props": {
+    "kind": "pr",
+    "title": "Add an ADR for the internal DNS",
+    "date": "2017-07-19",
+    "path": "https://github.com/alphagov/govuk-aws/pull/87",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0017-terraform-data-structure",
+   "props": {
+    "title": "17. Terraform Data Structure",
+    "summary": "The data portion of ADR 0010 will now be: \u251c\u2500\u2500 data \u2502 \u251c\u2500\u2500 common \u2502 \u2502 \u2514\u2500\u2500 <environment \u2502 \u2502 \u251c\u2500\u2500 common.tfvars \u2502 \u2502 \u2514\u2500\u2500 <stackname.tfvars \u2502 \u251c\u2500\u2500 <project \u2502 \u2502 \u2514\u2500\u2500 <environment \u2502 \u2502 \u251c\u2500\u2500 common.tfvars \u2502 \u2502 \u251c\u2500\u2500 <stackname.tfvars \u2502 \u2502 \u2514\u2500\u2500 <stacknamesecrets.json Where: <environment is the account being deployed to",
+    "decided_on": "2017-07-14",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0017-terraform-data-structure.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0017-terraform-data-structure",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 17. Terraform Data Structure",
+    "date": "2017-07-14",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0017-terraform-data-structure.md",
+    "excerpt": "The data portion of ADR 0010 will now be: \u251c\u2500\u2500 data \u2502 \u251c\u2500\u2500 common \u2502 \u2502 \u2514\u2500\u2500 <environment \u2502 \u2502 \u251c\u2500\u2500 common.tfvars \u2502 \u2502 \u2514\u2500\u2500 <stackname.tfvars \u2502 \u251c\u2500\u2500 <project \u2502 \u2502 \u2514\u2500\u2500 <environment \u2502 \u2502 \u251c\u2500\u2500 common.tfvars \u2502 \u2502 \u251c\u2500\u2500 <stackname.tfvars \u2502 \u2502 \u2514\u2500\u2500 <stacknamesecrets.json Where: <environment is the account being deployed to"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:74",
+   "props": {
+    "kind": "pr",
+    "title": "ADR on data diretory structure",
+    "date": "2017-07-14",
+    "path": "https://github.com/alphagov/govuk-aws/pull/74",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0018-use-rds-instead-of-provisioned-ec2-databases",
+   "props": {
+    "title": "18. Use RDS instead of provisioned EC2 databases",
+    "summary": "We are going to use RDS to remove a significant portion of our Puppet code that traditionally managed both PostgreSQL and MySQL. To manage databases, users, data loading and long-term offsite backups, we will create a new type of node class named \"dbadmin\". This will be able to connect and configure",
+    "decided_on": "2017-08-01",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0018-use-rds-instead-of-provisioned-ec2-databases.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0018-use-rds-instead-of-provisioned-ec2-databases",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 18. Use RDS instead of provisioned EC2 databases",
+    "date": "2017-08-01",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0018-use-rds-instead-of-provisioned-ec2-databases.md",
+    "excerpt": "We are going to use RDS to remove a significant portion of our Puppet code that traditionally managed both PostgreSQL and MySQL. To manage databases, users, data loading and long-term offsite backups, we will create a new type of node class named \"dbadmin\". This will be able to connect and configure"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:149",
+   "props": {
+    "kind": "pr",
+    "title": "Add ADR for RDS",
+    "date": "2017-08-01",
+    "path": "https://github.com/alphagov/govuk-aws/pull/149",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0019-centralise-mysql-databases",
+   "props": {
+    "title": "19. Centralise MySQL Databases",
+    "summary": "We discussed three options: 1. have one admin instance per MySQL database and keep the databases separate 2. manage the users and databases in terraform itself 3. centralise the MySQL databases and have one admin machine manage them all The first option is the simplest, has the most moving parts and",
+    "decided_on": "2017-08-02",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0019-centralise-mysql-databases.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0019-centralise-mysql-databases",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 19. Centralise MySQL Databases",
+    "date": "2017-08-02",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0019-centralise-mysql-databases.md",
+    "excerpt": "We discussed three options: 1. have one admin instance per MySQL database and keep the databases separate 2. manage the users and databases in terraform itself 3. centralise the MySQL databases and have one admin machine manage them all The first option is the simplest, has the most moving parts and"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:151",
+   "props": {
+    "kind": "pr",
+    "title": "Describe the plans for mysql databases",
+    "date": "2017-08-02",
+    "path": "https://github.com/alphagov/govuk-aws/pull/151",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0020-merge-api-postgresql-instance-into-main-postgresql-instance",
+   "props": {
+    "title": "20. Merge API PostgreSQL instance into main PostgreSQL instance",
+    "summary": "We should merge the API PostgreSQL instance into the main PostgreSQL instance.",
+    "decided_on": "2017-08-07",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0020-merge-api-postgresql-instance-into-main-postgresql-instance.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0020-merge-api-postgresql-instance-into-main-postgresql-instance",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 20. Merge API PostgreSQL instance into main PostgreSQL instance",
+    "date": "2017-08-07",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0020-merge-api-postgresql-instance-into-main-postgresql-instance.md",
+    "excerpt": "We should merge the API PostgreSQL instance into the main PostgreSQL instance."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:168",
+   "props": {
+    "kind": "pr",
+    "title": "Add ADR for change",
+    "date": "2017-08-07",
+    "path": "https://github.com/alphagov/govuk-aws/pull/168",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0021-use-acm-for-ssl-purchases-and-terminate-certificates-on-elbs",
+   "props": {
+    "title": "21. Use ACM for SSL purchases and terminate certificates on ELBs",
+    "summary": "We have decided to use ACM to manage our SSL certificates, and terminate SSL on the ELBs. This gives us the following advantages: - Automatic renewal and notifications related to the SSL certificates we purchase through ACM - Multi-domain certificates; this helps us manage several stacks within an e",
+    "decided_on": "2017-08-14",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0021-use-acm-for-ssl-purchases-and-terminate-certificates-on-elbs.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0021-use-acm-for-ssl-purchases-and-terminate-certificates-on-elbs",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 21. Use ACM for SSL purchases and terminate certificates on ELBs",
+    "date": "2017-08-14",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0021-use-acm-for-ssl-purchases-and-terminate-certificates-on-elbs.md",
+    "excerpt": "We have decided to use ACM to manage our SSL certificates, and terminate SSL on the ELBs. This gives us the following advantages: - Automatic renewal and notifications related to the SSL certificates we purchase through ACM - Multi-domain certificates; this helps us manage several stacks within an e"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:203",
+   "props": {
+    "kind": "pr",
+    "title": "Add ADR for ACM",
+    "date": "2017-08-14",
+    "path": "https://github.com/alphagov/govuk-aws/pull/203",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0022-remove-the-elasticsearch-proxy",
+   "props": {
+    "title": "22. Remove the Elasticsearch proxy",
+    "summary": "We've tested the instances in AWS without the local proxies and we have not discovered any degradation of service when using the ELBs. In light of this we will remove the configuration and exclude this puppet code from running in AWS and accept the ELBs as its replacement.",
+    "decided_on": "2017-08-16",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0022-remove-the-elasticsearch-proxy.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0022-remove-the-elasticsearch-proxy",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 22. Remove the Elasticsearch proxy",
+    "date": "2017-08-16",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0022-remove-the-elasticsearch-proxy.md",
+    "excerpt": "We've tested the instances in AWS without the local proxies and we have not discovered any degradation of service when using the ELBs. In light of this we will remove the configuration and exclude this puppet code from running in AWS and accept the ELBs as its replacement."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:211",
+   "props": {
+    "kind": "pr",
+    "title": "Add remove local proxy ADR",
+    "date": "2017-08-16",
+    "path": "https://github.com/alphagov/govuk-aws/pull/211",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0023-use-separate-data-repository",
+   "props": {
+    "title": "23. Use separate data repository",
+    "summary": "The terraform/data directory will be split out into its own repository that will be kept private and all sensitive data within it will be encrypted using sops.",
+    "decided_on": "2017-08-18",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0023-use-separate-data-repository.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0023-use-separate-data-repository",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 23. Use separate data repository",
+    "date": "2017-08-18",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0023-use-separate-data-repository.md",
+    "excerpt": "The terraform/data directory will be split out into its own repository that will be kept private and all sensitive data within it will be encrypted using sops."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:228",
+   "props": {
+    "kind": "pr",
+    "title": "Add an ADR about splitting out the data dir",
+    "date": "2017-08-21",
+    "path": "https://github.com/alphagov/govuk-aws/pull/228",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0024-ami-lookups",
+   "props": {
+    "title": "24. AMI Lookups",
+    "summary": "We override the instanceamifiltername parameter of the nodegroup module in all the projects. In the data directory, there is a common variable that sets the default value of the parameter for an environment. This can be customised per project in the project tfvars file.",
+    "decided_on": "2017-08-29",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0024-ami-lookups.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0024-ami-lookups",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 24. AMI Lookups",
+    "date": "2017-08-29",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0024-ami-lookups.md",
+    "excerpt": "We override the instanceamifiltername parameter of the nodegroup module in all the projects. In the data directory, there is a common variable that sets the default value of the parameter for an environment. This can be customised per project in the project tfvars file."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:238",
+   "props": {
+    "kind": "pr",
+    "title": "Add initial draft of the AMI lookup ADR",
+    "date": "2017-08-30",
+    "path": "https://github.com/alphagov/govuk-aws/pull/238",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0025-use-elasticache-for-redis",
+   "props": {
+    "title": "25. Use Elasticache for Redis",
+    "summary": "We are using Elasticache instead of provisioning our own Redis instances.",
+    "decided_on": "2017-09-04",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0025-use-elasticache-for-redis.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0025-use-elasticache-for-redis",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 25. Use Elasticache for Redis",
+    "date": "2017-09-04",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0025-use-elasticache-for-redis.md",
+    "excerpt": "We are using Elasticache instead of provisioning our own Redis instances."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:259",
+   "props": {
+    "kind": "pr",
+    "title": "Add ADR for elasticache",
+    "date": "2017-09-08",
+    "path": "https://github.com/alphagov/govuk-aws/pull/259",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0026-remove-load-balancer-tier",
+   "props": {
+    "title": "26. Remove load balancer tier",
+    "summary": "We will not change the current vcloud based platforms. In the AWS environment we will remove the load balancer hosts / ELBs and instead add external ELBs to a number of other autoscaling groups (such as the frontend / backend hosts themselves) to make them directly available, but security group rest",
+    "decided_on": "2017-08-16",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0026-remove-load-balancer-tier.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0026-remove-load-balancer-tier",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 26. Remove load balancer tier",
+    "date": "2017-08-16",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0026-remove-load-balancer-tier.md",
+    "excerpt": "We will not change the current vcloud based platforms. In the AWS environment we will remove the load balancer hosts / ELBs and instead add external ELBs to a number of other autoscaling groups (such as the frontend / backend hosts themselves) to make them directly available, but security group rest"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:216",
+   "props": {
+    "kind": "pr",
+    "title": "First draft of the new lb removal plans",
+    "date": "2017-08-16",
+    "path": "https://github.com/alphagov/govuk-aws/pull/216",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0027-move-publicapi-away-from-frontend-lb",
+   "props": {
+    "title": "27. Move PublicAPI away from frontend-lb",
+    "summary": "Move publicapi application to either the cache instances themselves, or replace the configuration with an Application Load Balancer.",
+    "decided_on": "2017-09-04",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0027-move-publicapi-away-from-frontend-lb.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0027-move-publicapi-away-from-frontend-lb",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 27. Move PublicAPI away from frontend-lb",
+    "date": "2017-09-04",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0027-move-publicapi-away-from-frontend-lb.md",
+    "excerpt": "Move publicapi application to either the cache instances themselves, or replace the configuration with an Application Load Balancer."
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:isabell-long",
+   "props": {
+    "name": "Isabell Long",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:258",
+   "props": {
+    "kind": "pr",
+    "title": "Add ADR for publicapi",
+    "date": "2017-09-04",
+    "path": "https://github.com/alphagov/govuk-aws/pull/258",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0028-combine-api-mongo-cluster-into-mongo-cluster",
+   "props": {
+    "title": "28. Combine api-mongo cluster into mongo cluster",
+    "summary": "We are going to remove the api-mongo cluster, and update Content Store so it reads from the application mongo cluster.",
+    "decided_on": "2017-09-14",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0028-combine-api-mongo-cluster-into-mongo-cluster.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0028-combine-api-mongo-cluster-into-mongo-cluster",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 28. Combine api-mongo cluster into mongo cluster",
+    "date": "2017-09-14",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0028-combine-api-mongo-cluster-into-mongo-cluster.md",
+    "excerpt": "We are going to remove the api-mongo cluster, and update Content Store so it reads from the application mongo cluster."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:284",
+   "props": {
+    "kind": "pr",
+    "title": "ADR for api-mongo removal",
+    "date": "2017-09-15",
+    "path": "https://github.com/alphagov/govuk-aws/pull/284",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0029-combine-api-redis-into-backend-redis",
+   "props": {
+    "title": "29. Combine api-redis into backend-redis",
+    "summary": "Update Rummager configuration so it uses backend-redis, and remove api-redis.",
+    "decided_on": "2017-09-14",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0029-combine-api-redis-into-backend-redis.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0029-combine-api-redis-into-backend-redis",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 29. Combine api-redis into backend-redis",
+    "date": "2017-09-14",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0029-combine-api-redis-into-backend-redis.md",
+    "excerpt": "Update Rummager configuration so it uses backend-redis, and remove api-redis."
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0030-change-in-architecture-to-asset-master",
+   "props": {
+    "title": "30. Change in architecture to Asset Master",
+    "summary": "We will create an EFS resource and expose the mount using our internal Route 53 DNS. We will allow the required machines to mount the resource using Security Groups. The backend and whitehall-backend instances will mount as usual, and the asset-master will also mount the disk like an external share.",
+    "decided_on": "2017-09-15",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0030-change-in-architecture-to-asset-master.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0030-change-in-architecture-to-asset-master",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 30. Change in architecture to Asset Master",
+    "date": "2017-09-15",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0030-change-in-architecture-to-asset-master.md",
+    "excerpt": "We will create an EFS resource and expose the mount using our internal Route 53 DNS. We will allow the required machines to mount the resource using Security Groups. The backend and whitehall-backend instances will mount as usual, and the asset-master will also mount the disk like an external share."
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0032-transfer-artefact-binary",
+   "props": {
+    "title": "32. transfer artefact binary",
+    "summary": "We decided to use a mechanism that is located outside the environments involved and pass the contents to the correct locations when the package becomes available. !Transfer Mechanism",
+    "decided_on": "2018-03-26",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0032-transfer-artefact-binary.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0032-transfer-artefact-binary",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 32. transfer artefact binary",
+    "date": "2018-03-26",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0032-transfer-artefact-binary.md",
+    "excerpt": "We decided to use a mechanism that is located outside the environments involved and pass the contents to the correct locations when the package becomes available. !Transfer Mechanism"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:suthagarht",
+   "props": {
+    "name": "suthagarht",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": "suthagarht"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:532",
+   "props": {
+    "kind": "pr",
+    "title": "ADR Artifact transmission",
+    "date": "2018-03-26",
+    "path": "https://github.com/alphagov/govuk-aws/pull/532",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0037-alb-health-checks",
+   "props": {
+    "title": "37. ALB Health Checks",
+    "summary": "When an instance is running more than one application, we are going to route traffic to the instance with an ALB. Each application has a dedicated target group, with a specific health check path, following the format /healthcheck<app-name. This health check path is configured in the default Vhost to",
+    "decided_on": "2019-06-24",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0037-alb-health-checks.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0037-alb-health-checks",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 37. ALB Health Checks",
+    "date": "2019-06-24",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0037-alb-health-checks.md",
+    "excerpt": "When an instance is running more than one application, we are going to route traffic to the instance with an ALB. Each application has a dedicated target group, with a specific health check path, following the format /healthcheck<app-name. This health check path is configured in the default Vhost to"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:1031",
+   "props": {
+    "kind": "pr",
+    "title": "Add ADR ALB and application health checks",
+    "date": "2019-06-25",
+    "path": "https://github.com/alphagov/govuk-aws/pull/1031",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0038-mongo_replacement_by_documentdb",
+   "props": {
+    "title": "38. Mongo Replacement by DocumentDB",
+    "summary": "The approaches taken for migrating from MongoDB to AWS DocumentDB are: 1. new apps that are being migrated from legacy cloud providers (e.g UKCloud and Carrenza) to AWS and use MongoDB should be evaluated for compatibility with AWS DocumentDB during the migration phase. Based on this evaluation, a d",
+    "decided_on": "2019-10-17",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0038-mongo_replacement_by_documentdb.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Approved"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0038-mongo_replacement_by_documentdb",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 38. Mongo Replacement by DocumentDB",
+    "date": "2019-10-17",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0038-mongo_replacement_by_documentdb.md",
+    "excerpt": "The approaches taken for migrating from MongoDB to AWS DocumentDB are: 1. new apps that are being migrated from legacy cloud providers (e.g UKCloud and Carrenza) to AWS and use MongoDB should be evaluated for compatibility with AWS DocumentDB during the migration phase. Based on this evaluation, a d"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:fredericfran-gds",
+   "props": {
+    "name": "Frederic Francois",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": "fredericfran-gds"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:1144",
+   "props": {
+    "kind": "pr",
+    "title": "adr for usage of documentdb in GOV.UK",
+    "date": "2019-10-21",
+    "path": "https://github.com/alphagov/govuk-aws/pull/1144",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0039-non-govuk-domain-policy",
+   "props": {
+    "title": "39. Non-GOV.UK domain policy",
+    "summary": " 39. Non-GOV.UK domain policy Date: 2022-10-10 Status Accepted Definitions This proposal uses the RFC2119 standard for definitions of MUST, MUST NOT and MAY. Definitions: - \"Authenticated\": through an authentication method such as Signon, through basic access authentication, or similar - \"Non-GOV.UK",
+    "decided_on": "2022-10-07",
+    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0039-non-govuk-domain-policy.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0039-non-govuk-domain-policy",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-aws: 39. Non-GOV.UK domain policy",
+    "date": "2022-10-07",
+    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0039-non-govuk-domain-policy.md",
+    "excerpt": " 39. Non-GOV.UK domain policy Date: 2022-10-10 Status Accepted Definitions This proposal uses the RFC2119 standard for definitions of MUST, MUST NOT and MAY. Definitions: - \"Authenticated\": through an authentication method such as Signon, through basic access authentication, or similar - \"Non-GOV.UK"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:1638",
+   "props": {
+    "kind": "pr",
+    "title": "Add ADR 39: Non-GOV.UK domain policy",
+    "date": "2022-10-07",
+    "path": "https://github.com/alphagov/govuk-aws/pull/1638",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_elasticsearch_maintained",
+   "props": {
+    "text": "Elasticsearch is actively maintained",
+    "kind": "unwritten",
+    "tool": "elasticsearch",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:elasticsearch",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-17",
+    "date": "2026-10-19",
+    "excerpt": "last commit to main on 2026-10-17",
+    "path": "https://github.com/elastic/elasticsearch"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_elasticsearch_open_source",
+   "props": {
+    "text": "Elasticsearch is open source",
+    "kind": "unwritten",
+    "tool": "elasticsearch",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:elasticsearch",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: offered under Elastic-2.0, SSPL-1.0, AGPL-3.0, Apache-2.0; the OSI option (AGPL-3.0, Apache-2.0) keeps it open source",
+    "date": "2026-10-19",
+    "excerpt": "offered under Elastic-2.0, SSPL-1.0, AGPL-3.0, Apache-2.0; the OSI option (AGPL-3.0, Apache-2.0) keeps it open source",
+    "path": "https://github.com/elastic/elasticsearch"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_elasticsearch_no_known_vuln",
+   "props": {
+    "text": "The current release of Elasticsearch has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "elasticsearch",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:elasticsearch",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 9.0.3",
+    "date": "2026-10-19",
+    "excerpt": "no OSV advisory affects 9.0.3",
+    "path": "https://github.com/elastic/elasticsearch"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_mongodb_maintained",
+   "props": {
+    "text": "MongoDB is actively maintained",
+    "kind": "unwritten",
+    "tool": "mongodb",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:mongodb",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-10-19",
+    "date": "2026-10-19",
+    "excerpt": "last commit to master on 2026-10-19",
+    "path": "https://github.com/mongodb/mongo"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_mongodb_open_source",
+   "props": {
+    "text": "MongoDB is open source",
+    "kind": "unwritten",
+    "tool": "mongodb",
+    "check": "open_source",
+    "unchecked": "GitHub reports NOASSERTION and the LICENSE file did not match a known license"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_mongodb_no_known_vuln",
+   "props": {
+    "text": "The current release of MongoDB has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "mongodb",
+    "check": "no_known_vuln",
+    "unchecked": "no package in an OSV ecosystem"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_puppet_maintained",
+   "props": {
+    "text": "Puppet is actively maintained",
+    "kind": "unwritten",
+    "tool": "puppet",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:puppet",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2024-12-11",
+    "date": "2026-10-19",
+    "excerpt": "last commit to main on 2024-12-11",
+    "path": "https://github.com/puppetlabs/puppet"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_puppet_open_source",
+   "props": {
+    "text": "Puppet is open source",
+    "kind": "unwritten",
+    "tool": "puppet",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:puppet",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/puppetlabs/puppet"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_puppet_no_known_vuln",
+   "props": {
+    "text": "The current release of Puppet has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "puppet",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:puppet",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 8.10.0",
+    "date": "2026-10-19",
+    "excerpt": "no OSV advisory affects 8.10.0",
+    "path": "https://github.com/puppetlabs/puppet"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_redis_maintained",
+   "props": {
+    "text": "Redis is actively maintained",
+    "kind": "unwritten",
+    "tool": "redis",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:redis",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to unstable on 2026-10-17",
+    "date": "2026-10-19",
+    "excerpt": "last commit to unstable on 2026-10-17",
+    "path": "https://github.com/redis/redis"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_redis_open_source",
+   "props": {
+    "text": "Redis is open source",
+    "kind": "unwritten",
+    "tool": "redis",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:redis",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: offered under RSALv2, SSPL-1.0, AGPL-3.0; the OSI option (AGPL-3.0) keeps it open source",
+    "date": "2026-10-19",
+    "excerpt": "offered under RSALv2, SSPL-1.0, AGPL-3.0; the OSI option (AGPL-3.0) keeps it open source",
+    "path": "https://github.com/redis/redis"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_redis_no_known_vuln",
+   "props": {
+    "text": "The current release of Redis has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "redis",
+    "check": "no_known_vuln",
+    "unchecked": "no package in an OSV ecosystem"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_terraform_maintained",
+   "props": {
+    "text": "Terraform is actively maintained",
+    "kind": "unwritten",
+    "tool": "terraform",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:terraform",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-19",
+    "date": "2026-10-19",
+    "excerpt": "last commit to main on 2026-10-19",
+    "path": "https://github.com/hashicorp/terraform"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_terraform_open_source",
+   "props": {
+    "text": "Terraform is open source",
+    "kind": "unwritten",
+    "tool": "terraform",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:terraform",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: source-available: BUSL-1.1",
+    "date": "2026-10-19",
+    "excerpt": "source-available: BUSL-1.1",
+    "path": "https://github.com/hashicorp/terraform"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_terraform_no_known_vuln",
+   "props": {
+    "text": "The current release of Terraform has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "terraform",
+    "check": "no_known_vuln",
+    "unchecked": "no package in an OSV ecosystem"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "src": "0001-record-architecture-decisions",
+   "rel": "RECORDED_IN",
+   "dst": "src:0001-record-architecture-decisions",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "AUTHORED",
+   "dst": "src:0001-record-architecture-decisions",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0001-record-architecture-decisions",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "OWNS",
+   "dst": "0001-record-architecture-decisions",
+   "props": {
+    "valid_from": "2017-06-30",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0001-record-architecture-decisions",
+   "rel": "RECORDED_IN",
+   "dst": "pr:1",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "AUTHORED",
+   "dst": "pr:1",
+   "props": {}
+  },
+  {
+   "src": "0002-hosting-platforms",
+   "rel": "RECORDED_IN",
+   "dst": "src:0002-hosting-platforms",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "AUTHORED",
+   "dst": "src:0002-hosting-platforms",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0002-hosting-platforms",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "OWNS",
+   "dst": "0002-hosting-platforms",
+   "props": {
+    "valid_from": "2017-06-30",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0002-hosting-platforms",
+   "rel": "RECORDED_IN",
+   "dst": "pr:3",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "AUTHORED",
+   "dst": "pr:3",
+   "props": {}
+  },
+  {
+   "src": "0003-aws-networking-outline",
+   "rel": "RECORDED_IN",
+   "dst": "src:0003-aws-networking-outline",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "AUTHORED",
+   "dst": "src:0003-aws-networking-outline",
+   "props": {}
+  },
+  {
+   "src": "gh:afda16",
+   "rel": "AUTHORED",
+   "dst": "src:0003-aws-networking-outline",
+   "props": {}
+  },
+  {
+   "src": "gh:issyl0",
+   "rel": "AUTHORED",
+   "dst": "src:0003-aws-networking-outline",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0003-aws-networking-outline",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "OWNS",
+   "dst": "0003-aws-networking-outline",
+   "props": {
+    "valid_from": "2017-06-30",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0003-aws-networking-outline",
+   "rel": "RECORDED_IN",
+   "dst": "pr:4",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "AUTHORED",
+   "dst": "pr:4",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "pr:1302",
+   "props": {}
+  },
+  {
+   "src": "pr:1302",
+   "rel": "RETIRES",
+   "dst": "0003-aws-networking-outline",
+   "props": {
+    "at": "2020-06-09",
+    "quote": "Partly superseded"
+   }
+  },
+  {
+   "src": "0004-dns-definitions-for-hosts-and-services",
+   "rel": "RECORDED_IN",
+   "dst": "src:0004-dns-definitions-for-hosts-and-services",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "src:0004-dns-definitions-for-hosts-and-services",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "AUTHORED",
+   "dst": "src:0004-dns-definitions-for-hosts-and-services",
+   "props": {}
+  },
+  {
+   "src": "gh:afda16",
+   "rel": "AUTHORED",
+   "dst": "src:0004-dns-definitions-for-hosts-and-services",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0004-dns-definitions-for-hosts-and-services",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "OWNS",
+   "dst": "0004-dns-definitions-for-hosts-and-services",
+   "props": {
+    "valid_from": "2017-07-04",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0004-dns-definitions-for-hosts-and-services",
+   "rel": "RECORDED_IN",
+   "dst": "pr:5",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "pr:5",
+   "props": {}
+  },
+  {
+   "src": "0015-dns-infrastructure",
+   "rel": "SUPERSEDES",
+   "dst": "0004-dns-definitions-for-hosts-and-services",
+   "props": {
+    "at": "2020-06-09",
+    "quote": "Superseded by [DNS Infrastructure](0015-dns-infrastructure.md)"
+   }
+  },
+  {
+   "src": "0005-terraform-module-location",
+   "rel": "RECORDED_IN",
+   "dst": "src:0005-terraform-module-location",
+   "props": {}
+  },
+  {
+   "src": "gh:sam-cook",
+   "rel": "AUTHORED",
+   "dst": "src:0005-terraform-module-location",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0005-terraform-module-location",
+   "props": {}
+  },
+  {
+   "src": "gh:sam-cook",
+   "rel": "OWNS",
+   "dst": "0005-terraform-module-location",
+   "props": {
+    "valid_from": "2017-07-04",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0005-terraform-module-location",
+   "rel": "RECORDED_IN",
+   "dst": "pr:8",
+   "props": {}
+  },
+  {
+   "src": "gh:sam-cook",
+   "rel": "AUTHORED",
+   "dst": "pr:8",
+   "props": {}
+  },
+  {
+   "src": "0007-puppet-cert-management",
+   "rel": "RECORDED_IN",
+   "dst": "src:0007-puppet-cert-management",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "src:0007-puppet-cert-management",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0007-puppet-cert-management",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "OWNS",
+   "dst": "0007-puppet-cert-management",
+   "props": {
+    "valid_from": "2017-07-04",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0007-puppet-cert-management",
+   "rel": "RECORDED_IN",
+   "dst": "pr:5",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "pr:5",
+   "props": {}
+  },
+  {
+   "src": "0008-postgres-on-puppetmaster",
+   "rel": "RECORDED_IN",
+   "dst": "src:0008-postgres-on-puppetmaster",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "src:0008-postgres-on-puppetmaster",
+   "props": {}
+  },
+  {
+   "src": "gh:sam-cook",
+   "rel": "AUTHORED",
+   "dst": "src:0008-postgres-on-puppetmaster",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0008-postgres-on-puppetmaster",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "OWNS",
+   "dst": "0008-postgres-on-puppetmaster",
+   "props": {
+    "valid_from": "2017-07-04",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0008-postgres-on-puppetmaster",
+   "rel": "RECORDED_IN",
+   "dst": "pr:5",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "pr:5",
+   "props": {}
+  },
+  {
+   "src": "0010-terraform-directory-structure",
+   "rel": "RECORDED_IN",
+   "dst": "src:0010-terraform-directory-structure",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "src:0010-terraform-directory-structure",
+   "props": {}
+  },
+  {
+   "src": "gh:afda16",
+   "rel": "AUTHORED",
+   "dst": "src:0010-terraform-directory-structure",
+   "props": {}
+  },
+  {
+   "src": "gh:sam-cook",
+   "rel": "AUTHORED",
+   "dst": "src:0010-terraform-directory-structure",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0010-terraform-directory-structure",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "OWNS",
+   "dst": "0010-terraform-directory-structure",
+   "props": {
+    "valid_from": "2017-07-04",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0010-terraform-directory-structure",
+   "rel": "RECORDED_IN",
+   "dst": "pr:5",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "pr:5",
+   "props": {}
+  },
+  {
+   "src": "0011-migration-strategy",
+   "rel": "RECORDED_IN",
+   "dst": "src:0011-migration-strategy",
+   "props": {}
+  },
+  {
+   "src": "gh:stephenharker",
+   "rel": "AUTHORED",
+   "dst": "src:0011-migration-strategy",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0011-migration-strategy",
+   "props": {}
+  },
+  {
+   "src": "gh:stephenharker",
+   "rel": "OWNS",
+   "dst": "0011-migration-strategy",
+   "props": {
+    "valid_from": "2017-07-04",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0011-migration-strategy",
+   "rel": "RECORDED_IN",
+   "dst": "pr:13",
+   "props": {}
+  },
+  {
+   "src": "gh:stephenharker",
+   "rel": "AUTHORED",
+   "dst": "pr:13",
+   "props": {}
+  },
+  {
+   "src": "0012-security-groups-in-terraform",
+   "rel": "RECORDED_IN",
+   "dst": "src:0012-security-groups-in-terraform",
+   "props": {}
+  },
+  {
+   "src": "gh:sam-cook",
+   "rel": "AUTHORED",
+   "dst": "src:0012-security-groups-in-terraform",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0012-security-groups-in-terraform",
+   "props": {}
+  },
+  {
+   "src": "gh:sam-cook",
+   "rel": "OWNS",
+   "dst": "0012-security-groups-in-terraform",
+   "props": {
+    "valid_from": "2017-07-05",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0012-security-groups-in-terraform",
+   "rel": "RECORDED_IN",
+   "dst": "pr:15",
+   "props": {}
+  },
+  {
+   "src": "gh:sam-cook",
+   "rel": "AUTHORED",
+   "dst": "pr:15",
+   "props": {}
+  },
+  {
+   "src": "0014-launch-config-change-propagation-process",
+   "rel": "RECORDED_IN",
+   "dst": "src:0014-launch-config-change-propagation-process",
+   "props": {}
+  },
+  {
+   "src": "gh:sam-cook",
+   "rel": "AUTHORED",
+   "dst": "src:0014-launch-config-change-propagation-process",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0014-launch-config-change-propagation-process",
+   "props": {}
+  },
+  {
+   "src": "gh:sam-cook",
+   "rel": "OWNS",
+   "dst": "0014-launch-config-change-propagation-process",
+   "props": {
+    "valid_from": "2017-07-14",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0014-launch-config-change-propagation-process",
+   "rel": "RECORDED_IN",
+   "dst": "pr:71",
+   "props": {}
+  },
+  {
+   "src": "gh:sam-cook",
+   "rel": "AUTHORED",
+   "dst": "pr:71",
+   "props": {}
+  },
+  {
+   "src": "0015-dns-infrastructure",
+   "rel": "RECORDED_IN",
+   "dst": "src:0015-dns-infrastructure",
+   "props": {}
+  },
+  {
+   "src": "gh:afda16",
+   "rel": "AUTHORED",
+   "dst": "src:0015-dns-infrastructure",
+   "props": {}
+  },
+  {
+   "src": "gh:sam-cook",
+   "rel": "AUTHORED",
+   "dst": "src:0015-dns-infrastructure",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "src:0015-dns-infrastructure",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0015-dns-infrastructure",
+   "props": {}
+  },
+  {
+   "src": "gh:afda16",
+   "rel": "OWNS",
+   "dst": "0015-dns-infrastructure",
+   "props": {
+    "valid_from": "2017-07-14",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0015-dns-infrastructure",
+   "rel": "RECORDED_IN",
+   "dst": "pr:72",
+   "props": {}
+  },
+  {
+   "src": "gh:afda16",
+   "rel": "AUTHORED",
+   "dst": "pr:72",
+   "props": {}
+  },
+  {
+   "src": "0016-internal-dns-zones",
+   "rel": "RECORDED_IN",
+   "dst": "src:0016-internal-dns-zones",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "AUTHORED",
+   "dst": "src:0016-internal-dns-zones",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0016-internal-dns-zones",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "OWNS",
+   "dst": "0016-internal-dns-zones",
+   "props": {
+    "valid_from": "2017-07-19",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0016-internal-dns-zones",
+   "rel": "RECORDED_IN",
+   "dst": "pr:87",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "AUTHORED",
+   "dst": "pr:87",
+   "props": {}
+  },
+  {
+   "src": "0017-terraform-data-structure",
+   "rel": "RECORDED_IN",
+   "dst": "src:0017-terraform-data-structure",
+   "props": {}
+  },
+  {
+   "src": "gh:sam-cook",
+   "rel": "AUTHORED",
+   "dst": "src:0017-terraform-data-structure",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0017-terraform-data-structure",
+   "props": {}
+  },
+  {
+   "src": "gh:sam-cook",
+   "rel": "OWNS",
+   "dst": "0017-terraform-data-structure",
+   "props": {
+    "valid_from": "2017-07-14",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0017-terraform-data-structure",
+   "rel": "RECORDED_IN",
+   "dst": "pr:74",
+   "props": {}
+  },
+  {
+   "src": "gh:sam-cook",
+   "rel": "AUTHORED",
+   "dst": "pr:74",
+   "props": {}
+  },
+  {
+   "src": "0018-use-rds-instead-of-provisioned-ec2-databases",
+   "rel": "RECORDED_IN",
+   "dst": "src:0018-use-rds-instead-of-provisioned-ec2-databases",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "src:0018-use-rds-instead-of-provisioned-ec2-databases",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0018-use-rds-instead-of-provisioned-ec2-databases",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "OWNS",
+   "dst": "0018-use-rds-instead-of-provisioned-ec2-databases",
+   "props": {
+    "valid_from": "2017-08-01",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0018-use-rds-instead-of-provisioned-ec2-databases",
+   "rel": "RECORDED_IN",
+   "dst": "pr:149",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "pr:149",
+   "props": {}
+  },
+  {
+   "src": "0019-centralise-mysql-databases",
+   "rel": "RECORDED_IN",
+   "dst": "src:0019-centralise-mysql-databases",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "AUTHORED",
+   "dst": "src:0019-centralise-mysql-databases",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "src:0019-centralise-mysql-databases",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0019-centralise-mysql-databases",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "OWNS",
+   "dst": "0019-centralise-mysql-databases",
+   "props": {
+    "valid_from": "2017-08-02",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0019-centralise-mysql-databases",
+   "rel": "RECORDED_IN",
+   "dst": "pr:151",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "AUTHORED",
+   "dst": "pr:151",
+   "props": {}
+  },
+  {
+   "src": "0020-merge-api-postgresql-instance-into-main-postgresql-instance",
+   "rel": "RECORDED_IN",
+   "dst": "src:0020-merge-api-postgresql-instance-into-main-postgresql-instance",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "src:0020-merge-api-postgresql-instance-into-main-postgresql-instance",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0020-merge-api-postgresql-instance-into-main-postgresql-instance",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "OWNS",
+   "dst": "0020-merge-api-postgresql-instance-into-main-postgresql-instance",
+   "props": {
+    "valid_from": "2017-08-07",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0020-merge-api-postgresql-instance-into-main-postgresql-instance",
+   "rel": "RECORDED_IN",
+   "dst": "pr:168",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "pr:168",
+   "props": {}
+  },
+  {
+   "src": "0021-use-acm-for-ssl-purchases-and-terminate-certificates-on-elbs",
+   "rel": "RECORDED_IN",
+   "dst": "src:0021-use-acm-for-ssl-purchases-and-terminate-certificates-on-elbs",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "src:0021-use-acm-for-ssl-purchases-and-terminate-certificates-on-elbs",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0021-use-acm-for-ssl-purchases-and-terminate-certificates-on-elbs",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "OWNS",
+   "dst": "0021-use-acm-for-ssl-purchases-and-terminate-certificates-on-elbs",
+   "props": {
+    "valid_from": "2017-08-14",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0021-use-acm-for-ssl-purchases-and-terminate-certificates-on-elbs",
+   "rel": "RECORDED_IN",
+   "dst": "pr:203",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "pr:203",
+   "props": {}
+  },
+  {
+   "src": "0022-remove-the-elasticsearch-proxy",
+   "rel": "RECORDED_IN",
+   "dst": "src:0022-remove-the-elasticsearch-proxy",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "AUTHORED",
+   "dst": "src:0022-remove-the-elasticsearch-proxy",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0022-remove-the-elasticsearch-proxy",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "OWNS",
+   "dst": "0022-remove-the-elasticsearch-proxy",
+   "props": {
+    "valid_from": "2017-08-16",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0022-remove-the-elasticsearch-proxy",
+   "rel": "RECORDED_IN",
+   "dst": "pr:211",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "AUTHORED",
+   "dst": "pr:211",
+   "props": {}
+  },
+  {
+   "src": "0023-use-separate-data-repository",
+   "rel": "RECORDED_IN",
+   "dst": "src:0023-use-separate-data-repository",
+   "props": {}
+  },
+  {
+   "src": "gh:sam-cook",
+   "rel": "AUTHORED",
+   "dst": "src:0023-use-separate-data-repository",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0023-use-separate-data-repository",
+   "props": {}
+  },
+  {
+   "src": "gh:sam-cook",
+   "rel": "OWNS",
+   "dst": "0023-use-separate-data-repository",
+   "props": {
+    "valid_from": "2017-08-18",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0023-use-separate-data-repository",
+   "rel": "RECORDED_IN",
+   "dst": "pr:228",
+   "props": {}
+  },
+  {
+   "src": "gh:sam-cook",
+   "rel": "AUTHORED",
+   "dst": "pr:228",
+   "props": {}
+  },
+  {
+   "src": "0024-ami-lookups",
+   "rel": "RECORDED_IN",
+   "dst": "src:0024-ami-lookups",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "AUTHORED",
+   "dst": "src:0024-ami-lookups",
+   "props": {}
+  },
+  {
+   "src": "gh:afda16",
+   "rel": "AUTHORED",
+   "dst": "src:0024-ami-lookups",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0024-ami-lookups",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "OWNS",
+   "dst": "0024-ami-lookups",
+   "props": {
+    "valid_from": "2017-08-29",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0024-ami-lookups",
+   "rel": "RECORDED_IN",
+   "dst": "pr:238",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "AUTHORED",
+   "dst": "pr:238",
+   "props": {}
+  },
+  {
+   "src": "0025-use-elasticache-for-redis",
+   "rel": "RECORDED_IN",
+   "dst": "src:0025-use-elasticache-for-redis",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "src:0025-use-elasticache-for-redis",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0025-use-elasticache-for-redis",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "OWNS",
+   "dst": "0025-use-elasticache-for-redis",
+   "props": {
+    "valid_from": "2017-09-04",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0025-use-elasticache-for-redis",
+   "rel": "RECORDED_IN",
+   "dst": "pr:259",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "pr:259",
+   "props": {}
+  },
+  {
+   "src": "0026-remove-load-balancer-tier",
+   "rel": "RECORDED_IN",
+   "dst": "src:0026-remove-load-balancer-tier",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "AUTHORED",
+   "dst": "src:0026-remove-load-balancer-tier",
+   "props": {}
+  },
+  {
+   "src": "gh:afda16",
+   "rel": "AUTHORED",
+   "dst": "src:0026-remove-load-balancer-tier",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "src:0026-remove-load-balancer-tier",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0026-remove-load-balancer-tier",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "OWNS",
+   "dst": "0026-remove-load-balancer-tier",
+   "props": {
+    "valid_from": "2017-08-16",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0026-remove-load-balancer-tier",
+   "rel": "RECORDED_IN",
+   "dst": "pr:216",
+   "props": {}
+  },
+  {
+   "src": "gh:deanwilson",
+   "rel": "AUTHORED",
+   "dst": "pr:216",
+   "props": {}
+  },
+  {
+   "src": "0027-move-publicapi-away-from-frontend-lb",
+   "rel": "RECORDED_IN",
+   "dst": "src:0027-move-publicapi-away-from-frontend-lb",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "src:0027-move-publicapi-away-from-frontend-lb",
+   "props": {}
+  },
+  {
+   "src": "gh:isabell-long",
+   "rel": "AUTHORED",
+   "dst": "src:0027-move-publicapi-away-from-frontend-lb",
+   "props": {}
+  },
+  {
+   "src": "gh:afda16",
+   "rel": "AUTHORED",
+   "dst": "src:0027-move-publicapi-away-from-frontend-lb",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0027-move-publicapi-away-from-frontend-lb",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "OWNS",
+   "dst": "0027-move-publicapi-away-from-frontend-lb",
+   "props": {
+    "valid_from": "2017-09-04",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0027-move-publicapi-away-from-frontend-lb",
+   "rel": "RECORDED_IN",
+   "dst": "pr:258",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "pr:258",
+   "props": {}
+  },
+  {
+   "src": "0028-combine-api-mongo-cluster-into-mongo-cluster",
+   "rel": "RECORDED_IN",
+   "dst": "src:0028-combine-api-mongo-cluster-into-mongo-cluster",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "src:0028-combine-api-mongo-cluster-into-mongo-cluster",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0028-combine-api-mongo-cluster-into-mongo-cluster",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "OWNS",
+   "dst": "0028-combine-api-mongo-cluster-into-mongo-cluster",
+   "props": {
+    "valid_from": "2017-09-14",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0028-combine-api-mongo-cluster-into-mongo-cluster",
+   "rel": "RECORDED_IN",
+   "dst": "pr:284",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "pr:284",
+   "props": {}
+  },
+  {
+   "src": "0029-combine-api-redis-into-backend-redis",
+   "rel": "RECORDED_IN",
+   "dst": "src:0029-combine-api-redis-into-backend-redis",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "src:0029-combine-api-redis-into-backend-redis",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0029-combine-api-redis-into-backend-redis",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "OWNS",
+   "dst": "0029-combine-api-redis-into-backend-redis",
+   "props": {
+    "valid_from": "2017-09-14",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0029-combine-api-redis-into-backend-redis",
+   "rel": "RECORDED_IN",
+   "dst": "pr:284",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "pr:284",
+   "props": {}
+  },
+  {
+   "src": "0030-change-in-architecture-to-asset-master",
+   "rel": "RECORDED_IN",
+   "dst": "src:0030-change-in-architecture-to-asset-master",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "src:0030-change-in-architecture-to-asset-master",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0030-change-in-architecture-to-asset-master",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "OWNS",
+   "dst": "0030-change-in-architecture-to-asset-master",
+   "props": {
+    "valid_from": "2017-09-15",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0030-change-in-architecture-to-asset-master",
+   "rel": "RECORDED_IN",
+   "dst": "pr:284",
+   "props": {}
+  },
+  {
+   "src": "gh:surminus",
+   "rel": "AUTHORED",
+   "dst": "pr:284",
+   "props": {}
+  },
+  {
+   "src": "0032-transfer-artefact-binary",
+   "rel": "RECORDED_IN",
+   "dst": "src:0032-transfer-artefact-binary",
+   "props": {}
+  },
+  {
+   "src": "gh:suthagarht",
+   "rel": "AUTHORED",
+   "dst": "src:0032-transfer-artefact-binary",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0032-transfer-artefact-binary",
+   "props": {}
+  },
+  {
+   "src": "gh:suthagarht",
+   "rel": "OWNS",
+   "dst": "0032-transfer-artefact-binary",
+   "props": {
+    "valid_from": "2018-03-26",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0032-transfer-artefact-binary",
+   "rel": "RECORDED_IN",
+   "dst": "pr:532",
+   "props": {}
+  },
+  {
+   "src": "gh:suthagarht",
+   "rel": "AUTHORED",
+   "dst": "pr:532",
+   "props": {}
+  },
+  {
+   "src": "0037-alb-health-checks",
+   "rel": "RECORDED_IN",
+   "dst": "src:0037-alb-health-checks",
+   "props": {}
+  },
+  {
+   "src": "gh:afda16",
+   "rel": "AUTHORED",
+   "dst": "src:0037-alb-health-checks",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0037-alb-health-checks",
+   "props": {}
+  },
+  {
+   "src": "gh:afda16",
+   "rel": "OWNS",
+   "dst": "0037-alb-health-checks",
+   "props": {
+    "valid_from": "2019-06-24",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0037-alb-health-checks",
+   "rel": "RECORDED_IN",
+   "dst": "pr:1031",
+   "props": {}
+  },
+  {
+   "src": "gh:afda16",
+   "rel": "AUTHORED",
+   "dst": "pr:1031",
+   "props": {}
+  },
+  {
+   "src": "0038-mongo_replacement_by_documentdb",
+   "rel": "RECORDED_IN",
+   "dst": "src:0038-mongo_replacement_by_documentdb",
+   "props": {}
+  },
+  {
+   "src": "gh:fredericfran-gds",
+   "rel": "AUTHORED",
+   "dst": "src:0038-mongo_replacement_by_documentdb",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0038-mongo_replacement_by_documentdb",
+   "props": {}
+  },
+  {
+   "src": "gh:fredericfran-gds",
+   "rel": "OWNS",
+   "dst": "0038-mongo_replacement_by_documentdb",
+   "props": {
+    "valid_from": "2019-10-17",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0038-mongo_replacement_by_documentdb",
+   "rel": "RECORDED_IN",
+   "dst": "pr:1144",
+   "props": {}
+  },
+  {
+   "src": "gh:fredericfran-gds",
+   "rel": "AUTHORED",
+   "dst": "pr:1144",
+   "props": {}
+  },
+  {
+   "src": "0039-non-govuk-domain-policy",
+   "rel": "RECORDED_IN",
+   "dst": "src:0039-non-govuk-domain-policy",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0039-non-govuk-domain-policy",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "OWNS",
+   "dst": "0039-non-govuk-domain-policy",
+   "props": {
+    "valid_from": "2022-10-07",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0039-non-govuk-domain-policy",
+   "rel": "RECORDED_IN",
+   "dst": "pr:1638",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "pr:1638",
+   "props": {}
+  },
+  {
+   "src": "maintained:elasticsearch",
+   "rel": "SUPPORTS",
+   "dst": "p_elasticsearch_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to main on 2026-10-17"
+   }
+  },
+  {
+   "src": "open_source:elasticsearch",
+   "rel": "SUPPORTS",
+   "dst": "p_elasticsearch_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "offered under Elastic-2.0, SSPL-1.0, AGPL-3.0, Apache-2.0; the OSI option (AGPL-3.0, Apache-2.0) keeps it open source"
+   }
+  },
+  {
+   "src": "no_known_vuln:elasticsearch",
+   "rel": "SUPPORTS",
+   "dst": "p_elasticsearch_no_known_vuln",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "no OSV advisory affects 9.0.3"
+   }
+  },
+  {
+   "src": "maintained:mongodb",
+   "rel": "SUPPORTS",
+   "dst": "p_mongodb_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to master on 2026-10-19"
+   }
+  },
+  {
+   "src": "maintained:puppet",
+   "rel": "CONTRADICTS",
+   "dst": "p_puppet_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to main on 2024-12-11"
+   }
+  },
+  {
+   "src": "open_source:puppet",
+   "rel": "SUPPORTS",
+   "dst": "p_puppet_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "no_known_vuln:puppet",
+   "rel": "SUPPORTS",
+   "dst": "p_puppet_no_known_vuln",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "no OSV advisory affects 8.10.0"
+   }
+  },
+  {
+   "src": "maintained:redis",
+   "rel": "SUPPORTS",
+   "dst": "p_redis_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to unstable on 2026-10-17"
+   }
+  },
+  {
+   "src": "open_source:redis",
+   "rel": "SUPPORTS",
+   "dst": "p_redis_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "offered under RSALv2, SSPL-1.0, AGPL-3.0; the OSI option (AGPL-3.0) keeps it open source"
+   }
+  },
+  {
+   "src": "maintained:terraform",
+   "rel": "SUPPORTS",
+   "dst": "p_terraform_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to main on 2026-10-19"
+   }
+  },
+  {
+   "src": "open_source:terraform",
+   "rel": "CONTRADICTS",
+   "dst": "p_terraform_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "source-available: BUSL-1.1"
+   }
+  },
+  {
+   "src": "0007-puppet-cert-management",
+   "rel": "BECAUSE_OF",
+   "dst": "p_puppet_maintained",
+   "props": {
+    "quote": "Puppet is actively maintained"
+   }
+  },
+  {
+   "src": "0007-puppet-cert-management",
+   "rel": "BECAUSE_OF",
+   "dst": "p_puppet_open_source",
+   "props": {
+    "quote": "Puppet is open source"
+   }
+  },
+  {
+   "src": "0007-puppet-cert-management",
+   "rel": "BECAUSE_OF",
+   "dst": "p_puppet_no_known_vuln",
+   "props": {
+    "quote": "The current release of Puppet has no known vulnerability"
+   }
+  },
+  {
+   "src": "0008-postgres-on-puppetmaster",
+   "rel": "BECAUSE_OF",
+   "dst": "p_puppet_maintained",
+   "props": {
+    "quote": "Puppet is actively maintained"
+   }
+  },
+  {
+   "src": "0008-postgres-on-puppetmaster",
+   "rel": "BECAUSE_OF",
+   "dst": "p_puppet_open_source",
+   "props": {
+    "quote": "Puppet is open source"
+   }
+  },
+  {
+   "src": "0008-postgres-on-puppetmaster",
+   "rel": "BECAUSE_OF",
+   "dst": "p_puppet_no_known_vuln",
+   "props": {
+    "quote": "The current release of Puppet has no known vulnerability"
+   }
+  },
+  {
+   "src": "0012-security-groups-in-terraform",
+   "rel": "BECAUSE_OF",
+   "dst": "p_terraform_maintained",
+   "props": {
+    "quote": "Terraform is actively maintained"
+   }
+  },
+  {
+   "src": "0012-security-groups-in-terraform",
+   "rel": "BECAUSE_OF",
+   "dst": "p_terraform_open_source",
+   "props": {
+    "quote": "Terraform is open source"
+   }
+  },
+  {
+   "src": "0012-security-groups-in-terraform",
+   "rel": "BECAUSE_OF",
+   "dst": "p_terraform_no_known_vuln",
+   "props": {
+    "quote": "The current release of Terraform has no known vulnerability"
+   }
+  },
+  {
+   "src": "0022-remove-the-elasticsearch-proxy",
+   "rel": "BECAUSE_OF",
+   "dst": "p_elasticsearch_maintained",
+   "props": {
+    "quote": "Elasticsearch is actively maintained"
+   }
+  },
+  {
+   "src": "0022-remove-the-elasticsearch-proxy",
+   "rel": "BECAUSE_OF",
+   "dst": "p_elasticsearch_open_source",
+   "props": {
+    "quote": "Elasticsearch is open source"
+   }
+  },
+  {
+   "src": "0022-remove-the-elasticsearch-proxy",
+   "rel": "BECAUSE_OF",
+   "dst": "p_elasticsearch_no_known_vuln",
+   "props": {
+    "quote": "The current release of Elasticsearch has no known vulnerability"
+   }
+  },
+  {
+   "src": "0025-use-elasticache-for-redis",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redis_maintained",
+   "props": {
+    "quote": "Redis is actively maintained"
+   }
+  },
+  {
+   "src": "0025-use-elasticache-for-redis",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redis_open_source",
+   "props": {
+    "quote": "Redis is open source"
+   }
+  },
+  {
+   "src": "0025-use-elasticache-for-redis",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redis_no_known_vuln",
+   "props": {
+    "quote": "The current release of Redis has no known vulnerability"
+   }
+  },
+  {
+   "src": "0029-combine-api-redis-into-backend-redis",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redis_maintained",
+   "props": {
+    "quote": "Redis is actively maintained"
+   }
+  },
+  {
+   "src": "0029-combine-api-redis-into-backend-redis",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redis_open_source",
+   "props": {
+    "quote": "Redis is open source"
+   }
+  },
+  {
+   "src": "0029-combine-api-redis-into-backend-redis",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redis_no_known_vuln",
+   "props": {
+    "quote": "The current release of Redis has no known vulnerability"
+   }
+  },
+  {
+   "src": "0028-combine-api-mongo-cluster-into-mongo-cluster",
+   "rel": "BECAUSE_OF",
+   "dst": "p_mongodb_maintained",
+   "props": {
+    "quote": "MongoDB is actively maintained"
+   }
+  },
+  {
+   "src": "0028-combine-api-mongo-cluster-into-mongo-cluster",
+   "rel": "BECAUSE_OF",
+   "dst": "p_mongodb_open_source",
+   "props": {
+    "quote": "MongoDB is open source"
+   }
+  },
+  {
+   "src": "0028-combine-api-mongo-cluster-into-mongo-cluster",
+   "rel": "BECAUSE_OF",
+   "dst": "p_mongodb_no_known_vuln",
+   "props": {
+    "quote": "The current release of MongoDB has no known vulnerability"
+   }
+  },
+  {
+   "src": "0038-mongo_replacement_by_documentdb",
+   "rel": "BECAUSE_OF",
+   "dst": "p_mongodb_maintained",
+   "props": {
+    "quote": "MongoDB is actively maintained"
+   }
+  },
+  {
+   "src": "0038-mongo_replacement_by_documentdb",
+   "rel": "BECAUSE_OF",
+   "dst": "p_mongodb_open_source",
+   "props": {
+    "quote": "MongoDB is open source"
+   }
+  },
+  {
+   "src": "0038-mongo_replacement_by_documentdb",
+   "rel": "BECAUSE_OF",
+   "dst": "p_mongodb_no_known_vuln",
+   "props": {
+    "quote": "The current release of MongoDB has no known vulnerability"
+   }
+  }
+ ]
+}

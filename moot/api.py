@@ -1,9 +1,12 @@
 """HTTP API and static UI. Every read goes through tools.py; the one write is behind an explicit approve call."""
 from __future__ import annotations
 
-from pathlib import Path
-
+import json
+import os
+import time
+from contextvars import ContextVar
 from datetime import date
+from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -12,7 +15,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from . import agent, answer, snapshot, tools
-from .graph import DATA, PUBLIC_GRAPH, graph, stats
+from .graph import BACKTEST_GRAPH, DATA, GH_PREFIX, PUBLIC_GRAPH, connect, graph, stats
 
 ROOT = Path(__file__).resolve().parents[1]
 WEB = ROOT / "web"                      # legacy UI, served at /legacy
@@ -49,8 +52,36 @@ if snapshot.enabled():
         return JSONResponse({"detail": snapshot.READ_ONLY}, status_code=503)
 
 
+# Every route reads the graph named by `?graph=` (the tenant by default): the demo company, the real public ADRs, the
+# backtest, or any repository brought in with `moot ingest-github`. A name outside that list is refused.
+_selected: ContextVar[str | None] = ContextVar("moot_graph", default=None)
+_known: dict = dict(at=0.0, names=set())
+
+
+def known_graphs() -> set[str]:
+    if time.time() - _known["at"] > 30:
+        try:
+            names = set(connect().list_graphs())
+        except Exception:
+            names = set()
+        _known.update(at=time.time(), names={n for n in names if n.startswith(GH_PREFIX)} | {graph().name, PUBLIC_GRAPH, BACKTEST_GRAPH})
+    return _known["names"]
+
+
+@app.middleware("http")
+async def select_graph(request: Request, call_next):
+    name = request.query_params.get("graph")
+    if name and name != graph().name and name not in known_graphs():
+        return JSONResponse({"detail": f"no graph named {name}; GET /api/graphs lists them"}, status_code=422)
+    token = _selected.set(name or None)
+    try:
+        return await call_next(request)
+    finally:
+        _selected.reset(token)
+
+
 def g():
-    return graph()
+    return graph(_selected.get())
 
 
 @app.exception_handler(Exception)
@@ -103,8 +134,18 @@ def decision(decision_id: str, as_of: str | None = None, depth: int = Query(4, g
     f = tools.findings(g(), decision_id)
     memo = tools.reopen_memo(g(), decision_id, as_of, depth) if a["verdict"] in ("MOOT", "DISPUTED") else None
     gate = tools.check_action(g(), decision_id, as_of)
-    return dict(audit=a, impact=impact, findings=f, memo=memo, gate=gate, ticket=memo["text"] if memo else agent.draft_ticket(a, impact),
+    hist = tools.verdict_history(g(), decision_id, as_of, depth)
+    return dict(audit=a, impact=impact, findings=f, memo=memo, gate=gate, history=hist, ticket=memo["text"] if memo else agent.draft_ticket(a, impact),
                 queries=tools.end_trace())
+
+
+@app.get("/api/history/{decision_id}")
+def history(decision_id: str, as_of: str | None = None, depth: int = Query(4, ge=1, le=6)):
+    """Since when? Every verdict the decision has had, re-audited on each date something in its subgraph happened."""
+    r = tools.verdict_history(g(), decision_id, as_of_param(as_of), depth)
+    if not r["found"]:
+        raise HTTPException(404, f"{decision_id} is not in the graph")
+    return r
 
 
 @app.get("/api/gate/{decision_id}")
@@ -119,9 +160,7 @@ def gate(decision_id: str, as_of: str | None = None, graph_name: str | None = Qu
 
 
 def _graph_for(graph_name: str | None):
-    if graph_name not in (None, graph().name, PUBLIC_GRAPH):
-        raise HTTPException(422, f"graph must be {graph().name} or {PUBLIC_GRAPH}")
-    return graph(graph_name) if graph_name else g()
+    return graph(graph_name) if graph_name else g()  # the middleware has already refused unknown names
 
 
 @app.get("/api/packet/{decision_id}")
@@ -377,6 +416,63 @@ def evals():
     for f in sorted((ROOT / "eval").glob("results*.json")):
         out[f.stem.removeprefix("results").lstrip("_") or "retrieval"] = json.loads(f.read_text())
     return out
+
+
+GRAPH_INFO = {
+    "larkspur": dict(title="Larkspur (demo company)", kind="demo", source="data/corpus: a synthetic 30-person company"),
+    PUBLIC_GRAPH: dict(title="25 real public ADRs", kind="real", source="5 GitHub repositories, checked against GitHub and OSV"),
+    BACKTEST_GRAPH: dict(title="Backtest: 97 tool decisions from 30 repos", kind="backtest", source="ADR git history, replayed monthly", as_of="2026-10-17"),
+}
+
+
+@app.get("/api/graphs")
+def graphs():
+    """Every graph the UI and API can read: the demo company, the real ADRs, the backtest and each ingested repository."""
+    from .connectors import github as gh
+    out = []
+    for name in sorted(known_graphs(), key=lambda n: (n != graph().name, n != PUBLIC_GRAPH, n != BACKTEST_GRAPH, n)):
+        info = dict(GRAPH_INFO.get(name) or dict(title=name, kind="github", source=""))
+        summ = gh.summary_for_graph(name)
+        if summ:
+            info.update(title=summ["repo"], source=f"{summ['folder']} in github.com/{summ['repo']}, read {summ['read_on']}", as_of=summ["read_on"],
+                        url=f"https://github.com/{summ['repo']}")
+        if name == PUBLIC_GRAPH and (DATA / "realworld" / "checks.json").exists():
+            info["as_of"] = json.loads((DATA / "realworld" / "checks.json").read_text())["summary"]["checked_on"]
+        try:
+            n = graph(name).ro_query("MATCH (d:Decision) RETURN count(d)").result_set[0][0]
+        except Exception:
+            n = 0
+        if n:
+            out.append(dict(name=name, decisions=n, default=name == graph().name, **info))
+    return dict(graphs=out, ingest=ingest_allowed())
+
+
+def ingest_allowed() -> bool:
+    """Ingest writes a new graph and calls GitHub; on by default locally, off on a hosted deployment unless MOOT_ALLOW_INGEST=1."""
+    return os.getenv("MOOT_ALLOW_INGEST", "0" if os.getenv("VERCEL") else "1") == "1" and not snapshot.enabled()
+
+
+class Ingest(BaseModel):
+    repo: str
+    path: str | None = None
+
+
+@app.post("/api/ingest/github")
+def ingest_github(body: Ingest):
+    """Bring a public GitHub repository's ADR folder and its pull requests into a new named graph, then audit it."""
+    import re as _re
+    from .connectors import github as gh
+    if not ingest_allowed():
+        raise HTTPException(403, "Ingest is off on this deployment. Run it locally: moot ingest-github owner/repo")
+    repo = body.repo.strip().removeprefix("https://github.com/").strip("/")
+    if not _re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repo):
+        raise HTTPException(422, "repo must look like owner/name")
+    try:
+        gh.ingest(repo, body.path)
+    except SystemExit as ex:
+        raise HTTPException(422, str(ex))
+    _known["at"] = 0
+    return gh.audit(repo)
 
 
 @app.get("/api/schema")

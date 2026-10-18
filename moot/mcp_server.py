@@ -16,16 +16,47 @@ mcp = MCPServer("moot", instructions="Audit a company's standing decisions again
               "Verdicts come from FalkorDB path queries; cite evidence ids from the rows and say 'not in the graph' when a tool returns nothing.")
 
 
+def _g(name: str | None):
+    """The tenant by default; any graph list_graphs names otherwise (the real ADRs, the backtest, an ingested repository)."""
+    from .graph import BACKTEST_GRAPH, GH_PREFIX, PUBLIC_GRAPH, connect
+    if name and name not in (graph().name, PUBLIC_GRAPH, BACKTEST_GRAPH) and not (name.startswith(GH_PREFIX) and name in connect().list_graphs()):
+        raise ValueError(f"no graph named {name}; call list_graphs")
+    return graph(name) if name else graph()
+
+
 @mcp.tool()
-def find_decision(query: str) -> str:
+def list_graphs() -> str:
+    """Every graph Moot can audit: the demo company (default), the real public ADRs, the backtest, and each GitHub repository
+    brought in with ingest_github. Pass a name as `graph` to the other tools."""
+    from .api import graphs
+    return json.dumps(graphs(), default=str)
+
+
+@mcp.tool()
+def find_decision(query: str, graph: str | None = None) -> str:
     """Resolve a question or phrase to candidate decisions using the graph's full-text index."""
-    return json.dumps(tools.find_decision(graph(), query))
+    return json.dumps(tools.find_decision(_g(graph), query))
 
 
 @mcp.tool()
-def audit_decision(decision_id: str, as_of: str | None = None, depth: int = 4) -> str:
+def audit_decision(decision_id: str, as_of: str | None = None, depth: int = 4, graph: str | None = None) -> str:
     """Verdict for one decision (HOLDS, MOOT, DISPUTED, UNDOCUMENTED, RETIRED) with premises up to `depth` hops, dated evidence, the traversal paths and the owner."""
-    return json.dumps(tools.audit_decision(graph(), decision_id, as_of, depth), default=str)
+    return json.dumps(tools.audit_decision(_g(graph), decision_id, as_of, depth), default=str)
+
+
+@mcp.tool()
+def verdict_history(decision_id: str, as_of: str | None = None, graph: str | None = None) -> str:
+    """Since when? Every verdict a decision has had and the date each began, re-audited on every date something in its graph happened."""
+    return json.dumps(tools.verdict_history(_g(graph), decision_id, as_of), default=str)
+
+
+@mcp.tool()
+def ingest_github(repo: str, path: str | None = None) -> str:
+    """Bring a public GitHub repository's ADR folder and its pull requests into a new graph (gh_<owner>_<repo>) and audit
+    every decision. Writes a new graph and calls GitHub: call only after the user approves."""
+    from .connectors import github as gh
+    gh.ingest(repo, path)
+    return json.dumps(gh.audit(repo), default=str)
 
 
 @mcp.tool()
@@ -47,9 +78,9 @@ def decision_owner(decision_id: str, as_of: str | None = None) -> str:
 
 
 @mcp.tool()
-def ledger(as_of: str | None = None, depth: int = 4) -> str:
+def ledger(as_of: str | None = None, depth: int = 4, graph: str | None = None) -> str:
     """All decisions with verdicts, MOOT first."""
-    return json.dumps(tools.ledger(graph(), as_of, depth))
+    return json.dumps(tools.ledger(_g(graph), as_of, depth))
 
 
 @mcp.tool()
@@ -65,13 +96,13 @@ def record_finding(decision_id: str, verdict: str, as_of: str, depth: int = 4, c
 
 
 @mcp.tool()
-def check_action(decision_id: str, as_of: str | None = None, public_adrs: bool = False) -> str:
+def check_action(decision_id: str, as_of: str | None = None, public_adrs: bool = False, graph: str | None = None) -> str:
     """Call before you enforce, rely on or renew a decision. Returns ALLOW, DENY or REVALIDATE with the graph path that
     justified it: DENY when a premise is contradicted or the decision is retired, REVALIDATE when the graph cannot vouch
     for it (no premise, disputed, unchecked, owner left). Only act on ALLOW. Read-only; always audits at full depth.
-    Set public_adrs=true for the real public ADRs (ids like l4b-lunr, moj-004)."""
+    Set public_adrs=true for the real public ADRs (ids like l4b-lunr, moj-004), or graph= any name list_graphs returns."""
     from .graph import PUBLIC_GRAPH
-    return json.dumps(tools.check_action(graph(PUBLIC_GRAPH) if public_adrs else graph(), decision_id, as_of), default=str)
+    return json.dumps(tools.check_action(_g(PUBLIC_GRAPH if public_adrs else graph), decision_id, as_of), default=str)
 
 
 @mcp.tool()

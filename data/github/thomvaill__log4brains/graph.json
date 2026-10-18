@@ -1,0 +1,1173 @@
+{
+ "nodes": [
+  {
+   "label": "Decision",
+   "id": "20200924-use-markdown-architectural-decision-records",
+   "props": {
+    "title": "Use Markdown Architectural Decision Records",
+    "summary": "Chosen option: \"MADR 2.1.2 with Log4brains patch\", because - Implicit assumptions should be made explicit. Design documentation is important to enable people understanding the decisions later on. See also A rational design process: How and why to fake it. - The MADR format is lean and fits our devel",
+    "decided_on": "2020-09-24",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200924-use-markdown-architectural-decision-records.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:20200924-use-markdown-architectural-decision-records",
+   "props": {
+    "kind": "adr",
+    "title": "thomvaill/log4brains: Use Markdown Architectural Decision Records",
+    "date": "2020-09-24",
+    "path": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200924-use-markdown-architectural-decision-records.md",
+    "excerpt": "Chosen option: \"MADR 2.1.2 with Log4brains patch\", because - Implicit assumptions should be made explicit. Design documentation is important to enable people understanding the decisions later on. See also A rational design process: How and why to fake it. - The MADR format is lean and fits our devel"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:thomas-vaillant",
+   "props": {
+    "name": "Thomas Vaillant",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:8",
+   "props": {
+    "kind": "pr",
+    "title": "feat: initial features",
+    "date": "2020-12-10",
+    "path": "https://github.com/thomvaill/log4brains/pull/8",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:thomvaill",
+   "props": {
+    "name": "thomvaill",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna",
+   "props": {
+    "title": "Multi-packages architecture in a monorepo with Yarn and Lerna",
+    "summary": "Chosen option: \"Multi-packages, monorepo, with Yarn and Lerna\", because - We don't want a monolith because we want the core library/API to be very well tested and probably developed with DDD and hexagonal architecture. The other packages will just call this core API, they will contain fewer business",
+    "decided_on": "2020-09-25",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna",
+   "props": {
+    "kind": "adr",
+    "title": "thomvaill/log4brains: Multi-packages architecture in a monorepo with Yarn and Lerna",
+    "date": "2020-09-25",
+    "path": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md",
+    "excerpt": "Chosen option: \"Multi-packages, monorepo, with Yarn and Lerna\", because - We don't want a monolith because we want the core library/API to be very well tested and probably developed with DDD and hexagonal architecture. The other packages will just call this core API, they will contain fewer business"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "20200925-use-prettier-eslint-airbnb-for-the-code-style",
+   "props": {
+    "title": "Use Prettier-ESLint Airbnb for the code style",
+    "summary": "Chosen option: \"Prettier-ESLint with Airbnb code style\", because - Airbnb code style is widely used (see npm trends) - Prettier-ESLint enforce some additional code style. We like it because the more opinionated the code style is, the less debates there will be :-) In addition, we use also Prettier t",
+    "decided_on": "2020-09-25",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-use-prettier-eslint-airbnb-for-the-code-style.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:20200925-use-prettier-eslint-airbnb-for-the-code-style",
+   "props": {
+    "kind": "adr",
+    "title": "thomvaill/log4brains: Use Prettier-ESLint Airbnb for the code style",
+    "date": "2020-09-25",
+    "path": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-use-prettier-eslint-airbnb-for-the-code-style.md",
+    "excerpt": "Chosen option: \"Prettier-ESLint with Airbnb code style\", because - Airbnb code style is widely used (see npm trends) - Prettier-ESLint enforce some additional code style. We like it because the more opinionated the code style is, the less debates there will be :-) In addition, we use also Prettier t"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "20200926-use-the-adr-number-as-its-unique-id",
+   "props": {
+    "title": "Use the ADR number as its unique ID",
+    "summary": "Chosen option: \"ADR number\", because - It is possible to have duplicated titles - The filename is too long to enter without autocompletion, but we could support it as a second possible identifier for the CLI in the future - Other ADR tools like adr-tools already use the number as a unique ID",
+    "decided_on": "2020-09-26",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200926-use-the-adr-number-as-its-unique-id.md",
+    "repo": "thomvaill/log4brains",
+    "status": "superseded by [20201016-use-the-adr-slug-as-its-unique-id](20201016-use-the-adr-slug-as-its-unique-id.md)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:20200926-use-the-adr-number-as-its-unique-id",
+   "props": {
+    "kind": "adr",
+    "title": "thomvaill/log4brains: Use the ADR number as its unique ID",
+    "date": "2020-09-26",
+    "path": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200926-use-the-adr-number-as-its-unique-id.md",
+    "excerpt": "Chosen option: \"ADR number\", because - It is possible to have duplicated titles - The filename is too long to enter without autocompletion, but we could support it as a second possible identifier for the CLI in the future - Other ADR tools like adr-tools already use the number as a unique ID"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "20200927-avoid-default-exports",
+   "props": {
+    "title": "Avoid default exports",
+    "summary": "We will avoid default exports in all our codebase, and use named exports instead.",
+    "decided_on": "2020-09-27",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200927-avoid-default-exports.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:20200927-avoid-default-exports",
+   "props": {
+    "kind": "adr",
+    "title": "thomvaill/log4brains: Avoid default exports",
+    "date": "2020-09-27",
+    "path": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200927-avoid-default-exports.md",
+    "excerpt": "We will avoid default exports in all our codebase, and use named exports instead."
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "20201016-use-the-adr-slug-as-its-unique-id",
+   "props": {
+    "title": "Use the ADR slug as its unique ID",
+    "summary": "From now on, we won't use ADR numbers anymore. An ADR will be uniquely identified by its slug (ie. its filename without the extension), and its filename will have the following format: YYYYMMDD-adr-title.md, with YYYYMMDD being the date of creation of the file. As a result, there won't have conflict",
+    "decided_on": "2020-10-16",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201016-use-the-adr-slug-as-its-unique-id.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:20201016-use-the-adr-slug-as-its-unique-id",
+   "props": {
+    "kind": "adr",
+    "title": "thomvaill/log4brains: Use the ADR slug as its unique ID",
+    "date": "2020-10-16",
+    "path": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201016-use-the-adr-slug-as-its-unique-id.md",
+    "excerpt": "From now on, we won't use ADR numbers anymore. An ADR will be uniquely identified by its slug (ie. its filename without the extension), and its filename will have the following format: YYYYMMDD-adr-title.md, with YYYYMMDD being the date of creation of the file. As a result, there won't have conflict"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx",
+   "props": {
+    "title": "The core API is responsible for enhancing the ADR markdown body with MDX",
+    "summary": "- Potential future development of a VSCode extension",
+    "decided_on": "2020-10-26",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx",
+   "props": {
+    "kind": "adr",
+    "title": "thomvaill/log4brains: The core API is responsible for enhancing the ADR markdown body with MDX",
+    "date": "2020-10-26",
+    "path": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx.md",
+    "excerpt": "- Potential future development of a VSCode extension"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "20201103-use-lunr-for-search",
+   "props": {
+    "title": "Use Lunr for search",
+    "summary": "- Works in preview mode AND in the statically built version - Provides good fuzzy search and stemming capabilities - Is fast enough to be able to show results while typing - Does not consume too much CPU and RAM on the client-side, especially for the statically built version",
+    "decided_on": "2020-11-03",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201103-use-lunr-for-search.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:20201103-use-lunr-for-search",
+   "props": {
+    "kind": "adr",
+    "title": "thomvaill/log4brains: Use Lunr for search",
+    "date": "2020-11-03",
+    "path": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201103-use-lunr-for-search.md",
+    "excerpt": "- Works in preview mode AND in the statically built version - Provides good fuzzy search and stemming capabilities - Is fast enough to be able to show results while typing - Does not consume too much CPU and RAM on the client-side, especially for the statically built version"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "20210113-distribute-log4brains-as-a-global-npm-package",
+   "props": {
+    "title": "Distribute Log4brains as a global NPM package",
+    "summary": "- Simplicity of the installation procedure - Language agnostic - Initialization script works on any kind of project - Faster \"getting started\"",
+    "decided_on": "2021-01-13",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20210113-distribute-log4brains-as-a-global-npm-package.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:20210113-distribute-log4brains-as-a-global-npm-package",
+   "props": {
+    "kind": "adr",
+    "title": "thomvaill/log4brains: Distribute Log4brains as a global NPM package",
+    "date": "2021-01-13",
+    "path": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20210113-distribute-log4brains-as-a-global-npm-package.md",
+    "excerpt": "- Simplicity of the installation procedure - Language agnostic - Initialization script works on any kind of project - Faster \"getting started\""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:15",
+   "props": {
+    "kind": "pr",
+    "title": "Distribute Log4brains as a global NPM package",
+    "date": "2021-01-13",
+    "path": "https://github.com/thomvaill/log4brains/pull/15",
+    "excerpt": "Caused by https://github.com/thomvaill/log4brains/issues/14\r\n\r\n## Context and Problem Statement\r\n\r\nLog4brains (`v1.0.0-beta.4`) installation procedure is currently optimized for JS projects and looks like this:\r\n\r\n- Run `npx init-log4brains`\r\n- Which installs locally `@log4brains/cli` and `@log4brai"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "20240926-transition-to-simplified-git-flow",
+   "props": {
+    "title": "Transition to Simplified Git Flow",
+    "summary": "- Need for automation in releases. - Be able to merge more quickly whithout breaking the stable branch, while making it possible for beta testers to test the new features. - Easier delegation to new maintainers. - Simplified yet structured process for contributors. - Clearer separation between ongoi",
+    "decided_on": "2024-09-26",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20240926-transition-to-simplified-git-flow.md",
+    "repo": "thomvaill/log4brains",
+    "status": "superseded by [20241217-switch-back-to-github-flow](20241217-switch-back-to-github-flow.md)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:20240926-transition-to-simplified-git-flow",
+   "props": {
+    "kind": "adr",
+    "title": "thomvaill/log4brains: Transition to Simplified Git Flow",
+    "date": "2024-09-26",
+    "path": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20240926-transition-to-simplified-git-flow.md",
+    "excerpt": "- Need for automation in releases. - Be able to merge more quickly whithout breaking the stable branch, while making it possible for beta testers to test the new features. - Easier delegation to new maintainers. - Simplified yet structured process for contributors. - Clearer separation between ongoi"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:121",
+   "props": {
+    "kind": "pr",
+    "title": "Improve contributing workflow: transition to simplified git flow with automatic release of beta versions",
+    "date": "2024-10-28",
+    "path": "https://github.com/thomvaill/log4brains/pull/121",
+    "excerpt": "See https://github.com/thomvaill/log4brains/discussions/108 and the ADR created in this merge request to understand the context and the rationale behind this change. But the key idea is to streamline contributions and release more often.\r\n\r\nThe goal is to make contributing easier, streamline the rel"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "20241217-switch-back-to-github-flow",
+   "props": {
+    "title": "Switch back to GitHub Flow, but keeping the automated beta releases",
+    "summary": "- Make Lerna work again for stable releases - Keep the benefits of the previous workflow: - Need for automation in releases. - Be able to merge more quickly whithout breaking the stable branch, while making it possible for beta testers to test the new features. - Easier delegation to new maintainers",
+    "decided_on": "2024-12-17",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20241217-switch-back-to-github-flow.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:20241217-switch-back-to-github-flow",
+   "props": {
+    "kind": "adr",
+    "title": "thomvaill/log4brains: Switch back to GitHub Flow, but keeping the automated beta releases",
+    "date": "2024-12-17",
+    "path": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20241217-switch-back-to-github-flow.md",
+    "excerpt": "- Make Lerna work again for stable releases - Keep the benefits of the previous workflow: - Need for automation in releases. - Be able to merge more quickly whithout breaking the stable branch, while making it possible for beta testers to test the new features. - Easier delegation to new maintainers"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:142",
+   "props": {
+    "kind": "pr",
+    "title": "Switch back to Github Flow because of Lerna limitations",
+    "date": "2024-12-17",
+    "path": "https://github.com/thomvaill/log4brains/pull/142",
+    "excerpt": "While trying to release v1.1.0, I faced some issues with Lerna.\r\nThe new ADR in this PR explains the rationale and the decision to switch back the Github Flow (thus amending https://github.com/thomvaill/log4brains/pull/121)"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lerna_maintained",
+   "props": {
+    "text": "Lerna is actively maintained",
+    "kind": "unwritten",
+    "tool": "lerna",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:lerna",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-12",
+    "date": "2026-10-19",
+    "excerpt": "last commit to main on 2026-10-12",
+    "path": "https://github.com/lerna/lerna"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lerna_open_source",
+   "props": {
+    "text": "Lerna is open source",
+    "kind": "unwritten",
+    "tool": "lerna",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:lerna",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports MIT",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports MIT",
+    "path": "https://github.com/lerna/lerna"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lerna_no_known_vuln",
+   "props": {
+    "text": "The current release of Lerna has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "lerna",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:lerna",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 10.1.1",
+    "date": "2026-10-19",
+    "excerpt": "no OSV advisory affects 10.1.1",
+    "path": "https://github.com/lerna/lerna"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lunr_maintained",
+   "props": {
+    "text": "Lunr.js is actively maintained",
+    "kind": "unwritten",
+    "tool": "lunr",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:lunr",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2020-08-19",
+    "date": "2026-10-19",
+    "excerpt": "last commit to master on 2020-08-19",
+    "path": "https://github.com/olivernn/lunr.js"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lunr_open_source",
+   "props": {
+    "text": "Lunr.js is open source",
+    "kind": "unwritten",
+    "tool": "lunr",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:lunr",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports MIT",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports MIT",
+    "path": "https://github.com/olivernn/lunr.js"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lunr_no_known_vuln",
+   "props": {
+    "text": "The current release of Lunr.js has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "lunr",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:lunr",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 2.3.9",
+    "date": "2026-10-19",
+    "excerpt": "no OSV advisory affects 2.3.9",
+    "path": "https://github.com/olivernn/lunr.js"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_mdx_maintained",
+   "props": {
+    "text": "MDX is actively maintained",
+    "kind": "unwritten",
+    "tool": "mdx",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:mdx",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-09-21",
+    "date": "2026-10-19",
+    "excerpt": "last commit to main on 2026-09-21",
+    "path": "https://github.com/mdx-js/mdx"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_mdx_open_source",
+   "props": {
+    "text": "MDX is open source",
+    "kind": "unwritten",
+    "tool": "mdx",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:mdx",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports MIT",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports MIT",
+    "path": "https://github.com/mdx-js/mdx"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_mdx_no_known_vuln",
+   "props": {
+    "text": "The current release of MDX has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "mdx",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:mdx",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 3.1.1",
+    "date": "2026-10-19",
+    "excerpt": "no OSV advisory affects 3.1.1",
+    "path": "https://github.com/mdx-js/mdx"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prettier-eslint_maintained",
+   "props": {
+    "text": "prettier-eslint is actively maintained",
+    "kind": "unwritten",
+    "tool": "prettier-eslint",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:prettier-eslint",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-09-12",
+    "date": "2026-10-19",
+    "excerpt": "last commit to master on 2026-09-12",
+    "path": "https://github.com/prettier/prettier-eslint"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prettier-eslint_open_source",
+   "props": {
+    "text": "prettier-eslint is open source",
+    "kind": "unwritten",
+    "tool": "prettier-eslint",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:prettier-eslint",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports MIT",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports MIT",
+    "path": "https://github.com/prettier/prettier-eslint"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prettier-eslint_no_known_vuln",
+   "props": {
+    "text": "The current release of prettier-eslint has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "prettier-eslint",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:prettier-eslint",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 17.1.2",
+    "date": "2026-10-19",
+    "excerpt": "no OSV advisory affects 17.1.2",
+    "path": "https://github.com/prettier/prettier-eslint"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "src": "20200924-use-markdown-architectural-decision-records",
+   "rel": "RECORDED_IN",
+   "dst": "src:20200924-use-markdown-architectural-decision-records",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "AUTHORED",
+   "dst": "src:20200924-use-markdown-architectural-decision-records",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "OWNS",
+   "dst": "20200924-use-markdown-architectural-decision-records",
+   "props": {
+    "valid_from": "2020-09-24",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "20200924-use-markdown-architectural-decision-records",
+   "rel": "RECORDED_IN",
+   "dst": "pr:8",
+   "props": {}
+  },
+  {
+   "src": "gh:thomvaill",
+   "rel": "AUTHORED",
+   "dst": "pr:8",
+   "props": {}
+  },
+  {
+   "src": "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna",
+   "rel": "RECORDED_IN",
+   "dst": "src:20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "AUTHORED",
+   "dst": "src:20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "OWNS",
+   "dst": "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna",
+   "props": {
+    "valid_from": "2020-09-25",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna",
+   "rel": "RECORDED_IN",
+   "dst": "pr:8",
+   "props": {}
+  },
+  {
+   "src": "gh:thomvaill",
+   "rel": "AUTHORED",
+   "dst": "pr:8",
+   "props": {}
+  },
+  {
+   "src": "20200925-use-prettier-eslint-airbnb-for-the-code-style",
+   "rel": "RECORDED_IN",
+   "dst": "src:20200925-use-prettier-eslint-airbnb-for-the-code-style",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "AUTHORED",
+   "dst": "src:20200925-use-prettier-eslint-airbnb-for-the-code-style",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "OWNS",
+   "dst": "20200925-use-prettier-eslint-airbnb-for-the-code-style",
+   "props": {
+    "valid_from": "2020-09-25",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "20200925-use-prettier-eslint-airbnb-for-the-code-style",
+   "rel": "RECORDED_IN",
+   "dst": "pr:8",
+   "props": {}
+  },
+  {
+   "src": "gh:thomvaill",
+   "rel": "AUTHORED",
+   "dst": "pr:8",
+   "props": {}
+  },
+  {
+   "src": "20200926-use-the-adr-number-as-its-unique-id",
+   "rel": "RECORDED_IN",
+   "dst": "src:20200926-use-the-adr-number-as-its-unique-id",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "AUTHORED",
+   "dst": "src:20200926-use-the-adr-number-as-its-unique-id",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "OWNS",
+   "dst": "20200926-use-the-adr-number-as-its-unique-id",
+   "props": {
+    "valid_from": "2020-09-26",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "20200926-use-the-adr-number-as-its-unique-id",
+   "rel": "RECORDED_IN",
+   "dst": "pr:8",
+   "props": {}
+  },
+  {
+   "src": "gh:thomvaill",
+   "rel": "AUTHORED",
+   "dst": "pr:8",
+   "props": {}
+  },
+  {
+   "src": "20201016-use-the-adr-slug-as-its-unique-id",
+   "rel": "SUPERSEDES",
+   "dst": "20200926-use-the-adr-number-as-its-unique-id",
+   "props": {
+    "at": "2020-12-10",
+    "quote": "superseded by [20201016-use-the-adr-slug-as-its-unique-id](20201016-use-the-adr-slug-as-its-unique-id.md)"
+   }
+  },
+  {
+   "src": "20200927-avoid-default-exports",
+   "rel": "RECORDED_IN",
+   "dst": "src:20200927-avoid-default-exports",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "AUTHORED",
+   "dst": "src:20200927-avoid-default-exports",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "OWNS",
+   "dst": "20200927-avoid-default-exports",
+   "props": {
+    "valid_from": "2020-09-27",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "20200927-avoid-default-exports",
+   "rel": "RECORDED_IN",
+   "dst": "pr:8",
+   "props": {}
+  },
+  {
+   "src": "gh:thomvaill",
+   "rel": "AUTHORED",
+   "dst": "pr:8",
+   "props": {}
+  },
+  {
+   "src": "20201016-use-the-adr-slug-as-its-unique-id",
+   "rel": "RECORDED_IN",
+   "dst": "src:20201016-use-the-adr-slug-as-its-unique-id",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "AUTHORED",
+   "dst": "src:20201016-use-the-adr-slug-as-its-unique-id",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "OWNS",
+   "dst": "20201016-use-the-adr-slug-as-its-unique-id",
+   "props": {
+    "valid_from": "2020-10-16",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "20201016-use-the-adr-slug-as-its-unique-id",
+   "rel": "RECORDED_IN",
+   "dst": "pr:8",
+   "props": {}
+  },
+  {
+   "src": "gh:thomvaill",
+   "rel": "AUTHORED",
+   "dst": "pr:8",
+   "props": {}
+  },
+  {
+   "src": "20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx",
+   "rel": "RECORDED_IN",
+   "dst": "src:20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "AUTHORED",
+   "dst": "src:20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "OWNS",
+   "dst": "20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx",
+   "props": {
+    "valid_from": "2020-10-26",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx",
+   "rel": "RECORDED_IN",
+   "dst": "pr:8",
+   "props": {}
+  },
+  {
+   "src": "gh:thomvaill",
+   "rel": "AUTHORED",
+   "dst": "pr:8",
+   "props": {}
+  },
+  {
+   "src": "20201103-use-lunr-for-search",
+   "rel": "RECORDED_IN",
+   "dst": "src:20201103-use-lunr-for-search",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "AUTHORED",
+   "dst": "src:20201103-use-lunr-for-search",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "OWNS",
+   "dst": "20201103-use-lunr-for-search",
+   "props": {
+    "valid_from": "2020-11-03",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "20201103-use-lunr-for-search",
+   "rel": "RECORDED_IN",
+   "dst": "pr:8",
+   "props": {}
+  },
+  {
+   "src": "gh:thomvaill",
+   "rel": "AUTHORED",
+   "dst": "pr:8",
+   "props": {}
+  },
+  {
+   "src": "20210113-distribute-log4brains-as-a-global-npm-package",
+   "rel": "RECORDED_IN",
+   "dst": "src:20210113-distribute-log4brains-as-a-global-npm-package",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "AUTHORED",
+   "dst": "src:20210113-distribute-log4brains-as-a-global-npm-package",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "OWNS",
+   "dst": "20210113-distribute-log4brains-as-a-global-npm-package",
+   "props": {
+    "valid_from": "2021-01-13",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "20210113-distribute-log4brains-as-a-global-npm-package",
+   "rel": "RECORDED_IN",
+   "dst": "pr:15",
+   "props": {}
+  },
+  {
+   "src": "gh:thomvaill",
+   "rel": "AUTHORED",
+   "dst": "pr:15",
+   "props": {}
+  },
+  {
+   "src": "20240926-transition-to-simplified-git-flow",
+   "rel": "RECORDED_IN",
+   "dst": "src:20240926-transition-to-simplified-git-flow",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "AUTHORED",
+   "dst": "src:20240926-transition-to-simplified-git-flow",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "OWNS",
+   "dst": "20240926-transition-to-simplified-git-flow",
+   "props": {
+    "valid_from": "2024-09-26",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "20240926-transition-to-simplified-git-flow",
+   "rel": "RECORDED_IN",
+   "dst": "pr:121",
+   "props": {}
+  },
+  {
+   "src": "gh:thomvaill",
+   "rel": "AUTHORED",
+   "dst": "pr:121",
+   "props": {}
+  },
+  {
+   "src": "20241217-switch-back-to-github-flow",
+   "rel": "SUPERSEDES",
+   "dst": "20240926-transition-to-simplified-git-flow",
+   "props": {
+    "at": "2024-12-17",
+    "quote": "superseded by [20241217-switch-back-to-github-flow](20241217-switch-back-to-github-flow.md)"
+   }
+  },
+  {
+   "src": "20241217-switch-back-to-github-flow",
+   "rel": "RECORDED_IN",
+   "dst": "src:20241217-switch-back-to-github-flow",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "AUTHORED",
+   "dst": "src:20241217-switch-back-to-github-flow",
+   "props": {}
+  },
+  {
+   "src": "gh:thomas-vaillant",
+   "rel": "OWNS",
+   "dst": "20241217-switch-back-to-github-flow",
+   "props": {
+    "valid_from": "2024-12-17",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "20241217-switch-back-to-github-flow",
+   "rel": "RECORDED_IN",
+   "dst": "pr:142",
+   "props": {}
+  },
+  {
+   "src": "gh:thomvaill",
+   "rel": "AUTHORED",
+   "dst": "pr:142",
+   "props": {}
+  },
+  {
+   "src": "maintained:lerna",
+   "rel": "SUPPORTS",
+   "dst": "p_lerna_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to main on 2026-10-12"
+   }
+  },
+  {
+   "src": "open_source:lerna",
+   "rel": "SUPPORTS",
+   "dst": "p_lerna_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports MIT"
+   }
+  },
+  {
+   "src": "no_known_vuln:lerna",
+   "rel": "SUPPORTS",
+   "dst": "p_lerna_no_known_vuln",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "no OSV advisory affects 10.1.1"
+   }
+  },
+  {
+   "src": "maintained:lunr",
+   "rel": "CONTRADICTS",
+   "dst": "p_lunr_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to master on 2020-08-19"
+   }
+  },
+  {
+   "src": "open_source:lunr",
+   "rel": "SUPPORTS",
+   "dst": "p_lunr_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports MIT"
+   }
+  },
+  {
+   "src": "no_known_vuln:lunr",
+   "rel": "SUPPORTS",
+   "dst": "p_lunr_no_known_vuln",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "no OSV advisory affects 2.3.9"
+   }
+  },
+  {
+   "src": "maintained:mdx",
+   "rel": "SUPPORTS",
+   "dst": "p_mdx_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to main on 2026-09-21"
+   }
+  },
+  {
+   "src": "open_source:mdx",
+   "rel": "SUPPORTS",
+   "dst": "p_mdx_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports MIT"
+   }
+  },
+  {
+   "src": "no_known_vuln:mdx",
+   "rel": "SUPPORTS",
+   "dst": "p_mdx_no_known_vuln",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "no OSV advisory affects 3.1.1"
+   }
+  },
+  {
+   "src": "maintained:prettier-eslint",
+   "rel": "SUPPORTS",
+   "dst": "p_prettier-eslint_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to master on 2026-09-12"
+   }
+  },
+  {
+   "src": "open_source:prettier-eslint",
+   "rel": "SUPPORTS",
+   "dst": "p_prettier-eslint_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports MIT"
+   }
+  },
+  {
+   "src": "no_known_vuln:prettier-eslint",
+   "rel": "SUPPORTS",
+   "dst": "p_prettier-eslint_no_known_vuln",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "no OSV advisory affects 17.1.2"
+   }
+  },
+  {
+   "src": "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna",
+   "rel": "BECAUSE_OF",
+   "dst": "p_lerna_maintained",
+   "props": {
+    "quote": "Lerna is actively maintained"
+   }
+  },
+  {
+   "src": "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna",
+   "rel": "BECAUSE_OF",
+   "dst": "p_lerna_open_source",
+   "props": {
+    "quote": "Lerna is open source"
+   }
+  },
+  {
+   "src": "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna",
+   "rel": "BECAUSE_OF",
+   "dst": "p_lerna_no_known_vuln",
+   "props": {
+    "quote": "The current release of Lerna has no known vulnerability"
+   }
+  },
+  {
+   "src": "20200925-use-prettier-eslint-airbnb-for-the-code-style",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prettier-eslint_maintained",
+   "props": {
+    "quote": "prettier-eslint is actively maintained"
+   }
+  },
+  {
+   "src": "20200925-use-prettier-eslint-airbnb-for-the-code-style",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prettier-eslint_open_source",
+   "props": {
+    "quote": "prettier-eslint is open source"
+   }
+  },
+  {
+   "src": "20200925-use-prettier-eslint-airbnb-for-the-code-style",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prettier-eslint_no_known_vuln",
+   "props": {
+    "quote": "The current release of prettier-eslint has no known vulnerability"
+   }
+  },
+  {
+   "src": "20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx",
+   "rel": "BECAUSE_OF",
+   "dst": "p_mdx_maintained",
+   "props": {
+    "quote": "MDX is actively maintained"
+   }
+  },
+  {
+   "src": "20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx",
+   "rel": "BECAUSE_OF",
+   "dst": "p_mdx_open_source",
+   "props": {
+    "quote": "MDX is open source"
+   }
+  },
+  {
+   "src": "20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx",
+   "rel": "BECAUSE_OF",
+   "dst": "p_mdx_no_known_vuln",
+   "props": {
+    "quote": "The current release of MDX has no known vulnerability"
+   }
+  },
+  {
+   "src": "20201103-use-lunr-for-search",
+   "rel": "BECAUSE_OF",
+   "dst": "p_lunr_maintained",
+   "props": {
+    "quote": "Lunr.js is actively maintained"
+   }
+  },
+  {
+   "src": "20201103-use-lunr-for-search",
+   "rel": "BECAUSE_OF",
+   "dst": "p_lunr_open_source",
+   "props": {
+    "quote": "Lunr.js is open source"
+   }
+  },
+  {
+   "src": "20201103-use-lunr-for-search",
+   "rel": "BECAUSE_OF",
+   "dst": "p_lunr_no_known_vuln",
+   "props": {
+    "quote": "The current release of Lunr.js has no known vulnerability"
+   }
+  }
+ ]
+}

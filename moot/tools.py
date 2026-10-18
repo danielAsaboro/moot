@@ -133,6 +133,32 @@ def audit_decision(g: Graph, decision_id: str, as_of: str | None = None, depth: 
                 owner=decision_owner(g, decision_id, as_of))
 
 
+# 2a. Since when? The verdict can only change on a date something in the decision's subgraph happened, so the audit is
+#     re-run on each of those dates and the history is the runs of equal verdicts. `since` is when the current one began.
+def verdict_history(g: Graph, decision_id: str, as_of: str | None = None, depth: int = 4) -> dict:
+    as_of = as_of or today()
+    depth = max(1, min(int(depth), 6))
+    rows = _q(g,
+        "MATCH (d:Decision {id: $id}) "
+        "OPTIONAL MATCH (x)-[rt:SUPERSEDES|RETIRES]->(d) "
+        "OPTIONAL MATCH (d)-[:BECAUSE_OF|DERIVED_FROM*1..%d]->(pr:Premise)<-[r:SUPPORTS|CONTRADICTS]-() "
+        "RETURN d.decided_on, collect(DISTINCT rt.at) + collect(DISTINCT rt.stated) + collect(DISTINCT r.at) + collect(DISTINCT r.stated)" % depth,
+        {"id": decision_id}).result_set
+    if not rows:
+        return dict(found=False, decision_id=decision_id)
+    decided, dates = rows[0]
+    dates = sorted({x for x in [decided, *dates] if x and x <= as_of})
+    history: list[dict] = []
+    for x in dates:
+        v = audit_decision(g, decision_id, x, depth)["verdict"]
+        if not history or history[-1]["verdict"] != v:
+            history.append(dict(verdict=v, since=x))
+    current = audit_decision(g, decision_id, as_of, depth)["verdict"]
+    if not history or history[-1]["verdict"] != current:  # e.g. NOT_YET before the decision date
+        history.append(dict(verdict=current, since=None))
+    return dict(found=True, decision_id=decision_id, as_of=as_of, depth=depth, verdict=current, since=history[-1]["since"], history=history)
+
+
 # 2b. The validity gate: may an agent act on (enforce, rely on, renew) this decision? Always audited at full depth,
 #     because a shallow audit lets a decision through whose reason died two hops down (D01 at depth 1).
 GATE_DEPTH = 6

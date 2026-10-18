@@ -1,0 +1,3509 @@
+{
+ "nodes": [
+  {
+   "label": "Decision",
+   "id": "0001-record-architecture-decisions",
+   "props": {
+    "title": "1. Record architecture decisions",
+    "summary": "We will use Architecture Decision Records (ADRs), as described by Michael Nygard.",
+    "decided_on": "2021-08-10",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0001-record-architecture-decisions.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0001-record-architecture-decisions",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 1. Record architecture decisions",
+    "date": "2021-08-10",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0001-record-architecture-decisions.md",
+    "excerpt": "We will use Architecture Decision Records (ADRs), as described by Michael Nygard."
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:kerin",
+   "props": {
+    "name": "Kerin Cosford",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": "kerin"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:ianhowell-gds",
+   "props": {
+    "name": "Ian Howell",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": "ianhowell-gds"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:ap-hunt",
+   "props": {
+    "name": "Andy Hunt",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": "AP-Hunt"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:374",
+   "props": {
+    "kind": "pr",
+    "title": "Add first architecture decision record",
+    "date": "2021-08-10",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/374",
+    "excerpt": "ADR to start using ADRs"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0002-use-aws-eks-terraform-module",
+   "props": {
+    "title": "2. Use `aws-eks` Terraform module",
+    "summary": "Adopt the existing Terraform registry EKS module.",
+    "decided_on": "2021-08-10",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0002-use-aws-eks-terraform-module.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0002-use-aws-eks-terraform-module",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 2. Use `aws-eks` Terraform module",
+    "date": "2021-08-10",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0002-use-aws-eks-terraform-module.md",
+    "excerpt": "Adopt the existing Terraform registry EKS module."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:375",
+   "props": {
+    "kind": "pr",
+    "title": "Add EKS terraform module ADR",
+    "date": "2021-08-11",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/375",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases",
+   "props": {
+    "title": "3. Split Terraform state into separate AWS cluster and Kubernetes resource phases",
+    "summary": "Split Terraform resources into two separate states and phases: 1. cluster-infrastructure - EKS cluster and associated AWS resources. We do not define a kubernetes provider in this root. 2. cluster-services - Kubernetes resources (for example, ingress controllers) and in-cluster configuration (for ex",
+    "decided_on": "2021-08-11",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 3. Split Terraform state into separate AWS cluster and Kubernetes resource phases",
+    "date": "2021-08-11",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases.md",
+    "excerpt": "Split Terraform resources into two separate states and phases: 1. cluster-infrastructure - EKS cluster and associated AWS resources. We do not define a kubernetes provider in this root. 2. cluster-services - Kubernetes resources (for example, ingress controllers) and in-cluster configuration (for ex"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:376",
+   "props": {
+    "kind": "pr",
+    "title": "Add EKS split Terrafrom state ADR",
+    "date": "2021-08-17",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/376",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0004-use-aws-load-balancer-controller-for-edge-traffic-services",
+   "props": {
+    "title": "4. Use AWS Load Balancer Controller for edge traffic services",
+    "summary": "Use the AWS Load Balancer Controller.",
+    "decided_on": "2021-08-12",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0004-use-aws-load-balancer-controller-for-edge-traffic-services",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 4. Use AWS Load Balancer Controller for edge traffic services",
+    "date": "2021-08-12",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+    "excerpt": "Use the AWS Load Balancer Controller."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:379",
+   "props": {
+    "kind": "pr",
+    "title": "Add ADR for choice of EKS ingress controller",
+    "date": "2021-08-13",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/379",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0005-use-eks-managed-node-groups",
+   "props": {
+    "title": "5. Use AWS Elastic Kubernetes Service (EKS) managed node groups",
+    "summary": "Use managed node groups.",
+    "decided_on": "2021-08-13",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0005-use-eks-managed-node-groups.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0005-use-eks-managed-node-groups",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 5. Use AWS Elastic Kubernetes Service (EKS) managed node groups",
+    "date": "2021-08-13",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0005-use-eks-managed-node-groups.md",
+    "excerpt": "Use managed node groups."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:381",
+   "props": {
+    "kind": "pr",
+    "title": "Add ADR for choice of EKS node group",
+    "date": "2021-08-17",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/381",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0006-use-helm-for-application-package-management",
+   "props": {
+    "title": "6. Use Helm for application package management",
+    "summary": "Use Helm v3+.",
+    "decided_on": "2021-08-16",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0006-use-helm-for-application-package-management.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0006-use-helm-for-application-package-management",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 6. Use Helm for application package management",
+    "date": "2021-08-16",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0006-use-helm-for-application-package-management.md",
+    "excerpt": "Use Helm v3+."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:388",
+   "props": {
+    "kind": "pr",
+    "title": "Add ADR for use of Helm for application packaging",
+    "date": "2021-08-16",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/388",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "props": {
+    "title": "7. Use Fluent Bit, Elasticsearch and Kibana for application logs",
+    "summary": "Use a Fluent Bit DaemonsSet with AWS Elasticsearch Service.",
+    "decided_on": "2021-08-16",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Deprecated (no superseding ADR)"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 7. Use Fluent Bit, Elasticsearch and Kibana for application logs",
+    "date": "2021-08-16",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+    "excerpt": "Use a Fluent Bit DaemonsSet with AWS Elasticsearch Service."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:390",
+   "props": {
+    "kind": "pr",
+    "title": "Add ADR for EKS application logging",
+    "date": "2021-08-16",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/390",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:3485",
+   "props": {
+    "kind": "pr",
+    "title": "Update documentation to meet incoming Vale rules, batch 2",
+    "date": "2026-01-14",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/3485",
+    "excerpt": "Deprecated (no superseding ADR)"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0008-use-external-secrets-for-secrets-storage",
+   "props": {
+    "title": "8. Use external-secrets for secrets storage",
+    "summary": "Use **`external-secrets`**. While kubernetes-external-secrets is more mature and slightly simpler to deploy and use, it is also on a deprecation path, with no plans for a migration path to external-secrets. external-secrets is less mature and slightly more complex, but not significantly so, and proo",
+    "decided_on": "2021-08-26",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0008-use-external-secrets-for-secrets-storage.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0008-use-external-secrets-for-secrets-storage",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 8. Use external-secrets for secrets storage",
+    "date": "2021-08-26",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0008-use-external-secrets-for-secrets-storage.md",
+    "excerpt": "Use **`external-secrets`**. While kubernetes-external-secrets is more mature and slightly simpler to deploy and use, it is also on a deprecation path, with no plans for a migration path to external-secrets. external-secrets is less mature and slightly more complex, but not significantly so, and proo"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:404",
+   "props": {
+    "kind": "pr",
+    "title": "Add ADR for EKS external secrets storage",
+    "date": "2021-08-27",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/404",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0009-use-external-dns-for-dns-record-management",
+   "props": {
+    "title": "9. Use `external-dns` for DNS record management",
+    "summary": "Use `external-dns`.",
+    "decided_on": "2021-08-27",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0009-use-external-dns-for-dns-record-management.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0009-use-external-dns-for-dns-record-management",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 9. Use `external-dns` for DNS record management",
+    "date": "2021-08-27",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0009-use-external-dns-for-dns-record-management.md",
+    "excerpt": "Use `external-dns`."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:411",
+   "props": {
+    "kind": "pr",
+    "title": "Add ADR for EKS external DNS management",
+    "date": "2021-08-27",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/411",
+    "excerpt": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0010-use-dex-idp-for-user-web-authentication",
+   "props": {
+    "title": "10. Use Dex IdP for user web authentication",
+    "summary": "Use Dex as a Single Sign-On (SSO) service and identity provider for all web-based user authentication. This is strictly for use with user-facing, web-based cluster services such as monitoring and CI/CD tools. We should not used it for any other purposes, such as AWS or Kubernetes authentication.",
+    "decided_on": "2021-12-01",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0010-use-dex-idp-for-user-web-authentication.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0010-use-dex-idp-for-user-web-authentication",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 10. Use Dex IdP for user web authentication",
+    "date": "2021-12-01",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0010-use-dex-idp-for-user-web-authentication.md",
+    "excerpt": "Use Dex as a Single Sign-On (SSO) service and identity provider for all web-based user authentication. This is strictly for use with user-facing, web-based cluster services such as monitoring and CI/CD tools. We should not used it for any other purposes, such as AWS or Kubernetes authentication."
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:jaskaransarkaria",
+   "props": {
+    "name": "Jaskaran Sarkaria",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": "jaskaransarkaria"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:3486",
+   "props": {
+    "kind": "pr",
+    "title": "Update documentation to meet incoming Vale rules, batch 3",
+    "date": "2026-01-19",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/3486",
+    "excerpt": "Updates some of our documentation to meet the incoming Vale linting rules. These is an amalgamation of a number of commits from a previous branch, and one of a number of new branches that break up the work into more reviewable chunks."
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0011-use-graviton-for-compute-instances",
+   "props": {
+    "title": "11. Use AWS Graviton (ARM) for compute instances",
+    "summary": "1. Update our CI/CD to build all GOV.UK app images with ARM support 2. Update our EKS node groups to add Graviton EC2 instances to our clusters 3. Instruct Kubernetes to deploy only ARM-architecture images 4. Scale our x8664 (Intel) node groups down to zero.",
+    "decided_on": "2025-03-03",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0011-use-graviton-for-compute-instances.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0011-use-graviton-for-compute-instances",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 11. Use AWS Graviton (ARM) for compute instances",
+    "date": "2025-03-03",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0011-use-graviton-for-compute-instances.md",
+    "excerpt": "1. Update our CI/CD to build all GOV.UK app images with ARM support 2. Update our EKS node groups to add Graviton EC2 instances to our clusters 3. Instruct Kubernetes to deploy only ARM-architecture images 4. Scale our x8664 (Intel) node groups down to zero."
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:dj-maisy",
+   "props": {
+    "name": "David Mays",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": "dj-maisy"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:1750",
+   "props": {
+    "kind": "pr",
+    "title": "Document Graviton switchover decision",
+    "date": "2025-03-10",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/1750",
+    "excerpt": "## What?\r\nThis documents our switchover to AWS Graviton, to help us get closer to closing-off the related Epic.\r\n\r\nI decided to implement this as an ADR in this repo as it is a change that relates to the Infrastructure.\r\n\r\n## Related\r\n\r\n* https://github.com/alphagov/govuk-infrastructure/issues/1551\r"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0012-non-govuk-domain-policy",
+   "props": {
+    "title": "12. Non-GOV.UK domain policy",
+    "summary": "<!-- vale GOVUK.Acronyms = NO -- <!-- This document uses upper case words that aren't acronyms. See definitions. -- <!-- vale RedHat.TermsWarnings = NO -- <!-- This document uses \"MAY\" deliberately, which RedHat.TermsWarnings warns against using -- <!-- vale RedHat.PassiveVoice = NO -- <!-- This doc",
+    "decided_on": "2025-05-06",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0012-non-govuk-domain-policy.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0012-non-govuk-domain-policy",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 12. Non-GOV.UK domain policy",
+    "date": "2025-05-06",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0012-non-govuk-domain-policy.md",
+    "excerpt": "<!-- vale GOVUK.Acronyms = NO -- <!-- This document uses upper case words that aren't acronyms. See definitions. -- <!-- vale RedHat.TermsWarnings = NO -- <!-- This document uses \"MAY\" deliberately, which RedHat.TermsWarnings warns against using -- <!-- vale RedHat.PassiveVoice = NO -- <!-- This doc"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:chrisbashton",
+   "props": {
+    "name": "Chris Ashton",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": "ChrisBAshton"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:2092",
+   "props": {
+    "kind": "pr",
+    "title": "Document our policy on using non-GOV.UK domains",
+    "date": "2025-05-06",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/2092",
+    "excerpt": "This is [copied over from govuk-aws](https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0039-non-govuk-domain-policy.md) (and therefore optimistically marked as \"Status: Accepted\"), minus the 'Consequences' section which is no longer relevant.\r\n\r\nThis was one of the few ADRs"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0013-expose-external-metrics-for-hpa",
+   "props": {
+    "title": "13. Expose external metrics for Horizontal Pod Autoscaler using Prometheus adapter",
+    "summary": " Adopt the Prometheus Adapter Helm chart (prometheus-community/prometheus-adapter) as the standard way to serve external metrics. Deploy the chart in the monitoring namespace and manage it with our existing GitOps repository (govuk-helm-charts) and Argo CD. Create a minimal external-metrics rule set",
+    "decided_on": "2025-06-03",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0013-expose-external-metrics-for-hpa.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0013-expose-external-metrics-for-hpa",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 13. Expose external metrics for Horizontal Pod Autoscaler using Prometheus adapter",
+    "date": "2025-06-03",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0013-expose-external-metrics-for-hpa.md",
+    "excerpt": " Adopt the Prometheus Adapter Helm chart (prometheus-community/prometheus-adapter) as the standard way to serve external metrics. Deploy the chart in the monitoring namespace and manage it with our existing GitOps repository (govuk-helm-charts) and Argo CD. Create a minimal external-metrics rule set"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:jasonbirchall",
+   "props": {
+    "name": "jasonBirchall",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": ""
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:2235",
+   "props": {
+    "kind": "pr",
+    "title": "\u2728 Add 0013-expose-external-metrics-for-hpa ADR",
+    "date": "2025-06-04",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/2235",
+    "excerpt": "This ADR discusses the proof-of-concept described by https://github.com/alphagov/govuk-infrastructure/issues/2231 and related to the addition of Prometheus-Adapter. Once merged and approved, we should progress the deploy to staging and production environments."
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0014-replace-terraform-cloud",
+   "props": {
+    "title": "14. Replace Terraform Cloud backend with AWS S3",
+    "summary": " Adopt S3 as the canonical Terraform backend for all workspaces. Provision one bucket per environment: govuk-terraform-state-integration govuk-terraform-state-staging govuk-terraform-state-production with versioning, bucket\u2011level public\u2011access blocks and SSE\u2011KMS. Retain object versions for 90 days v",
+    "decided_on": "2025-06-10",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0014-replace-terraform-cloud.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0014-replace-terraform-cloud",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 14. Replace Terraform Cloud backend with AWS S3",
+    "date": "2025-06-10",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0014-replace-terraform-cloud.md",
+    "excerpt": " Adopt S3 as the canonical Terraform backend for all workspaces. Provision one bucket per environment: govuk-terraform-state-integration govuk-terraform-state-staging govuk-terraform-state-production with versioning, bucket\u2011level public\u2011access blocks and SSE\u2011KMS. Retain object versions for 90 days v"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:2277",
+   "props": {
+    "kind": "pr",
+    "title": "\u2728 Add ADR-0014: Replace Terraform Cloud backend with S3 + DynamoDB",
+    "date": "2025-06-10",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/2277",
+    "excerpt": "Introduces a pending architecture decision to migrate GOV.UK's Terraform state from Terraform Cloud to an S3 + DynamoDB backend. This change targets >99% cost reduction and removes proprietary lock-in. Includes migration plan, access controls, and consequences. I deliberately don't mention how much "
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0015-maintain-a-readonly-role",
+   "props": {
+    "title": "15. Maintain a read-only IAM role",
+    "summary": "We have decided to reintroduce the ReadOnly role to give a fully read-only level of privilege in a number of scenarios: 1. Developers wanting to just look about without changing anything, 2. Junior/apprentice level roles needing access without the ability to accidentally change anything, 3. External",
+    "decided_on": "2025-06-18",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0015-maintain-a-readonly-role.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0015-maintain-a-readonly-role",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 15. Maintain a read-only IAM role",
+    "date": "2025-06-18",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0015-maintain-a-readonly-role.md",
+    "excerpt": "We have decided to reintroduce the ReadOnly role to give a fully read-only level of privilege in a number of scenarios: 1. Developers wanting to just look about without changing anything, 2. Junior/apprentice level roles needing access without the ability to accidentally change anything, 3. External"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:2313",
+   "props": {
+    "kind": "pr",
+    "title": "ADR-0015 maintain a readonly role",
+    "date": "2025-06-18",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/2313",
+    "excerpt": "Introduces an ADR which documents why we've chosen to maintain a readonly role. It also introduces a new guardrail test to ensure the ADR numbering on the file matches the title."
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0016-use-iam-roles-for-services",
+   "props": {
+    "title": "16. Use IAM roles for external services and applications",
+    "summary": "We have decided to retire (delete) IAM users and their associated access keys, replacing them with suitable IAM roles. This change will occur when: We identify a long-lived access key that is a candidate for rotation. The service using the access key supports assuming IAM roles. The application usin",
+    "decided_on": "2025-06-20",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0016-use-iam-roles-for-services.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0016-use-iam-roles-for-services",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 16. Use IAM roles for external services and applications",
+    "date": "2025-06-20",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0016-use-iam-roles-for-services.md",
+    "excerpt": "We have decided to retire (delete) IAM users and their associated access keys, replacing them with suitable IAM roles. This change will occur when: We identify a long-lived access key that is a candidate for rotation. The service using the access key supports assuming IAM roles. The application usin"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:2329",
+   "props": {
+    "kind": "pr",
+    "title": "Document IAM Roles work as an ADR",
+    "date": "2025-06-20",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/2329",
+    "excerpt": "## What?\r\nThis sets up an ADR around our \"Decision\" to use IAM Roles (and by extension Pod Identities) to deprecate the use of AWS Access Keys wherever possible.\r\n\r\nOccasionally, there may be a situation where an external service or app does not support using Roles, however, this policy will minimis"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0017-retire-use-of-github-topics-for-config-management",
+   "props": {
+    "title": "17. Retire use of GitHub topics for configuration management",
+    "summary": "We have decided to stop using GitHub topics as selectors or identifiers for our automation scripts, including Terraform. As a consequence, we must now configure our GitHub repositories using configuration files or in code explicitly, rather than implicitly through remotely-managed tags or labels. We",
+    "decided_on": "2025-08-06",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0017-retire-use-of-github-topics-for-config-management.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0017-retire-use-of-github-topics-for-config-management",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 17. Retire use of GitHub topics for configuration management",
+    "date": "2025-08-06",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0017-retire-use-of-github-topics-for-config-management.md",
+    "excerpt": "We have decided to stop using GitHub topics as selectors or identifiers for our automation scripts, including Terraform. As a consequence, we must now configure our GitHub repositories using configuration files or in code explicitly, rather than implicitly through remotely-managed tags or labels. We"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:2536",
+   "props": {
+    "kind": "pr",
+    "title": "Update GitHub Deploy Docs and Add ADR",
+    "date": "2025-08-07",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/2536",
+    "excerpt": "## What?\r\nThis creates a new ADR explaining the \"retirement\" of GitHub Topics for Configuration Management purposes.\r\n\r\nThis also updates the included README in the GitHub TF Deployment folder to stop referring to the use of Topics."
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0018-use-concourse-ci",
+   "props": {
+    "title": "18. Use Concourse CI",
+    "summary": "After playing back both investigations into Kargo and Concourse, the team decided to pursue Concourse as its CI/CD tool of choice. In our research we deployed it on virtual machines in EC2, because we borrowed Terraform code from another team to speed our prototyping time. We discussed the implicati",
+    "decided_on": "2025-08-12",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0018-use-concourse-ci.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0018-use-concourse-ci",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 18. Use Concourse CI",
+    "date": "2025-08-12",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0018-use-concourse-ci.md",
+    "excerpt": "After playing back both investigations into Kargo and Concourse, the team decided to pursue Concourse as its CI/CD tool of choice. In our research we deployed it on virtual machines in EC2, because we borrowed Terraform code from another team to speed our prototyping time. We discussed the implicati"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:2560",
+   "props": {
+    "kind": "pr",
+    "title": "ADR0018 Use Concourse",
+    "date": "2025-08-13",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/2560",
+    "excerpt": "## What\r\n\r\nAn architecture decision record for our decision to use Concourse\r\n\r\n## How to review\r\n\r\nRead it. Is there anything missing? Anything that needs expanding on? Anything to remove?"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0019-restructure-cicd",
+   "props": {
+    "title": "19. Restructure CI/CD",
+    "summary": "The decision we have landed on is a blend between options 2 and 3. We will have a Concourse deployment in each environment, with a central Concourse deployment in a \"tools\" account or similar. The central Concourse will not have permission to reach into other accounts. <!-- vale PlatformEngineering.",
+    "decided_on": "2025-10-16",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0019-restructure-cicd.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0019-restructure-cicd",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 19. Restructure CI/CD",
+    "date": "2025-10-16",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0019-restructure-cicd.md",
+    "excerpt": "The decision we have landed on is a blend between options 2 and 3. We will have a Concourse deployment in each environment, with a central Concourse deployment in a \"tools\" account or similar. The central Concourse will not have permission to reach into other accounts. <!-- vale PlatformEngineering."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:2998",
+   "props": {
+    "kind": "pr",
+    "title": "ADR 019",
+    "date": "2025-10-23",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/2998",
+    "excerpt": "## What\r\n\r\nAdds Architecture Decision Record 019: restructure CI/CD\r\n\r\n\r\n## How to review\r\n\r\n1. Copy review\r\n2. Think back to what we talked about on the 15th. Does this match up?\r\n\r\nThere will be another ADR for the Crossplane decision"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0020-use-crossplane-for-abstraction",
+   "props": {
+    "title": "20. Use Crossplane for abstraction",
+    "summary": "<!-- vale RedHat.TermsSuggestions = NO -- We have decided that we want to use Crossplane to create a Kubernetes-flavoured API for our users. The API will abstract the types of resources our users need to create at a higher level than offered by the standard Kubernetes API. <!-- \"higher\" in \"higher l",
+    "decided_on": "2025-10-20",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0020-use-crossplane-for-abstraction.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0020-use-crossplane-for-abstraction",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 20. Use Crossplane for abstraction",
+    "date": "2025-10-20",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0020-use-crossplane-for-abstraction.md",
+    "excerpt": "<!-- vale RedHat.TermsSuggestions = NO -- We have decided that we want to use Crossplane to create a Kubernetes-flavoured API for our users. The API will abstract the types of resources our users need to create at a higher level than offered by the standard Kubernetes API. <!-- \"higher\" in \"higher l"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:3029",
+   "props": {
+    "kind": "pr",
+    "title": "ADR 020: Use Crossplane for Abstraction",
+    "date": "2025-10-23",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/3029",
+    "excerpt": "## What\r\n\r\nADR020 documents our decision to use [Crossplane](https://www.crossplane.io/)\r\n\r\n## How to review\r\n\r\n1. Copy review\r\n2. Does this sound like what we agreed?"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0021-give-fastly-cname-records-a-TTL-of-300",
+   "props": {
+    "title": "21. Give Fastly CNAME records a TTL of 300",
+    "summary": "We have decided to give Fastly CNAME records for assets.publishing.service.gov.uk and www-cdn.production.govuk.service.gov.uk a TTL of 300.",
+    "decided_on": "2025-10-27",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0021-give-fastly-cname-records-a-TTL-of-300.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0021-give-fastly-cname-records-a-TTL-of-300",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 21. Give Fastly CNAME records a TTL of 300",
+    "date": "2025-10-27",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0021-give-fastly-cname-records-a-TTL-of-300.md",
+    "excerpt": "We have decided to give Fastly CNAME records for assets.publishing.service.gov.uk and www-cdn.production.govuk.service.gov.uk a TTL of 300."
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:nimalank7",
+   "props": {
+    "name": "Nimalan Kirubakaran",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": "nimalank7"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:3055",
+   "props": {
+    "kind": "pr",
+    "title": "ADR 21 - Give Fastly CNAME records a TTL of 300",
+    "date": "2025-10-27",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/3055",
+    "excerpt": "Description:\r\n- ADR documents the decision to set Fastly CNAME records a TTL of 300\r\n- https://github.com/alphagov/govuk-infrastructure/issues/2894"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0022-use-pkl-for-configuration",
+   "props": {
+    "title": "22. Use Pkl for configuration",
+    "summary": "After the research and discussion outlined in the Context section, we have decided to use Pkl for configuration code going forwards. We have chosen Pkl because, of the options we short-listed, it was the most mature, well-supported, and feature rich option. It has strong support in IDEs and on GitHu",
+    "decided_on": "2025-11-06",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0022-use-pkl-for-configuration.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0022-use-pkl-for-configuration",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 22. Use Pkl for configuration",
+    "date": "2025-11-06",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0022-use-pkl-for-configuration.md",
+    "excerpt": "After the research and discussion outlined in the Context section, we have decided to use Pkl for configuration code going forwards. We have chosen Pkl because, of the options we short-listed, it was the most mature, well-supported, and feature rich option. It has strong support in IDEs and on GitHu"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:3162",
+   "props": {
+    "kind": "pr",
+    "title": "ADR0022 Use Pkl for configuration",
+    "date": "2025-11-11",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/3162",
+    "excerpt": "Documents our decision to begin using Pkl for configuration"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0023-use-opa-gatekeeper",
+   "props": {
+    "title": "23. Use OPA Gatekeeper",
+    "summary": "We have chosen to adopt OPA Gatekeeper for applying policy to Kubernetes objects because it is a mature CNCF graduated project with good adoption among other Kubernetes users. We also view its dedicated Rego language as a positive. It is testable, not overly complicated or hard to learn, and adoptin",
+    "decided_on": "2026-07-07",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0023-use-opa-gatekeeper.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0023-use-opa-gatekeeper",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 23. Use OPA Gatekeeper",
+    "date": "2026-07-07",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0023-use-opa-gatekeeper.md",
+    "excerpt": "We have chosen to adopt OPA Gatekeeper for applying policy to Kubernetes objects because it is a mature CNCF graduated project with good adoption among other Kubernetes users. We also view its dedicated Rego language as a positive. It is testable, not overly complicated or hard to learn, and adoptin"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:4511",
+   "props": {
+    "kind": "pr",
+    "title": "ADR 0023: Adopt OPA Gatekeeper",
+    "date": "2026-07-21",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/4511",
+    "excerpt": "A written record of our decision to adopt OPA Gatekeeper"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0024-use-of-admission-policy",
+   "props": {
+    "title": "24. Use of admission policy",
+    "summary": "Keep using Open Policy Agent (OPA) and Rego. Pick Gatekeeper and Admission Webhooks over CEL and Admission Policy where possible. OPA proves particularly useful for the team, as we expect to utilise the engine with our upcoming concourse work.",
+    "decided_on": "2026-08-07",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0024-use-of-admission-policy.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0024-use-of-admission-policy",
+   "props": {
+    "kind": "adr",
+    "title": "alphagov/govuk-infrastructure: 24. Use of admission policy",
+    "date": "2026-08-07",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0024-use-of-admission-policy.md",
+    "excerpt": "Keep using Open Policy Agent (OPA) and Rego. Pick Gatekeeper and Admission Webhooks over CEL and Admission Policy where possible. OPA proves particularly useful for the team, as we expect to utilise the engine with our upcoming concourse work."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:4630",
+   "props": {
+    "kind": "pr",
+    "title": "docs: \u270f\ufe0f add admission policy adr",
+    "date": "2026-08-11",
+    "path": "https://github.com/alphagov/govuk-infrastructure/pull/4630",
+    "excerpt": "Following our discussion at SU, we need to record our decision to prefer Gatekeeper and rego policies over CEL based admission policies.\r\n\r\n- adds an adr about Admission Policies"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_aws-lbc_maintained",
+   "props": {
+    "text": "AWS Load Balancer Controller is actively maintained",
+    "kind": "unwritten",
+    "tool": "aws-lbc",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:aws-lbc",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-14",
+    "date": "2026-10-19",
+    "excerpt": "last commit to main on 2026-10-14",
+    "path": "https://github.com/kubernetes-sigs/aws-load-balancer-controller"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_aws-lbc_open_source",
+   "props": {
+    "text": "AWS Load Balancer Controller is open source",
+    "kind": "unwritten",
+    "tool": "aws-lbc",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:aws-lbc",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/kubernetes-sigs/aws-load-balancer-controller"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_aws-lbc_no_known_vuln",
+   "props": {
+    "text": "The current release of AWS Load Balancer Controller has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "aws-lbc",
+    "check": "no_known_vuln",
+    "unchecked": "the Go module's latest version (v1.1.9) does not match the project's latest release (v3.6.0)"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_concourse_maintained",
+   "props": {
+    "text": "Concourse CI is actively maintained",
+    "kind": "unwritten",
+    "tool": "concourse",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:concourse",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-10-16",
+    "date": "2026-10-19",
+    "excerpt": "last commit to master on 2026-10-16",
+    "path": "https://github.com/concourse/concourse"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_concourse_open_source",
+   "props": {
+    "text": "Concourse CI is open source",
+    "kind": "unwritten",
+    "tool": "concourse",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:concourse",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/concourse/concourse"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_concourse_no_known_vuln",
+   "props": {
+    "text": "The current release of Concourse CI has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "concourse",
+    "check": "no_known_vuln",
+    "unchecked": "the Go module's latest version (v4.2.3+incompatible) does not match the project's latest release (v8.3.1)"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_crossplane_maintained",
+   "props": {
+    "text": "Crossplane is actively maintained",
+    "kind": "unwritten",
+    "tool": "crossplane",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:crossplane",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-16",
+    "date": "2026-10-19",
+    "excerpt": "last commit to main on 2026-10-16",
+    "path": "https://github.com/crossplane/crossplane"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_crossplane_open_source",
+   "props": {
+    "text": "Crossplane is open source",
+    "kind": "unwritten",
+    "tool": "crossplane",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:crossplane",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/crossplane/crossplane"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_crossplane_no_known_vuln",
+   "props": {
+    "text": "The current release of Crossplane has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "crossplane",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:crossplane",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: 1 OSV advisory affects v2.4.2",
+    "date": "2026-10-19",
+    "excerpt": "1 OSV advisory affects v2.4.2",
+    "path": "https://github.com/crossplane/crossplane"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_dex_maintained",
+   "props": {
+    "text": "Dex is actively maintained",
+    "kind": "unwritten",
+    "tool": "dex",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:dex",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-10-07",
+    "date": "2026-10-19",
+    "excerpt": "last commit to master on 2026-10-07",
+    "path": "https://github.com/dexidp/dex"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_dex_open_source",
+   "props": {
+    "text": "Dex is open source",
+    "kind": "unwritten",
+    "tool": "dex",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:dex",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/dexidp/dex"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_dex_no_known_vuln",
+   "props": {
+    "text": "The current release of Dex has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "dex",
+    "check": "no_known_vuln",
+    "unchecked": "the Go module's latest version (v0.6.1) does not match the project's latest release (v2.46.0)"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_elasticsearch_maintained",
+   "props": {
+    "text": "Elasticsearch is actively maintained",
+    "kind": "unwritten",
+    "tool": "elasticsearch",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:elasticsearch",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-17",
+    "date": "2026-10-19",
+    "excerpt": "last commit to main on 2026-10-17",
+    "path": "https://github.com/elastic/elasticsearch"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_elasticsearch_open_source",
+   "props": {
+    "text": "Elasticsearch is open source",
+    "kind": "unwritten",
+    "tool": "elasticsearch",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:elasticsearch",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: offered under Elastic-2.0, SSPL-1.0, AGPL-3.0, Apache-2.0; the OSI option (AGPL-3.0, Apache-2.0) keeps it open source",
+    "date": "2026-10-19",
+    "excerpt": "offered under Elastic-2.0, SSPL-1.0, AGPL-3.0, Apache-2.0; the OSI option (AGPL-3.0, Apache-2.0) keeps it open source",
+    "path": "https://github.com/elastic/elasticsearch"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_elasticsearch_no_known_vuln",
+   "props": {
+    "text": "The current release of Elasticsearch has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "elasticsearch",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:elasticsearch",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 9.0.3",
+    "date": "2026-10-19",
+    "excerpt": "no OSV advisory affects 9.0.3",
+    "path": "https://github.com/elastic/elasticsearch"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_external-dns_maintained",
+   "props": {
+    "text": "external-dns is actively maintained",
+    "kind": "unwritten",
+    "tool": "external-dns",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:external-dns",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-10-16",
+    "date": "2026-10-19",
+    "excerpt": "last commit to master on 2026-10-16",
+    "path": "https://github.com/kubernetes-sigs/external-dns"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_external-dns_open_source",
+   "props": {
+    "text": "external-dns is open source",
+    "kind": "unwritten",
+    "tool": "external-dns",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:external-dns",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/kubernetes-sigs/external-dns"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_external-dns_no_known_vuln",
+   "props": {
+    "text": "The current release of external-dns has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "external-dns",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:external-dns",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects v0.23.0",
+    "date": "2026-10-19",
+    "excerpt": "no OSV advisory affects v0.23.0",
+    "path": "https://github.com/kubernetes-sigs/external-dns"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_external-secrets_maintained",
+   "props": {
+    "text": "external-secrets is actively maintained",
+    "kind": "unwritten",
+    "tool": "external-secrets",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:external-secrets",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-16",
+    "date": "2026-10-19",
+    "excerpt": "last commit to main on 2026-10-16",
+    "path": "https://github.com/external-secrets/external-secrets"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_external-secrets_open_source",
+   "props": {
+    "text": "external-secrets is open source",
+    "kind": "unwritten",
+    "tool": "external-secrets",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:external-secrets",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/external-secrets/external-secrets"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_external-secrets_no_known_vuln",
+   "props": {
+    "text": "The current release of external-secrets has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "external-secrets",
+    "check": "no_known_vuln",
+    "unchecked": "the Go module's latest version (v1.3.2) does not match the project's latest release (helm-chart-2.13.0)"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_fluent-bit_maintained",
+   "props": {
+    "text": "Fluent Bit is actively maintained",
+    "kind": "unwritten",
+    "tool": "fluent-bit",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:fluent-bit",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-10-17",
+    "date": "2026-10-19",
+    "excerpt": "last commit to master on 2026-10-17",
+    "path": "https://github.com/fluent/fluent-bit"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_fluent-bit_open_source",
+   "props": {
+    "text": "Fluent Bit is open source",
+    "kind": "unwritten",
+    "tool": "fluent-bit",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:fluent-bit",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/fluent/fluent-bit"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_fluent-bit_no_known_vuln",
+   "props": {
+    "text": "The current release of Fluent Bit has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "fluent-bit",
+    "check": "no_known_vuln",
+    "unchecked": "no package in an OSV ecosystem"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_gatekeeper_maintained",
+   "props": {
+    "text": "OPA Gatekeeper is actively maintained",
+    "kind": "unwritten",
+    "tool": "gatekeeper",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:gatekeeper",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-10-12",
+    "date": "2026-10-19",
+    "excerpt": "last commit to master on 2026-10-12",
+    "path": "https://github.com/open-policy-agent/gatekeeper"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_gatekeeper_open_source",
+   "props": {
+    "text": "OPA Gatekeeper is open source",
+    "kind": "unwritten",
+    "tool": "gatekeeper",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:gatekeeper",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/open-policy-agent/gatekeeper"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_gatekeeper_no_known_vuln",
+   "props": {
+    "text": "The current release of OPA Gatekeeper has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "gatekeeper",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:gatekeeper",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects v3.23.1",
+    "date": "2026-10-19",
+    "excerpt": "no OSV advisory affects v3.23.1",
+    "path": "https://github.com/open-policy-agent/gatekeeper"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_helm_maintained",
+   "props": {
+    "text": "Helm is actively maintained",
+    "kind": "unwritten",
+    "tool": "helm",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:helm",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-16",
+    "date": "2026-10-19",
+    "excerpt": "last commit to main on 2026-10-16",
+    "path": "https://github.com/helm/helm"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_helm_open_source",
+   "props": {
+    "text": "Helm is open source",
+    "kind": "unwritten",
+    "tool": "helm",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:helm",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/helm/helm"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_helm_no_known_vuln",
+   "props": {
+    "text": "The current release of Helm has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "helm",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:helm",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects v4.3.1",
+    "date": "2026-10-19",
+    "excerpt": "no OSV advisory affects v4.3.1",
+    "path": "https://github.com/helm/helm"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kibana_maintained",
+   "props": {
+    "text": "Kibana is actively maintained",
+    "kind": "unwritten",
+    "tool": "kibana",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:kibana",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-19",
+    "date": "2026-10-19",
+    "excerpt": "last commit to main on 2026-10-19",
+    "path": "https://github.com/elastic/kibana"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kibana_open_source",
+   "props": {
+    "text": "Kibana is open source",
+    "kind": "unwritten",
+    "tool": "kibana",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:kibana",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: offered under Elastic-2.0, SSPL-1.0, AGPL-3.0, Apache-2.0; the OSI option (AGPL-3.0, Apache-2.0) keeps it open source",
+    "date": "2026-10-19",
+    "excerpt": "offered under Elastic-2.0, SSPL-1.0, AGPL-3.0, Apache-2.0; the OSI option (AGPL-3.0, Apache-2.0) keeps it open source",
+    "path": "https://github.com/elastic/kibana"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kibana_no_known_vuln",
+   "props": {
+    "text": "The current release of Kibana has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "kibana",
+    "check": "no_known_vuln",
+    "unchecked": "no package in an OSV ecosystem"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kubernetes_maintained",
+   "props": {
+    "text": "Kubernetes is actively maintained",
+    "kind": "unwritten",
+    "tool": "kubernetes",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:kubernetes",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-10-17",
+    "date": "2026-10-19",
+    "excerpt": "last commit to master on 2026-10-17",
+    "path": "https://github.com/kubernetes/kubernetes"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kubernetes_open_source",
+   "props": {
+    "text": "Kubernetes is open source",
+    "kind": "unwritten",
+    "tool": "kubernetes",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:kubernetes",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/kubernetes/kubernetes"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kubernetes_no_known_vuln",
+   "props": {
+    "text": "The current release of Kubernetes has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "kubernetes",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:kubernetes",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: 2 OSV advisories affect v1.37.1",
+    "date": "2026-10-19",
+    "excerpt": "2 OSV advisories affect v1.37.1",
+    "path": "https://github.com/kubernetes/kubernetes"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_pkl_maintained",
+   "props": {
+    "text": "Pkl is actively maintained",
+    "kind": "unwritten",
+    "tool": "pkl",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:pkl",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-16",
+    "date": "2026-10-19",
+    "excerpt": "last commit to main on 2026-10-16",
+    "path": "https://github.com/apple/pkl"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_pkl_open_source",
+   "props": {
+    "text": "Pkl is open source",
+    "kind": "unwritten",
+    "tool": "pkl",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:pkl",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/apple/pkl"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_pkl_no_known_vuln",
+   "props": {
+    "text": "The current release of Pkl has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "pkl",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:pkl",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects 0.28.2",
+    "date": "2026-10-19",
+    "excerpt": "no OSV advisory affects 0.28.2",
+    "path": "https://github.com/apple/pkl"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prometheus-adapter_maintained",
+   "props": {
+    "text": "Prometheus Adapter is actively maintained",
+    "kind": "unwritten",
+    "tool": "prometheus-adapter",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:prometheus-adapter",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2025-04-01",
+    "date": "2026-10-19",
+    "excerpt": "last commit to master on 2025-04-01",
+    "path": "https://github.com/kubernetes-sigs/prometheus-adapter"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prometheus-adapter_open_source",
+   "props": {
+    "text": "Prometheus Adapter is open source",
+    "kind": "unwritten",
+    "tool": "prometheus-adapter",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:prometheus-adapter",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/kubernetes-sigs/prometheus-adapter"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prometheus-adapter_no_known_vuln",
+   "props": {
+    "text": "The current release of Prometheus Adapter has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "prometheus-adapter",
+    "check": "no_known_vuln"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "no_known_vuln:prometheus-adapter",
+   "props": {
+    "kind": "check",
+    "title": "OSV.dev: no OSV advisory affects v0.12.0",
+    "date": "2026-10-19",
+    "excerpt": "no OSV advisory affects v0.12.0",
+    "path": "https://github.com/kubernetes-sigs/prometheus-adapter"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_tf-aws-eks_maintained",
+   "props": {
+    "text": "terraform-aws-eks module is actively maintained",
+    "kind": "unwritten",
+    "tool": "tf-aws-eks",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:tf-aws-eks",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-10-08",
+    "date": "2026-10-19",
+    "excerpt": "last commit to master on 2026-10-08",
+    "path": "https://github.com/terraform-aws-modules/terraform-aws-eks"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_tf-aws-eks_open_source",
+   "props": {
+    "text": "terraform-aws-eks module is open source",
+    "kind": "unwritten",
+    "tool": "tf-aws-eks",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:tf-aws-eks",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/terraform-aws-modules/terraform-aws-eks"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_tf-aws-eks_no_known_vuln",
+   "props": {
+    "text": "The current release of terraform-aws-eks module has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "tf-aws-eks",
+    "check": "no_known_vuln",
+    "unchecked": "no package in an OSV ecosystem"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "src": "0001-record-architecture-decisions",
+   "rel": "RECORDED_IN",
+   "dst": "src:0001-record-architecture-decisions",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "AUTHORED",
+   "dst": "src:0001-record-architecture-decisions",
+   "props": {}
+  },
+  {
+   "src": "gh:ianhowell-gds",
+   "rel": "AUTHORED",
+   "dst": "src:0001-record-architecture-decisions",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0001-record-architecture-decisions",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "OWNS",
+   "dst": "0001-record-architecture-decisions",
+   "props": {
+    "valid_from": "2021-08-10",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0001-record-architecture-decisions",
+   "rel": "RECORDED_IN",
+   "dst": "pr:374",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "AUTHORED",
+   "dst": "pr:374",
+   "props": {}
+  },
+  {
+   "src": "0002-use-aws-eks-terraform-module",
+   "rel": "RECORDED_IN",
+   "dst": "src:0002-use-aws-eks-terraform-module",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "AUTHORED",
+   "dst": "src:0002-use-aws-eks-terraform-module",
+   "props": {}
+  },
+  {
+   "src": "gh:ianhowell-gds",
+   "rel": "AUTHORED",
+   "dst": "src:0002-use-aws-eks-terraform-module",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0002-use-aws-eks-terraform-module",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "OWNS",
+   "dst": "0002-use-aws-eks-terraform-module",
+   "props": {
+    "valid_from": "2021-08-10",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0002-use-aws-eks-terraform-module",
+   "rel": "RECORDED_IN",
+   "dst": "pr:375",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "AUTHORED",
+   "dst": "pr:375",
+   "props": {}
+  },
+  {
+   "src": "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases",
+   "rel": "RECORDED_IN",
+   "dst": "src:0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "AUTHORED",
+   "dst": "src:0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases",
+   "props": {}
+  },
+  {
+   "src": "gh:ianhowell-gds",
+   "rel": "AUTHORED",
+   "dst": "src:0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "OWNS",
+   "dst": "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases",
+   "props": {
+    "valid_from": "2021-08-11",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases",
+   "rel": "RECORDED_IN",
+   "dst": "pr:376",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "AUTHORED",
+   "dst": "pr:376",
+   "props": {}
+  },
+  {
+   "src": "0004-use-aws-load-balancer-controller-for-edge-traffic-services",
+   "rel": "RECORDED_IN",
+   "dst": "src:0004-use-aws-load-balancer-controller-for-edge-traffic-services",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "AUTHORED",
+   "dst": "src:0004-use-aws-load-balancer-controller-for-edge-traffic-services",
+   "props": {}
+  },
+  {
+   "src": "gh:ianhowell-gds",
+   "rel": "AUTHORED",
+   "dst": "src:0004-use-aws-load-balancer-controller-for-edge-traffic-services",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0004-use-aws-load-balancer-controller-for-edge-traffic-services",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "OWNS",
+   "dst": "0004-use-aws-load-balancer-controller-for-edge-traffic-services",
+   "props": {
+    "valid_from": "2021-08-12",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0004-use-aws-load-balancer-controller-for-edge-traffic-services",
+   "rel": "RECORDED_IN",
+   "dst": "pr:379",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "AUTHORED",
+   "dst": "pr:379",
+   "props": {}
+  },
+  {
+   "src": "0005-use-eks-managed-node-groups",
+   "rel": "RECORDED_IN",
+   "dst": "src:0005-use-eks-managed-node-groups",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "AUTHORED",
+   "dst": "src:0005-use-eks-managed-node-groups",
+   "props": {}
+  },
+  {
+   "src": "gh:ianhowell-gds",
+   "rel": "AUTHORED",
+   "dst": "src:0005-use-eks-managed-node-groups",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0005-use-eks-managed-node-groups",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "OWNS",
+   "dst": "0005-use-eks-managed-node-groups",
+   "props": {
+    "valid_from": "2021-08-13",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0005-use-eks-managed-node-groups",
+   "rel": "RECORDED_IN",
+   "dst": "pr:381",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "AUTHORED",
+   "dst": "pr:381",
+   "props": {}
+  },
+  {
+   "src": "0006-use-helm-for-application-package-management",
+   "rel": "RECORDED_IN",
+   "dst": "src:0006-use-helm-for-application-package-management",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "AUTHORED",
+   "dst": "src:0006-use-helm-for-application-package-management",
+   "props": {}
+  },
+  {
+   "src": "gh:ianhowell-gds",
+   "rel": "AUTHORED",
+   "dst": "src:0006-use-helm-for-application-package-management",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0006-use-helm-for-application-package-management",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "OWNS",
+   "dst": "0006-use-helm-for-application-package-management",
+   "props": {
+    "valid_from": "2021-08-16",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0006-use-helm-for-application-package-management",
+   "rel": "RECORDED_IN",
+   "dst": "pr:388",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "AUTHORED",
+   "dst": "pr:388",
+   "props": {}
+  },
+  {
+   "src": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "rel": "RECORDED_IN",
+   "dst": "src:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "AUTHORED",
+   "dst": "src:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "props": {}
+  },
+  {
+   "src": "gh:ianhowell-gds",
+   "rel": "AUTHORED",
+   "dst": "src:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "OWNS",
+   "dst": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "props": {
+    "valid_from": "2021-08-16",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "rel": "RECORDED_IN",
+   "dst": "pr:390",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "AUTHORED",
+   "dst": "pr:390",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "pr:3485",
+   "props": {}
+  },
+  {
+   "src": "pr:3485",
+   "rel": "RETIRES",
+   "dst": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "props": {
+    "at": "2026-01-14",
+    "quote": "Deprecated (no superseding ADR)"
+   }
+  },
+  {
+   "src": "0008-use-external-secrets-for-secrets-storage",
+   "rel": "RECORDED_IN",
+   "dst": "src:0008-use-external-secrets-for-secrets-storage",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "AUTHORED",
+   "dst": "src:0008-use-external-secrets-for-secrets-storage",
+   "props": {}
+  },
+  {
+   "src": "gh:ianhowell-gds",
+   "rel": "AUTHORED",
+   "dst": "src:0008-use-external-secrets-for-secrets-storage",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0008-use-external-secrets-for-secrets-storage",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "OWNS",
+   "dst": "0008-use-external-secrets-for-secrets-storage",
+   "props": {
+    "valid_from": "2021-08-26",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0008-use-external-secrets-for-secrets-storage",
+   "rel": "RECORDED_IN",
+   "dst": "pr:404",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "AUTHORED",
+   "dst": "pr:404",
+   "props": {}
+  },
+  {
+   "src": "0009-use-external-dns-for-dns-record-management",
+   "rel": "RECORDED_IN",
+   "dst": "src:0009-use-external-dns-for-dns-record-management",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "AUTHORED",
+   "dst": "src:0009-use-external-dns-for-dns-record-management",
+   "props": {}
+  },
+  {
+   "src": "gh:ianhowell-gds",
+   "rel": "AUTHORED",
+   "dst": "src:0009-use-external-dns-for-dns-record-management",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0009-use-external-dns-for-dns-record-management",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "OWNS",
+   "dst": "0009-use-external-dns-for-dns-record-management",
+   "props": {
+    "valid_from": "2021-08-27",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0009-use-external-dns-for-dns-record-management",
+   "rel": "RECORDED_IN",
+   "dst": "pr:411",
+   "props": {}
+  },
+  {
+   "src": "gh:kerin",
+   "rel": "AUTHORED",
+   "dst": "pr:411",
+   "props": {}
+  },
+  {
+   "src": "0010-use-dex-idp-for-user-web-authentication",
+   "rel": "RECORDED_IN",
+   "dst": "src:0010-use-dex-idp-for-user-web-authentication",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0010-use-dex-idp-for-user-web-authentication",
+   "props": {}
+  },
+  {
+   "src": "gh:jaskaransarkaria",
+   "rel": "AUTHORED",
+   "dst": "src:0010-use-dex-idp-for-user-web-authentication",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "OWNS",
+   "dst": "0010-use-dex-idp-for-user-web-authentication",
+   "props": {
+    "valid_from": "2021-12-01",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0010-use-dex-idp-for-user-web-authentication",
+   "rel": "RECORDED_IN",
+   "dst": "pr:3486",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "pr:3486",
+   "props": {}
+  },
+  {
+   "src": "0011-use-graviton-for-compute-instances",
+   "rel": "RECORDED_IN",
+   "dst": "src:0011-use-graviton-for-compute-instances",
+   "props": {}
+  },
+  {
+   "src": "gh:dj-maisy",
+   "rel": "AUTHORED",
+   "dst": "src:0011-use-graviton-for-compute-instances",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0011-use-graviton-for-compute-instances",
+   "props": {}
+  },
+  {
+   "src": "gh:dj-maisy",
+   "rel": "OWNS",
+   "dst": "0011-use-graviton-for-compute-instances",
+   "props": {
+    "valid_from": "2025-03-03",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0011-use-graviton-for-compute-instances",
+   "rel": "RECORDED_IN",
+   "dst": "pr:1750",
+   "props": {}
+  },
+  {
+   "src": "gh:dj-maisy",
+   "rel": "AUTHORED",
+   "dst": "pr:1750",
+   "props": {}
+  },
+  {
+   "src": "0012-non-govuk-domain-policy",
+   "rel": "RECORDED_IN",
+   "dst": "src:0012-non-govuk-domain-policy",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "src:0012-non-govuk-domain-policy",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0012-non-govuk-domain-policy",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "OWNS",
+   "dst": "0012-non-govuk-domain-policy",
+   "props": {
+    "valid_from": "2025-05-06",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0012-non-govuk-domain-policy",
+   "rel": "RECORDED_IN",
+   "dst": "pr:2092",
+   "props": {}
+  },
+  {
+   "src": "gh:chrisbashton",
+   "rel": "AUTHORED",
+   "dst": "pr:2092",
+   "props": {}
+  },
+  {
+   "src": "0013-expose-external-metrics-for-hpa",
+   "rel": "RECORDED_IN",
+   "dst": "src:0013-expose-external-metrics-for-hpa",
+   "props": {}
+  },
+  {
+   "src": "gh:jasonbirchall",
+   "rel": "AUTHORED",
+   "dst": "src:0013-expose-external-metrics-for-hpa",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0013-expose-external-metrics-for-hpa",
+   "props": {}
+  },
+  {
+   "src": "gh:jasonbirchall",
+   "rel": "OWNS",
+   "dst": "0013-expose-external-metrics-for-hpa",
+   "props": {
+    "valid_from": "2025-06-03",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0013-expose-external-metrics-for-hpa",
+   "rel": "RECORDED_IN",
+   "dst": "pr:2235",
+   "props": {}
+  },
+  {
+   "src": "gh:jasonbirchall",
+   "rel": "AUTHORED",
+   "dst": "pr:2235",
+   "props": {}
+  },
+  {
+   "src": "0014-replace-terraform-cloud",
+   "rel": "RECORDED_IN",
+   "dst": "src:0014-replace-terraform-cloud",
+   "props": {}
+  },
+  {
+   "src": "gh:jasonbirchall",
+   "rel": "AUTHORED",
+   "dst": "src:0014-replace-terraform-cloud",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0014-replace-terraform-cloud",
+   "props": {}
+  },
+  {
+   "src": "gh:jasonbirchall",
+   "rel": "OWNS",
+   "dst": "0014-replace-terraform-cloud",
+   "props": {
+    "valid_from": "2025-06-10",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0014-replace-terraform-cloud",
+   "rel": "RECORDED_IN",
+   "dst": "pr:2277",
+   "props": {}
+  },
+  {
+   "src": "gh:jasonbirchall",
+   "rel": "AUTHORED",
+   "dst": "pr:2277",
+   "props": {}
+  },
+  {
+   "src": "0015-maintain-a-readonly-role",
+   "rel": "RECORDED_IN",
+   "dst": "src:0015-maintain-a-readonly-role",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0015-maintain-a-readonly-role",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "OWNS",
+   "dst": "0015-maintain-a-readonly-role",
+   "props": {
+    "valid_from": "2025-06-18",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0015-maintain-a-readonly-role",
+   "rel": "RECORDED_IN",
+   "dst": "pr:2313",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "pr:2313",
+   "props": {}
+  },
+  {
+   "src": "0016-use-iam-roles-for-services",
+   "rel": "RECORDED_IN",
+   "dst": "src:0016-use-iam-roles-for-services",
+   "props": {}
+  },
+  {
+   "src": "gh:dj-maisy",
+   "rel": "AUTHORED",
+   "dst": "src:0016-use-iam-roles-for-services",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0016-use-iam-roles-for-services",
+   "props": {}
+  },
+  {
+   "src": "gh:dj-maisy",
+   "rel": "OWNS",
+   "dst": "0016-use-iam-roles-for-services",
+   "props": {
+    "valid_from": "2025-06-20",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0016-use-iam-roles-for-services",
+   "rel": "RECORDED_IN",
+   "dst": "pr:2329",
+   "props": {}
+  },
+  {
+   "src": "gh:dj-maisy",
+   "rel": "AUTHORED",
+   "dst": "pr:2329",
+   "props": {}
+  },
+  {
+   "src": "0017-retire-use-of-github-topics-for-config-management",
+   "rel": "RECORDED_IN",
+   "dst": "src:0017-retire-use-of-github-topics-for-config-management",
+   "props": {}
+  },
+  {
+   "src": "gh:dj-maisy",
+   "rel": "AUTHORED",
+   "dst": "src:0017-retire-use-of-github-topics-for-config-management",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0017-retire-use-of-github-topics-for-config-management",
+   "props": {}
+  },
+  {
+   "src": "gh:dj-maisy",
+   "rel": "OWNS",
+   "dst": "0017-retire-use-of-github-topics-for-config-management",
+   "props": {
+    "valid_from": "2025-08-06",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0017-retire-use-of-github-topics-for-config-management",
+   "rel": "RECORDED_IN",
+   "dst": "pr:2536",
+   "props": {}
+  },
+  {
+   "src": "gh:dj-maisy",
+   "rel": "AUTHORED",
+   "dst": "pr:2536",
+   "props": {}
+  },
+  {
+   "src": "0018-use-concourse-ci",
+   "rel": "RECORDED_IN",
+   "dst": "src:0018-use-concourse-ci",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0018-use-concourse-ci",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "OWNS",
+   "dst": "0018-use-concourse-ci",
+   "props": {
+    "valid_from": "2025-08-12",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0018-use-concourse-ci",
+   "rel": "RECORDED_IN",
+   "dst": "pr:2560",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "pr:2560",
+   "props": {}
+  },
+  {
+   "src": "0019-restructure-cicd",
+   "rel": "RECORDED_IN",
+   "dst": "src:0019-restructure-cicd",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0019-restructure-cicd",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "OWNS",
+   "dst": "0019-restructure-cicd",
+   "props": {
+    "valid_from": "2025-10-16",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0019-restructure-cicd",
+   "rel": "RECORDED_IN",
+   "dst": "pr:2998",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "pr:2998",
+   "props": {}
+  },
+  {
+   "src": "0020-use-crossplane-for-abstraction",
+   "rel": "RECORDED_IN",
+   "dst": "src:0020-use-crossplane-for-abstraction",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0020-use-crossplane-for-abstraction",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "OWNS",
+   "dst": "0020-use-crossplane-for-abstraction",
+   "props": {
+    "valid_from": "2025-10-20",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0020-use-crossplane-for-abstraction",
+   "rel": "RECORDED_IN",
+   "dst": "pr:3029",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "pr:3029",
+   "props": {}
+  },
+  {
+   "src": "0021-give-fastly-cname-records-a-TTL-of-300",
+   "rel": "RECORDED_IN",
+   "dst": "src:0021-give-fastly-cname-records-a-TTL-of-300",
+   "props": {}
+  },
+  {
+   "src": "gh:nimalank7",
+   "rel": "AUTHORED",
+   "dst": "src:0021-give-fastly-cname-records-a-TTL-of-300",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0021-give-fastly-cname-records-a-TTL-of-300",
+   "props": {}
+  },
+  {
+   "src": "gh:nimalank7",
+   "rel": "OWNS",
+   "dst": "0021-give-fastly-cname-records-a-TTL-of-300",
+   "props": {
+    "valid_from": "2025-10-27",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0021-give-fastly-cname-records-a-TTL-of-300",
+   "rel": "RECORDED_IN",
+   "dst": "pr:3055",
+   "props": {}
+  },
+  {
+   "src": "gh:nimalank7",
+   "rel": "AUTHORED",
+   "dst": "pr:3055",
+   "props": {}
+  },
+  {
+   "src": "0022-use-pkl-for-configuration",
+   "rel": "RECORDED_IN",
+   "dst": "src:0022-use-pkl-for-configuration",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0022-use-pkl-for-configuration",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "OWNS",
+   "dst": "0022-use-pkl-for-configuration",
+   "props": {
+    "valid_from": "2025-11-06",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0022-use-pkl-for-configuration",
+   "rel": "RECORDED_IN",
+   "dst": "pr:3162",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "pr:3162",
+   "props": {}
+  },
+  {
+   "src": "0023-use-opa-gatekeeper",
+   "rel": "RECORDED_IN",
+   "dst": "src:0023-use-opa-gatekeeper",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "src:0023-use-opa-gatekeeper",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "OWNS",
+   "dst": "0023-use-opa-gatekeeper",
+   "props": {
+    "valid_from": "2026-07-07",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0023-use-opa-gatekeeper",
+   "rel": "RECORDED_IN",
+   "dst": "pr:4511",
+   "props": {}
+  },
+  {
+   "src": "gh:ap-hunt",
+   "rel": "AUTHORED",
+   "dst": "pr:4511",
+   "props": {}
+  },
+  {
+   "src": "0024-use-of-admission-policy",
+   "rel": "RECORDED_IN",
+   "dst": "src:0024-use-of-admission-policy",
+   "props": {}
+  },
+  {
+   "src": "gh:jaskaransarkaria",
+   "rel": "AUTHORED",
+   "dst": "src:0024-use-of-admission-policy",
+   "props": {}
+  },
+  {
+   "src": "gh:jaskaransarkaria",
+   "rel": "OWNS",
+   "dst": "0024-use-of-admission-policy",
+   "props": {
+    "valid_from": "2026-08-07",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0024-use-of-admission-policy",
+   "rel": "RECORDED_IN",
+   "dst": "pr:4630",
+   "props": {}
+  },
+  {
+   "src": "gh:jaskaransarkaria",
+   "rel": "AUTHORED",
+   "dst": "pr:4630",
+   "props": {}
+  },
+  {
+   "src": "maintained:aws-lbc",
+   "rel": "SUPPORTS",
+   "dst": "p_aws-lbc_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to main on 2026-10-14"
+   }
+  },
+  {
+   "src": "open_source:aws-lbc",
+   "rel": "SUPPORTS",
+   "dst": "p_aws-lbc_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "maintained:concourse",
+   "rel": "SUPPORTS",
+   "dst": "p_concourse_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to master on 2026-10-16"
+   }
+  },
+  {
+   "src": "open_source:concourse",
+   "rel": "SUPPORTS",
+   "dst": "p_concourse_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "maintained:crossplane",
+   "rel": "SUPPORTS",
+   "dst": "p_crossplane_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to main on 2026-10-16"
+   }
+  },
+  {
+   "src": "open_source:crossplane",
+   "rel": "SUPPORTS",
+   "dst": "p_crossplane_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "no_known_vuln:crossplane",
+   "rel": "CONTRADICTS",
+   "dst": "p_crossplane_no_known_vuln",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "1 OSV advisory affects v2.4.2"
+   }
+  },
+  {
+   "src": "maintained:dex",
+   "rel": "SUPPORTS",
+   "dst": "p_dex_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to master on 2026-10-07"
+   }
+  },
+  {
+   "src": "open_source:dex",
+   "rel": "SUPPORTS",
+   "dst": "p_dex_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "maintained:elasticsearch",
+   "rel": "SUPPORTS",
+   "dst": "p_elasticsearch_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to main on 2026-10-17"
+   }
+  },
+  {
+   "src": "open_source:elasticsearch",
+   "rel": "SUPPORTS",
+   "dst": "p_elasticsearch_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "offered under Elastic-2.0, SSPL-1.0, AGPL-3.0, Apache-2.0; the OSI option (AGPL-3.0, Apache-2.0) keeps it open source"
+   }
+  },
+  {
+   "src": "no_known_vuln:elasticsearch",
+   "rel": "SUPPORTS",
+   "dst": "p_elasticsearch_no_known_vuln",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "no OSV advisory affects 9.0.3"
+   }
+  },
+  {
+   "src": "maintained:external-dns",
+   "rel": "SUPPORTS",
+   "dst": "p_external-dns_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to master on 2026-10-16"
+   }
+  },
+  {
+   "src": "open_source:external-dns",
+   "rel": "SUPPORTS",
+   "dst": "p_external-dns_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "no_known_vuln:external-dns",
+   "rel": "SUPPORTS",
+   "dst": "p_external-dns_no_known_vuln",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "no OSV advisory affects v0.23.0"
+   }
+  },
+  {
+   "src": "maintained:external-secrets",
+   "rel": "SUPPORTS",
+   "dst": "p_external-secrets_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to main on 2026-10-16"
+   }
+  },
+  {
+   "src": "open_source:external-secrets",
+   "rel": "SUPPORTS",
+   "dst": "p_external-secrets_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "maintained:fluent-bit",
+   "rel": "SUPPORTS",
+   "dst": "p_fluent-bit_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to master on 2026-10-17"
+   }
+  },
+  {
+   "src": "open_source:fluent-bit",
+   "rel": "SUPPORTS",
+   "dst": "p_fluent-bit_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "maintained:gatekeeper",
+   "rel": "SUPPORTS",
+   "dst": "p_gatekeeper_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to master on 2026-10-12"
+   }
+  },
+  {
+   "src": "open_source:gatekeeper",
+   "rel": "SUPPORTS",
+   "dst": "p_gatekeeper_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "no_known_vuln:gatekeeper",
+   "rel": "SUPPORTS",
+   "dst": "p_gatekeeper_no_known_vuln",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "no OSV advisory affects v3.23.1"
+   }
+  },
+  {
+   "src": "maintained:helm",
+   "rel": "SUPPORTS",
+   "dst": "p_helm_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to main on 2026-10-16"
+   }
+  },
+  {
+   "src": "open_source:helm",
+   "rel": "SUPPORTS",
+   "dst": "p_helm_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "no_known_vuln:helm",
+   "rel": "SUPPORTS",
+   "dst": "p_helm_no_known_vuln",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "no OSV advisory affects v4.3.1"
+   }
+  },
+  {
+   "src": "maintained:kibana",
+   "rel": "SUPPORTS",
+   "dst": "p_kibana_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to main on 2026-10-19"
+   }
+  },
+  {
+   "src": "open_source:kibana",
+   "rel": "SUPPORTS",
+   "dst": "p_kibana_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "offered under Elastic-2.0, SSPL-1.0, AGPL-3.0, Apache-2.0; the OSI option (AGPL-3.0, Apache-2.0) keeps it open source"
+   }
+  },
+  {
+   "src": "maintained:kubernetes",
+   "rel": "SUPPORTS",
+   "dst": "p_kubernetes_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to master on 2026-10-17"
+   }
+  },
+  {
+   "src": "open_source:kubernetes",
+   "rel": "SUPPORTS",
+   "dst": "p_kubernetes_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "no_known_vuln:kubernetes",
+   "rel": "CONTRADICTS",
+   "dst": "p_kubernetes_no_known_vuln",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "2 OSV advisories affect v1.37.1"
+   }
+  },
+  {
+   "src": "maintained:pkl",
+   "rel": "SUPPORTS",
+   "dst": "p_pkl_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to main on 2026-10-16"
+   }
+  },
+  {
+   "src": "open_source:pkl",
+   "rel": "SUPPORTS",
+   "dst": "p_pkl_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "no_known_vuln:pkl",
+   "rel": "SUPPORTS",
+   "dst": "p_pkl_no_known_vuln",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "no OSV advisory affects 0.28.2"
+   }
+  },
+  {
+   "src": "maintained:prometheus-adapter",
+   "rel": "CONTRADICTS",
+   "dst": "p_prometheus-adapter_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to master on 2025-04-01"
+   }
+  },
+  {
+   "src": "open_source:prometheus-adapter",
+   "rel": "SUPPORTS",
+   "dst": "p_prometheus-adapter_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "no_known_vuln:prometheus-adapter",
+   "rel": "SUPPORTS",
+   "dst": "p_prometheus-adapter_no_known_vuln",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "no OSV advisory affects v0.12.0"
+   }
+  },
+  {
+   "src": "maintained:tf-aws-eks",
+   "rel": "SUPPORTS",
+   "dst": "p_tf-aws-eks_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to master on 2026-10-08"
+   }
+  },
+  {
+   "src": "open_source:tf-aws-eks",
+   "rel": "SUPPORTS",
+   "dst": "p_tf-aws-eks_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
+   "src": "0002-use-aws-eks-terraform-module",
+   "rel": "BECAUSE_OF",
+   "dst": "p_tf-aws-eks_maintained",
+   "props": {
+    "quote": "terraform-aws-eks module is actively maintained"
+   }
+  },
+  {
+   "src": "0002-use-aws-eks-terraform-module",
+   "rel": "BECAUSE_OF",
+   "dst": "p_tf-aws-eks_open_source",
+   "props": {
+    "quote": "terraform-aws-eks module is open source"
+   }
+  },
+  {
+   "src": "0002-use-aws-eks-terraform-module",
+   "rel": "BECAUSE_OF",
+   "dst": "p_tf-aws-eks_no_known_vuln",
+   "props": {
+    "quote": "The current release of terraform-aws-eks module has no known vulnerability"
+   }
+  },
+  {
+   "src": "0002-use-aws-eks-terraform-module",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_maintained",
+   "props": {
+    "quote": "Kubernetes is actively maintained"
+   }
+  },
+  {
+   "src": "0002-use-aws-eks-terraform-module",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_open_source",
+   "props": {
+    "quote": "Kubernetes is open source"
+   }
+  },
+  {
+   "src": "0002-use-aws-eks-terraform-module",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_no_known_vuln",
+   "props": {
+    "quote": "The current release of Kubernetes has no known vulnerability"
+   }
+  },
+  {
+   "src": "0005-use-eks-managed-node-groups",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_maintained",
+   "props": {
+    "quote": "Kubernetes is actively maintained"
+   }
+  },
+  {
+   "src": "0005-use-eks-managed-node-groups",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_open_source",
+   "props": {
+    "quote": "Kubernetes is open source"
+   }
+  },
+  {
+   "src": "0005-use-eks-managed-node-groups",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_no_known_vuln",
+   "props": {
+    "quote": "The current release of Kubernetes has no known vulnerability"
+   }
+  },
+  {
+   "src": "0004-use-aws-load-balancer-controller-for-edge-traffic-services",
+   "rel": "BECAUSE_OF",
+   "dst": "p_aws-lbc_maintained",
+   "props": {
+    "quote": "AWS Load Balancer Controller is actively maintained"
+   }
+  },
+  {
+   "src": "0004-use-aws-load-balancer-controller-for-edge-traffic-services",
+   "rel": "BECAUSE_OF",
+   "dst": "p_aws-lbc_open_source",
+   "props": {
+    "quote": "AWS Load Balancer Controller is open source"
+   }
+  },
+  {
+   "src": "0004-use-aws-load-balancer-controller-for-edge-traffic-services",
+   "rel": "BECAUSE_OF",
+   "dst": "p_aws-lbc_no_known_vuln",
+   "props": {
+    "quote": "The current release of AWS Load Balancer Controller has no known vulnerability"
+   }
+  },
+  {
+   "src": "0006-use-helm-for-application-package-management",
+   "rel": "BECAUSE_OF",
+   "dst": "p_helm_maintained",
+   "props": {
+    "quote": "Helm is actively maintained"
+   }
+  },
+  {
+   "src": "0006-use-helm-for-application-package-management",
+   "rel": "BECAUSE_OF",
+   "dst": "p_helm_open_source",
+   "props": {
+    "quote": "Helm is open source"
+   }
+  },
+  {
+   "src": "0006-use-helm-for-application-package-management",
+   "rel": "BECAUSE_OF",
+   "dst": "p_helm_no_known_vuln",
+   "props": {
+    "quote": "The current release of Helm has no known vulnerability"
+   }
+  },
+  {
+   "src": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "rel": "BECAUSE_OF",
+   "dst": "p_elasticsearch_maintained",
+   "props": {
+    "quote": "Elasticsearch is actively maintained"
+   }
+  },
+  {
+   "src": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "rel": "BECAUSE_OF",
+   "dst": "p_elasticsearch_open_source",
+   "props": {
+    "quote": "Elasticsearch is open source"
+   }
+  },
+  {
+   "src": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "rel": "BECAUSE_OF",
+   "dst": "p_elasticsearch_no_known_vuln",
+   "props": {
+    "quote": "The current release of Elasticsearch has no known vulnerability"
+   }
+  },
+  {
+   "src": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kibana_maintained",
+   "props": {
+    "quote": "Kibana is actively maintained"
+   }
+  },
+  {
+   "src": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kibana_open_source",
+   "props": {
+    "quote": "Kibana is open source"
+   }
+  },
+  {
+   "src": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kibana_no_known_vuln",
+   "props": {
+    "quote": "The current release of Kibana has no known vulnerability"
+   }
+  },
+  {
+   "src": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "rel": "BECAUSE_OF",
+   "dst": "p_fluent-bit_maintained",
+   "props": {
+    "quote": "Fluent Bit is actively maintained"
+   }
+  },
+  {
+   "src": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "rel": "BECAUSE_OF",
+   "dst": "p_fluent-bit_open_source",
+   "props": {
+    "quote": "Fluent Bit is open source"
+   }
+  },
+  {
+   "src": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "rel": "BECAUSE_OF",
+   "dst": "p_fluent-bit_no_known_vuln",
+   "props": {
+    "quote": "The current release of Fluent Bit has no known vulnerability"
+   }
+  },
+  {
+   "src": "0008-use-external-secrets-for-secrets-storage",
+   "rel": "BECAUSE_OF",
+   "dst": "p_external-secrets_maintained",
+   "props": {
+    "quote": "external-secrets is actively maintained"
+   }
+  },
+  {
+   "src": "0008-use-external-secrets-for-secrets-storage",
+   "rel": "BECAUSE_OF",
+   "dst": "p_external-secrets_open_source",
+   "props": {
+    "quote": "external-secrets is open source"
+   }
+  },
+  {
+   "src": "0008-use-external-secrets-for-secrets-storage",
+   "rel": "BECAUSE_OF",
+   "dst": "p_external-secrets_no_known_vuln",
+   "props": {
+    "quote": "The current release of external-secrets has no known vulnerability"
+   }
+  },
+  {
+   "src": "0009-use-external-dns-for-dns-record-management",
+   "rel": "BECAUSE_OF",
+   "dst": "p_external-dns_maintained",
+   "props": {
+    "quote": "external-dns is actively maintained"
+   }
+  },
+  {
+   "src": "0009-use-external-dns-for-dns-record-management",
+   "rel": "BECAUSE_OF",
+   "dst": "p_external-dns_open_source",
+   "props": {
+    "quote": "external-dns is open source"
+   }
+  },
+  {
+   "src": "0009-use-external-dns-for-dns-record-management",
+   "rel": "BECAUSE_OF",
+   "dst": "p_external-dns_no_known_vuln",
+   "props": {
+    "quote": "The current release of external-dns has no known vulnerability"
+   }
+  },
+  {
+   "src": "0010-use-dex-idp-for-user-web-authentication",
+   "rel": "BECAUSE_OF",
+   "dst": "p_dex_maintained",
+   "props": {
+    "quote": "Dex is actively maintained"
+   }
+  },
+  {
+   "src": "0010-use-dex-idp-for-user-web-authentication",
+   "rel": "BECAUSE_OF",
+   "dst": "p_dex_open_source",
+   "props": {
+    "quote": "Dex is open source"
+   }
+  },
+  {
+   "src": "0010-use-dex-idp-for-user-web-authentication",
+   "rel": "BECAUSE_OF",
+   "dst": "p_dex_no_known_vuln",
+   "props": {
+    "quote": "The current release of Dex has no known vulnerability"
+   }
+  },
+  {
+   "src": "0013-expose-external-metrics-for-hpa",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prometheus-adapter_maintained",
+   "props": {
+    "quote": "Prometheus Adapter is actively maintained"
+   }
+  },
+  {
+   "src": "0013-expose-external-metrics-for-hpa",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prometheus-adapter_open_source",
+   "props": {
+    "quote": "Prometheus Adapter is open source"
+   }
+  },
+  {
+   "src": "0013-expose-external-metrics-for-hpa",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prometheus-adapter_no_known_vuln",
+   "props": {
+    "quote": "The current release of Prometheus Adapter has no known vulnerability"
+   }
+  },
+  {
+   "src": "0018-use-concourse-ci",
+   "rel": "BECAUSE_OF",
+   "dst": "p_concourse_maintained",
+   "props": {
+    "quote": "Concourse CI is actively maintained"
+   }
+  },
+  {
+   "src": "0018-use-concourse-ci",
+   "rel": "BECAUSE_OF",
+   "dst": "p_concourse_open_source",
+   "props": {
+    "quote": "Concourse CI is open source"
+   }
+  },
+  {
+   "src": "0018-use-concourse-ci",
+   "rel": "BECAUSE_OF",
+   "dst": "p_concourse_no_known_vuln",
+   "props": {
+    "quote": "The current release of Concourse CI has no known vulnerability"
+   }
+  },
+  {
+   "src": "0020-use-crossplane-for-abstraction",
+   "rel": "BECAUSE_OF",
+   "dst": "p_crossplane_maintained",
+   "props": {
+    "quote": "Crossplane is actively maintained"
+   }
+  },
+  {
+   "src": "0020-use-crossplane-for-abstraction",
+   "rel": "BECAUSE_OF",
+   "dst": "p_crossplane_open_source",
+   "props": {
+    "quote": "Crossplane is open source"
+   }
+  },
+  {
+   "src": "0020-use-crossplane-for-abstraction",
+   "rel": "BECAUSE_OF",
+   "dst": "p_crossplane_no_known_vuln",
+   "props": {
+    "quote": "The current release of Crossplane has no known vulnerability"
+   }
+  },
+  {
+   "src": "0022-use-pkl-for-configuration",
+   "rel": "BECAUSE_OF",
+   "dst": "p_pkl_maintained",
+   "props": {
+    "quote": "Pkl is actively maintained"
+   }
+  },
+  {
+   "src": "0022-use-pkl-for-configuration",
+   "rel": "BECAUSE_OF",
+   "dst": "p_pkl_open_source",
+   "props": {
+    "quote": "Pkl is open source"
+   }
+  },
+  {
+   "src": "0022-use-pkl-for-configuration",
+   "rel": "BECAUSE_OF",
+   "dst": "p_pkl_no_known_vuln",
+   "props": {
+    "quote": "The current release of Pkl has no known vulnerability"
+   }
+  },
+  {
+   "src": "0023-use-opa-gatekeeper",
+   "rel": "BECAUSE_OF",
+   "dst": "p_gatekeeper_maintained",
+   "props": {
+    "quote": "OPA Gatekeeper is actively maintained"
+   }
+  },
+  {
+   "src": "0023-use-opa-gatekeeper",
+   "rel": "BECAUSE_OF",
+   "dst": "p_gatekeeper_open_source",
+   "props": {
+    "quote": "OPA Gatekeeper is open source"
+   }
+  },
+  {
+   "src": "0023-use-opa-gatekeeper",
+   "rel": "BECAUSE_OF",
+   "dst": "p_gatekeeper_no_known_vuln",
+   "props": {
+    "quote": "The current release of OPA Gatekeeper has no known vulnerability"
+   }
+  }
+ ]
+}

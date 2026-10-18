@@ -1,0 +1,21 @@
+{
+ "repo": "npryce/adr-tools",
+ "graph": "gh_npryce_adr_tools",
+ "folder": "doc/adr",
+ "read_on": "2026-10-19",
+ "adr_files": 9,
+ "decisions": 9,
+ "retired": 0,
+ "people": 4,
+ "pull_requests": 3,
+ "tools": [],
+ "checks": 0,
+ "failing": 0,
+ "verdicts": {
+  "UNDOCUMENTED": 9
+ },
+ "gates": {
+  "REVALIDATE": 9
+ },
+ "moot": []
+}

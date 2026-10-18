@@ -4,6 +4,12 @@ import type {
   AskResponse, DecisionResponse, DocumentResponse, Finding, Gate, HealthResponse, LedgerResponse, OrphansResponse,
   RealWorldResponse, RiskyResponse, TimelineResponse, TraceResponse, WhatIfResponse, AnswerResponse } from "./types";
 
+export interface GraphInfo { name: string; title: string; kind: "demo" | "real" | "backtest" | "github"; source: string; decisions: number; default: boolean; as_of?: string; url?: string }
+export interface GraphsResponse { graphs: GraphInfo[]; ingest: boolean }
+export interface IngestSummary { repo: string; graph: string; folder: string; decisions: number; retired: number; people: number; pull_requests: number;
+  verdicts: Record<string, number>; gates: Record<string, number>; moot: { id: string; title: string }[] }
+export interface HistoryResponse { decision_id: string; as_of: string; verdict: string; since: string | null; history: { verdict: string; since: string | null }[] }
+
 export const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "";
 
 /** Eval results as committed. Only the fields the UI reads are typed; the rest is passed through. */
@@ -28,8 +34,21 @@ function qs(p: Params = {}): string {
   return out ? `?${out}` : "";
 }
 
+// The graph every read and write goes to: the demo company by default, or any graph /api/graphs lists (the real ADRs,
+// the backtest, an ingested GitHub repository). Set from the URL (?graph=) by AppStateProvider.
+let GRAPH: string | null = null;
+export const setGraph = (g: string | null) => { GRAPH = g; };
+export const currentGraph = () => GRAPH;
+const GLOBAL = /^\/api\/(graphs|evals|realworld|document|health|ingest)/;
+
+function withGraph(path: string): string {
+  if (!GRAPH || GLOBAL.test(path) || /[?&]graph=/.test(path)) return path;
+  return `${path}${path.includes("?") ? "&" : "?"}graph=${encodeURIComponent(GRAPH)}`;
+}
+
 async function call<T>(path: string, init?: RequestInit): Promise<T> {
   let r: Response;
+  path = withGraph(path);
   try {
     r = await fetch(`${API_BASE}${path}`, { ...init, headers: { "content-type": "application/json", ...(init?.headers ?? {}) } });
   } catch {
@@ -53,8 +72,10 @@ export const api = {
   ledger: (v: View = {}) => get<LedgerResponse>("/api/ledger", { as_of: v.as_of, depth: v.depth }),
   timeline: (depth = 4) => get<TimelineResponse>("/api/timeline", { depth }),
   decision: (id: string, v: View = {}) => get<DecisionResponse>(`/api/decision/${encodeURIComponent(id)}`, { as_of: v.as_of, depth: v.depth }),
-  gate: (id: string, as_of?: string | null, graph?: "public_adrs") => get<Gate>(`/api/gate/${encodeURIComponent(id)}`, { as_of, graph }),
-  packetUrl: (id: string, as_of?: string | null) => `${API_BASE}/api/packet/${encodeURIComponent(id)}${qs({ as_of, format: "md" })}`,
+  gate: (id: string, as_of?: string | null, graph?: string) => get<Gate>(`/api/gate/${encodeURIComponent(id)}`, { as_of, graph }),
+  packetUrl: (id: string, as_of?: string | null) => `${API_BASE}${withGraph(`/api/packet/${encodeURIComponent(id)}${qs({ as_of, format: "md" })}`)}`,
+  graphs: () => get<GraphsResponse>("/api/graphs"),
+  history: (id: string, v: View = {}) => get<HistoryResponse>(`/api/history/${encodeURIComponent(id)}`, { as_of: v.as_of, depth: v.depth }),
   search: (q: string) => get<{ id: string; title: string; summary: string; decided_on: string; score: number; matched_terms: number }[]>("/api/search", { q }),
   trace: (evidenceId: string) => get<TraceResponse>(`/api/trace/${encodeURIComponent(evidenceId)}`),
   document: (docId: string) => get<DocumentResponse>(`/api/document/${encodeURIComponent(docId)}`),
@@ -76,6 +97,7 @@ export const api = {
     post<Finding & { memo: unknown }>("/api/reopen", b),
   handover: (b: { decision_id: string; to: string; as_of: string }) =>
     post<{ decision_id: string; to: string; to_name?: string; from_id?: string | null; valid_from?: string; unchanged?: boolean }>("/api/handover", b),
+  ingestGithub: (repo: string) => post<IngestSummary>("/api/ingest/github", { repo }),
   ruling: (b: { decision_id: string; premise_id: string; holds: boolean; as_of: string; by?: string | null; note?: string }) =>
     post<Record<string, unknown>>("/api/ruling", b),
 };

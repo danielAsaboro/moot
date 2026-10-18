@@ -1,0 +1,548 @@
+{
+ "nodes": [
+  {
+   "label": "Decision",
+   "id": "0001-record-architecture-decisions",
+   "props": {
+    "title": "1. Record architecture decisions",
+    "summary": "We will use Architecture Decision Records, as described by Michael Nygard in this article: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions",
+    "decided_on": "2016-02-09",
+    "source": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0001-record-architecture-decisions.md",
+    "repo": "npryce/adr-tools",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0001-record-architecture-decisions",
+   "props": {
+    "kind": "adr",
+    "title": "npryce/adr-tools: 1. Record architecture decisions",
+    "date": "2016-02-09",
+    "path": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0001-record-architecture-decisions.md",
+    "excerpt": "We will use Architecture Decision Records, as described by Michael Nygard in this article: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:npryce",
+   "props": {
+    "name": "Nat Pryce",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": "npryce"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0002-implement-as-shell-scripts",
+   "props": {
+    "title": "2. Implement as shell scripts",
+    "summary": "The tool is implemented as shell scripts that use standard Unix tools -- grep, sed, awk, etc.",
+    "decided_on": "2016-02-12",
+    "source": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0002-implement-as-shell-scripts.md",
+    "repo": "npryce/adr-tools",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0002-implement-as-shell-scripts",
+   "props": {
+    "kind": "adr",
+    "title": "npryce/adr-tools: 2. Implement as shell scripts",
+    "date": "2016-02-12",
+    "path": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0002-implement-as-shell-scripts.md",
+    "excerpt": "The tool is implemented as shell scripts that use standard Unix tools -- grep, sed, awk, etc."
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0003-single-command-with-subcommands",
+   "props": {
+    "title": "3. Single command with subcommands",
+    "summary": "The tool defines a single command, called adr. The first argument to adr (the subcommand) specifies the action to perform. Further arguments are interpreted by the subcommand. Running adr without any arguments lists the available subcommands. Subcommands are implemented as scripts in the same direct",
+    "decided_on": "2016-02-12",
+    "source": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0003-single-command-with-subcommands.md",
+    "repo": "npryce/adr-tools",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0003-single-command-with-subcommands",
+   "props": {
+    "kind": "adr",
+    "title": "npryce/adr-tools: 3. Single command with subcommands",
+    "date": "2016-02-12",
+    "path": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0003-single-command-with-subcommands.md",
+    "excerpt": "The tool defines a single command, called adr. The first argument to adr (the subcommand) specifies the action to perform. Further arguments are interpreted by the subcommand. Running adr without any arguments lists the available subcommands. Subcommands are implemented as scripts in the same direct"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0004-markdown-format",
+   "props": {
+    "title": "4. Markdown format",
+    "summary": "Record architecture decisions in Markdown format.",
+    "decided_on": "2016-02-12",
+    "source": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0004-markdown-format.md",
+    "repo": "npryce/adr-tools",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0004-markdown-format",
+   "props": {
+    "kind": "adr",
+    "title": "npryce/adr-tools: 4. Markdown format",
+    "date": "2016-02-12",
+    "path": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0004-markdown-format.md",
+    "excerpt": "Record architecture decisions in Markdown format."
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0005-help-comments",
+   "props": {
+    "title": "5. Help comments",
+    "summary": "Write usage documentation in comments in the source file. Distinguish between documentation comments and normal comments. Documentation comments have two hash characters at the start of the line. The adr help command can parse comments out from the script using the standard Unix tools grep and cut.",
+    "decided_on": "2016-02-13",
+    "source": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0005-help-comments.md",
+    "repo": "npryce/adr-tools",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0005-help-comments",
+   "props": {
+    "kind": "adr",
+    "title": "npryce/adr-tools: 5. Help comments",
+    "date": "2016-02-13",
+    "path": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0005-help-comments.md",
+    "excerpt": "Write usage documentation in comments in the source file. Distinguish between documentation comments and normal comments. Documentation comments have two hash characters at the start of the line. The adr help command can parse comments out from the script using the standard Unix tools grep and cut."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:3",
+   "props": {
+    "kind": "pr",
+    "title": "Strip leading 0s to prevent octal interpretation",
+    "date": "2016-02-18",
+    "path": "https://github.com/npryce/adr-tools/pull/3",
+    "excerpt": "I found I was unable to create more than 8 records because the adr-new code to increment the counter interpreted 0008 as an invalid octal number. Fix was to strip leading zeroes to force decimal interpretation."
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:doozr",
+   "props": {
+    "name": "doozr",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0006-packaging-and-distribution-in-other-version-control-repositories",
+   "props": {
+    "title": "6. Packaging and distribution in other version control repositories",
+    "summary": "The adr-tools project will not contain any packaging or distribution scripts and config. Packaging and distribution will be managed by other projects in separate version control repositories.",
+    "decided_on": "2016-02-16",
+    "source": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0006-packaging-and-distribution-in-other-version-control-repositories.md",
+    "repo": "npryce/adr-tools",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0006-packaging-and-distribution-in-other-version-control-repositories",
+   "props": {
+    "kind": "adr",
+    "title": "npryce/adr-tools: 6. Packaging and distribution in other version control repositories",
+    "date": "2016-02-16",
+    "path": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0006-packaging-and-distribution-in-other-version-control-repositories.md",
+    "excerpt": "The adr-tools project will not contain any packaging or distribution scripts and config. Packaging and distribution will be managed by other projects in separate version control repositories."
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0007-invoke-adr-config-executable-to-get-configuration",
+   "props": {
+    "title": "7. Invoke adr-config executable to get configuration",
+    "summary": "Replace config.sh with an executable, named adr-config that outputs configuration. Each script in ADR Tools will eval the output of adr-config to configure itself.",
+    "decided_on": "2016-12-17",
+    "source": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0007-invoke-adr-config-executable-to-get-configuration.md",
+    "repo": "npryce/adr-tools",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0007-invoke-adr-config-executable-to-get-configuration",
+   "props": {
+    "kind": "adr",
+    "title": "npryce/adr-tools: 7. Invoke adr-config executable to get configuration",
+    "date": "2016-12-17",
+    "path": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0007-invoke-adr-config-executable-to-get-configuration.md",
+    "excerpt": "Replace config.sh with an executable, named adr-config that outputs configuration. Each script in ADR Tools will eval the output of adr-config to configure itself."
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:27",
+   "props": {
+    "kind": "pr",
+    "title": "Add executable she-bang",
+    "date": "2017-05-21",
+    "path": "https://github.com/npryce/adr-tools/pull/27",
+    "excerpt": "Required to prevent homebrew changing the executable bits of this file.\r\n\r\nSee https://github.com/Homebrew/brew/issues/2567#issuecomment-298229446"
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:jabley",
+   "props": {
+    "name": "jabley",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": ""
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0008-use-iso-8601-format-for-dates",
+   "props": {
+    "title": "8. Use ISO 8601 Format for Dates",
+    "summary": "adr-tools will use the ISO 8601 format for dates: yyyy-mm-dd",
+    "decided_on": "2017-02-21",
+    "source": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0008-use-iso-8601-format-for-dates.md",
+    "repo": "npryce/adr-tools",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0008-use-iso-8601-format-for-dates",
+   "props": {
+    "kind": "adr",
+    "title": "npryce/adr-tools: 8. Use ISO 8601 Format for Dates",
+    "date": "2017-02-21",
+    "path": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0008-use-iso-8601-format-for-dates.md",
+    "excerpt": "adr-tools will use the ISO 8601 format for dates: yyyy-mm-dd"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "0009-help-scripts",
+   "props": {
+    "title": "9. Help scripts",
+    "summary": "Where necessary, help text can be generated by a script. The script will be called adrhelp<command<subcommand",
+    "decided_on": "2018-06-26",
+    "source": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0009-help-scripts.md",
+    "repo": "npryce/adr-tools",
+    "status": "Accepted"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "src:0009-help-scripts",
+   "props": {
+    "kind": "adr",
+    "title": "npryce/adr-tools: 9. Help scripts",
+    "date": "2018-06-26",
+    "path": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0009-help-scripts.md",
+    "excerpt": "Where necessary, help text can be generated by a script. The script will be called adrhelp<command<subcommand"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "pr:41",
+   "props": {
+    "kind": "pr",
+    "title": "All files should have LF as newline separator",
+    "date": "2018-06-26",
+    "path": "https://github.com/npryce/adr-tools/pull/41",
+    "excerpt": "This PR ensures that one can smoothly develop on Windows, because all files are checked out using LF line ending."
+   }
+  },
+  {
+   "label": "Person",
+   "id": "gh:koppor",
+   "props": {
+    "name": "koppor",
+    "role": "contributor",
+    "joined": "",
+    "left": "",
+    "login": ""
+   }
+  }
+ ],
+ "edges": [
+  {
+   "src": "0001-record-architecture-decisions",
+   "rel": "RECORDED_IN",
+   "dst": "src:0001-record-architecture-decisions",
+   "props": {}
+  },
+  {
+   "src": "gh:npryce",
+   "rel": "AUTHORED",
+   "dst": "src:0001-record-architecture-decisions",
+   "props": {}
+  },
+  {
+   "src": "gh:npryce",
+   "rel": "OWNS",
+   "dst": "0001-record-architecture-decisions",
+   "props": {
+    "valid_from": "2016-02-09",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0002-implement-as-shell-scripts",
+   "rel": "RECORDED_IN",
+   "dst": "src:0002-implement-as-shell-scripts",
+   "props": {}
+  },
+  {
+   "src": "gh:npryce",
+   "rel": "AUTHORED",
+   "dst": "src:0002-implement-as-shell-scripts",
+   "props": {}
+  },
+  {
+   "src": "gh:npryce",
+   "rel": "OWNS",
+   "dst": "0002-implement-as-shell-scripts",
+   "props": {
+    "valid_from": "2016-02-12",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0003-single-command-with-subcommands",
+   "rel": "RECORDED_IN",
+   "dst": "src:0003-single-command-with-subcommands",
+   "props": {}
+  },
+  {
+   "src": "gh:npryce",
+   "rel": "AUTHORED",
+   "dst": "src:0003-single-command-with-subcommands",
+   "props": {}
+  },
+  {
+   "src": "gh:npryce",
+   "rel": "OWNS",
+   "dst": "0003-single-command-with-subcommands",
+   "props": {
+    "valid_from": "2016-02-12",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0004-markdown-format",
+   "rel": "RECORDED_IN",
+   "dst": "src:0004-markdown-format",
+   "props": {}
+  },
+  {
+   "src": "gh:npryce",
+   "rel": "AUTHORED",
+   "dst": "src:0004-markdown-format",
+   "props": {}
+  },
+  {
+   "src": "gh:npryce",
+   "rel": "OWNS",
+   "dst": "0004-markdown-format",
+   "props": {
+    "valid_from": "2016-02-12",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0005-help-comments",
+   "rel": "RECORDED_IN",
+   "dst": "src:0005-help-comments",
+   "props": {}
+  },
+  {
+   "src": "gh:npryce",
+   "rel": "AUTHORED",
+   "dst": "src:0005-help-comments",
+   "props": {}
+  },
+  {
+   "src": "gh:npryce",
+   "rel": "OWNS",
+   "dst": "0005-help-comments",
+   "props": {
+    "valid_from": "2016-02-13",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0005-help-comments",
+   "rel": "RECORDED_IN",
+   "dst": "pr:3",
+   "props": {}
+  },
+  {
+   "src": "gh:doozr",
+   "rel": "AUTHORED",
+   "dst": "pr:3",
+   "props": {}
+  },
+  {
+   "src": "0006-packaging-and-distribution-in-other-version-control-repositories",
+   "rel": "RECORDED_IN",
+   "dst": "src:0006-packaging-and-distribution-in-other-version-control-repositories",
+   "props": {}
+  },
+  {
+   "src": "gh:npryce",
+   "rel": "AUTHORED",
+   "dst": "src:0006-packaging-and-distribution-in-other-version-control-repositories",
+   "props": {}
+  },
+  {
+   "src": "gh:npryce",
+   "rel": "OWNS",
+   "dst": "0006-packaging-and-distribution-in-other-version-control-repositories",
+   "props": {
+    "valid_from": "2016-02-16",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0006-packaging-and-distribution-in-other-version-control-repositories",
+   "rel": "RECORDED_IN",
+   "dst": "pr:3",
+   "props": {}
+  },
+  {
+   "src": "gh:doozr",
+   "rel": "AUTHORED",
+   "dst": "pr:3",
+   "props": {}
+  },
+  {
+   "src": "0007-invoke-adr-config-executable-to-get-configuration",
+   "rel": "RECORDED_IN",
+   "dst": "src:0007-invoke-adr-config-executable-to-get-configuration",
+   "props": {}
+  },
+  {
+   "src": "gh:npryce",
+   "rel": "AUTHORED",
+   "dst": "src:0007-invoke-adr-config-executable-to-get-configuration",
+   "props": {}
+  },
+  {
+   "src": "gh:npryce",
+   "rel": "OWNS",
+   "dst": "0007-invoke-adr-config-executable-to-get-configuration",
+   "props": {
+    "valid_from": "2016-12-17",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0007-invoke-adr-config-executable-to-get-configuration",
+   "rel": "RECORDED_IN",
+   "dst": "pr:27",
+   "props": {}
+  },
+  {
+   "src": "gh:jabley",
+   "rel": "AUTHORED",
+   "dst": "pr:27",
+   "props": {}
+  },
+  {
+   "src": "0008-use-iso-8601-format-for-dates",
+   "rel": "RECORDED_IN",
+   "dst": "src:0008-use-iso-8601-format-for-dates",
+   "props": {}
+  },
+  {
+   "src": "gh:npryce",
+   "rel": "AUTHORED",
+   "dst": "src:0008-use-iso-8601-format-for-dates",
+   "props": {}
+  },
+  {
+   "src": "gh:npryce",
+   "rel": "OWNS",
+   "dst": "0008-use-iso-8601-format-for-dates",
+   "props": {
+    "valid_from": "2017-02-21",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0008-use-iso-8601-format-for-dates",
+   "rel": "RECORDED_IN",
+   "dst": "pr:27",
+   "props": {}
+  },
+  {
+   "src": "gh:jabley",
+   "rel": "AUTHORED",
+   "dst": "pr:27",
+   "props": {}
+  },
+  {
+   "src": "0009-help-scripts",
+   "rel": "RECORDED_IN",
+   "dst": "src:0009-help-scripts",
+   "props": {}
+  },
+  {
+   "src": "gh:npryce",
+   "rel": "AUTHORED",
+   "dst": "src:0009-help-scripts",
+   "props": {}
+  },
+  {
+   "src": "gh:npryce",
+   "rel": "OWNS",
+   "dst": "0009-help-scripts",
+   "props": {
+    "valid_from": "2018-06-26",
+    "valid_to": "",
+    "handed_over_from": ""
+   }
+  },
+  {
+   "src": "0009-help-scripts",
+   "rel": "RECORDED_IN",
+   "dst": "pr:41",
+   "props": {}
+  },
+  {
+   "src": "gh:koppor",
+   "rel": "AUTHORED",
+   "dst": "pr:41",
+   "props": {}
+  }
+ ]
+}

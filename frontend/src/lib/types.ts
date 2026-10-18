@@ -67,6 +67,8 @@ export interface Memo {
 
 export interface DecisionResponse {
   audit: Audit; impact: Impact[]; findings: Finding[]; memo: Memo | null; gate: Gate; ticket: string; queries: Query[];
+  /** Since when: every verdict the decision has had, re-audited on each date something in its subgraph happened. */
+  history?: { verdict: Verdict; since: string | null; history: { verdict: Verdict; since: string | null }[] };
 }
 
 export interface LedgerRow {

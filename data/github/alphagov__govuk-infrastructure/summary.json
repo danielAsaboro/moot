@@ -1,0 +1,59 @@
+{
+ "repo": "alphagov/govuk-infrastructure",
+ "graph": "gh_alphagov_govuk_infrastructure",
+ "folder": "docs/architecture/decisions",
+ "read_on": "2026-10-19",
+ "adr_files": 24,
+ "decisions": 24,
+ "retired": 1,
+ "people": 8,
+ "pull_requests": 25,
+ "tools": [
+  "aws-lbc",
+  "concourse",
+  "crossplane",
+  "dex",
+  "elasticsearch",
+  "external-dns",
+  "external-secrets",
+  "fluent-bit",
+  "gatekeeper",
+  "helm",
+  "kibana",
+  "kubernetes",
+  "pkl",
+  "prometheus-adapter",
+  "tf-aws-eks"
+ ],
+ "checks": 38,
+ "failing": 3,
+ "verdicts": {
+  "HOLDS": 8,
+  "MOOT": 4,
+  "RETIRED": 1,
+  "UNDOCUMENTED": 11
+ },
+ "gates": {
+  "ALLOW": 4,
+  "DENY": 5,
+  "REVALIDATE": 15
+ },
+ "moot": [
+  {
+   "id": "0002-use-aws-eks-terraform-module",
+   "title": "2. Use `aws-eks` Terraform module"
+  },
+  {
+   "id": "0005-use-eks-managed-node-groups",
+   "title": "5. Use AWS Elastic Kubernetes Service (EKS) managed node groups"
+  },
+  {
+   "id": "0013-expose-external-metrics-for-hpa",
+   "title": "13. Expose external metrics for Horizontal Pod Autoscaler using Prometheus adapter"
+  },
+  {
+   "id": "0020-use-crossplane-for-abstraction",
+   "title": "20. Use Crossplane for abstraction"
+  }
+ ]
+}

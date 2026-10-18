@@ -39,6 +39,19 @@
 .today { padding: 6px 4px; font-size: 15px; }
 .setNote { margin: 2px 0 0; }
 
+/* Graph picker */
+.graphCap { max-width: 220px; }
+.graphCap .capLabel { overflow: hidden; text-overflow: ellipsis; }
+.graphPop { width: 380px; }
+.graphs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; max-height: 300px; overflow-y: auto; }
+.graphRow { width: 100%; text-align: left; border: 0; background: transparent; color: var(--label); border-radius: var(--r-sm); padding: 8px 10px;
+  display: flex; flex-direction: column; gap: 2px; cursor: pointer; }
+.graphRow:hover { background: var(--fill); }
+.graphOn { background: var(--fill); }
+.graphTitle { font-size: 15px; line-height: 1.33; overflow-wrap: anywhere; }
+.graphSub { font-size: 13px; color: var(--label-2); }
+.ingest { display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--separator); padding-top: 12px; }
+
 .main { padding-top: 28px; padding-bottom: 64px; }
 
 @media (max-width: 760px) {

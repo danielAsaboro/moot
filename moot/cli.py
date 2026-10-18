@@ -18,10 +18,12 @@ def main(argv=None):
     k = sub.add_parser("packet", help="the evidence packet behind one verdict (Markdown or JSON)"); k.add_argument("decision_id"); k.add_argument("--as-of"); k.add_argument("--json", action="store_true")
     vf = sub.add_parser("verify", help="check every headline number in README.md and eval/results*.md against the eval JSON; non-zero on drift")
     vf.add_argument("--rerun", action="store_true", help="first re-run the deterministic evals from committed inputs (needs FalkorDB)")
-    l = sub.add_parser("ledger"); l.add_argument("--as-of"); l.add_argument("--depth", type=int, default=4)
+    l = sub.add_parser("ledger"); l.add_argument("--as-of"); l.add_argument("--depth", type=int, default=4); l.add_argument("--graph")
     v = sub.add_parser("serve"); v.add_argument("--port", type=int, default=None)
     sub.add_parser("mcp", help="run the read-only MCP server on stdio")
     sub.add_parser("realworld", help="check real public ADRs against GitHub and OSV -> data/realworld/ (network)")
+    ig = sub.add_parser("ingest-github", help="a public repo's ADR folder + PRs -> graph gh_<owner>_<repo>, audited (network)")
+    ig.add_argument("repo", help="owner/name"); ig.add_argument("--path", help="the ADR folder, if not found automatically"); ig.add_argument("--no-checks", action="store_true", help="skip the GitHub/OSV tool checks")
     e = sub.add_parser("extract", help="LLM extraction from data/corpus into data/extracted.json"); e.add_argument("--limit", type=int)
     args = p.parse_args(argv)
 
@@ -33,13 +35,29 @@ def main(argv=None):
         from .verify import main as verify; return verify(rerun=args.rerun)
     if args.cmd == "realworld":
         from .realworld.check import main as rw; rw(); return
+    if args.cmd == "ingest-github":
+        from .connectors import github as gh
+        s = gh.ingest(args.repo, args.path, checks=not args.no_checks)
+        s = gh.audit(args.repo)
+        print(f"{s['repo']}: {s['decisions']} decisions from {s['folder']} ({s['pull_requests']} pull requests, {s['people']} people) -> graph {s['graph']}")
+        print("verdicts:", ", ".join(f"{k} {v}" for k, v in s["verdicts"].items()), "· gate:", ", ".join(f"{k} {v}" for k, v in s["gates"].items()))
+        for m in s["moot"]:
+            print(f"  MOOT  {m['id']}  {m['title']}")
+        print(f"open it: moot ledger --graph {s['graph']}  or  /app/?graph={s['graph']}")
+        return
     from .graph import graph, seed, stats
     if args.cmd == "seed":
         from pathlib import Path
         from .graph import DATA, PUBLIC_GRAPH
         out = seed(graph(args.graph), Path(args.file) if args.file else None, fresh=args.fresh)
-        if not args.file and not args.graph and (DATA / "realworld" / "graph.json").exists():
-            out["public_adrs"] = seed(graph(PUBLIC_GRAPH), DATA / "realworld" / "graph.json", fresh=args.fresh)
+        if not args.file and not args.graph:  # the real-data graphs ship as snapshots too
+            from .connectors import github as gh
+            from .graph import BACKTEST_GRAPH
+            extra = {PUBLIC_GRAPH: DATA / "realworld" / "graph.json", BACKTEST_GRAPH: DATA / "backtest" / "graph.json"}
+            extra.update({gh.graph_name(r): gh.load(r) for r in gh.ingested()})
+            for name, f in extra.items():
+                if f.exists():
+                    out[name] = seed(graph(name), f, fresh=args.fresh)
         print(json.dumps(out, indent=1)); return
     if args.cmd == "stats":
         print(json.dumps(stats(graph()), indent=1)); return
@@ -59,7 +77,7 @@ def main(argv=None):
             print(f"{args.decision_id} is not in the graph"); return 1
         print(json.dumps(pk, indent=1, default=str) if args.json else tools.packet_markdown(pk)); return
     if args.cmd == "ledger":
-        for r in tools.ledger(graph(), args.as_of, args.depth):
+        for r in tools.ledger(graph(args.graph), args.as_of, args.depth):
             print(f"{r['verdict']:<13} {r['id']}  {r['title']}  (owner: {r['owner']}{'' if r['owner_active'] else ', left'})")
         return
     if args.cmd == "serve":

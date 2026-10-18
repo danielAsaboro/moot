@@ -1,0 +1,36 @@
+{
+ "repo": "thomvaill/log4brains",
+ "graph": "gh_thomvaill_log4brains",
+ "folder": "docs/adr",
+ "read_on": "2026-10-19",
+ "adr_files": 11,
+ "decisions": 11,
+ "retired": 2,
+ "people": 2,
+ "pull_requests": 4,
+ "tools": [
+  "lerna",
+  "lunr",
+  "mdx",
+  "prettier-eslint"
+ ],
+ "checks": 12,
+ "failing": 1,
+ "verdicts": {
+  "HOLDS": 3,
+  "MOOT": 1,
+  "RETIRED": 2,
+  "UNDOCUMENTED": 5
+ },
+ "gates": {
+  "ALLOW": 3,
+  "DENY": 3,
+  "REVALIDATE": 5
+ },
+ "moot": [
+  {
+   "id": "20201103-use-lunr-for-search",
+   "title": "Use Lunr for search"
+  }
+ ]
+}

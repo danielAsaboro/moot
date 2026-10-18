@@ -14,5 +14,6 @@ hackathon/
 data/realworld/.cache/
 data/backtest/.repos
 data/backtest/.tools
+data/github/.repos
 .vercel
 .env.local

@@ -71,8 +71,9 @@ def latest_version(eco: str, name: str) -> tuple[str, str] | None:
     return None
 
 
-def check_tool(tid: str, today: str) -> dict:
-    name, repo, pkg = TOOLS[tid]
+def check_tool(tid: str, today: str, spec: tuple | None = None) -> dict:
+    """spec: (display name, GitHub repo, OSV package or None); defaults to records.TOOLS[tid]."""
+    name, repo, pkg = spec or TOOLS[tid]
     out = dict(tool=tid, name=name, repo=repo, package=list(pkg) if pkg else None, checked_on=today, checks={})
     try:
         meta = _get(f"https://api.github.com/repos/{repo}")

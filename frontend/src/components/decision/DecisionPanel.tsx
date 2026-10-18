@@ -8,7 +8,8 @@ import { api, ApiError } from "@/lib/api";
 import { useApi } from "@/lib/useApi";
 import { useAppState } from "@/lib/appState";
 import type { DecisionResponse } from "@/lib/types";
-import { VerdictBadge, cx } from "@/components/ui";
+import { VERDICT_WORD, VerdictBadge, cx } from "@/components/ui";
+import { longDate } from "@/lib/format";
 import EmptyState from "@/components/ui/EmptyState";
 import AuditTab from "./AuditTab";
 import AuditSteps from "./AuditSteps";
@@ -89,6 +90,7 @@ export default function DecisionPanel({ id }: { id: string }) {
         </div>
         <VerdictWhy audit={a} onSelect={select} />
         {!notYet && <VerdictMeta audit={a} />}
+        {!notYet && <VerdictSince h={data.history} />}
       </header>
 
       {/* One drawing per screen: the preview is the hero everywhere except the Graph tab, which shows the full one. */}
@@ -124,6 +126,18 @@ export default function DecisionPanel({ id }: { id: string }) {
 
       {showGate && <GateSheet gate={data.gate} asOf={asOf} open={gateOpen} onClose={closeGate} />}
     </article>
+  );
+}
+
+/** "Moot since 2 March 2026, after Holds from 10 February 2025": the verdict's history, one grey line. */
+function VerdictSince({ h }: { h?: DecisionResponse["history"] }) {
+  if (!h?.since || h.history.length < 1) return null;
+  const prev = h.history.slice(0, -1).filter(x => x.since).reverse();
+  return (
+    <p className="t-footnote" style={{ margin: 0 }} aria-label="Verdict history">
+      {VERDICT_WORD[h.verdict]} since {longDate(h.since)}
+      {prev.map((x, i) => <span key={i}>{i === 0 ? ", after " : ", "}{VERDICT_WORD[x.verdict].toLowerCase()} from {longDate(x.since)}</span>)}.
+    </p>
   );
 }
 
