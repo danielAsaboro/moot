@@ -23,6 +23,8 @@ KEP-3130 KMS Observability                                   RETIRED
 gate: DENY (retired) · ask: Anish Ramasekar, its author, still here
 ```
 
+![KEP-3130 in the app: retired by KEP-3299, who knows why, the SIG that answers for it and its leads, drawn from the rows FalkorDB returned](docs/screens/k8s-kep.png)
+
 Every line is a FalkorDB path query you can open: [the decision](https://moot.bringaihome.xyz/app/ledger/?graph=gh_kubernetes_enhancements&d=KEP-3130), the exact read-only Cypher it ran with rows and milliseconds, the quote with its character span. Set the date and the answer is the one that was true then: who led the SIG, whether the KEP was in force. An agent asks the same thing before it acts (`GET /api/gate`, the MCP tool `check_action`, or `moot hook` in front of Claude Code), and gets DENY only when the graph shows the decision is gone; otherwise it proceeds, with any warning and the person to ask.
 
 ## Results, losses included

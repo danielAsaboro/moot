@@ -12,7 +12,10 @@ const OUT = join(dirname(fileURLToPath(import.meta.url)), "..", "docs", "screens
 mkdirSync(OUT, { recursive: true });
 
 const shots = [
-  { name: "landing", path: "/", wait: 4000 },
+  { name: "landing", idle: false, path: "/", wait: 6000 },
+  { name: "judges", idle: false, path: "/#judges", wait: 4000, then: async p => { await p.evaluate(() => document.getElementById("judges")?.scrollIntoView()); await p.waitForTimeout(800); } },
+  { name: "k8s-ledger", path: "/app/ledger/?graph=gh_kubernetes_enhancements", wait: 5000 },
+  { name: "k8s-kep", path: "/app/ledger/?graph=gh_kubernetes_enhancements&d=KEP-3130", wait: 5000 },
   { name: "evidence-path", path: "/app/?d=D01&tab=graph", wait: 5000, scroll: 330 },
   { name: "cypher", path: "/app/?d=D01", wait: 3000, scroll: 420,
     then: async p => { await p.getByRole("tab", { name: "Cypher" }).or(p.getByRole("button", { name: "Cypher", exact: true })).first().click(); await p.waitForTimeout(1500); } },

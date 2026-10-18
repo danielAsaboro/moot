@@ -9,8 +9,9 @@ Which decisions govern which files is declared once, in `.moot/paths.json`, the 
 ## Claude Code: block an edit that a dead decision governs
 
 `moot hook` is a `PreToolUse` hook. For `Edit`, `Write` and `MultiEdit` on a governed file it runs the gate on each governing
-decision. On **DENY** it exits 2, which blocks the edit and hands the agent the evidence path; on **REVALIDATE** it lets the
-edit through with a note; anything else passes untouched. Add to `.claude/settings.json`:
+decision. On **DENY** it exits 2, which blocks the edit and hands the agent the evidence path and who to ask; an **ALLOW** that
+carries warnings (the product policy: nothing on record vouches for the reason) lets the edit through with the warning and who
+to ask; anything else passes untouched. Add to `.claude/settings.json`:
 
 ```json
 {"hooks": {"PreToolUse": [{"matcher": "Edit|Write|MultiEdit",
