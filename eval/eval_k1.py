@@ -582,6 +582,7 @@ def main() -> None:
     (OUT / f"results_{STUDY}.json").write_text(json.dumps(dict(model=MODEL, questions_sha256=Q["sha256"], results=res, rows=rows), indent=1) + "\n")
     names = dict(moot_tools="**agent with Moot's graph tools**", file_tools="agent with file and git tools over the same checkouts",
                  rag_bm25="BM25 RAG over the checkouts at HEAD", rag_history="BM25 RAG over the checkouts and their history (post hoc, see register)", moot_direct="Moot, one fixed graph query per template, no model (shared-source reference)",
+                 **({"moot_direct": "fixed-query router: the best-matching K-template's fixed graph query, no model"} if STUDY == "k3" else {}),
                  moot_direct_exact="the same fixed query on the graph rebuilt with commit-dated SIG leadership (post hoc, product change registered before K2)")
     L = [f"# {STUDY.upper()}: questions about Kubernetes as an organisation (study {STUDY.upper()})", "",
          f"{len(Q['questions'])} templated questions about SIG Auth and SIG Node KEPs; gold from the raw git history of kubernetes/enhancements and "

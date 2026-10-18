@@ -77,6 +77,10 @@ On recall the backtest cannot rank anything: the age rule catches 3 of the 6 dea
 
 ## Limits, in full
 
+- **K3's gold, like K2's, is read from the same repositories Moot's graph is built from**, by a separate parser with rules frozen before any arm ran; its fixed-query router answers with the one K-template its words best match and cannot express questions that combine templates, which is what K3 asks.
+- **H3 had no positives:** 29 tool decisions in force on its date in 447 fresh repositories and none abandoned, so the risk-ranking study is underpowered and makes no claim.
+- **X1's held-out answering was interrupted once by a machine restart** (79 answers in); it resumed from its cache, so no answer was produced twice, and each reopening of the held-out questions is in `eval/x1/heldout_runs.log`.
+
 - **X1's judge is the local answer model**, running HERB's own prompts (the paper used gpt-4o); its PR-link extraction misses links HERB's own gold contains, so X1 also reports a registered deterministic row for People, Customer and Artifact.
 
 - **Not a forecaster.** On held-out real decisions Moot does worse than calling everything HOLDS (52 against 59 of 64), and its flags on real history are confirmed at chance (1 of 12). It gives the reason, the path, the date and who to ask, not a prediction.
