@@ -162,18 +162,20 @@ def moot_run(name: str, a: dict):
                                team=x.get("team"), owner=x.get("owner")), default=str)
     if name == "kep_history":
         return json.dumps(tools.verdict_history(G, kid, day, 4), default=str)
+    handles = lambda xs: [dict(x, handle=x["id"].removeprefix("u_")) for x in xs]  # dev fix: answers ask for GitHub handles
     if name == "team_on":
-        return json.dumps(tools.decision_team(G, kid, day), default=str)
+        t = tools.decision_team(G, kid, day)
+        return json.dumps(dict(t, leads=handles(t["leads"]), former=handles(t["former"])) if t else None, default=str)
     if name == "kep_authors":
-        return json.dumps(tools.decision_authors(G, kid, day), default=str)
+        return json.dumps(handles(tools.decision_authors(G, kid, day)), default=str)
     return "unknown tool"
 
 
 MOOT_DOC = """- find_kep(query): KEPs whose title matches
 - audit_kep(kep, date): the KEP as of a date: verdict (HOLDS, MOOT, RETIRED, NOT_YET...), what superseded or retired it and when, the team that answers for it and its leads then
 - kep_history(kep, date): every verdict the KEP has had and the date each began, up to the date
-- team_on(kep, date): the SIG that answers for the KEP and its chairs and tech leads on that date (ids are u_<github handle>), and former leads
-- kep_authors(kep, date): the KEP's authors (ids u_<github handle>) and which SIG each leads on that date"""
+- team_on(kep, date): the SIG that answers for the KEP and its chairs and tech leads on that date (with their GitHub handle), and former leads
+- kep_authors(kep, date): the KEP's authors (with their GitHub handle) and which SIG each leads on that date"""
 
 
 # ---- file tools over the same checkouts

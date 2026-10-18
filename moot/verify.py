@@ -63,6 +63,15 @@ class Checker:
             self.bad.append(f"{label}: differs")
 
 
+# The README keeps one headline and a compact table; the long results, the demo company and the stated-reasons study live in
+# these docs. Every number in all of them is checked as if it were in the README.
+README_PARTS = ("README.md", "docs/results.md", "docs/larkspur.md", "docs/reasons.md")
+
+
+def readme() -> str:
+    return "\n\n".join((ROOT / p).read_text() for p in README_PARTS if (ROOT / p).exists())
+
+
 def load(name: str, base: Path = EVAL):
     return json.loads((base / name).read_text())
 
@@ -95,7 +104,7 @@ def check_history(c: Checker) -> None:
     c.equal("eval/results_backtest.json re-scored from data/backtest", B, _BT["json"])
     mongo = next(x for x in B["caught"] if "mongo" in x["id"].lower())
     es = next(x for x in B["caught"] if "elasticsearch" in x["id"].lower())
-    c.expect("README.md", (ROOT / "README.md").read_text(), "real history sentence",
+    c.expect("README.md", readme(), "real history sentence",
              r"Moot said DENY ([\d,]+) days before GOV\.UK replaced MongoDB.*?and ([\d,]+) days before GOV\.UK deprecated its Elasticsearch logging ADR; "
              r"median lead ([\d,]+) days\. It found (\d+) ADRs still marked accepted whose reasons died upstream",
              (f"{mongo['lead_days']:,}", f"{es['lead_days']:,}", f"{round(B['median_lead_days']):,}", B["flag_reading"]["real"]))
@@ -103,7 +112,7 @@ def check_history(c: Checker) -> None:
 
 def check_headline(c: Checker, S: dict, G: dict, bt: str | None) -> None:
     """The results table at the top of the README."""
-    doc, t = "README.md", (ROOT / "README.md").read_text()
+    doc, t = "README.md", readme()
     m = G["methods"]
     c.expect(doc, t, "headline gate", r"agent was allowed to act on \(of (\d+)\) \| \*\*(\d+)\*\* \| BM25 \+ change cues (\d+) · trust the ADR (\d+) \|",
              (G["n_block"], len(m["moot"]["false_allows"]), len(m["bm25"]["false_allows"]), len(m["adr"]["false_allows"])))
@@ -131,7 +140,7 @@ def check_headline(c: Checker, S: dict, G: dict, bt: str | None) -> None:
 def check_baseline(c: Checker, B: dict) -> None:
     """Study S3: the README headline row and sentence, and the table in docs/evaluation.md."""
     a = B["arms"]
-    t = (ROOT / "README.md").read_text()
+    t = readme()
     c.expect("README.md", t, "headline S3", r"dead decisions called HOLDS \(of (\d+)\) \| \*\*(\d+)\*\* \| RAG \+ same model (\d+) · RAG over stated reasons (\d+) \|",
              (a["moot"]["dead_n"], len(a["moot"]["dead_called_holds"]), len(a["rag_bm25"]["dead_called_holds"]), len(a["rag_premises"]["dead_called_holds"])))
     c.expect("README.md", t, "S3 sentence", r"Moot gets (\d+)/90 verdicts and (\d+)/(\d+) \"since when\" dates exactly; plain RAG with the same local model gets (\d+)/90 and (\d+)/(\d+)\. "
@@ -231,7 +240,7 @@ def check_results(c: Checker, R: dict, S: dict, G: dict) -> None:
                  r"Moot blind (\d+)/(\d+) · ORACLE \(Canon's setup\) (\d+)/\d+ · BM25 baseline (\d+)/\d+",
                  (d["moot"]["retired_gold_in_context"], d["moot"]["counts"]["conflicts"] if "counts" in d["moot"] else d["counts"]["conflicts"],
                   d["oracle"]["retired_gold_in_context"], d["baseline"]["retired_gold_in_context"]))
-        c.expect("README.md", (ROOT / "README.md").read_text(), "headline EnterpriseRAG-Bench",
+        c.expect("README.md", readme(), "headline EnterpriseRAG-Bench",
                  r"still in the model's context \(of (\d+), lower is better\) \| \*\*(\d+)\*\* \| BM25 (\d+): a tie",
                  (d["counts"]["conflicts"] if "counts" in d else d["moot"]["counts"]["conflicts"], d["moot"]["retired_gold_in_context"], d["baseline"]["retired_gold_in_context"]))
 
@@ -243,7 +252,7 @@ def check_reasons(c: Checker) -> None:
         return
     R = json.loads(f.read_text())
     T = R["total"]
-    t = (ROOT / "README.md").read_text()
+    t = readme()
     c.expect("README.md", t, "reasons sentence",
              r"UNDOCUMENTED fell from (\d+) to (\d+) of (\d+) decisions\. Of the (\d+) HOLDS after, (\d+) pass the gate",
              (T["before"]["verdicts"]["UNDOCUMENTED"], T["after"]["verdicts"]["UNDOCUMENTED"], T["decisions"],
@@ -274,7 +283,7 @@ def check_router(c: Checker) -> None:
         return
     S = json.loads(f.read_text())["summary"]
     m = S["misrouted"]
-    c.expect("README.md", (ROOT / "README.md").read_text(), "router sentence",
+    c.expect("README.md", readme(), "router sentence",
              r"On (\d+) ordinary questions the keyword rules misroute it routes (\d+) correctly", (m["n"], m["model"]))
     t = (EVAL / "results_router.md").read_text()
     for name, s in (("rules misroute them", m), ("rules already route them", S["control"])):
@@ -284,7 +293,7 @@ def check_router(c: Checker) -> None:
 
 def check_studies(c: Checker) -> None:
     """H1, A1, P1 and U1 as the README quotes them, against the result files."""
-    t = (ROOT / "README.md").read_text()
+    t = readme()
     f = EVAL / "results_heldout.json"
     if f.exists():
         H = json.loads(f.read_text())
@@ -322,7 +331,7 @@ def check_test_count(c: Checker) -> None:
     out = subprocess.run([sys.executable, "-m", "pytest", "--collect-only", "-q"], cwd=ROOT, capture_output=True, text=True).stdout
     m = re.search(r"(\d+) tests? collected", out)
     if m:
-        c.expect("README.md", (ROOT / "README.md").read_text(), "test count", r"`make demo`\), (\d+) tests,", (m.group(1),))
+        c.expect("README.md", readme(), "test count", r"`make demo`\), (\d+) tests,", (m.group(1),))
 
 
 def strip_timing(x):

@@ -1,0 +1,1090 @@
+{
+ "nodes": [
+  {
+   "label": "Premise",
+   "id": "p_neo4j_maintained",
+   "props": {
+    "text": "Neo4j is actively maintained",
+    "kind": "unwritten",
+    "tool": "neo4j",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_neo4j_open_source",
+   "props": {
+    "text": "Neo4j is open source",
+    "kind": "unwritten",
+    "tool": "neo4j",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_vue_maintained",
+   "props": {
+    "text": "Vue.js 2 is actively maintained",
+    "kind": "unwritten",
+    "tool": "vue",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:vue:2025-10-10",
+   "props": {
+    "kind": "check",
+    "title": "git history of vuejs/vue: no commit to the default branch since 2024-10-10",
+    "date": "2025-10-10",
+    "excerpt": "no commit to the default branch since 2024-10-10",
+    "path": "https://github.com/vuejs/vue"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_vue_open_source",
+   "props": {
+    "text": "Vue.js 2 is open source",
+    "kind": "unwritten",
+    "tool": "vue",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_antlr_maintained",
+   "props": {
+    "text": "ANTLR is actively maintained",
+    "kind": "unwritten",
+    "tool": "antlr",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_antlr_open_source",
+   "props": {
+    "text": "ANTLR is open source",
+    "kind": "unwritten",
+    "tool": "antlr",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_junit5_maintained",
+   "props": {
+    "text": "JUnit 5 is actively maintained",
+    "kind": "unwritten",
+    "tool": "junit5",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_junit5_open_source",
+   "props": {
+    "text": "JUnit 5 is open source",
+    "kind": "unwritten",
+    "tool": "junit5",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_maven_maintained",
+   "props": {
+    "text": "Maven is actively maintained",
+    "kind": "unwritten",
+    "tool": "maven",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_maven_open_source",
+   "props": {
+    "text": "Maven is open source",
+    "kind": "unwritten",
+    "tool": "maven",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_viper_maintained",
+   "props": {
+    "text": "Viper is actively maintained",
+    "kind": "unwritten",
+    "tool": "viper",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:viper:2026-10-15",
+   "props": {
+    "kind": "check",
+    "title": "git history of spf13/viper: no commit to the default branch since 2025-10-15",
+    "date": "2026-10-15",
+    "excerpt": "no commit to the default branch since 2025-10-15",
+    "path": "https://github.com/spf13/viper"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_viper_open_source",
+   "props": {
+    "text": "Viper is open source",
+    "kind": "unwritten",
+    "tool": "viper",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_spring-boot_maintained",
+   "props": {
+    "text": "Spring Boot is actively maintained",
+    "kind": "unwritten",
+    "tool": "spring-boot",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_spring-boot_open_source",
+   "props": {
+    "text": "Spring Boot is open source",
+    "kind": "unwritten",
+    "tool": "spring-boot",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prometheus_maintained",
+   "props": {
+    "text": "Prometheus is actively maintained",
+    "kind": "unwritten",
+    "tool": "prometheus",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prometheus_open_source",
+   "props": {
+    "text": "Prometheus is open source",
+    "kind": "unwritten",
+    "tool": "prometheus",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_docker_maintained",
+   "props": {
+    "text": "Docker is actively maintained",
+    "kind": "unwritten",
+    "tool": "docker",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_docker_open_source",
+   "props": {
+    "text": "Docker is open source",
+    "kind": "unwritten",
+    "tool": "docker",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_angular_maintained",
+   "props": {
+    "text": "Angular is actively maintained",
+    "kind": "unwritten",
+    "tool": "angular",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_angular_open_source",
+   "props": {
+    "text": "Angular is open source",
+    "kind": "unwritten",
+    "tool": "angular",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_golang_maintained",
+   "props": {
+    "text": "Go is actively maintained",
+    "kind": "unwritten",
+    "tool": "golang",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:golang:1973-07-18",
+   "props": {
+    "kind": "check",
+    "title": "git history of golang/go: no commit to the default branch since 1972-07-18",
+    "date": "1973-07-18",
+    "excerpt": "no commit to the default branch since 1972-07-18",
+    "path": "https://github.com/golang/go"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:golang:1974-01-20",
+   "props": {
+    "kind": "check",
+    "title": "git history of golang/go: commits resume on 1974-01-20 after a gap since 1972-07-18",
+    "date": "1974-01-20",
+    "excerpt": "commits resume on 1974-01-20 after a gap since 1972-07-18",
+    "path": "https://github.com/golang/go"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:golang:1975-01-20",
+   "props": {
+    "kind": "check",
+    "title": "git history of golang/go: no commit to the default branch since 1974-01-20",
+    "date": "1975-01-20",
+    "excerpt": "no commit to the default branch since 1974-01-20",
+    "path": "https://github.com/golang/go"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:golang:1988-04-01",
+   "props": {
+    "kind": "check",
+    "title": "git history of golang/go: commits resume on 1988-04-01 after a gap since 1974-01-20",
+    "date": "1988-04-01",
+    "excerpt": "commits resume on 1988-04-01 after a gap since 1974-01-20",
+    "path": "https://github.com/golang/go"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:golang:1989-04-01",
+   "props": {
+    "kind": "check",
+    "title": "git history of golang/go: no commit to the default branch since 1988-04-01",
+    "date": "1989-04-01",
+    "excerpt": "no commit to the default branch since 1988-04-01",
+    "path": "https://github.com/golang/go"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:golang:2008-03-02",
+   "props": {
+    "kind": "check",
+    "title": "git history of golang/go: commits resume on 2008-03-02 after a gap since 1988-04-01",
+    "date": "2008-03-02",
+    "excerpt": "commits resume on 2008-03-02 after a gap since 1988-04-01",
+    "path": "https://github.com/golang/go"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_golang_open_source",
+   "props": {
+    "text": "Go is open source",
+    "kind": "unwritten",
+    "tool": "golang",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_yarn_maintained",
+   "props": {
+    "text": "Yarn is actively maintained",
+    "kind": "unwritten",
+    "tool": "yarn",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_yarn_open_source",
+   "props": {
+    "text": "Yarn is open source",
+    "kind": "unwritten",
+    "tool": "yarn",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_typescript_maintained",
+   "props": {
+    "text": "TypeScript is actively maintained",
+    "kind": "unwritten",
+    "tool": "typescript",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_typescript_open_source",
+   "props": {
+    "text": "TypeScript is open source",
+    "kind": "unwritten",
+    "tool": "typescript",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kiali_maintained",
+   "props": {
+    "text": "Kiali is actively maintained",
+    "kind": "unwritten",
+    "tool": "kiali",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kiali_open_source",
+   "props": {
+    "text": "Kiali is open source",
+    "kind": "unwritten",
+    "tool": "kiali",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_jaeger_maintained",
+   "props": {
+    "text": "Jaeger is actively maintained",
+    "kind": "unwritten",
+    "tool": "jaeger",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_jaeger_open_source",
+   "props": {
+    "text": "Jaeger is open source",
+    "kind": "unwritten",
+    "tool": "jaeger",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_spring_maintained",
+   "props": {
+    "text": "Spring Framework is actively maintained",
+    "kind": "unwritten",
+    "tool": "spring",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_spring_open_source",
+   "props": {
+    "text": "Spring Framework is open source",
+    "kind": "unwritten",
+    "tool": "spring",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_webpack_maintained",
+   "props": {
+    "text": "webpack is actively maintained",
+    "kind": "unwritten",
+    "tool": "webpack",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_webpack_open_source",
+   "props": {
+    "text": "webpack is open source",
+    "kind": "unwritten",
+    "tool": "webpack",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "OpenTOSCA/container:0001-use-maven.md",
+   "props": {
+    "title": "Use maven as a buildtool and dependency manager",
+    "summary": "Use maven as a buildtool and dependency manager",
+    "decided_on": "2020-06-18",
+    "source": "https://github.com/OpenTOSCA/container/blob/HEAD/docs/adr/0001-use-maven.md",
+    "repo": "OpenTOSCA/container",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "OpenTOSCA/container:0002-use-spring-dependency-incjection.md",
+   "props": {
+    "title": "Use Spring for Dependency Injection and discovery of plugins",
+    "summary": "Use Spring for Dependency Injection and discovery of plugins",
+    "decided_on": "2020-06-18",
+    "source": "https://github.com/OpenTOSCA/container/blob/HEAD/docs/adr/0002-use-spring-dependency-incjection.md",
+    "repo": "OpenTOSCA/container",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "VolleyManagement/volley-management:0001-use-auth0-as-authentication-provider.md",
+   "props": {
+    "title": "Use Auth0 as authentication provider",
+    "summary": "Use Auth0 as authentication provider",
+    "decided_on": "2019-08-22",
+    "source": "https://github.com/VolleyManagement/volley-management/blob/HEAD/docs/adr/0001-use-auth0-as-authentication-provider.md",
+    "repo": "VolleyManagement/volley-management",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "VolleyManagement/volley-management:0003-use-angular-for-spa.md",
+   "props": {
+    "title": "Use Angular Framework for VolleyManagement.SPA container",
+    "summary": "Use Angular Framework for VolleyManagement.SPA container",
+    "decided_on": "2019-08-23",
+    "source": "https://github.com/VolleyManagement/volley-management/blob/HEAD/docs/adr/0003-use-angular-for-spa.md",
+    "repo": "VolleyManagement/volley-management",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "VolleyManagement/volley-management:0004-use-docker-for-hosting-application.md",
+   "props": {
+    "title": "Use Docker for hosting application",
+    "summary": "Use Docker for hosting application",
+    "decided_on": "2019-08-23",
+    "source": "https://github.com/VolleyManagement/volley-management/blob/HEAD/docs/adr/0004-use-docker-for-hosting-application.md",
+    "repo": "VolleyManagement/volley-management",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "adr/adr-manager:0001-use-vue.js.md",
+   "props": {
+    "title": "Use Vue.js",
+    "summary": "Use Vue.js",
+    "decided_on": "2021-01-07",
+    "source": "https://github.com/adr/adr-manager/blob/HEAD/docs/adr/0001-use-vue.js.md",
+    "repo": "adr/adr-manager",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "adr/adr-manager:0002-use-antlr-for-parsing-adrs.md",
+   "props": {
+    "title": "Use ANTLR for parsing ADRs",
+    "summary": "Use ANTLR for parsing ADRs",
+    "decided_on": "2021-01-07",
+    "source": "https://github.com/adr/adr-manager/blob/HEAD/docs/adr/0002-use-antlr-for-parsing-adrs.md",
+    "repo": "adr/adr-manager",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "architecture-topography/topo:0002-use-neo4j-as-persistence.md",
+   "props": {
+    "title": "2. Use Neo4j as Persistence",
+    "summary": "2. Use Neo4j as Persistence",
+    "decided_on": "2020-06-06",
+    "source": "https://github.com/architecture-topography/topo/blob/HEAD/doc/adr/0002-use-neo4j-as-persistence.md",
+    "repo": "architecture-topography/topo",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "arvos-dev/arvos:0002-use-golang.md",
+   "props": {
+    "title": "Use Golang",
+    "summary": "Use Golang",
+    "decided_on": "2021-10-28",
+    "source": "https://github.com/arvos-dev/arvos/blob/HEAD/docs/adr/0002-use-golang.md",
+    "repo": "arvos-dev/arvos",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "fragaria/ng2-f-template-spa:0003-use-webpack-for-build.md",
+   "props": {
+    "title": "0003. Use Webpack for application build",
+    "summary": "0003. Use Webpack for application build",
+    "decided_on": "2017-01-18",
+    "source": "https://github.com/fragaria/ng2-f-template-spa/blob/HEAD/docs/adr/0003-use-webpack-for-build.md",
+    "repo": "fragaria/ng2-f-template-spa",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "hycomsa/mokka:0003-upgrade-to-spring-boot-2-2-1.md",
+   "props": {
+    "title": "3. Upgrade to Spring Boot 2.2.1",
+    "summary": "3. Upgrade to Spring Boot 2.2.1",
+    "decided_on": "2019-11-07",
+    "source": "https://github.com/hycomsa/mokka/blob/HEAD/doc/adr/0003-upgrade-to-spring-boot-2-2-1.md",
+    "repo": "hycomsa/mokka",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "liquidmetal-dev/flintlock:0002-use-go.md",
+   "props": {
+    "title": "2. Use Go for the implementation",
+    "summary": "2. Use Go for the implementation",
+    "decided_on": "2021-06-29",
+    "source": "https://github.com/liquidmetal-dev/flintlock/blob/HEAD/docs/adr/0002-use-go.md",
+    "repo": "liquidmetal-dev/flintlock",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "mahanhz/clean-architecture-example:0003-use-spring-framework.md",
+   "props": {
+    "title": "3. Use Spring framework",
+    "summary": "3. Use Spring framework",
+    "decided_on": "2017-07-30",
+    "source": "https://github.com/mahanhz/clean-architecture-example/blob/HEAD/doc/adr/0003-use-spring-framework.md",
+    "repo": "mahanhz/clean-architecture-example",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "molgenis/molgenis-frontend:0002-use-typescript.md",
+   "props": {
+    "title": "2. Use TypeScript",
+    "summary": "2. Use TypeScript",
+    "decided_on": "2020-09-04",
+    "source": "https://github.com/molgenis/molgenis-frontend/blob/HEAD/doc/adr/0002-use-typescript.md",
+    "repo": "molgenis/molgenis-frontend",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "nielsutrecht/adr-example:0003-use-junit-5-for-testing.md",
+   "props": {
+    "title": "3. Use JUnit 5 for testing",
+    "summary": "3. Use JUnit 5 for testing",
+    "decided_on": "2018-09-27",
+    "source": "https://github.com/nielsutrecht/adr-example/blob/HEAD/doc/adr/0003-use-junit-5-for-testing.md",
+    "repo": "nielsutrecht/adr-example",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "pmckeown/dependency-track-maven-plugin:0002-use-maven-to-build-plugin.md",
+   "props": {
+    "title": "2. use maven to build plugin",
+    "summary": "2. use maven to build plugin",
+    "decided_on": "2019-07-29",
+    "source": "https://github.com/pmckeown/dependency-track-maven-plugin/blob/HEAD/doc/adr/0002-use-maven-to-build-plugin.md",
+    "repo": "pmckeown/dependency-track-maven-plugin",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "poorprogrammer/cfo:0002-use-yarn-install-instead-of-npm-install-for-web.md",
+   "props": {
+    "title": "2. Use yarn install instead of npm install for web",
+    "summary": "2. Use yarn install instead of npm install for web",
+    "decided_on": "2020-09-07",
+    "source": "https://github.com/poorprogrammer/cfo/blob/HEAD/doc/adr/0002-use-yarn-install-instead-of-npm-install-for-web.md",
+    "repo": "poorprogrammer/cfo",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "servian/TechChallengeApp:0002-user-viper-for-config.md",
+   "props": {
+    "title": "2. Use viper for config",
+    "summary": "2. Use viper for config",
+    "decided_on": "2018-08-08",
+    "source": "https://github.com/servian/TechChallengeApp/blob/HEAD/doc/adr/0002-use-viper-for-config.md",
+    "repo": "servian/TechChallengeApp",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "theaiscope/GDD-app:0003-use-bitrise-for-ci.md",
+   "props": {
+    "title": "3. Use Bitrise for CI",
+    "summary": "3. Use Bitrise for CI",
+    "decided_on": "2019-06-04",
+    "source": "https://github.com/theaiscope/GDD-app/blob/HEAD/doc/adr/0003-use-bitrise-for-ci.md",
+    "repo": "theaiscope/GDD-app",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "willgarcia/rotc:0005-use-standalone-prometheus.md",
+   "props": {
+    "title": "5. Use standalone prometheus",
+    "summary": "5. Use standalone prometheus",
+    "decided_on": "2020-07-24",
+    "source": "https://github.com/willgarcia/rotc/blob/HEAD/doc/adr/0005-use-standalone-prometheus.md",
+    "repo": "willgarcia/rotc",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "willgarcia/rotc:0006-use-standalone-jaeger.md",
+   "props": {
+    "title": "6. Use standalone jaeger",
+    "summary": "6. Use standalone jaeger",
+    "decided_on": "2020-07-24",
+    "source": "https://github.com/willgarcia/rotc/blob/HEAD/doc/adr/0006-use-standalone-jaeger.md",
+    "repo": "willgarcia/rotc",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "willgarcia/rotc:0007-user-standalone-kiali.md",
+   "props": {
+    "title": "7. User standalone kiali",
+    "summary": "7. User standalone kiali",
+    "decided_on": "2020-07-24",
+    "source": "https://github.com/willgarcia/rotc/blob/HEAD/doc/adr/0007-use-standalone-kiali.md",
+    "repo": "willgarcia/rotc",
+    "status": "accepted"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "src": "maintained:vue:2025-10-10",
+   "rel": "CONTRADICTS",
+   "dst": "p_vue_maintained",
+   "props": {
+    "at": "2025-10-10",
+    "quote": "no commit to the default branch since 2024-10-10"
+   }
+  },
+  {
+   "src": "maintained:viper:2026-10-15",
+   "rel": "CONTRADICTS",
+   "dst": "p_viper_maintained",
+   "props": {
+    "at": "2026-10-15",
+    "quote": "no commit to the default branch since 2025-10-15"
+   }
+  },
+  {
+   "src": "maintained:golang:1973-07-18",
+   "rel": "CONTRADICTS",
+   "dst": "p_golang_maintained",
+   "props": {
+    "at": "1973-07-18",
+    "quote": "no commit to the default branch since 1972-07-18"
+   }
+  },
+  {
+   "src": "maintained:golang:1974-01-20",
+   "rel": "SUPPORTS",
+   "dst": "p_golang_maintained",
+   "props": {
+    "at": "1974-01-20",
+    "quote": "commits resume on 1974-01-20 after a gap since 1972-07-18"
+   }
+  },
+  {
+   "src": "maintained:golang:1975-01-20",
+   "rel": "CONTRADICTS",
+   "dst": "p_golang_maintained",
+   "props": {
+    "at": "1975-01-20",
+    "quote": "no commit to the default branch since 1974-01-20"
+   }
+  },
+  {
+   "src": "maintained:golang:1988-04-01",
+   "rel": "SUPPORTS",
+   "dst": "p_golang_maintained",
+   "props": {
+    "at": "1988-04-01",
+    "quote": "commits resume on 1988-04-01 after a gap since 1974-01-20"
+   }
+  },
+  {
+   "src": "maintained:golang:1989-04-01",
+   "rel": "CONTRADICTS",
+   "dst": "p_golang_maintained",
+   "props": {
+    "at": "1989-04-01",
+    "quote": "no commit to the default branch since 1988-04-01"
+   }
+  },
+  {
+   "src": "maintained:golang:2008-03-02",
+   "rel": "SUPPORTS",
+   "dst": "p_golang_maintained",
+   "props": {
+    "at": "2008-03-02",
+    "quote": "commits resume on 2008-03-02 after a gap since 1988-04-01"
+   }
+  },
+  {
+   "src": "OpenTOSCA/container:0001-use-maven.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_maven_maintained",
+   "props": {
+    "quote": "Maven is actively maintained"
+   }
+  },
+  {
+   "src": "OpenTOSCA/container:0001-use-maven.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_maven_open_source",
+   "props": {
+    "quote": "Maven is open source"
+   }
+  },
+  {
+   "src": "OpenTOSCA/container:0002-use-spring-dependency-incjection.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_spring_maintained",
+   "props": {
+    "quote": "Spring Framework is actively maintained"
+   }
+  },
+  {
+   "src": "OpenTOSCA/container:0002-use-spring-dependency-incjection.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_spring_open_source",
+   "props": {
+    "quote": "Spring Framework is open source"
+   }
+  },
+  {
+   "src": "VolleyManagement/volley-management:0003-use-angular-for-spa.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_angular_maintained",
+   "props": {
+    "quote": "Angular is actively maintained"
+   }
+  },
+  {
+   "src": "VolleyManagement/volley-management:0003-use-angular-for-spa.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_angular_open_source",
+   "props": {
+    "quote": "Angular is open source"
+   }
+  },
+  {
+   "src": "VolleyManagement/volley-management:0004-use-docker-for-hosting-application.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_docker_maintained",
+   "props": {
+    "quote": "Docker is actively maintained"
+   }
+  },
+  {
+   "src": "VolleyManagement/volley-management:0004-use-docker-for-hosting-application.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_docker_open_source",
+   "props": {
+    "quote": "Docker is open source"
+   }
+  },
+  {
+   "src": "adr/adr-manager:0001-use-vue.js.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_vue_maintained",
+   "props": {
+    "quote": "Vue.js 2 is actively maintained"
+   }
+  },
+  {
+   "src": "adr/adr-manager:0001-use-vue.js.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_vue_open_source",
+   "props": {
+    "quote": "Vue.js 2 is open source"
+   }
+  },
+  {
+   "src": "adr/adr-manager:0002-use-antlr-for-parsing-adrs.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_antlr_maintained",
+   "props": {
+    "quote": "ANTLR is actively maintained"
+   }
+  },
+  {
+   "src": "adr/adr-manager:0002-use-antlr-for-parsing-adrs.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_antlr_open_source",
+   "props": {
+    "quote": "ANTLR is open source"
+   }
+  },
+  {
+   "src": "architecture-topography/topo:0002-use-neo4j-as-persistence.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_neo4j_maintained",
+   "props": {
+    "quote": "Neo4j is actively maintained"
+   }
+  },
+  {
+   "src": "architecture-topography/topo:0002-use-neo4j-as-persistence.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_neo4j_open_source",
+   "props": {
+    "quote": "Neo4j is open source"
+   }
+  },
+  {
+   "src": "arvos-dev/arvos:0002-use-golang.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_golang_maintained",
+   "props": {
+    "quote": "Go is actively maintained"
+   }
+  },
+  {
+   "src": "arvos-dev/arvos:0002-use-golang.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_golang_open_source",
+   "props": {
+    "quote": "Go is open source"
+   }
+  },
+  {
+   "src": "fragaria/ng2-f-template-spa:0003-use-webpack-for-build.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_webpack_maintained",
+   "props": {
+    "quote": "webpack is actively maintained"
+   }
+  },
+  {
+   "src": "fragaria/ng2-f-template-spa:0003-use-webpack-for-build.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_webpack_open_source",
+   "props": {
+    "quote": "webpack is open source"
+   }
+  },
+  {
+   "src": "hycomsa/mokka:0003-upgrade-to-spring-boot-2-2-1.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_spring-boot_maintained",
+   "props": {
+    "quote": "Spring Boot is actively maintained"
+   }
+  },
+  {
+   "src": "hycomsa/mokka:0003-upgrade-to-spring-boot-2-2-1.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_spring-boot_open_source",
+   "props": {
+    "quote": "Spring Boot is open source"
+   }
+  },
+  {
+   "src": "liquidmetal-dev/flintlock:0002-use-go.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_golang_maintained",
+   "props": {
+    "quote": "Go is actively maintained"
+   }
+  },
+  {
+   "src": "liquidmetal-dev/flintlock:0002-use-go.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_golang_open_source",
+   "props": {
+    "quote": "Go is open source"
+   }
+  },
+  {
+   "src": "mahanhz/clean-architecture-example:0003-use-spring-framework.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_spring_maintained",
+   "props": {
+    "quote": "Spring Framework is actively maintained"
+   }
+  },
+  {
+   "src": "mahanhz/clean-architecture-example:0003-use-spring-framework.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_spring_open_source",
+   "props": {
+    "quote": "Spring Framework is open source"
+   }
+  },
+  {
+   "src": "molgenis/molgenis-frontend:0002-use-typescript.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_typescript_maintained",
+   "props": {
+    "quote": "TypeScript is actively maintained"
+   }
+  },
+  {
+   "src": "molgenis/molgenis-frontend:0002-use-typescript.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_typescript_open_source",
+   "props": {
+    "quote": "TypeScript is open source"
+   }
+  },
+  {
+   "src": "nielsutrecht/adr-example:0003-use-junit-5-for-testing.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_junit5_maintained",
+   "props": {
+    "quote": "JUnit 5 is actively maintained"
+   }
+  },
+  {
+   "src": "nielsutrecht/adr-example:0003-use-junit-5-for-testing.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_junit5_open_source",
+   "props": {
+    "quote": "JUnit 5 is open source"
+   }
+  },
+  {
+   "src": "pmckeown/dependency-track-maven-plugin:0002-use-maven-to-build-plugin.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_maven_maintained",
+   "props": {
+    "quote": "Maven is actively maintained"
+   }
+  },
+  {
+   "src": "pmckeown/dependency-track-maven-plugin:0002-use-maven-to-build-plugin.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_maven_open_source",
+   "props": {
+    "quote": "Maven is open source"
+   }
+  },
+  {
+   "src": "poorprogrammer/cfo:0002-use-yarn-install-instead-of-npm-install-for-web.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_yarn_maintained",
+   "props": {
+    "quote": "Yarn is actively maintained"
+   }
+  },
+  {
+   "src": "poorprogrammer/cfo:0002-use-yarn-install-instead-of-npm-install-for-web.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_yarn_open_source",
+   "props": {
+    "quote": "Yarn is open source"
+   }
+  },
+  {
+   "src": "servian/TechChallengeApp:0002-user-viper-for-config.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_viper_maintained",
+   "props": {
+    "quote": "Viper is actively maintained"
+   }
+  },
+  {
+   "src": "servian/TechChallengeApp:0002-user-viper-for-config.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_viper_open_source",
+   "props": {
+    "quote": "Viper is open source"
+   }
+  },
+  {
+   "src": "willgarcia/rotc:0005-use-standalone-prometheus.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prometheus_maintained",
+   "props": {
+    "quote": "Prometheus is actively maintained"
+   }
+  },
+  {
+   "src": "willgarcia/rotc:0005-use-standalone-prometheus.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prometheus_open_source",
+   "props": {
+    "quote": "Prometheus is open source"
+   }
+  },
+  {
+   "src": "willgarcia/rotc:0006-use-standalone-jaeger.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_jaeger_maintained",
+   "props": {
+    "quote": "Jaeger is actively maintained"
+   }
+  },
+  {
+   "src": "willgarcia/rotc:0006-use-standalone-jaeger.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_jaeger_open_source",
+   "props": {
+    "quote": "Jaeger is open source"
+   }
+  },
+  {
+   "src": "willgarcia/rotc:0007-user-standalone-kiali.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kiali_maintained",
+   "props": {
+    "quote": "Kiali is actively maintained"
+   }
+  },
+  {
+   "src": "willgarcia/rotc:0007-user-standalone-kiali.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kiali_open_source",
+   "props": {
+    "quote": "Kiali is open source"
+   }
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+{"key": "d148318317237189b976", "arm": "moot_tools", "id": "k1-8926926d46", "answer": {"leads": ["sergeykanzhelev", "dchen1107", "derekwaynecarr", "mrunalp"]}, "tokens_in": 11182, "tokens_out": 285, "seconds": 35.3, "calls": 6}
+{"key": "139143d6b095b9a2e009", "arm": "file_tools", "id": "k1-8926926d46", "answer": null, "tokens_in": 0, "tokens_out": 0, "seconds": 0.0, "calls": 0, "error": "HTTP Error 500: Internal Server Error"}
+{"key": "36f65173ac94039fb23d", "arm": "rag_bm25", "id": "k1-8926926d46", "answer": null, "tokens_in": 2260, "tokens_out": 5, "seconds": 25.0, "calls": 0}
+{"key": "8a7a4adc0fdf44020b82", "arm": "moot_tools", "id": "k1-8c8a58cf9d", "answer": {"leads": ["dchen1107", "derekwaynecarr"]}, "tokens_in": 1866, "tokens_out": 141, "seconds": 17.9, "calls": 2}
+{"key": "b55c28a4be85d60f0620", "arm": "file_tools", "id": "k1-8c8a58cf9d", "answer": null, "tokens_in": 0, "tokens_out": 0, "seconds": 0.0, "calls": 0, "error": "HTTP Error 500: Internal Server Error"}
+{"key": "843d2978e1ea13c64be8", "arm": "rag_bm25", "id": "k1-8c8a58cf9d", "answer": null, "tokens_in": 2296, "tokens_out": 5, "seconds": 30.2, "calls": 0}
+{"key": "3625fdc26b54cc1927c0", "arm": "moot_tools", "id": "k1-aab226a901", "answer": {"leads": ["dchen1107", "derekwaynecarr"]}, "tokens_in": 11099, "tokens_out": 265, "seconds": 34.4, "calls": 6}
+{"key": "2ceacb781229223c2b28", "arm": "file_tools", "id": "k1-aab226a901", "answer": null, "tokens_in": 0, "tokens_out": 0, "seconds": 0.0, "calls": 0, "error": "HTTP Error 500: Internal Server Error"}
+{"key": "cade21110342e078d6bf", "arm": "rag_bm25", "id": "k1-aab226a901", "answer": null, "tokens_in": 2940, "tokens_out": 5, "seconds": 36.1, "calls": 0}
+{"key": "58ae23b3c7b5403755ff", "arm": "moot_tools", "id": "k1-b146559885", "answer": {"leads": ["sergeykanzhelev", "dchen1107", "derekwaynecarr", "mrunalp"]}, "tokens_in": 921, "tokens_out": 72, "seconds": 9.7, "calls": 1}
+{"key": "85f786b2408a9e9c296e", "arm": "file_tools", "id": "k1-b146559885", "answer": null, "tokens_in": 0, "tokens_out": 0, "seconds": 0.0, "calls": 0, "error": "HTTP Error 500: Internal Server Error"}
+{"key": "c9310dc6fdfe8de7127b", "arm": "rag_bm25", "id": "k1-b146559885", "answer": null, "tokens_in": 3081, "tokens_out": 5, "seconds": 36.6, "calls": 0}
+{"key": "29ab748becf80aae405d", "arm": "moot_tools", "id": "k1-6407eabb66", "answer": {"in_force": false, "retired_by": null}, "tokens_in": 990, "tokens_out": 54, "seconds": 9.3, "calls": 1}
+{"key": "6a7feff205409bbea547", "arm": "file_tools", "id": "k1-6407eabb66", "answer": {"in_force": false, "retired_by": null}, "tokens_in": 1606, "tokens_out": 91, "seconds": 15.7, "calls": 2}
+{"key": "9286682761433e91de6a", "arm": "rag_bm25", "id": "k1-6407eabb66", "answer": null, "tokens_in": 2272, "tokens_out": 13, "seconds": 29.2, "calls": 0}
+{"key": "2f88a283aff411948e71", "arm": "moot_tools", "id": "k1-66b4e833cf", "answer": {"in_force": false, "retired_by": null}, "tokens_in": 995, "tokens_out": 54, "seconds": 7.6, "calls": 1}
+{"key": "e1d8c9dbcfafe1109db3", "arm": "file_tools", "id": "k1-66b4e833cf", "answer": {"in_force": false, "retired_by": null}, "tokens_in": 2332, "tokens_out": 127, "seconds": 20.2, "calls": 3}
+{"key": "d37903c11837e90b7223", "arm": "rag_bm25", "id": "k1-66b4e833cf", "answer": null, "tokens_in": 2189, "tokens_out": 13, "seconds": 29.5, "calls": 0}
+{"key": "99f7b35bb64697995ee0", "arm": "moot_tools", "id": "k1-c1e9e3f929", "answer": {"in_force": true, "retired_by": null}, "tokens_in": 1342, "tokens_out": 53, "seconds": 12.0, "calls": 1}
+{"key": "e8fb8382f6f28893e5ec", "arm": "file_tools", "id": "k1-c1e9e3f929", "answer": {"in_force": false, "retired_by": "deferred"}, "tokens_in": 5145, "tokens_out": 251, "seconds": 33.6, "calls": 5}
+{"key": "b23b9e855cc6855820b0", "arm": "rag_bm25", "id": "k1-c1e9e3f929", "answer": null, "tokens_in": 2253, "tokens_out": 13, "seconds": 28.1, "calls": 0}
+{"key": "cdfd9c3da233b2860d83", "arm": "moot_tools", "id": "k1-e27dc28cef", "answer": {"in_force": true, "retired_by": null}, "tokens_in": 3565, "tokens_out": 150, "seconds": 17.8, "calls": 2}
+{"key": "88a19d347848eb8e6d44", "arm": "file_tools", "id": "k1-e27dc28cef", "answer": {"in_force": true, "retired_by": null}, "tokens_in": 4186, "tokens_out": 165, "seconds": 24.4, "calls": 4}
+{"key": "6b948ebb1f2edb7b7412", "arm": "rag_bm25", "id": "k1-e27dc28cef", "answer": null, "tokens_in": 2233, "tokens_out": 13, "seconds": 27.9, "calls": 0}
+{"key": "641385688f1cfe28b076", "arm": "moot_tools", "id": "k1-0689eb9a7e", "answer": {"authors": [["troychiu", false]]}, "tokens_in": 2050, "tokens_out": 75, "seconds": 17.7, "calls": 2}
+{"key": "3dec77aa6e34c17d568b", "arm": "file_tools", "id": "k1-0689eb9a7e", "answer": {"authors": [["troychiu", false]]}, "tokens_in": 4979, "tokens_out": 261, "seconds": 24.9, "calls": 6}
+{"key": "735fbef1bec31228bdb0", "arm": "rag_bm25", "id": "k1-0689eb9a7e", "answer": null, "tokens_in": 2700, "tokens_out": 12, "seconds": 34.7, "calls": 0}
+{"key": "684e5c9bb484ff2c680f", "arm": "moot_tools", "id": "k1-42d65e973f", "answer": {"authors": [["bskiba", false], ["kgolab", false], ["Natasha Sarkar", false], ["schylek", false], ["Tim Allclair", false], ["vinaykul", false]]}, "tokens_in": 865, "tokens_out": 89, "seconds": 10.2, "calls": 1}
+{"key": "37f03f96b696228fa6a1", "arm": "file_tools", "id": "k1-42d65e973f", "answer": null, "tokens_in": 6835, "tokens_out": 229, "seconds": 29.6, "calls": 6}
+{"key": "e4dea1173afd23344f2f", "arm": "rag_bm25", "id": "k1-42d65e973f", "answer": null, "tokens_in": 2959, "tokens_out": 5, "seconds": 37.6, "calls": 0}
+{"key": "d5d7d2bcd7b065dabecd", "arm": "moot_tools", "id": "k1-4ae6ac51ba", "answer": null, "tokens_in": 6330, "tokens_out": 238, "seconds": 23.9, "calls": 2}
+{"key": "55effdc601d8a6723401", "arm": "file_tools", "id": "k1-4ae6ac51ba", "answer": {"authors": [["lauralorenz", false], ["hankfreund", false]]}, "tokens_in": 6931, "tokens_out": 244, "seconds": 24.7, "calls": 6}
+{"key": "7b1aa34fc2dab5b62d70", "arm": "rag_bm25", "id": "k1-4ae6ac51ba", "answer": null, "tokens_in": 2690, "tokens_out": 20, "seconds": 32.7, "calls": 0}
+{"key": "1147be04a04ea6453618", "arm": "moot_tools", "id": "k1-97d05b592f", "answer": {"authors": [["jiayingz", false], ["renaudwastaken", false], ["swatisehgal", false]]}, "tokens_in": 793, "tokens_out": 70, "seconds": 6.5, "calls": 1}
+{"key": "4f45d3bb84967d7c2f5d", "arm": "file_tools", "id": "k1-97d05b592f", "answer": null, "tokens_in": 7915, "tokens_out": 235, "seconds": 34.3, "calls": 6}
+{"key": "92254acc3bf9b69d640b", "arm": "rag_bm25", "id": "k1-97d05b592f", "answer": null, "tokens_in": 2661, "tokens_out": 29, "seconds": 31.4, "calls": 0}
+{"key": "381299f84035109601fe", "arm": "moot_tools", "id": "k1-f5f572e333", "answer": {"kep": "KEP-3299", "date": "2022-05-09"}, "tokens_in": 1416, "tokens_out": 68, "seconds": 30.3, "calls": 1}
+{"key": "444e9a82cf08ff050b2c", "arm": "file_tools", "id": "k1-f5f572e333", "answer": {"kep": "KEP-3299", "date": "2022-05-09"}, "tokens_in": 5158, "tokens_out": 250, "seconds": 31.3, "calls": 5}

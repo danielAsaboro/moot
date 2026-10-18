@@ -1,0 +1,786 @@
+{
+ "model": "qwen3.8:27b",
+ "questions_sha256": "b5b5ee1c96b319a5184dfc32bdce9309c2c9a61554f16fc5ebecad25067c2fc6",
+ "results": {
+  "test": {
+   "moot_tools": {
+    "right": 0,
+    "n": 0,
+    "of": 34,
+    "ci": [
+     0.0,
+     1.0
+    ],
+    "per_template": {
+     "1": "0/0",
+     "2": "0/0",
+     "3": "0/0",
+     "4": "0/0"
+    },
+    "tokens": 0,
+    "seconds_median": null,
+    "calls": 0
+   },
+   "file_tools": {
+    "right": 0,
+    "n": 0,
+    "of": 34,
+    "ci": [
+     0.0,
+     1.0
+    ],
+    "per_template": {
+     "1": "0/0",
+     "2": "0/0",
+     "3": "0/0",
+     "4": "0/0"
+    },
+    "tokens": 0,
+    "seconds_median": null,
+    "calls": 0
+   },
+   "rag_bm25": {
+    "right": 0,
+    "n": 0,
+    "of": 34,
+    "ci": [
+     0.0,
+     1.0
+    ],
+    "per_template": {
+     "1": "0/0",
+     "2": "0/0",
+     "3": "0/0",
+     "4": "0/0"
+    },
+    "tokens": 0,
+    "seconds_median": null,
+    "calls": 0
+   },
+   "moot_direct": {
+    "right": 25,
+    "n": 34,
+    "of": 34,
+    "ci": [
+     0.5688253783710155,
+     0.8539897245844621
+    ],
+    "per_template": {
+     "1": "1/1",
+     "2": "6/11",
+     "3": "8/11",
+     "4": "10/11"
+    },
+    "tokens": 0,
+    "seconds_median": null,
+    "calls": 0
+   }
+  },
+  "dev": {
+   "moot_tools": {
+    "right": 9,
+    "n": 12,
+    "of": 12,
+    "ci": [
+     0.46768966087934005,
+     0.9110599603710386
+    ],
+    "per_template": {
+     "1": "0/0",
+     "2": "3/4",
+     "3": "4/4",
+     "4": "2/4"
+    },
+    "tokens": 43544,
+    "seconds_median": 17.7,
+    "calls": 26
+   },
+   "file_tools": {
+    "right": 5,
+    "n": 12,
+    "of": 12,
+    "ci": [
+     0.19325746190524656,
+     0.6804926643446272
+    ],
+    "per_template": {
+     "1": "0/0",
+     "2": "0/4",
+     "3": "3/4",
+     "4": "2/4"
+    },
+    "tokens": 41532,
+    "seconds_median": 24.4,
+    "calls": 38
+   },
+   "rag_bm25": {
+    "right": 0,
+    "n": 12,
+    "of": 12,
+    "ci": [
+     0.0,
+     0.2425007574992425
+    ],
+    "per_template": {
+     "1": "0/0",
+     "2": "0/4",
+     "3": "0/4",
+     "4": "0/4"
+    },
+    "tokens": 30672,
+    "seconds_median": 31.4,
+    "calls": 0
+   },
+   "moot_direct": {
+    "right": 10,
+    "n": 12,
+    "of": 12,
+    "ci": [
+     0.5519636426153274,
+     0.9530358523851776
+    ],
+    "per_template": {
+     "1": "0/0",
+     "2": "2/4",
+     "3": "4/4",
+     "4": "4/4"
+    },
+    "tokens": 0,
+    "seconds_median": null,
+    "calls": 0
+   }
+  }
+ },
+ "rows": [
+  {
+   "id": "k1-f5f572e333",
+   "template": 1,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-07a3bd3497",
+   "template": 2,
+   "split": "test",
+   "moot_direct": false,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-0b89a1cace",
+   "template": 2,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-32b58a66e3",
+   "template": 2,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-49ab39407e",
+   "template": 2,
+   "split": "test",
+   "moot_direct": false,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-69fd57c98b",
+   "template": 2,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-6b0c6fea61",
+   "template": 2,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-76a2fb2a5b",
+   "template": 2,
+   "split": "test",
+   "moot_direct": false,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-77f8b59b01",
+   "template": 2,
+   "split": "test",
+   "moot_direct": false,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-8926926d46",
+   "template": 2,
+   "split": "dev",
+   "moot_direct": false,
+   "moot_tools": false,
+   "moot_tools_cost": {
+    "tokens_in": 11182,
+    "tokens_out": 285,
+    "seconds": 35.3,
+    "calls": 6
+   },
+   "file_tools": false,
+   "file_tools_cost": {
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "seconds": 0.0,
+    "calls": 0
+   },
+   "rag_bm25": false,
+   "rag_bm25_cost": {
+    "tokens_in": 2260,
+    "tokens_out": 5,
+    "seconds": 25.0,
+    "calls": 0
+   }
+  },
+  {
+   "id": "k1-8c8a58cf9d",
+   "template": 2,
+   "split": "dev",
+   "moot_direct": true,
+   "moot_tools": true,
+   "moot_tools_cost": {
+    "tokens_in": 1866,
+    "tokens_out": 141,
+    "seconds": 17.9,
+    "calls": 2
+   },
+   "file_tools": false,
+   "file_tools_cost": {
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "seconds": 0.0,
+    "calls": 0
+   },
+   "rag_bm25": false,
+   "rag_bm25_cost": {
+    "tokens_in": 2296,
+    "tokens_out": 5,
+    "seconds": 30.2,
+    "calls": 0
+   }
+  },
+  {
+   "id": "k1-a4be602e49",
+   "template": 2,
+   "split": "test",
+   "moot_direct": false,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-aab226a901",
+   "template": 2,
+   "split": "dev",
+   "moot_direct": false,
+   "moot_tools": true,
+   "moot_tools_cost": {
+    "tokens_in": 11099,
+    "tokens_out": 265,
+    "seconds": 34.4,
+    "calls": 6
+   },
+   "file_tools": false,
+   "file_tools_cost": {
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "seconds": 0.0,
+    "calls": 0
+   },
+   "rag_bm25": false,
+   "rag_bm25_cost": {
+    "tokens_in": 2940,
+    "tokens_out": 5,
+    "seconds": 36.1,
+    "calls": 0
+   }
+  },
+  {
+   "id": "k1-b146559885",
+   "template": 2,
+   "split": "dev",
+   "moot_direct": true,
+   "moot_tools": true,
+   "moot_tools_cost": {
+    "tokens_in": 921,
+    "tokens_out": 72,
+    "seconds": 9.7,
+    "calls": 1
+   },
+   "file_tools": false,
+   "file_tools_cost": {
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "seconds": 0.0,
+    "calls": 0
+   },
+   "rag_bm25": false,
+   "rag_bm25_cost": {
+    "tokens_in": 3081,
+    "tokens_out": 5,
+    "seconds": 36.6,
+    "calls": 0
+   }
+  },
+  {
+   "id": "k1-c6decb57e9",
+   "template": 2,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-ec2ad2acb8",
+   "template": 2,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-448842ccb0",
+   "template": 3,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-48e70e80b3",
+   "template": 3,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-6407eabb66",
+   "template": 3,
+   "split": "dev",
+   "moot_direct": true,
+   "moot_tools": true,
+   "moot_tools_cost": {
+    "tokens_in": 990,
+    "tokens_out": 54,
+    "seconds": 9.3,
+    "calls": 1
+   },
+   "file_tools": true,
+   "file_tools_cost": {
+    "tokens_in": 1606,
+    "tokens_out": 91,
+    "seconds": 15.7,
+    "calls": 2
+   },
+   "rag_bm25": false,
+   "rag_bm25_cost": {
+    "tokens_in": 2272,
+    "tokens_out": 13,
+    "seconds": 29.2,
+    "calls": 0
+   }
+  },
+  {
+   "id": "k1-66b4e833cf",
+   "template": 3,
+   "split": "dev",
+   "moot_direct": true,
+   "moot_tools": true,
+   "moot_tools_cost": {
+    "tokens_in": 995,
+    "tokens_out": 54,
+    "seconds": 7.6,
+    "calls": 1
+   },
+   "file_tools": true,
+   "file_tools_cost": {
+    "tokens_in": 2332,
+    "tokens_out": 127,
+    "seconds": 20.2,
+    "calls": 3
+   },
+   "rag_bm25": false,
+   "rag_bm25_cost": {
+    "tokens_in": 2189,
+    "tokens_out": 13,
+    "seconds": 29.5,
+    "calls": 0
+   }
+  },
+  {
+   "id": "k1-71d56afb89",
+   "template": 3,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-78b497549e",
+   "template": 3,
+   "split": "test",
+   "moot_direct": false,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-92504084e6",
+   "template": 3,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-a4602d8ebb",
+   "template": 3,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-a8f77de2e1",
+   "template": 3,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-c0d15c80ce",
+   "template": 3,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-c14007315a",
+   "template": 3,
+   "split": "test",
+   "moot_direct": false,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-c1e9e3f929",
+   "template": 3,
+   "split": "dev",
+   "moot_direct": true,
+   "moot_tools": true,
+   "moot_tools_cost": {
+    "tokens_in": 1342,
+    "tokens_out": 53,
+    "seconds": 12.0,
+    "calls": 1
+   },
+   "file_tools": false,
+   "file_tools_cost": {
+    "tokens_in": 5145,
+    "tokens_out": 251,
+    "seconds": 33.6,
+    "calls": 5
+   },
+   "rag_bm25": false,
+   "rag_bm25_cost": {
+    "tokens_in": 2253,
+    "tokens_out": 13,
+    "seconds": 28.1,
+    "calls": 0
+   }
+  },
+  {
+   "id": "k1-c42395fc86",
+   "template": 3,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-e27dc28cef",
+   "template": 3,
+   "split": "dev",
+   "moot_direct": true,
+   "moot_tools": true,
+   "moot_tools_cost": {
+    "tokens_in": 3565,
+    "tokens_out": 150,
+    "seconds": 17.8,
+    "calls": 2
+   },
+   "file_tools": true,
+   "file_tools_cost": {
+    "tokens_in": 4186,
+    "tokens_out": 165,
+    "seconds": 24.4,
+    "calls": 4
+   },
+   "rag_bm25": false,
+   "rag_bm25_cost": {
+    "tokens_in": 2233,
+    "tokens_out": 13,
+    "seconds": 27.9,
+    "calls": 0
+   }
+  },
+  {
+   "id": "k1-eea47256b8",
+   "template": 3,
+   "split": "test",
+   "moot_direct": false,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-0689eb9a7e",
+   "template": 4,
+   "split": "dev",
+   "moot_direct": true,
+   "moot_tools": true,
+   "moot_tools_cost": {
+    "tokens_in": 2050,
+    "tokens_out": 75,
+    "seconds": 17.7,
+    "calls": 2
+   },
+   "file_tools": true,
+   "file_tools_cost": {
+    "tokens_in": 4979,
+    "tokens_out": 261,
+    "seconds": 24.9,
+    "calls": 6
+   },
+   "rag_bm25": false,
+   "rag_bm25_cost": {
+    "tokens_in": 2700,
+    "tokens_out": 12,
+    "seconds": 34.7,
+    "calls": 0
+   }
+  },
+  {
+   "id": "k1-07e8dcc866",
+   "template": 4,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-1545dc9325",
+   "template": 4,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-33bd9cde83",
+   "template": 4,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-42d65e973f",
+   "template": 4,
+   "split": "dev",
+   "moot_direct": true,
+   "moot_tools": false,
+   "moot_tools_cost": {
+    "tokens_in": 865,
+    "tokens_out": 89,
+    "seconds": 10.2,
+    "calls": 1
+   },
+   "file_tools": false,
+   "file_tools_cost": {
+    "tokens_in": 6835,
+    "tokens_out": 229,
+    "seconds": 29.6,
+    "calls": 6
+   },
+   "rag_bm25": false,
+   "rag_bm25_cost": {
+    "tokens_in": 2959,
+    "tokens_out": 5,
+    "seconds": 37.6,
+    "calls": 0
+   }
+  },
+  {
+   "id": "k1-4ae6ac51ba",
+   "template": 4,
+   "split": "dev",
+   "moot_direct": true,
+   "moot_tools": false,
+   "moot_tools_cost": {
+    "tokens_in": 6330,
+    "tokens_out": 238,
+    "seconds": 23.9,
+    "calls": 2
+   },
+   "file_tools": true,
+   "file_tools_cost": {
+    "tokens_in": 6931,
+    "tokens_out": 244,
+    "seconds": 24.7,
+    "calls": 6
+   },
+   "rag_bm25": false,
+   "rag_bm25_cost": {
+    "tokens_in": 2690,
+    "tokens_out": 20,
+    "seconds": 32.7,
+    "calls": 0
+   }
+  },
+  {
+   "id": "k1-51c5ca7458",
+   "template": 4,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-5330f24cd3",
+   "template": 4,
+   "split": "test",
+   "moot_direct": false,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-6383dad6eb",
+   "template": 4,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-722e14e752",
+   "template": 4,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-7862904c1b",
+   "template": 4,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-97d05b592f",
+   "template": 4,
+   "split": "dev",
+   "moot_direct": true,
+   "moot_tools": true,
+   "moot_tools_cost": {
+    "tokens_in": 793,
+    "tokens_out": 70,
+    "seconds": 6.5,
+    "calls": 1
+   },
+   "file_tools": false,
+   "file_tools_cost": {
+    "tokens_in": 7915,
+    "tokens_out": 235,
+    "seconds": 34.3,
+    "calls": 6
+   },
+   "rag_bm25": false,
+   "rag_bm25_cost": {
+    "tokens_in": 2661,
+    "tokens_out": 29,
+    "seconds": 31.4,
+    "calls": 0
+   }
+  },
+  {
+   "id": "k1-ccb0c0769a",
+   "template": 4,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-ce78c777da",
+   "template": 4,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  },
+  {
+   "id": "k1-eb55d3f622",
+   "template": 4,
+   "split": "test",
+   "moot_direct": true,
+   "moot_tools": null,
+   "file_tools": null,
+   "rag_bm25": null
+  }
+ ]
+}
