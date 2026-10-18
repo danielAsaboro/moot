@@ -48,6 +48,13 @@ COM = ROOT / "data" / "github" / ".repos" / "kubernetes__community"
 REPOS = {"enhancements": ENH, "community": COM}
 GRAPH = "gh_kubernetes_enhancements"
 ARMS = ("moot_tools", "file_tools", "rag_bm25", "rag_history", "moot_direct")
+# K1's deterministic row was scored on the graph with quarter-dated SIG leadership; the graph has since been rebuilt with
+# commit-dated leadership (a product change registered before K2), so K1 keeps its frozen row and adds the rebuilt graph's
+# answers as a separate post-hoc row
+_frozen = Path(__file__).resolve().parents[1] / "eval" / "k1" / "direct_frozen.json"
+FROZEN_DIRECT = json.loads(_frozen.read_text())["rows"] if "--study" not in sys.argv and _frozen.exists() else None
+if FROZEN_DIRECT:
+    ARMS += ("moot_direct_exact",)
 TEMPLATES = (1, 2, 3, 4, 5, 6) if "--study" in sys.argv and sys.argv[sys.argv.index("--study") + 1] == "k2" else (1, 2, 3, 4)
 MAX_STEPS = 6
 RESULT_CHARS = 3000  # a tool result in the conversation; keeps a run inside the model's 16k context
@@ -460,7 +467,13 @@ def main() -> None:
     rows = []
     for q in Q["questions"]:
         r = dict(id=q["id"], template=q["template"], split=q["split"])
-        r["moot_direct"] = right(q, direct(q))
+        t0 = time.perf_counter()
+        d_ans = direct(q)
+        live = "moot_direct_exact" if FROZEN_DIRECT else "moot_direct"  # K1's reference row stays as frozen; the live graph is a post-hoc row
+        r[live] = right(q, d_ans)
+        r[live + "_cost"] = dict(tokens_in=0, tokens_out=0, seconds=round(time.perf_counter() - t0, 4), calls=0)
+        if FROZEN_DIRECT:
+            r["moot_direct"] = FROZEN_DIRECT[q["id"]]
         for arm in ("moot_tools", "file_tools", "rag_bm25", "rag_history"):
             c = cached(arm, q, fill and (only is None or q["split"] == only) and arm in arms, cache)
             r[arm] = right(q, c["answer"]) if c else None
@@ -488,7 +501,8 @@ def main() -> None:
             res[split]["paired"][other] = dict(n=len(both), only_moot=b_, only_other=c_, p=round(mcnemar_exact(b_, c_), 3))
     (OUT / f"results_{STUDY}.json").write_text(json.dumps(dict(model=MODEL, questions_sha256=Q["sha256"], results=res, rows=rows), indent=1) + "\n")
     names = dict(moot_tools="**agent with Moot's graph tools**", file_tools="agent with file and git tools over the same checkouts",
-                 rag_bm25="BM25 RAG over the checkouts at HEAD", rag_history="BM25 RAG over the checkouts and their history (post hoc, see register)", moot_direct="Moot, one fixed graph query per template, no model (shared-source reference)")
+                 rag_bm25="BM25 RAG over the checkouts at HEAD", rag_history="BM25 RAG over the checkouts and their history (post hoc, see register)", moot_direct="Moot, one fixed graph query per template, no model (shared-source reference)",
+                 moot_direct_exact="the same fixed query on the graph rebuilt with commit-dated SIG leadership (post hoc, product change registered before K2)")
     L = [f"# {STUDY.upper()}: questions about Kubernetes as an organisation (study {STUDY.upper()})", "",
          f"{len(Q['questions'])} templated questions about SIG Auth and SIG Node KEPs; gold from the raw git history of kubernetes/enhancements and "
          f"kubernetes/community (`moot/k1.py`), hashed before any arm ran (`{Q['sha256'][:16]}…`). Same model ({MODEL}, temperature 0) for every "

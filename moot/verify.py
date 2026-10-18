@@ -341,6 +341,10 @@ def check_k1(c: Checker) -> None:
         t, d = R["test"][arm], R["dev"][arm]
         c.expect("README.md", text, f"K1 row {arm}", rf"\| {label} \| (?:\*\*)?([\d/]+)(?:\*\*)? \(([\d.–]+)\) \| ([^|]+) \| ([\d,]+) \| ([\d.]+) \| ([^|]+) \| (\d+) \|",
                  (cell(t), ci(t), cell(d), f"{t['tokens']:,}", f"{t['usd']:.3f}", t["seconds_median"] if t["seconds_median"] is not None else "–", t["calls"]))
+    if "moot_direct_exact" in R["test"]:
+        x = R["test"]["moot_direct_exact"]
+        c.expect("README.md", text, "K1 post-hoc exact row", r"the same fixed query answers (\d+) of (\d+), median ([\d.]+) ms",
+                 (x["right"], x["n"], f"{x['seconds_median'] * 1000:.1f}"))
     pf, pr, ph = R["test"]["paired"]["file_tools"], R["test"]["paired"]["rag_bm25"], R["test"]["paired"]["rag_history"]
     c.expect("README.md", text, "K1 McNemar", r"only the graph agent right on (\d+) questions, only the file agent on (\d+), exact McNemar p = ([\d.]+)\).*?"
              r"\((\d+) against (\d+), p = ([\d.]+); against RAG over history (\d+) against (\d+), p = ([\d.]+)\)",

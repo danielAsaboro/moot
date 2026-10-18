@@ -14,13 +14,13 @@
 | **agent with Moot's graph tools** | **26** | 131k | 0.04 | 11 |
 | agent with file and git tools | 22 | 362k | 0.12 | 38 |
 | BM25 RAG | 15 | 85k | 0.03 | 28 |
-| one fixed graph query, no model | 25 | 0 | 0 | – |
+| **Moot alone: one fixed graph query, no model** | **25** | **0** | **0** | **0.001** |
 
 **[Try it](https://moot.bringaihome.xyz/app/?graph=gh_kubernetes_enhancements)** · **[Tour for judges](https://moot.bringaihome.xyz/#judges)** · **[Demo video](https://vimeo.com/1237038749)** · built for [Graph Hacks](https://www.wemakedevs.org/hackathons/falkordb), Company Brain track
 
 ## Why the graph
 
-"Who led the SIG that owns KEP-1884 on 27 June 2021?" takes two hops, the KEP's owning SIG and then that SIG's leaders on that day, and every edge in Moot's graph carries its dates; BM25 RAG got none of these questions right. An agent with file and git tools can walk the same history, and it matches the graph agent on accuracy within the noise, but it needs about three times the tokens and three and a half times the time. What the graph adds on every answer is the path it walked and the read-only Cypher that produced it, so a reader can check it.
+"Who led the SIG that owns KEP-1884 on 27 June 2021?" takes two hops, the KEP's owning SIG and then that SIG's leaders on that day, and every edge in Moot's graph carries its dates; BM25 RAG got none of these questions right. An agent with file and git tools can walk the same history, and it matches the graph agent on accuracy within the noise, but it needs about three times the tokens and three and a half times the time. Most of these questions need no model at all: one fixed graph query per question answers 25 of 34 at zero tokens in about a millisecond, as many as the best agent within the noise, so in Moot the model only routes the question and phrases the answer. And every answer carries the path it walked and the read-only Cypher that produced it, so a reader can check it.
 
 ## K1: the result in full
 
@@ -36,6 +36,7 @@ K1 asks what Kubernetes' own records say: which KEP replaced this one and when, 
 
 - **Accuracy:** level with the file and git agent (only the graph agent right on 8 questions, only the file agent on 4, exact McNemar p = 0.39); ahead of BM25 RAG beyond chance (13 against 2, p = 0.007; against RAG over history 11 against 2, p = 0.022).
 - **Fair baselines:** before any test answer was scored, three harness faults were fixed on dev and every affected arm re-run in full (the file agent could not reach `sigs.yaml` history or read past 6,000 characters; bare answers were dropped by the parser, which left RAG at 0); one name normaliser for every arm. Each is in the [register](docs/studies.md); earlier answers are kept, not scored.
+- **Post hoc, a product fix:** SIG leadership is now dated to the `sigs.yaml` commit instead of the quarter (registered before K2); on the rebuilt graph the same fixed query answers 26 of 34, median 0.9 ms. The frozen row above stays 25.
 - **Shared source:** Moot's graph is built from the same repositories the gold is read from, so the fixed-query row measures how faithfully the graph holds that history. The contest is between agents with different tools. [Full tables](eval/results_k1.md). K2 (78 questions over four SIGs) is frozen and running.
 - **Not a forecaster:** on 64 held-out real decisions Moot scored 52 against 59 for calling everything "still holds". Every forecasting study (H1, A1, H2, P1, the backtest) is in [docs/results.md](docs/results.md), every number kept.
 
