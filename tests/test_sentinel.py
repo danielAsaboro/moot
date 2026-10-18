@@ -37,3 +37,14 @@ def test_a_supersession_without_standing_is_flagged(g):
 
 def test_nothing_changes_in_an_empty_window(g):
     assert sentinel.scan(g, "2026-10-01", "2026-10-01")["alerts"] == []
+
+
+def test_neighbourhood_and_paths_respect_the_date(g):
+    from moot import tools
+    now = tools.path_between(g, "D01", "marcus", "2026-10-01")
+    assert now["found"] and all(e["at"] <= "2026-10-01" for p in now["paths"] for e in p["edges"])
+    # Kwame only became anyone's manager on 2025-08-01: before that no path runs through him
+    early = tools.path_between(g, "D01", "marcus", "2025-07-01")
+    assert all("kwame" not in [n["id"] for n in p["nodes"]] for p in early.get("paths", []))
+    edges = tools.neighbourhood(g, "marcus", "2026-10-01")["edges"]
+    assert {"rel": "REPORTS_TO", "id": "kwame"}.items() <= next(e for e in edges if e["id"] == "kwame").items()

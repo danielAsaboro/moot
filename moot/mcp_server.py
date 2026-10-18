@@ -75,6 +75,19 @@ def people_risk(as_of: str | None = None, graph: str | None = None) -> str:
 
 
 @mcp.tool()
+def neighbourhood(node_id: str, as_of: str | None = None, graph: str | None = None) -> str:
+    """Every edge touching a node (decision, reason, document, person, team) that was in force on a date, with what it reaches."""
+    return json.dumps(tools.neighbourhood(_g(graph), node_id, as_of), default=str)
+
+
+@mcp.tool()
+def path_between(a: str, b: str, as_of: str | None = None, graph: str | None = None) -> str:
+    """How two nodes connect: the shortest paths between them using only edges in force on a date (fixed Cypher; the model
+    never writes any)."""
+    return json.dumps(tools.path_between(_g(graph), a, b, as_of), default=str)
+
+
+@mcp.tool()
 def discussions(decision_id: str, as_of: str | None = None, graph: str | None = None) -> str:
     """Where a decision was discussed: Slack messages and tickets that name it (from moot ingest-slack / ingest-issues), dated."""
     return json.dumps(tools.discussions(_g(graph), decision_id, as_of), default=str)
@@ -232,7 +245,7 @@ def real_world_ledger() -> str:
 # The public server (mounted at /mcp on the web app, streamable HTTP): read-only tools only. No finding, ruling, handover or
 # ingest; `ask` is left out too, since it may call a model. Anyone can point an MCP client at https://<host>/mcp.
 PUBLIC = ("list_graphs", "find_decision", "audit_decision", "verdict_history", "check_action", "ledger", "who_knows_why",
-          "departure_impact", "people_risk", "hidden_teams", "connection_path", "sentinel", "discussions", "reason_single_points_of_failure", "premise_impact", "trace_document",
+          "departure_impact", "people_risk", "hidden_teams", "connection_path", "sentinel", "discussions", "neighbourhood", "path_between", "reason_single_points_of_failure", "premise_impact", "trace_document",
           "decision_owner", "evidence_packet", "orphaned_decisions", "reopen_memo", "what_if", "riskiest_reasons", "real_world_ledger")
 
 

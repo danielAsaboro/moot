@@ -348,6 +348,38 @@ def discussions(g: Graph, decision_id: str, as_of: str | None = None, limit: int
                                                                authors=[a for a in au if a]) for i, k, t, d, x, st, au in rows])
 
 
+# 5d. The long tail, without letting a model write Cypher: what touches a node, and how two nodes connect, as of a date.
+#     An edge counts only if it was in force then: dated on or before as_of, and not ended by it.
+IN_FORCE = ("coalesce(r.at, r.valid_from, '') <= $as_of AND (coalesce(r.valid_to, '') = '' OR r.valid_to > $as_of) "
+            "AND coalesce(r.stated, '') <= $as_of")
+
+
+def neighbourhood(g: Graph, node_id: str, as_of: str | None = None, limit: int = 60) -> dict:
+    as_of = as_of or today()
+    rows = _q(g, "MATCH (a {id: $id})-[r]-(b) WHERE " + IN_FORCE + " "
+                 "RETURN type(r), startNode(r).id = a.id, labels(b)[0], b.id, coalesce(b.title, b.name, b.text, ''), "
+                 "coalesce(r.at, r.valid_from, '') ORDER BY type(r), b.id LIMIT $n", {"id": node_id, "as_of": as_of, "n": limit}).result_set
+    return dict(id=node_id, as_of=as_of, edges=[dict(rel=t, out=o, label=l, id=i, name=str(n)[:120], at=at) for t, o, l, i, n, at in rows])
+
+
+def path_between(g: Graph, a: str, b: str, as_of: str | None = None, max_len: int = 5) -> dict:
+    """The shortest paths whose every edge was in force on as_of (filtered while walking, so a path that only existed
+    before or after the date is never the answer)."""
+    as_of = as_of or today()
+    max_len = max(1, min(int(max_len), 6))
+    rows = _q(g, "MATCH (x {id: $a}), (y {id: $b}) MATCH p = (x)-[*1..%d]-(y) WHERE all(r IN relationships(p) WHERE %s) "
+                 "WITH p ORDER BY length(p) LIMIT 5 "
+                 "RETURN [n IN nodes(p) | {id: n.id, label: labels(n)[0], name: coalesce(n.title, n.name, n.text, '')}], "
+                 "[r IN relationships(p) | {rel: type(r), at: coalesce(r.at, r.valid_from, '')}]" % (max_len, IN_FORCE),
+              {"a": a, "b": b, "as_of": as_of}).result_set
+    if rows:
+        rows = [r for r in rows if len(r[1]) == len(rows[0][1])]  # the shortest only
+    if not rows:
+        return dict(found=False, a=a, b=b, as_of=as_of, why=f"no shortest path within {max_len} hops whose every edge was in force on {as_of}")
+    return dict(found=True, a=a, b=b, as_of=as_of, hops=len(rows[0][1]),
+                paths=[dict(nodes=[dict(n, name=str(n["name"])[:80]) for n in ns], edges=es) for ns, es in rows])
+
+
 # 6. The ledger: every decision with its verdict, in one pass.
 def ledger(g: Graph, as_of: str | None = None, depth: int = 4) -> list[dict]:
     as_of = as_of or today()
