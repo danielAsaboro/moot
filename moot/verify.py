@@ -205,6 +205,37 @@ def check_results(c: Checker, R: dict, S: dict, G: dict) -> None:
                   d["oracle"]["retired_gold_in_context"], d["baseline"]["retired_gold_in_context"]))
 
 
+def check_reasons(c: Checker) -> None:
+    """Stated reasons (eval/results_reasons.json): the README sentence, each repo's committed summary, and the charts."""
+    f = EVAL / "results_reasons.json"
+    if not f.exists():
+        return
+    R = json.loads(f.read_text())
+    T = R["total"]
+    t = (ROOT / "README.md").read_text()
+    c.expect("README.md", t, "reasons sentence",
+             r"UNDOCUMENTED fell from (\d+) to (\d+) of (\d+) decisions\. Of the (\d+) HOLDS after, (\d+) pass the gate",
+             (T["before"]["verdicts"]["UNDOCUMENTED"], T["after"]["verdicts"]["UNDOCUMENTED"], T["decisions"],
+              T["after"]["verdicts"]["HOLDS"], T["holds_checked"]))
+    ev = (ROOT / "docs" / "evaluation.md").read_text()
+    for side, label in (("before", r"before \(titles, status lines, history\)"), ("after", r"after \(plus (\d+) quoted reasons, (\d+) tool links, (\d+) later-ADR edges\)")):
+        v = T[side]["verdicts"]
+        extra = (T["reasons_kept"], T["tool_links"], T["relations_kept"]) if side == "after" else ()
+        c.expect("docs/evaluation.md", ev, f"reasons table, {side}", rf"\| {label} \| (\d+) \| (\d+) \| (\d+) \| (\d+) \| (\d+) \|",
+                 (*extra, v["HOLDS"], sum(r[side]["holds_allow"] for r in R["repos"]), v["MOOT"], v["UNDOCUMENTED"], v["RETIRED"]))
+    for r in R["repos"]:
+        sf = ROOT / "data" / "github" / r["repo"].replace("/", "__") / "summary.json"
+        if sf.exists():
+            got = json.loads(sf.read_text()).get("verdicts", {})
+            c.equal(f"{r['repo']} summary.json verdicts = results_reasons after", {k: v for k, v in r["after"]["verdicts"].items() if v},
+                    {k: v for k, v in got.items() if v})
+    sys.path.insert(0, str(EVAL))
+    import charts  # eval/charts.py
+    for name, svg in charts.charts().items():
+        out = ROOT / "docs" / "charts" / name
+        c.equal(f"docs/charts/{name} drawn from the result files", out.read_text() if out.exists() else None, svg)
+
+
 def strip_timing(x):
     if isinstance(x, dict):
         return {k: strip_timing(v) for k, v in x.items() if k not in TIMING}
@@ -234,6 +265,7 @@ def main(rerun: bool = False) -> int:
     check_baseline(c, B)
     check_readme(c, R, S, G, A, bt)
     check_results(c, R, S, G)
+    check_reasons(c)
     for b in c.bad:
         print("MISMATCH", b)
     print(f"moot verify: {c.ok} checks passed, {len(c.bad)} failed")

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 336" width="760" height="336" role="img" aria-label="Dead decisions called HOLDS: Moot: graph verdict, depth 4 0, ablation: depth 1 2, RAG over stated reasons (FalkorDB removed) 7, RAG: BM25 top-5 + model 13, ablation: FalkorDB removed, rules kept 8, trust the ADR 22">
+<title>Dead decisions called HOLDS: Moot: graph verdict, depth 4 0, ablation: depth 1 2, RAG over stated reasons (FalkorDB removed) 7, RAG: BM25 top-5 + model 13, ablation: FalkorDB removed, rules kept 8, trust the ADR 22</title>
+<style>
+.bg{fill:#fbfaf7}.t1{fill:#1d1d1b}.t2{fill:#5e5d58}.t3{fill:#8a8983}.grid{stroke:#e4e2dc}.axis{stroke:#bdbbb3}
+.ink{fill:#1d1d1b}.muted{fill:#b9b7ae}.moot{fill:#b5372b}.holds{fill:#2f7d4f}.holdsu{fill:#9cc9ad}.retired{fill:#77756e}.undoc{fill:#dcd9d0}
+.on-dark{fill:#fbfaf7}.on-light{fill:#1d1d1b}
+@media (prefers-color-scheme: dark){.bg{fill:#1b1b1a}.t1{fill:#f0efec}.t2{fill:#c3c2b7}.t3{fill:#8f8e86}.grid{stroke:#34332f}.axis{stroke:#55544e}
+.ink{fill:#f0efec}.muted{fill:#5f5e58}.moot{fill:#d9584a}.holds{fill:#3f9f66}.holdsu{fill:#2f5a41}.retired{fill:#8f8d85}.undoc{fill:#3d3c38}
+.on-dark{fill:#1b1b1a}.on-light{fill:#f0efec}}
+text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+</style>
+<rect class="bg" width="760" height="336" rx="14"/>
+<text x="24.0" y="34.0" class="t1" font-size="17" text-anchor="start" font-weight="600">Dead decisions an assistant called HOLDS, of 22</text>
+<text x="24.0" y="56.0" class="t2" font-size="12.5" text-anchor="start" font-weight="400">Lower is better. A dead decision is MOOT or DISPUTED on the date asked.</text>
+<line class="grid" x1="300.0" x2="300.0" y1="66" y2="272" stroke-width="1"/>
+<text x="300.0" y="288.0" class="t3" font-size="11" text-anchor="middle" font-weight="400">0</text>
+<line class="grid" x1="388.6" x2="388.6" y1="66" y2="272" stroke-width="1"/>
+<text x="388.6" y="288.0" class="t3" font-size="11" text-anchor="middle" font-weight="400">5</text>
+<line class="grid" x1="477.3" x2="477.3" y1="66" y2="272" stroke-width="1"/>
+<text x="477.3" y="288.0" class="t3" font-size="11" text-anchor="middle" font-weight="400">10</text>
+<line class="grid" x1="565.9" x2="565.9" y1="66" y2="272" stroke-width="1"/>
+<text x="565.9" y="288.0" class="t3" font-size="11" text-anchor="middle" font-weight="400">15</text>
+<line class="grid" x1="654.5" x2="654.5" y1="66" y2="272" stroke-width="1"/>
+<text x="654.5" y="288.0" class="t3" font-size="11" text-anchor="middle" font-weight="400">20</text>
+<text x="288.0" y="89.0" class="t1" font-size="13" text-anchor="end" font-weight="600">Moot: graph verdict, depth 4</text>
+
+<text x="302.0" y="89.0" class="t1" font-size="13" text-anchor="start" font-weight="600">0</text>
+<text x="288.0" y="123.0" class="t2" font-size="13" text-anchor="end" font-weight="400">ablation: depth 1</text>
+<path class="moot" d="M300.0,108.0h31.5a4,4 0 0 1 4,4v12.0a4,4 0 0 1 -4,4h-31.5z"><title>ablation: depth 1: 2 of 22 dead decisions called HOLDS</title></path>
+<text x="343.5" y="123.0" class="t1" font-size="13" text-anchor="start" font-weight="400">2</text>
+<text x="288.0" y="157.0" class="t2" font-size="13" text-anchor="end" font-weight="400">RAG over stated reasons (FalkorDB removed)</text>
+<path class="moot" d="M300.0,142.0h120.1a4,4 0 0 1 4,4v12.0a4,4 0 0 1 -4,4h-120.1z"><title>RAG over stated reasons (FalkorDB removed): 7 of 22 dead decisions called HOLDS</title></path>
+<text x="432.1" y="157.0" class="t1" font-size="13" text-anchor="start" font-weight="400">7</text>
+<text x="288.0" y="191.0" class="t2" font-size="13" text-anchor="end" font-weight="400">RAG: BM25 top-5 + model</text>
+<path class="moot" d="M300.0,176.0h226.5a4,4 0 0 1 4,4v12.0a4,4 0 0 1 -4,4h-226.5z"><title>RAG: BM25 top-5 + model: 13 of 22 dead decisions called HOLDS</title></path>
+<text x="538.5" y="191.0" class="t1" font-size="13" text-anchor="start" font-weight="400">13</text>
+<text x="288.0" y="225.0" class="t2" font-size="13" text-anchor="end" font-weight="400">ablation: FalkorDB removed, rules kept</text>
+<path class="moot" d="M300.0,210.0h137.8a4,4 0 0 1 4,4v12.0a4,4 0 0 1 -4,4h-137.8z"><title>ablation: FalkorDB removed, rules kept: 8 of 22 dead decisions called HOLDS</title></path>
+<text x="449.8" y="225.0" class="t1" font-size="13" text-anchor="start" font-weight="400">8</text>
+<text x="288.0" y="259.0" class="t2" font-size="13" text-anchor="end" font-weight="400">trust the ADR</text>
+<path class="moot" d="M300.0,244.0h386.0a4,4 0 0 1 4,4v12.0a4,4 0 0 1 -4,4h-386.0z"><title>trust the ADR: 22 of 22 dead decisions called HOLDS</title></path>
+<text x="698.0" y="259.0" class="t1" font-size="13" text-anchor="start" font-weight="400">22</text>
+<text x="24.0" y="316.0" class="t3" font-size="11.5" text-anchor="start" font-weight="400">Each one is an agent told it may keep enforcing a rule whose reason is gone.</text>
+</svg>

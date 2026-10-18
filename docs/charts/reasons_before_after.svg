@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 490" width="760" height="490" role="img" aria-label="Verdicts before and after stated-reason extraction for npryce/adr-tools, thomvaill/log4brains, alphagov/govuk-infrastructure, alphagov/govuk-aws">
+<title>Verdicts before and after stated-reason extraction for npryce/adr-tools, thomvaill/log4brains, alphagov/govuk-infrastructure, alphagov/govuk-aws</title>
+<style>
+.bg{fill:#fbfaf7}.t1{fill:#1d1d1b}.t2{fill:#5e5d58}.t3{fill:#8a8983}.grid{stroke:#e4e2dc}.axis{stroke:#bdbbb3}
+.ink{fill:#1d1d1b}.muted{fill:#b9b7ae}.moot{fill:#b5372b}.holds{fill:#2f7d4f}.holdsu{fill:#9cc9ad}.retired{fill:#77756e}.undoc{fill:#dcd9d0}
+.on-dark{fill:#fbfaf7}.on-light{fill:#1d1d1b}
+@media (prefers-color-scheme: dark){.bg{fill:#1b1b1a}.t1{fill:#f0efec}.t2{fill:#c3c2b7}.t3{fill:#8f8e86}.grid{stroke:#34332f}.axis{stroke:#55544e}
+.ink{fill:#f0efec}.muted{fill:#5f5e58}.moot{fill:#d9584a}.holds{fill:#3f9f66}.holdsu{fill:#2f5a41}.retired{fill:#8f8d85}.undoc{fill:#3d3c38}
+.on-dark{fill:#1b1b1a}.on-light{fill:#f0efec}}
+text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+</style>
+<rect class="bg" width="760" height="490" rx="14"/>
+<text x="24.0" y="34.0" class="t1" font-size="17" text-anchor="start" font-weight="600">Verdicts per ingested repository, before and after reading stated reasons</text>
+<text x="24.0" y="56.0" class="t2" font-size="12.5" text-anchor="start" font-weight="400">Same day (2026-10-19), same tool checks, same verdict rules. Share of each repository&#x27;s decisions.</text>
+<rect class="holds" x="24" y="68" width="12" height="12" rx="3"/>
+<text x="41.0" y="78.5" class="t2" font-size="11.5" text-anchor="start" font-weight="400">HOLDS, gate ALLOW</text>
+<rect class="holdsu" x="167.8" y="68" width="12" height="12" rx="3"/>
+<text x="184.8" y="78.5" class="t2" font-size="11.5" text-anchor="start" font-weight="400">HOLDS, gate REVALIDATE</text>
+<rect class="moot" x="343.6" y="68" width="12" height="12" rx="3"/>
+<text x="360.6" y="78.5" class="t2" font-size="11.5" text-anchor="start" font-weight="400">MOOT</text>
+<rect class="retired" x="404.20000000000005" y="68" width="12" height="12" rx="3"/>
+<text x="421.2" y="78.5" class="t2" font-size="11.5" text-anchor="start" font-weight="400">RETIRED</text>
+<rect class="undoc" x="484.00000000000006" y="68" width="12" height="12" rx="3"/>
+<text x="501.0" y="78.5" class="t2" font-size="11.5" text-anchor="start" font-weight="400">UNDOCUMENTED</text>
+<text x="24.0" y="113.0" class="t1" font-size="12.5" text-anchor="start" font-weight="600">npryce/adr-tools · 9 decisions</text>
+<text x="82.0" y="136.0" class="t2" font-size="12" text-anchor="end" font-weight="400">before</text>
+<rect class="undoc" x="92.0" y="122" width="642.0" height="20" rx="3"><title>npryce/adr-tools before: 9 UNDOCUMENTED</title></rect>
+<text x="413.0" y="136.5" class="on-light" font-size="11.5" text-anchor="middle" font-weight="600">9</text>
+<text x="82.0" y="164.0" class="t2" font-size="12" text-anchor="end" font-weight="400">after</text>
+<rect class="holdsu" x="92.0" y="150" width="498.9" height="20" rx="3"><title> after: 7 HOLDS, gate REVALIDATE (reason stated, unevidenced)</title></rect>
+<text x="341.4" y="164.5" class="on-light" font-size="11.5" text-anchor="middle" font-weight="600">7</text>
+<rect class="undoc" x="592.9" y="150" width="141.1" height="20" rx="3"><title> after: 2 UNDOCUMENTED</title></rect>
+<text x="663.4" y="164.5" class="on-light" font-size="11.5" text-anchor="middle" font-weight="600">2</text>
+<text x="24.0" y="203.0" class="t1" font-size="12.5" text-anchor="start" font-weight="600">thomvaill/log4brains · 11 decisions</text>
+<text x="82.0" y="226.0" class="t2" font-size="12" text-anchor="end" font-weight="400">before</text>
+<rect class="holds" x="92.0" y="212" width="173.6" height="20" rx="3"><title>thomvaill/log4brains before: 3 HOLDS, gate ALLOW (checked)</title></rect>
+<text x="178.8" y="226.5" class="on-dark" font-size="11.5" text-anchor="middle" font-weight="600">3</text>
+<rect class="moot" x="267.6" y="212" width="56.5" height="20" rx="3"><title>thomvaill/log4brains before: 1 MOOT</title></rect>
+<text x="295.9" y="226.5" class="on-dark" font-size="11.5" text-anchor="middle" font-weight="600">1</text>
+<rect class="retired" x="326.2" y="212" width="115.1" height="20" rx="3"><title>thomvaill/log4brains before: 2 RETIRED</title></rect>
+<text x="383.7" y="226.5" class="on-dark" font-size="11.5" text-anchor="middle" font-weight="600">2</text>
+<rect class="undoc" x="443.3" y="212" width="290.7" height="20" rx="3"><title>thomvaill/log4brains before: 5 UNDOCUMENTED</title></rect>
+<text x="588.6" y="226.5" class="on-light" font-size="11.5" text-anchor="middle" font-weight="600">5</text>
+<text x="82.0" y="254.0" class="t2" font-size="12" text-anchor="end" font-weight="400">after</text>
+<rect class="holdsu" x="92.0" y="240" width="349.3" height="20" rx="3"><title> after: 6 HOLDS, gate REVALIDATE (reason stated, unevidenced)</title></rect>
+<text x="266.6" y="254.5" class="on-light" font-size="11.5" text-anchor="middle" font-weight="600">6</text>
+<rect class="moot" x="443.3" y="240" width="115.1" height="20" rx="3"><title> after: 2 MOOT</title></rect>
+<text x="500.8" y="254.5" class="on-dark" font-size="11.5" text-anchor="middle" font-weight="600">2</text>
+<rect class="retired" x="560.4" y="240" width="115.1" height="20" rx="3"><title> after: 2 RETIRED</title></rect>
+<text x="617.9" y="254.5" class="on-dark" font-size="11.5" text-anchor="middle" font-weight="600">2</text>
+<rect class="undoc" x="677.5" y="240" width="56.5" height="20" rx="3"><title> after: 1 UNDOCUMENTED</title></rect>
+<text x="705.7" y="254.5" class="on-light" font-size="11.5" text-anchor="middle" font-weight="600">1</text>
+<text x="24.0" y="293.0" class="t1" font-size="12.5" text-anchor="start" font-weight="600">alphagov/govuk-infrastructure · 24 decisions</text>
+<text x="82.0" y="316.0" class="t2" font-size="12" text-anchor="end" font-weight="400">before</text>
+<rect class="holds" x="92.0" y="302" width="105.3" height="20" rx="3"><title>alphagov/govuk-infrastructure before: 4 HOLDS, gate ALLOW (checked)</title></rect>
+<text x="144.7" y="316.5" class="on-dark" font-size="11.5" text-anchor="middle" font-weight="600">4</text>
+<rect class="holdsu" x="199.3" y="302" width="105.3" height="20" rx="3"><title>alphagov/govuk-infrastructure before: 4 HOLDS, gate REVALIDATE (reason stated, unevidenced)</title></rect>
+<text x="252.0" y="316.5" class="on-light" font-size="11.5" text-anchor="middle" font-weight="600">4</text>
+<rect class="moot" x="306.7" y="302" width="105.3" height="20" rx="3"><title>alphagov/govuk-infrastructure before: 4 MOOT</title></rect>
+<text x="359.3" y="316.5" class="on-dark" font-size="11.5" text-anchor="middle" font-weight="600">4</text>
+<rect class="retired" x="414.0" y="302" width="24.8" height="20" rx="3"><title>alphagov/govuk-infrastructure before: 1 RETIRED</title></rect>
+<text x="426.4" y="316.5" class="on-dark" font-size="11.5" text-anchor="middle" font-weight="600">1</text>
+<rect class="undoc" x="440.8" y="302" width="293.2" height="20" rx="3"><title>alphagov/govuk-infrastructure before: 11 UNDOCUMENTED</title></rect>
+<text x="587.4" y="316.5" class="on-light" font-size="11.5" text-anchor="middle" font-weight="600">11</text>
+<text x="82.0" y="344.0" class="t2" font-size="12" text-anchor="end" font-weight="400">after</text>
+<rect class="holds" x="92.0" y="330" width="51.7" height="20" rx="3"><title> after: 2 HOLDS, gate ALLOW (checked)</title></rect>
+<text x="117.8" y="344.5" class="on-dark" font-size="11.5" text-anchor="middle" font-weight="600">2</text>
+<rect class="holdsu" x="145.7" y="330" width="266.3" height="20" rx="3"><title> after: 10 HOLDS, gate REVALIDATE (reason stated, unevidenced)</title></rect>
+<text x="278.8" y="344.5" class="on-light" font-size="11.5" text-anchor="middle" font-weight="600">10</text>
+<rect class="moot" x="414.0" y="330" width="159.0" height="20" rx="3"><title> after: 6 MOOT</title></rect>
+<text x="493.5" y="344.5" class="on-dark" font-size="11.5" text-anchor="middle" font-weight="600">6</text>
+<rect class="retired" x="575.0" y="330" width="24.8" height="20" rx="3"><title> after: 1 RETIRED</title></rect>
+<text x="587.4" y="344.5" class="on-dark" font-size="11.5" text-anchor="middle" font-weight="600">1</text>
+<rect class="undoc" x="601.8" y="330" width="132.2" height="20" rx="3"><title> after: 5 UNDOCUMENTED</title></rect>
+<text x="667.9" y="344.5" class="on-light" font-size="11.5" text-anchor="middle" font-weight="600">5</text>
+<text x="24.0" y="383.0" class="t1" font-size="12.5" text-anchor="start" font-weight="600">alphagov/govuk-aws · 31 decisions</text>
+<text x="82.0" y="406.0" class="t2" font-size="12" text-anchor="end" font-weight="400">before</text>
+<rect class="holds" x="92.0" y="392" width="18.8" height="20" rx="3"><title>alphagov/govuk-aws before: 1 HOLDS, gate ALLOW (checked)</title></rect>
+<rect class="holdsu" x="112.8" y="392" width="81.1" height="20" rx="3"><title>alphagov/govuk-aws before: 4 HOLDS, gate REVALIDATE (reason stated, unevidenced)</title></rect>
+<text x="153.3" y="406.5" class="on-light" font-size="11.5" text-anchor="middle" font-weight="600">4</text>
+<rect class="moot" x="195.9" y="392" width="60.3" height="20" rx="3"><title>alphagov/govuk-aws before: 3 MOOT</title></rect>
+<text x="226.0" y="406.5" class="on-dark" font-size="11.5" text-anchor="middle" font-weight="600">3</text>
+<rect class="retired" x="258.2" y="392" width="39.5" height="20" rx="3"><title>alphagov/govuk-aws before: 2 RETIRED</title></rect>
+<text x="278.0" y="406.5" class="on-dark" font-size="11.5" text-anchor="middle" font-weight="600">2</text>
+<rect class="undoc" x="299.7" y="392" width="434.3" height="20" rx="3"><title>alphagov/govuk-aws before: 21 UNDOCUMENTED</title></rect>
+<text x="516.9" y="406.5" class="on-light" font-size="11.5" text-anchor="middle" font-weight="600">21</text>
+<text x="82.0" y="434.0" class="t2" font-size="12" text-anchor="end" font-weight="400">after</text>
+<rect class="holdsu" x="92.0" y="420" width="205.7" height="20" rx="3"><title> after: 10 HOLDS, gate REVALIDATE (reason stated, unevidenced)</title></rect>
+<text x="194.9" y="434.5" class="on-light" font-size="11.5" text-anchor="middle" font-weight="600">10</text>
+<rect class="moot" x="299.7" y="420" width="185.0" height="20" rx="3"><title> after: 9 MOOT</title></rect>
+<text x="392.2" y="434.5" class="on-dark" font-size="11.5" text-anchor="middle" font-weight="600">9</text>
+<rect class="retired" x="486.7" y="420" width="39.5" height="20" rx="3"><title> after: 2 RETIRED</title></rect>
+<text x="506.5" y="434.5" class="on-dark" font-size="11.5" text-anchor="middle" font-weight="600">2</text>
+<rect class="undoc" x="528.3" y="420" width="205.7" height="20" rx="3"><title> after: 10 UNDOCUMENTED</title></rect>
+<text x="631.1" y="434.5" class="on-light" font-size="11.5" text-anchor="middle" font-weight="600">10</text>
+<text x="24.0" y="472.0" class="t3" font-size="11.5" text-anchor="start" font-weight="400">All four: UNDOCUMENTED 46 → 18 of 75. Of 35 HOLDS after, 2 are checked (ALLOW); the rest say why, unverified.</text>
+</svg>
