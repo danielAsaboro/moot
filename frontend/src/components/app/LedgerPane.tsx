@@ -1,14 +1,16 @@
 "use client";
-// Left column of /app: large title, the ask field, the verdict summary (tap to filter), and the ledger as grouped
-// lists per verdict for the current as-of and depth. The full rot chart opens in a sheet.
+// Left column of the ledger (/app/ledger/): large title, the verdict summary (tap to filter; ?v=MOOT opens filtered), and
+// the ledger as grouped lists per verdict for the current as-of and depth. The full rot chart opens in a sheet. Questions
+// are asked on Ask (/app/), not here.
 import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { api } from "@/lib/api";
 import { useApi } from "@/lib/useApi";
 import { useAppState } from "@/lib/appState";
 import { longDate } from "@/lib/format";
 import { Sheet, VERDICT_WORD, cx } from "@/components/ui";
 import EmptyState from "@/components/ui/EmptyState";
-import AskBar from "@/components/decision/AskBar";
+import { VERDICT_ORDER } from "@/lib/format";
 import type { Verdict } from "@/lib/types";
 import LedgerDocket from "./LedgerDocket";
 import LedgerRows, { LedgerSkeleton } from "./LedgerRows";
@@ -19,11 +21,12 @@ import s from "./ledger.module.css";
 const tenantName = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
 
 export default function LedgerPane() {
-  const { asOf, depth, selected, select, setAsOf, setLastAsk } = useAppState();
+  const { asOf, depth, selected, select, setAsOf } = useAppState();
+  const v = useSearchParams().get("v") as Verdict | null;
   const ledger = useApi(() => api.ledger({ as_of: asOf, depth }), [asOf, depth]);
   const timeline = useApi(() => api.timeline(depth), [depth]);
   const health = useApi(() => api.health(), []);
-  const [verdict, setVerdict] = useState<Verdict | null>(null);
+  const [verdict, setVerdict] = useState<Verdict | null>(v && VERDICT_ORDER.includes(v) ? v : null);
   const [q, setQ] = useState("");
   const [filterOpen, setFilterOpen] = useState(false);
   const [trend, setTrend] = useState(false);
@@ -39,7 +42,7 @@ export default function LedgerPane() {
       (!f || `${d.id} ${d.title} ${d.owner ?? ""} ${d.systems.join(" ")}`.toLowerCase().includes(f)));
   }, [all, q, verdict]);
 
-  const open = (id: string) => { setLastAsk(null); select(id); };
+  const open = (id: string) => select(id);
   const filtered = !!verdict || q.trim() !== "";
   const clear = () => { setQ(""); setVerdict(null); setFilterOpen(false); };
 
@@ -54,7 +57,6 @@ export default function LedgerPane() {
         </p>
       </header>
 
-      <AskBar />
 
       <LedgerDocket ledger={ledger.data} points={timeline.data?.points ?? null} asOf={asOf}
         verdict={verdict} onVerdict={setVerdict} onTrend={() => setTrend(true)}

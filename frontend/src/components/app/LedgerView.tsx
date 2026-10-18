@@ -3,8 +3,8 @@
 // Phone (<= 960px): a pushed view. With a decision (or an answer) open, only the detail shows, with a back button;
 // otherwise only the ledger.
 import { useEffect, useLayoutEffect, useRef } from "react";
+import Link from "next/link";
 import { useAppState } from "@/lib/appState";
-import AskAnswer from "@/components/decision/AskAnswer";
 import DecisionPanel from "@/components/decision/DecisionPanel";
 import LedgerPane from "@/components/app/LedgerPane";
 import EmptyState from "@/components/ui/EmptyState";
@@ -13,8 +13,8 @@ import s from "./ledgerView.module.css";
 const PHONE = "(max-width: 960px)";
 
 export default function LedgerView() {
-  const { selected, lastAsk, select, setLastAsk } = useAppState();
-  const pushed = !!selected || !!lastAsk;
+  const { selected, select, link } = useAppState();
+  const pushed = !!selected;
 
   // Phone: remember where the reader was in the ledger, open the detail at its top, and come back to the same place.
   const ledgerY = useRef(0);
@@ -31,7 +31,7 @@ export default function LedgerView() {
     window.scrollTo(0, pushed ? 0 : ledgerY.current);
   }, [pushed]);
 
-  const back = () => { setLastAsk(null); select(null); };
+  const back = () => select(null);
 
   return (
     <div className={s.page} data-pushed={pushed ? "true" : undefined}>
@@ -41,11 +41,10 @@ export default function LedgerView() {
           <svg width="11" height="18" viewBox="0 0 11 18" aria-hidden="true"><path d="M9 2L2 9l7 7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
           Ledger
         </button>
-        {lastAsk && <AskAnswer ask={lastAsk} />}
-        {selected ? <DecisionPanel id={selected} /> : !lastAsk && (
+        {selected ? <DecisionPanel id={selected} /> : (
           <div className={s.empty}>
             <EmptyState kind="nothing_selected" title="Choose a decision."
-              detail="Or ask why the team does something. Every verdict comes with the path that proves it." />
+              detail={<>Pick one to see its verdict and the path that proves it, or <Link href={link("/app/")} className="link">ask a question</Link>.</>} />
           </div>
         )}
       </section>

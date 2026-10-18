@@ -4,6 +4,7 @@
 // in the URL (?q=…, or ?q=…&tool=…&id=… for a follow-up), so Back, reload and a shared link all show the same answer.
 // ?d=D01 (every older link into /app) opens that decision's full panel under the bar.
 import { useCallback, useEffect, useId, useRef, useState } from "react";
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { api } from "@/lib/api";
 import { useAppState } from "@/lib/appState";
@@ -108,7 +109,7 @@ export default function AskView() {
 }
 
 function Starters({ onAsk }: { onAsk: (f: Suggestion) => void }) {
-  const { asOf } = useAppState();
+  const { asOf, link } = useAppState();
   const { data } = useApi<LedgerResponse>(() => api.ledger({ as_of: asOf }), [asOf]);
   const moot = data?.decisions.filter(r => r.verdict === "MOOT").length;
   return (
@@ -117,6 +118,7 @@ function Starters({ onAsk }: { onAsk: (f: Suggestion) => void }) {
         {STARTERS.map(t => <button key={t} type="button" className={s.chip} onClick={() => onAsk({ q: t })}>{t}</button>)}
       </div>
       {data && <p className={s.meta}>{data.decisions.length} decisions, checked against dated evidence as of {longDate(data.as_of)}. {moot} are moot.</p>}
+      <Link href={link("/app/ledger/")} className={cx("link", s.browse)}>Or browse all {data ? data.decisions.length : ""} decisions <span aria-hidden="true">›</span></Link>
     </>
   );
 }

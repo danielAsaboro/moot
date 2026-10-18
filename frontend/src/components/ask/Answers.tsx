@@ -2,6 +2,7 @@
 // One answer component per tool. Each draws only the rows its tool returned, and reuses the app's own pieces: the
 // decision panel, the what-if wiring, the owner ID card, the exhibit cards and the re-open memo with its approval.
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { api } from "@/lib/api";
 import { useAppState } from "@/lib/appState";
 import { longDate, VERDICT_ORDER } from "@/lib/format";
@@ -131,6 +132,7 @@ function PersonHead({ name, role }: { name: string; role?: string | null }) {
 }
 
 function LedgerAnswerCard({ l, onAsk }: { l: LedgerAnswer; onAsk: (f: FollowUp) => void }) {
+  const { link } = useAppState();
   if (l.owner) {
     return (
       <Card className={s.card}>
@@ -164,6 +166,8 @@ function LedgerAnswerCard({ l, onAsk }: { l: LedgerAnswer; onAsk: (f: FollowUp) 
             after={<span className={s.owner}>{r.owner}{r.owner_active === false ? " (left)" : ""}</span>} />)}
         </Group>
       ))}
+      <p className={s.grey}><Link href={link("/app/ledger/", l.verdict ? { v: l.verdict } : {})} className="link">
+        Open the full ledger{l.verdict ? `, ${VERDICT_WORD[l.verdict].toLowerCase()} only` : ""} <span aria-hidden="true">›</span></Link> for the rot chart, the date and depth controls and every filter.</p>
     </Card>
   );
 }
