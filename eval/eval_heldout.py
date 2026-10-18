@@ -15,7 +15,7 @@ Arms (each answers HOLDS or DEAD for every unit):
   rag_bm25           a model reads the ADR plus the BM25 top 5 of the repository's other ADRs and the tool evidence
                      (local qwen3.8:27b through Ollama, the S3 baseline's model and decoding)
   agent_tools        a model with tools (read the ADR, search and read the repository's ADRs, GitHub activity, licence
-                     history, OSV advisories, all cut at T0) decides itself (Groq openai/gpt-oss-120b); tokens, dollars
+                     history, OSV advisories, all cut at T0) decides itself (Groq openai/gpt-oss-20b); tokens, dollars
                      and latency are recorded
 
 Model replies are cached (eval/heldout/llm_cache.jsonl, eval/heldout/agent_cache.jsonl), so a re-run without --llm re-scores
@@ -24,6 +24,7 @@ offline. Prompts were fixed on the dev split before the test split ran (docs/stu
   python3 eval/eval_heldout.py            score every arm from the caches -> eval/results_heldout.{md,json}
   python3 eval/eval_heldout.py --llm      first fill the model caches for missing units (Ollama for rag_bm25, Groq for the agent)
   python3 eval/eval_heldout.py --llm --split dev      only the dev split (prompt development)
+  python3 eval/eval_heldout.py --llm --arms agent_tools   fill one model arm only (they can run side by side)
 """
 from __future__ import annotations
 
@@ -52,12 +53,12 @@ from moot.verdict import premise_state  # noqa: E402
 
 OUT = Path(os.getenv("MOOT_EVAL_OUT") or ROOT / "eval")
 H = ROOT / "eval" / "heldout"
-GOLD = json.loads((H / "gold.json").read_text())
+GOLD = json.loads(Path(os.getenv("MOOT_HELDOUT_GOLD") or H / "gold.json").read_text())
 PINNED = (H / "GOLD.sha256").read_text().split()[0]
 INPUTS = json.loads((ROOT / "data" / "heldout" / "inputs.json").read_text())
 LLM_CACHE, AGENT_CACHE = H / "llm_cache.jsonl", H / "agent_cache.jsonl"
 RAG_MODEL = os.getenv("MOOT_HELDOUT_RAG_MODEL", "qwen3.8:27b")
-AGENT_MODEL = os.getenv("MOOT_HELDOUT_AGENT_MODEL", "openai/gpt-oss-120b")
+AGENT_MODEL = os.getenv("MOOT_HELDOUT_AGENT_MODEL", "openai/gpt-oss-20b")
 OLLAMA = os.getenv("OLLAMA_URL", "http://localhost:11434")
 ARMS = ("moot", "moot_no_falkordb", "majority", "age", "trust_adr", "rag_bm25", "agent_tools")
 MODEL_ARMS = ("rag_bm25", "agent_tools")
@@ -89,7 +90,7 @@ def arm_moot() -> dict[str, dict]:
     ev = merged()
     decisions = [dict(id=u["id"], title=u["title"], born=u["born"], url=g["url"], repo=u["repo"], tools=[t for t in u["tools"] if t in ev])
                  for g in GOLD["units"] for u in [UNITS[g["id"]]]]
-    g = connect().select_graph("moot_eval_heldout")
+    g = connect().select_graph(f"moot_eval_heldout_{os.getpid()}")
     path = ROOT / "data" / "heldout" / "graph.json"
     path.write_text(json.dumps(build(decisions, {t: ev[t] for t in {t for d in decisions for t in d["tools"]}}), indent=1))
     seed(g, path, fresh=True)
@@ -201,8 +202,8 @@ def arm_rag(fill: bool, ids: list[str]) -> dict[str, dict]:
     return out
 
 
-AGENT_SYSTEM = SYSTEM.replace("from the context only.", "using the tools; they only return what existed on that date.") + \
-    "\nCall tools as needed (at most 6 calls), then reply with the JSON object."
+AGENT_SYSTEM = SYSTEM.replace("from the context only.", "using the tools; they only return what existed on that date.").split("Reply with")[0] + \
+    "Call tools as needed (at most 6 calls), then call final_answer once with your verdict."
 AGENT_TOOLS = [
     dict(name="read_decision", description="The decision's ADR text as it stood today (its status line removed).", parameters=dict(type="object", properties={})),
     dict(name="search_repo_adrs", description="Search the repository's other ADRs as they stood today; returns paths, titles and a snippet.",
@@ -215,6 +216,9 @@ AGENT_TOOLS = [
          parameters=dict(type="object", properties=dict(tool=dict(type="string")), required=["tool"])),
     dict(name="osv_advisories", description="OSV.dev security advisories for the tool's package published up to today.",
          parameters=dict(type="object", properties=dict(tool=dict(type="string")), required=["tool"])),
+    dict(name="final_answer", description="Your verdict on the decision. Call it once, last.",
+         parameters=dict(type="object", properties=dict(verdict=dict(type="string", enum=["HOLDS", "DEAD"]), why=dict(type="string"),
+                                                        evidence=dict(type="array", items=dict(type="string"))), required=["verdict", "why"])),
 ]
 
 
@@ -253,15 +257,22 @@ def run_tool(u: dict, name: str, args: dict) -> str:
 
 
 def agent(u: dict) -> dict:
-    msgs = [dict(role="system", content=AGENT_SYSTEM),
+    """A tool loop on Groq in JSON mode: each turn the model replies with one JSON object, either a tool call
+    {"tool": name, "args": {...}} or its verdict {"verdict": ..., "why": ...}. (Groq's native tool calling with gpt-oss
+    often ended a run with an empty message instead of a verdict on the dev split, so the protocol is spelled out instead.)"""
+    tools_doc = "\n".join(f"- {t['name']}({', '.join(t['parameters'].get('properties', {}))}): {t['description']}" for t in AGENT_TOOLS if t["name"] != "final_answer")
+    msgs = [dict(role="system", content=AGENT_SYSTEM.replace("then call final_answer once with your verdict.", "then give your verdict.") +
+                 f"\nTools:\n{tools_doc}\nEach reply is one JSON object and nothing else: either {{\"tool\": \"<name>\", \"args\": {{...}}}} "
+                 f"to call a tool, or {{\"verdict\": \"HOLDS\" or \"DEAD\", \"why\": \"<one sentence>\", \"evidence\": [...]}} to finish."),
             dict(role="user", content=f"Decision ({u['repo']}, decided {u['born']}): {u['title']}. Tools it picks: "
                                       f"{', '.join(INPUTS['tools'][t]['name'] for t in u['tools'])}.")]
-    spec = [dict(type="function", function=t) for t in AGENT_TOOLS]
     tin = tout = calls = 0
     ms = 0.0
-    for step in range(8):
-        body = dict(model=AGENT_MODEL, temperature=0, seed=7, max_tokens=1200, messages=msgs, tools=spec,
-                    tool_choice="auto" if step < 7 else "none", reasoning_effort="low")
+    done = lambda reply: dict(reply=reply, tokens_in=tin, tokens_out=tout, tool_calls=calls, ms=round(ms))
+    for step in range(9):
+        body = dict(model=AGENT_MODEL, temperature=0, seed=7, max_tokens=1500, messages=msgs, response_format={"type": "json_object"},
+                    reasoning_effort="low")
+        r, rejected = None, None
         for attempt in range(10):
             req = urllib.request.Request(llm.GROQ_URL, data=json.dumps(body).encode(), headers={
                 "content-type": "application/json", "authorization": f"Bearer {llm._env_key('GROQ_API_KEY')}", "user-agent": "moot"})
@@ -271,24 +282,54 @@ def agent(u: dict) -> dict:
                 ms += (time.perf_counter() - t0) * 1000
                 break
             except urllib.error.HTTPError as e:
+                detail = e.read()
+                if e.code == 400 and (b"json_validate_failed" in detail or b"tool_use_failed" in detail):
+                    ms += (time.perf_counter() - t0) * 1000
+                    rejected = json.loads(detail)["error"].get("failed_generation") or ""
+                    break
                 if e.code != 429 or attempt == 9:
-                    raise
-                time.sleep(float(e.headers.get("retry-after") or 10))
-        tin += r["usage"]["prompt_tokens"]
-        tout += r["usage"]["completion_tokens"]
-        m = r["choices"][0]["message"]
-        if m.get("tool_calls") and calls < 6:
-            msgs.append(dict(role="assistant", content=m.get("content") or "", tool_calls=m["tool_calls"]))
-            for c in m["tool_calls"]:
+                    raise RuntimeError(f"Groq {e.code}: {detail[:400]!r}") from e
+                wait = float(e.headers.get("retry-after") or 10)
+                print(f"  rate limited, waiting {wait:.0f} s: {detail[:160]!r}", flush=True)
+                time.sleep(wait)
+        if r is None:
+            # Groq rejected the reply; gpt-oss often emits its own tool-call format ({"name": .., "arguments": ..}) even in JSON
+            # mode. Read the rejected generation as the model's turn; its tokens are not reported, so they are not counted.
+            try:
+                g = json.loads(rejected or "")
+            except json.JSONDecodeError:
+                g = {}
+            a = g.get("arguments", {}) if isinstance(g, dict) else {}
+            if isinstance(a, str):
                 try:
-                    args = json.loads(c["function"].get("arguments") or "{}")
+                    a = json.loads(a)
                 except json.JSONDecodeError:
-                    args = {}
-                calls += 1
-                msgs.append(dict(role="tool", tool_call_id=c["id"], content=run_tool(u, c["function"]["name"], args)[:6000]))
+                    a = {}
+            x = a if isinstance(a, dict) and ("verdict" in a or "tool" in a) else dict(tool=g.get("name"), args=a) if isinstance(g, dict) and g.get("name") else {}
+            if x.get("tool") == "final_answer" or (not x.get("tool") and "verdict" not in x):
+                x = x.get("args", x) if x.get("tool") == "final_answer" else {}
+            content = json.dumps(x)
+            if not x:
+                msgs.append(dict(role="user", content="That was not one JSON object. Reply with exactly one JSON object."))
+                continue
+        else:
+            tin += r["usage"]["prompt_tokens"]
+            tout += r["usage"]["completion_tokens"]
+            content = r["choices"][0]["message"].get("content") or ""
+            try:
+                x = json.loads(content)
+            except json.JSONDecodeError:
+                x = {}
+        if "verdict" in x:
+            return done(content)
+        if x.get("tool") and calls < 6:
+            calls += 1
+            msgs += [dict(role="assistant", content=content),
+                     dict(role="user", content=f"Result of {x['tool']}:\n{run_tool(u, str(x['tool']), x.get('args') or {})[:6000]}")]
             continue
-        return dict(reply=m.get("content") or "", tokens_in=tin, tokens_out=tout, tool_calls=calls, ms=round(ms))
-    return dict(reply="", tokens_in=tin, tokens_out=tout, tool_calls=calls, ms=round(ms))
+        msgs += [dict(role="assistant", content=content or "{}"),
+                 dict(role="user", content='No more tool calls. Reply now with {"verdict": "HOLDS" or "DEAD", "why": "<one sentence>"}.')]
+    return done("")
 
 
 def arm_agent(fill: bool, ids: list[str]) -> dict[str, dict]:
@@ -340,12 +381,15 @@ LABEL = dict(moot="**Moot gate (FalkorDB)**", moot_no_falkordb="Moot rules, Falk
 
 
 def main() -> None:
-    refuse_if_gold_changed()
+    refuse_if_gold_changed()  # before anything else, so a changed answer key never reaches a score
     fill = "--llm" in sys.argv
     only = sys.argv[sys.argv.index("--split") + 1] if "--split" in sys.argv else None
+    arms = sys.argv[sys.argv.index("--arms") + 1].split(",") if "--arms" in sys.argv else MODEL_ARMS
     ids = [g["id"] for g in GOLD["units"] if not only or g["split"] == only]
+    every = [g["id"] for g in GOLD["units"]]
     preds = dict(moot=arm_moot(), moot_no_falkordb=arm_no_falkordb(), majority=arm_majority(), age=arm_age(), trust_adr=arm_trust(),
-                 rag_bm25=arm_rag(fill, ids), agent_tools=arm_agent(fill, ids))
+                 rag_bm25=arm_rag(fill and "rag_bm25" in arms, ids if fill else every),
+                 agent_tools=arm_agent(fill and "agent_tools" in arms, ids if fill else every))
     res = {}
     for split in ("test", "dev"):
         us = [g for g in GOLD["units"] if g["split"] == split]
@@ -378,14 +422,17 @@ def markdown(R: dict) -> str:
          f"The gold was hashed before any arm ran (`{R['gold_sha256'][:16]}…`, eval/heldout/GOLD.sha256) and the scorer refuses to run if it changes. "
          "Prompts were fixed on the dev split; the test split ran once.", "",
          f"## Test split: {n} decisions, {nd} DEAD", "",
-         "| arm | right | accuracy (95% CI) | DEAD caught | precision of DEAD calls | balanced accuracy | vs Moot (only Moot right / only it right, exact McNemar p) |",
-         "|---|---|---|---|---|---|---|"]
+         "Accuracy is the primary metric. DEAD caught, false alarms, precision and balanced accuracy were registered too (docs/studies.md H1); "
+         "the false-alarm column was added to the table after the first test numbers were seen. Nothing about the gold, the labels or Moot's "
+         "rules changed after any test number was seen.", "",
+         "| arm | right | accuracy (95% CI) | DEAD caught (recall) | false alarms (HOLDS called DEAD) | precision of DEAD calls | balanced accuracy | vs Moot (only Moot right / only it right, exact McNemar p) |",
+         "|---|---|---|---|---|---|---|---|"]
     for a in ARMS:
         s = t[a]
         pv = t["paired_vs_moot"].get(a)
         prec = f"{s['caught']}/{s['flagged']} ({s['precision']:.2f})" if s["flagged"] else "no DEAD calls"
         L.append(f"| {LABEL[a]} | {s['right']}/{s['n']} | {s['accuracy']:.2f} ({s['accuracy_ci'][0]:.2f}–{s['accuracy_ci'][1]:.2f}) | "
-                 f"{s['caught']}/{s['dead']} | {prec} | {s['balanced_accuracy']:.2f} | "
+                 f"{s['caught']}/{s['dead']} | {s['flagged'] - s['caught']}/{s['holds']} | {prec} | {s['balanced_accuracy']:.2f} | "
                  + (f"{pv['only_moot']} / {pv['only_other']}, p = {pv['p']:.3f}" if pv else "–") + " |")
     c, rc = R["agent_cost"], R["rag_cost"]
     L += ["", f"Agent cost on the test split: {c['tokens_in']:,} tokens in, {c['tokens_out']:,} out, ${c['usd']:.4f}, {c['tool_calls']} tool calls, "
@@ -393,9 +440,9 @@ def markdown(R: dict) -> str:
               "Moot, its FalkorDB-removed ablation and the rule baselines make no model call.", ""]
     d = R["results"]["dev"]
     L += [f"## Dev split ({d['moot']['n']} decisions, {d['moot']['dead']} DEAD), used to fix the prompts", "",
-          "| arm | right | DEAD caught | DEAD calls |", "|---|---|---|---|"]
+          "| arm | right | DEAD caught | false alarms | DEAD calls |", "|---|---|---|---|---|"]
     for a in ARMS:
-        L.append(f"| {LABEL[a]} | {d[a]['right']}/{d[a]['n']} | {d[a]['caught']}/{d[a]['dead']} | {d[a]['flagged']} |")
+        L.append(f"| {LABEL[a]} | {d[a]['right']}/{d[a]['n']} | {d[a]['caught']}/{d[a]['dead']} | {d[a]['flagged'] - d[a]['caught']}/{d[a]['holds']} | {d[a]['flagged']} |")
     L += ["", "## Every test decision", "", "| decision | gold | backed by | Moot | Moot's reason | RAG | agent | age |", "|---|---|---|---|---|---|---|---|"]
     for r in R["rows"]:
         if r["split"] == "test":
