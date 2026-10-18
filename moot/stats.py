@@ -44,3 +44,14 @@ def timing_summary(samples_ms: list[float], warmup: int = 0, cold_ms: float | No
 def fmt_rate(k: int, n: int) -> str:
     lo, hi = wilson(k, n)
     return f"{k}/{n} (95% CI {lo:.2f}–{hi:.2f})"
+
+
+def mcnemar_exact(b: int, c: int) -> float:
+    """Two-sided exact McNemar test on paired right/wrong outcomes: b = only the first system right, c = only the second.
+    The p-value of seeing a split at least this lopsided if both were equally good (binomial, p = 0.5, on b + c)."""
+    n = b + c
+    if n == 0:
+        return 1.0
+    k = min(b, c)
+    tail = sum(math.comb(n, i) for i in range(k + 1)) / 2 ** n
+    return min(1.0, 2 * tail)

@@ -1,0 +1,299 @@
+{
+ "airbyte": {
+  "name": "Airbyte",
+  "repo": "airbytehq/airbyte",
+  "first_commit": "2020-07-27",
+  "last_commit": "2026-10-17",
+  "commits": 1970,
+  "maintained": [],
+  "open_source": []
+ },
+ "bull": {
+  "name": "Bull",
+  "repo": "OptimalBits/bull",
+  "first_commit": "2013-06-27",
+  "last_commit": "2026-05-10",
+  "commits": 709,
+  "maintained": [],
+  "open_source": []
+ },
+ "cassandra-driver": {
+  "name": "Cassandra Java driver",
+  "repo": "apache/cassandra-java-driver",
+  "first_commit": "2017-03-29",
+  "last_commit": "2026-09-20",
+  "commits": 606,
+  "maintained": [],
+  "open_source": []
+ },
+ "codox": {
+  "name": "Codox",
+  "repo": "weavejester/codox",
+  "first_commit": "2011-10-30",
+  "last_commit": "2023-07-06",
+  "commits": 138,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2020-06-29",
+    "quote": "no commit to the default branch since 2019-06-30"
+   },
+   {
+    "rel": "SUPPORTS",
+    "at": "2021-04-29",
+    "quote": "commits resume on 2021-04-29 after a gap since 2019-06-30"
+   },
+   {
+    "rel": "CONTRADICTS",
+    "at": "2024-07-05",
+    "quote": "no commit to the default branch since 2023-07-06"
+   }
+  ],
+  "open_source": []
+ },
+ "crowdsec": {
+  "name": "CrowdSec",
+  "repo": "crowdsecurity/crowdsec",
+  "first_commit": "2020-05-15",
+  "last_commit": "2026-10-16",
+  "commits": 999,
+  "maintained": [],
+  "open_source": []
+ },
+ "dugite": {
+  "name": "dugite",
+  "repo": "desktop/dugite",
+  "first_commit": "2016-08-24",
+  "last_commit": "2026-08-13",
+  "commits": 344,
+  "maintained": [],
+  "open_source": []
+ },
+ "esbuild": {
+  "name": "esbuild",
+  "repo": "evanw/esbuild",
+  "first_commit": "2020-01-15",
+  "last_commit": "2026-08-09",
+  "commits": 798,
+  "maintained": [],
+  "open_source": []
+ },
+ "gradle": {
+  "name": "Gradle",
+  "repo": "gradle/gradle",
+  "first_commit": "2008-03-10",
+  "last_commit": "2026-10-17",
+  "commits": 6102,
+  "maintained": [],
+  "open_source": []
+ },
+ "grimoire": {
+  "name": "Grimoire",
+  "repo": "clojure-grimoire/lib-grimoire",
+  "first_commit": "2014-10-18",
+  "last_commit": "2018-07-06",
+  "commits": 54,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2017-12-06",
+    "quote": "no commit to the default branch since 2016-12-06"
+   },
+   {
+    "rel": "SUPPORTS",
+    "at": "2018-07-06",
+    "quote": "commits resume on 2018-07-06 after a gap since 2016-12-06"
+   },
+   {
+    "rel": "CONTRADICTS",
+    "at": "2019-07-06",
+    "quote": "no commit to the default branch since 2018-07-06"
+   }
+  ],
+  "open_source": []
+ },
+ "jest": {
+  "name": "Jest",
+  "repo": "jestjs/jest",
+  "first_commit": "2014-05-14",
+  "last_commit": "2026-10-02",
+  "commits": 2153,
+  "maintained": [],
+  "open_source": []
+ },
+ "netty": {
+  "name": "Netty",
+  "repo": "netty/netty",
+  "first_commit": "2008-08-08",
+  "last_commit": "2026-10-17",
+  "commits": 3726,
+  "maintained": [],
+  "open_source": []
+ },
+ "nomad": {
+  "name": "Nomad",
+  "repo": "hashicorp/nomad",
+  "first_commit": "2015-06-01",
+  "last_commit": "2026-10-16",
+  "commits": 2976,
+  "maintained": [],
+  "open_source": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2023-08-10",
+    "quote": "HashiCorp moves Nomad to the Business Source License",
+    "source": "https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license"
+   }
+  ]
+ },
+ "pact": {
+  "name": "Pact",
+  "repo": "pact-foundation/pact-jvm",
+  "first_commit": "2013-10-24",
+  "last_commit": "2026-10-16",
+  "commits": 1365,
+  "maintained": [],
+  "open_source": []
+ },
+ "plantuml": {
+  "name": "PlantUML",
+  "repo": "plantuml/plantuml",
+  "first_commit": "2010-11-15",
+  "last_commit": "2026-10-17",
+  "commits": 1185,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2012-09-07",
+    "quote": "no commit to the default branch since 2011-09-08"
+   },
+   {
+    "rel": "SUPPORTS",
+    "at": "2013-12-10",
+    "quote": "commits resume on 2013-12-10 after a gap since 2011-09-08"
+   }
+  ],
+  "open_source": []
+ },
+ "postgres": {
+  "name": "PostgreSQL",
+  "repo": "postgres/postgres",
+  "first_commit": "1996-07-09",
+  "last_commit": "2026-10-17",
+  "commits": 10236,
+  "maintained": [],
+  "open_source": []
+ },
+ "protobuf": {
+  "name": "Protocol Buffers",
+  "repo": "protocolbuffers/protobuf",
+  "first_commit": "2008-07-10",
+  "last_commit": "2026-10-17",
+  "commits": 3897,
+  "maintained": [],
+  "open_source": []
+ },
+ "pulsar": {
+  "name": "Apache Pulsar",
+  "repo": "apache/pulsar",
+  "first_commit": "2016-09-06",
+  "last_commit": "2026-10-17",
+  "commits": 2944,
+  "maintained": [],
+  "open_source": []
+ },
+ "rails": {
+  "name": "Ruby on Rails",
+  "repo": "rails/rails",
+  "first_commit": "2004-11-24",
+  "last_commit": "2026-10-17",
+  "commits": 7626,
+  "maintained": [],
+  "open_source": []
+ },
+ "reactor-netty": {
+  "name": "Reactor Netty",
+  "repo": "reactor/reactor-netty",
+  "first_commit": "2016-08-19",
+  "last_commit": "2026-10-16",
+  "commits": 1640,
+  "maintained": [],
+  "open_source": []
+ },
+ "rspamd": {
+  "name": "Rspamd",
+  "repo": "rspamd/rspamd",
+  "first_commit": "2008-05-08",
+  "last_commit": "2026-10-15",
+  "commits": 4744,
+  "maintained": [],
+  "open_source": []
+ },
+ "scala": {
+  "name": "Scala",
+  "repo": "scala/scala",
+  "first_commit": "2003-02-13",
+  "last_commit": "2026-10-17",
+  "commits": 6471,
+  "maintained": [],
+  "open_source": []
+ },
+ "sqlite": {
+  "name": "SQLite",
+  "repo": "sqlite/sqlite",
+  "first_commit": "2000-05-29",
+  "last_commit": "2026-10-17",
+  "commits": 6911,
+  "maintained": [],
+  "open_source": []
+ },
+ "tachyons": {
+  "name": "Tachyons",
+  "repo": "tachyons-css/tachyons",
+  "first_commit": "2014-01-18",
+  "last_commit": "2026-01-08",
+  "commits": 285,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2021-04-26",
+    "quote": "no commit to the default branch since 2020-04-26"
+   },
+   {
+    "rel": "SUPPORTS",
+    "at": "2021-04-28",
+    "quote": "commits resume on 2021-04-28 after a gap since 2020-04-26"
+   },
+   {
+    "rel": "CONTRADICTS",
+    "at": "2022-06-16",
+    "quote": "no commit to the default branch since 2021-06-16"
+   },
+   {
+    "rel": "SUPPORTS",
+    "at": "2022-08-14",
+    "quote": "commits resume on 2022-08-14 after a gap since 2021-06-16"
+   },
+   {
+    "rel": "CONTRADICTS",
+    "at": "2025-02-11",
+    "quote": "no commit to the default branch since 2024-02-12"
+   },
+   {
+    "rel": "SUPPORTS",
+    "at": "2026-01-08",
+    "quote": "commits resume on 2026-01-08 after a gap since 2024-02-12"
+   }
+  ],
+  "open_source": []
+ },
+ "typeorm": {
+  "name": "TypeORM",
+  "repo": "typeorm/typeorm",
+  "first_commit": "2016-02-21",
+  "last_commit": "2026-10-11",
+  "commits": 1434,
+  "maintained": [],
+  "open_source": []
+ }
+}

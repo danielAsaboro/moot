@@ -1,0 +1,2244 @@
+{
+ "sha256": "a6001e20aaa644cade7e27205789c57498d7c4d87c1fe48df3ccb18fde466a1e",
+ "written": "2026-10-21",
+ "skipped": [
+  "SmartBear/git-en-boite:0005-use-redis-and-bull-for-background-tasks.md",
+  "alphagov/govuk-infrastructure:0010-use-dex-idp-for-user-web-auth.md",
+  "change-metrics/monocle:0010-choice-of-protobuf.md",
+  "cljdoc/cljdoc:0003-utilize-grimoire-for-storage.md",
+  "cljdoc/cljdoc:0004-utilize-codox-to-read-clojure-script-sources.md",
+  "cljdoc/cljdoc:0005-implement-minimal-api-abstracting-grimoire.md",
+  "cljdoc/cljdoc:0011-use-tachyons-as-css-foundation.md",
+  "ministryofjustice/cloud-platform:013-Use-RSpec-for-cluster-tests.md",
+  "ministryofjustice/hmpps-accredited-programmes-api:0002-use-playwright-for-end-to-end-tests.md",
+  "mozilla/fxa:0028-evaluate-playwright.md"
+ ],
+ "t0": "2023-10-17",
+ "end": "2026-10-17",
+ "units": [
+  {
+   "id": "CMSgov/easi-app:0002-use-terraform.md",
+   "repo": "CMSgov/easi-app",
+   "source": "backtest",
+   "title": "Define and manage infrastructure with Terraform",
+   "path": "docs/adr/0002-use-terraform.md",
+   "url": "https://github.com/CMSgov/easi-app/blob/HEAD/docs/adr/0002-use-terraform.md",
+   "born": "2019-10-23",
+   "tools": [
+    "terraform"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "terraform": null
+   },
+   "code_end": {
+    "terraform": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "CMSgov/easi-app:0012-backend-testing-suite.md",
+   "repo": "CMSgov/easi-app",
+   "source": "backtest",
+   "title": "Use Testify for Go Testing",
+   "path": "docs/adr/0012-backend-testing-suite.md",
+   "url": "https://github.com/CMSgov/easi-app/blob/HEAD/docs/adr/0012-backend-testing-suite.md",
+   "born": "2020-01-02",
+   "tools": [
+    "testify"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "testify": true
+   },
+   "code_end": {
+    "testify": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "CMSgov/easi-app:0014-use-mux-for-routing.md",
+   "repo": "CMSgov/easi-app",
+   "source": "backtest",
+   "title": "Use gorilla/mux for Routing",
+   "path": "docs/adr/0014-use-mux-for-routing.md",
+   "url": "https://github.com/CMSgov/easi-app/blob/HEAD/docs/adr/0014-use-mux-for-routing.md",
+   "born": "2020-01-09",
+   "tools": [
+    "gorilla-mux"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "gorilla-mux": true
+   },
+   "code_end": {
+    "gorilla-mux": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "CMSgov/easi-app:0016-migration-tool.md",
+   "repo": "CMSgov/easi-app",
+   "source": "backtest",
+   "title": "Use Flyway for Database Migration",
+   "path": "docs/adr/0016-migration-tool.md",
+   "url": "https://github.com/CMSgov/easi-app/blob/HEAD/docs/adr/0016-migration-tool.md",
+   "born": "2020-03-05",
+   "tools": [
+    "flyway"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "flyway": null
+   },
+   "code_end": {
+    "flyway": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "CMSgov/easi-app:0017-go-orm.md",
+   "repo": "CMSgov/easi-app",
+   "source": "backtest",
+   "title": "Use [sqlx](https://github.com/jmoiron/sqlx) for Go Database Access",
+   "path": "docs/adr/0017-go-orm.md",
+   "url": "https://github.com/CMSgov/easi-app/blob/HEAD/docs/adr/0017-go-orm.md",
+   "born": "2020-03-17",
+   "tools": [
+    "sqlx"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "sqlx": true
+   },
+   "code_end": {
+    "sqlx": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "CMSgov/easi-app:0028-use-react-testing-library.md",
+   "repo": "CMSgov/easi-app",
+   "source": "backtest",
+   "title": "*Use react-testing-library in place of Enzyme*",
+   "path": "docs/adr/0028-use-react-testing-library.md",
+   "url": "https://github.com/CMSgov/easi-app/blob/HEAD/docs/adr/0028-use-react-testing-library.md",
+   "born": "2021-07-15",
+   "tools": [
+    "rtl"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "rtl": true
+   },
+   "code_end": {
+    "rtl": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "CMSgov/easi-app:0036-rich-text-editor.md",
+   "repo": "CMSgov/easi-app",
+   "source": "backtest",
+   "title": "Rich text editing with TOAST UI Editor",
+   "path": "docs/adr/0036-rich-text-editor.md",
+   "url": "https://github.com/CMSgov/easi-app/blob/HEAD/docs/adr/0036-rich-text-editor.md",
+   "born": "2023-08-22",
+   "tools": [
+    "toastui"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "toastui": true
+   },
+   "code_end": {
+    "toastui": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "CMSgov/easi-app:0038-replace-craco-with-vite.md",
+   "repo": "CMSgov/easi-app",
+   "source": "backtest",
+   "title": "Migrate from Create React App & Craco to Vite",
+   "path": "docs/adr/0038-replace-craco-with-vite.md",
+   "url": "https://github.com/CMSgov/easi-app/blob/HEAD/docs/adr/0038-replace-craco-with-vite.md",
+   "born": "2023-09-11",
+   "tools": [
+    "vite"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "vite": true
+   },
+   "code_end": {
+    "vite": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "DFE-Digital/apply-for-teacher-training:0002-use-devise-for-authentication.md",
+   "repo": "DFE-Digital/apply-for-teacher-training",
+   "source": "backtest",
+   "title": "2. Use Devise for authentication",
+   "path": "adr/0002-use-devise-for-authentication.md",
+   "url": "https://github.com/DFE-Digital/apply-for-teacher-training/blob/HEAD/adr/0002-use-devise-for-authentication.md",
+   "born": "2019-08-22",
+   "tools": [
+    "devise"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "devise": true
+   },
+   "code_end": {
+    "devise": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "DFE-Digital/find-a-lost-trn:00003-use-rails.md",
+   "repo": "DFE-Digital/find-a-lost-trn",
+   "source": "new",
+   "title": "3. Use a Ruby on Rails monolith",
+   "path": "adr/00003-use-rails.md",
+   "url": "https://github.com/DFE-Digital/find-a-lost-trn/blob/HEAD/adr/00003-use-rails.md",
+   "born": "2022-02-01",
+   "tools": [
+    "rails"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "rails": true
+   },
+   "code_end": {
+    "rails": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "DFE-Digital/find-a-lost-trn:00004-use-postgres-state.md",
+   "repo": "DFE-Digital/find-a-lost-trn",
+   "source": "new",
+   "title": "4. Use postgres to handle persistence",
+   "path": "adr/00004-use-postgres-state.md",
+   "url": "https://github.com/DFE-Digital/find-a-lost-trn/blob/HEAD/adr/00004-use-postgres-state.md",
+   "born": "2022-02-02",
+   "tools": [
+    "postgres"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "postgres": true
+   },
+   "code_end": {
+    "postgres": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "DFE-Digital/find-a-lost-trn:00006-sidekiq-and-redis.md",
+   "repo": "DFE-Digital/find-a-lost-trn",
+   "source": "new",
+   "title": "6. Sidekiq and Redis",
+   "path": "adr/00006-sidekiq-and-redis.md",
+   "url": "https://github.com/DFE-Digital/find-a-lost-trn/blob/HEAD/adr/00006-sidekiq-and-redis.md",
+   "born": "2022-03-14",
+   "tools": [
+    "redis",
+    "sidekiq"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "redis": false,
+    "sidekiq": true
+   },
+   "code_end": {
+    "redis": false,
+    "sidekiq": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "GSA/notifications-api:0006-use-for-dependency-management.md",
+   "repo": "GSA/notifications-api",
+   "source": "backtest",
+   "title": "Use `poetry` for dependency management",
+   "path": "docs/adrs/0006-use-for-dependency-management.md",
+   "url": "https://github.com/GSA/notifications-api/blob/HEAD/docs/adrs/0006-use-for-dependency-management.md",
+   "born": "2023-09-08",
+   "tools": [
+    "poetry"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "poetry": true
+   },
+   "code_end": {
+    "poetry": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "HHS/Head-Start-TTADP:0007-use-plantuml-for-diagrams.md",
+   "repo": "HHS/Head-Start-TTADP",
+   "source": "new",
+   "title": "7. Use PlantUML for diagrams",
+   "path": "docs/adr/0007-use-plantuml-for-diagrams.md",
+   "url": "https://github.com/HHS/Head-Start-TTADP/blob/HEAD/docs/adr/0007-use-plantuml-for-diagrams.md",
+   "born": "2020-10-01",
+   "tools": [
+    "plantuml"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "plantuml": true
+   },
+   "code_end": {
+    "plantuml": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "Maptio/maptio:0003-move-to-nx-monorepo-with-new-angular-app.md",
+   "repo": "Maptio/maptio",
+   "source": "new",
+   "title": "3. Move to Nx monorepo with new Angular app",
+   "path": "doc/adr/0003-move-to-nx-monorepo-with-new-angular-app.md",
+   "url": "https://github.com/Maptio/maptio/blob/HEAD/doc/adr/0003-move-to-nx-monorepo-with-new-angular-app.md",
+   "born": "2021-03-12",
+   "tools": [
+    "nx"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "nx": true
+   },
+   "code_end": {
+    "nx": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "SmartBear/git-en-boite:0009-prefer-dugite-over-raw-git-commands-in-tests.md",
+   "repo": "SmartBear/git-en-boite",
+   "source": "new",
+   "title": "9. Prefer dugite over raw git commands in tests",
+   "path": "doc/adr/0009-prefer-dugite-over-raw-git-commands-in-tests.md",
+   "url": "https://github.com/SmartBear/git-en-boite/blob/HEAD/doc/adr/0009-prefer-dugite-over-raw-git-commands-in-tests.md",
+   "born": "2020-05-26",
+   "tools": [
+    "dugite"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "dugite": true
+   },
+   "code_end": {
+    "dugite": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "alphagov/govuk-aws:0007-puppet-cert-management.md",
+   "repo": "alphagov/govuk-aws",
+   "source": "backtest",
+   "title": "7. Puppet certificate management",
+   "path": "docs/architecture/decisions/0007-puppet-cert-management.md",
+   "url": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0007-puppet-cert-management.md",
+   "born": "2017-07-04",
+   "tools": [
+    "puppet"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "puppet": null
+   },
+   "code_end": {
+    "puppet": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "alphagov/govuk-aws:0008-postgres-on-puppetmaster.md",
+   "repo": "alphagov/govuk-aws",
+   "source": "backtest",
+   "title": "8. Postgres on Puppetmaster",
+   "path": "docs/architecture/decisions/0008-postgres-on-puppetmaster.md",
+   "url": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0008-postgres-on-puppetmaster.md",
+   "born": "2017-07-04",
+   "tools": [
+    "puppet"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "puppet": null
+   },
+   "code_end": {
+    "puppet": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "alphagov/govuk-aws:0012-security-groups-in-terraform.md",
+   "repo": "alphagov/govuk-aws",
+   "source": "backtest",
+   "title": "12. Security Groups in Terraform",
+   "path": "docs/architecture/decisions/0012-security-groups-in-terraform.md",
+   "url": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0012-security-groups-in-terraform.md",
+   "born": "2017-07-05",
+   "tools": [
+    "terraform"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "terraform": true
+   },
+   "code_end": {
+    "terraform": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "alphagov/govuk-aws:0025-use-elasticache-for-redis.md",
+   "repo": "alphagov/govuk-aws",
+   "source": "backtest",
+   "title": "25. Use Elasticache for Redis",
+   "path": "docs/architecture/decisions/0025-use-elasticache-for-redis.md",
+   "url": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0025-use-elasticache-for-redis.md",
+   "born": "2017-09-04",
+   "tools": [
+    "redis"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "redis": true
+   },
+   "code_end": {
+    "redis": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "alphagov/govuk-aws:0029-combine-api-redis-into-backend-redis.md",
+   "repo": "alphagov/govuk-aws",
+   "source": "backtest",
+   "title": "29. Combine api-redis into backend-redis",
+   "path": "docs/architecture/decisions/0029-combine-api-redis-into-backend-redis.md",
+   "url": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0029-combine-api-redis-into-backend-redis.md",
+   "born": "2017-09-14",
+   "tools": [
+    "redis"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "redis": true
+   },
+   "code_end": {
+    "redis": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "alphagov/govuk-infrastructure:0002-use-aws-eks-terraform-module.md",
+   "repo": "alphagov/govuk-infrastructure",
+   "source": "backtest",
+   "title": "2. Use `aws-eks` Terraform module",
+   "path": "docs/architecture/decisions/0002-use-aws-eks-terraform-module.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0002-use-aws-eks-terraform-module.md",
+   "born": "2021-08-10",
+   "tools": [
+    "kubernetes",
+    "tf-aws-eks"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "kubernetes": null,
+    "tf-aws-eks": true
+   },
+   "code_end": {
+    "kubernetes": null,
+    "tf-aws-eks": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "alphagov/govuk-infrastructure:0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+   "repo": "alphagov/govuk-infrastructure",
+   "source": "backtest",
+   "title": "4. Use AWS Load Balancer Controller for edge traffic services",
+   "path": "docs/architecture/decisions/0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+   "born": "2021-08-12",
+   "tools": [
+    "aws-lbc"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "aws-lbc": true
+   },
+   "code_end": {
+    "aws-lbc": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "alphagov/govuk-infrastructure:0005-use-eks-managed-node-groups.md",
+   "repo": "alphagov/govuk-infrastructure",
+   "source": "backtest",
+   "title": "5. Use AWS Elastic Kubernetes Service (EKS) managed node groups",
+   "path": "docs/architecture/decisions/0005-use-eks-managed-node-groups.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0005-use-eks-managed-node-groups.md",
+   "born": "2021-08-13",
+   "tools": [
+    "kubernetes"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "kubernetes": null
+   },
+   "code_end": {
+    "kubernetes": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "alphagov/govuk-infrastructure:0006-use-helm-for-application-package-management.md",
+   "repo": "alphagov/govuk-infrastructure",
+   "source": "backtest",
+   "title": "6. Use Helm for application package management",
+   "path": "docs/architecture/decisions/0006-use-helm-for-application-package-management.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0006-use-helm-for-application-package-management.md",
+   "born": "2021-08-16",
+   "tools": [
+    "helm"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "helm": true
+   },
+   "code_end": {
+    "helm": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "alphagov/govuk-infrastructure:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+   "repo": "alphagov/govuk-infrastructure",
+   "source": "backtest",
+   "title": "7. Use Fluent Bit, Elasticsearch and Kibana for application logs",
+   "path": "docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+   "born": "2021-08-16",
+   "tools": [
+    "elasticsearch",
+    "fluent-bit",
+    "kibana"
+   ],
+   "gold": "DEAD",
+   "backed_by": [
+    "status"
+   ],
+   "first": {
+    "source": "status",
+    "date": "2025-07-21",
+    "what": "status: Deprecated (no superseding ADR)"
+   },
+   "events": [
+    {
+     "source": "status",
+     "date": "2025-07-21",
+     "what": "status: Deprecated (no superseding ADR)"
+    }
+   ],
+   "code_t0": {
+    "elasticsearch": false,
+    "fluent-bit": false,
+    "kibana": null
+   },
+   "code_end": {
+    "elasticsearch": false,
+    "fluent-bit": false,
+    "kibana": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "alphagov/govuk-infrastructure:0008-use-external-secrets-for-secrets-storage.md",
+   "repo": "alphagov/govuk-infrastructure",
+   "source": "backtest",
+   "title": "8. Use external-secrets for secrets storage",
+   "path": "docs/architecture/decisions/0008-use-external-secrets-for-secrets-storage.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0008-use-external-secrets-for-secrets-storage.md",
+   "born": "2021-08-26",
+   "tools": [
+    "external-secrets"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "external-secrets": true
+   },
+   "code_end": {
+    "external-secrets": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "alphagov/govuk-infrastructure:0009-use-external-dns-for-dns-record-management.md",
+   "repo": "alphagov/govuk-infrastructure",
+   "source": "backtest",
+   "title": "9. Use `external-dns` for DNS record management",
+   "path": "docs/architecture/decisions/0009-use-external-dns-for-dns-record-management.md",
+   "url": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0009-use-external-dns-for-dns-record-management.md",
+   "born": "2021-08-27",
+   "tools": [
+    "external-dns"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "external-dns": true
+   },
+   "code_end": {
+    "external-dns": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "apache/james-project:0019-reactor-netty-adoption.md",
+   "repo": "apache/james-project",
+   "source": "new",
+   "title": "19. Reactor-netty adoption for JMAP server implementation",
+   "path": "src/adr/0019-reactor-netty-adoption.md",
+   "url": "https://github.com/apache/james-project/blob/HEAD/src/adr/0019-reactor-netty-adoption.md",
+   "born": "2020-02-28",
+   "tools": [
+    "reactor-netty"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "reactor-netty": true
+   },
+   "code_end": {
+    "reactor-netty": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "apache/james-project:0033-use-scala-in-event-sourcing-modules.md",
+   "repo": "apache/james-project",
+   "source": "new",
+   "title": "33. Use scala in event sourcing modules",
+   "path": "src/adr/0033-use-scala-in-event-sourcing-modules.md",
+   "url": "https://github.com/apache/james-project/blob/HEAD/src/adr/0033-use-scala-in-event-sourcing-modules.md",
+   "born": "2019-12-13",
+   "tools": [
+    "scala"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "scala": true
+   },
+   "code_end": {
+    "scala": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "apache/james-project:0052-pulsar-mailqueue.md",
+   "repo": "apache/james-project",
+   "source": "new",
+   "title": "52. Pulsar MailQueue",
+   "path": "src/adr/0052-pulsar-mailqueue.md",
+   "url": "https://github.com/apache/james-project/blob/HEAD/src/adr/0052-pulsar-mailqueue.md",
+   "born": "2022-01-07",
+   "tools": [
+    "pulsar"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "pulsar": true
+   },
+   "code_end": {
+    "pulsar": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "apache/james-project:0054-elasticsearch-search-overrides.md",
+   "repo": "apache/james-project",
+   "source": "new",
+   "title": "54. ElasticSearch search overrides",
+   "path": "src/adr/0054-elasticsearch-search-overrides.md",
+   "url": "https://github.com/apache/james-project/blob/HEAD/src/adr/0054-elasticsearch-search-overrides.md",
+   "born": "2022-05-16",
+   "tools": [
+    "elasticsearch"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "elasticsearch": null
+   },
+   "code_end": {
+    "elasticsearch": null
+   },
+   "split": "dev"
+  },
+  {
+   "id": "apache/james-project:0055-rspamd-spam-filtering.md",
+   "repo": "apache/james-project",
+   "source": "new",
+   "title": "55. RSPAMD",
+   "path": "src/adr/0055-rspamd-spam-filtering.md",
+   "url": "https://github.com/apache/james-project/blob/HEAD/src/adr/0055-rspamd-spam-filtering.md",
+   "born": "2022-08-10",
+   "tools": [
+    "rspamd"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "rspamd": true
+   },
+   "code_end": {
+    "rspamd": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "apache/james-project:0056-opensearch-migration.md",
+   "repo": "apache/james-project",
+   "source": "new",
+   "title": "56. OpenSearch migration",
+   "path": "src/adr/0056-opensearch-migration.md",
+   "url": "https://github.com/apache/james-project/blob/HEAD/src/adr/0056-opensearch-migration.md",
+   "born": "2022-08-11",
+   "tools": [
+    "opensearch"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "opensearch": null
+   },
+   "code_end": {
+    "opensearch": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "apache/james-project:0058-upgrade-to-netty-4.md",
+   "repo": "apache/james-project",
+   "source": "new",
+   "title": "58. Upgrade to netty 4",
+   "path": "src/adr/0058-upgrade-to-netty-4.md",
+   "url": "https://github.com/apache/james-project/blob/HEAD/src/adr/0058-upgrade-to-netty-4.md",
+   "born": "2022-09-13",
+   "tools": [
+    "netty"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "netty": true
+   },
+   "code_end": {
+    "netty": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "apache/james-project:0059-upgrade-to-cassadra-driver-4.md",
+   "repo": "apache/james-project",
+   "source": "new",
+   "title": "59. Upgrade to Cassandra driver 4",
+   "path": "src/adr/0059-upgrade-to-cassadra-driver-4.md",
+   "url": "https://github.com/apache/james-project/blob/HEAD/src/adr/0059-upgrade-to-cassadra-driver-4.md",
+   "born": "2022-09-13",
+   "tools": [
+    "cassandra-driver"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "cassandra-driver": true
+   },
+   "code_end": {
+    "cassandra-driver": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "backstage/backstage:adr006-avoid-react-fc",
+   "repo": "backstage/backstage",
+   "source": "backtest",
+   "title": "ADR006: Avoid React.FC and React.SFC",
+   "path": "docs/architecture-decisions/adr006-avoid-react-fc.md",
+   "url": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr006-avoid-react-fc.md",
+   "born": "2020-06-30",
+   "tools": [
+    "react"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "react": true
+   },
+   "code_end": {
+    "react": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "backstage/backstage:adr007-use-msw-to-mock-service-requests.md",
+   "repo": "backstage/backstage",
+   "source": "backtest",
+   "title": "ADR007: Use MSW to mock http requests",
+   "path": "docs/architecture-decisions/adr007-use-msw-to-mock-service-requests.md",
+   "url": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr007-use-msw-to-mock-service-requests.md",
+   "born": "2020-07-14",
+   "tools": [
+    "msw"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "msw": true
+   },
+   "code_end": {
+    "msw": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "backstage/backstage:adr010-luxon-date-library.md",
+   "repo": "backstage/backstage",
+   "source": "backtest",
+   "title": "ADR010: Use the Luxon Date Library",
+   "path": "docs/architecture-decisions/adr010-luxon-date-library.md",
+   "url": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr010-luxon-date-library.md",
+   "born": "2021-01-19",
+   "tools": [
+    "luxon"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "luxon": true
+   },
+   "code_end": {
+    "luxon": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "backstage/backstage:adr012-use-luxon-locale-and-date-presets.md",
+   "repo": "backstage/backstage",
+   "source": "backtest",
+   "title": "ADR012: Use Luxon.toLocaleString and date/time presets",
+   "path": "docs/architecture-decisions/adr012-use-luxon-locale-and-date-presets.md",
+   "url": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr012-use-luxon-locale-and-date-presets.md",
+   "born": "2021-10-08",
+   "tools": [
+    "luxon"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "luxon": true
+   },
+   "code_end": {
+    "luxon": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "change-metrics/monocle:0002-Choice-of-Elasticsearch.md",
+   "repo": "change-metrics/monocle",
+   "source": "new",
+   "title": "2. Choice of Elasticsearch",
+   "path": "doc/adr/0002-choice-of-elasticsearch.md",
+   "url": "https://github.com/change-metrics/monocle/blob/HEAD/doc/adr/0002-choice-of-elasticsearch.md",
+   "born": "2019-12-02",
+   "tools": [
+    "elasticsearch"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "elasticsearch": null
+   },
+   "code_end": {
+    "elasticsearch": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "change-metrics/monocle:0003-Choice-of-React.md",
+   "repo": "change-metrics/monocle",
+   "source": "new",
+   "title": "3. Choice of React",
+   "path": "doc/adr/0003-choice-of-react.md",
+   "url": "https://github.com/change-metrics/monocle/blob/HEAD/doc/adr/0003-choice-of-react.md",
+   "born": "2019-12-02",
+   "tools": [
+    "react"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "react": true
+   },
+   "code_end": {
+    "react": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "cljdoc/cljdoc:0008-use-circleci-as-analysis-sandbox.md",
+   "repo": "cljdoc/cljdoc",
+   "source": "new",
+   "title": "8. Use CircleCI as Analysis Sandbox",
+   "path": "doc/adr/0008-use-circleci-as-analysis-sandbox.md",
+   "url": "https://github.com/cljdoc/cljdoc/blob/HEAD/doc/adr/0008-use-circleci-as-analysis-sandbox.md",
+   "born": "2018-01-29",
+   "tools": [
+    "circleci"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "circleci": true
+   },
+   "code_end": {
+    "circleci": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "cljdoc/cljdoc:0010-use-terraform-to-create-document-infrastructure.md",
+   "repo": "cljdoc/cljdoc",
+   "source": "new",
+   "title": "10. Use Terraform to Create & Document Infrastructure",
+   "path": "doc/adr/0010-use-terraform-to-create-document-infrastructure.md",
+   "url": "https://github.com/cljdoc/cljdoc/blob/HEAD/doc/adr/0010-use-terraform-to-create-document-infrastructure.md",
+   "born": "2018-01-31",
+   "tools": [
+    "terraform"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "terraform": true
+   },
+   "code_end": {
+    "terraform": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "cljdoc/cljdoc:0013-move-to-sqlite-for-storage.md",
+   "repo": "cljdoc/cljdoc",
+   "source": "new",
+   "title": "13. Move to SQLite for Storage",
+   "path": "doc/adr/0013-move-to-sqlite-for-storage.md",
+   "url": "https://github.com/cljdoc/cljdoc/blob/HEAD/doc/adr/0013-move-to-sqlite-for-storage.md",
+   "born": "2018-08-02",
+   "tools": [
+    "sqlite"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "sqlite": true
+   },
+   "code_end": {
+    "sqlite": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "cljdoc/cljdoc:0017-use-nomad-for-deployment.md",
+   "repo": "cljdoc/cljdoc",
+   "source": "new",
+   "title": "Use Nomad For Deployment",
+   "path": "doc/adr/0017-use-nomad-for-deployment.md",
+   "url": "https://github.com/cljdoc/cljdoc/blob/HEAD/doc/adr/0017-use-nomad-for-deployment.md",
+   "born": "2018-12-10",
+   "tools": [
+    "nomad"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "nomad": null
+   },
+   "code_end": {
+    "nomad": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "cloudfoundry/korifi:0007-use-contour-for-ingress.md",
+   "repo": "cloudfoundry/korifi",
+   "source": "backtest",
+   "title": "Use Contour for Ingress",
+   "path": "docs/architecture-decisions/0009-use-contour-for-ingress.md",
+   "url": "https://github.com/cloudfoundry/korifi/blob/HEAD/docs/architecture-decisions/0009-use-contour-for-ingress.md",
+   "born": "2021-10-11",
+   "tools": [
+    "contour"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "contour": null
+   },
+   "code_end": {
+    "contour": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "defenseunicorns/pepr:0003-use-commonjs-and-esbuild.md",
+   "repo": "defenseunicorns/pepr",
+   "source": "new",
+   "title": "3. Use CommonJS and ESBuild",
+   "path": "adr/0003-use-commonjs-and-esbuild.md",
+   "url": "https://github.com/defenseunicorns/pepr/blob/HEAD/adr/0003-use-commonjs-and-esbuild.md",
+   "born": "2023-05-22",
+   "tools": [
+    "esbuild"
+   ],
+   "gold": "DEAD",
+   "backed_by": [
+    "status"
+   ],
+   "first": {
+    "source": "status",
+    "date": "2026-02-10",
+    "what": "status: Accepted (Partially Superseded)"
+   },
+   "events": [
+    {
+     "source": "status",
+     "date": "2026-02-10",
+     "what": "status: Accepted (Partially Superseded)"
+    }
+   ],
+   "code_t0": {
+    "esbuild": true
+   },
+   "code_end": {
+    "esbuild": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "defenseunicorns/pepr:0005-migrate-to-jest-and-refactor-e2e-to-journey-tests.md",
+   "repo": "defenseunicorns/pepr",
+   "source": "new",
+   "title": "5: Migrate to Jest and Refactor E2E Tests to Journey Tests",
+   "path": "adr/0005-migrate-to-jest-and-refactor-e2e-to-journey-tests.md",
+   "url": "https://github.com/defenseunicorns/pepr/blob/HEAD/adr/0005-migrate-to-jest-and-refactor-e2e-to-journey-tests.md",
+   "born": "2023-09-03",
+   "tools": [
+    "jest"
+   ],
+   "gold": "DEAD",
+   "backed_by": [
+    "code",
+    "status"
+   ],
+   "first": {
+    "source": "status",
+    "date": "2025-07-01",
+    "what": "replaced: 20. Migrate to Vitest and replace Jest Due to Breaking Change in @kubernetes/client-node"
+   },
+   "events": [
+    {
+     "source": "status",
+     "date": "2025-07-01",
+     "what": "replaced: 20. Migrate to Vitest and replace Jest Due to Breaking Change in @kubernetes/client-node"
+    },
+    {
+     "source": "code",
+     "date": "2025-07-01",
+     "what": "jest is in the code on 2023-10-17 and gone by 2025-07-01"
+    }
+   ],
+   "code_t0": {
+    "jest": true
+   },
+   "code_end": {
+    "jest": false
+   },
+   "split": "dev"
+  },
+  {
+   "id": "edgexfoundry/edgex-docs:0017-consul-security.md",
+   "repo": "edgexfoundry/edgex-docs",
+   "source": "backtest",
+   "title": "Securing access to Consul",
+   "path": "docs_src/design/adr/security/0017-consul-security.md",
+   "url": "https://github.com/edgexfoundry/edgex-docs/blob/HEAD/docs_src/design/adr/security/0017-consul-security.md",
+   "born": "2021-02-18",
+   "tools": [
+    "consul"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "consul": null
+   },
+   "code_end": {
+    "consul": null
+   },
+   "split": "dev"
+  },
+  {
+   "id": "edgexfoundry/edgex-docs:0019-spiffe.md",
+   "repo": "edgexfoundry/edgex-docs",
+   "source": "backtest",
+   "title": "Use SPIFFE/SPIRE for On-demand Secret Store Token Generation",
+   "path": "docs_src/design/adr/security/0020-spiffe.md",
+   "url": "https://github.com/edgexfoundry/edgex-docs/blob/HEAD/docs_src/design/adr/security/0020-spiffe.md",
+   "born": "2021-12-08",
+   "tools": [
+    "spire"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "spire": null
+   },
+   "code_end": {
+    "spire": null
+   },
+   "split": "dev"
+  },
+  {
+   "id": "guardian/dotcom-rendering:use-percy-for-e2e-visual-regression-testing.md",
+   "repo": "guardian/dotcom-rendering",
+   "source": "backtest",
+   "title": "Use Percy/Cypress for integration-style visual regression testing",
+   "path": "dotcom-rendering/docs/architecture/historic-adrs/use-percy-for-e2e-visual-regression-testing.md",
+   "url": "https://github.com/guardian/dotcom-rendering/blob/HEAD/dotcom-rendering/docs/architecture/historic-adrs/use-percy-for-e2e-visual-regression-testing.md",
+   "born": "2023-09-08",
+   "tools": [
+    "cypress"
+   ],
+   "gold": "DEAD",
+   "backed_by": [
+    "code"
+   ],
+   "first": {
+    "source": "code",
+    "date": "2024-02-01",
+    "what": "cypress is in the code on 2023-10-17 and gone by 2024-02-01"
+   },
+   "events": [
+    {
+     "source": "code",
+     "date": "2024-02-01",
+     "what": "cypress is in the code on 2023-10-17 and gone by 2024-02-01"
+    }
+   ],
+   "code_t0": {
+    "cypress": true
+   },
+   "code_end": {
+    "cypress": false
+   },
+   "split": "test"
+  },
+  {
+   "id": "kyma-project/community:dr-002-Traefik_as_an_API_Gateway.md",
+   "repo": "kyma-project/community",
+   "source": "backtest",
+   "title": "DR 002: Tr\u00e6fik as a candidate for an API Gateway",
+   "path": "sigs-and-wgs/archive/sig-core/decisions/dr-002-Traefik_as_an_API_Gateway.md",
+   "url": "https://github.com/kyma-project/community/blob/HEAD/sigs-and-wgs/archive/sig-core/decisions/dr-002-Traefik_as_an_API_Gateway.md",
+   "born": "2017-11-23",
+   "tools": [
+    "traefik"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "traefik": null
+   },
+   "code_end": {
+    "traefik": null
+   },
+   "split": "dev"
+  },
+  {
+   "id": "kyma-project/community:dr-005-Istio_as_the_API_Gateway.md",
+   "repo": "kyma-project/community",
+   "source": "backtest",
+   "title": "DR 005: Istio as the Gateway in Kyma",
+   "path": "sigs-and-wgs/archive/sig-core/decisions/dr-005-Istio_as_the_API_Gateway.md",
+   "url": "https://github.com/kyma-project/community/blob/HEAD/sigs-and-wgs/archive/sig-core/decisions/dr-005-Istio_as_the_API_Gateway.md",
+   "born": "2017-12-11",
+   "tools": [
+    "istio"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "istio": null
+   },
+   "code_end": {
+    "istio": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "kyma-project/community:dr-006-Kubeless_as_the_Faas_solution.md",
+   "repo": "kyma-project/community",
+   "source": "backtest",
+   "title": "DR 006: Kubeless as a FaaS solution",
+   "path": "sigs-and-wgs/archive/sig-core/decisions/dr-006-Kubeless_as_the_Faas_solution.md",
+   "url": "https://github.com/kyma-project/community/blob/HEAD/sigs-and-wgs/archive/sig-core/decisions/dr-006-Kubeless_as_the_Faas_solution.md",
+   "born": "2017-12-20",
+   "tools": [
+    "kubeless"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "kubeless": null
+   },
+   "code_end": {
+    "kubeless": null
+   },
+   "split": "dev"
+  },
+  {
+   "id": "kyma-project/community:dr-011-Jaeger_as_a_tracing_back-end.md",
+   "repo": "kyma-project/community",
+   "source": "backtest",
+   "title": "DR 011: Jaeger as a tracing back-end",
+   "path": "sigs-and-wgs/archive/sig-core/decisions/dr-011-Jaeger_as_a_tracing_back-end.md",
+   "url": "https://github.com/kyma-project/community/blob/HEAD/sigs-and-wgs/archive/sig-core/decisions/dr-011-Jaeger_as_a_tracing_back-end.md",
+   "born": "2018-03-09",
+   "tools": [
+    "jaeger"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "jaeger": null
+   },
+   "code_end": {
+    "jaeger": null
+   },
+   "split": "dev"
+  },
+  {
+   "id": "kyma-project/community:dr-012-Prettier_as_JavaScript_code_formatter.md",
+   "repo": "kyma-project/community",
+   "source": "backtest",
+   "title": "DR 012: Prettier as a JavaScript code formatter",
+   "path": "sigs-and-wgs/archive/sig-core/decisions/dr-012-Prettier_as_JavaScript_code_formatter.md",
+   "url": "https://github.com/kyma-project/community/blob/HEAD/sigs-and-wgs/archive/sig-core/decisions/dr-012-Prettier_as_JavaScript_code_formatter.md",
+   "born": "2018-03-15",
+   "tools": [
+    "prettier"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "prettier": null
+   },
+   "code_end": {
+    "prettier": null
+   },
+   "split": "dev"
+  },
+  {
+   "id": "ministryofjustice/cloud-platform:001-Use-AWS-hosted-elasticsearch.md",
+   "repo": "ministryofjustice/cloud-platform",
+   "source": "backtest",
+   "title": "Use AWS hosted Elasticsearch",
+   "path": "architecture-decision-record/001-Use-AWS-hosted-elasticsearch.md",
+   "url": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/001-Use-AWS-hosted-elasticsearch.md",
+   "born": "2018-03-28",
+   "tools": [
+    "elasticsearch"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "elasticsearch": null
+   },
+   "code_end": {
+    "elasticsearch": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "ministryofjustice/cloud-platform:003-Use-Concourse-CI.md",
+   "repo": "ministryofjustice/cloud-platform",
+   "source": "backtest",
+   "title": "Use Concourse CI",
+   "path": "architecture-decision-record/003-Use-Concourse-CI.md",
+   "url": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/003-Use-Concourse-CI.md",
+   "born": "2020-08-17",
+   "tools": [
+    "concourse"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "concourse": null
+   },
+   "code_end": {
+    "concourse": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "ministryofjustice/cloud-platform:004-use-kubernetes-for-container-management.md",
+   "repo": "ministryofjustice/cloud-platform",
+   "source": "backtest",
+   "title": "Use kubernetes for running containerised applications",
+   "path": "architecture-decision-record/004-use-kubernetes-for-container-management.md",
+   "url": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/004-use-kubernetes-for-container-management.md",
+   "born": "2018-04-05",
+   "tools": [
+    "kubernetes"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "kubernetes": null
+   },
+   "code_end": {
+    "kubernetes": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "ministryofjustice/cloud-platform:011-Introduce-Open-Policy-Agent.md",
+   "repo": "ministryofjustice/cloud-platform",
+   "source": "backtest",
+   "title": "Introduce Open Policy Agent",
+   "path": "architecture-decision-record/011-Introduce-Open-Policy-Agent.md",
+   "url": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/011-Introduce-Open-Policy-Agent.md",
+   "born": "2019-06-11",
+   "tools": [
+    "opa"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "opa": null
+   },
+   "code_end": {
+    "opa": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "ministryofjustice/cloud-platform:014-Why-we-build-our-own-kubernetes-cluster.md",
+   "repo": "ministryofjustice/cloud-platform",
+   "source": "backtest",
+   "title": "Why we build our own kubernetes cluster",
+   "path": "architecture-decision-record/014-Why-we-build-our-own-kubernetes-cluster.md",
+   "url": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/014-Why-we-build-our-own-kubernetes-cluster.md",
+   "born": "2019-08-01",
+   "tools": [
+    "kubernetes"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "kubernetes": null
+   },
+   "code_end": {
+    "kubernetes": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "ministryofjustice/cloud-platform:016-Kibana-is-open-to-all-service-teams.md",
+   "repo": "ministryofjustice/cloud-platform",
+   "source": "backtest",
+   "title": "Kibana is open to all service teams",
+   "path": "architecture-decision-record/016-Kibana-is-open-to-all-service-teams.md",
+   "url": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/016-Kibana-is-open-to-all-service-teams.md",
+   "born": "2020-03-26",
+   "tools": [
+    "kibana"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "kibana": null
+   },
+   "code_end": {
+    "kibana": null
+   },
+   "split": "dev"
+  },
+  {
+   "id": "ministryofjustice/cloud-platform:022-EKS.md",
+   "repo": "ministryofjustice/cloud-platform",
+   "source": "backtest",
+   "title": "EKS",
+   "path": "architecture-decision-record/022-EKS.md",
+   "url": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/022-EKS.md",
+   "born": "2021-06-02",
+   "tools": [
+    "kubernetes"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "kubernetes": null
+   },
+   "code_end": {
+    "kubernetes": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "ministryofjustice/modernisation-platform:0007-use-terratest-opa-and-go-for-testing.md",
+   "repo": "ministryofjustice/modernisation-platform",
+   "source": "backtest",
+   "title": "7. Use Terratest, Open Policy Agent and Go for testing",
+   "path": "architecture-decision-record/0007-use-terratest-opa-and-go-for-testing.md",
+   "url": "https://github.com/ministryofjustice/modernisation-platform/blob/HEAD/architecture-decision-record/0007-use-terratest-opa-and-go-for-testing.md",
+   "born": "2021-04-15",
+   "tools": [
+    "opa",
+    "terratest"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "opa": null,
+    "terratest": null
+   },
+   "code_end": {
+    "opa": null,
+    "terratest": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "mozilla/fxa:0002-use-react-redux-and-typescript-for-subscription-management-pages.md",
+   "repo": "mozilla/fxa",
+   "source": "backtest",
+   "title": "Use React, Redux, and Typescript for subscription management pages",
+   "path": "docs/adr/0002-use-react-redux-and-typescript-for-subscription-management-pages.md",
+   "url": "https://github.com/mozilla/fxa/blob/HEAD/docs/adr/0002-use-react-redux-and-typescript-for-subscription-management-pages.md",
+   "born": "2019-05-08",
+   "tools": [
+    "react",
+    "redux"
+   ],
+   "gold": "DEAD",
+   "backed_by": [
+    "code"
+   ],
+   "first": {
+    "source": "code",
+    "date": "2026-05-01",
+    "what": "redux is in the code on 2023-10-17 and gone by 2026-05-01"
+   },
+   "events": [
+    {
+     "source": "code",
+     "date": "2026-05-01",
+     "what": "redux is in the code on 2023-10-17 and gone by 2026-05-01"
+    }
+   ],
+   "code_t0": {
+    "react": true,
+    "redux": true
+   },
+   "code_end": {
+    "react": true,
+    "redux": false
+   },
+   "split": "test"
+  },
+  {
+   "id": "mozilla/fxa:0010-transition-fxa-from-backbone-to-react.md",
+   "repo": "mozilla/fxa",
+   "source": "backtest",
+   "title": "Transition FxA from Backbone to React",
+   "path": "docs/adr/0010-transition-fxa-from-backbone-to-react.md",
+   "url": "https://github.com/mozilla/fxa/blob/HEAD/docs/adr/0010-transition-fxa-from-backbone-to-react.md",
+   "born": "2020-03-19",
+   "tools": [
+    "react"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "react": true
+   },
+   "code_end": {
+    "react": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "mozilla/fxa:0016-use-graphql-and-apollo-for-settings-redesign.md",
+   "repo": "mozilla/fxa",
+   "source": "backtest",
+   "title": "Use GraphQL and Apollo for Settings Redesign",
+   "path": "docs/adr/0016-use-graphql-and-apollo-for-settings-redesign.md",
+   "url": "https://github.com/mozilla/fxa/blob/HEAD/docs/adr/0016-use-graphql-and-apollo-for-settings-redesign.md",
+   "born": "2020-05-05",
+   "tools": [
+    "apollo"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "apollo": true
+   },
+   "code_end": {
+    "apollo": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "mozilla/fxa:0021-use-internjs-testing.md",
+   "repo": "mozilla/fxa",
+   "source": "backtest",
+   "title": "Use existing InternJS for functional testing in settings v2",
+   "path": "docs/adr/0021-use-internjs-testing.md",
+   "url": "https://github.com/mozilla/fxa/blob/HEAD/docs/adr/0021-use-internjs-testing.md",
+   "born": "2020-07-17",
+   "tools": [
+    "intern"
+   ],
+   "gold": "DEAD",
+   "backed_by": [
+    "code"
+   ],
+   "first": {
+    "source": "code",
+    "date": "2025-06-01",
+    "what": "intern is in the code on 2023-10-17 and gone by 2025-06-01"
+   },
+   "events": [
+    {
+     "source": "code",
+     "date": "2025-06-01",
+     "what": "intern is in the code on 2023-10-17 and gone by 2025-06-01"
+    }
+   ],
+   "code_t0": {
+    "intern": true
+   },
+   "code_end": {
+    "intern": false
+   },
+   "split": "test"
+  },
+  {
+   "id": "mozilla/fxa:0035-refactor-payments-frontend-with-nextjs.md",
+   "repo": "mozilla/fxa",
+   "source": "backtest",
+   "title": "Refactor Subscription Platform frontend - with Next.js",
+   "path": "docs/adr/0035-refactor-payments-frontend-with-nextjs.md",
+   "url": "https://github.com/mozilla/fxa/blob/HEAD/docs/adr/0035-refactor-payments-frontend-with-nextjs.md",
+   "born": "2023-03-07",
+   "tools": [
+    "nextjs"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "nextjs": true
+   },
+   "code_end": {
+    "nextjs": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "mozilla/fxa:0037-use-nx-for-monorepo.md",
+   "repo": "mozilla/fxa",
+   "source": "backtest",
+   "title": "Use nx for monorepo tooling",
+   "path": "docs/adr/0037-use-nx-for-monorepo.md",
+   "url": "https://github.com/mozilla/fxa/blob/HEAD/docs/adr/0037-use-nx-for-monorepo.md",
+   "born": "2023-03-13",
+   "tools": [
+    "nx"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "nx": true
+   },
+   "code_end": {
+    "nx": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "openedx/edx-enterprise:0012-enterprise-feature-flags-waffle.rst",
+   "repo": "openedx/edx-enterprise",
+   "source": "backtest",
+   "title": "Waffle-based feature flags for Enterprise",
+   "path": "docs/decisions/0012-enterprise-feature-flags-waffle.rst",
+   "url": "https://github.com/openedx/edx-enterprise/blob/HEAD/docs/decisions/0012-enterprise-feature-flags-waffle.rst",
+   "born": "2023-09-20",
+   "tools": [
+    "waffle"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "waffle": true
+   },
+   "code_end": {
+    "waffle": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "openedx/edx-platform:0001-refactor-waffle-flag-default.rst",
+   "repo": "openedx/edx-platform",
+   "source": "backtest",
+   "title": "Refactor Waffle Flag Default",
+   "path": "openedx/core/djangoapps/waffle_utils/docs/decisions/0001-refactor-waffle-flag-default.rst",
+   "url": "https://github.com/openedx/edx-platform/blob/HEAD/openedx/core/djangoapps/waffle_utils/docs/decisions/0001-refactor-waffle-flag-default.rst",
+   "born": "2020-06-22",
+   "tools": [
+    "waffle"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "waffle": true
+   },
+   "code_end": {
+    "waffle": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "openedx/edx-platform:0002-waffle-utils-extraction.rst",
+   "repo": "openedx/edx-platform",
+   "source": "backtest",
+   "title": "Waffle Utils Extraction",
+   "path": "openedx/core/djangoapps/waffle_utils/docs/decisions/0002-waffle-utils-extraction.rst",
+   "url": "https://github.com/openedx/edx-platform/blob/HEAD/openedx/core/djangoapps/waffle_utils/docs/decisions/0002-waffle-utils-extraction.rst",
+   "born": "2020-09-25",
+   "tools": [
+    "waffle"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "waffle": true
+   },
+   "code_end": {
+    "waffle": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "openedx/edx-platform:0003-permissions-via-bridgekeeper.rst",
+   "repo": "openedx/edx-platform",
+   "source": "backtest",
+   "title": "0003. Use `bridgekeeper`_ for Permissions and Tracks",
+   "path": "lms/djangoapps/courseware/docs/decisions/0003-permissions-via-bridgekeeper.rst",
+   "url": "https://github.com/openedx/edx-platform/blob/HEAD/lms/djangoapps/courseware/docs/decisions/0003-permissions-via-bridgekeeper.rst",
+   "born": "2019-04-16",
+   "tools": [
+    "bridgekeeper"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "bridgekeeper": true
+   },
+   "code_end": {
+    "bridgekeeper": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "openedx/edx-platform:0004-waffle-util-namespacing.rst",
+   "repo": "openedx/edx-platform",
+   "source": "backtest",
+   "title": "Waffle Util Namespacing",
+   "path": "openedx/core/djangoapps/waffle_utils/docs/decisions/0004-waffle-util-namespacing.rst",
+   "url": "https://github.com/openedx/edx-platform/blob/HEAD/openedx/core/djangoapps/waffle_utils/docs/decisions/0004-waffle-util-namespacing.rst",
+   "born": "2020-09-25",
+   "tools": [
+    "waffle"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "waffle": true
+   },
+   "code_end": {
+    "waffle": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "openedx/edx-platform:permissions.rst",
+   "repo": "openedx/edx-platform",
+   "source": "backtest",
+   "title": "0002. Use `django-rules`_ for Permissions and Tracks",
+   "path": "lms/djangoapps/courseware/docs/decisions/0002-permissions-via-django-rules.rst",
+   "url": "https://github.com/openedx/edx-platform/blob/HEAD/lms/djangoapps/courseware/docs/decisions/0002-permissions-via-django-rules.rst",
+   "born": "2019-02-22",
+   "tools": [
+    "django-rules"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "django-rules": true
+   },
+   "code_end": {
+    "django-rules": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "openedx/frontend-app-learning:0006-thunk-and-api-naming.md",
+   "repo": "openedx/frontend-app-learning",
+   "source": "backtest",
+   "title": "Naming API functions and redux thunks",
+   "path": "docs/decisions/0006-thunk-and-api-naming.md",
+   "url": "https://github.com/openedx/frontend-app-learning/blob/HEAD/docs/decisions/0006-thunk-and-api-naming.md",
+   "born": "2020-07-02",
+   "tools": [
+    "redux"
+   ],
+   "gold": "DEAD",
+   "backed_by": [
+    "code"
+   ],
+   "first": {
+    "source": "code",
+    "date": "2026-10-17",
+    "what": "redux is in the code on 2023-10-17 and gone by 2026-10-17"
+   },
+   "events": [
+    {
+     "source": "code",
+     "date": "2026-10-17",
+     "what": "redux is in the code on 2023-10-17 and gone by 2026-10-17"
+    }
+   ],
+   "code_t0": {
+    "redux": true
+   },
+   "code_end": {
+    "redux": false
+   },
+   "split": "test"
+  },
+  {
+   "id": "openedx/frontend-platform:0004-axios-caching-implementation.rst",
+   "repo": "openedx/frontend-platform",
+   "source": "backtest",
+   "title": "Axios Caching Layer Implementation",
+   "path": "docs/decisions/0004-axios-caching-implementation.rst",
+   "url": "https://github.com/openedx/frontend-platform/blob/HEAD/docs/decisions/0004-axios-caching-implementation.rst",
+   "born": "2020-12-01",
+   "tools": [
+    "axios"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "axios": true
+   },
+   "code_end": {
+    "axios": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "openedx/paragon:0009-usage-of-react-bootstrap.rst",
+   "repo": "openedx/paragon",
+   "source": "backtest",
+   "title": "5. Usage of React-Bootstrap",
+   "path": "docs/decisions/0009-usage-of-react-bootstrap.rst",
+   "url": "https://github.com/openedx/paragon/blob/HEAD/docs/decisions/0009-usage-of-react-bootstrap.rst",
+   "born": "2020-07-15",
+   "tools": [
+    "react-bootstrap"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "react-bootstrap": true
+   },
+   "code_end": {
+    "react-bootstrap": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "openedx/paragon:0017-runtime-a11y-validation.rst",
+   "repo": "openedx/paragon",
+   "source": "backtest",
+   "title": "17.  Accessibility validation at runtime via ``@axe-core/react``",
+   "path": "docs/decisions/0017-runtime-a11y-validation.rst",
+   "url": "https://github.com/openedx/paragon/blob/HEAD/docs/decisions/0017-runtime-a11y-validation.rst",
+   "born": "2022-03-30",
+   "tools": [
+    "react"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "react": true
+   },
+   "code_end": {
+    "react": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "openedx/paragon:0019-scaling-styles-with-design-tokens.rst",
+   "repo": "openedx/paragon",
+   "source": "backtest",
+   "title": "19.  Scaling the Paragon design system's styles with design tokens and ``style-dictionary``",
+   "path": "docs/decisions/0019-scaling-styles-with-design-tokens.rst",
+   "url": "https://github.com/openedx/paragon/blob/HEAD/docs/decisions/0019-scaling-styles-with-design-tokens.rst",
+   "born": "2023-07-19",
+   "tools": [
+    "style-dictionary"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "style-dictionary": false
+   },
+   "code_end": {
+    "style-dictionary": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "operate-first/blueprint:0004-argocd-apps-of-apps-structure.md",
+   "repo": "operate-first/blueprint",
+   "source": "backtest",
+   "title": "ArgoCD Apps of Apps Structure",
+   "path": "adr/0004-argocd-apps-of-apps-structure.md",
+   "url": "https://github.com/operate-first/blueprint/blob/HEAD/adr/0004-argocd-apps-of-apps-structure.md",
+   "born": "2021-11-04",
+   "tools": [
+    "argocd"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "argocd": null
+   },
+   "code_end": {
+    "argocd": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "operate-first/blueprint:0006-monitoring-structure.md",
+   "repo": "operate-first/blueprint",
+   "source": "backtest",
+   "title": "Application Monitoring in Operate First using Prometheus",
+   "path": "adr/0006-monitoring-structure.md",
+   "url": "https://github.com/operate-first/blueprint/blob/HEAD/adr/0006-monitoring-structure.md",
+   "born": "2021-01-14",
+   "tools": [
+    "prometheus"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "prometheus": null
+   },
+   "code_end": {
+    "prometheus": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "thomvaill/log4brains:20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md",
+   "repo": "thomvaill/log4brains",
+   "source": "backtest",
+   "title": "Multi-packages architecture in a monorepo with Yarn and Lerna",
+   "path": "docs/adr/20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md",
+   "url": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md",
+   "born": "2020-09-25",
+   "tools": [
+    "lerna"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "lerna": true
+   },
+   "code_end": {
+    "lerna": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "thomvaill/log4brains:20200925-use-nextjs-for-static-site-generation.md",
+   "repo": "thomvaill/log4brains",
+   "source": "backtest",
+   "title": "Use Next.js for Static Site Generation",
+   "path": "packages/web/docs/adr/20200925-use-nextjs-for-static-site-generation.md",
+   "url": "https://github.com/thomvaill/log4brains/blob/HEAD/packages/web/docs/adr/20200925-use-nextjs-for-static-site-generation.md",
+   "born": "2020-09-25",
+   "tools": [
+    "nextjs"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "nextjs": true
+   },
+   "code_end": {
+    "nextjs": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "thomvaill/log4brains:20200925-use-prettier-eslint-airbnb-for-the-code-style.md",
+   "repo": "thomvaill/log4brains",
+   "source": "backtest",
+   "title": "Use Prettier-ESLint Airbnb for the code style",
+   "path": "docs/adr/20200925-use-prettier-eslint-airbnb-for-the-code-style.md",
+   "url": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-use-prettier-eslint-airbnb-for-the-code-style.md",
+   "born": "2020-09-25",
+   "tools": [
+    "prettier-eslint"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "prettier-eslint": true
+   },
+   "code_end": {
+    "prettier-eslint": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "thomvaill/log4brains:20200927-avoid-react-fc-type.md",
+   "repo": "thomvaill/log4brains",
+   "source": "backtest",
+   "title": "Avoid React.FC type",
+   "path": "packages/web/docs/adr/20200927-avoid-react-fc-type.md",
+   "url": "https://github.com/thomvaill/log4brains/blob/HEAD/packages/web/docs/adr/20200927-avoid-react-fc-type.md",
+   "born": "2020-09-27",
+   "tools": [
+    "react"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "react": true
+   },
+   "code_end": {
+    "react": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "thomvaill/log4brains:20201007-next-js-persistent-layout-pattern.md",
+   "repo": "thomvaill/log4brains",
+   "source": "backtest",
+   "title": "Next.js persistent layout pattern",
+   "path": "packages/web/docs/adr/20201007-next-js-persistent-layout-pattern.md",
+   "url": "https://github.com/thomvaill/log4brains/blob/HEAD/packages/web/docs/adr/20201007-next-js-persistent-layout-pattern.md",
+   "born": "2020-10-07",
+   "tools": [
+    "nextjs"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "nextjs": true
+   },
+   "code_end": {
+    "nextjs": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "thomvaill/log4brains:20201103-use-lunr-for-search.md",
+   "repo": "thomvaill/log4brains",
+   "source": "backtest",
+   "title": "Use Lunr for search",
+   "path": "docs/adr/20201103-use-lunr-for-search.md",
+   "url": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201103-use-lunr-for-search.md",
+   "born": "2020-11-03",
+   "tools": [
+    "lunr"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "lunr": true
+   },
+   "code_end": {
+    "lunr": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "wmde/fundraising-application:006_Vue.js.md",
+   "repo": "wmde/fundraising-application",
+   "source": "backtest",
+   "title": "Using Vue.js as the new frontend framework",
+   "path": "doc/adr/006_Vue.js.md",
+   "url": "https://github.com/wmde/fundraising-application/blob/HEAD/doc/adr/006_Vue.js.md",
+   "born": "2019-02-07",
+   "tools": [
+    "vue"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "vue": null
+   },
+   "code_end": {
+    "vue": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "wmde/fundraising-application:010_Components_Framework.md",
+   "repo": "wmde/fundraising-application",
+   "source": "backtest",
+   "title": "Use the CSS framework Buefy",
+   "path": "doc/adr/010_Components_Framework.md",
+   "url": "https://github.com/wmde/fundraising-application/blob/HEAD/doc/adr/010_Components_Framework.md",
+   "born": "2019-04-26",
+   "tools": [
+    "buefy"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "buefy": null
+   },
+   "code_end": {
+    "buefy": null
+   },
+   "split": "test"
+  }
+ ]
+}
