@@ -1,0 +1,10 @@
+/* /app/realworld/: large title, one sentence, stat row, filter, grouped list. Sits on the app's --ground. */
+.page { padding-block: 16px 64px; min-width: 0; max-width: 60rem; }
+.head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; max-width: 46rem; }
+.head h1, .head p { margin: 0; }
+.docket { margin-bottom: 28px; }
+.filter { margin-bottom: 20px; max-width: 100%; overflow-x: auto; }
+.notes { margin-top: 12px; padding-inline: 16px; display: grid; gap: 6px; }
+.notes p { margin: 0; }
+.skel { background: var(--surface); border-radius: var(--r-group); padding: 16px 20px; display: grid; gap: 16px; }
+@media (max-width: 640px) { .page { padding-top: 4px; } .head { margin-bottom: 20px; } }

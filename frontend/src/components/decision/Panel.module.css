@@ -1,0 +1,39 @@
+/* Decision page, calm: one borderless --surface card; header, the drawing as hero, a segmented control, the views. */
+.panel { display: flex; flex-direction: column; gap: 28px; min-width: 0; background: var(--surface); border-radius: var(--r-card);
+  padding: 36px 40px 40px; transition: opacity .15s; }
+.stale { opacity: .6; }
+
+.head { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.titleRow { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px 16px; flex-wrap: wrap; }
+.title { margin: 0; min-width: 0; overflow-wrap: break-word; }
+.pill { flex-shrink: 0; margin-top: 6px; }
+
+.hero { margin: 0; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.frame { border-radius: var(--r-group); overflow: hidden; min-width: 0; }
+.caption { display: flex; justify-content: space-between; align-items: baseline; gap: 4px 12px; flex-wrap: wrap; }
+.more { background: none; border: 0; padding: 0; font: inherit; color: var(--accent); cursor: pointer; white-space: nowrap; }
+.more:hover { text-decoration: underline; }
+
+.views { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+.toolbar { display: flex; align-items: center; justify-content: space-between; gap: 10px 16px; flex-wrap: wrap; font-size: 15px; }
+.toolbar > [role="tablist"] { width: 100%; max-width: 460px; }
+.pane { min-width: 0; scroll-margin-top: 80px; }
+.pane:focus { outline: none; }
+
+.foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-top: -8px; }
+.foot :global(.btn.plain) { padding-inline: 0; }
+
+/* Decision record (sheet) */
+.doc { margin: 0; padding: 16px; background: var(--surface); border-radius: var(--r-group); font-size: 15px; line-height: 1.55;
+  white-space: pre-wrap; overflow-wrap: anywhere; color: var(--label); max-height: 60vh; overflow: auto; }
+.adrSkel { display: grid; gap: 8px; padding: 16px; background: var(--surface); border-radius: var(--r-group); }
+.err { margin: 0 4px; color: var(--label-2); font-size: 15px; }
+
+.skelHero { height: 300px; border-radius: var(--r-group); }
+
+@media (max-width: 640px) {
+  .panel { padding: 20px 16px 24px; gap: 22px; }
+  .pill { margin-top: 0; }
+  .skelHero { height: 200px; }
+  .toolbar > [role="tablist"] { max-width: none; }
+}

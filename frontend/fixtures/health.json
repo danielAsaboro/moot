@@ -1,0 +1,1 @@
+{"ok":true,"tenant":"larkspur","stats":{"nodes":{"Decision":30,"Evidence":238,"Person":8,"Premise":28,"System":10},"edges":{"AUTHORED":208,"BECAUSE_OF":26,"CONTRADICTS":14,"DERIVED_FROM":10,"GOVERNS":30,"OWNS":30,"RECORDED_IN":30,"REPORTS_TO":11,"SUPERSEDES":1,"SUPPORTS":13}},"model":false}

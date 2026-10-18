@@ -1,0 +1,83 @@
+/* Audit steps, calm: "Fig. 1" on a soft panel, a row of numbered steps, a caption in body text, two capsules. */
+.root { container-type: inline-size; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; min-width: 0; }
+.head { display: flex; justify-content: space-between; align-items: baseline; gap: 4px 16px; flex-wrap: wrap; padding: 0 4px; }
+.head p { margin: 0; }
+
+.figure { background: var(--surface-2); border-radius: 18px; padding: 18px 14px 12px; min-width: 0; }
+.figure:focus-visible { outline-offset: 3px; border-radius: 18px; }
+
+/* the drawing */
+.figWrap { width: 100%; min-width: 0; }
+.fig { display: block; max-width: 100%; height: auto; overflow: visible; }
+.box, .wire, .stamp { transition: opacity .25s ease; }
+.box .face { fill: var(--surface); stroke: var(--separator); stroke-width: 1; transition: fill .25s, stroke .25s; }
+.box .top { fill: var(--fill); stroke: var(--separator); stroke-width: 1; stroke-linejoin: round; }
+.box .side { fill: color-mix(in srgb, var(--fill) 70%, var(--label-3)); stroke: var(--separator); stroke-width: 1; stroke-linejoin: round; }
+.box .id { font-family: var(--font-mono); font-size: 10.5px; fill: var(--label-3); }
+.box .tag { font-family: var(--font-sans); font-size: 11.5px; font-weight: 600; fill: var(--label-3); }
+.box .title { font-family: var(--font-sans); fill: var(--label-2); }
+.box.ev .face { stroke-dasharray: 3 2; stroke: var(--label-3); }
+.box.on .face { stroke: var(--label); stroke-width: 1.4; }
+.box.on .top, .box.on .side { stroke: var(--label); }
+.box.on .side { fill: var(--label-3); }
+.box.on .title { fill: var(--label); }
+.box.on .id { fill: var(--label-2); }
+.box.tAccent .face { stroke: var(--accent); }
+.box.tAccent .tag { fill: var(--moot-ink); }
+.box.tAccent.on .side { fill: var(--accent); }
+.box.tAccent.on .top { fill: var(--moot-tint); }
+.box.tHolds .tag { fill: var(--holds-ink); }
+.box.tHolds.ev .face { stroke: var(--holds-ink); }
+.box.tDisputed .tag { fill: var(--disputed-ink); }
+.box.tDisputed .face { stroke: var(--disputed-ink); }
+
+.wire path { fill: none; stroke: var(--label-3); stroke-width: 1; }
+.wire .head { fill: var(--label-3); stroke: none; }
+.wire.wireEv path:first-child { stroke-dasharray: 3 3; }
+.wire.wireOn path { stroke: var(--label); }
+.wire.wireOn .head { fill: var(--label); }
+.wire.wireContra path { stroke: var(--accent); }
+.wire.wireContra .head { fill: var(--accent); }
+
+.ghost { opacity: .28; }
+.ghost .face, .ghost .top, .ghost .side { stroke-dasharray: 2 3; fill: transparent; stroke: var(--label-3); }
+
+.stamp .bracket { fill: none; stroke: currentColor; stroke-width: 1.5; }
+.stamp .stampText { font-family: var(--font-display); font-size: 24px; font-weight: 500; fill: currentColor; }
+.stamp .stampMeta { font-family: var(--font-sans); font-size: 12px; fill: var(--label-2); }
+.stamp { color: var(--label-3); }
+.vMoot { color: var(--accent); }
+.vDisputed { color: var(--disputed-ink); }
+.vHolds { color: var(--holds-ink); }
+.vMuted { color: var(--label-2); }
+
+/* step row: numbered dots on a soft track, like a segmented control */
+.stops { list-style: none; margin: 0; padding: 4px; display: flex; gap: 2px; background: var(--fill); border-radius: var(--r-pill);
+  overflow-x: auto; scrollbar-width: none; justify-self: start; max-width: 100%; }
+.stops::-webkit-scrollbar { display: none; }
+.stop { flex: none; }
+.stop button { display: inline-flex; align-items: center; gap: 8px; border: 0; background: transparent; color: var(--label-2);
+  padding: 4px 12px 4px 4px; border-radius: var(--r-pill); cursor: pointer; font-size: 13px; white-space: nowrap; }
+.stop button:hover { color: var(--label); }
+.dot { width: 24px; height: 24px; border-radius: 50%; display: inline-grid; place-items: center; font-size: 12px; font-weight: 600;
+  font-variant-numeric: tabular-nums; background: transparent; color: var(--label-3); box-shadow: 0 0 0 1px var(--label-3) inset;
+  transition: background .2s, color .2s; }
+.past .dot { background: var(--label-3); color: var(--surface); box-shadow: none; }
+.now button { background: var(--surface); color: var(--label); font-weight: 600; box-shadow: 0 1px 3px rgba(28, 26, 23, .12); }
+.now .dot { background: var(--label); color: var(--surface); box-shadow: none; }
+
+/* caption */
+.caption { min-height: 84px; padding: 0 4px; display: grid; gap: 6px; align-content: start; }
+.caption p { margin: 0; max-width: 64ch; overflow-wrap: anywhere; }
+.capLead { font-size: 17px; line-height: 1.47; color: var(--label-2); }
+.capMore { font-size: 15px; line-height: 1.45; color: var(--label-2); }
+
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.keys { text-align: center; }
+@media (pointer: coarse) { .keys { visibility: hidden; } }
+
+@container (max-width: 520px) {
+  .figure { padding: 14px 8px 10px; }
+  .stop:not(.now) .stopLabel { display: none; }
+  .stop:not(.now) button { padding-right: 4px; }
+}

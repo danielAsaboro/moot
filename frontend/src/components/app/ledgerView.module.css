@@ -1,0 +1,23 @@
+/* Ledger page: two columns on the grouped ground; a pushed view on phones. */
+.page { display: grid; grid-template-columns: minmax(320px, 400px) minmax(0, 1fr); gap: 32px; align-items: start; }
+.left, .right { min-width: 0; }
+.right { display: flex; flex-direction: column; gap: 20px; }
+
+/* The ledger column scrolls on its own beside a long decision, like a mail list. */
+@media (min-width: 961px) {
+  .left { position: sticky; top: 52px; max-height: calc(100vh - 52px); max-height: calc(100dvh - 52px); overflow-y: auto;
+    overscroll-behavior: contain; scrollbar-width: thin; margin-top: -28px; padding: 28px 6px 40px 2px; margin-left: -2px; }
+}
+
+.empty { padding-top: 12vh; }
+.back { display: none; align-self: flex-start; align-items: center; gap: 6px; margin-left: -6px; padding: 4px 6px; background: none; border: 0;
+  font: inherit; font-size: 17px; color: var(--accent); cursor: pointer; border-radius: 8px; }
+.back:hover { opacity: .8; }
+
+@media (max-width: 960px) {
+  .page { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .page[data-pushed] .left { display: none; }
+  .page:not([data-pushed]) .right { display: none; }
+  .back { display: inline-flex; }
+  .right { gap: 16px; }
+}

@@ -1,0 +1,11 @@
+/* The verdict sentence: 21px, ink, bold lead-in (apple.com pattern). */
+.why { margin: 0; font-size: 21px; line-height: 1.4; color: var(--label); max-width: 40rem; overflow-wrap: break-word; }
+.why :global(.id) { white-space: nowrap; }
+.ref { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; text-align: left;
+  text-decoration: underline; text-decoration-color: var(--label-3); text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.ref:hover { text-decoration-color: var(--accent); }
+.stamp { display: grid; gap: 10px; justify-items: start; }
+
+@media (max-width: 640px) {
+  .why { font-size: 17px; }
+}

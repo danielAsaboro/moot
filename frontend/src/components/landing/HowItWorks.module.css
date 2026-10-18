@@ -1,0 +1,21 @@
+/* How it works: two columns on paper. Left, the story; right, the record chain. */
+.section { background: var(--paper); scroll-margin-top: 64px; }
+.inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 112px max(24px, var(--gutter-r)) 112px max(24px, var(--gutter));
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; align-items: center;
+}
+.copy { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+.story { margin: 0; max-width: 34rem; }
+.verdict { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; }
+.so { font-family: var(--font-display); font-weight: 500; font-size: 32px; line-height: 1.1; letter-spacing: -.01em; }
+.storySkel { display: grid; gap: 10px; max-width: 30rem; }
+.storySkel span { height: 20px; }
+.storySkel span:last-child { width: 60%; }
+
+@media (max-width: 860px) {
+  .inner { grid-template-columns: minmax(0, 1fr); gap: 48px; padding-top: 80px; padding-bottom: 80px; }
+}
+@media (max-width: 560px) {
+  .inner { padding: 64px var(--gutter-r) 64px var(--gutter); gap: 40px; }
+  .so { font-size: 28px; }
+}

@@ -1,0 +1,139 @@
+/* Owners + handover, calm. Tokens and the type ramp only (globals.css). One calm card per leaver; the ID card, the
+   reporting-line chips and the lanyard badges are the exhibits inside it. */
+.view { display: flex; flex-direction: column; gap: 28px; min-width: 0; padding-top: 8px; }
+
+/* header */
+.head { display: flex; flex-direction: column; gap: 10px; max-width: 760px; }
+.head h1 { margin: 0; }
+.head p { margin: 0; font-size: 19px; line-height: 1.42; color: var(--label-2); }
+
+.err { margin: 0; font-size: 15px; color: var(--moot-ink); }
+
+/* one leaver: a borderless card on the ground */
+.card { position: relative; background: var(--surface); border-radius: var(--r-card); padding: 32px; display: flex; flex-wrap: wrap;
+  gap: 40px; align-items: flex-start; min-width: 0; }
+.hide { position: absolute; top: 14px; right: 16px; }
+.cardMain { flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 22px; }
+@media (max-width: 640px) {
+  .card { padding: 20px 16px 24px; gap: 28px; border-radius: var(--r-card); }
+  .hide { position: static; order: -1; margin: -10px -6px -18px auto; }
+}
+
+/* a leaver that starts collapsed: one row */
+.leaverRow { display: flex; align-items: center; gap: 16px; width: 100%; padding: 16px 20px; border: 0; border-radius: 18px;
+  background: var(--surface); color: var(--label); font: inherit; text-align: left; cursor: pointer; min-width: 0; }
+.leaverRow:hover { background: color-mix(in srgb, var(--surface) 70%, var(--fill)); }
+.avatar { flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--fill); display: grid; place-items: center;
+  font-size: 15px; font-weight: 600; color: var(--label-2); }
+.leaverMain { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.leaverName { font-size: 17px; font-weight: 600; line-height: 1.3; }
+.leaverSub { font-size: 15px; line-height: 1.35; color: var(--label-2); }
+.chev { flex: none; color: var(--label-3); font-size: 22px; line-height: 1; }
+
+/* ID card: an object, not a form. Sentence-case labels; the handle is the only mono. */
+.idcard { flex: 0 0 280px; width: 280px; max-width: 100%; position: relative; display: flex; flex-direction: column; gap: 14px;
+  background: var(--surface-2); border-radius: 18px; padding: 30px 20px 0; overflow: hidden;
+  transition: transform .25s ease-out; transform-style: preserve-3d; }
+@media (max-width: 640px) { .idcard { flex: 1 1 100%; width: auto; max-width: 340px; margin-inline: auto; } }
+.idslot { position: absolute; top: 11px; left: 50%; width: 52px; height: 8px; transform: translateX(-50%); border-radius: var(--r-pill);
+  background: var(--surface); }
+.idhead { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 13px; color: var(--label-2); }
+.idbody { display: grid; grid-template-columns: 86px 1fr; gap: 14px; align-items: start; }
+.portrait { position: relative; aspect-ratio: 3 / 4; border-radius: 10px; background: var(--fill); display: grid; place-items: center;
+  overflow: hidden; }
+.portrait::before { content: ""; position: absolute; inset: 0; opacity: .5;
+  background-image: radial-gradient(circle, var(--label-3) 0 .9px, transparent 1.1px), radial-gradient(circle, var(--label-3) 0 .6px, transparent .8px);
+  background-size: 4px 4px, 4px 4px; background-position: 0 0, 2px 2px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 50% 42%, #000 0 35%, transparent 75%);
+  mask-image: radial-gradient(ellipse 60% 70% at 50% 42%, #000 0 35%, transparent 75%); }
+.portrait span { position: relative; font-family: var(--font-display); font-size: 32px; font-weight: 500; color: var(--label-2); }
+.field { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.field dt, .fieldLabel { font-size: 12px; color: var(--label-2); }
+.field dd { margin: 0; font-size: 15px; line-height: 1.3; overflow-wrap: anywhere; }
+.idfields { display: flex; flex-direction: column; gap: 10px; margin: 0; padding-top: 2px; }
+.idname { position: relative; display: flex; flex-direction: column; gap: 0; padding-bottom: 26px; }
+.idname h2 { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 26px; line-height: 1.12; letter-spacing: -.01em; }
+.stamp { position: absolute; right: -4px; bottom: -2px; display: grid; justify-items: center; padding: 4px 10px; gap: 0;
+  border: 2px solid var(--accent); outline: 1px solid var(--accent); outline-offset: 2px; border-radius: 5px; color: var(--accent);
+  font-size: 11px; line-height: 1.3; font-variant-numeric: tabular-nums;
+  transform: rotate(-8deg); background: color-mix(in srgb, var(--surface-2) 72%, transparent); pointer-events: none; }
+.stamp b { font-size: 15px; font-weight: 700; letter-spacing: .2em; padding-left: .2em; }
+.idgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0; }
+.nowrap { white-space: nowrap; }
+.idfoot { margin: 0 -20px; padding: 10px 20px 12px; background: var(--fill); font-size: 13px; color: var(--label-2); }
+
+/* reporting line: soft chips */
+.line { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.chain { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.link { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.arrow { color: var(--label-3); }
+.chip { background: var(--surface-2); border-radius: var(--r-group); padding: 12px 16px; min-width: 0; display: flex; flex-direction: column; }
+.chipLabel { font-size: 13px; color: var(--label-2); }
+.chipName { font-size: 17px; font-weight: 600; line-height: 1.3; }
+.gone .chipName { text-decoration: line-through; text-decoration-color: var(--label-3); text-decoration-thickness: 1px; }
+.succ { box-shadow: 0 0 0 2px var(--label) inset; transition: background-color .15s, box-shadow .15s, transform .15s; }
+.armed { background: var(--fill); }
+.over { box-shadow: 0 0 0 2px var(--accent) inset; background: var(--moot-tint); transform: scale(1.03); }
+.lineNote { margin: 0; font-size: 15px; color: var(--label-2); }
+.lineNote b { color: var(--label); font-weight: 600; }
+.nobody { margin: 0; padding: 12px 16px; border-radius: var(--r-group); background: var(--surface-2); color: var(--label-2); font-size: 15px; }
+@media (max-width: 640px) {
+  .chain { flex-direction: column; align-items: stretch; gap: 6px; }
+  .link { flex-direction: column; align-items: stretch; gap: 6px; }
+  .arrow { align-self: flex-start; padding-left: 18px; transform: rotate(90deg); }
+}
+
+/* decisions held */
+.held { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.held h3 { margin: 0; font-size: 13px; font-weight: 600; color: var(--label-2); }
+.rows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.row { background: var(--surface-2); border-radius: var(--r-group); display: grid; grid-template-columns: 56px minmax(0, 1fr) auto auto;
+  align-items: center; gap: 4px 14px; padding: 6px 16px 6px 10px; min-width: 0; }
+.rowMain { min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.title { font-size: 17px; line-height: 1.3; text-decoration: none; color: var(--label); }
+.title:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.sub { font-size: 15px; line-height: 1.35; color: var(--label-2); }
+.handBtn { white-space: nowrap; }
+.foot { margin: 0; font-size: 15px; color: var(--label-2); }
+@media (max-width: 640px) {
+  .row { grid-template-columns: 56px minmax(0, 1fr); padding: 6px 12px 10px 6px; }
+  .rowEnd { grid-column: 2; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+}
+@media (min-width: 641px) { .rowEnd { display: contents; } }
+
+/* lanyard badge */
+.lanyard { position: relative; width: 56px; height: 96px; align-self: start; }
+.lanyard[data-lifted] { z-index: 40; }
+.hook { position: absolute; top: 0; left: 50%; width: 9px; height: 9px; margin-left: -4.5px; border: 1.5px solid var(--label-2); border-radius: 50%;
+  background: var(--surface-2); z-index: 1; }
+.rope { position: absolute; left: 50%; overflow: visible; pointer-events: none; }
+.rope path { fill: none; stroke: var(--label-2); stroke-width: 1.5; stroke-linecap: round; }
+.badge { position: absolute; left: 50%; width: 48px; height: 62px; margin-left: -24px; display: flex; flex-direction: column; align-items: center;
+  padding-top: 6px; gap: 1px; border-radius: 8px; background: var(--surface); color: var(--label);
+  box-shadow: 0 1px 2px rgba(28, 26, 23, .14), 0 0 0 1px var(--separator);
+  transform-origin: 50% 0; cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; will-change: transform; }
+.lanyard[data-lifted] .badge { cursor: grabbing; box-shadow: 0 10px 24px rgba(28, 26, 23, .22), 0 0 0 1px var(--separator); }
+.lanyard[data-disabled] .badge { cursor: default; opacity: .6; }
+.slot { width: 16px; height: 4px; border-radius: var(--r-pill); background: var(--fill); margin-bottom: 5px; }
+.badgeLabel { font-size: 9px; line-height: 1; color: var(--label-3); }
+.badgeId { font-family: var(--font-display); font-size: 19px; font-weight: 600; line-height: 1.15; }
+
+/* handover sheet */
+.sheetBody { display: flex; flex-direction: column; gap: 16px; }
+.kv { color: var(--label-2); font-size: 17px; text-align: right; overflow-wrap: anywhere; min-width: 0; }
+.approve { width: 100%; }
+.sheetNote { margin: 0; padding: 0 16px; font-size: 13px; color: var(--label-2); }
+.done { background: var(--surface); border-radius: var(--r-group); padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+.done p { margin: 0; }
+.sheetErr { margin: 0; padding: 12px 16px; border-radius: var(--r-group); background: var(--moot-tint); color: var(--moot-ink); font-size: 15px; }
+
+/* handovers written in this visit */
+.receipts .kv { font-size: 15px; }
+
+.cypher summary { cursor: pointer; padding: 6px 0; font-size: 15px; color: var(--label-2); }
+.cypher[open] summary { margin-bottom: 10px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .idcard, .succ { transition: none; }
+  .over { transform: none; }
+}

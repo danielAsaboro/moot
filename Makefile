@@ -1,4 +1,4 @@
-.PHONY: db seed serve demo eval eval-scale eval-gate eval-ablation verify eval-e2e test extract reset realworld backtest backtest-score erag erag-judged
+.PHONY: ui ui-dev db seed serve demo eval eval-scale eval-gate eval-ablation verify eval-e2e test extract reset realworld backtest backtest-score erag erag-judged
 MODULE=$(shell python3 -c "import redislite,os;print(os.path.dirname(redislite.__file__))" 2>/dev/null)
 
 db:        ## start an embedded FalkorDB on :6379 (pip install falkordblite) when you have no Docker
@@ -10,6 +10,10 @@ seed:      ## idempotent import of data/graph.json (+ data/realworld/graph.json 
 	python3 -m moot.cli seed
 reset:     ## drop the demo graph and reseed
 	python3 -m moot.cli seed --fresh
+ui:        ## build the Next.js UI to frontend/out (served by `make serve`)
+	cd frontend && npm ci --no-fund --no-audit && npm run build
+ui-dev:    ## Next.js dev server on :3000 against the API on :8000
+	cd frontend && npm run dev
 serve:     ## web app + API on :8000
 	python3 -m moot.cli serve
 demo: db seed serve

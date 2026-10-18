@@ -1,0 +1,11 @@
+.git
+.venv
+.falkordb
+hackathon
+**/__pycache__
+frontend/node_modules
+frontend/.next
+frontend/out
+eval/.cache
+data/realworld/.cache
+frontend-*/
