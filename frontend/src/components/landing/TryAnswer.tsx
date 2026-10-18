@@ -80,7 +80,7 @@ export default function TryAnswer({ res }: { res: AskResponse }) {
 
       <footer className={s.foot}>
         {mode && <p className="t-footnote">{mode}</p>}
-        {a && <Link href={`/app/?d=${encodeURIComponent(a.decision.id)}`} className="link">Open in the ledger <span aria-hidden="true">›</span></Link>}
+        {a && <Link href={`/app/?q=${encodeURIComponent(res.question)}`} className="link">See the full answer <span aria-hidden="true">›</span></Link>}
       </footer>
     </article>
   );

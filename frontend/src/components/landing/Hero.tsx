@@ -23,7 +23,7 @@ export default function Hero() {
           Moot checks the reason behind every standing decision against dated evidence, and shows you the path it took.
         </p>
         <div className={s.actions}>
-          <Link href="/app/" className="btn">Open the ledger</Link>
+          <Link href="/app/" className="btn">Ask Moot</Link>
           <a href="#how" className={`link ${s.more}`}>See how it works ›</a>
         </div>
         <HeroField ledger={ledger.data} timeline={timeline.data} error={ledger.error ?? timeline.error} />

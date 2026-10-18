@@ -130,3 +130,17 @@ export interface RealWorldResponse {
 }
 
 export interface HealthResponse { ok: boolean; tenant: string; stats: { nodes: Record<string, number>; edges: Record<string, number> }; model: boolean }
+
+/** POST /api/answer: a question picks one read-only tool; `result` is that tool's rows. */
+export type AnswerTool = "audit_decision" | "check_action" | "evidence_packet" | "what_if" | "decision_owner" | "orphaned_decisions" | "reopen_memo" | "ledger";
+export interface PacketResult {
+  found: boolean; decision: { id: string; title: string; decided_on: string }; verdict: Verdict; gate: GateDecision;
+  reasons: GateReason[]; caveats: string[]; audit: Audit;
+}
+export interface OwnerResult { found: boolean; decision: DecisionNode | null; owner: Owner | null; group: OrphanGroup | null; held: LedgerRow[] }
+export interface LedgerAnswer { as_of: string; depth: number; decisions: LedgerRow[]; verdict: Verdict | null; owner: { id: string; name: string; left: string } | null }
+export type AnswerResult = Audit | Gate | PacketResult | WhatIfResponse | OwnerResult | OrphansResponse | (Memo & { audit?: Audit }) | LedgerAnswer;
+export interface AnswerResponse {
+  question: string; as_of: string; depth: number; tool: AnswerTool | null; input: Record<string, string>;
+  why: string; matched: string | null; picked_by: "rules" | "model" | "you"; result: AnswerResult | null; queries: Query[];
+}

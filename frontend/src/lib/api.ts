@@ -2,8 +2,7 @@
 // (findings, reopen, handover, ruling) are called only from an explicit approval click.
 import type {
   AskResponse, DecisionResponse, DocumentResponse, Finding, Gate, HealthResponse, LedgerResponse, OrphansResponse,
-  RealWorldResponse, RiskyResponse, TimelineResponse, TraceResponse, WhatIfResponse,
-} from "./types";
+  RealWorldResponse, RiskyResponse, TimelineResponse, TraceResponse, WhatIfResponse, AnswerResponse } from "./types";
 
 export const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "";
 
@@ -60,6 +59,8 @@ export const api = {
   trace: (evidenceId: string) => get<TraceResponse>(`/api/trace/${encodeURIComponent(evidenceId)}`),
   document: (docId: string) => get<DocumentResponse>(`/api/document/${encodeURIComponent(docId)}`),
   ask: (question: string, v: View = {}) => post<AskResponse>("/api/ask", { question, as_of: v.as_of ?? null, depth: v.depth ?? 4 }),
+  answer: (b: { question: string; tool?: string | null; input?: Record<string, string> } & View) =>
+    post<AnswerResponse>("/api/answer", { question: b.question, tool: b.tool ?? null, input: b.input ?? null, as_of: b.as_of ?? null, depth: b.depth ?? 4 }),
   orphans: (v: View = {}) => get<OrphansResponse>("/api/orphans", { as_of: v.as_of, depth: v.depth }),
   whatif: (args: { premise?: string; q?: string } & View) =>
     get<WhatIfResponse>("/api/whatif", { premise: args.premise, q: args.q, as_of: args.as_of, depth: args.depth }),

@@ -11,7 +11,7 @@ from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from . import agent, tools
+from . import agent, answer, tools
 from .graph import DATA, PUBLIC_GRAPH, graph, stats
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -168,6 +168,30 @@ def ask(body: Ask):
         raise HTTPException(422, "ask a question")
     tools.start_trace()
     r = agent.ask(g(), body.question.strip()[:500], as_of_param(body.as_of), max(1, min(body.depth, 6)))
+    r["queries"] = tools.end_trace()
+    return r
+
+
+class AnswerBody(BaseModel):
+    question: str = ""
+    as_of: str | None = None
+    depth: int = 4
+    tool: str | None = None
+    input: dict[str, str] | None = None
+
+
+@app.post("/api/answer")
+def answer_route(body: AnswerBody):
+    """Search-first answers: the question picks one read-only tool (rules, or a model from the same list) and its rows come
+    back with every query it ran. A follow-up can name the tool and input directly."""
+    if not body.question.strip() and not body.tool:
+        raise HTTPException(422, "ask a question")
+    tools.start_trace()
+    try:
+        r = answer.answer(g(), body.question.strip()[:500], as_of_param(body.as_of), max(1, min(body.depth, 6)), body.tool, body.input)
+    except KeyError as ex:
+        tools.end_trace()
+        raise HTTPException(422, f"not a read-only answer tool: {ex}")
     r["queries"] = tools.end_trace()
     return r
 
@@ -342,7 +366,7 @@ def legacy():
 
 app.mount("/static", StaticFiles(directory=WEB), name="static")
 
-# The Next.js export owns every other path: / is the landing page, /app/ the ledger. Mounted last, so /api/* wins.
+# The Next.js export owns every other path: / is the landing page, /app/ Ask, /app/ledger/ the ledger. Mounted last, so /api/* wins.
 # Without a build (`make ui`), / falls back to the legacy UI.
 if (UI / "index.html").exists():
     app.mount("/", StaticFiles(directory=UI, html=True), name="ui")

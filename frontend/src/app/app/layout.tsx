@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { AppStateProvider } from "@/lib/appState";
 import AppShell from "@/components/app/AppShell";
 
-export const metadata: Metadata = { title: "Ledger" };
+export const metadata: Metadata = { title: "Ask" };
 
 // useSearchParams needs a Suspense boundary in a static export.
 export default function AppLayout({ children }: { children: React.ReactNode }) {

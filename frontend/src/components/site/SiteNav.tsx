@@ -22,7 +22,7 @@ export default function SiteNav() {
           {LINKS.map(([href, label]) => <a key={href} href={href}>{label}</a>)}
         </nav>
         <div className={s.right}>
-          <Link href="/app/" className={s.cta}>Open the ledger</Link>
+          <Link href="/app/" className={s.cta}>Ask Moot</Link>
           <ThemeToggle />
         </div>
       </div>

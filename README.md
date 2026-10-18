@@ -42,7 +42,7 @@ pip install -e ".[dev]"
 make db        # starts FalkorDB on :6379 from the falkordblite package
 make seed      # idempotent MERGE of data/graph.json into the "larkspur" graph
 make ui        # builds the Next.js UI to frontend/out (needs Node 20+)
-make serve     # http://localhost:8000: landing page at /, the app at /app/
+make serve     # http://localhost:8000: landing page at /, Ask at /app/, the ledger at /app/ledger/
 ```
 
 The UI is a Next.js app in `frontend/`, exported as static files that FastAPI serves, so there is still one server at runtime. Without `make ui`, `/` serves the previous plain-JS UI, which also stays at `/legacy`. To work on the UI with hot reload, run `make serve` and `make ui-dev` side by side and open http://localhost:3000.

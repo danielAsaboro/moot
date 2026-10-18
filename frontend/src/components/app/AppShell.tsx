@@ -11,7 +11,8 @@ import ShellPortal from "./ShellPortal";
 import s from "./shell.module.css";
 
 const NAV: [string, string][] = [
-  ["/app/", "Ledger"],
+  ["/app/", "Ask"],
+  ["/app/ledger/", "Ledger"],
   ["/app/gate/", "Agent gate"],
   ["/app/orphans/", "Owners"],
   ["/app/whatif/", "What-if"],

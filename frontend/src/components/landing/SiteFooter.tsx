@@ -43,7 +43,7 @@ export default function SiteFooter() {
     <footer className={s.footer}>
       <div className={`wrap ${s.close}`}>
         <h2 className="t-display">Ask why your team does something.</h2>
-        <Link href="/app/" className="btn">Open the ledger</Link>
+        <Link href="/app/" className="btn">Ask Moot</Link>
       </div>
 
       <div ref={stage} className={s.stage} aria-hidden="true">
@@ -58,7 +58,8 @@ export default function SiteFooter() {
 
       <div className={`wrap ${s.base}`}>
         <nav aria-label="Footer" className={s.links}>
-          <Link href="/app/">Ledger</Link>
+          <Link href="/app/">Ask</Link>
+          <Link href="/app/ledger/">Ledger</Link>
           <Link href="/app/gate/">Agent gate</Link>
           <Link href="/app/realworld/">Real world</Link>
           <a href={SOURCE} target="_blank" rel="noopener">Source on GitHub<span aria-hidden="true"> ↗</span></a>
