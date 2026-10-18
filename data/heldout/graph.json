@@ -1,0 +1,4606 @@
+{
+ "nodes": [
+  {
+   "label": "Premise",
+   "id": "p_redux_maintained",
+   "props": {
+    "text": "Redux is actively maintained",
+    "kind": "unwritten",
+    "tool": "redux",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_redux_open_source",
+   "props": {
+    "text": "Redux is open source",
+    "kind": "unwritten",
+    "tool": "redux",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_aws-lbc_maintained",
+   "props": {
+    "text": "AWS Load Balancer Controller is actively maintained",
+    "kind": "unwritten",
+    "tool": "aws-lbc",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_aws-lbc_open_source",
+   "props": {
+    "text": "AWS Load Balancer Controller is open source",
+    "kind": "unwritten",
+    "tool": "aws-lbc",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prometheus_maintained",
+   "props": {
+    "text": "Prometheus is actively maintained",
+    "kind": "unwritten",
+    "tool": "prometheus",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prometheus_open_source",
+   "props": {
+    "text": "Prometheus is open source",
+    "kind": "unwritten",
+    "tool": "prometheus",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_testify_maintained",
+   "props": {
+    "text": "Testify is actively maintained",
+    "kind": "unwritten",
+    "tool": "testify",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_testify_open_source",
+   "props": {
+    "text": "Testify is open source",
+    "kind": "unwritten",
+    "tool": "testify",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_intern_maintained",
+   "props": {
+    "text": "Intern is actively maintained",
+    "kind": "unwritten",
+    "tool": "intern",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:intern:2024-01-26",
+   "props": {
+    "kind": "check",
+    "title": "git history of theintern/intern: no commit to the default branch since 2023-01-26",
+    "date": "2024-01-26",
+    "excerpt": "no commit to the default branch since 2023-01-26",
+    "path": "https://github.com/theintern/intern"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_intern_open_source",
+   "props": {
+    "text": "Intern is open source",
+    "kind": "unwritten",
+    "tool": "intern",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_poetry_maintained",
+   "props": {
+    "text": "Poetry is actively maintained",
+    "kind": "unwritten",
+    "tool": "poetry",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_poetry_open_source",
+   "props": {
+    "text": "Poetry is open source",
+    "kind": "unwritten",
+    "tool": "poetry",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_sqlite_maintained",
+   "props": {
+    "text": "SQLite is actively maintained",
+    "kind": "unwritten",
+    "tool": "sqlite",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_sqlite_open_source",
+   "props": {
+    "text": "SQLite is open source",
+    "kind": "unwritten",
+    "tool": "sqlite",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_django-rules_maintained",
+   "props": {
+    "text": "django-rules is actively maintained",
+    "kind": "unwritten",
+    "tool": "django-rules",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:django-rules:2021-01-16",
+   "props": {
+    "kind": "check",
+    "title": "git history of dfunckt/django-rules: no commit to the default branch since 2020-01-17",
+    "date": "2021-01-16",
+    "excerpt": "no commit to the default branch since 2020-01-17",
+    "path": "https://github.com/dfunckt/django-rules"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:django-rules:2021-04-30",
+   "props": {
+    "kind": "check",
+    "title": "git history of dfunckt/django-rules: commits resume on 2021-04-30 after a gap since 2020-01-17",
+    "date": "2021-04-30",
+    "excerpt": "commits resume on 2021-04-30 after a gap since 2020-01-17",
+    "path": "https://github.com/dfunckt/django-rules"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:django-rules:2026-10-11",
+   "props": {
+    "kind": "check",
+    "title": "git history of dfunckt/django-rules: no commit to the default branch since 2025-10-11",
+    "date": "2026-10-11",
+    "excerpt": "no commit to the default branch since 2025-10-11",
+    "path": "https://github.com/dfunckt/django-rules"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_django-rules_open_source",
+   "props": {
+    "text": "django-rules is open source",
+    "kind": "unwritten",
+    "tool": "django-rules",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_jaeger_maintained",
+   "props": {
+    "text": "Jaeger is actively maintained",
+    "kind": "unwritten",
+    "tool": "jaeger",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_jaeger_open_source",
+   "props": {
+    "text": "Jaeger is open source",
+    "kind": "unwritten",
+    "tool": "jaeger",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lunr_maintained",
+   "props": {
+    "text": "Lunr.js is actively maintained",
+    "kind": "unwritten",
+    "tool": "lunr",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:lunr:2021-08-19",
+   "props": {
+    "kind": "check",
+    "title": "git history of olivernn/lunr.js: no commit to the default branch since 2020-08-19",
+    "date": "2021-08-19",
+    "excerpt": "no commit to the default branch since 2020-08-19",
+    "path": "https://github.com/olivernn/lunr.js"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lunr_open_source",
+   "props": {
+    "text": "Lunr.js is open source",
+    "kind": "unwritten",
+    "tool": "lunr",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_argocd_maintained",
+   "props": {
+    "text": "Argo CD is actively maintained",
+    "kind": "unwritten",
+    "tool": "argocd",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_argocd_open_source",
+   "props": {
+    "text": "Argo CD is open source",
+    "kind": "unwritten",
+    "tool": "argocd",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_waffle_maintained",
+   "props": {
+    "text": "django-waffle is actively maintained",
+    "kind": "unwritten",
+    "tool": "waffle",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_waffle_open_source",
+   "props": {
+    "text": "django-waffle is open source",
+    "kind": "unwritten",
+    "tool": "waffle",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_gorilla-mux_maintained",
+   "props": {
+    "text": "gorilla/mux is actively maintained",
+    "kind": "unwritten",
+    "tool": "gorilla-mux",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:gorilla-mux:2021-09-12",
+   "props": {
+    "kind": "check",
+    "title": "git history of gorilla/mux: no commit to the default branch since 2020-09-12",
+    "date": "2021-09-12",
+    "excerpt": "no commit to the default branch since 2020-09-12",
+    "path": "https://github.com/gorilla/mux"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:gorilla-mux:2021-09-14",
+   "props": {
+    "kind": "check",
+    "title": "git history of gorilla/mux: commits resume on 2021-09-14 after a gap since 2020-09-12",
+    "date": "2021-09-14",
+    "excerpt": "commits resume on 2021-09-14 after a gap since 2020-09-12",
+    "path": "https://github.com/gorilla/mux"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:gorilla-mux:2025-06-19",
+   "props": {
+    "kind": "check",
+    "title": "git history of gorilla/mux: no commit to the default branch since 2024-06-19",
+    "date": "2025-06-19",
+    "excerpt": "no commit to the default branch since 2024-06-19",
+    "path": "https://github.com/gorilla/mux"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_gorilla-mux_open_source",
+   "props": {
+    "text": "gorilla/mux is open source",
+    "kind": "unwritten",
+    "tool": "gorilla-mux",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_istio_maintained",
+   "props": {
+    "text": "Istio is actively maintained",
+    "kind": "unwritten",
+    "tool": "istio",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_istio_open_source",
+   "props": {
+    "text": "Istio is open source",
+    "kind": "unwritten",
+    "tool": "istio",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_concourse_maintained",
+   "props": {
+    "text": "Concourse CI is actively maintained",
+    "kind": "unwritten",
+    "tool": "concourse",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_concourse_open_source",
+   "props": {
+    "text": "Concourse CI is open source",
+    "kind": "unwritten",
+    "tool": "concourse",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_contour_maintained",
+   "props": {
+    "text": "Contour is actively maintained",
+    "kind": "unwritten",
+    "tool": "contour",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_contour_open_source",
+   "props": {
+    "text": "Contour is open source",
+    "kind": "unwritten",
+    "tool": "contour",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_flyway_maintained",
+   "props": {
+    "text": "Flyway is actively maintained",
+    "kind": "unwritten",
+    "tool": "flyway",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_flyway_open_source",
+   "props": {
+    "text": "Flyway is open source",
+    "kind": "unwritten",
+    "tool": "flyway",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_style-dictionary_maintained",
+   "props": {
+    "text": "Style Dictionary is actively maintained",
+    "kind": "unwritten",
+    "tool": "style-dictionary",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_style-dictionary_open_source",
+   "props": {
+    "text": "Style Dictionary is open source",
+    "kind": "unwritten",
+    "tool": "style-dictionary",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_sqlx_maintained",
+   "props": {
+    "text": "sqlx is actively maintained",
+    "kind": "unwritten",
+    "tool": "sqlx",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:sqlx:2023-04-16",
+   "props": {
+    "kind": "check",
+    "title": "git history of jmoiron/sqlx: no commit to the default branch since 2022-04-16",
+    "date": "2023-04-16",
+    "excerpt": "no commit to the default branch since 2022-04-16",
+    "path": "https://github.com/jmoiron/sqlx"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:sqlx:2024-04-15",
+   "props": {
+    "kind": "check",
+    "title": "git history of jmoiron/sqlx: commits resume on 2024-04-15 after a gap since 2022-04-16",
+    "date": "2024-04-15",
+    "excerpt": "commits resume on 2024-04-15 after a gap since 2022-04-16",
+    "path": "https://github.com/jmoiron/sqlx"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:sqlx:2025-05-30",
+   "props": {
+    "kind": "check",
+    "title": "git history of jmoiron/sqlx: no commit to the default branch since 2024-05-30",
+    "date": "2025-05-30",
+    "excerpt": "no commit to the default branch since 2024-05-30",
+    "path": "https://github.com/jmoiron/sqlx"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_sqlx_open_source",
+   "props": {
+    "text": "sqlx is open source",
+    "kind": "unwritten",
+    "tool": "sqlx",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_rtl_maintained",
+   "props": {
+    "text": "React Testing Library is actively maintained",
+    "kind": "unwritten",
+    "tool": "rtl",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_rtl_open_source",
+   "props": {
+    "text": "React Testing Library is open source",
+    "kind": "unwritten",
+    "tool": "rtl",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_opensearch_maintained",
+   "props": {
+    "text": "OpenSearch is actively maintained",
+    "kind": "unwritten",
+    "tool": "opensearch",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_opensearch_open_source",
+   "props": {
+    "text": "OpenSearch is open source",
+    "kind": "unwritten",
+    "tool": "opensearch",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_terraform_maintained",
+   "props": {
+    "text": "Terraform is actively maintained",
+    "kind": "unwritten",
+    "tool": "terraform",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_terraform_open_source",
+   "props": {
+    "text": "Terraform is open source",
+    "kind": "unwritten",
+    "tool": "terraform",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:terraform:2023-08-10",
+   "props": {
+    "kind": "check",
+    "title": "HashiCorp moves Terraform to the Business Source License (https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license)",
+    "date": "2023-08-10",
+    "excerpt": "HashiCorp moves Terraform to the Business Source License",
+    "path": "https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_react_maintained",
+   "props": {
+    "text": "React is actively maintained",
+    "kind": "unwritten",
+    "tool": "react",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_react_open_source",
+   "props": {
+    "text": "React is open source",
+    "kind": "unwritten",
+    "tool": "react",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_reactor-netty_maintained",
+   "props": {
+    "text": "Reactor Netty is actively maintained",
+    "kind": "unwritten",
+    "tool": "reactor-netty",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_reactor-netty_open_source",
+   "props": {
+    "text": "Reactor Netty is open source",
+    "kind": "unwritten",
+    "tool": "reactor-netty",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_spire_maintained",
+   "props": {
+    "text": "SPIFFE/SPIRE is actively maintained",
+    "kind": "unwritten",
+    "tool": "spire",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_spire_open_source",
+   "props": {
+    "text": "SPIFFE/SPIRE is open source",
+    "kind": "unwritten",
+    "tool": "spire",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prettier-eslint_maintained",
+   "props": {
+    "text": "prettier-eslint is actively maintained",
+    "kind": "unwritten",
+    "tool": "prettier-eslint",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:prettier-eslint:2026-05-16",
+   "props": {
+    "kind": "check",
+    "title": "git history of prettier/prettier-eslint: no commit to the default branch since 2025-05-16",
+    "date": "2026-05-16",
+    "excerpt": "no commit to the default branch since 2025-05-16",
+    "path": "https://github.com/prettier/prettier-eslint"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:prettier-eslint:2026-06-14",
+   "props": {
+    "kind": "check",
+    "title": "git history of prettier/prettier-eslint: commits resume on 2026-06-14 after a gap since 2025-05-16",
+    "date": "2026-06-14",
+    "excerpt": "commits resume on 2026-06-14 after a gap since 2025-05-16",
+    "path": "https://github.com/prettier/prettier-eslint"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prettier-eslint_open_source",
+   "props": {
+    "text": "prettier-eslint is open source",
+    "kind": "unwritten",
+    "tool": "prettier-eslint",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_vite_maintained",
+   "props": {
+    "text": "Vite is actively maintained",
+    "kind": "unwritten",
+    "tool": "vite",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_vite_open_source",
+   "props": {
+    "text": "Vite is open source",
+    "kind": "unwritten",
+    "tool": "vite",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_nextjs_maintained",
+   "props": {
+    "text": "Next.js is actively maintained",
+    "kind": "unwritten",
+    "tool": "nextjs",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_nextjs_open_source",
+   "props": {
+    "text": "Next.js is open source",
+    "kind": "unwritten",
+    "tool": "nextjs",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_bridgekeeper_maintained",
+   "props": {
+    "text": "bridgekeeper is actively maintained",
+    "kind": "unwritten",
+    "tool": "bridgekeeper",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:bridgekeeper:2022-10-06",
+   "props": {
+    "kind": "check",
+    "title": "git history of excitedleigh/bridgekeeper: no commit to the default branch since 2021-10-06",
+    "date": "2022-10-06",
+    "excerpt": "no commit to the default branch since 2021-10-06",
+    "path": "https://github.com/excitedleigh/bridgekeeper"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_bridgekeeper_open_source",
+   "props": {
+    "text": "bridgekeeper is open source",
+    "kind": "unwritten",
+    "tool": "bridgekeeper",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_axios_maintained",
+   "props": {
+    "text": "Axios is actively maintained",
+    "kind": "unwritten",
+    "tool": "axios",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_axios_open_source",
+   "props": {
+    "text": "Axios is open source",
+    "kind": "unwritten",
+    "tool": "axios",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_rspamd_maintained",
+   "props": {
+    "text": "Rspamd is actively maintained",
+    "kind": "unwritten",
+    "tool": "rspamd",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_rspamd_open_source",
+   "props": {
+    "text": "Rspamd is open source",
+    "kind": "unwritten",
+    "tool": "rspamd",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_cassandra-driver_maintained",
+   "props": {
+    "text": "Cassandra Java driver is actively maintained",
+    "kind": "unwritten",
+    "tool": "cassandra-driver",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_cassandra-driver_open_source",
+   "props": {
+    "text": "Cassandra Java driver is open source",
+    "kind": "unwritten",
+    "tool": "cassandra-driver",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_toastui_maintained",
+   "props": {
+    "text": "TOAST UI Editor is actively maintained",
+    "kind": "unwritten",
+    "tool": "toastui",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:toastui:2024-02-17",
+   "props": {
+    "kind": "check",
+    "title": "git history of nhn/tui.editor: no commit to the default branch since 2023-02-17",
+    "date": "2024-02-17",
+    "excerpt": "no commit to the default branch since 2023-02-17",
+    "path": "https://github.com/nhn/tui.editor"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_toastui_open_source",
+   "props": {
+    "text": "TOAST UI Editor is open source",
+    "kind": "unwritten",
+    "tool": "toastui",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_scala_maintained",
+   "props": {
+    "text": "Scala is actively maintained",
+    "kind": "unwritten",
+    "tool": "scala",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_scala_open_source",
+   "props": {
+    "text": "Scala is open source",
+    "kind": "unwritten",
+    "tool": "scala",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_cypress_maintained",
+   "props": {
+    "text": "Cypress is actively maintained",
+    "kind": "unwritten",
+    "tool": "cypress",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_cypress_open_source",
+   "props": {
+    "text": "Cypress is open source",
+    "kind": "unwritten",
+    "tool": "cypress",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_traefik_maintained",
+   "props": {
+    "text": "Traefik is actively maintained",
+    "kind": "unwritten",
+    "tool": "traefik",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_traefik_open_source",
+   "props": {
+    "text": "Traefik is open source",
+    "kind": "unwritten",
+    "tool": "traefik",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prettier_maintained",
+   "props": {
+    "text": "Prettier is actively maintained",
+    "kind": "unwritten",
+    "tool": "prettier",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prettier_open_source",
+   "props": {
+    "text": "Prettier is open source",
+    "kind": "unwritten",
+    "tool": "prettier",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_msw_maintained",
+   "props": {
+    "text": "Mock Service Worker is actively maintained",
+    "kind": "unwritten",
+    "tool": "msw",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_msw_open_source",
+   "props": {
+    "text": "Mock Service Worker is open source",
+    "kind": "unwritten",
+    "tool": "msw",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_vue_maintained",
+   "props": {
+    "text": "Vue.js 2 is actively maintained",
+    "kind": "unwritten",
+    "tool": "vue",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:vue:2025-10-10",
+   "props": {
+    "kind": "check",
+    "title": "git history of vuejs/vue: no commit to the default branch since 2024-10-10",
+    "date": "2025-10-10",
+    "excerpt": "no commit to the default branch since 2024-10-10",
+    "path": "https://github.com/vuejs/vue"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_vue_open_source",
+   "props": {
+    "text": "Vue.js 2 is open source",
+    "kind": "unwritten",
+    "tool": "vue",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_devise_maintained",
+   "props": {
+    "text": "Devise is actively maintained",
+    "kind": "unwritten",
+    "tool": "devise",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_devise_open_source",
+   "props": {
+    "text": "Devise is open source",
+    "kind": "unwritten",
+    "tool": "devise",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_nx_maintained",
+   "props": {
+    "text": "Nx is actively maintained",
+    "kind": "unwritten",
+    "tool": "nx",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_nx_open_source",
+   "props": {
+    "text": "Nx is open source",
+    "kind": "unwritten",
+    "tool": "nx",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_buefy_maintained",
+   "props": {
+    "text": "Buefy is actively maintained",
+    "kind": "unwritten",
+    "tool": "buefy",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_buefy_open_source",
+   "props": {
+    "text": "Buefy is open source",
+    "kind": "unwritten",
+    "tool": "buefy",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_external-secrets_maintained",
+   "props": {
+    "text": "external-secrets is actively maintained",
+    "kind": "unwritten",
+    "tool": "external-secrets",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_external-secrets_open_source",
+   "props": {
+    "text": "external-secrets is open source",
+    "kind": "unwritten",
+    "tool": "external-secrets",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_external-dns_maintained",
+   "props": {
+    "text": "external-dns is actively maintained",
+    "kind": "unwritten",
+    "tool": "external-dns",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_external-dns_open_source",
+   "props": {
+    "text": "external-dns is open source",
+    "kind": "unwritten",
+    "tool": "external-dns",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_opa_maintained",
+   "props": {
+    "text": "Open Policy Agent is actively maintained",
+    "kind": "unwritten",
+    "tool": "opa",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_opa_open_source",
+   "props": {
+    "text": "Open Policy Agent is open source",
+    "kind": "unwritten",
+    "tool": "opa",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_terratest_maintained",
+   "props": {
+    "text": "Terratest is actively maintained",
+    "kind": "unwritten",
+    "tool": "terratest",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_terratest_open_source",
+   "props": {
+    "text": "Terratest is open source",
+    "kind": "unwritten",
+    "tool": "terratest",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_consul_maintained",
+   "props": {
+    "text": "Consul is actively maintained",
+    "kind": "unwritten",
+    "tool": "consul",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_consul_open_source",
+   "props": {
+    "text": "Consul is open source",
+    "kind": "unwritten",
+    "tool": "consul",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:consul:2023-08-10",
+   "props": {
+    "kind": "check",
+    "title": "HashiCorp moves Consul to the Business Source License (https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license)",
+    "date": "2023-08-10",
+    "excerpt": "HashiCorp moves Consul to the Business Source License",
+    "path": "https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lerna_maintained",
+   "props": {
+    "text": "Lerna is actively maintained",
+    "kind": "unwritten",
+    "tool": "lerna",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lerna_open_source",
+   "props": {
+    "text": "Lerna is open source",
+    "kind": "unwritten",
+    "tool": "lerna",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_apollo_maintained",
+   "props": {
+    "text": "Apollo Client is actively maintained",
+    "kind": "unwritten",
+    "tool": "apollo",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_apollo_open_source",
+   "props": {
+    "text": "Apollo Client is open source",
+    "kind": "unwritten",
+    "tool": "apollo",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_pulsar_maintained",
+   "props": {
+    "text": "Apache Pulsar is actively maintained",
+    "kind": "unwritten",
+    "tool": "pulsar",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_pulsar_open_source",
+   "props": {
+    "text": "Apache Pulsar is open source",
+    "kind": "unwritten",
+    "tool": "pulsar",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_jest_maintained",
+   "props": {
+    "text": "Jest is actively maintained",
+    "kind": "unwritten",
+    "tool": "jest",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_jest_open_source",
+   "props": {
+    "text": "Jest is open source",
+    "kind": "unwritten",
+    "tool": "jest",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_puppet_maintained",
+   "props": {
+    "text": "Puppet is actively maintained",
+    "kind": "unwritten",
+    "tool": "puppet",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:puppet:2025-12-10",
+   "props": {
+    "kind": "check",
+    "title": "git history of puppetlabs/puppet: no commit to the default branch since 2024-12-10",
+    "date": "2025-12-10",
+    "excerpt": "no commit to the default branch since 2024-12-10",
+    "path": "https://github.com/puppetlabs/puppet"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_puppet_open_source",
+   "props": {
+    "text": "Puppet is open source",
+    "kind": "unwritten",
+    "tool": "puppet",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_tf-aws-eks_maintained",
+   "props": {
+    "text": "terraform-aws-eks module is actively maintained",
+    "kind": "unwritten",
+    "tool": "tf-aws-eks",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_tf-aws-eks_open_source",
+   "props": {
+    "text": "terraform-aws-eks module is open source",
+    "kind": "unwritten",
+    "tool": "tf-aws-eks",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_luxon_maintained",
+   "props": {
+    "text": "Luxon is actively maintained",
+    "kind": "unwritten",
+    "tool": "luxon",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_luxon_open_source",
+   "props": {
+    "text": "Luxon is open source",
+    "kind": "unwritten",
+    "tool": "luxon",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_react-bootstrap_maintained",
+   "props": {
+    "text": "React-Bootstrap is actively maintained",
+    "kind": "unwritten",
+    "tool": "react-bootstrap",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_react-bootstrap_open_source",
+   "props": {
+    "text": "React-Bootstrap is open source",
+    "kind": "unwritten",
+    "tool": "react-bootstrap",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_rails_maintained",
+   "props": {
+    "text": "Ruby on Rails is actively maintained",
+    "kind": "unwritten",
+    "tool": "rails",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_rails_open_source",
+   "props": {
+    "text": "Ruby on Rails is open source",
+    "kind": "unwritten",
+    "tool": "rails",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kubernetes_maintained",
+   "props": {
+    "text": "Kubernetes is actively maintained",
+    "kind": "unwritten",
+    "tool": "kubernetes",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kubernetes_open_source",
+   "props": {
+    "text": "Kubernetes is open source",
+    "kind": "unwritten",
+    "tool": "kubernetes",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kibana_maintained",
+   "props": {
+    "text": "Kibana is actively maintained",
+    "kind": "unwritten",
+    "tool": "kibana",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kibana_open_source",
+   "props": {
+    "text": "Kibana is open source",
+    "kind": "unwritten",
+    "tool": "kibana",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:kibana:2021-01-14",
+   "props": {
+    "kind": "check",
+    "title": "Elastic moves Kibana from Apache 2.0 to SSPL / Elastic License (https://www.elastic.co/blog/licensing-change)",
+    "date": "2021-01-14",
+    "excerpt": "Elastic moves Kibana from Apache 2.0 to SSPL / Elastic License",
+    "path": "https://www.elastic.co/blog/licensing-change"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:kibana:2024-08-29",
+   "props": {
+    "kind": "check",
+    "title": "Elastic adds AGPLv3 as a license option (https://www.elastic.co/blog/elasticsearch-is-open-source-again)",
+    "date": "2024-08-29",
+    "excerpt": "Elastic adds AGPLv3 as a license option",
+    "path": "https://www.elastic.co/blog/elasticsearch-is-open-source-again"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kubeless_maintained",
+   "props": {
+    "text": "Kubeless is actively maintained",
+    "kind": "unwritten",
+    "tool": "kubeless",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:kubeless:2022-12-15",
+   "props": {
+    "kind": "check",
+    "title": "git history of vmware-archive/kubeless: no commit to the default branch since 2021-12-15",
+    "date": "2022-12-15",
+    "excerpt": "no commit to the default branch since 2021-12-15",
+    "path": "https://github.com/vmware-archive/kubeless"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kubeless_open_source",
+   "props": {
+    "text": "Kubeless is open source",
+    "kind": "unwritten",
+    "tool": "kubeless",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_dugite_maintained",
+   "props": {
+    "text": "dugite is actively maintained",
+    "kind": "unwritten",
+    "tool": "dugite",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_dugite_open_source",
+   "props": {
+    "text": "dugite is open source",
+    "kind": "unwritten",
+    "tool": "dugite",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_elasticsearch_maintained",
+   "props": {
+    "text": "Elasticsearch is actively maintained",
+    "kind": "unwritten",
+    "tool": "elasticsearch",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_elasticsearch_open_source",
+   "props": {
+    "text": "Elasticsearch is open source",
+    "kind": "unwritten",
+    "tool": "elasticsearch",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:elasticsearch:2021-01-14",
+   "props": {
+    "kind": "check",
+    "title": "Elastic moves Elasticsearch from Apache 2.0 to SSPL / Elastic License (https://www.elastic.co/blog/licensing-change)",
+    "date": "2021-01-14",
+    "excerpt": "Elastic moves Elasticsearch from Apache 2.0 to SSPL / Elastic License",
+    "path": "https://www.elastic.co/blog/licensing-change"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:elasticsearch:2024-08-29",
+   "props": {
+    "kind": "check",
+    "title": "Elastic adds AGPLv3 as a license option (https://www.elastic.co/blog/elasticsearch-is-open-source-again)",
+    "date": "2024-08-29",
+    "excerpt": "Elastic adds AGPLv3 as a license option",
+    "path": "https://www.elastic.co/blog/elasticsearch-is-open-source-again"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_esbuild_maintained",
+   "props": {
+    "text": "esbuild is actively maintained",
+    "kind": "unwritten",
+    "tool": "esbuild",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_esbuild_open_source",
+   "props": {
+    "text": "esbuild is open source",
+    "kind": "unwritten",
+    "tool": "esbuild",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_nomad_maintained",
+   "props": {
+    "text": "Nomad is actively maintained",
+    "kind": "unwritten",
+    "tool": "nomad",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_nomad_open_source",
+   "props": {
+    "text": "Nomad is open source",
+    "kind": "unwritten",
+    "tool": "nomad",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:nomad:2023-08-10",
+   "props": {
+    "kind": "check",
+    "title": "HashiCorp moves Nomad to the Business Source License (https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license)",
+    "date": "2023-08-10",
+    "excerpt": "HashiCorp moves Nomad to the Business Source License",
+    "path": "https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_redis_maintained",
+   "props": {
+    "text": "Redis is actively maintained",
+    "kind": "unwritten",
+    "tool": "redis",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_redis_open_source",
+   "props": {
+    "text": "Redis is open source",
+    "kind": "unwritten",
+    "tool": "redis",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:redis:2024-03-20",
+   "props": {
+    "kind": "check",
+    "title": "Redis moves from BSD to RSALv2 / SSPLv1 (https://redis.io/blog/redis-adopts-dual-source-available-licensing/)",
+    "date": "2024-03-20",
+    "excerpt": "Redis moves from BSD to RSALv2 / SSPLv1",
+    "path": "https://redis.io/blog/redis-adopts-dual-source-available-licensing/"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:redis:2025-05-01",
+   "props": {
+    "kind": "check",
+    "title": "Redis 8 adds AGPLv3 as a license option (https://redis.io/blog/agplv3/)",
+    "date": "2025-05-01",
+    "excerpt": "Redis 8 adds AGPLv3 as a license option",
+    "path": "https://redis.io/blog/agplv3/"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_netty_maintained",
+   "props": {
+    "text": "Netty is actively maintained",
+    "kind": "unwritten",
+    "tool": "netty",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_netty_open_source",
+   "props": {
+    "text": "Netty is open source",
+    "kind": "unwritten",
+    "tool": "netty",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_plantuml_maintained",
+   "props": {
+    "text": "PlantUML is actively maintained",
+    "kind": "unwritten",
+    "tool": "plantuml",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:plantuml:2012-09-07",
+   "props": {
+    "kind": "check",
+    "title": "git history of plantuml/plantuml: no commit to the default branch since 2011-09-08",
+    "date": "2012-09-07",
+    "excerpt": "no commit to the default branch since 2011-09-08",
+    "path": "https://github.com/plantuml/plantuml"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:plantuml:2013-12-10",
+   "props": {
+    "kind": "check",
+    "title": "git history of plantuml/plantuml: commits resume on 2013-12-10 after a gap since 2011-09-08",
+    "date": "2013-12-10",
+    "excerpt": "commits resume on 2013-12-10 after a gap since 2011-09-08",
+    "path": "https://github.com/plantuml/plantuml"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_plantuml_open_source",
+   "props": {
+    "text": "PlantUML is open source",
+    "kind": "unwritten",
+    "tool": "plantuml",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_helm_maintained",
+   "props": {
+    "text": "Helm is actively maintained",
+    "kind": "unwritten",
+    "tool": "helm",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_helm_open_source",
+   "props": {
+    "text": "Helm is open source",
+    "kind": "unwritten",
+    "tool": "helm",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_fluent-bit_maintained",
+   "props": {
+    "text": "Fluent Bit is actively maintained",
+    "kind": "unwritten",
+    "tool": "fluent-bit",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_fluent-bit_open_source",
+   "props": {
+    "text": "Fluent Bit is open source",
+    "kind": "unwritten",
+    "tool": "fluent-bit",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_postgres_maintained",
+   "props": {
+    "text": "PostgreSQL is actively maintained",
+    "kind": "unwritten",
+    "tool": "postgres",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_postgres_open_source",
+   "props": {
+    "text": "PostgreSQL is open source",
+    "kind": "unwritten",
+    "tool": "postgres",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "CMSgov/easi-app:0002-use-terraform.md",
+   "props": {
+    "title": "Define and manage infrastructure with Terraform",
+    "summary": "Define and manage infrastructure with Terraform",
+    "decided_on": "2019-10-23",
+    "source": "https://github.com/CMSgov/easi-app/blob/HEAD/docs/adr/0002-use-terraform.md",
+    "repo": "CMSgov/easi-app",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "CMSgov/easi-app:0012-backend-testing-suite.md",
+   "props": {
+    "title": "Use Testify for Go Testing",
+    "summary": "Use Testify for Go Testing",
+    "decided_on": "2020-01-02",
+    "source": "https://github.com/CMSgov/easi-app/blob/HEAD/docs/adr/0012-backend-testing-suite.md",
+    "repo": "CMSgov/easi-app",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "CMSgov/easi-app:0014-use-mux-for-routing.md",
+   "props": {
+    "title": "Use gorilla/mux for Routing",
+    "summary": "Use gorilla/mux for Routing",
+    "decided_on": "2020-01-09",
+    "source": "https://github.com/CMSgov/easi-app/blob/HEAD/docs/adr/0014-use-mux-for-routing.md",
+    "repo": "CMSgov/easi-app",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "CMSgov/easi-app:0016-migration-tool.md",
+   "props": {
+    "title": "Use Flyway for Database Migration",
+    "summary": "Use Flyway for Database Migration",
+    "decided_on": "2020-03-05",
+    "source": "https://github.com/CMSgov/easi-app/blob/HEAD/docs/adr/0016-migration-tool.md",
+    "repo": "CMSgov/easi-app",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "CMSgov/easi-app:0017-go-orm.md",
+   "props": {
+    "title": "Use [sqlx](https://github.com/jmoiron/sqlx) for Go Database Access",
+    "summary": "Use [sqlx](https://github.com/jmoiron/sqlx) for Go Database Access",
+    "decided_on": "2020-03-17",
+    "source": "https://github.com/CMSgov/easi-app/blob/HEAD/docs/adr/0017-go-orm.md",
+    "repo": "CMSgov/easi-app",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "CMSgov/easi-app:0028-use-react-testing-library.md",
+   "props": {
+    "title": "*Use react-testing-library in place of Enzyme*",
+    "summary": "*Use react-testing-library in place of Enzyme*",
+    "decided_on": "2021-07-15",
+    "source": "https://github.com/CMSgov/easi-app/blob/HEAD/docs/adr/0028-use-react-testing-library.md",
+    "repo": "CMSgov/easi-app",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "CMSgov/easi-app:0036-rich-text-editor.md",
+   "props": {
+    "title": "Rich text editing with TOAST UI Editor",
+    "summary": "Rich text editing with TOAST UI Editor",
+    "decided_on": "2023-08-22",
+    "source": "https://github.com/CMSgov/easi-app/blob/HEAD/docs/adr/0036-rich-text-editor.md",
+    "repo": "CMSgov/easi-app",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "CMSgov/easi-app:0038-replace-craco-with-vite.md",
+   "props": {
+    "title": "Migrate from Create React App & Craco to Vite",
+    "summary": "Migrate from Create React App & Craco to Vite",
+    "decided_on": "2023-09-11",
+    "source": "https://github.com/CMSgov/easi-app/blob/HEAD/docs/adr/0038-replace-craco-with-vite.md",
+    "repo": "CMSgov/easi-app",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "DFE-Digital/apply-for-teacher-training:0002-use-devise-for-authentication.md",
+   "props": {
+    "title": "2. Use Devise for authentication",
+    "summary": "2. Use Devise for authentication",
+    "decided_on": "2019-08-22",
+    "source": "https://github.com/DFE-Digital/apply-for-teacher-training/blob/HEAD/adr/0002-use-devise-for-authentication.md",
+    "repo": "DFE-Digital/apply-for-teacher-training",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "DFE-Digital/find-a-lost-trn:00003-use-rails.md",
+   "props": {
+    "title": "3. Use a Ruby on Rails monolith",
+    "summary": "3. Use a Ruby on Rails monolith",
+    "decided_on": "2022-02-01",
+    "source": "https://github.com/DFE-Digital/find-a-lost-trn/blob/HEAD/adr/00003-use-rails.md",
+    "repo": "DFE-Digital/find-a-lost-trn",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "DFE-Digital/find-a-lost-trn:00004-use-postgres-state.md",
+   "props": {
+    "title": "4. Use postgres to handle persistence",
+    "summary": "4. Use postgres to handle persistence",
+    "decided_on": "2022-02-02",
+    "source": "https://github.com/DFE-Digital/find-a-lost-trn/blob/HEAD/adr/00004-use-postgres-state.md",
+    "repo": "DFE-Digital/find-a-lost-trn",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "DFE-Digital/find-a-lost-trn:00006-sidekiq-and-redis.md",
+   "props": {
+    "title": "6. Sidekiq and Redis",
+    "summary": "6. Sidekiq and Redis",
+    "decided_on": "2022-03-14",
+    "source": "https://github.com/DFE-Digital/find-a-lost-trn/blob/HEAD/adr/00006-sidekiq-and-redis.md",
+    "repo": "DFE-Digital/find-a-lost-trn",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "GSA/notifications-api:0006-use-for-dependency-management.md",
+   "props": {
+    "title": "Use `poetry` for dependency management",
+    "summary": "Use `poetry` for dependency management",
+    "decided_on": "2023-09-08",
+    "source": "https://github.com/GSA/notifications-api/blob/HEAD/docs/adrs/0006-use-for-dependency-management.md",
+    "repo": "GSA/notifications-api",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "HHS/Head-Start-TTADP:0007-use-plantuml-for-diagrams.md",
+   "props": {
+    "title": "7. Use PlantUML for diagrams",
+    "summary": "7. Use PlantUML for diagrams",
+    "decided_on": "2020-10-01",
+    "source": "https://github.com/HHS/Head-Start-TTADP/blob/HEAD/docs/adr/0007-use-plantuml-for-diagrams.md",
+    "repo": "HHS/Head-Start-TTADP",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "Maptio/maptio:0003-move-to-nx-monorepo-with-new-angular-app.md",
+   "props": {
+    "title": "3. Move to Nx monorepo with new Angular app",
+    "summary": "3. Move to Nx monorepo with new Angular app",
+    "decided_on": "2021-03-12",
+    "source": "https://github.com/Maptio/maptio/blob/HEAD/doc/adr/0003-move-to-nx-monorepo-with-new-angular-app.md",
+    "repo": "Maptio/maptio",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "SmartBear/git-en-boite:0009-prefer-dugite-over-raw-git-commands-in-tests.md",
+   "props": {
+    "title": "9. Prefer dugite over raw git commands in tests",
+    "summary": "9. Prefer dugite over raw git commands in tests",
+    "decided_on": "2020-05-26",
+    "source": "https://github.com/SmartBear/git-en-boite/blob/HEAD/doc/adr/0009-prefer-dugite-over-raw-git-commands-in-tests.md",
+    "repo": "SmartBear/git-en-boite",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "alphagov/govuk-aws:0007-puppet-cert-management.md",
+   "props": {
+    "title": "7. Puppet certificate management",
+    "summary": "7. Puppet certificate management",
+    "decided_on": "2017-07-04",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0007-puppet-cert-management.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "alphagov/govuk-aws:0008-postgres-on-puppetmaster.md",
+   "props": {
+    "title": "8. Postgres on Puppetmaster",
+    "summary": "8. Postgres on Puppetmaster",
+    "decided_on": "2017-07-04",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0008-postgres-on-puppetmaster.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "alphagov/govuk-aws:0012-security-groups-in-terraform.md",
+   "props": {
+    "title": "12. Security Groups in Terraform",
+    "summary": "12. Security Groups in Terraform",
+    "decided_on": "2017-07-05",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0012-security-groups-in-terraform.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "alphagov/govuk-aws:0025-use-elasticache-for-redis.md",
+   "props": {
+    "title": "25. Use Elasticache for Redis",
+    "summary": "25. Use Elasticache for Redis",
+    "decided_on": "2017-09-04",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0025-use-elasticache-for-redis.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "alphagov/govuk-aws:0029-combine-api-redis-into-backend-redis.md",
+   "props": {
+    "title": "29. Combine api-redis into backend-redis",
+    "summary": "29. Combine api-redis into backend-redis",
+    "decided_on": "2017-09-14",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0029-combine-api-redis-into-backend-redis.md",
+    "repo": "alphagov/govuk-aws",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "alphagov/govuk-infrastructure:0002-use-aws-eks-terraform-module.md",
+   "props": {
+    "title": "2. Use `aws-eks` Terraform module",
+    "summary": "2. Use `aws-eks` Terraform module",
+    "decided_on": "2021-08-10",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0002-use-aws-eks-terraform-module.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "alphagov/govuk-infrastructure:0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+   "props": {
+    "title": "4. Use AWS Load Balancer Controller for edge traffic services",
+    "summary": "4. Use AWS Load Balancer Controller for edge traffic services",
+    "decided_on": "2021-08-12",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "alphagov/govuk-infrastructure:0005-use-eks-managed-node-groups.md",
+   "props": {
+    "title": "5. Use AWS Elastic Kubernetes Service (EKS) managed node groups",
+    "summary": "5. Use AWS Elastic Kubernetes Service (EKS) managed node groups",
+    "decided_on": "2021-08-13",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0005-use-eks-managed-node-groups.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "alphagov/govuk-infrastructure:0006-use-helm-for-application-package-management.md",
+   "props": {
+    "title": "6. Use Helm for application package management",
+    "summary": "6. Use Helm for application package management",
+    "decided_on": "2021-08-16",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0006-use-helm-for-application-package-management.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "alphagov/govuk-infrastructure:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+   "props": {
+    "title": "7. Use Fluent Bit, Elasticsearch and Kibana for application logs",
+    "summary": "7. Use Fluent Bit, Elasticsearch and Kibana for application logs",
+    "decided_on": "2021-08-16",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "alphagov/govuk-infrastructure:0008-use-external-secrets-for-secrets-storage.md",
+   "props": {
+    "title": "8. Use external-secrets for secrets storage",
+    "summary": "8. Use external-secrets for secrets storage",
+    "decided_on": "2021-08-26",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0008-use-external-secrets-for-secrets-storage.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "alphagov/govuk-infrastructure:0009-use-external-dns-for-dns-record-management.md",
+   "props": {
+    "title": "9. Use `external-dns` for DNS record management",
+    "summary": "9. Use `external-dns` for DNS record management",
+    "decided_on": "2021-08-27",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0009-use-external-dns-for-dns-record-management.md",
+    "repo": "alphagov/govuk-infrastructure",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "apache/james-project:0019-reactor-netty-adoption.md",
+   "props": {
+    "title": "19. Reactor-netty adoption for JMAP server implementation",
+    "summary": "19. Reactor-netty adoption for JMAP server implementation",
+    "decided_on": "2020-02-28",
+    "source": "https://github.com/apache/james-project/blob/HEAD/src/adr/0019-reactor-netty-adoption.md",
+    "repo": "apache/james-project",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "apache/james-project:0033-use-scala-in-event-sourcing-modules.md",
+   "props": {
+    "title": "33. Use scala in event sourcing modules",
+    "summary": "33. Use scala in event sourcing modules",
+    "decided_on": "2019-12-13",
+    "source": "https://github.com/apache/james-project/blob/HEAD/src/adr/0033-use-scala-in-event-sourcing-modules.md",
+    "repo": "apache/james-project",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "apache/james-project:0052-pulsar-mailqueue.md",
+   "props": {
+    "title": "52. Pulsar MailQueue",
+    "summary": "52. Pulsar MailQueue",
+    "decided_on": "2022-01-07",
+    "source": "https://github.com/apache/james-project/blob/HEAD/src/adr/0052-pulsar-mailqueue.md",
+    "repo": "apache/james-project",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "apache/james-project:0054-elasticsearch-search-overrides.md",
+   "props": {
+    "title": "54. ElasticSearch search overrides",
+    "summary": "54. ElasticSearch search overrides",
+    "decided_on": "2022-05-16",
+    "source": "https://github.com/apache/james-project/blob/HEAD/src/adr/0054-elasticsearch-search-overrides.md",
+    "repo": "apache/james-project",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "apache/james-project:0055-rspamd-spam-filtering.md",
+   "props": {
+    "title": "55. RSPAMD",
+    "summary": "55. RSPAMD",
+    "decided_on": "2022-08-10",
+    "source": "https://github.com/apache/james-project/blob/HEAD/src/adr/0055-rspamd-spam-filtering.md",
+    "repo": "apache/james-project",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "apache/james-project:0056-opensearch-migration.md",
+   "props": {
+    "title": "56. OpenSearch migration",
+    "summary": "56. OpenSearch migration",
+    "decided_on": "2022-08-11",
+    "source": "https://github.com/apache/james-project/blob/HEAD/src/adr/0056-opensearch-migration.md",
+    "repo": "apache/james-project",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "apache/james-project:0058-upgrade-to-netty-4.md",
+   "props": {
+    "title": "58. Upgrade to netty 4",
+    "summary": "58. Upgrade to netty 4",
+    "decided_on": "2022-09-13",
+    "source": "https://github.com/apache/james-project/blob/HEAD/src/adr/0058-upgrade-to-netty-4.md",
+    "repo": "apache/james-project",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "apache/james-project:0059-upgrade-to-cassadra-driver-4.md",
+   "props": {
+    "title": "59. Upgrade to Cassandra driver 4",
+    "summary": "59. Upgrade to Cassandra driver 4",
+    "decided_on": "2022-09-13",
+    "source": "https://github.com/apache/james-project/blob/HEAD/src/adr/0059-upgrade-to-cassadra-driver-4.md",
+    "repo": "apache/james-project",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "backstage/backstage:adr006-avoid-react-fc",
+   "props": {
+    "title": "ADR006: Avoid React.FC and React.SFC",
+    "summary": "ADR006: Avoid React.FC and React.SFC",
+    "decided_on": "2020-06-30",
+    "source": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr006-avoid-react-fc.md",
+    "repo": "backstage/backstage",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "backstage/backstage:adr007-use-msw-to-mock-service-requests.md",
+   "props": {
+    "title": "ADR007: Use MSW to mock http requests",
+    "summary": "ADR007: Use MSW to mock http requests",
+    "decided_on": "2020-07-14",
+    "source": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr007-use-msw-to-mock-service-requests.md",
+    "repo": "backstage/backstage",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "backstage/backstage:adr010-luxon-date-library.md",
+   "props": {
+    "title": "ADR010: Use the Luxon Date Library",
+    "summary": "ADR010: Use the Luxon Date Library",
+    "decided_on": "2021-01-19",
+    "source": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr010-luxon-date-library.md",
+    "repo": "backstage/backstage",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "backstage/backstage:adr012-use-luxon-locale-and-date-presets.md",
+   "props": {
+    "title": "ADR012: Use Luxon.toLocaleString and date/time presets",
+    "summary": "ADR012: Use Luxon.toLocaleString and date/time presets",
+    "decided_on": "2021-10-08",
+    "source": "https://github.com/backstage/backstage/blob/HEAD/docs/architecture-decisions/adr012-use-luxon-locale-and-date-presets.md",
+    "repo": "backstage/backstage",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "change-metrics/monocle:0002-Choice-of-Elasticsearch.md",
+   "props": {
+    "title": "2. Choice of Elasticsearch",
+    "summary": "2. Choice of Elasticsearch",
+    "decided_on": "2019-12-02",
+    "source": "https://github.com/change-metrics/monocle/blob/HEAD/doc/adr/0002-choice-of-elasticsearch.md",
+    "repo": "change-metrics/monocle",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "change-metrics/monocle:0003-Choice-of-React.md",
+   "props": {
+    "title": "3. Choice of React",
+    "summary": "3. Choice of React",
+    "decided_on": "2019-12-02",
+    "source": "https://github.com/change-metrics/monocle/blob/HEAD/doc/adr/0003-choice-of-react.md",
+    "repo": "change-metrics/monocle",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "cljdoc/cljdoc:0008-use-circleci-as-analysis-sandbox.md",
+   "props": {
+    "title": "8. Use CircleCI as Analysis Sandbox",
+    "summary": "8. Use CircleCI as Analysis Sandbox",
+    "decided_on": "2018-01-29",
+    "source": "https://github.com/cljdoc/cljdoc/blob/HEAD/doc/adr/0008-use-circleci-as-analysis-sandbox.md",
+    "repo": "cljdoc/cljdoc",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "cljdoc/cljdoc:0010-use-terraform-to-create-document-infrastructure.md",
+   "props": {
+    "title": "10. Use Terraform to Create & Document Infrastructure",
+    "summary": "10. Use Terraform to Create & Document Infrastructure",
+    "decided_on": "2018-01-31",
+    "source": "https://github.com/cljdoc/cljdoc/blob/HEAD/doc/adr/0010-use-terraform-to-create-document-infrastructure.md",
+    "repo": "cljdoc/cljdoc",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "cljdoc/cljdoc:0013-move-to-sqlite-for-storage.md",
+   "props": {
+    "title": "13. Move to SQLite for Storage",
+    "summary": "13. Move to SQLite for Storage",
+    "decided_on": "2018-08-02",
+    "source": "https://github.com/cljdoc/cljdoc/blob/HEAD/doc/adr/0013-move-to-sqlite-for-storage.md",
+    "repo": "cljdoc/cljdoc",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "cljdoc/cljdoc:0017-use-nomad-for-deployment.md",
+   "props": {
+    "title": "Use Nomad For Deployment",
+    "summary": "Use Nomad For Deployment",
+    "decided_on": "2018-12-10",
+    "source": "https://github.com/cljdoc/cljdoc/blob/HEAD/doc/adr/0017-use-nomad-for-deployment.md",
+    "repo": "cljdoc/cljdoc",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "cloudfoundry/korifi:0007-use-contour-for-ingress.md",
+   "props": {
+    "title": "Use Contour for Ingress",
+    "summary": "Use Contour for Ingress",
+    "decided_on": "2021-10-11",
+    "source": "https://github.com/cloudfoundry/korifi/blob/HEAD/docs/architecture-decisions/0009-use-contour-for-ingress.md",
+    "repo": "cloudfoundry/korifi",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "defenseunicorns/pepr:0003-use-commonjs-and-esbuild.md",
+   "props": {
+    "title": "3. Use CommonJS and ESBuild",
+    "summary": "3. Use CommonJS and ESBuild",
+    "decided_on": "2023-05-22",
+    "source": "https://github.com/defenseunicorns/pepr/blob/HEAD/adr/0003-use-commonjs-and-esbuild.md",
+    "repo": "defenseunicorns/pepr",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "defenseunicorns/pepr:0005-migrate-to-jest-and-refactor-e2e-to-journey-tests.md",
+   "props": {
+    "title": "5: Migrate to Jest and Refactor E2E Tests to Journey Tests",
+    "summary": "5: Migrate to Jest and Refactor E2E Tests to Journey Tests",
+    "decided_on": "2023-09-03",
+    "source": "https://github.com/defenseunicorns/pepr/blob/HEAD/adr/0005-migrate-to-jest-and-refactor-e2e-to-journey-tests.md",
+    "repo": "defenseunicorns/pepr",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "edgexfoundry/edgex-docs:0017-consul-security.md",
+   "props": {
+    "title": "Securing access to Consul",
+    "summary": "Securing access to Consul",
+    "decided_on": "2021-02-18",
+    "source": "https://github.com/edgexfoundry/edgex-docs/blob/HEAD/docs_src/design/adr/security/0017-consul-security.md",
+    "repo": "edgexfoundry/edgex-docs",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "edgexfoundry/edgex-docs:0019-spiffe.md",
+   "props": {
+    "title": "Use SPIFFE/SPIRE for On-demand Secret Store Token Generation",
+    "summary": "Use SPIFFE/SPIRE for On-demand Secret Store Token Generation",
+    "decided_on": "2021-12-08",
+    "source": "https://github.com/edgexfoundry/edgex-docs/blob/HEAD/docs_src/design/adr/security/0020-spiffe.md",
+    "repo": "edgexfoundry/edgex-docs",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "guardian/dotcom-rendering:use-percy-for-e2e-visual-regression-testing.md",
+   "props": {
+    "title": "Use Percy/Cypress for integration-style visual regression testing",
+    "summary": "Use Percy/Cypress for integration-style visual regression testing",
+    "decided_on": "2023-09-08",
+    "source": "https://github.com/guardian/dotcom-rendering/blob/HEAD/dotcom-rendering/docs/architecture/historic-adrs/use-percy-for-e2e-visual-regression-testing.md",
+    "repo": "guardian/dotcom-rendering",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "kyma-project/community:dr-002-Traefik_as_an_API_Gateway.md",
+   "props": {
+    "title": "DR 002: Tr\u00e6fik as a candidate for an API Gateway",
+    "summary": "DR 002: Tr\u00e6fik as a candidate for an API Gateway",
+    "decided_on": "2017-11-23",
+    "source": "https://github.com/kyma-project/community/blob/HEAD/sigs-and-wgs/archive/sig-core/decisions/dr-002-Traefik_as_an_API_Gateway.md",
+    "repo": "kyma-project/community",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "kyma-project/community:dr-005-Istio_as_the_API_Gateway.md",
+   "props": {
+    "title": "DR 005: Istio as the Gateway in Kyma",
+    "summary": "DR 005: Istio as the Gateway in Kyma",
+    "decided_on": "2017-12-11",
+    "source": "https://github.com/kyma-project/community/blob/HEAD/sigs-and-wgs/archive/sig-core/decisions/dr-005-Istio_as_the_API_Gateway.md",
+    "repo": "kyma-project/community",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "kyma-project/community:dr-006-Kubeless_as_the_Faas_solution.md",
+   "props": {
+    "title": "DR 006: Kubeless as a FaaS solution",
+    "summary": "DR 006: Kubeless as a FaaS solution",
+    "decided_on": "2017-12-20",
+    "source": "https://github.com/kyma-project/community/blob/HEAD/sigs-and-wgs/archive/sig-core/decisions/dr-006-Kubeless_as_the_Faas_solution.md",
+    "repo": "kyma-project/community",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "kyma-project/community:dr-011-Jaeger_as_a_tracing_back-end.md",
+   "props": {
+    "title": "DR 011: Jaeger as a tracing back-end",
+    "summary": "DR 011: Jaeger as a tracing back-end",
+    "decided_on": "2018-03-09",
+    "source": "https://github.com/kyma-project/community/blob/HEAD/sigs-and-wgs/archive/sig-core/decisions/dr-011-Jaeger_as_a_tracing_back-end.md",
+    "repo": "kyma-project/community",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "kyma-project/community:dr-012-Prettier_as_JavaScript_code_formatter.md",
+   "props": {
+    "title": "DR 012: Prettier as a JavaScript code formatter",
+    "summary": "DR 012: Prettier as a JavaScript code formatter",
+    "decided_on": "2018-03-15",
+    "source": "https://github.com/kyma-project/community/blob/HEAD/sigs-and-wgs/archive/sig-core/decisions/dr-012-Prettier_as_JavaScript_code_formatter.md",
+    "repo": "kyma-project/community",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "ministryofjustice/cloud-platform:001-Use-AWS-hosted-elasticsearch.md",
+   "props": {
+    "title": "Use AWS hosted Elasticsearch",
+    "summary": "Use AWS hosted Elasticsearch",
+    "decided_on": "2018-03-28",
+    "source": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/001-Use-AWS-hosted-elasticsearch.md",
+    "repo": "ministryofjustice/cloud-platform",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "ministryofjustice/cloud-platform:003-Use-Concourse-CI.md",
+   "props": {
+    "title": "Use Concourse CI",
+    "summary": "Use Concourse CI",
+    "decided_on": "2020-08-17",
+    "source": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/003-Use-Concourse-CI.md",
+    "repo": "ministryofjustice/cloud-platform",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "ministryofjustice/cloud-platform:004-use-kubernetes-for-container-management.md",
+   "props": {
+    "title": "Use kubernetes for running containerised applications",
+    "summary": "Use kubernetes for running containerised applications",
+    "decided_on": "2018-04-05",
+    "source": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/004-use-kubernetes-for-container-management.md",
+    "repo": "ministryofjustice/cloud-platform",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "ministryofjustice/cloud-platform:011-Introduce-Open-Policy-Agent.md",
+   "props": {
+    "title": "Introduce Open Policy Agent",
+    "summary": "Introduce Open Policy Agent",
+    "decided_on": "2019-06-11",
+    "source": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/011-Introduce-Open-Policy-Agent.md",
+    "repo": "ministryofjustice/cloud-platform",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "ministryofjustice/cloud-platform:014-Why-we-build-our-own-kubernetes-cluster.md",
+   "props": {
+    "title": "Why we build our own kubernetes cluster",
+    "summary": "Why we build our own kubernetes cluster",
+    "decided_on": "2019-08-01",
+    "source": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/014-Why-we-build-our-own-kubernetes-cluster.md",
+    "repo": "ministryofjustice/cloud-platform",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "ministryofjustice/cloud-platform:016-Kibana-is-open-to-all-service-teams.md",
+   "props": {
+    "title": "Kibana is open to all service teams",
+    "summary": "Kibana is open to all service teams",
+    "decided_on": "2020-03-26",
+    "source": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/016-Kibana-is-open-to-all-service-teams.md",
+    "repo": "ministryofjustice/cloud-platform",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "ministryofjustice/cloud-platform:022-EKS.md",
+   "props": {
+    "title": "EKS",
+    "summary": "EKS",
+    "decided_on": "2021-06-02",
+    "source": "https://github.com/ministryofjustice/cloud-platform/blob/HEAD/architecture-decision-record/022-EKS.md",
+    "repo": "ministryofjustice/cloud-platform",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "ministryofjustice/modernisation-platform:0007-use-terratest-opa-and-go-for-testing.md",
+   "props": {
+    "title": "7. Use Terratest, Open Policy Agent and Go for testing",
+    "summary": "7. Use Terratest, Open Policy Agent and Go for testing",
+    "decided_on": "2021-04-15",
+    "source": "https://github.com/ministryofjustice/modernisation-platform/blob/HEAD/architecture-decision-record/0007-use-terratest-opa-and-go-for-testing.md",
+    "repo": "ministryofjustice/modernisation-platform",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "mozilla/fxa:0002-use-react-redux-and-typescript-for-subscription-management-pages.md",
+   "props": {
+    "title": "Use React, Redux, and Typescript for subscription management pages",
+    "summary": "Use React, Redux, and Typescript for subscription management pages",
+    "decided_on": "2019-05-08",
+    "source": "https://github.com/mozilla/fxa/blob/HEAD/docs/adr/0002-use-react-redux-and-typescript-for-subscription-management-pages.md",
+    "repo": "mozilla/fxa",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "mozilla/fxa:0010-transition-fxa-from-backbone-to-react.md",
+   "props": {
+    "title": "Transition FxA from Backbone to React",
+    "summary": "Transition FxA from Backbone to React",
+    "decided_on": "2020-03-19",
+    "source": "https://github.com/mozilla/fxa/blob/HEAD/docs/adr/0010-transition-fxa-from-backbone-to-react.md",
+    "repo": "mozilla/fxa",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "mozilla/fxa:0016-use-graphql-and-apollo-for-settings-redesign.md",
+   "props": {
+    "title": "Use GraphQL and Apollo for Settings Redesign",
+    "summary": "Use GraphQL and Apollo for Settings Redesign",
+    "decided_on": "2020-05-05",
+    "source": "https://github.com/mozilla/fxa/blob/HEAD/docs/adr/0016-use-graphql-and-apollo-for-settings-redesign.md",
+    "repo": "mozilla/fxa",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "mozilla/fxa:0021-use-internjs-testing.md",
+   "props": {
+    "title": "Use existing InternJS for functional testing in settings v2",
+    "summary": "Use existing InternJS for functional testing in settings v2",
+    "decided_on": "2020-07-17",
+    "source": "https://github.com/mozilla/fxa/blob/HEAD/docs/adr/0021-use-internjs-testing.md",
+    "repo": "mozilla/fxa",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "mozilla/fxa:0035-refactor-payments-frontend-with-nextjs.md",
+   "props": {
+    "title": "Refactor Subscription Platform frontend - with Next.js",
+    "summary": "Refactor Subscription Platform frontend - with Next.js",
+    "decided_on": "2023-03-07",
+    "source": "https://github.com/mozilla/fxa/blob/HEAD/docs/adr/0035-refactor-payments-frontend-with-nextjs.md",
+    "repo": "mozilla/fxa",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "mozilla/fxa:0037-use-nx-for-monorepo.md",
+   "props": {
+    "title": "Use nx for monorepo tooling",
+    "summary": "Use nx for monorepo tooling",
+    "decided_on": "2023-03-13",
+    "source": "https://github.com/mozilla/fxa/blob/HEAD/docs/adr/0037-use-nx-for-monorepo.md",
+    "repo": "mozilla/fxa",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "openedx/edx-enterprise:0012-enterprise-feature-flags-waffle.rst",
+   "props": {
+    "title": "Waffle-based feature flags for Enterprise",
+    "summary": "Waffle-based feature flags for Enterprise",
+    "decided_on": "2023-09-20",
+    "source": "https://github.com/openedx/edx-enterprise/blob/HEAD/docs/decisions/0012-enterprise-feature-flags-waffle.rst",
+    "repo": "openedx/edx-enterprise",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "openedx/edx-platform:0001-refactor-waffle-flag-default.rst",
+   "props": {
+    "title": "Refactor Waffle Flag Default",
+    "summary": "Refactor Waffle Flag Default",
+    "decided_on": "2020-06-22",
+    "source": "https://github.com/openedx/edx-platform/blob/HEAD/openedx/core/djangoapps/waffle_utils/docs/decisions/0001-refactor-waffle-flag-default.rst",
+    "repo": "openedx/edx-platform",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "openedx/edx-platform:0002-waffle-utils-extraction.rst",
+   "props": {
+    "title": "Waffle Utils Extraction",
+    "summary": "Waffle Utils Extraction",
+    "decided_on": "2020-09-25",
+    "source": "https://github.com/openedx/edx-platform/blob/HEAD/openedx/core/djangoapps/waffle_utils/docs/decisions/0002-waffle-utils-extraction.rst",
+    "repo": "openedx/edx-platform",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "openedx/edx-platform:0003-permissions-via-bridgekeeper.rst",
+   "props": {
+    "title": "0003. Use `bridgekeeper`_ for Permissions and Tracks",
+    "summary": "0003. Use `bridgekeeper`_ for Permissions and Tracks",
+    "decided_on": "2019-04-16",
+    "source": "https://github.com/openedx/edx-platform/blob/HEAD/lms/djangoapps/courseware/docs/decisions/0003-permissions-via-bridgekeeper.rst",
+    "repo": "openedx/edx-platform",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "openedx/edx-platform:0004-waffle-util-namespacing.rst",
+   "props": {
+    "title": "Waffle Util Namespacing",
+    "summary": "Waffle Util Namespacing",
+    "decided_on": "2020-09-25",
+    "source": "https://github.com/openedx/edx-platform/blob/HEAD/openedx/core/djangoapps/waffle_utils/docs/decisions/0004-waffle-util-namespacing.rst",
+    "repo": "openedx/edx-platform",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "openedx/edx-platform:permissions.rst",
+   "props": {
+    "title": "0002. Use `django-rules`_ for Permissions and Tracks",
+    "summary": "0002. Use `django-rules`_ for Permissions and Tracks",
+    "decided_on": "2019-02-22",
+    "source": "https://github.com/openedx/edx-platform/blob/HEAD/lms/djangoapps/courseware/docs/decisions/0002-permissions-via-django-rules.rst",
+    "repo": "openedx/edx-platform",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "openedx/frontend-app-learning:0006-thunk-and-api-naming.md",
+   "props": {
+    "title": "Naming API functions and redux thunks",
+    "summary": "Naming API functions and redux thunks",
+    "decided_on": "2020-07-02",
+    "source": "https://github.com/openedx/frontend-app-learning/blob/HEAD/docs/decisions/0006-thunk-and-api-naming.md",
+    "repo": "openedx/frontend-app-learning",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "openedx/frontend-platform:0004-axios-caching-implementation.rst",
+   "props": {
+    "title": "Axios Caching Layer Implementation",
+    "summary": "Axios Caching Layer Implementation",
+    "decided_on": "2020-12-01",
+    "source": "https://github.com/openedx/frontend-platform/blob/HEAD/docs/decisions/0004-axios-caching-implementation.rst",
+    "repo": "openedx/frontend-platform",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "openedx/paragon:0009-usage-of-react-bootstrap.rst",
+   "props": {
+    "title": "5. Usage of React-Bootstrap",
+    "summary": "5. Usage of React-Bootstrap",
+    "decided_on": "2020-07-15",
+    "source": "https://github.com/openedx/paragon/blob/HEAD/docs/decisions/0009-usage-of-react-bootstrap.rst",
+    "repo": "openedx/paragon",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "openedx/paragon:0017-runtime-a11y-validation.rst",
+   "props": {
+    "title": "17.  Accessibility validation at runtime via ``@axe-core/react``",
+    "summary": "17.  Accessibility validation at runtime via ``@axe-core/react``",
+    "decided_on": "2022-03-30",
+    "source": "https://github.com/openedx/paragon/blob/HEAD/docs/decisions/0017-runtime-a11y-validation.rst",
+    "repo": "openedx/paragon",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "openedx/paragon:0019-scaling-styles-with-design-tokens.rst",
+   "props": {
+    "title": "19.  Scaling the Paragon design system's styles with design tokens and ``style-dictionary``",
+    "summary": "19.  Scaling the Paragon design system's styles with design tokens and ``style-dictionary``",
+    "decided_on": "2023-07-19",
+    "source": "https://github.com/openedx/paragon/blob/HEAD/docs/decisions/0019-scaling-styles-with-design-tokens.rst",
+    "repo": "openedx/paragon",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "operate-first/blueprint:0004-argocd-apps-of-apps-structure.md",
+   "props": {
+    "title": "ArgoCD Apps of Apps Structure",
+    "summary": "ArgoCD Apps of Apps Structure",
+    "decided_on": "2021-11-04",
+    "source": "https://github.com/operate-first/blueprint/blob/HEAD/adr/0004-argocd-apps-of-apps-structure.md",
+    "repo": "operate-first/blueprint",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "operate-first/blueprint:0006-monitoring-structure.md",
+   "props": {
+    "title": "Application Monitoring in Operate First using Prometheus",
+    "summary": "Application Monitoring in Operate First using Prometheus",
+    "decided_on": "2021-01-14",
+    "source": "https://github.com/operate-first/blueprint/blob/HEAD/adr/0006-monitoring-structure.md",
+    "repo": "operate-first/blueprint",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "thomvaill/log4brains:20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md",
+   "props": {
+    "title": "Multi-packages architecture in a monorepo with Yarn and Lerna",
+    "summary": "Multi-packages architecture in a monorepo with Yarn and Lerna",
+    "decided_on": "2020-09-25",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "thomvaill/log4brains:20200925-use-nextjs-for-static-site-generation.md",
+   "props": {
+    "title": "Use Next.js for Static Site Generation",
+    "summary": "Use Next.js for Static Site Generation",
+    "decided_on": "2020-09-25",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/packages/web/docs/adr/20200925-use-nextjs-for-static-site-generation.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "thomvaill/log4brains:20200925-use-prettier-eslint-airbnb-for-the-code-style.md",
+   "props": {
+    "title": "Use Prettier-ESLint Airbnb for the code style",
+    "summary": "Use Prettier-ESLint Airbnb for the code style",
+    "decided_on": "2020-09-25",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-use-prettier-eslint-airbnb-for-the-code-style.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "thomvaill/log4brains:20200927-avoid-react-fc-type.md",
+   "props": {
+    "title": "Avoid React.FC type",
+    "summary": "Avoid React.FC type",
+    "decided_on": "2020-09-27",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/packages/web/docs/adr/20200927-avoid-react-fc-type.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "thomvaill/log4brains:20201007-next-js-persistent-layout-pattern.md",
+   "props": {
+    "title": "Next.js persistent layout pattern",
+    "summary": "Next.js persistent layout pattern",
+    "decided_on": "2020-10-07",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/packages/web/docs/adr/20201007-next-js-persistent-layout-pattern.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "thomvaill/log4brains:20201103-use-lunr-for-search.md",
+   "props": {
+    "title": "Use Lunr for search",
+    "summary": "Use Lunr for search",
+    "decided_on": "2020-11-03",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201103-use-lunr-for-search.md",
+    "repo": "thomvaill/log4brains",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "wmde/fundraising-application:006_Vue.js.md",
+   "props": {
+    "title": "Using Vue.js as the new frontend framework",
+    "summary": "Using Vue.js as the new frontend framework",
+    "decided_on": "2019-02-07",
+    "source": "https://github.com/wmde/fundraising-application/blob/HEAD/doc/adr/006_Vue.js.md",
+    "repo": "wmde/fundraising-application",
+    "status": "accepted"
+   }
+  },
+  {
+   "label": "Decision",
+   "id": "wmde/fundraising-application:010_Components_Framework.md",
+   "props": {
+    "title": "Use the CSS framework Buefy",
+    "summary": "Use the CSS framework Buefy",
+    "decided_on": "2019-04-26",
+    "source": "https://github.com/wmde/fundraising-application/blob/HEAD/doc/adr/010_Components_Framework.md",
+    "repo": "wmde/fundraising-application",
+    "status": "accepted"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "src": "maintained:intern:2024-01-26",
+   "rel": "CONTRADICTS",
+   "dst": "p_intern_maintained",
+   "props": {
+    "at": "2024-01-26",
+    "quote": "no commit to the default branch since 2023-01-26"
+   }
+  },
+  {
+   "src": "maintained:django-rules:2021-01-16",
+   "rel": "CONTRADICTS",
+   "dst": "p_django-rules_maintained",
+   "props": {
+    "at": "2021-01-16",
+    "quote": "no commit to the default branch since 2020-01-17"
+   }
+  },
+  {
+   "src": "maintained:django-rules:2021-04-30",
+   "rel": "SUPPORTS",
+   "dst": "p_django-rules_maintained",
+   "props": {
+    "at": "2021-04-30",
+    "quote": "commits resume on 2021-04-30 after a gap since 2020-01-17"
+   }
+  },
+  {
+   "src": "maintained:django-rules:2026-10-11",
+   "rel": "CONTRADICTS",
+   "dst": "p_django-rules_maintained",
+   "props": {
+    "at": "2026-10-11",
+    "quote": "no commit to the default branch since 2025-10-11"
+   }
+  },
+  {
+   "src": "maintained:lunr:2021-08-19",
+   "rel": "CONTRADICTS",
+   "dst": "p_lunr_maintained",
+   "props": {
+    "at": "2021-08-19",
+    "quote": "no commit to the default branch since 2020-08-19"
+   }
+  },
+  {
+   "src": "maintained:gorilla-mux:2021-09-12",
+   "rel": "CONTRADICTS",
+   "dst": "p_gorilla-mux_maintained",
+   "props": {
+    "at": "2021-09-12",
+    "quote": "no commit to the default branch since 2020-09-12"
+   }
+  },
+  {
+   "src": "maintained:gorilla-mux:2021-09-14",
+   "rel": "SUPPORTS",
+   "dst": "p_gorilla-mux_maintained",
+   "props": {
+    "at": "2021-09-14",
+    "quote": "commits resume on 2021-09-14 after a gap since 2020-09-12"
+   }
+  },
+  {
+   "src": "maintained:gorilla-mux:2025-06-19",
+   "rel": "CONTRADICTS",
+   "dst": "p_gorilla-mux_maintained",
+   "props": {
+    "at": "2025-06-19",
+    "quote": "no commit to the default branch since 2024-06-19"
+   }
+  },
+  {
+   "src": "maintained:sqlx:2023-04-16",
+   "rel": "CONTRADICTS",
+   "dst": "p_sqlx_maintained",
+   "props": {
+    "at": "2023-04-16",
+    "quote": "no commit to the default branch since 2022-04-16"
+   }
+  },
+  {
+   "src": "maintained:sqlx:2024-04-15",
+   "rel": "SUPPORTS",
+   "dst": "p_sqlx_maintained",
+   "props": {
+    "at": "2024-04-15",
+    "quote": "commits resume on 2024-04-15 after a gap since 2022-04-16"
+   }
+  },
+  {
+   "src": "maintained:sqlx:2025-05-30",
+   "rel": "CONTRADICTS",
+   "dst": "p_sqlx_maintained",
+   "props": {
+    "at": "2025-05-30",
+    "quote": "no commit to the default branch since 2024-05-30"
+   }
+  },
+  {
+   "src": "open_source:terraform:2023-08-10",
+   "rel": "CONTRADICTS",
+   "dst": "p_terraform_open_source",
+   "props": {
+    "at": "2023-08-10",
+    "quote": "HashiCorp moves Terraform to the Business Source License"
+   }
+  },
+  {
+   "src": "maintained:prettier-eslint:2026-05-16",
+   "rel": "CONTRADICTS",
+   "dst": "p_prettier-eslint_maintained",
+   "props": {
+    "at": "2026-05-16",
+    "quote": "no commit to the default branch since 2025-05-16"
+   }
+  },
+  {
+   "src": "maintained:prettier-eslint:2026-06-14",
+   "rel": "SUPPORTS",
+   "dst": "p_prettier-eslint_maintained",
+   "props": {
+    "at": "2026-06-14",
+    "quote": "commits resume on 2026-06-14 after a gap since 2025-05-16"
+   }
+  },
+  {
+   "src": "maintained:bridgekeeper:2022-10-06",
+   "rel": "CONTRADICTS",
+   "dst": "p_bridgekeeper_maintained",
+   "props": {
+    "at": "2022-10-06",
+    "quote": "no commit to the default branch since 2021-10-06"
+   }
+  },
+  {
+   "src": "maintained:toastui:2024-02-17",
+   "rel": "CONTRADICTS",
+   "dst": "p_toastui_maintained",
+   "props": {
+    "at": "2024-02-17",
+    "quote": "no commit to the default branch since 2023-02-17"
+   }
+  },
+  {
+   "src": "maintained:vue:2025-10-10",
+   "rel": "CONTRADICTS",
+   "dst": "p_vue_maintained",
+   "props": {
+    "at": "2025-10-10",
+    "quote": "no commit to the default branch since 2024-10-10"
+   }
+  },
+  {
+   "src": "open_source:consul:2023-08-10",
+   "rel": "CONTRADICTS",
+   "dst": "p_consul_open_source",
+   "props": {
+    "at": "2023-08-10",
+    "quote": "HashiCorp moves Consul to the Business Source License"
+   }
+  },
+  {
+   "src": "maintained:puppet:2025-12-10",
+   "rel": "CONTRADICTS",
+   "dst": "p_puppet_maintained",
+   "props": {
+    "at": "2025-12-10",
+    "quote": "no commit to the default branch since 2024-12-10"
+   }
+  },
+  {
+   "src": "open_source:kibana:2021-01-14",
+   "rel": "CONTRADICTS",
+   "dst": "p_kibana_open_source",
+   "props": {
+    "at": "2021-01-14",
+    "quote": "Elastic moves Kibana from Apache 2.0 to SSPL / Elastic License"
+   }
+  },
+  {
+   "src": "open_source:kibana:2024-08-29",
+   "rel": "SUPPORTS",
+   "dst": "p_kibana_open_source",
+   "props": {
+    "at": "2024-08-29",
+    "quote": "Elastic adds AGPLv3 as a license option"
+   }
+  },
+  {
+   "src": "maintained:kubeless:2022-12-15",
+   "rel": "CONTRADICTS",
+   "dst": "p_kubeless_maintained",
+   "props": {
+    "at": "2022-12-15",
+    "quote": "no commit to the default branch since 2021-12-15"
+   }
+  },
+  {
+   "src": "open_source:elasticsearch:2021-01-14",
+   "rel": "CONTRADICTS",
+   "dst": "p_elasticsearch_open_source",
+   "props": {
+    "at": "2021-01-14",
+    "quote": "Elastic moves Elasticsearch from Apache 2.0 to SSPL / Elastic License"
+   }
+  },
+  {
+   "src": "open_source:elasticsearch:2024-08-29",
+   "rel": "SUPPORTS",
+   "dst": "p_elasticsearch_open_source",
+   "props": {
+    "at": "2024-08-29",
+    "quote": "Elastic adds AGPLv3 as a license option"
+   }
+  },
+  {
+   "src": "open_source:nomad:2023-08-10",
+   "rel": "CONTRADICTS",
+   "dst": "p_nomad_open_source",
+   "props": {
+    "at": "2023-08-10",
+    "quote": "HashiCorp moves Nomad to the Business Source License"
+   }
+  },
+  {
+   "src": "open_source:redis:2024-03-20",
+   "rel": "CONTRADICTS",
+   "dst": "p_redis_open_source",
+   "props": {
+    "at": "2024-03-20",
+    "quote": "Redis moves from BSD to RSALv2 / SSPLv1"
+   }
+  },
+  {
+   "src": "open_source:redis:2025-05-01",
+   "rel": "SUPPORTS",
+   "dst": "p_redis_open_source",
+   "props": {
+    "at": "2025-05-01",
+    "quote": "Redis 8 adds AGPLv3 as a license option"
+   }
+  },
+  {
+   "src": "maintained:plantuml:2012-09-07",
+   "rel": "CONTRADICTS",
+   "dst": "p_plantuml_maintained",
+   "props": {
+    "at": "2012-09-07",
+    "quote": "no commit to the default branch since 2011-09-08"
+   }
+  },
+  {
+   "src": "maintained:plantuml:2013-12-10",
+   "rel": "SUPPORTS",
+   "dst": "p_plantuml_maintained",
+   "props": {
+    "at": "2013-12-10",
+    "quote": "commits resume on 2013-12-10 after a gap since 2011-09-08"
+   }
+  },
+  {
+   "src": "CMSgov/easi-app:0002-use-terraform.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_terraform_maintained",
+   "props": {
+    "quote": "Terraform is actively maintained"
+   }
+  },
+  {
+   "src": "CMSgov/easi-app:0002-use-terraform.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_terraform_open_source",
+   "props": {
+    "quote": "Terraform is open source"
+   }
+  },
+  {
+   "src": "CMSgov/easi-app:0012-backend-testing-suite.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_testify_maintained",
+   "props": {
+    "quote": "Testify is actively maintained"
+   }
+  },
+  {
+   "src": "CMSgov/easi-app:0012-backend-testing-suite.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_testify_open_source",
+   "props": {
+    "quote": "Testify is open source"
+   }
+  },
+  {
+   "src": "CMSgov/easi-app:0014-use-mux-for-routing.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_gorilla-mux_maintained",
+   "props": {
+    "quote": "gorilla/mux is actively maintained"
+   }
+  },
+  {
+   "src": "CMSgov/easi-app:0014-use-mux-for-routing.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_gorilla-mux_open_source",
+   "props": {
+    "quote": "gorilla/mux is open source"
+   }
+  },
+  {
+   "src": "CMSgov/easi-app:0016-migration-tool.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_flyway_maintained",
+   "props": {
+    "quote": "Flyway is actively maintained"
+   }
+  },
+  {
+   "src": "CMSgov/easi-app:0016-migration-tool.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_flyway_open_source",
+   "props": {
+    "quote": "Flyway is open source"
+   }
+  },
+  {
+   "src": "CMSgov/easi-app:0017-go-orm.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_sqlx_maintained",
+   "props": {
+    "quote": "sqlx is actively maintained"
+   }
+  },
+  {
+   "src": "CMSgov/easi-app:0017-go-orm.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_sqlx_open_source",
+   "props": {
+    "quote": "sqlx is open source"
+   }
+  },
+  {
+   "src": "CMSgov/easi-app:0028-use-react-testing-library.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_rtl_maintained",
+   "props": {
+    "quote": "React Testing Library is actively maintained"
+   }
+  },
+  {
+   "src": "CMSgov/easi-app:0028-use-react-testing-library.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_rtl_open_source",
+   "props": {
+    "quote": "React Testing Library is open source"
+   }
+  },
+  {
+   "src": "CMSgov/easi-app:0036-rich-text-editor.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_toastui_maintained",
+   "props": {
+    "quote": "TOAST UI Editor is actively maintained"
+   }
+  },
+  {
+   "src": "CMSgov/easi-app:0036-rich-text-editor.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_toastui_open_source",
+   "props": {
+    "quote": "TOAST UI Editor is open source"
+   }
+  },
+  {
+   "src": "CMSgov/easi-app:0038-replace-craco-with-vite.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_vite_maintained",
+   "props": {
+    "quote": "Vite is actively maintained"
+   }
+  },
+  {
+   "src": "CMSgov/easi-app:0038-replace-craco-with-vite.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_vite_open_source",
+   "props": {
+    "quote": "Vite is open source"
+   }
+  },
+  {
+   "src": "DFE-Digital/apply-for-teacher-training:0002-use-devise-for-authentication.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_devise_maintained",
+   "props": {
+    "quote": "Devise is actively maintained"
+   }
+  },
+  {
+   "src": "DFE-Digital/apply-for-teacher-training:0002-use-devise-for-authentication.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_devise_open_source",
+   "props": {
+    "quote": "Devise is open source"
+   }
+  },
+  {
+   "src": "DFE-Digital/find-a-lost-trn:00003-use-rails.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_rails_maintained",
+   "props": {
+    "quote": "Ruby on Rails is actively maintained"
+   }
+  },
+  {
+   "src": "DFE-Digital/find-a-lost-trn:00003-use-rails.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_rails_open_source",
+   "props": {
+    "quote": "Ruby on Rails is open source"
+   }
+  },
+  {
+   "src": "DFE-Digital/find-a-lost-trn:00004-use-postgres-state.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_postgres_maintained",
+   "props": {
+    "quote": "PostgreSQL is actively maintained"
+   }
+  },
+  {
+   "src": "DFE-Digital/find-a-lost-trn:00004-use-postgres-state.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_postgres_open_source",
+   "props": {
+    "quote": "PostgreSQL is open source"
+   }
+  },
+  {
+   "src": "DFE-Digital/find-a-lost-trn:00006-sidekiq-and-redis.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redis_maintained",
+   "props": {
+    "quote": "Redis is actively maintained"
+   }
+  },
+  {
+   "src": "DFE-Digital/find-a-lost-trn:00006-sidekiq-and-redis.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redis_open_source",
+   "props": {
+    "quote": "Redis is open source"
+   }
+  },
+  {
+   "src": "GSA/notifications-api:0006-use-for-dependency-management.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_poetry_maintained",
+   "props": {
+    "quote": "Poetry is actively maintained"
+   }
+  },
+  {
+   "src": "GSA/notifications-api:0006-use-for-dependency-management.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_poetry_open_source",
+   "props": {
+    "quote": "Poetry is open source"
+   }
+  },
+  {
+   "src": "HHS/Head-Start-TTADP:0007-use-plantuml-for-diagrams.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_plantuml_maintained",
+   "props": {
+    "quote": "PlantUML is actively maintained"
+   }
+  },
+  {
+   "src": "HHS/Head-Start-TTADP:0007-use-plantuml-for-diagrams.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_plantuml_open_source",
+   "props": {
+    "quote": "PlantUML is open source"
+   }
+  },
+  {
+   "src": "Maptio/maptio:0003-move-to-nx-monorepo-with-new-angular-app.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_nx_maintained",
+   "props": {
+    "quote": "Nx is actively maintained"
+   }
+  },
+  {
+   "src": "Maptio/maptio:0003-move-to-nx-monorepo-with-new-angular-app.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_nx_open_source",
+   "props": {
+    "quote": "Nx is open source"
+   }
+  },
+  {
+   "src": "SmartBear/git-en-boite:0009-prefer-dugite-over-raw-git-commands-in-tests.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_dugite_maintained",
+   "props": {
+    "quote": "dugite is actively maintained"
+   }
+  },
+  {
+   "src": "SmartBear/git-en-boite:0009-prefer-dugite-over-raw-git-commands-in-tests.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_dugite_open_source",
+   "props": {
+    "quote": "dugite is open source"
+   }
+  },
+  {
+   "src": "alphagov/govuk-aws:0007-puppet-cert-management.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_puppet_maintained",
+   "props": {
+    "quote": "Puppet is actively maintained"
+   }
+  },
+  {
+   "src": "alphagov/govuk-aws:0007-puppet-cert-management.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_puppet_open_source",
+   "props": {
+    "quote": "Puppet is open source"
+   }
+  },
+  {
+   "src": "alphagov/govuk-aws:0008-postgres-on-puppetmaster.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_puppet_maintained",
+   "props": {
+    "quote": "Puppet is actively maintained"
+   }
+  },
+  {
+   "src": "alphagov/govuk-aws:0008-postgres-on-puppetmaster.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_puppet_open_source",
+   "props": {
+    "quote": "Puppet is open source"
+   }
+  },
+  {
+   "src": "alphagov/govuk-aws:0012-security-groups-in-terraform.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_terraform_maintained",
+   "props": {
+    "quote": "Terraform is actively maintained"
+   }
+  },
+  {
+   "src": "alphagov/govuk-aws:0012-security-groups-in-terraform.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_terraform_open_source",
+   "props": {
+    "quote": "Terraform is open source"
+   }
+  },
+  {
+   "src": "alphagov/govuk-aws:0025-use-elasticache-for-redis.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redis_maintained",
+   "props": {
+    "quote": "Redis is actively maintained"
+   }
+  },
+  {
+   "src": "alphagov/govuk-aws:0025-use-elasticache-for-redis.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redis_open_source",
+   "props": {
+    "quote": "Redis is open source"
+   }
+  },
+  {
+   "src": "alphagov/govuk-aws:0029-combine-api-redis-into-backend-redis.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redis_maintained",
+   "props": {
+    "quote": "Redis is actively maintained"
+   }
+  },
+  {
+   "src": "alphagov/govuk-aws:0029-combine-api-redis-into-backend-redis.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redis_open_source",
+   "props": {
+    "quote": "Redis is open source"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0002-use-aws-eks-terraform-module.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_maintained",
+   "props": {
+    "quote": "Kubernetes is actively maintained"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0002-use-aws-eks-terraform-module.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_open_source",
+   "props": {
+    "quote": "Kubernetes is open source"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0002-use-aws-eks-terraform-module.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_tf-aws-eks_maintained",
+   "props": {
+    "quote": "terraform-aws-eks module is actively maintained"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0002-use-aws-eks-terraform-module.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_tf-aws-eks_open_source",
+   "props": {
+    "quote": "terraform-aws-eks module is open source"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_aws-lbc_maintained",
+   "props": {
+    "quote": "AWS Load Balancer Controller is actively maintained"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_aws-lbc_open_source",
+   "props": {
+    "quote": "AWS Load Balancer Controller is open source"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0005-use-eks-managed-node-groups.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_maintained",
+   "props": {
+    "quote": "Kubernetes is actively maintained"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0005-use-eks-managed-node-groups.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_open_source",
+   "props": {
+    "quote": "Kubernetes is open source"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0006-use-helm-for-application-package-management.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_helm_maintained",
+   "props": {
+    "quote": "Helm is actively maintained"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0006-use-helm-for-application-package-management.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_helm_open_source",
+   "props": {
+    "quote": "Helm is open source"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_elasticsearch_maintained",
+   "props": {
+    "quote": "Elasticsearch is actively maintained"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_elasticsearch_open_source",
+   "props": {
+    "quote": "Elasticsearch is open source"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_fluent-bit_maintained",
+   "props": {
+    "quote": "Fluent Bit is actively maintained"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_fluent-bit_open_source",
+   "props": {
+    "quote": "Fluent Bit is open source"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kibana_maintained",
+   "props": {
+    "quote": "Kibana is actively maintained"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kibana_open_source",
+   "props": {
+    "quote": "Kibana is open source"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0008-use-external-secrets-for-secrets-storage.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_external-secrets_maintained",
+   "props": {
+    "quote": "external-secrets is actively maintained"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0008-use-external-secrets-for-secrets-storage.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_external-secrets_open_source",
+   "props": {
+    "quote": "external-secrets is open source"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0009-use-external-dns-for-dns-record-management.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_external-dns_maintained",
+   "props": {
+    "quote": "external-dns is actively maintained"
+   }
+  },
+  {
+   "src": "alphagov/govuk-infrastructure:0009-use-external-dns-for-dns-record-management.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_external-dns_open_source",
+   "props": {
+    "quote": "external-dns is open source"
+   }
+  },
+  {
+   "src": "apache/james-project:0019-reactor-netty-adoption.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_reactor-netty_maintained",
+   "props": {
+    "quote": "Reactor Netty is actively maintained"
+   }
+  },
+  {
+   "src": "apache/james-project:0019-reactor-netty-adoption.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_reactor-netty_open_source",
+   "props": {
+    "quote": "Reactor Netty is open source"
+   }
+  },
+  {
+   "src": "apache/james-project:0033-use-scala-in-event-sourcing-modules.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_scala_maintained",
+   "props": {
+    "quote": "Scala is actively maintained"
+   }
+  },
+  {
+   "src": "apache/james-project:0033-use-scala-in-event-sourcing-modules.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_scala_open_source",
+   "props": {
+    "quote": "Scala is open source"
+   }
+  },
+  {
+   "src": "apache/james-project:0052-pulsar-mailqueue.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_pulsar_maintained",
+   "props": {
+    "quote": "Apache Pulsar is actively maintained"
+   }
+  },
+  {
+   "src": "apache/james-project:0052-pulsar-mailqueue.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_pulsar_open_source",
+   "props": {
+    "quote": "Apache Pulsar is open source"
+   }
+  },
+  {
+   "src": "apache/james-project:0054-elasticsearch-search-overrides.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_elasticsearch_maintained",
+   "props": {
+    "quote": "Elasticsearch is actively maintained"
+   }
+  },
+  {
+   "src": "apache/james-project:0054-elasticsearch-search-overrides.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_elasticsearch_open_source",
+   "props": {
+    "quote": "Elasticsearch is open source"
+   }
+  },
+  {
+   "src": "apache/james-project:0055-rspamd-spam-filtering.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_rspamd_maintained",
+   "props": {
+    "quote": "Rspamd is actively maintained"
+   }
+  },
+  {
+   "src": "apache/james-project:0055-rspamd-spam-filtering.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_rspamd_open_source",
+   "props": {
+    "quote": "Rspamd is open source"
+   }
+  },
+  {
+   "src": "apache/james-project:0056-opensearch-migration.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_opensearch_maintained",
+   "props": {
+    "quote": "OpenSearch is actively maintained"
+   }
+  },
+  {
+   "src": "apache/james-project:0056-opensearch-migration.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_opensearch_open_source",
+   "props": {
+    "quote": "OpenSearch is open source"
+   }
+  },
+  {
+   "src": "apache/james-project:0058-upgrade-to-netty-4.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_netty_maintained",
+   "props": {
+    "quote": "Netty is actively maintained"
+   }
+  },
+  {
+   "src": "apache/james-project:0058-upgrade-to-netty-4.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_netty_open_source",
+   "props": {
+    "quote": "Netty is open source"
+   }
+  },
+  {
+   "src": "apache/james-project:0059-upgrade-to-cassadra-driver-4.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_cassandra-driver_maintained",
+   "props": {
+    "quote": "Cassandra Java driver is actively maintained"
+   }
+  },
+  {
+   "src": "apache/james-project:0059-upgrade-to-cassadra-driver-4.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_cassandra-driver_open_source",
+   "props": {
+    "quote": "Cassandra Java driver is open source"
+   }
+  },
+  {
+   "src": "backstage/backstage:adr006-avoid-react-fc",
+   "rel": "BECAUSE_OF",
+   "dst": "p_react_maintained",
+   "props": {
+    "quote": "React is actively maintained"
+   }
+  },
+  {
+   "src": "backstage/backstage:adr006-avoid-react-fc",
+   "rel": "BECAUSE_OF",
+   "dst": "p_react_open_source",
+   "props": {
+    "quote": "React is open source"
+   }
+  },
+  {
+   "src": "backstage/backstage:adr007-use-msw-to-mock-service-requests.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_msw_maintained",
+   "props": {
+    "quote": "Mock Service Worker is actively maintained"
+   }
+  },
+  {
+   "src": "backstage/backstage:adr007-use-msw-to-mock-service-requests.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_msw_open_source",
+   "props": {
+    "quote": "Mock Service Worker is open source"
+   }
+  },
+  {
+   "src": "backstage/backstage:adr010-luxon-date-library.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_luxon_maintained",
+   "props": {
+    "quote": "Luxon is actively maintained"
+   }
+  },
+  {
+   "src": "backstage/backstage:adr010-luxon-date-library.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_luxon_open_source",
+   "props": {
+    "quote": "Luxon is open source"
+   }
+  },
+  {
+   "src": "backstage/backstage:adr012-use-luxon-locale-and-date-presets.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_luxon_maintained",
+   "props": {
+    "quote": "Luxon is actively maintained"
+   }
+  },
+  {
+   "src": "backstage/backstage:adr012-use-luxon-locale-and-date-presets.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_luxon_open_source",
+   "props": {
+    "quote": "Luxon is open source"
+   }
+  },
+  {
+   "src": "change-metrics/monocle:0002-Choice-of-Elasticsearch.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_elasticsearch_maintained",
+   "props": {
+    "quote": "Elasticsearch is actively maintained"
+   }
+  },
+  {
+   "src": "change-metrics/monocle:0002-Choice-of-Elasticsearch.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_elasticsearch_open_source",
+   "props": {
+    "quote": "Elasticsearch is open source"
+   }
+  },
+  {
+   "src": "change-metrics/monocle:0003-Choice-of-React.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_react_maintained",
+   "props": {
+    "quote": "React is actively maintained"
+   }
+  },
+  {
+   "src": "change-metrics/monocle:0003-Choice-of-React.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_react_open_source",
+   "props": {
+    "quote": "React is open source"
+   }
+  },
+  {
+   "src": "cljdoc/cljdoc:0010-use-terraform-to-create-document-infrastructure.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_terraform_maintained",
+   "props": {
+    "quote": "Terraform is actively maintained"
+   }
+  },
+  {
+   "src": "cljdoc/cljdoc:0010-use-terraform-to-create-document-infrastructure.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_terraform_open_source",
+   "props": {
+    "quote": "Terraform is open source"
+   }
+  },
+  {
+   "src": "cljdoc/cljdoc:0013-move-to-sqlite-for-storage.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_sqlite_maintained",
+   "props": {
+    "quote": "SQLite is actively maintained"
+   }
+  },
+  {
+   "src": "cljdoc/cljdoc:0013-move-to-sqlite-for-storage.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_sqlite_open_source",
+   "props": {
+    "quote": "SQLite is open source"
+   }
+  },
+  {
+   "src": "cljdoc/cljdoc:0017-use-nomad-for-deployment.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_nomad_maintained",
+   "props": {
+    "quote": "Nomad is actively maintained"
+   }
+  },
+  {
+   "src": "cljdoc/cljdoc:0017-use-nomad-for-deployment.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_nomad_open_source",
+   "props": {
+    "quote": "Nomad is open source"
+   }
+  },
+  {
+   "src": "cloudfoundry/korifi:0007-use-contour-for-ingress.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_contour_maintained",
+   "props": {
+    "quote": "Contour is actively maintained"
+   }
+  },
+  {
+   "src": "cloudfoundry/korifi:0007-use-contour-for-ingress.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_contour_open_source",
+   "props": {
+    "quote": "Contour is open source"
+   }
+  },
+  {
+   "src": "defenseunicorns/pepr:0003-use-commonjs-and-esbuild.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_esbuild_maintained",
+   "props": {
+    "quote": "esbuild is actively maintained"
+   }
+  },
+  {
+   "src": "defenseunicorns/pepr:0003-use-commonjs-and-esbuild.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_esbuild_open_source",
+   "props": {
+    "quote": "esbuild is open source"
+   }
+  },
+  {
+   "src": "defenseunicorns/pepr:0005-migrate-to-jest-and-refactor-e2e-to-journey-tests.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_jest_maintained",
+   "props": {
+    "quote": "Jest is actively maintained"
+   }
+  },
+  {
+   "src": "defenseunicorns/pepr:0005-migrate-to-jest-and-refactor-e2e-to-journey-tests.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_jest_open_source",
+   "props": {
+    "quote": "Jest is open source"
+   }
+  },
+  {
+   "src": "edgexfoundry/edgex-docs:0017-consul-security.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_consul_maintained",
+   "props": {
+    "quote": "Consul is actively maintained"
+   }
+  },
+  {
+   "src": "edgexfoundry/edgex-docs:0017-consul-security.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_consul_open_source",
+   "props": {
+    "quote": "Consul is open source"
+   }
+  },
+  {
+   "src": "edgexfoundry/edgex-docs:0019-spiffe.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_spire_maintained",
+   "props": {
+    "quote": "SPIFFE/SPIRE is actively maintained"
+   }
+  },
+  {
+   "src": "edgexfoundry/edgex-docs:0019-spiffe.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_spire_open_source",
+   "props": {
+    "quote": "SPIFFE/SPIRE is open source"
+   }
+  },
+  {
+   "src": "guardian/dotcom-rendering:use-percy-for-e2e-visual-regression-testing.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_cypress_maintained",
+   "props": {
+    "quote": "Cypress is actively maintained"
+   }
+  },
+  {
+   "src": "guardian/dotcom-rendering:use-percy-for-e2e-visual-regression-testing.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_cypress_open_source",
+   "props": {
+    "quote": "Cypress is open source"
+   }
+  },
+  {
+   "src": "kyma-project/community:dr-002-Traefik_as_an_API_Gateway.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_traefik_maintained",
+   "props": {
+    "quote": "Traefik is actively maintained"
+   }
+  },
+  {
+   "src": "kyma-project/community:dr-002-Traefik_as_an_API_Gateway.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_traefik_open_source",
+   "props": {
+    "quote": "Traefik is open source"
+   }
+  },
+  {
+   "src": "kyma-project/community:dr-005-Istio_as_the_API_Gateway.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_istio_maintained",
+   "props": {
+    "quote": "Istio is actively maintained"
+   }
+  },
+  {
+   "src": "kyma-project/community:dr-005-Istio_as_the_API_Gateway.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_istio_open_source",
+   "props": {
+    "quote": "Istio is open source"
+   }
+  },
+  {
+   "src": "kyma-project/community:dr-006-Kubeless_as_the_Faas_solution.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubeless_maintained",
+   "props": {
+    "quote": "Kubeless is actively maintained"
+   }
+  },
+  {
+   "src": "kyma-project/community:dr-006-Kubeless_as_the_Faas_solution.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubeless_open_source",
+   "props": {
+    "quote": "Kubeless is open source"
+   }
+  },
+  {
+   "src": "kyma-project/community:dr-011-Jaeger_as_a_tracing_back-end.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_jaeger_maintained",
+   "props": {
+    "quote": "Jaeger is actively maintained"
+   }
+  },
+  {
+   "src": "kyma-project/community:dr-011-Jaeger_as_a_tracing_back-end.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_jaeger_open_source",
+   "props": {
+    "quote": "Jaeger is open source"
+   }
+  },
+  {
+   "src": "kyma-project/community:dr-012-Prettier_as_JavaScript_code_formatter.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prettier_maintained",
+   "props": {
+    "quote": "Prettier is actively maintained"
+   }
+  },
+  {
+   "src": "kyma-project/community:dr-012-Prettier_as_JavaScript_code_formatter.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prettier_open_source",
+   "props": {
+    "quote": "Prettier is open source"
+   }
+  },
+  {
+   "src": "ministryofjustice/cloud-platform:001-Use-AWS-hosted-elasticsearch.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_elasticsearch_maintained",
+   "props": {
+    "quote": "Elasticsearch is actively maintained"
+   }
+  },
+  {
+   "src": "ministryofjustice/cloud-platform:001-Use-AWS-hosted-elasticsearch.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_elasticsearch_open_source",
+   "props": {
+    "quote": "Elasticsearch is open source"
+   }
+  },
+  {
+   "src": "ministryofjustice/cloud-platform:003-Use-Concourse-CI.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_concourse_maintained",
+   "props": {
+    "quote": "Concourse CI is actively maintained"
+   }
+  },
+  {
+   "src": "ministryofjustice/cloud-platform:003-Use-Concourse-CI.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_concourse_open_source",
+   "props": {
+    "quote": "Concourse CI is open source"
+   }
+  },
+  {
+   "src": "ministryofjustice/cloud-platform:004-use-kubernetes-for-container-management.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_maintained",
+   "props": {
+    "quote": "Kubernetes is actively maintained"
+   }
+  },
+  {
+   "src": "ministryofjustice/cloud-platform:004-use-kubernetes-for-container-management.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_open_source",
+   "props": {
+    "quote": "Kubernetes is open source"
+   }
+  },
+  {
+   "src": "ministryofjustice/cloud-platform:011-Introduce-Open-Policy-Agent.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_opa_maintained",
+   "props": {
+    "quote": "Open Policy Agent is actively maintained"
+   }
+  },
+  {
+   "src": "ministryofjustice/cloud-platform:011-Introduce-Open-Policy-Agent.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_opa_open_source",
+   "props": {
+    "quote": "Open Policy Agent is open source"
+   }
+  },
+  {
+   "src": "ministryofjustice/cloud-platform:014-Why-we-build-our-own-kubernetes-cluster.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_maintained",
+   "props": {
+    "quote": "Kubernetes is actively maintained"
+   }
+  },
+  {
+   "src": "ministryofjustice/cloud-platform:014-Why-we-build-our-own-kubernetes-cluster.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_open_source",
+   "props": {
+    "quote": "Kubernetes is open source"
+   }
+  },
+  {
+   "src": "ministryofjustice/cloud-platform:016-Kibana-is-open-to-all-service-teams.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kibana_maintained",
+   "props": {
+    "quote": "Kibana is actively maintained"
+   }
+  },
+  {
+   "src": "ministryofjustice/cloud-platform:016-Kibana-is-open-to-all-service-teams.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kibana_open_source",
+   "props": {
+    "quote": "Kibana is open source"
+   }
+  },
+  {
+   "src": "ministryofjustice/cloud-platform:022-EKS.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_maintained",
+   "props": {
+    "quote": "Kubernetes is actively maintained"
+   }
+  },
+  {
+   "src": "ministryofjustice/cloud-platform:022-EKS.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_kubernetes_open_source",
+   "props": {
+    "quote": "Kubernetes is open source"
+   }
+  },
+  {
+   "src": "ministryofjustice/modernisation-platform:0007-use-terratest-opa-and-go-for-testing.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_opa_maintained",
+   "props": {
+    "quote": "Open Policy Agent is actively maintained"
+   }
+  },
+  {
+   "src": "ministryofjustice/modernisation-platform:0007-use-terratest-opa-and-go-for-testing.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_opa_open_source",
+   "props": {
+    "quote": "Open Policy Agent is open source"
+   }
+  },
+  {
+   "src": "ministryofjustice/modernisation-platform:0007-use-terratest-opa-and-go-for-testing.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_terratest_maintained",
+   "props": {
+    "quote": "Terratest is actively maintained"
+   }
+  },
+  {
+   "src": "ministryofjustice/modernisation-platform:0007-use-terratest-opa-and-go-for-testing.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_terratest_open_source",
+   "props": {
+    "quote": "Terratest is open source"
+   }
+  },
+  {
+   "src": "mozilla/fxa:0002-use-react-redux-and-typescript-for-subscription-management-pages.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_react_maintained",
+   "props": {
+    "quote": "React is actively maintained"
+   }
+  },
+  {
+   "src": "mozilla/fxa:0002-use-react-redux-and-typescript-for-subscription-management-pages.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_react_open_source",
+   "props": {
+    "quote": "React is open source"
+   }
+  },
+  {
+   "src": "mozilla/fxa:0002-use-react-redux-and-typescript-for-subscription-management-pages.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redux_maintained",
+   "props": {
+    "quote": "Redux is actively maintained"
+   }
+  },
+  {
+   "src": "mozilla/fxa:0002-use-react-redux-and-typescript-for-subscription-management-pages.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redux_open_source",
+   "props": {
+    "quote": "Redux is open source"
+   }
+  },
+  {
+   "src": "mozilla/fxa:0010-transition-fxa-from-backbone-to-react.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_react_maintained",
+   "props": {
+    "quote": "React is actively maintained"
+   }
+  },
+  {
+   "src": "mozilla/fxa:0010-transition-fxa-from-backbone-to-react.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_react_open_source",
+   "props": {
+    "quote": "React is open source"
+   }
+  },
+  {
+   "src": "mozilla/fxa:0016-use-graphql-and-apollo-for-settings-redesign.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_apollo_maintained",
+   "props": {
+    "quote": "Apollo Client is actively maintained"
+   }
+  },
+  {
+   "src": "mozilla/fxa:0016-use-graphql-and-apollo-for-settings-redesign.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_apollo_open_source",
+   "props": {
+    "quote": "Apollo Client is open source"
+   }
+  },
+  {
+   "src": "mozilla/fxa:0021-use-internjs-testing.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_intern_maintained",
+   "props": {
+    "quote": "Intern is actively maintained"
+   }
+  },
+  {
+   "src": "mozilla/fxa:0021-use-internjs-testing.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_intern_open_source",
+   "props": {
+    "quote": "Intern is open source"
+   }
+  },
+  {
+   "src": "mozilla/fxa:0035-refactor-payments-frontend-with-nextjs.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_nextjs_maintained",
+   "props": {
+    "quote": "Next.js is actively maintained"
+   }
+  },
+  {
+   "src": "mozilla/fxa:0035-refactor-payments-frontend-with-nextjs.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_nextjs_open_source",
+   "props": {
+    "quote": "Next.js is open source"
+   }
+  },
+  {
+   "src": "mozilla/fxa:0037-use-nx-for-monorepo.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_nx_maintained",
+   "props": {
+    "quote": "Nx is actively maintained"
+   }
+  },
+  {
+   "src": "mozilla/fxa:0037-use-nx-for-monorepo.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_nx_open_source",
+   "props": {
+    "quote": "Nx is open source"
+   }
+  },
+  {
+   "src": "openedx/edx-enterprise:0012-enterprise-feature-flags-waffle.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_waffle_maintained",
+   "props": {
+    "quote": "django-waffle is actively maintained"
+   }
+  },
+  {
+   "src": "openedx/edx-enterprise:0012-enterprise-feature-flags-waffle.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_waffle_open_source",
+   "props": {
+    "quote": "django-waffle is open source"
+   }
+  },
+  {
+   "src": "openedx/edx-platform:0001-refactor-waffle-flag-default.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_waffle_maintained",
+   "props": {
+    "quote": "django-waffle is actively maintained"
+   }
+  },
+  {
+   "src": "openedx/edx-platform:0001-refactor-waffle-flag-default.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_waffle_open_source",
+   "props": {
+    "quote": "django-waffle is open source"
+   }
+  },
+  {
+   "src": "openedx/edx-platform:0002-waffle-utils-extraction.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_waffle_maintained",
+   "props": {
+    "quote": "django-waffle is actively maintained"
+   }
+  },
+  {
+   "src": "openedx/edx-platform:0002-waffle-utils-extraction.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_waffle_open_source",
+   "props": {
+    "quote": "django-waffle is open source"
+   }
+  },
+  {
+   "src": "openedx/edx-platform:0003-permissions-via-bridgekeeper.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_bridgekeeper_maintained",
+   "props": {
+    "quote": "bridgekeeper is actively maintained"
+   }
+  },
+  {
+   "src": "openedx/edx-platform:0003-permissions-via-bridgekeeper.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_bridgekeeper_open_source",
+   "props": {
+    "quote": "bridgekeeper is open source"
+   }
+  },
+  {
+   "src": "openedx/edx-platform:0004-waffle-util-namespacing.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_waffle_maintained",
+   "props": {
+    "quote": "django-waffle is actively maintained"
+   }
+  },
+  {
+   "src": "openedx/edx-platform:0004-waffle-util-namespacing.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_waffle_open_source",
+   "props": {
+    "quote": "django-waffle is open source"
+   }
+  },
+  {
+   "src": "openedx/edx-platform:permissions.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_django-rules_maintained",
+   "props": {
+    "quote": "django-rules is actively maintained"
+   }
+  },
+  {
+   "src": "openedx/edx-platform:permissions.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_django-rules_open_source",
+   "props": {
+    "quote": "django-rules is open source"
+   }
+  },
+  {
+   "src": "openedx/frontend-app-learning:0006-thunk-and-api-naming.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redux_maintained",
+   "props": {
+    "quote": "Redux is actively maintained"
+   }
+  },
+  {
+   "src": "openedx/frontend-app-learning:0006-thunk-and-api-naming.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_redux_open_source",
+   "props": {
+    "quote": "Redux is open source"
+   }
+  },
+  {
+   "src": "openedx/frontend-platform:0004-axios-caching-implementation.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_axios_maintained",
+   "props": {
+    "quote": "Axios is actively maintained"
+   }
+  },
+  {
+   "src": "openedx/frontend-platform:0004-axios-caching-implementation.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_axios_open_source",
+   "props": {
+    "quote": "Axios is open source"
+   }
+  },
+  {
+   "src": "openedx/paragon:0009-usage-of-react-bootstrap.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_react-bootstrap_maintained",
+   "props": {
+    "quote": "React-Bootstrap is actively maintained"
+   }
+  },
+  {
+   "src": "openedx/paragon:0009-usage-of-react-bootstrap.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_react-bootstrap_open_source",
+   "props": {
+    "quote": "React-Bootstrap is open source"
+   }
+  },
+  {
+   "src": "openedx/paragon:0017-runtime-a11y-validation.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_react_maintained",
+   "props": {
+    "quote": "React is actively maintained"
+   }
+  },
+  {
+   "src": "openedx/paragon:0017-runtime-a11y-validation.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_react_open_source",
+   "props": {
+    "quote": "React is open source"
+   }
+  },
+  {
+   "src": "openedx/paragon:0019-scaling-styles-with-design-tokens.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_style-dictionary_maintained",
+   "props": {
+    "quote": "Style Dictionary is actively maintained"
+   }
+  },
+  {
+   "src": "openedx/paragon:0019-scaling-styles-with-design-tokens.rst",
+   "rel": "BECAUSE_OF",
+   "dst": "p_style-dictionary_open_source",
+   "props": {
+    "quote": "Style Dictionary is open source"
+   }
+  },
+  {
+   "src": "operate-first/blueprint:0004-argocd-apps-of-apps-structure.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_argocd_maintained",
+   "props": {
+    "quote": "Argo CD is actively maintained"
+   }
+  },
+  {
+   "src": "operate-first/blueprint:0004-argocd-apps-of-apps-structure.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_argocd_open_source",
+   "props": {
+    "quote": "Argo CD is open source"
+   }
+  },
+  {
+   "src": "operate-first/blueprint:0006-monitoring-structure.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prometheus_maintained",
+   "props": {
+    "quote": "Prometheus is actively maintained"
+   }
+  },
+  {
+   "src": "operate-first/blueprint:0006-monitoring-structure.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prometheus_open_source",
+   "props": {
+    "quote": "Prometheus is open source"
+   }
+  },
+  {
+   "src": "thomvaill/log4brains:20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_lerna_maintained",
+   "props": {
+    "quote": "Lerna is actively maintained"
+   }
+  },
+  {
+   "src": "thomvaill/log4brains:20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_lerna_open_source",
+   "props": {
+    "quote": "Lerna is open source"
+   }
+  },
+  {
+   "src": "thomvaill/log4brains:20200925-use-nextjs-for-static-site-generation.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_nextjs_maintained",
+   "props": {
+    "quote": "Next.js is actively maintained"
+   }
+  },
+  {
+   "src": "thomvaill/log4brains:20200925-use-nextjs-for-static-site-generation.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_nextjs_open_source",
+   "props": {
+    "quote": "Next.js is open source"
+   }
+  },
+  {
+   "src": "thomvaill/log4brains:20200925-use-prettier-eslint-airbnb-for-the-code-style.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prettier-eslint_maintained",
+   "props": {
+    "quote": "prettier-eslint is actively maintained"
+   }
+  },
+  {
+   "src": "thomvaill/log4brains:20200925-use-prettier-eslint-airbnb-for-the-code-style.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_prettier-eslint_open_source",
+   "props": {
+    "quote": "prettier-eslint is open source"
+   }
+  },
+  {
+   "src": "thomvaill/log4brains:20200927-avoid-react-fc-type.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_react_maintained",
+   "props": {
+    "quote": "React is actively maintained"
+   }
+  },
+  {
+   "src": "thomvaill/log4brains:20200927-avoid-react-fc-type.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_react_open_source",
+   "props": {
+    "quote": "React is open source"
+   }
+  },
+  {
+   "src": "thomvaill/log4brains:20201007-next-js-persistent-layout-pattern.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_nextjs_maintained",
+   "props": {
+    "quote": "Next.js is actively maintained"
+   }
+  },
+  {
+   "src": "thomvaill/log4brains:20201007-next-js-persistent-layout-pattern.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_nextjs_open_source",
+   "props": {
+    "quote": "Next.js is open source"
+   }
+  },
+  {
+   "src": "thomvaill/log4brains:20201103-use-lunr-for-search.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_lunr_maintained",
+   "props": {
+    "quote": "Lunr.js is actively maintained"
+   }
+  },
+  {
+   "src": "thomvaill/log4brains:20201103-use-lunr-for-search.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_lunr_open_source",
+   "props": {
+    "quote": "Lunr.js is open source"
+   }
+  },
+  {
+   "src": "wmde/fundraising-application:006_Vue.js.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_vue_maintained",
+   "props": {
+    "quote": "Vue.js 2 is actively maintained"
+   }
+  },
+  {
+   "src": "wmde/fundraising-application:006_Vue.js.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_vue_open_source",
+   "props": {
+    "quote": "Vue.js 2 is open source"
+   }
+  },
+  {
+   "src": "wmde/fundraising-application:010_Components_Framework.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_buefy_maintained",
+   "props": {
+    "quote": "Buefy is actively maintained"
+   }
+  },
+  {
+   "src": "wmde/fundraising-application:010_Components_Framework.md",
+   "rel": "BECAUSE_OF",
+   "dst": "p_buefy_open_source",
+   "props": {
+    "quote": "Buefy is open source"
+   }
+  }
+ ]
+}

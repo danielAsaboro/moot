@@ -62,6 +62,7 @@ AGENT_MODEL = os.getenv("MOOT_HELDOUT_AGENT_MODEL", "openai/gpt-oss-20b")
 OLLAMA = os.getenv("OLLAMA_URL", "http://localhost:11434")
 ARMS = ("moot", "moot_no_falkordb", "majority", "age", "trust_adr", "rag_bm25", "agent_tools")
 MODEL_ARMS = ("rag_bm25", "agent_tools")
+POSTHOC = ("moot_advisory",)  # added after the first test numbers were seen; never replaces a frozen row
 T0 = GOLD["t0"]
 
 
@@ -86,13 +87,20 @@ def years_before(day: str, n: int) -> str:
 
 # ---- arms without a model
 
-def arm_moot() -> dict[str, dict]:
+def arm_moot(advisory: bool = False) -> dict[str, dict]:
+    """advisory=True is the post-hoc row: licence checks count as DISPUTED, never expired (the rule moot/connectors/github.py
+    has applied to ingested repositories since ac86bea, which predates this study's gold), justified on the dev split only."""
     ev = merged()
     decisions = [dict(id=u["id"], title=u["title"], born=u["born"], url=g["url"], repo=u["repo"], tools=[t for t in u["tools"] if t in ev])
                  for g in GOLD["units"] for u in [UNITS[g["id"]]]]
     g = connect().select_graph(f"moot_eval_heldout_{os.getpid()}")
-    path = ROOT / "data" / "heldout" / "graph.json"
-    path.write_text(json.dumps(build(decisions, {t: ev[t] for t in {t for d in decisions for t in d["tools"]}}), indent=1))
+    path = ROOT / "data" / "heldout" / ("graph_advisory.json" if advisory else "graph.json")
+    payload = build(decisions, {t: ev[t] for t in {t for d in decisions for t in d["tools"]}})
+    if advisory:
+        for n in payload["nodes"]:
+            if n["label"] == "Premise" and n["props"].get("check") == "open_source":
+                n["props"]["advisory"] = True
+    path.write_text(json.dumps(payload, indent=1))
     seed(g, path, fresh=True)
     try:
         out = {}
@@ -375,7 +383,7 @@ def paired(a: dict, b: dict, units: list[dict]) -> dict:
     return dict(only_moot=only_a, only_other=only_b, p=mcnemar_exact(only_a, only_b))
 
 
-LABEL = dict(moot="**Moot gate (FalkorDB)**", moot_no_falkordb="Moot rules, FalkorDB removed (BM25 top 3)", majority="majority class",
+LABEL = dict(moot_advisory="Moot gate, licence checks advisory (post hoc)", moot="**Moot gate (FalkorDB)**", moot_no_falkordb="Moot rules, FalkorDB removed (BM25 top 3)", majority="majority class",
              age="age ≥ 3 years", trust_adr="trust the ADR's status", rag_bm25=f"BM25 RAG + {RAG_MODEL}",
              agent_tools=f"LLM agent with GitHub/OSV tools ({AGENT_MODEL})")
 
@@ -387,14 +395,14 @@ def main() -> None:
     arms = sys.argv[sys.argv.index("--arms") + 1].split(",") if "--arms" in sys.argv else MODEL_ARMS
     ids = [g["id"] for g in GOLD["units"] if not only or g["split"] == only]
     every = [g["id"] for g in GOLD["units"]]
-    preds = dict(moot=arm_moot(), moot_no_falkordb=arm_no_falkordb(), majority=arm_majority(), age=arm_age(), trust_adr=arm_trust(),
+    preds = dict(moot=arm_moot(), moot_advisory=arm_moot(advisory=True), moot_no_falkordb=arm_no_falkordb(), majority=arm_majority(), age=arm_age(), trust_adr=arm_trust(),
                  rag_bm25=arm_rag(fill and "rag_bm25" in arms, ids if fill else every),
                  agent_tools=arm_agent(fill and "agent_tools" in arms, ids if fill else every))
     res = {}
     for split in ("test", "dev"):
         us = [g for g in GOLD["units"] if g["split"] == split]
-        res[split] = {a: score(preds[a], us) for a in ARMS}
-        res[split]["paired_vs_moot"] = {a: paired(preds["moot"], preds[a], us) for a in ARMS if a != "moot"}
+        res[split] = {a: score(preds[a], us) for a in ARMS + POSTHOC}
+        res[split]["paired_vs_moot"] = {a: paired(preds["moot"], preds[a], us) for a in ARMS + POSTHOC if a != "moot"}
     test = [g for g in GOLD["units"] if g["split"] == "test"]
     ag = [preds["agent_tools"][u["id"]] for u in test if u["id"] in preds["agent_tools"]]
     cost = dict(units=len(ag), tokens_in=sum(x["tokens_in"] for x in ag), tokens_out=sum(x["tokens_out"] for x in ag),
@@ -404,7 +412,18 @@ def main() -> None:
     rag_cost = dict(units=len(rg), seconds_median=sorted(x["seconds"] for x in rg)[len(rg) // 2] if rg else None)
     rows = [dict(id=g["id"], split=g["split"], gold=g["gold"], backed_by=g["backed_by"], **{a: preds[a].get(g["id"], {}).get("pred") for a in ARMS},
                  moot_why=preds["moot"][g["id"]]["why"]) for g in GOLD["units"]]
-    result = dict(t0=T0, end=GOLD["end"], gold_sha256=GOLD["sha256"], results=res, agent_cost=cost, rag_cost=rag_cost, rows=rows,
+    # A1: what an agent asking each gatekeeper on T0 would have been allowed to do (docs/studies.md A1)
+    allows = dict(moot=lambda i: preds["moot"][i]["gate"] == "ALLOW", trust_adr=lambda i: True,
+                  age=lambda i: preds["age"][i]["pred"] == "HOLDS",
+                  rag_bm25=lambda i: preds["rag_bm25"].get(i, {}).get("pred") == "HOLDS",
+                  agent_tools=lambda i: preds["agent_tools"].get(i, {}).get("pred") == "HOLDS")
+    dead_t = [u for u in test if u["gold"] == "DEAD"]
+    held_t = [u for u in test if u["gold"] == "HOLDS"]
+    agent_gate = {a: dict(dead_allowed=sum(f(u["id"]) for u in dead_t), dead=len(dead_t), dead_allowed_ci=wilson(sum(f(u["id"]) for u in dead_t), len(dead_t)),
+                          held_blocked=sum(not f(u["id"]) for u in held_t), held=len(held_t),
+                          held_blocked_ci=wilson(sum(not f(u["id"]) for u in held_t), len(held_t)))
+                  for a, f in allows.items()}
+    result = dict(t0=T0, end=GOLD["end"], gold_sha256=GOLD["sha256"], results=res, agent_cost=cost, rag_cost=rag_cost, rows=rows, agent_gate=agent_gate,
                   models=dict(rag_bm25=RAG_MODEL, agent_tools=AGENT_MODEL))
     (OUT / "results_heldout.json").write_text(json.dumps(result, indent=1) + "\n")
     (OUT / "results_heldout.md").write_text(markdown(result))
@@ -434,10 +453,32 @@ def markdown(R: dict) -> str:
         L.append(f"| {LABEL[a]} | {s['right']}/{s['n']} | {s['accuracy']:.2f} ({s['accuracy_ci'][0]:.2f}–{s['accuracy_ci'][1]:.2f}) | "
                  f"{s['caught']}/{s['dead']} | {s['flagged'] - s['caught']}/{s['holds']} | {prec} | {s['balanced_accuracy']:.2f} | "
                  + (f"{pv['only_moot']} / {pv['only_other']}, p = {pv['p']:.3f}" if pv else "–") + " |")
+    L += ["", "**Post hoc, added after the first test numbers were seen and justified on the dev split only** (4 of Moot's 5 dev false "
+          "alarms were licence changes: Terraform, Consul, Elasticsearch, Kibana). It applies the rule Moot already uses for ingested "
+          "repositories (licence checks are advisory unless a stated reason depends on them; commit ac86bea, written before this study's "
+          "gold) to the same graph. It does not replace the frozen row above.", "",
+          "| arm | right | accuracy (95% CI) | DEAD caught (recall) | false alarms (HOLDS called DEAD) | precision of DEAD calls | balanced accuracy | vs Moot (only Moot right / only it right, exact McNemar p) |",
+          "|---|---|---|---|---|---|---|---|"]
+    for a in POSTHOC:
+        s = t[a]
+        pv = t["paired_vs_moot"][a]
+        prec = f"{s['caught']}/{s['flagged']} ({s['precision']:.2f})" if s["flagged"] else "no DEAD calls"
+        L.append(f"| {LABEL[a]} | {s['right']}/{s['n']} | {s['accuracy']:.2f} ({s['accuracy_ci'][0]:.2f}–{s['accuracy_ci'][1]:.2f}) | "
+                 f"{s['caught']}/{s['dead']} | {s['flagged'] - s['caught']}/{s['holds']} | {prec} | {s['balanced_accuracy']:.2f} | "
+                 f"{pv['only_moot']} / {pv['only_other']}, p = {pv['p']:.3f} |")
     c, rc = R["agent_cost"], R["rag_cost"]
     L += ["", f"Agent cost on the test split: {c['tokens_in']:,} tokens in, {c['tokens_out']:,} out, ${c['usd']:.4f}, {c['tool_calls']} tool calls, "
               f"median {c['ms_median']} ms of model time per decision. BM25 RAG: median {rc['seconds_median']} s per decision on a local model. "
               "Moot, its FalkorDB-removed ablation and the rule baselines make no model call.", ""]
+    L += ["## What an agent would have been allowed to do (study A1, test split)", "",
+          "An agent asks before acting on each decision on T0. Moot's gate allows only on ALLOW (DENY and REVALIDATE block); the "
+          "model arms allow on HOLDS; trust the ADR allows everything; the age rule blocks at three years. The two columns pull against "
+          "each other and are never summed.", "",
+          "| gatekeeper | actions on decisions that later died, allowed | actions on decisions that held, blocked |", "|---|---|---|"]
+    for a, g in R["agent_gate"].items():
+        L.append(f"| {LABEL[a]} | {g['dead_allowed']}/{g['dead']} ({g['dead_allowed_ci'][0]:.2f}–{g['dead_allowed_ci'][1]:.2f}) | "
+                 f"{g['held_blocked']}/{g['held']} ({g['held_blocked_ci'][0]:.2f}–{g['held_blocked_ci'][1]:.2f}) |")
+    L.append("")
     d = R["results"]["dev"]
     L += [f"## Dev split ({d['moot']['n']} decisions, {d['moot']['dead']} DEAD), used to fix the prompts", "",
           "| arm | right | DEAD caught | false alarms | DEAD calls |", "|---|---|---|---|---|"]

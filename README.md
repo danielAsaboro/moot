@@ -1,6 +1,6 @@
 # Moot
 
-**A company brain that finds the decisions your team still follows for reasons that no longer exist, and shows the evidence path.**
+**A company brain on FalkorDB: an organisation's decisions, people, teams and documents in one graph, and for any standing decision the answer to "does this still hold, who answers for it today, and why?", with the evidence path.**
 
 [![CI](https://github.com/danielAsaboro/moot/actions/workflows/ci.yml/badge.svg)](https://github.com/danielAsaboro/moot/actions/workflows/ci.yml)
 [![Live app](https://img.shields.io/badge/live-moot.bringaihome.xyz-b5372b)](https://moot.bringaihome.xyz)
@@ -9,16 +9,79 @@
 
 | | |
 |---|---|
-| **Try it** | [Live app](https://moot.bringaihome.xyz) · [D01's evidence path](https://moot.bringaihome.xyz/app/?d=D01&tab=graph) · [the Cypher it ran](https://moot.bringaihome.xyz/app/?d=D01&tab=cypher) · [People](https://moot.bringaihome.xyz/app/people/) · [a real repo, audited](https://moot.bringaihome.xyz/app/ledger/?graph=gh_thomvaill_log4brains): log4brains, whose later ADR contradicts its Lerna decision |
+| **Try it** | [Live app](https://moot.bringaihome.xyz) · [Kubernetes as a company](https://moot.bringaihome.xyz/app/ledger/?graph=gh_kubernetes_enhancements) · [does KEP-3130 still hold?](https://moot.bringaihome.xyz/app/ledger/?graph=gh_kubernetes_enhancements&d=KEP-3130) · [the Cypher it ran](https://moot.bringaihome.xyz/app/?graph=larkspur&d=D01&tab=cypher) · [post a change](https://moot.bringaihome.xyz/app/whatif/?graph=larkspur&premise=p_soc2_cert) · [tour for judges](https://moot.bringaihome.xyz/#judges) |
 | **Watch / read** | [Demo video](https://vimeo.com/1237038749) · [Blog: I built a company brain that refuses to answer questions](https://moot.bringaihome.xyz/i-built-a-company-brain-that-refuses-to-answer-questions/) |
-| **Check it** | [Evaluation](docs/evaluation.md) · [Study S3 head-to-head](eval/results_baseline.md) · [Stated reasons, before/after](eval/results_reasons.md) · [Studies register](docs/studies.md) |
-| **Build on it** | [Query catalogue](docs/queries.md) · [How FalkorDB is used](docs/falkordb.md) · [MCP setup](docs/mcp.md) · [Run it](#run-it) |
+| **Check it** | `make judge-check` · [Results, losses included](#results-losses-included) · [Studies register](docs/studies.md) · [Evaluation](docs/evaluation.md) |
+| **Build on it** | [Query catalogue](docs/queries.md) · [How FalkorDB is used](docs/falkordb.md) · [MCP setup, local and over HTTP](docs/mcp.md) · [Coding-agent hook](docs/agents.md) · [Run it](#run-it) |
 
 Built for [Graph Hacks](https://www.wemakedevs.org/hackathons/falkordb) (WeMakeDevs x FalkorDB), track **Company Brain**. [How it maps to the six judging criteria](#judging-criteria-where-to-look).
 
 ![Moot demo: ask why uploads are capped, flip depth 1 to 4, ask something not in the graph](docs/hero.gif)
 
-## The story in 40 seconds
+## What you can check in five minutes
+
+**1. A whole organisation in one graph.** `moot ingest-keps` reads Kubernetes as a company: each Kubernetes Enhancement Proposal in force is a decision, dated by the commit that made it implementable; withdrawn, replaced and deferred KEPs are retired by the commit that said so, and `replaces` becomes a dated `SUPERSEDES`. The SIGs are teams, read from `sigs.yaml`'s history with every chair and tech lead's window since 2018 (emeritus leads are people who left the seat), their subprojects are projects, the KEP authors and approvers are people who know why, and the reasons each KEP states in its Summary and Motivation are kept as exact quoted spans. Ask about one:
+
+```
+KEP-3130 KMS Observability                                   RETIRED
+ ├─SUPERSEDES← KEP-3299 KMS v2 Improvements, 2022-05-09 (kep.yaml: replaces KEP-3130)
+ ├─BECAUSE_OF→ "There is no guarantee that the timestamp of the operation is the same as the timestamp
+ │              of the corresponding event in KMS"  (Motivation, exact span)
+ │              ←SUPPORTS─ KEP-3299, 2022-05-09 (same words, quoted)
+ └─RESPONSIBLE_FOR← SIG Auth: chairs Anish Ramasekar, Micah Hausler, Rita Zhang; tech leads David Eads,
+                    Jordan Liggitt, Mo Khan (as of 2026-10-21; Mike Danese, Tim Allclair, Eric Chiang held seats before)
+gate: DENY (retired) · ask: Anish Ramasekar, its author, still here
+```
+
+The same queries answer it for the demo company (Larkspur, 8 people, below), for four real repositories' ADR folders (`moot ingest-github`), and for any repository's CODEOWNERS teams.
+
+**2. Provenance you can click.** Every answer carries the traversal path, the evidence ids and dates, and the exact read-only Cypher it ran with rows and milliseconds; every stated reason carries its quote, character span, section, source link and the model that proposed it, and a validator drops any quote that is not a literal span.
+
+**3. The graph changes as the agent works.** *Post a change* applies a dated contradiction to a reason in your own sandbox copy of the graph and shows which verdicts and gates move; Reset deletes it (`moot/sandbox.py`; the company graph is only read, and a test checks its digest). A human's approval writes a Finding back, and remembered answers are revoked the moment the rows under them change. In front of coding agents, `moot hook` (a Claude Code `PreToolUse` hook) blocks an edit to a file governed by a decision whose reason is dead, with the evidence path and who to ask: the owner, else whoever was next up their reporting line, else the team's current leads ([docs/agents.md](docs/agents.md)). The read-only tools are also a public MCP server over HTTP at `/mcp`.
+
+**4. Correct by construction, and labelled so.** These hold because of how Moot is built, so they are checks, not measured wins: the verdict FalkorDB's path query returns equals a plain-Python walk over the same edges in 2,000 random worlds (`tests/test_oracle.py`); WCC, betweenness ranking, PageRank and SPpaths agree with NetworkX (`tests/test_algorithms.py`); over 12,792 monthly gate questions on real and demo graphs, remembered answers are revoked whenever their evidence changes, so 0 stale answers are served, against 62 for a 90-day cache and 285 for a one-year cache ([U1](eval/results_unlearn.md)); and every number in this README is re-derived by `moot verify --rerun`.
+
+## Results, losses included
+
+Every study was registered in [docs/studies.md](docs/studies.md) before it ran, and the results ship whatever they are. The short version: **on independent real data, Moot does not predict which decisions die better than the baselines.** Its value is the graph, the provenance and the gate in front of agents, not a forecast.
+
+| question | Moot | baselines | source |
+|---|---|---|---|
+| **Held-out (H1):** 64 real decisions in force on 2023-10-17, graded by what their repositories did by 2026-10-17 (5 died): right | 52/64 (0.81) | everything HOLDS 59/64 · BM25 RAG 57/64 · LLM agent with GitHub/OSV tools 51/64 (60 of 64 answered) · age rule 28/64 · Moot rules without FalkorDB 24/64 | [results_heldout.md](eval/results_heldout.md) |
+| H1: deaths caught, false alarms | 1 of 5, 8 of 59 | BM25 RAG 2 and 4 · age rule 3 and 34 · LLM agent 1 and 5 | [results_heldout.md](eval/results_heldout.md) |
+| **Agents on real decisions (A1):** later-dead decisions an agent was allowed to act on / decisions that held but were blocked | 0 of 5 / 59 of 59 | trust the ADR 5 / 0 · BM25 RAG 3 / 4 · LLM agent 4 / 9 · age rule 2 / 34 | [results_heldout.md](eval/results_heldout.md#what-an-agent-would-have-been-allowed-to-do-study-a1-test-split) |
+| **Precision on real history (P1):** flags later confirmed by the repository within three years | 1 of 12 (0.08) | age rule 3 of 45 (0.07) · random flagger 0.13 | [results_precision.md](eval/results_precision.md) |
+| Real repositories: decisions caught dead before their own maintainers (of 6 tool deaths) | **2** | age ≥ 3 years 3 · random 1.4 · trust the ADR 0 | [backtest, 30 public repos](eval/results_backtest.md) |
+| Real repositories: flags on decisions still listed in force, each with a dated reason | **22** (15 real, 2 false alarms) | age ≥ 3 years 73, none with a reason | [backtest](eval/results_backtest.md#every-flag-on-a-decision-its-repository-still-lists-as-in-force) |
+| EnterpriseRAG-Bench conflicts: superseded document still in the model's context (of 20, lower is better) | **13** | BM25 14: a tie | [blind supersession cut](eval/results_erag.md) |
+| Real public ADRs denied with a dated reason (of 25) | **7** | 23 of the 25 still say *accepted* | [real-world audit](docs/evaluation.md#real-world-proof-public-adrs) |
+| Router: ordinary questions the keyword rules misroute, routed right by a tool call (of 22) | **20** | keyword rules 0 (chosen because they fail) | [router eval](eval/results_router.md) |
+| Audit latency at 20,000 noise documents, p50 | **0.9 ms** | flat from 0 to 20,000 | [scale eval](eval/results_scale.md) |
+
+**Read it plainly.** On H1 calling everything HOLDS beats Moot's gate (59 against 52, exact McNemar p = 0.04), as the registration predicted: most of Moot's 8 false alarms are licence changes (Terraform, Nomad, Elasticsearch) that teams lived with. Applying the rule Moot already uses for ingested repositories, licence hits are DISPUTED unless a stated reason depends on them, gives 56/64 as a post-hoc row and catches none of the 5 deaths. In A1 the gate lets no later-dead decision through, but only because it blocks everything: with no dated evidence either way it says REVALIDATE, and that costs 59 of 59 decisions that held. What it adds is who to ask. On precision Moot is at chance. The backtest is where its flags read best: each names a dated reason a reviewer can check in a minute.
+
+**On real history.** Rewound month by month with only the evidence of the day, Moot said DENY 350 days before GOV.UK replaced MongoDB (the SSPL licence change, October 2018), and 1,435 days before GOV.UK deprecated its Elasticsearch logging ADR; median lead 892 days. It found 15 ADRs still marked accepted whose reasons died upstream (the Terraform and Consul licence change, Lunr.js and sqlx gone quiet) and that nobody has revisited. ([backtest](eval/results_backtest.md))
+
+On recall the backtest cannot rank anything: the age rule catches 3 of the 6 deaths to Moot's 2, and six is too few to separate them. The difference is precision. To catch its 3, the age rule raises 73 flags on decisions still in force and says nothing about why; Moot raises 22, each naming a dated fact (a licence change, a repository gone quiet) that a reviewer can check in a minute, and reading all 22 found 15 whose reason really died upstream and 2 false alarms. On EnterpriseRAG-Bench, built blind, Moot's supersession cut ties BM25.
+
+### The consistency ceiling: Larkspur, a synthetic company graded by its own spec
+
+Larkspur's answer key comes from the same spec as its graph, so these rows show the rules and the queries agree with the spec, not that Moot predicts anything.
+
+| question | Moot | baseline | source |
+|---|---|---|---|
+| Larkspur: stale or retired decisions an agent was allowed to act on (of 20) | **0** | BM25 + change cues 4 · trust the ADR 20 | [gate eval](eval/results_gate.md) |
+| Larkspur, 90 questions (still holds? why? since when?): dead decisions called HOLDS (of 22) | **0** | RAG + same model 13 · RAG over stated reasons 7 | [head-to-head](eval/results_baseline.md) |
+
+<p align="center"><img src="docs/charts/s3_verdicts.svg" alt="Study S3, verdicts right of 90: Moot 90, Moot rows narrated 89, depth 1 88, RAG over stated reasons 76, BM25 RAG 62, dates ignored 62, FalkorDB removed 60, trust the ADR 56" width="760"></p>
+
+On the same 90 questions Moot gets 90/90 verdicts and 24/24 "since when" dates exactly; plain RAG with the same local model gets 62/90 and 8/24. The ablations say what carries it: ignoring dates drops Moot to 62/90, removing FalkorDB (same rules over retrieved documents) to 60/90, depth 1 to 88/90. Larkspur's labels share a spec with its graph, so Moot's row is a ceiling, not extraction quality ([threats](eval/results_baseline.md#threats-to-validity-worst-first)).
+
+<p align="center"><img src="docs/charts/s3_dead_called_holds.svg" alt="Dead decisions called HOLDS of 22: Moot 0, depth 1 2, RAG over stated reasons 7, FalkorDB removed 8, BM25 RAG 13, trust the ADR 22" width="760"></p>
+
+Every number above is checked by `moot verify` against the JSON the evals wrote (`moot verify --rerun` re-derives it from committed inputs), and the charts are drawn from the same files by `eval/charts.py` (verify fails if a committed chart drifts). Studies are registered before they run, withdrawn results stay listed with the reason ([docs/studies.md](docs/studies.md)), and every table is in [docs/evaluation.md](docs/evaluation.md).
+
+## The demo company in 40 seconds
 
 Ask **"Why do we cap uploads at 10 MB?"** A doc-chat brain finds the ADR and says: because the gateway rejects bodies over 10 MB. Moot answers **MOOT**:
 
@@ -38,30 +101,6 @@ owner: Ada Okafor, left 2026-05-15 · D02 and D03 rest on the same dead reason
 - Point it at a real repository: `moot ingest-github thomvaill/log4brains` reads its ADR folder, git history and pull requests into a new graph, reads the reasons each ADR states in its own words (kept only as exact quoted spans), and audits every decision against GitHub, OSV and the repository's later ADRs.
 
 Verdicts are FalkorDB path queries. The model only narrates and proposes quotes; every id it cites is checked against the rows, every quote against the document, and it never writes Cypher.
-
-## Results
-
-**On real history.** Rewound month by month with only the evidence of the day, Moot said DENY 350 days before GOV.UK replaced MongoDB (the SSPL licence change, October 2018), and 1,435 days before GOV.UK deprecated its Elasticsearch logging ADR; median lead 892 days. It found 15 ADRs still marked accepted whose reasons died upstream (the Terraform and Consul licence change, Lunr.js and sqlx gone quiet) and that nobody has revisited. ([backtest](eval/results_backtest.md))
-
-| question | Moot | baseline | source |
-|---|---|---|---|
-| Larkspur: stale or retired decisions an agent was allowed to act on (of 20) | **0** | BM25 + change cues 4 · trust the ADR 20 | [gate eval](eval/results_gate.md) |
-| Larkspur, 90 questions (still holds? why? since when?): dead decisions called HOLDS (of 22) | **0** | RAG + same model 13 · RAG over stated reasons 7 | [head-to-head](eval/results_baseline.md) |
-| Real repositories: decisions caught dead before their own maintainers (of 6 tool deaths) | **2** | age ≥ 3 years 3 · random 1.4 · trust the ADR 0 | [backtest, 30 public repos](eval/results_backtest.md) |
-| Real repositories: flags on decisions still listed in force, each with a dated reason | **22** (15 real, 2 false alarms) | age ≥ 3 years 73, none with a reason | [backtest](eval/results_backtest.md#every-flag-on-a-decision-its-repository-still-lists-as-in-force) |
-| EnterpriseRAG-Bench conflicts: superseded document still in the model's context (of 20, lower is better) | **13** | BM25 14: a tie | [blind supersession cut](eval/results_erag.md) |
-| Real public ADRs denied with a dated reason (of 25) | **7** | 23 of the 25 still say *accepted* | [real-world audit](docs/evaluation.md#real-world-proof-public-adrs) |
-| Audit latency at 20,000 noise documents, p50 | **0.9 ms** | flat from 0 to 20,000 | [scale eval](eval/results_scale.md) |
-
-<p align="center"><img src="docs/charts/s3_verdicts.svg" alt="Study S3, verdicts right of 90: Moot 90, Moot rows narrated 89, depth 1 88, RAG over stated reasons 76, BM25 RAG 62, dates ignored 62, FalkorDB removed 60, trust the ADR 56" width="760"></p>
-
-On the same 90 questions Moot gets 90/90 verdicts and 24/24 "since when" dates exactly; plain RAG with the same local model gets 62/90 and 8/24. The ablations say what carries it: ignoring dates drops Moot to 62/90, removing FalkorDB (same rules over retrieved documents) to 60/90, depth 1 to 88/90. Larkspur's labels share a spec with its graph, so Moot's row is a ceiling, not extraction quality ([threats](eval/results_baseline.md#threats-to-validity-worst-first)).
-
-<p align="center"><img src="docs/charts/s3_dead_called_holds.svg" alt="Dead decisions called HOLDS of 22: Moot 0, depth 1 2, RAG over stated reasons 7, FalkorDB removed 8, BM25 RAG 13, trust the ADR 22" width="760"></p>
-
-On recall the backtest cannot rank anything: the age rule catches 3 of the 6 deaths to Moot's 2, and six is too few to separate them. The difference is precision. To catch its 3, the age rule raises 73 flags on decisions still in force and says nothing about why; Moot raises 22, each naming a dated fact (a licence change, a repository gone quiet) that a reviewer can check in a minute, and reading all 22 found 15 whose reason really died upstream and 2 false alarms. On EnterpriseRAG-Bench, built blind, Moot's supersession cut ties BM25.
-
-Every number above is checked by `moot verify` against the JSON the evals wrote (`moot verify --rerun` re-derives it from committed inputs), and the charts are drawn from the same files by `eval/charts.py` (verify fails if a committed chart drifts). Studies are registered before they run, withdrawn results stay listed with the reason ([docs/studies.md](docs/studies.md)), and every table is in [docs/evaluation.md](docs/evaluation.md).
 
 ## Real repositories: reading the reasons an ADR states
 
@@ -84,8 +123,8 @@ On the four ingested repositories, UNDOCUMENTED fell from 46 to 18 of 75 decisio
 | criterion | the evidence |
 |---|---|
 | **Graph-native use of FalkorDB** | Verdicts *are* path queries: `(Decision)-[:BECAUSE_OF\|DERIVED_FROM*1..depth]->(Premise)<-[:SUPPORTS\|CONTRADICTS]-(Evidence)` with dated edges, all through `GRAPH.RO_QUERY` ([queries](docs/queries.md)). `algo.WCC`, `algo.betweenness`, `algo.pageRank` and `algo.SPpaths` answer who knows why, what leaves with a person, blast radius and what a PR broke. One named graph per company; Findings, rulings and handovers are written back only after approval ([docs/falkordb.md](docs/falkordb.md)). Removing FalkorDB but keeping the rules drops S3 from 90/90 to 60/90. |
-| **Agent effectiveness** | The agent gate (`check_action`, `GET /api/gate`) let 0 of 20 stale or retired Larkspur decisions through, against 4 for BM25 with change cues and 20 for trusting the ADR ([gate eval](eval/results_gate.md)). On real history it caught 2 of 6 tool deaths before the maintainers did ([backtest](eval/results_backtest.md)). Same local model, graph context vs retrieval: 90/90 vs 62/90 ([S3](eval/results_baseline.md)). |
-| **Potential impact** | Every team inherits rules whose reasons died quietly. Moot works on any public GitHub repository today (`moot ingest-github owner/repo`): four are in the live app, with stated reasons read from their ADR text ([before/after](eval/results_reasons.md)), and 25 real public ADRs are checked against GitHub and OSV. |
+| **Agent effectiveness** | The gate (`check_action`, `GET /api/gate`, MCP, `moot hook`) is what agents call before acting. On held-out real decisions it let 0 of 5 later-dead decisions through, at the cost of blocking 59 of 59 that held (REVALIDATE: no dated evidence either way), and every block names who to ask ([A1](eval/results_heldout.md#what-an-agent-would-have-been-allowed-to-do-study-a1-test-split)). A coding agent editing a file governed by a dead decision is stopped with the evidence path ([docs/agents.md](docs/agents.md)). A tool-call router sends 20 of 22 questions the keyword rules misroute to the right tool ([router](eval/results_router.md)). On Larkspur the gate let 0 of 20 stale or retired decisions through, against 4 for BM25 with change cues and 20 for trusting the ADR ([gate eval](eval/results_gate.md)), a consistency ceiling. |
+| **Potential impact** | Every organisation inherits rules whose reasons died quietly and whose owners moved on. Moot reads a real one end to end (Kubernetes: KEPs, SIG teams and their leads since 2018, authors and approvers), any public repository's ADR folder and CODEOWNERS (`moot ingest-github`: four in the live app, with stated reasons read from their ADR text, [before/after](eval/results_reasons.md)), and 25 real public ADRs checked against GitHub and OSV. |
 | **Technical excellence** | One-command setup (`docker compose up --build`, or `make demo`), 151 tests, CI on FalkorDB v4.22.1 and v4.18.3 plus the UI build, `moot verify --rerun` re-derives every README number from committed inputs. Deployed at [moot.bringaihome.xyz](https://moot.bringaihome.xyz) on FalkorDB Cloud. |
 | **Explainability and provenance** | Every answer carries its traversal path, the evidence ids and dates, the Cypher it ran, and a digest of the rows it read. A model's citation is checked against the rows; a stated reason's quote against the document, with its character span, section, source link and model on the node. "No evidence" is never "holds". |
 | **Creativity and presentation** | A brain that refuses: it says MOOT, REVALIDATE or "not in the graph" instead of an answer. Isometric drawings of the real rows, an unplugged cable for an expired reason, the ruled ledger, the [video](https://vimeo.com/1237038749) and the [blog](https://moot.bringaihome.xyz/i-built-a-company-brain-that-refuses-to-answer-questions/). |
@@ -276,13 +315,16 @@ make test                                # pytest; CI runs it and moot verify --
 
 ## Honest limits
 
+- **Moot does not forecast which decisions die.** On held-out real decisions graded by their own repositories it does worse than calling everything HOLDS (52 against 59 of 64), and its flags on real history are confirmed at chance (1 of 12). Outside evidence about a tool (a licence change, a quiet upstream) rarely makes a team abandon a decision within three years. What Moot gives a team is the reason, the path, the date and who to ask, not a prediction.
+- **The gate blocks a lot.** With no dated evidence either way it says REVALIDATE: on H1 that is every decision that held. The cost is real; each block names who to ask, and a team's own documents (rulings, later ADRs) are what turns REVALIDATE into ALLOW.
 - **Larkspur is synthetic**, and its answer key comes from the same spec as its graph, so on Larkspur the zeros show the rules agree with the spec, not that extraction is solved. The backtest is the result graded by strangers: 722 real decisions, labelled by their own maintainers' status changes. Its six tool deaths are too few to rank anything on recall, and we say so.
 - **Moot only knows what was written down.** Three in four real decisions that teams abandoned picked no outside tool, so no outside check could have seen them die. Only a company's own documents can.
 - **The gate follows the edges it is given.** The ablation shows random junk contradictions are followed like real ones, which is why every DENY names the evidence id for a human to check.
 - **No evidence is not "holds".** A reason nobody ever checked makes the gate say REVALIDATE, which costs six false blocks on Larkspur. We chose that over letting an agent act on an unchecked reason.
 - **A stated reason is what the ADR says, not what is true.** Reading reasons from prose moves decisions from UNDOCUMENTED to HOLDS, but most of those reasons have no dated evidence either way, so the gate still says REVALIDATE. The span check stops invented quotes, not a wrong reading of a real one; every reason links to its sentence so a reader can check it. One local model, one run, no labelled set of real reasons to score extraction against.
 - **The GitHub connector reads what repositories publish.** It parses status lines and "superseded by" links, picks tools by name from the ADR title or a quoted reason, and checks maintenance, licence and known vulnerabilities. A status change is dated by the last commit to the file, never earlier than the change.
-- **Knowing is read from authorship.** A person who knows why but never wrote anything down does not count, and the public repositories' people are their git authors.
+- **Knowing is read from authorship.** A person who knows why but never wrote anything down does not count; the public repositories' people are their git authors, and Kubernetes' are the authors and approvers each KEP names. Team leadership windows are dated to the quarter (`sigs.yaml` sampled at each quarter's first commit).
+- **The Kubernetes graph covers SIG Auth** (and SIG Node when its reasons are read), not the whole project, and few later KEPs speak to earlier reasons, so most KEPs hold for want of contradiction and the gate says REVALIDATE.
 - The full-text resolver is keyword-based: a question that shares no words with a decision returns "unknown entity", by design.
 
 ## AI disclosure

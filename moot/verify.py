@@ -282,6 +282,41 @@ def check_router(c: Checker) -> None:
                  (s["n"], s["rules"], s["model"]))
 
 
+def check_studies(c: Checker) -> None:
+    """H1, A1, P1 and U1 as the README quotes them, against the result files."""
+    t = (ROOT / "README.md").read_text()
+    f = EVAL / "results_heldout.json"
+    if f.exists():
+        H = json.loads(f.read_text())
+        r = H["results"]["test"]
+        c.expect("README.md", t, "H1 row",
+                 r"\| (\d+)/(\d+) \(([\d.]+)\) \| everything HOLDS (\d+)/\d+ · BM25 RAG (\d+)/\d+ · LLM agent with GitHub/OSV tools (\d+)/\d+ \((\d+) of \d+ answered\) · age rule (\d+)/\d+ · Moot rules without FalkorDB (\d+)/\d+",
+                 (r["moot"]["right"], r["moot"]["n"], f2(r["moot"]["accuracy"]), r["majority"]["right"], r["rag_bm25"]["right"], r["agent_tools"]["right"],
+                  r["agent_tools"]["answered"], r["age"]["right"], r["moot_no_falkordb"]["right"]))
+        fa = lambda a: r[a]["flagged"] - r[a]["caught"]
+        c.expect("README.md", t, "H1 deaths and false alarms",
+                 r"\| (\d+) of (\d+), (\d+) of (\d+) \| BM25 RAG (\d+) and (\d+) · age rule (\d+) and (\d+) · LLM agent (\d+) and (\d+) \|",
+                 (r["moot"]["caught"], r["moot"]["dead"], fa("moot"), r["moot"]["holds"], r["rag_bm25"]["caught"], fa("rag_bm25"),
+                  r["age"]["caught"], fa("age"), r["agent_tools"]["caught"], fa("agent_tools")))
+        a = H["agent_gate"]
+        c.expect("README.md", t, "A1 row",
+                 r"\| (\d+) of (\d+) / (\d+) of (\d+) \| trust the ADR (\d+) / (\d+) · BM25 RAG (\d+) / (\d+) · LLM agent (\d+) / (\d+) · age rule (\d+) / (\d+) \|",
+                 (a["moot"]["dead_allowed"], a["moot"]["dead"], a["moot"]["held_blocked"], a["moot"]["held"], a["trust_adr"]["dead_allowed"],
+                  a["trust_adr"]["held_blocked"], a["rag_bm25"]["dead_allowed"], a["rag_bm25"]["held_blocked"], a["agent_tools"]["dead_allowed"],
+                  a["agent_tools"]["held_blocked"], a["age"]["dead_allowed"], a["age"]["held_blocked"]))
+    f = EVAL / "results_precision.json"
+    if f.exists():
+        m = json.loads(f.read_text())
+        mo, ag = m["methods"]["Moot gate (DENY)"], m["methods"]["age ≥ 3 years"]
+        c.expect("README.md", t, "P1 row", r"\| (\d+) of (\d+) \(([\d.]+)\) \| age rule (\d+) of (\d+) \(([\d.]+)\) · random flagger ([\d.]+) \|",
+                 (mo["confirmed"], mo["flags"], f2(mo["precision"]), ag["confirmed"], ag["flags"], f2(ag["precision"]), f2(m["random"]["precision"])))
+    f = EVAL / "results_unlearn.json"
+    if f.exists():
+        tot = json.loads(f.read_text())["total"]
+        c.expect("README.md", t, "U1 sentence", r"over ([\d,]+) monthly gate questions.*?so (\d+) stale answers are served, against (\d+) for a 90-day cache and (\d+) for a one-year cache",
+                 (f"{tot['moot']['asked']:,}", tot["moot"]["stale"], tot["ttl90"]["stale"], tot["ttl365"]["stale"]))
+
+
 def check_test_count(c: Checker) -> None:
     """The README's test count is the number pytest collects."""
     out = subprocess.run([sys.executable, "-m", "pytest", "--collect-only", "-q"], cwd=ROOT, capture_output=True, text=True).stdout
@@ -322,6 +357,7 @@ def main(rerun: bool = False) -> int:
     check_reasons(c)
     check_router(c)
     check_history(c)
+    check_studies(c)
     check_test_count(c)
     for b in c.bad:
         print("MISMATCH", b)
