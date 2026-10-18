@@ -34,7 +34,8 @@ from moot.graph import graph  # noqa: E402
 from moot.stats import wilson  # noqa: E402
 
 OUT = Path(os.getenv("MOOT_EVAL_OUT") or ROOT / "eval")
-K = ROOT / "eval" / "k1"
+STUDY = sys.argv[sys.argv.index("--study") + 1] if "--study" in sys.argv else "k1"  # "k2": the confirmation run, same harness
+K = ROOT / "eval" / STUDY
 Q = json.loads((K / "questions.json").read_text())
 PINNED = (K / "QUESTIONS.sha256").read_text().split()[0] if (K / "QUESTIONS.sha256").exists() else None
 CACHE = K / "cache.jsonl"
@@ -46,6 +47,7 @@ COM = ROOT / "data" / "github" / ".repos" / "kubernetes__community"
 REPOS = {"enhancements": ENH, "community": COM}
 GRAPH = "gh_kubernetes_enhancements"
 ARMS = ("moot_tools", "file_tools", "rag_bm25", "moot_direct")
+TEMPLATES = (1, 2, 3, 4, 5, 6) if "--study" in sys.argv and sys.argv[sys.argv.index("--study") + 1] == "k2" else (1, 2, 3, 4)
 MAX_STEPS = 6
 RESULT_CHARS = 3000  # a tool result in the conversation; keeps a run inside the model's 16k context
 
@@ -59,7 +61,7 @@ def refuse_if_changed() -> None:
 
 FORMATS = {1: '{"kep": "KEP-<number>", "date": "YYYY-MM-DD"}', 2: '{"leads": ["<github handle>", ...]}',
            3: '{"in_force": true or false, "retired_by": "KEP-<number>" or "withdrawn" or "deferred" or null}',
-           4: '{"authors": [["<github handle>", true or false], ...]}'}
+           4: '{"authors": [["<github handle>", true or false], ...]}', 5: '{"count": <integer>}', 6: '{"was_lead": true or false}'}
 
 
 def norm(t: int, a) -> object:
@@ -75,6 +77,10 @@ def norm(t: int, a) -> object:
             return (bool(a.get("in_force")), (str(rb).upper().replace(" ", "") if rb and str(rb).upper().startswith("KEP") else (str(rb).lower() if rb else None)))
         if t == 4:
             return tuple(sorted((str(x[0]).lower().lstrip("@"), bool(x[1])) for x in a.get("authors") or []))
+        if t == 5:
+            return int(a.get("count"))
+        if t == 6:
+            return bool(a.get("was_lead"))
     except Exception:
         return None
 
@@ -193,7 +199,16 @@ def moot_run(name: str, a: dict):
         return json.dumps(dict(t, leads=handles(t["leads"]), former=handles(t["former"])) if t else None, default=str)
     if name == "kep_authors":
         return json.dumps(handles(tools.decision_authors(G, kid, day)), default=str)
+    if name == "sig_keps" and STUDY != "k1":
+        sig = str(a.get("sig", "")).lower().replace(" ", "-")
+        sig = sig if sig.startswith("sig-") else "sig-" + sig
+        rows = [r for r in tools.ledger(G, day, 4) if r["verdict"] != "RETIRED" and r["id"] in in_team(sig)]
+        return json.dumps(dict(sig=sig, as_of=day, in_force=len(rows), keps=[r["id"] for r in rows][:200]))
     return "unknown tool"
+
+
+def in_team(sig: str) -> set:
+    return {r[0] for r in G.ro_query("MATCH (:Team {id: $t})-[:RESPONSIBLE_FOR]->(d:Decision) RETURN d.id", {"t": f"team_{sig}"}).result_set}
 
 
 MOOT_DOC = """- find_kep(query): KEPs whose title matches
@@ -201,6 +216,8 @@ MOOT_DOC = """- find_kep(query): KEPs whose title matches
 - kep_history(kep, date): every verdict the KEP has had and the date each began, up to the date
 - team_on(kep, date): the SIG that answers for the KEP and its chairs and tech leads on that date (with their GitHub handle), and former leads
 - kep_authors(kep, date): the KEP's authors (with their GitHub handle) and which SIG each leads on that date"""
+if STUDY != "k1":
+    MOOT_DOC += "\n- sig_keps(sig, date): how many of a SIG's KEPs were in force on a date, and which"
 
 
 # ---- file tools over the same checkouts
@@ -276,7 +293,7 @@ def rag(q: dict) -> dict:
 # ---- deterministic reference
 
 def direct(q: dict):
-    t, kid = q["template"], q["kep"]
+    t, kid = q["template"], q.get("kep")
     if t == 1:
         a = tools.audit_decision(G, kid, tools.today(), 4)
         s = (a.get("superseded_by") or {}) if a.get("found") else {}
@@ -295,10 +312,22 @@ def direct(q: dict):
         return dict(in_force=True, retired_by=None)
     if t == 4:
         return dict(authors=[[x["id"].removeprefix("u_"), bool(x["leads"])] for x in tools.decision_authors(G, kid, Q["today"])])
+    if t == 5:
+        return dict(count=sum(1 for r in tools.ledger(G, q["date"], 4) if r["verdict"] != "RETIRED" and r["id"] in in_team(q["sig"])))
+    if t == 6:
+        team = tools.decision_team(G, kid, q["date"])
+        return dict(was_lead=q["person"] in {x["id"].removeprefix("u_") for x in (team or {}).get("leads", [])})
+
+
+def key_for(arm: str, q: dict, model: str) -> str:
+    return hashlib.sha256(json.dumps([arm, model, q["id"], SYSTEM, MOOT_DOC if arm == "moot_tools" else FILE_DOC]).encode()).hexdigest()[:20]
+
+
+LOCAL = "qwen3.8:27b"  # the registered model: K1's test split moved off it after 7 answers (docs/studies.md, amendment)
 
 
 def cached(arm: str, q: dict, fill: bool, cache: dict) -> dict | None:
-    key = hashlib.sha256(json.dumps([arm, MODEL, q["id"], SYSTEM, MOOT_DOC if arm == "moot_tools" else FILE_DOC]).encode()).hexdigest()[:20]
+    key = key_for(arm, q, MODEL)
     if key in cache:
         return cache[key]
     if not fill:
@@ -342,32 +371,47 @@ def main() -> None:
         for arm in ARMS:
             got = [r for r in rs if r[arm] is not None]
             k = sum(r[arm] for r in got)
-            per = {t: f"{sum(r[arm] for r in got if r['template'] == t)}/{sum(1 for r in got if r['template'] == t)}" for t in (1, 2, 3, 4)}
+            per = {t: f"{sum(r[arm] for r in got if r['template'] == t)}/{sum(1 for r in got if r['template'] == t)}" for t in TEMPLATES}
             costs = [r[arm + "_cost"] for r in got if arm + "_cost" in r]
             res[split][arm] = dict(right=k, n=len(got), of=len(rs), ci=wilson(k, len(got)), per_template=per,
                                    tokens=sum(c["tokens_in"] + c["tokens_out"] for c in costs),
                                    seconds_median=sorted(c["seconds"] for c in costs)[len(costs) // 2] if costs else None,
                                    calls=sum(c["calls"] for c in costs))
-    (OUT / "results_k1.json").write_text(json.dumps(dict(model=MODEL, questions_sha256=Q["sha256"], results=res, rows=rows), indent=1) + "\n")
+    (OUT / f"results_{STUDY}.json").write_text(json.dumps(dict(model=MODEL, questions_sha256=Q["sha256"], results=res, rows=rows), indent=1) + "\n")
     names = dict(moot_tools="**agent with Moot's graph tools**", file_tools="agent with file and git tools over the same checkouts",
                  rag_bm25="BM25 RAG over the checkouts at HEAD", moot_direct="Moot, one fixed graph query per template, no model (shared-source reference)")
-    L = ["# K1: questions about Kubernetes as an organisation (study K1)", "",
+    L = [f"# {STUDY.upper()}: questions about Kubernetes as an organisation (study {STUDY.upper()})", "",
          f"{len(Q['questions'])} templated questions about SIG Auth and SIG Node KEPs; gold from the raw git history of kubernetes/enhancements and "
-         f"kubernetes/community (`moot/k1.py`), hashed before any arm ran (`{Q['sha256'][:16]}…`). Same local model ({MODEL}, temperature 0) for every "
-         "model arm. **Shared-source caveat:** Moot's graph is built from the same files, so its fixed-query row is close to the gold by construction; "
+         f"kubernetes/community (`moot/k1.py`), hashed before any arm ran (`{Q['sha256'][:16]}…`). Same model ({MODEL}, temperature 0) for every "
+         "model arm" + (f"; **deviation:** the register named {LOCAL} through Ollama; it ran at about ten minutes a question, so test and dev were "
+                        f"re-run on the same open weights served by Groq, amended before any Groq answer was read (docs/studies.md; the local answers "
+                        f"are listed below)." if MODEL != LOCAL else ".") + " **Shared-source caveat:** Moot's graph is built from the same files, so its fixed-query row is close to the gold by construction; "
          "the contest is between agents with the same model and different tools. Templates: (1) which KEP replaced it and when, (2) who led its SIG "
          "on a date, (3) was it in force on a date and what retired it, (4) its authors and whether each leads a SIG today.", ""]
     for split in ("test", "dev"):
-        L += [f"## {split.title()} split", "", "| arm | exact match (95% CI) | t1 | t2 | t3 | t4 | tokens | median s per question | tool calls |",
-              "|---|---|---|---|---|---|---|---|---|"]
+        L += [f"## {split.title()} split", "", "| arm | exact match (95% CI) | " + " | ".join(f"t{t}" for t in TEMPLATES) + " | tokens | median s per question | tool calls |",
+              "|" + "---|" * (len(TEMPLATES) + 5)]
         for arm in ARMS:
             s = res[split][arm]
             if not s["n"]:
                 continue
-            L.append(f"| {names[arm]} | {s['right']}/{s['n']} ({s['ci'][0]:.2f}–{s['ci'][1]:.2f}) | " + " | ".join(s["per_template"][t] for t in (1, 2, 3, 4))
+            L.append(f"| {names[arm]} | {s['right']}/{s['n']} ({s['ci'][0]:.2f}–{s['ci'][1]:.2f}) | " + " | ".join(s["per_template"][t] for t in TEMPLATES)
                      + f" | {s['tokens']:,} | {s['seconds_median'] if s['seconds_median'] is not None else '–'} | {s['calls']} |")
         L.append("")
-    (OUT / "results_k1.md").write_text("\n".join(L) + "\n")
+    if MODEL != LOCAL:
+        local = [(arm, q, cache[key_for(arm, q, LOCAL)]) for q in Q["questions"] for arm in ("moot_tools", "file_tools", "rag_bm25")
+                 if q["split"] == "test" and key_for(arm, q, LOCAL) in cache]
+        if local:
+            L += [f"## The {len(local)} test answers produced on {LOCAL} before the switch (not in the table above)", "",
+                  f"| question | arm | {LOCAL} | {MODEL} on the same question |", "|---|---|---|---|"]
+            for arm, q, c in local:
+                g = cache.get(key_for(arm, q, MODEL))
+                mark = lambda x: "no answer" if x is None or x.get("answer") is None else ("right" if right(q, x["answer"]) else "wrong")
+                L.append(f"| {q['id']} (t{q['template']}) | {arm} | {mark(c)} | {mark(g) if g else 'not yet run'} |")
+            n_l = sum(1 for _, q, c in local if c.get("answer") is not None and right(q, c["answer"]))
+            n_g = sum(1 for arm, q, _ in local if (g := cache.get(key_for(arm, q, MODEL))) and g.get("answer") is not None and right(q, g["answer"]))
+            L += ["", f"On these {len(local)}: {LOCAL} {n_l} right, {MODEL} {n_g} right.", ""]
+    (OUT / f"results_{STUDY}.md").write_text("\n".join(L) + "\n")
     t = res["test"]
     print("test: " + ", ".join(f"{a} {t[a]['right']}/{t[a]['n']}" for a in ARMS))
 
