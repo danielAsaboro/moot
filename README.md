@@ -27,7 +27,6 @@ KEP-3130 KMS Observability                                   RETIRED
  ├─SUPERSEDES← KEP-3299 KMS v2 Improvements, 2022-05-09 (kep.yaml: replaces KEP-3130)
  ├─BECAUSE_OF→ "There is no guarantee that the timestamp of the operation is the same as the timestamp
  │              of the corresponding event in KMS"  (Motivation, exact span)
- │              ←SUPPORTS─ KEP-3299, 2022-05-09 (same words, quoted)
  └─RESPONSIBLE_FOR← SIG Auth: chairs Anish Ramasekar, Micah Hausler, Rita Zhang; tech leads David Eads,
                     Jordan Liggitt, Mo Khan (as of 2026-10-21; Mike Danese, Tim Allclair, Eric Chiang held seats before)
 gate: DENY (retired) · ask: Anish Ramasekar, its author, still here
