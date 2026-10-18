@@ -186,7 +186,7 @@ sequenceDiagram
 
 ## Graph model
 
-One named graph per company (`select_graph(tenant)`): `larkspur` (demo), `public_adrs` (real ADRs), `backtest` (30 real repositories), and one `gh_<owner>_<repo>` graph per repository brought in with `moot ingest-github`. All of them are selectable in the UI (the Graph menu), the API (`?graph=`) and the MCP audit, gate, ledger and people tools (`graph=`).
+One named graph per company (`select_graph(tenant)`): `gh_kubernetes_enhancements` (Kubernetes, the hosted app's default), `larkspur` (the demo company), `public_adrs` (real ADRs), `backtest` (30 real repositories), and one `gh_<owner>_<repo>` graph per repository brought in with `moot ingest-github`. All of them are selectable in the UI (the Graph menu), the API (`?graph=`) and the MCP audit, gate, ledger and people tools (`graph=`).
 
 ```mermaid
 graph LR
@@ -202,6 +202,9 @@ graph LR
   D2[Decision] -->|SUPERSEDES at| D
   F[Finding] -->|ABOUT| D
   F -->|CITES| E
+  T[Team] -->|RESPONSIBLE_FOR| D
+  Per -->|LEADS valid_from..valid_to| T
+  T -->|RUNS| Pj[Project]
 ```
 
 | Label | Key properties | Meaning |
@@ -212,6 +215,8 @@ graph LR
 | `Person` | id, name, role, joined, left | people, with tenure |
 | `System` | id, name | what a decision governs |
 | `Finding` | id, verdict, kind (verdict / reopen / ruling), as_of, digest | Moot's own memory, written only after a human approves |
+| `Team` | id, name, source | a team that answers for decisions (a Kubernetes SIG, a CODEOWNERS team); its leads carry dated windows |
+| `Project` | id, name, description | what a team runs (a SIG subproject, a CODEOWNERS path) |
 
 Every event edge (`SUPPORTS`, `CONTRADICTS`, `SUPERSEDES`, `RETIRES`) carries `at`, the date it took effect, and optionally `stated`, the date it became known; an edge a model proposed also carries the exact `quote` and `extracted_by`. Ownership and reporting lines carry validity windows. Indexes: a range index on `id` for every label, full-text on `Decision(title, summary)`, `Premise(text)` and `Evidence(title, excerpt)`. The full edge list is in [docs/queries.md](docs/queries.md).
 
@@ -303,6 +308,10 @@ moot ledger                              # every decision with its verdict, MOOT
 moot departure marcus                    # what leaves with a person
 moot people                              # who only knows what: bus factor and betweenness per person
 moot ingest-github thomvaill/log4brains  # any public repo's ADRs, history and PRs into graph gh_thomvaill_log4brains, audited
+moot ingest-keps --sig sig-auth          # Kubernetes KEPs, SIG teams and leads into graph gh_kubernetes_enhancements
+moot gate-paths services/uploads/a.py    # gate every decision governing these files (.moot/paths.json); exit 1 on DENY
+moot hook                                # Claude Code PreToolUse hook (docs/agents.md)
+make judge-check                         # tests, every README number re-derived, the held-out gold hash
 moot packet D01                          # the evidence packet behind one verdict, as Markdown
 moot verify                              # every number in this README checked against the eval JSON, charts included
 moot mcp                                 # MCP server on stdio (Claude Desktop, Claude Code, Cursor)
