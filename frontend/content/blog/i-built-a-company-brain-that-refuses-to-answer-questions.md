@@ -26,6 +26,8 @@ In Moot's eval, a BM25 search over the decision's title and summary surfaces the
 
 So reasons have to be nodes.
 
+![Asking Moot which decisions are moot: one read-only tool, five FalkorDB queries, and the rows come back as the answer](/blog/ask-moot.png)
+
 ## The graph model in five lines
 
 ```
@@ -39,6 +41,8 @@ So reasons have to be nodes.
 A decision rests on premises. A premise can depend on another premise ("uploads go through the gateway" only matters while "the gateway caps bodies at 10 MB" is true). Every document that supports or contradicts a premise is an edge with a date on it. Ownership has a validity window, so "who owned this when it went stale" is a query too.
 
 Nothing about validity lives in prose. That's the whole design.
+
+![D07 in Moot: the decision, its reason, and the pull request that contradicted it, drawn from the rows FalkorDB returned](/blog/decision-d07.png)
 
 ## The verdict is a Cypher query, not an opinion
 
@@ -65,6 +69,8 @@ Every read goes through FalkorDB's `GRAPH.RO_QUERY`, which the engine itself ref
 
 ## What the graph lets you ask that a table can't
 
+![The ledger on 18 Oct 2026: 12 moot, 4 disputed, 10 still valid, each verdict a path query](/blog/ledger.png)
+
 Once reasons are nodes, other questions become one query each:
 
 - **What did this PR just break?** `algo.SPpaths` from a new document to every decision it can reach. Trace PR-412 and it reaches D01 and the two other decisions that rest on the same gateway limit.
@@ -73,6 +79,8 @@ Once reasons are nodes, other questions become one query each:
 - **Which reasons are riskiest?** Rank premises by how many standing decisions sit below them. I tried PageRank first. It ranked the SOC 2 rotation premise 10th where a plain dependency count put it 3rd, because evidence edges pour score into whichever premises are most *discussed*, not most *depended on*. The count is the question a leader actually asks, and it explains itself, so that's what ships. PageRank stays in the API for comparison.
 
 ## The agent gate, and the bug I'm glad I found
+
+![Asking whether an agent can change the Friday deploy freeze: one read-only tool, seven queries, a DENY with the path D07 → p_no_rollback ← PR-350](/blog/ask-gate.png)
 
 Company brains are going to be read by agents, not only people. So Moot has a gate: before an agent enforces, relies on or renews a decision, it calls `check_action` (an MCP tool, or `GET /api/gate/D01`) and gets ALLOW, DENY or REVALIDATE with the path behind it.
 

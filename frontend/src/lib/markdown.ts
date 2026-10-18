@@ -1,5 +1,5 @@
 // A small Markdown-to-HTML renderer for the blog posts in content/blog, run at build time.
-// It covers what the posts use: headings, paragraphs, lists, block quotes, fenced code, bold, italic, inline code, links.
+// It covers what the posts use: headings, paragraphs, lists, block quotes, fenced code, bold, italic, inline code, links, images.
 
 const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
@@ -32,6 +32,12 @@ export function renderMarkdown(md: string): { title: string; html: string } {
     if (h) {
       if (h[1].length === 1 && !title) title = h[2];
       else out.push(`<h${h[1].length}>${inline(h[2])}</h${h[1].length}>`);
+      i++;
+      continue;
+    }
+    const img = /^!\[([^\]]*)\]\(([^)\s]+)\)\s*$/.exec(line);
+    if (img) {
+      out.push(`<figure><img src="${esc(img[2])}" alt="${esc(img[1])}" loading="lazy" /><figcaption>${inline(img[1])}</figcaption></figure>`);
       i++;
       continue;
     }
