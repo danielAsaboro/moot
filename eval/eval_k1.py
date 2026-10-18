@@ -44,7 +44,8 @@ COM = ROOT / "data" / "github" / ".repos" / "kubernetes__community"
 REPOS = {"enhancements": ENH, "community": COM}
 GRAPH = "gh_kubernetes_enhancements"
 ARMS = ("moot_tools", "file_tools", "rag_bm25", "moot_direct")
-MAX_STEPS = 8
+MAX_STEPS = 6
+RESULT_CHARS = 3000  # a tool result in the conversation; keeps a run inside the model's 16k context
 
 
 def refuse_if_changed() -> None:
@@ -82,24 +83,40 @@ def right(q: dict, a) -> bool:
 
 # ---- the model
 
+def parse(reply: str) -> dict:
+    """The first JSON object in the reply (a model may write a sentence before it, or several objects after)."""
+    dec = json.JSONDecoder()
+    for i, ch in enumerate(reply or ""):
+        if ch == "{":
+            try:
+                x, _ = dec.raw_decode(reply[i:])
+                if isinstance(x, dict):
+                    return x
+            except json.JSONDecodeError:
+                continue
+    return {}
+
+
 def chat(messages: list[dict]) -> tuple[str, int, int, float]:
-    body = dict(model=MODEL, stream=False, think=False, format="json", options=dict(temperature=0, seed=7, num_ctx=16384), messages=messages)
+    body = dict(model=MODEL, stream=False, think=False, options=dict(temperature=0, seed=7, num_ctx=16384, num_predict=600),
+                messages=messages)  # no JSON mode in this build; a reply is one short JSON object
     t0 = time.perf_counter()
-    for attempt in range(4):
+    for attempt in range(8):
         try:
             r = json.loads(urllib.request.urlopen(urllib.request.Request(f"{OLLAMA}/api/chat", data=json.dumps(body).encode(),
                                                                         headers={"content-type": "application/json"}), timeout=1200).read())
             return r["message"]["content"], r.get("prompt_eval_count", 0), r.get("eval_count", 0), time.perf_counter() - t0
-        except Exception:
-            if attempt == 3:
+        except Exception:  # the MLX build answers a transient 500 under GPU pressure
+            if attempt == 7:
                 raise
-            time.sleep(10)
+            time.sleep(20)
     raise RuntimeError
 
 
 SYSTEM = """You answer questions about the Kubernetes project's enhancement proposals (KEPs) and its SIGs. Use the tools to find \
 facts; never answer from memory. Each reply is one JSON object: either {"tool": "<name>", "args": {...}} to call a tool, or \
-{"answer": <the answer in the requested format>} to finish. At most %d tool calls.""" % MAX_STEPS
+{"answer": <the answer in the requested format>} to finish. Reply with that one object only, no other text. At most %d tool \
+calls.""" % MAX_STEPS
 
 
 def agent(q: dict, tool_doc: str, run) -> dict:
@@ -110,10 +127,7 @@ def agent(q: dict, tool_doc: str, run) -> dict:
     for step in range(MAX_STEPS + 2):
         reply, i, o, s = chat(msgs)
         tin, tout, secs = tin + i, tout + o, secs + s
-        try:
-            x = json.loads(reply)
-        except json.JSONDecodeError:
-            x = {}
+        x = parse(reply)
         if "answer" in x:
             return dict(answer=x["answer"], tokens_in=tin, tokens_out=tout, seconds=round(secs, 1), calls=calls)
         if x.get("tool") and calls < MAX_STEPS:
@@ -122,7 +136,7 @@ def agent(q: dict, tool_doc: str, run) -> dict:
                 res = run(str(x["tool"]), x.get("args") or {})
             except Exception as ex:
                 res = f"error: {ex}"
-            msgs += [dict(role="assistant", content=reply), dict(role="user", content=f"Result of {x['tool']}:\n{str(res)[:6000]}")]
+            msgs += [dict(role="assistant", content=reply), dict(role="user", content=f"Result of {x['tool']}:\n{str(res)[:RESULT_CHARS]}")]
             continue
         msgs += [dict(role="assistant", content=reply or "{}"), dict(role="user", content='Reply now with {"answer": ...} in the requested format.')]
     return dict(answer=None, tokens_in=tin, tokens_out=tout, seconds=round(secs, 1), calls=calls)
@@ -228,10 +242,7 @@ def rag(q: dict) -> dict:
     ctx = "\n\n".join(f"[{p['id']}]\n{p['text']}" for p in top)
     reply, i, o, s = chat([dict(role="system", content="Answer from the context only. Reply with one JSON object: {\"answer\": <the answer in the requested format>}."),
                            dict(role="user", content=f"{q['question']}\nAnswer format: {FORMATS[q['template']]}\n\nContext:\n{ctx}")])
-    try:
-        ans = json.loads(reply).get("answer")
-    except json.JSONDecodeError:
-        ans = None
+    ans = parse(reply).get("answer")
     return dict(answer=ans, tokens_in=i, tokens_out=o, seconds=round(s, 1), calls=0)
 
 
@@ -265,7 +276,10 @@ def cached(arm: str, q: dict, fill: bool, cache: dict) -> dict | None:
         return cache[key]
     if not fill:
         return None
-    r = agent(q, MOOT_DOC, moot_run) if arm == "moot_tools" else agent(q, FILE_DOC, file_run) if arm == "file_tools" else rag(q)
+    try:
+        r = agent(q, MOOT_DOC, moot_run) if arm == "moot_tools" else agent(q, FILE_DOC, file_run) if arm == "file_tools" else rag(q)
+    except Exception as ex:  # the model server failed on this question after retries: scored as no answer, and recorded
+        r = dict(answer=None, tokens_in=0, tokens_out=0, seconds=0.0, calls=0, error=str(ex)[:200])
     row = dict(key=key, arm=arm, id=q["id"], **r)
     with CACHE.open("a") as f:
         f.write(json.dumps(row) + "\n")
@@ -280,6 +294,7 @@ def main() -> None:
     G = graph(GRAPH)
     fill = "--llm" in sys.argv
     only = sys.argv[sys.argv.index("--split") + 1] if "--split" in sys.argv else None
+    arms = sys.argv[sys.argv.index("--arms") + 1].split(",") if "--arms" in sys.argv else ARMS
     cache = {}
     if CACHE.exists():
         cache = {r["key"]: r for r in (json.loads(l) for l in CACHE.read_text().splitlines() if l.strip())}
@@ -288,7 +303,7 @@ def main() -> None:
         r = dict(id=q["id"], template=q["template"], split=q["split"])
         r["moot_direct"] = right(q, direct(q))
         for arm in ("moot_tools", "file_tools", "rag_bm25"):
-            c = cached(arm, q, fill and (only is None or q["split"] == only), cache)
+            c = cached(arm, q, fill and (only is None or q["split"] == only) and arm in arms, cache)
             r[arm] = right(q, c["answer"]) if c else None
             if c:
                 r[arm + "_cost"] = dict(tokens_in=c["tokens_in"], tokens_out=c["tokens_out"], seconds=c["seconds"], calls=c["calls"])

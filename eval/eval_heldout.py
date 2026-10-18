@@ -52,10 +52,11 @@ from moot.tools import check_action  # noqa: E402
 from moot.verdict import premise_state  # noqa: E402
 
 OUT = Path(os.getenv("MOOT_EVAL_OUT") or ROOT / "eval")
-H = ROOT / "eval" / "heldout"
+STUDY = os.getenv("MOOT_HELDOUT_STUDY", "heldout")  # "h2" for study H2 (eval/eval_h2.py), same machinery, its own files
+H = ROOT / "eval" / STUDY
 GOLD = json.loads(Path(os.getenv("MOOT_HELDOUT_GOLD") or H / "gold.json").read_text())
 PINNED = (H / "GOLD.sha256").read_text().split()[0]
-INPUTS = json.loads((ROOT / "data" / "heldout" / "inputs.json").read_text())
+INPUTS = json.loads((ROOT / "data" / STUDY / "inputs.json").read_text())
 LLM_CACHE, AGENT_CACHE = H / "llm_cache.jsonl", H / "agent_cache.jsonl"
 RAG_MODEL = os.getenv("MOOT_HELDOUT_RAG_MODEL", "qwen3.8:27b")
 AGENT_MODEL = os.getenv("MOOT_HELDOUT_AGENT_MODEL", "openai/gpt-oss-20b")
@@ -94,7 +95,7 @@ def arm_moot(advisory: bool = False) -> dict[str, dict]:
     decisions = [dict(id=u["id"], title=u["title"], born=u["born"], url=g["url"], repo=u["repo"], tools=[t for t in u["tools"] if t in ev])
                  for g in GOLD["units"] for u in [UNITS[g["id"]]]]
     g = connect().select_graph(f"moot_eval_heldout_{os.getpid()}")
-    path = ROOT / "data" / "heldout" / ("graph_advisory.json" if advisory else "graph.json")
+    path = ROOT / "data" / STUDY / ("graph_advisory.json" if advisory else "graph.json")
     payload = build(decisions, {t: ev[t] for t in {t for d in decisions for t in d["tools"]}})
     if advisory:
         for n in payload["nodes"]:

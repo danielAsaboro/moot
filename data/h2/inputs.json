@@ -1,0 +1,843 @@
+{
+ "t0": "2022-10-17",
+ "gold_sha256": "ca6d3920ceb83cf42d383c6ad65b89669e503ced9bc3b5ebabf61a69df63826d",
+ "units": [
+  {
+   "id": "OpenTOSCA/container:0001-use-maven.md",
+   "repo": "OpenTOSCA/container",
+   "title": "Use maven as a buildtool and dependency manager",
+   "born": "2020-06-18",
+   "tools": [
+    "maven"
+   ],
+   "path_t0": "docs/adr/0001-use-maven.md",
+   "adr": "# Use maven as a buildtool and dependency manager\n\n\n## Context and Problem Statement\n\nTo enable portability and reproducibility of building the container application, a buildtool is of utmost importance.\nIt simplifies the buildprocess and should preferrably allow a minimal configuration effort for IDEs.\n\n## Decision Drivers \n\n* Core Concern is management of building the container, preferrably in a single command invocation\n* Support for dependency management is optional, but highly appreciated\n* The tool should also support deployment of the finished web application to an application server\n* Cross Platform tooling, Automation and support for Running a Test suite are also necessary\n\n## Considered Options\n\n* Maven\n* Gradle\n* Ant\n  \n## Decision Outcome\n\nMaven was chosen both for it's maturity and integration with established IDEs.\nIt also was previously used to automate the container build when the container was still deployed as an OSGI application.\nAdditionally maven dependencies are the de-facto standard distribution mechanism in the java ecosystem.\n\n## Pros and Cons of the Options\n\n### Maven\n\n* Mature and tested ecosystem\n* De-Facto standard for dependency distribution\n* Existing maven structure for previous incarnation of container allows code reuse\n* Strong support for testing, automation and known cross-platform usability\n\n### Gradle\n\n* Not quite as mature ecosystem as maven\n* Dependency management is possible, but doesn't open new avenues over maven\n* Cross-Platform compatibility for gradle is present, but often requires additional support through gradle-wrapper\n* Support for testing and automation is present\n\n### Ant\n\n* Ecosystem is mature, but configuration over convention paradigm\n* No builtin support for dependency management\n* Cross-Platform compatibility is not builtin\n* Support for testing is incomplete, automation with current CI providers may require additional support"
+  },
+  {
+   "id": "OpenTOSCA/container:0002-use-spring-dependency-incjection.md",
+   "repo": "OpenTOSCA/container",
+   "title": "Use Spring for Dependency Injection and discovery of plugins",
+   "born": "2020-06-18",
+   "tools": [
+    "spring"
+   ],
+   "path_t0": "docs/adr/0002-use-spring-dependency-incjection.md",
+   "adr": "# Use Spring for Dependency Injection and discovery of plugins\n\n\n## Context and Problem Statement\n\nTo facilitate testing, a clean, object oriented architecture as well as the plugin systems for various components a configurable Inversion of Control (IOC) container is required.\nThis container is responsible for plugin discovery, as well as injecting services required by the API to serve it's \"external\" customers.\n\n## Decision Drivers \n\n* Support for a plugin system that can discover additional components not originally compiled into the deployed WAR\n* Support for minimal configuration, allowing easy modification and discovery by convention\n\n## Considered Options\n\n* Spring\n* Guice\n\n## Decision Outcome\n\nThe chosen IoC container is Spring, because it supports plugin discovery at minimal configuration and has easy support for servlet-based injection with `spring-mvc` and `spring-web`.\n\n### Negative consequences\n\nThe Plugins loaded cannot be adjusted at runtime.\nAt time of writing, no such capability is required or planned.\n\n## Pros and Cons\n\n### Spring\n\n* Well-Maintained and diverse IoC container supporting various configuration mechanisms\n* No support for changes in registration during runtime\n* Support for `javax.Inject` annotations as well as injection-site adaption through custom annotations\n* No direct support for servlet-based injection, but available as `spring-web`\n\n### Guice\n\n* No support for XML-Based configuration\n* No direct support for servlet-based injection\n* At time of writing seems to be discontinued by original maintainer Google"
+  },
+  {
+   "id": "VolleyManagement/volley-management:0001-use-auth0-as-authentication-provider.md",
+   "repo": "VolleyManagement/volley-management",
+   "title": "Use Auth0 as authentication provider",
+   "born": "2019-08-22",
+   "tools": [
+    "auth0"
+   ],
+   "path_t0": "docs/adr/0001-use-auth0-as-authentication-provider.md",
+   "adr": "# Use Auth0 as authentication provider\n\n* Deciders: Sergii Diachenko\n* Date: 2019-08-22\n\n## Context and Problem Statement\n\nHow to implement authentication?\n\n## Decision Drivers\n\n* Volley Management system should restrict access only to the authenticated users\n* Prefer buy vs build as authentication is not a core domain\n* cost should be minimized\n\n## Considered Options\n\n* Write custom logic based on ASP.NET Identity and/or IdentityServer\n* Auth0\n* Azure AD B2C\n\n## Decision Outcome\n\nChosen option: Auth0, because it has free tier and integration will take 2-5 hours of work.\n\n### Positive Consequences\n\n* Fast time to implement\n\n* We have a possibility to move to another solution quickly once need arises\n\n### Negative Consequences\n\n* We might be limited by Auth0 free tier\n\n  * Free tier has limit on number of authentications per minute\n\n## Pros and Cons of the Options\n\n### Write custom logic based on ASP.NET Identity and/or IdentityServer\n\nUse ASP.NET identity to store user information and issue authentication tokens.\n\n* \u2714 you have full control and implement what you need\n* \u274c writing custom security is not a good practice\n* \u274c you have to write code\n* \u274c you need to persist user information and passwords\n\n### Auth0\n\n* \u2714 quick to integrate\n* \u2714 Free tier\n* \u2714 SaaS\n* \u274c limited free tier\n* \u274c rate limiting on free tier\n\n### Azure AD B2C\n\nAzure AD B2C is IDaaS solution intended to work with various identity providers\n\n* \u2714 quick to integrate\n* \u2714 Free tier\n* \u2714 SaaS\n* \u274c Does not have own user storage \u2753\n* \u274c free tier limitations"
+  },
+  {
+   "id": "VolleyManagement/volley-management:0003-use-angular-for-spa.md",
+   "repo": "VolleyManagement/volley-management",
+   "title": "Use Angular Framework for VolleyManagement.SPA container",
+   "born": "2019-08-23",
+   "tools": [
+    "angular"
+   ],
+   "path_t0": "docs/adr/0003-use-angular-for-spa.md",
+   "adr": "# Use Angular Framework for VolleyManagement.SPA container\n\n* Deciders: Sergii Diachenko\n* Date: 2019-08-23\n\n## Context and Problem Statement\n\nVolleyManagement.SPA provides a way for users to interact. We need to select a framework which will be used to develop.\n\n## Decision Drivers\n\n* TypeScript support\n* Unit Test support\n* Skill availability\n* UI components availability\n\n## Considered Options\n\n* Angular\n* Vue.JS\n\n## Decision Outcome\n\nChosen option: Angular, because skill availability is better.\n\n### Positive Consequences\n\n* Easier to get work done as it will be easier to find person eager to contribute\n\n### Negative Consequences\n\n* Angular has a reputation of being complex. As a workaround we can always build Vue.JS app later\n\n## Pros and Cons of the Options\n\n### Angular\n\nLatest Angular version\n\n* \u2714 TypeScript support\n* \u2714 Unit Test support\n* \u2714 Skill availability\n* \u2714 UI components availability\n\n### Vue.js\n\n* \u2714 TypeScript support\n* \u2714 Unit Test support\n* \u274c Skill availability\n* \u2753 UI components availability"
+  },
+  {
+   "id": "VolleyManagement/volley-management:0004-use-docker-for-hosting-application.md",
+   "repo": "VolleyManagement/volley-management",
+   "title": "Use Docker for hosting application",
+   "born": "2019-08-23",
+   "tools": [
+    "docker"
+   ],
+   "path_t0": "docs/adr/0004-use-docker-for-hosting-application.md",
+   "adr": "# Use Docker for hosting application\n\n* Deciders: Sergii Diachenko\n* Date: 2019-08-23\n\n## Context and Problem Statement\n\n[Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.]\n\n## Decision Drivers\n\n* Consistent environment\n* Automation capabilities\n* Ease of deployment\n* Ease of development\n\n## Considered Options\n\n* dotnet CLI\n* Docker\n\n## Decision Outcome\n\nChosen option: \"Docker\", because it allows to have same environment locally as well as in production. Every dev and environment will have same configuration.\n\ndotnet CLI is quite good at it as well but it requires a little bit more specifics, while Docker can be hosted virtually everywhere.\n\n### Positive Consequences\n\n* Docker has large support among hosting providers\n\n### Negative Consequences\n\nLocal development for docker might be harder as you need to rebuild container. While VS team puts a lot of effort into it it is still slower than run it locally on .NET Core.\n\nWe can do major development using local setup with .NET Core, but all CI steps automated using docker.\n\n## Pros and Cons of the Options\n\n### dotnet CLI\n\n* \u2714 Consistent environment\n* \u2714 Automation capabilities\n* \u2714+- Ease of deployment\n* \u2714 Ease of development\n\n### Docker\n\n* \u2714 Consistent environment\n* \u2714 Automation capabilities\n* \u2714 Ease of deployment\n* \u2714+- Ease of development\n\n## Links\n\n* Affects [ADR-0005](0005-use-azure-app-services-for-hosting.md)"
+  },
+  {
+   "id": "adr/adr-manager:0001-use-vue.js.md",
+   "repo": "adr/adr-manager",
+   "title": "Use Vue.js",
+   "born": "2021-01-07",
+   "tools": [
+    "vue"
+   ],
+   "path_t0": "docs/adr/0001-use-vue.js.md",
+   "adr": "# Use Vue.js\n\n\n## Context and Problem Statement\n\nA framework makes the creation of a web app significantly easier. Which framework should be used?\n\n## Considered Options\n\n* Vue.js\n* Angular\n\n## Decision Outcome\n\nChosen option: \"Vue.js\", because the team has more experience with Vue.js."
+  },
+  {
+   "id": "adr/adr-manager:0002-use-antlr-for-parsing-adrs.md",
+   "repo": "adr/adr-manager",
+   "title": "Use ANTLR for parsing ADRs",
+   "born": "2021-01-07",
+   "tools": [
+    "antlr"
+   ],
+   "path_t0": "docs/adr/0002-use-antlr-for-parsing-adrs.md",
+   "adr": "# Use ANTLR for parsing ADRs\n\n\nTechnical Story: Proposed in the GitHub Issues [#17](https://github.com/koppor/adr-manager/issues/17),  [#19](https://github.com/koppor/adr-manager/issues/19)\n\n## Context and Problem Statement\n\nADR Manager needs to parse existing ADRs. Each ADR is stored in a markdown file. Example: https://github.com/adr/madr/blob/master/docs/adr/0001-use-CC0-as-license.md.\n\n## Considered Options\n\n* Use a generic Markdown Parser\n* Use ANTLR to create an ADR specific parser\n* Write a parser from scratch\n\n## Decision Outcome\n\nChosen option: \"Use ANTLR to create an ADR specific parser\", because comes out best (see below).\n\n### Positive Consequences\n\n* Some existing ADRs are accepted now without changes.\n* Better control over output\n\n### Negative Consequences\n\n* The new parser is worse at parsing \"invalid\" ADRs than the generic one.\n* ANTLR Parser seems to be quite slow.\n\n## Pros and Cons of the Options\n\n### Use a generic Markdown Parser\n\nEnhance generic Markdown parser and use the result of that parser. For that, available options are listed at https://github.com/f43i4n/md-schema/blob/master/docs/related-work.md.\n\nThis option was used in the mock-up with the library [md-to-json](https://github.com/ajithr/md-2-json).\n\n* Good, because easiest solution.\n* Good, because md-to-json can parse the json back to a Markdown.\n* Bad, because md-to-json adds extra line breaks, which are hard to remove.\n\n### Use ANTLR to create an ADR specific parser\n\nUse ANTLR4 to write a parser specifically for ADRs.\n\n* Good, because flexible parser and full control over output.\n* Good, because hopefully maintainable. ANTLR Grammar can be used to specify how ADRs must look.\n* Bad, because extra work.\n\n### Write a parser from scratch\n\n* Bad, because extra work.\n* Bad, because writing stuff from scratch is a bad anti pattern."
+  },
+  {
+   "id": "architecture-topography/topo:0002-use-neo4j-as-persistence.md",
+   "repo": "architecture-topography/topo",
+   "title": "2. Use Neo4j as Persistence",
+   "born": "2020-06-06",
+   "tools": [
+    "neo4j"
+   ],
+   "path_t0": "doc/adr/0002-use-neo4j-as-persistence.md",
+   "adr": "# 2. Use Neo4j as Persistence\n\nDate: 2020-06-06\n\n## Context\n\nWe need to save information into a persistence layer in order to query and explore the data. The data we will be working with heavily relies on describing relationships which is well suited for a graph like structure.\n\n## Decision\n\nWe will use Neo4J as the persistence layer. It is a fairly popular graph database, well documented and mature product.\n\n## Consequences\n\nWe will need to use Cypher query language to create, read update and delete data.\nThis will also increase the deployment complexity of Topo."
+  },
+  {
+   "id": "arvos-dev/arvos:0002-use-golang.md",
+   "repo": "arvos-dev/arvos",
+   "title": "Use Golang",
+   "born": "2021-10-28",
+   "tools": [
+    "golang"
+   ],
+   "path_t0": "docs/adr/0002-use-golang.md",
+   "adr": "# Use Golang\n\n* Deciders: Cristian, Emil\n* Date: 2021-10-28\n\n## Context and Problem Statement\n\nARVOS is clearly more complex than \"plumbing together a few executables\" and needs to be written in *some* programming language.\n\nWhich one?\n\n## Decision Drivers\n\n* It needs to be a fast system-oriented programming language.\n* It needs to be safe to work with.\n* It needs to be easy to find talent for it.\n* It needs to have good eBPF bindings.\n\n## Considered Options\n\n* Golang\n* Python\n* Rust\n* C\n* C++\n* many more\n\n## Decision Outcome\n\nChosen option: \"Golang\", because it is a fast system-oriented programming language, that is relatively safe (memory-wise) and popular in the cloud-native community.\n\n## Links\n\n* [Golang](https://golang.org/)\n* [Example of Golang eBPF package](https://pkg.go.dev/github.com/cilium/ebpf)"
+  },
+  {
+   "id": "fragaria/ng2-f-template-spa:0003-use-webpack-for-build.md",
+   "repo": "fragaria/ng2-f-template-spa",
+   "title": "0003. Use Webpack for application build",
+   "born": "2017-01-18",
+   "tools": [
+    "webpack"
+   ],
+   "path_t0": "docs/adr/0003-use-webpack-for-build.md",
+   "adr": "# 0003. Use Webpack for application build\n\nDate: 11.1.2017\n\n## Context\n\nAngularJS 2.x uses [CommonJS pattern](http://requirejs.org/docs/commonjs.html) for defining application modules. Thus building/bundling an application is little more complicated than just concatenating all `*.js` files.\nAll `require` and `import` statements must be evaluated during build time to create a dependency tree. This is something that only **bundlers** as Webpack or Browserify can do. **Task runners** such as Grunt or Gulp are not able to do this.\n\n## Decision\n\nUse [Webpack](https://webpack.js.org) to create application bundle. Use [Gulp](http://gulpjs.com) for non-build related tasks - create Jenkins configuration, upload to Sonar etc.\n\n## Consequences\n\nAll build tasks use Webpack to create an application bundle. Some tasks (maven publish, protractor tests) use gulp because those exceed Webpack scope.\nAll tasks (webpack and gulp) are defined in `package.json` and can be run using `npm` - mainly to avoid developer confusion whether particular task is defined in gulp or webpack.\nWe try to move as much tasks as possible from gulp to webpack."
+  },
+  {
+   "id": "hycomsa/mokka:0003-upgrade-to-spring-boot-2-2-1.md",
+   "repo": "hycomsa/mokka",
+   "title": "3. Upgrade to Spring Boot 2.2.1",
+   "born": "2019-11-07",
+   "tools": [
+    "spring-boot"
+   ],
+   "path_t0": "doc/adr/0003-upgrade-to-spring-boot-2-2-1.md",
+   "adr": "# 3. Upgrade to Spring Boot 2.2.1\n\nDate: 2019-11-07\n\n## Context\n\nCurrently used: 2.1.0\n\nThe latest stable version of Spring Boot is 2.2.1:\nhttps://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.2-Release-Notes\n\nMore frequent but smaller upgrades are recommended.\n\n## Decision\n\nSpring Boot will be upgraded to 2.2.1.\nAccording to release notes no migration needed on Mokka side.\n\n## Consequences\n\nSome unexpected dependencies-related issues may occur."
+  },
+  {
+   "id": "liquidmetal-dev/flintlock:0002-use-go.md",
+   "repo": "liquidmetal-dev/flintlock",
+   "title": "2. Use Go for the implementation",
+   "born": "2021-06-29",
+   "tools": [
+    "golang"
+   ],
+   "path_t0": "docs/adr/0002-use-go.md",
+   "adr": "# 2. Use Go for the implementation\n\n* Date: 2021-06-29\n* Authors: @richardcase\n* Deciders: @mnowster @pfzero\n\n## Context\n\nFor the implemenetation of flintlock we need to consider whether its implemented in Go or should we consider Rust. Go is the language used predominatly at Weaveworks and within the Kubernetes ecosystem. However, we need to consider Rust for flintlock for the following reasons:\n\n* [AWS](https://aws.amazon.com/blogs/opensource/innovating-with-rust/) / [Microsoft](https://msrc-blog.microsoft.com/2019/07/22/why-rust-for-safe-systems-programming/) are publicly advocating Rust for system programming\n* Firecracker & Open Hypervisor are borth written in Rust. There are benefits in terms of contributing to these projects\n* WASM support is mature\n* Rust is very efficient and [fast](https://benchmarksgame-team.pages.debian.net/benchmarksgame/which-programs-are-fastest.html)\n\n## Decision\n\nThe decision is to use Go for the implementation of flintlock due to the available skillsets of engineers. We can reconsider this in the future.\n\n## Consequences\nN/A"
+  },
+  {
+   "id": "mahanhz/clean-architecture-example:0003-use-spring-framework.md",
+   "repo": "mahanhz/clean-architecture-example",
+   "title": "3. Use Spring framework",
+   "born": "2017-07-30",
+   "tools": [
+    "spring"
+   ],
+   "path_t0": "doc/adr/0003-use-spring-framework.md",
+   "adr": "# 3. Use Spring framework\n\nDate: 20-July-2017\n\n## Context\n\nWe need to build the how part of the application\n\n## Decision\n\nWe will use Springs ecosystem to implement how our application works.\n\nMore explicitly we will use Spring Boot, Spring Data and Spring WebMvc.\n\n## Consequences\n\nSince developers are already familiar with the technology and like ot use it, there is no delay in being productive.\n\n## Made by\n\nMahan Hashemizadeh"
+  },
+  {
+   "id": "molgenis/molgenis-frontend:0002-use-typescript.md",
+   "repo": "molgenis/molgenis-frontend",
+   "title": "2. Use TypeScript",
+   "born": "2020-09-04",
+   "tools": [
+    "typescript"
+   ],
+   "path_t0": "doc/adr/0002-use-typescript.md",
+   "adr": "# 2. Use TypeScript\n\nDate: 2020-09-04\n\n## Context\n\nWe need a way to describe the structure of Javascript objects for readers of the code to be able to understand the structure.\nAnd we need a way to detect null references at build time Javascript.\nOur Javascript passes though a build step.\nOur Javascript is maintained by people who did not write the code.\n\n## Decision\n\nWe will use Typescript as a tool to describe object structure.\n\n## Consequences\n\nTypescript is used to write logic and typing information is added to describe object structure\nTypescript support is included in our projects build chain."
+  },
+  {
+   "id": "nielsutrecht/adr-example:0003-use-junit-5-for-testing.md",
+   "repo": "nielsutrecht/adr-example",
+   "title": "3. Use JUnit 5 for testing",
+   "born": "2018-09-27",
+   "tools": [
+    "junit5"
+   ],
+   "path_t0": "doc/adr/0003-use-junit-5-for-testing.md",
+   "adr": "# 3. Use JUnit 5 for testing\n\nDate: 2018-09-27\n\n## Context\n\nJUnit 5 was released and has nice additional features\n\n## Decision\n\nWe've decided to adopt JUnit 5 because it handles testing for exceptions better and offers dynamic testing capabilities\n\n## Consequences\n\n@Rule annotations we use are deprecated therefor some integration tests might need to be migrated."
+  },
+  {
+   "id": "pmckeown/dependency-track-maven-plugin:0002-use-maven-to-build-plugin.md",
+   "repo": "pmckeown/dependency-track-maven-plugin",
+   "title": "2. use maven to build plugin",
+   "born": "2019-07-29",
+   "tools": [
+    "maven"
+   ],
+   "path_t0": "doc/adr/0002-use-maven-to-build-plugin.md",
+   "adr": "# 2. use maven to build plugin\n\nDate: 2019-07-29\n\n## Context\n\nThis Maven Plugin needed a build tool to compile, test and package it.  Maven and Gradle were the only viable options.  \n\n## Decision\n\nI decided to use Maven as it felt a better fit to use Maven to build a Maven plugin, rather than using Gradle. \n\n## Consequences\n\nWe have a more verbose dependency management and build manifest.\n\nCommitters to a OSS project for a Maven plugin will be more familiar with that build framework than Gradle so the \nlearning curve will be less."
+  },
+  {
+   "id": "poorprogrammer/cfo:0002-use-yarn-install-instead-of-npm-install-for-web.md",
+   "repo": "poorprogrammer/cfo",
+   "title": "2. Use yarn install instead of npm install for web",
+   "born": "2020-09-07",
+   "tools": [
+    "yarn"
+   ],
+   "path_t0": "doc/adr/0002-use-yarn-install-instead-of-npm-install-for-web.md",
+   "adr": "# 2. Use yarn install instead of npm install for web\n\nDate: 2020-09-07\n\n## Context\n\nI see found both `yarn.lock` and `package-lock.json` in the repository.\n\n## Decision\n\nSticking to `yarn` for `web` for now.\n\n## Consequences\n\nAvoid mixing `yarn` and `npm install` which can cause weird errors."
+  },
+  {
+   "id": "servian/TechChallengeApp:0002-user-viper-for-config.md",
+   "repo": "servian/TechChallengeApp",
+   "title": "2. Use viper for config",
+   "born": "2018-08-08",
+   "tools": [
+    "viper"
+   ],
+   "path_t0": "doc/adr/0002-use-viper-for-config.md",
+   "adr": "# 2. Use viper for config\n\nDate: 2018-08-08\n\n## Context\n\nThe solution was built using a custom toml configuration solution, should we standardise on a library for less maintnance overhead?\n\n## Decision\n\nDecided to use viper as the configuration library, as it tightly integrates with cobra which we already use for helping with command line integration.\n\n## Consequences\n\nA few known issues around managing missing files with viper, but our process is set up to always have a file available so it shouldn't be a bit issue for us."
+  },
+  {
+   "id": "theaiscope/GDD-app:0003-use-bitrise-for-ci.md",
+   "repo": "theaiscope/GDD-app",
+   "title": "3. Use Bitrise for CI",
+   "born": "2019-06-04",
+   "tools": [
+    "bitrise"
+   ],
+   "path_t0": "doc/adr/0003-use-bitrise-for-ci.md",
+   "adr": "# 3. Use Bitrise for CI\n\nDate: 2019-06-04\n\n## Context\n\nWe need an easy way to integrate and test out code that is fast and reliable.\n\n## Decision\n\nWe choose Bitrise because it came from a suggestion from more senior devs and provides an easy interface to manage the workflows with good support for Android apps and testing.\nIt also allows us to notify users in a easy way and with different roles. \n\n## Consequences\n\nBitrise does not allow us to use Pipelines-as-code 100% of the way. There is some configuration that needs to be done of the web workflow editor.\nInstructions followed to setup: https://devcenter.bitrise.io/tips-and-tricks/use-bitrise-yml-from-repository/\n\nIt was very easy to setup UI testing as the default configurations of the steps are already working"
+  },
+  {
+   "id": "willgarcia/rotc:0005-use-standalone-prometheus.md",
+   "repo": "willgarcia/rotc",
+   "title": "5. Use standalone prometheus",
+   "born": "2020-07-24",
+   "tools": [
+    "prometheus"
+   ],
+   "path_t0": "doc/adr/0005-use-standalone-prometheus.md",
+   "adr": "# 5. Use standalone prometheus\n\nDate: 2020-07-24\n\n## Context\n\nThe issue motivating this decision, and any context that influences or constrains the decision.\n\n## Decision\n\nThe change that we're proposing or have agreed to implement.\n\n## Consequences\n\nWhat becomes easier or more difficult to do and any risks introduced by the change that will need to be mitigated."
+  },
+  {
+   "id": "willgarcia/rotc:0006-use-standalone-jaeger.md",
+   "repo": "willgarcia/rotc",
+   "title": "6. Use standalone jaeger",
+   "born": "2020-07-24",
+   "tools": [
+    "jaeger"
+   ],
+   "path_t0": "doc/adr/0006-use-standalone-jaeger.md",
+   "adr": "# 6. Use standalone jaeger\n\nDate: 2020-07-24\n\n## Context\n\nThe issue motivating this decision, and any context that influences or constrains the decision.\n\n## Decision\n\nThe change that we're proposing or have agreed to implement.\n\n## Consequences\n\nWhat becomes easier or more difficult to do and any risks introduced by the change that will need to be mitigated."
+  },
+  {
+   "id": "willgarcia/rotc:0007-user-standalone-kiali.md",
+   "repo": "willgarcia/rotc",
+   "title": "7. User standalone kiali",
+   "born": "2020-07-24",
+   "tools": [
+    "kiali"
+   ],
+   "path_t0": "doc/adr/0007-use-standalone-kiali.md",
+   "adr": "# 7. User standalone kiali\n\nDate: 2020-07-24\n\n## Context\n\nThe issue motivating this decision, and any context that influences or constrains the decision.\n\n## Decision\n\nThe change that we're proposing or have agreed to implement.\n\n## Consequences\n\nWhat becomes easier or more difficult to do and any risks introduced by the change that will need to be mitigated."
+  }
+ ],
+ "tools": {
+  "angular": {
+   "name": "Angular",
+   "repo": "angular/angular",
+   "first_commit": "2014-09-18",
+   "osv_package": null,
+   "osv": []
+  },
+  "antlr": {
+   "name": "ANTLR",
+   "repo": "antlr/antlr4",
+   "first_commit": "2010-01-27",
+   "osv_package": null,
+   "osv": []
+  },
+  "auth0": {
+   "name": "auth0",
+   "repo": null,
+   "first_commit": null,
+   "osv_package": null,
+   "osv": []
+  },
+  "bitrise": {
+   "name": "bitrise",
+   "repo": null,
+   "first_commit": null,
+   "osv_package": null,
+   "osv": []
+  },
+  "docker": {
+   "name": "Docker",
+   "repo": "moby/moby",
+   "first_commit": "2013-01-18",
+   "osv_package": null,
+   "osv": []
+  },
+  "golang": {
+   "name": "Go",
+   "repo": "golang/go",
+   "first_commit": "1972-07-18",
+   "osv_package": null,
+   "osv": []
+  },
+  "jaeger": {
+   "name": "Jaeger",
+   "repo": "jaegertracing/jaeger",
+   "first_commit": "2016-04-18",
+   "osv_package": null,
+   "osv": []
+  },
+  "junit5": {
+   "name": "JUnit 5",
+   "repo": "junit-team/junit5",
+   "first_commit": "2015-06-04",
+   "osv_package": null,
+   "osv": []
+  },
+  "kiali": {
+   "name": "Kiali",
+   "repo": "kiali/kiali",
+   "first_commit": "2018-02-02",
+   "osv_package": null,
+   "osv": []
+  },
+  "maven": {
+   "name": "Maven",
+   "repo": "apache/maven",
+   "first_commit": "2003-09-01",
+   "osv_package": null,
+   "osv": []
+  },
+  "neo4j": {
+   "name": "Neo4j",
+   "repo": "neo4j/neo4j",
+   "first_commit": "2007-05-24",
+   "osv_package": null,
+   "osv": []
+  },
+  "prometheus": {
+   "name": "Prometheus",
+   "repo": "prometheus/prometheus",
+   "first_commit": "2012-11-24",
+   "osv_package": null,
+   "osv": []
+  },
+  "spring": {
+   "name": "Spring Framework",
+   "repo": "spring-projects/spring-framework",
+   "first_commit": "2008-07-10",
+   "osv_package": null,
+   "osv": []
+  },
+  "spring-boot": {
+   "name": "Spring Boot",
+   "repo": "spring-projects/spring-boot",
+   "first_commit": "2012-10-21",
+   "osv_package": null,
+   "osv": []
+  },
+  "typescript": {
+   "name": "TypeScript",
+   "repo": "microsoft/TypeScript",
+   "first_commit": "2014-07-07",
+   "osv_package": null,
+   "osv": []
+  },
+  "viper": {
+   "name": "Viper",
+   "repo": "spf13/viper",
+   "first_commit": "2014-04-02",
+   "osv_package": null,
+   "osv": []
+  },
+  "vue": {
+   "name": "Vue.js 2",
+   "repo": "vuejs/vue",
+   "first_commit": "2016-04-10",
+   "osv_package": null,
+   "osv": []
+  },
+  "webpack": {
+   "name": "webpack",
+   "repo": "webpack/webpack",
+   "first_commit": "2012-03-10",
+   "osv_package": null,
+   "osv": []
+  },
+  "yarn": {
+   "name": "Yarn",
+   "repo": "yarnpkg/berry",
+   "first_commit": "2018-08-21",
+   "osv_package": null,
+   "osv": []
+  }
+ },
+ "evidence": {
+  "angular": [],
+  "antlr": [],
+  "auth0": [],
+  "bitrise": [],
+  "docker": [],
+  "golang": [
+   {
+    "id": "maintained:golang:1973-07-18",
+    "tool": "golang",
+    "check": "maintained",
+    "rel": "CONTRADICTS",
+    "at": "1973-07-18",
+    "title": "git history of golang/go: no commit to the default branch since 1972-07-18"
+   },
+   {
+    "id": "maintained:golang:1974-01-20",
+    "tool": "golang",
+    "check": "maintained",
+    "rel": "SUPPORTS",
+    "at": "1974-01-20",
+    "title": "git history of golang/go: commits resume on 1974-01-20 after a gap since 1972-07-18"
+   },
+   {
+    "id": "maintained:golang:1975-01-20",
+    "tool": "golang",
+    "check": "maintained",
+    "rel": "CONTRADICTS",
+    "at": "1975-01-20",
+    "title": "git history of golang/go: no commit to the default branch since 1974-01-20"
+   },
+   {
+    "id": "maintained:golang:1988-04-01",
+    "tool": "golang",
+    "check": "maintained",
+    "rel": "SUPPORTS",
+    "at": "1988-04-01",
+    "title": "git history of golang/go: commits resume on 1988-04-01 after a gap since 1974-01-20"
+   },
+   {
+    "id": "maintained:golang:1989-04-01",
+    "tool": "golang",
+    "check": "maintained",
+    "rel": "CONTRADICTS",
+    "at": "1989-04-01",
+    "title": "git history of golang/go: no commit to the default branch since 1988-04-01"
+   },
+   {
+    "id": "maintained:golang:2008-03-02",
+    "tool": "golang",
+    "check": "maintained",
+    "rel": "SUPPORTS",
+    "at": "2008-03-02",
+    "title": "git history of golang/go: commits resume on 2008-03-02 after a gap since 1988-04-01"
+   }
+  ],
+  "jaeger": [],
+  "junit5": [],
+  "kiali": [],
+  "maven": [],
+  "neo4j": [],
+  "prometheus": [],
+  "spring": [],
+  "spring-boot": [],
+  "typescript": [],
+  "viper": [],
+  "vue": [],
+  "webpack": [],
+  "yarn": []
+ },
+ "repos": {
+  "OpenTOSCA/container": {
+   "rev": "85c6e55adbd9ffee6f10006675563e18e8b216f6",
+   "adrs": {
+    "docs/adr/0000-use-architectural-decision-records.md": {
+     "title": "Use Markdown Architectural Decision Records",
+     "text": "# Use Markdown Architectural Decision Records\n\n## Context and Problem Statement\n\nWe want to record architectural decisions made in this project.\nWhich format and structure should these records follow?\n\n## Considered Options\n\n* Follow winery project standard\n* Deviate from winery project standard by using a different structure\n\n## Decision Outcome\n\nFollow winery project standard, using [\"MADR 2.1.0\"][MADR]\n\n* See the related reasoning outlined in the [winery adr 0000][winery-adr]\n* Additional consistency across the projects of the OpenTOSCA ecosystem is highly beneficial\n\n [MADR]: https://adr.github.io/madr/\n [winery-adr]: https://github.com/eclipse/winery/tree/master/docs/adr/0000-use-architectural-decision-records.md"
+    },
+    "docs/adr/0001-use-maven.md": {
+     "title": "Use maven as a buildtool and dependency manager",
+     "text": "# Use maven as a buildtool and dependency manager\n\n\n## Context and Problem Statement\n\nTo enable portability and reproducibility of building the container application, a buildtool is of utmost importance.\nIt simplifies the buildprocess and should preferrably allow a minimal configuration effort for IDEs.\n\n## Decision Drivers \n\n* Core Concern is management of building the container, preferrably in a single command invocation\n* Support for dependency management is optional, but highly appreciated\n* The tool should also support deployment of the finished web application to an application server\n* Cross Platform tooling, Automation and support for Running a Test suite are also necessary\n\n## Considered Options\n\n* Maven\n* Gradle\n* Ant\n  \n## Decision Outcome\n\nMaven was chosen both for it's maturity and integration with established IDEs.\nIt also was previously used to automate the container build when the container was still deployed as an OSGI application.\nAdditionally maven dependencies are the de-facto standard distribution mechanism in the java ecosystem.\n\n## Pros and Cons of the Options\n\n### Maven\n\n* Mature and tested ecosystem\n* De-Facto standard for dependency distribution\n* Existing maven structure for previous incarnation of container allows code reuse\n* Strong support for testing, automation and known cross-platform usability\n\n### Gradle\n\n* Not quite as mature ecosystem as maven\n* Dependency management is possible, but doesn't open new avenues over maven\n* Cross-Platform compatibility for gradle is present, but often requires additional support through gradle-wrapper\n* Support for testing and automation is present\n\n### Ant\n\n* Ecosystem is mature, but configuration over convention paradigm\n* No builtin support for dependency management\n* Cross-Platform compatibility is not builtin\n* Support for testing is incomplete, automation with current CI providers may require additional support"
+    },
+    "docs/adr/0002-use-spring-dependency-incjection.md": {
+     "title": "Use Spring for Dependency Injection and discovery of plugins",
+     "text": "# Use Spring for Dependency Injection and discovery of plugins\n\n\n## Context and Problem Statement\n\nTo facilitate testing, a clean, object oriented architecture as well as the plugin systems for various components a configurable Inversion of Control (IOC) container is required.\nThis container is responsible for plugin discovery, as well as injecting services required by the API to serve it's \"external\" customers.\n\n## Decision Drivers \n\n* Support for a plugin system that can discover additional components not originally compiled into the deployed WAR\n* Support for minimal configuration, allowing easy modification and discovery by convention\n\n## Considered Options\n\n* Spring\n* Guice\n\n## Decision Outcome\n\nThe chosen IoC container is Spring, because it supports plugin discovery at minimal configuration and has easy support for servlet-based injection with `spring-mvc` and `spring-web`.\n\n### Negative consequences\n\nThe Plugins loaded cannot be adjusted at runtime.\nAt time of writing, no such capability is required or planned.\n\n## Pros and Cons\n\n### Spring\n\n* Well-Maintained and diverse IoC container supporting various configuration mechanisms\n* No support for changes in registration during runtime\n* Support for `javax.Inject` annotations as well as injection-site adaption through custom annotations\n* No direct support for servlet-based injection, but available as `spring-web`\n\n### Guice\n\n* No support for XML-Based configuration\n* No direct support for servlet-based injection\n* At time of writing seems to be discontinued by original maintainer Google"
+    },
+    "docs/adr/requirements.md": {
+     "title": "Preexisting requirements",
+     "text": "# Preexisting requirements\n\nThe following is a non-exhaustive list of requirements that serve as basis for architectural decisions.\nRequirements that are not imposed by the problem domain (of provisioning a TOSCA CSAR) are marked as \"pragmatic requirement\"\n\n- Availability as a REST API\n  - Deploy as Web Archive to a Java application server (pragmatic requirement)\n  - Use Tomcat as application Server (pragmatic requirement)\n- Persistent Storage capabilities for CSARs as well as metadata surrounding deployment\n  - Use of the already existing support for persistent storage of CSARs implemented in OpenTOSCA Winery\n- Support for existing \"Planbuilder\" service capabilities\n- Support for existing Application Bus code and infrastructure\n- Support for existing Management Bus code and infrastructure\n- Support for Plugin-Based extension of the capabilities implemented by the Container application\n  - Specifically this refers to supporting the existing plugin systems of Planbuilder, Plan Engine as well as Management and Application Bus\n- \u2026"
+    }
+   }
+  },
+  "VolleyManagement/volley-management": {
+   "rev": "10a543ef30ac79a1bf2325321f47ea32cd1b83e5",
+   "adrs": {
+    "docs/adr/0000-use-markdown-architectural-decision-records.md": {
+     "title": "Use Markdown Architectural Decision Records",
+     "text": "# Use Markdown Architectural Decision Records\n\n## Context and Problem Statement\n\nWe want to record architectural decisions made in this project.\nWhich format and structure should these records follow?\n\n## Considered Options\n\n* [MADR](https://adr.github.io/madr/) 2.1.2 \u2013 The Markdown Architectural Decision Records\n* [Michael Nygard's template](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions) \u2013 The first incarnation of the term \"ADR\"\n* [Sustainable Architectural Decisions](https://www.infoq.com/articles/sustainable-architectural-design-decisions) \u2013 The Y-Statements\n* Other templates listed at <https://github.com/joelparkerhenderson/architecture_decision_record>\n* Formless \u2013 No conventions for file format and structure\n\n## Decision Outcome\n\nChosen option: \"MADR 2.1.2\", because\n\n* Implicit assumptions should be made explicit.\n  Design documentation is important to enable people understanding the decisions later on.\n  See also [A rational design process: How and why to fake it](https://doi.org/10.1109/TSE.1986.6312940).\n* The MADR format is lean and fits our development style.\n* The MADR structure is comprehensible and facilitates usage & maintenance.\n* The MADR project is vivid.\n* Version 2.1.2 is the latest one available when starting to document ADRs."
+    },
+    "docs/adr/0001-use-auth0-as-authentication-provider.md": {
+     "title": "Use Auth0 as authentication provider",
+     "text": "# Use Auth0 as authentication provider\n\n* Deciders: Sergii Diachenko\n* Date: 2019-08-22\n\n## Context and Problem Statement\n\nHow to implement authentication?\n\n## Decision Drivers\n\n* Volley Management system should restrict access only to the authenticated users\n* Prefer buy vs build as authentication is not a core domain\n* cost should be minimized\n\n## Considered Options\n\n* Write custom logic based on ASP.NET Identity and/or IdentityServer\n* Auth0\n* Azure AD B2C\n\n## Decision Outcome\n\nChosen option: Auth0, because it has free tier and integration will take 2-5 hours of work.\n\n### Positive Consequences\n\n* Fast time to implement\n\n* We have a possibility to move to another solution quickly once need arises\n\n### Negative Consequences\n\n* We might be limited by Auth0 free tier\n\n  * Free tier has limit on number of authentications per minute\n\n## Pros and Cons of the Options\n\n### Write custom logic based on ASP.NET Identity and/or IdentityServer\n\nUse ASP.NET identity to store user information and issue authentication tokens.\n\n* \u2714 you have full control and implement what you need\n* \u274c writing custom security is not a good practice\n* \u274c you have to write code\n* \u274c you need to persist user information and passwords\n\n### Auth0\n\n* \u2714 quick to integrate\n* \u2714 Free tier\n* \u2714 SaaS\n* \u274c limited free tier\n* \u274c rate limiting on free tier\n\n### Azure AD B2C\n\nAzure AD B2C is IDaaS solution intended to work with various identity providers\n\n* \u2714 quick to integrate\n* \u2714 Free tier\n* \u2714 SaaS\n* \u274c Does not have own user storage \u2753\n* \u274c free tier limitations"
+    },
+    "docs/adr/0002-use-sendgrid-as-mailing-system.md": {
+     "title": "Use SendGrid for sending emails",
+     "text": "# Use SendGrid for sending emails\n\n* Deciders: Sergii Diachenko\n* Date: 2019-08-22\n\nTechnical Story: [Email Notifications Feature](https://dev.azure.com/VolleyManagement/%CE%94%CE%B9%CE%B1%CF%87%CE%B5%CE%B9%CF%81%CE%B9%CF%80%CE%B7/_workitems/edit/1003)\n\n## Context and Problem Statement\n\nWe need a way to send emails to users for several workflows.\n\n## Considered Options\n\n* SendGrid\n* GMail\n\n## Decision Outcome\n\nChosen option: SendGrid, because it is SaaS and has generous free tier. Integration is easy.\n\n### Positive Consequences <!-- optional -->\n\n* Fast time to develop\n\n### Negative Consequences\n\n* We need to think about setting up development environment\n\n## Pros and Cons of the Options <!-- optional -->\n\n### SendGrid\n\n* \u2714 has free tier\n* \u2714 has mail customization and templates\n* \u2714 fast integration\n* \u274c hard to say\n\n### GMail\n\nYou can use GMail servers to send emails from your own email\n\n* \u2714 free to use with some limitations\n* \u274c emails will be coming from GMail address always"
+    },
+    "docs/adr/0003-use-angular-for-spa.md": {
+     "title": "Use Angular Framework for VolleyManagement.SPA container",
+     "text": "# Use Angular Framework for VolleyManagement.SPA container\n\n* Deciders: Sergii Diachenko\n* Date: 2019-08-23\n\n## Context and Problem Statement\n\nVolleyManagement.SPA provides a way for users to interact. We need to select a framework which will be used to develop.\n\n## Decision Drivers\n\n* TypeScript support\n* Unit Test support\n* Skill availability\n* UI components availability\n\n## Considered Options\n\n* Angular\n* Vue.JS\n\n## Decision Outcome\n\nChosen option: Angular, because skill availability is better.\n\n### Positive Consequences\n\n* Easier to get work done as it will be easier to find person eager to contribute\n\n### Negative Consequences\n\n* Angular has a reputation of being complex. As a workaround we can always build Vue.JS app later\n\n## Pros and Cons of the Options\n\n### Angular\n\nLatest Angular version\n\n* \u2714 TypeScript support\n* \u2714 Unit Test support\n* \u2714 Skill availability\n* \u2714 UI components availability\n\n### Vue.js\n\n* \u2714 TypeScript support\n* \u2714 Unit Test support\n* \u274c Skill availability\n* \u2753 UI components availability"
+    },
+    "docs/adr/0004-use-docker-for-hosting-application.md": {
+     "title": "Use Docker for hosting application",
+     "text": "# Use Docker for hosting application\n\n* Deciders: Sergii Diachenko\n* Date: 2019-08-23\n\n## Context and Problem Statement\n\n[Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.]\n\n## Decision Drivers\n\n* Consistent environment\n* Automation capabilities\n* Ease of deployment\n* Ease of development\n\n## Considered Options\n\n* dotnet CLI\n* Docker\n\n## Decision Outcome\n\nChosen option: \"Docker\", because it allows to have same environment locally as well as in production. Every dev and environment will have same configuration.\n\ndotnet CLI is quite good at it as well but it requires a little bit more specifics, while Docker can be hosted virtually everywhere.\n\n### Positive Consequences\n\n* Docker has large support among hosting providers\n\n### Negative Consequences\n\nLocal development for docker might be harder as you need to rebuild container. While VS team puts a lot of effort into it it is still slower than run it locally on .NET Core.\n\nWe can do major development using local setup with .NET Core, but all CI steps automated using docker.\n\n## Pros and Cons of the Options\n\n### dotnet CLI\n\n* \u2714 Consistent environment\n* \u2714 Automation capabilities\n* \u2714+- Ease of deployment\n* \u2714 Ease of development\n\n### Docker\n\n* \u2714 Consistent environment\n* \u2714 Automation capabilities\n* \u2714 Ease of deployment\n* \u2714+- Ease of development\n\n## Links\n\n* Affects [ADR-0005](0005-use-azure-app-services-for-hosting.md)"
+    },
+    "docs/adr/0005-use-azure-app-services-for-hosting.md": {
+     "title": "Use Azure App Services for deploying VolleyManagement.API container",
+     "text": "# Use Azure App Services for deploying VolleyManagement.API container\n\n* Deciders: Sergii Diachenko\n* Date: 2019-08-23\n\n## Context and Problem Statement\n\nWe need a hosting provider to host application. It should be cloud capable of hosting Docker containers.\n\n## Decision Drivers <!-- optional -->\n\n* cost\n* ease of deployment\n* custom domains\n* https\n\n## Considered Options\n\n* Azure App Service\n\n## Decision Outcome\n\nChosen option: \"Azure App Service\".\n\nHonestly this was chosen because I had experience running VolleyManagement V2 on Azure App Service. Price is acceptable and I did not have time to evaluate other options I'd want:\n\n* Digital Ocean\n* GCP App Engine Flexible environment\n\n## Links\n\n* Depends on [ADR-0004](0004-use-docker-for-hosting-application.md)\n* Influences [ADR-0006](0006-use-azure-table-storage-for-persistence.md)"
+    },
+    "docs/adr/0006-use-azure-table-storage-for-persistence.md": {
+     "title": "Use Azure Table Storage for persistence",
+     "text": "# Use Azure Table Storage for persistence\n\n* Deciders: Sergii Diachenko\n* Date: 2019-08-23\n\n## Context and Problem Statement\n\nWe need a persistent state for the system. Previously I've used Azure SQL but it is quite pricey but has it's own set of features including relational model. But given that system is not very complex I can model persistence mechanism for NoSQL model.\n\n## Decision Drivers\n\n* Cost\n* Backup capabilities\n\n## Considered Options\n\n* Azure SQL\n* Azure Table Storage\n\n## Decision Outcome\n\nChosen option: \"Azure Table Storage\", because cost.\n\n### Positive Consequences <!-- optional -->\n\n* Persistence bill should be down from ~$5/month to less than $1/month\n\n### Negative Consequences <!-- optional -->\n\n* Students in IT Academy won't be exposed to a relational model, which at this moment dominates work they will have to be doing. We will have to come up with a strategy to get them good experience.\n\n## Pros and Cons of the Options <!-- optional -->\n\n### Azure SQL\n\n* \u2714 Has good backup capabilities\n* \u2714 Relational model\n* \u274c Cost\n* \u2714 Local dev env support\n\n### Azure Table Storage\n\n* \u2714 Storage container can be backed up\n* \u274c Relational model\n* \u2714 Cost\n* \u2714 Local dev env support"
+    },
+    "docs/adr/0007-follow-optimistic-concurrency.md": {
+     "title": "Use Optimistic Concurrency",
+     "text": "# Use Optimistic Concurrency\n\n* Deciders: Sergii Diachenko\n* Date: 2021-04-21\n\n## Context and Problem Statement\n\nAs any modern system, Volley Management faces a problem of concurrent changes to data and we need to support such scenario.\n\nWe explicitly do not consider an option to go without concurrency checks - time will tell if it is a good decision).\n\n## Decision Drivers <!-- optional -->\n\n* Performance - decision should support high throughput scenarios\n* Maintainability - amount of code needed to write should be minimized\n\n## Considered Options\n\n* Optimistic Concurrency\n* Pessimistic Concurrency\n\n## Decision Outcome\n\nChosen option: \"Optimistic concurrency\", because it is a better from the perfromance perspective and it will support our choice to [use Azure Table Storage](0006-use-azure-table-storage-for-persistence.md).\n\n### Positive Consequences <!-- optional -->\n\n* Concurrency check will fail very rarely so it will have almost no overhead\n* It is aligned with Azure Table storage Optimistic concurrency\n\n### Negative Consequences <!-- optional -->\n\n* Whole application will have a responsibility to manage versions properly\n* If we change a datastore we might need to have a larger change\n\n## Pros and Cons of the Options <!-- optional -->\n\n### Optimistic concurrency\n\nStorage layer has some indication of 'row version' for each record which changes every time the change to the record is made. When write operation happens it checks for row version match beforehand.\n\n* \u2714 Has better performance\n* \u2714 Azure Table Storage uses Optimistic concurrency model\n* \u274c our business logic will have to take this into account\n\n### Pessimistic Concurrency\n\nWhen something is going to be edited record is locked for change. And everyone waits while operation completes.\n\n* \u2714 Easier to implement\n* \u274c Terrible performance\n* \u274c Is not aligned to Azure Table storage\n\n## Links <!-- optional -->\n\n* Partially a consequence of [ADR-0006](0006-use-azure-table-storage-for-persistence.md)"
+    }
+   }
+  },
+  "adr/adr-manager": {
+   "rev": "7537bbfb48b60486f64763294b297d1526ade799",
+   "adrs": {
+    "docs/adr/0000-use-markdown-architectural-decision-records.md": {
+     "title": "Use Markdown Architectural Decision Records",
+     "text": "# Use Markdown Architectural Decision Records\n\n## Context and Problem Statement\n\nWe want to record architectural decisions made in this project.\nWhich format and structure should these records follow?\n\n## Considered Options\n\n* [MADR](https://adr.github.io/madr/) 2.1.2 \u2013 The Markdown Architectural Decision Records\n* [Michael Nygard's template](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions) \u2013 The first incarnation of the term \"ADR\"\n* [Sustainable Architectural Decisions](https://www.infoq.com/articles/sustainable-architectural-design-decisions) \u2013 The Y-Statements\n* Other templates listed at <https://github.com/joelparkerhenderson/architecture_decision_record>\n* Formless \u2013 No conventions for file format and structure\n\n## Decision Outcome\n\nChosen option: \"MADR 2.1.2\", because\n\n* Implicit assumptions should be made explicit.\n  Design documentation is important to enable people understanding the decisions later on.\n  See also [A rational design process: How and why to fake it](https://doi.org/10.1109/TSE.1986.6312940).\n* The MADR format is lean and fits our development style.\n* The MADR structure is comprehensible and facilitates usage & maintenance.\n* The MADR project is vivid.\n* Version 2.1.2 is the latest one available when starting to document ADRs."
+    },
+    "docs/adr/0001-use-vue.js.md": {
+     "title": "Use Vue.js",
+     "text": "# Use Vue.js\n\n\n## Context and Problem Statement\n\nA framework makes the creation of a web app significantly easier. Which framework should be used?\n\n## Considered Options\n\n* Vue.js\n* Angular\n\n## Decision Outcome\n\nChosen option: \"Vue.js\", because the team has more experience with Vue.js."
+    },
+    "docs/adr/0002-use-antlr-for-parsing-adrs.md": {
+     "title": "Use ANTLR for parsing ADRs",
+     "text": "# Use ANTLR for parsing ADRs\n\n\nTechnical Story: Proposed in the GitHub Issues [#17](https://github.com/koppor/adr-manager/issues/17),  [#19](https://github.com/koppor/adr-manager/issues/19)\n\n## Context and Problem Statement\n\nADR Manager needs to parse existing ADRs. Each ADR is stored in a markdown file. Example: https://github.com/adr/madr/blob/master/docs/adr/0001-use-CC0-as-license.md.\n\n## Considered Options\n\n* Use a generic Markdown Parser\n* Use ANTLR to create an ADR specific parser\n* Write a parser from scratch\n\n## Decision Outcome\n\nChosen option: \"Use ANTLR to create an ADR specific parser\", because comes out best (see below).\n\n### Positive Consequences\n\n* Some existing ADRs are accepted now without changes.\n* Better control over output\n\n### Negative Consequences\n\n* The new parser is worse at parsing \"invalid\" ADRs than the generic one.\n* ANTLR Parser seems to be quite slow.\n\n## Pros and Cons of the Options\n\n### Use a generic Markdown Parser\n\nEnhance generic Markdown parser and use the result of that parser. For that, available options are listed at https://github.com/f43i4n/md-schema/blob/master/docs/related-work.md.\n\nThis option was used in the mock-up with the library [md-to-json](https://github.com/ajithr/md-2-json).\n\n* Good, because easiest solution.\n* Good, because md-to-json can parse the json back to a Markdown.\n* Bad, because md-to-json adds extra line breaks, which are hard to remove.\n\n### Use ANTLR to create an ADR specific parser\n\nUse ANTLR4 to write a parser specifically for ADRs.\n\n* Good, because flexible parser and full control over output.\n* Good, because hopefully maintainable. ANTLR Grammar can be used to specify how ADRs must look.\n* Bad, because extra work.\n\n### Write a parser from scratch\n\n* Bad, because extra work.\n* Bad, because writing stuff from scratch is a bad anti pattern."
+    },
+    "docs/adr/0003-use-pizzly-as-backend.md": {
+     "title": "Use Pizzly as Backend",
+     "text": "# Use Pizzly as Backend\n\n\n## Context and Problem Statement\n\nShould the ADR Manager have a backend? If so, how should it look?\n\n## Considered Options\n\n* Use a Python back end\n* Don't use a back end\n* Use Pizzly as Backend\n\n## Decision Outcome\n\nChosen option: \"Use Pizzly as Backend\", because comes out best (see below).\n\n## Pros and Cons of the Options\n\n### Use a Python back end\n\n* Good, because GitHub interaction can be achieved.\n* Bad, because hard to maintain.\n\n### Don't use a back end\n\n* Bad, because we can't authorize to GitHub without back end.\n\n### Use Pizzly as Backend\n\n[Pizzly](https://github.com/Bearer/Pizzly/) can handle the OAuth dance for us. It can be hosted on Heroku as the back end.\n\n* Good, because less work than writing the back end from scratch.\n* Good, because we don't have to handle the authorization process."
+    },
+    "docs/adr/0004-implement-a-global-store.md": {
+     "title": "Implement a global store",
+     "text": "# Implement a global store\n\n\nTechnical Story: Implement a simple global store\n\n## Context and Problem Statement\n\nThe ADR-Manager has a state that needs to be stored.\nData that make sense storing globally:\n\n* Edited ADRs until they're committed (maybe even all ADRs from all added repositories)\n* Added Repositories\n* The current mode (basic, advanced, professional)\n\nHow should the state be stored?\n\n## Decision Drivers\n\n* ADR-Manager should be lightweight and easy to implement.\n* ADR-Manager should be easy to maintain.\n\n## Considered Options\n\n* Don't use any global store\n* Only use local storage in combination with Events/Props\n* Use the Vue-State-Manager Vuex\n* Implement a state manager from scratch.\n\n## Decision Outcome\n\nChosen option: \"Implement a state manager from scratch.\", because comes out best. The data can additionally be stored in Local Storage but this should be managed by the global store as well.\n\n### Positive Consequences\n\n* New functionality will be easier to add.\n\n## Pros and Cons of the Options\n\n### Don't use any global store\n\nJust \"cascade\" updates between Vue-Components via Events and Props. E.g. each editor tab has a prop (v-model) for the displayed ADR. Whenever the ADR is changed the Sup-Component (currently TheEditor.vue) updates the ADR in each tab. When a new ADR is created via a toolbar menu, the event needs to cascade down to each related Editor-Component.\n\n* Good, because it's easy to implement.\n* Bad, because it's hard to debug.\n* Bad, because GUI and functionality is more directly connected. Changes to the GUI often require bigger updates to functionality and vice versa.\n\n### Only use local storage in combination with Events/Props\n\nUse local storage (i.e. persistent storage) to store the state and use events (e. g. a global event bus) to communicate changes to the state.\n\n* Good, because it's easy to implement.\n* Good, because most data should be stored in persistent storage anyway.\n* Bad, because cannot take advantage of Vue's reactivity.\n\n### Use the Vue-State-Manager Vuex\n\nDocs can be found at https://vuex.vuejs.org/.\n\n* Good, because best long-term maintainability.\n* Good, because prepares for extensions like 'Undo-Redo'.\n* Good, because the development team can gather experience with Vuex.\n* Bad, because of more concepts and boilerplate.\n* Bad, because does not fit in our project. We assume that ADR-Manager is a small-to-medium project and not a medium-to-large project\n\n### Implement a state manager from scratch.\n\nImplement a state manager from scratch as described at https://vuejs.org/v2/guide/state-management.html#Simple-State-Management-from-Scratch.\n\n* Good, because GUI and functionality are split better. Debugging is easier.\n* Good, because it's a compromise between using Vuex and using no global state."
+    }
+   }
+  },
+  "architecture-topography/topo": {
+   "rev": "0b99400fbf6072b6a687875195ca39024fa6c6d8",
+   "adrs": {
+    "doc/adr/0001-record-architecture-decisions.md": {
+     "title": "1. Record architecture decisions",
+     "text": "# 1. Record architecture decisions\n\nDate: 2020-06-06\n\n## Context\n\nWe need to record the architectural decisions made on this project.\n\n## Decision\n\nWe will use Architecture Decision Records, as [described by Michael Nygard](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions).\n\n## Consequences\n\nSee Michael Nygard's article, linked above. For a lightweight ADR toolset, see Nat Pryce's [adr-tools](https://github.com/npryce/adr-tools)."
+    },
+    "doc/adr/0002-use-neo4j-as-persistence.md": {
+     "title": "2. Use Neo4j as Persistence",
+     "text": "# 2. Use Neo4j as Persistence\n\nDate: 2020-06-06\n\n## Context\n\nWe need to save information into a persistence layer in order to query and explore the data. The data we will be working with heavily relies on describing relationships which is well suited for a graph like structure.\n\n## Decision\n\nWe will use Neo4J as the persistence layer. It is a fairly popular graph database, well documented and mature product.\n\n## Consequences\n\nWe will need to use Cypher query language to create, read update and delete data.\nThis will also increase the deployment complexity of Topo."
+    },
+    "doc/adr/0003-graphql-as-api-query-language-via-appolo-server.md": {
+     "title": "3. GraphQL as API Query Language via Apollo Server",
+     "text": "# 3. GraphQL as API Query Language via Apollo Server\n\nDate: 2020-06-06\n\n## Context\n\nWe need a way to populate our Neo4J database via an API layer.\n\n## Decision\n\nUse GraphQL libraries for the server API.  \nGraphQL has been increasing in popularity and maturity lately. It provides a more flexible API query layer compared to REST based interactions. Specifically being able to perform arbitrarily structured queries, with optional sub-elements and with query parameters.\n\n[Apollo Server](https://www.apollographql.com/) will be used as it's a popular well documented implementation.\n\n## Consequences\n\nWe will need to write the API server in Javascript or similar. (We're using TypeScript)"
+    }
+   }
+  },
+  "arvos-dev/arvos": {
+   "rev": "c56ad7bf9fd19ff9767915cb74dfbe6e07021711",
+   "adrs": {
+    "docs/adr/0000-use-markdown-architectural-decision-records.md": {
+     "title": "Use Markdown Architectural Decision Records",
+     "text": "# Use Markdown Architectural Decision Records\n\n## Context and Problem Statement\n\nWe want to record architectural decisions made in this project.\nWhich format and structure should these records follow?\n\n## Considered Options\n\n* [MADR](https://adr.github.io/madr/) 2.1.2 \u2013 The Markdown Architectural Decision Records\n* Formless \u2013 No conventions for file format and structure\n\n## Decision Outcome\n\nChosen option: \"MADR 2.1.2\", because\n\n* We need to start somewhere, and it's better to have some format than no format.\n* MADR seems to be good enough for our current needs."
+    },
+    "docs/adr/0001-package-as-a-container-image.md": {
+     "title": "Package as a container image",
+     "text": "# Package as a container image\n\n* Deciders: Cristian, Emil\n* Date: 2021-10-26\n\n## Context and Problem Statement\n\nAs identified via user interviews, ARVOS needs to be packaged as easily as possible to reduce the barrier of adoption.\n\nHow exactly should we package ARVOS?\n\n## Decision Drivers\n\n* ARVOS needs to be easy to run on a variety of platforms\n* Packaging should not require to much effort\n\n## Considered Options\n\n* Package as an APT (deb) package\n* Package as a container image\n\n## Decision Outcome\n\nChosen option: \"package as a container image\", because the requirements allow us to assume that the Docker runtime is already present on the system where ARVOS is to be launched. This means that the user can already run ARVOS, without needing to install anything else.\n\nFor CI/CD environments, ARVOS will be launched as a privileged container, which talks to the Docker Daemon, e.g.:\n\n```\ndocker run -v /var/run/docker.sock:/var/run/docker.sock --privileged arvos -- --image myapp-test mvn test\n```\n\nFor Kubernetes environments, ARVOS will run as a privileged DaemonSet, which talks to each host's Docker Daemon, e.g.:\n\n```yaml\napiVersion: apps/v1\nkind: DaemonSet\nmetadata:\n  name: arvos\n  namespace: arvos-system\nspec:\n  selector:\n    matchLabels:\n      name: arvos\n  template:\n    metadata:\n      labels:\n        name: arvos\n    spec:\n      containers:\n      - name: arvosfluentd-elasticsearch\n        image: arvos:v1.1.1\n        resources:\n          limits:\n            memory: 200Mi\n          requests:\n            cpu: 100m\n            memory: 200Mi\n        securityContext:\n          privileged: true\n          runAsUser: 0\n        volumeMounts:\n        - name: dockerdock\n          mountPath: /var/run/docker.sock\n        - name: varlibdockercontainers\n          mountPath: /var/lib/docker/containers\n          readOnly: true\n      volumes:\n      - name: dockersock\n        hostPath:\n          path: /var/run/docker.sock\n      - name: varlibdockercontainers\n        hostPath:\n          path: /var/lib/docker/containers\n```\n\n## Links\n\n* [Privileged containers](https://docs.docker.com/engine/reference/commandline/run/#full-container-capabilities---privileged)\n* [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)"
+    },
+    "docs/adr/0002-use-golang.md": {
+     "title": "Use Golang",
+     "text": "# Use Golang\n\n* Deciders: Cristian, Emil\n* Date: 2021-10-28\n\n## Context and Problem Statement\n\nARVOS is clearly more complex than \"plumbing together a few executables\" and needs to be written in *some* programming language.\n\nWhich one?\n\n## Decision Drivers\n\n* It needs to be a fast system-oriented programming language.\n* It needs to be safe to work with.\n* It needs to be easy to find talent for it.\n* It needs to have good eBPF bindings.\n\n## Considered Options\n\n* Golang\n* Python\n* Rust\n* C\n* C++\n* many more\n\n## Decision Outcome\n\nChosen option: \"Golang\", because it is a fast system-oriented programming language, that is relatively safe (memory-wise) and popular in the cloud-native community.\n\n## Links\n\n* [Golang](https://golang.org/)\n* [Example of Golang eBPF package](https://pkg.go.dev/github.com/cilium/ebpf)"
+    }
+   }
+  },
+  "fragaria/ng2-f-template-spa": {
+   "rev": "b6852acf9d6ed0ca1317ca411b6bbc78699831f4",
+   "adrs": {
+    "docs/adr/0001-record-architecture-decisions.md": {
+     "title": "1. Record architecture decisions",
+     "text": "# 1. Record architecture decisions\n\nDate: 10/01/2017\n\n## Context\n\nWe need to record the architectural decisions made on this project.\n\n## Decision\n\nWe will use Architecture Decision Records, as described by Michael Nygard in this article: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions\n\n## Consequences\n\nSee Michael Nygard's article, linked above. For a lightweight ADR toolset, see Nat Pryce's _adr-tools_ at https://github.com/npryce/adr-tools."
+    },
+    "docs/adr/0002-use-observables-not-promises.md": {
+     "title": "0002. Use Observables instead of Promises",
+     "text": "# 0002. Use Observables instead of Promises\n\nDate: 11.1.2017\n\n## Context\n\nAngular2 still supports [Promises](http://exploringjs.com/es6/ch_promises.html) but favors using  [Observables](http://reactivex.io/documentation/observable.html) with RxJS library.\nObservable API has several advantages over promises:\n* can handle more than one event\n* is cancelable\n* doesn't start operation until there is a event listener ([Cold Observables](https://angular-2-training-book.rangle.io/handout/observables/cold_vs_hot_observables.html))\n*\u00a0provides operators, such as `map`, `forEach` or even `retry` and `replay`\n*\u00a0can be converted to Promise\n\n## Decision\n\nUse Observables instead of Promises where possible.\n\n## Consequences\n\nObservables must be [correctly unsubscribed](https://angular.io/docs/ts/latest/cookbook/component-communication.html#!#bidirectional-service) to avoid memory leaks.\nIf there is a need to use Promises API, it's possible to [convert Observables to Promises](https://angular.io/docs/ts/latest/guide/server-communication.html#!#promises)."
+    },
+    "docs/adr/0003-use-webpack-for-build.md": {
+     "title": "0003. Use Webpack for application build",
+     "text": "# 0003. Use Webpack for application build\n\nDate: 11.1.2017\n\n## Context\n\nAngularJS 2.x uses [CommonJS pattern](http://requirejs.org/docs/commonjs.html) for defining application modules. Thus building/bundling an application is little more complicated than just concatenating all `*.js` files.\nAll `require` and `import` statements must be evaluated during build time to create a dependency tree. This is something that only **bundlers** as Webpack or Browserify can do. **Task runners** such as Grunt or Gulp are not able to do this.\n\n## Decision\n\nUse [Webpack](https://webpack.js.org) to create application bundle. Use [Gulp](http://gulpjs.com) for non-build related tasks - create Jenkins configuration, upload to Sonar etc.\n\n## Consequences\n\nAll build tasks use Webpack to create an application bundle. Some tasks (maven publish, protractor tests) use gulp because those exceed Webpack scope.\nAll tasks (webpack and gulp) are defined in `package.json` and can be run using `npm` - mainly to avoid developer confusion whether particular task is defined in gulp or webpack.\nWe try to move as much tasks as possible from gulp to webpack."
+    },
+    "docs/adr/0004-use-yeoman-to-generate-seed-application.md": {
+     "title": "0004. Use Yeoman to generate seed application",
+     "text": "# 0004. Use Yeoman to generate seed application\n\nDate: 11.1.2017\n\n## Context\n\nCurrent version of FAST is well built but cumbersome to start a new project on. Current `npm run init` command works by deleting some subdirs (e.g. `.git`) and efectively cloning whole project.\nWhile the FAST codebase is almost done, we feel it is same to convert it to [Yeoman](http://yeoman.io) script.\n\n## Decision\n\nUse Yeoman to generate seed applications for developers.\n\n## Consequences\nNext version will use [Yeoman](http://yeoman.io) as scaffolding tool."
+    }
+   }
+  },
+  "hycomsa/mokka": {
+   "rev": "159501dc670b88b5752df53dd04b004e1ebe8310",
+   "adrs": {
+    "doc/adr/0001-record-architecture-decisions.md": {
+     "title": "1. Record architecture decisions",
+     "text": "# 1. Record architecture decisions\n\nDate: 2019-09-22\n\n## Context\n\nWe need to record the architectural decisions made on this project.\n\n## Decision\n\nWe will use Architecture Decision Records, as [described by Michael Nygard](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions).\n\n## Consequences\n\nSee Michael Nygard's article, linked above. For a lightweight ADR toolset, see Nat Pryce's [adr-tools](https://github.com/npryce/adr-tools)."
+    },
+    "doc/adr/0002-use-archunit-for-checking-the-architecture.md": {
+     "title": "2. Use ArchUnit for checking the architecture",
+     "text": "# 2. Use ArchUnit for checking the architecture\n\nDate: 2019-09-22\n\n## Context\n\nThe issue motivating this decision, and any context that influences or constrains the decision.\n\n## Decision\n\nThe change that we're proposing or have agreed to implement.\n\n## Consequences\n\nWhat becomes easier or more difficult to do and any risks introduced by the change that will need to be mitigated."
+    },
+    "doc/adr/0003-upgrade-to-spring-boot-2-2-1.md": {
+     "title": "3. Upgrade to Spring Boot 2.2.1",
+     "text": "# 3. Upgrade to Spring Boot 2.2.1\n\nDate: 2019-11-07\n\n## Context\n\nCurrently used: 2.1.0\n\nThe latest stable version of Spring Boot is 2.2.1:\nhttps://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.2-Release-Notes\n\nMore frequent but smaller upgrades are recommended.\n\n## Decision\n\nSpring Boot will be upgraded to 2.2.1.\nAccording to release notes no migration needed on Mokka side.\n\n## Consequences\n\nSome unexpected dependencies-related issues may occur."
+    },
+    "doc/adr/0004-should-wiremock-be-used-as-stubs-engine.md": {
+     "title": "4. Should Wiremock be used as stubs engine",
+     "text": "# 4. Should Wiremock be used as stubs engine\n\nDate: 2020-02-10\n\n## Context\n\nMokka's stubs engine is required to provide set of new features that will allow better (wider) support of request matching,\n(i.e. headers, cookies, variety of patterns), proxying and recording interactions.\n\nIt has been considered if further development of Mokka stubs engine should be continued or we should research and adopt one of existing, grown up and production ready solution.\n\nWireMock (http://wiremock.org/) was chosen as one of the most popular mock server with strong and active open source community. It provides consistent and reach API (both: Java and HTTP JSON).\nThrough years it became one of the mostly chosen library for mocking external services in JUnit tests and also the core part of Spring Cloud Contract library.\nBy reusing WireMock standards, Mokka may benefit in easier integration with already existing solutions, products and projects.\n\nTable below comparises features of Mokka and WireMock in context of stubbing/mocking engine.\nPlease mind it does not considers GUI or user management features as what Mokka provides is not considered to be change.\n\nCompared versions:\n* WireMock version: 2.26.0<br>\n* Mokka version: 0.5.0\n\n| Feature | Mokka | WireMock |\n| ------- | ----  | -------- |\n| Stubs Management (CRUD) | + | + |\n| Stubs Management - Disable | + | - |\n| SOAP/HTTP Support | + <BR> BASIC: No matching by request headers/cookies, no multipart support | + |\n| REST Support | + <br> BASIC: No matching by request headers/cookies, no multipart support| + |\n| Create stubs from OpenAPI spec | - | - |\n| JMS Support | + <br> Embedded ActiveMQ | - |\n| Proxying | -  | +  |\n| Record and Playback | -  | +  |\n| Simulating Faults | - | + |\n| Response templating | + <BR> Using Groovy | + <BR> Using Handlebars |\n| Stubs stored in | Database | JSON files |\n| Stubs modifications history | + | - |\n| Interactions log | + <br> Stored in database | + <br> Stored in memory |\n| File serving | + | + |\n| Fake Payment Gateway | + <BR> BlueMedia | - |\n| Admin API | - | + <BR>JSON API, Java API |\n\nSo the WireMock already covers most of the requirements. The main differences:\n* \"Stubs Management - Disable\" - use Stub Mapping Metada to define \"active\" property? __TODO__\n* \"Create stubs from OpenAPI spec\" - have to implemented in Mokka and WireMock anyway. __TODO__\n* \"JMS Support\" - to be verified __TODO__\n* \"Response templating\" - using \"Handlebars\" are not necessarily a drawback. It seems to be far more elegant and easy to use than Groovy. Also safer from security point of view. __TODO__\n* \"Stubs stored in\" - we can try to provide database-based custom implementation of `MappingsSource`\n* \"Stubs modifications history\" - __TODO__??\n* \"Interactions log\" - Saving to database may be achieved by providing custom implementation of `RequestJournal`. __TODO__??\n* \"Fake Payment Gateway\" - Mokka implementation can be reused\n\n\nThe following solutions were considered:\n* continue with Mokka stubs engine\n  * \\+ flexibility and open architectural decisions in future\n  * \\- large codebase to maintain\n  * \\- requires high contribution to develop all missing features\n* adopt WireMock sources and maintain them to fulfill all the requirements\n  * \\+ large set of production-ready features provided at start\n  * \\+ flexibility and open architectural decisions in future\n  * \\- large codebase to maintain\n  * \\- no easy way to upgrade WireMock\n  * \\- no support of WireMock community\n* adopt WireMock as library and use all possible extension points\n  * \\+ WireMock core implementation remains untouched, new feature are provided using well designed extensions points\n  * \\+ small codebase to maintain\n  * \\+ WireMock bugs are handled by the community\n  * \\+ upgrading WireMock should be straightforward (as long as no breaking changes are introduced to WireMock APIs)\n  * \\- some future architectural decisions or feature considerations may be limited by WireMock architecture\n  * \\- in unknown feature WireMock license may change or community support may drop\n  * \\- we fully rely on WireMock development lifecycle\n\n## Decision\n\nAdopt WireMock as library and use all possible extension points.\n\n## Consequences\n\nWhat becomes easier or more difficult to do and any risks introduced by the change that will need to be mitigated."
+    }
+   }
+  },
+  "liquidmetal-dev/flintlock": {
+   "rev": "76a0a3705ad705cd6ff0f01e0218853044995852",
+   "adrs": {
+    "docs/adr/0001-use-adrs-for-decisions.md": {
+     "title": "1. Use ADRs to record decisions",
+     "text": "# 1. Use ADRs to record decisions\n\n* Date: 2021-07-08 \n* Authors: @richardcase\n* Deciders: @richardcase\n\n## Context\n\nDecisions that affect the development of flintlock that are not captured via a proposal need to be captured in some way. We need a method that is lightweight and easy to discover the decision that have been made. The record of decisions will help future contributors to the project to understand why something has been implemented or is done a certain way.\n\n## Decision\n\nThe project will use [Architectural Decision Records (ADR)](https://adr.github.io/) to record decisions that are made outside of a proposal.\n\nA [template](./0000-template.md) has been created based on prior work:\n\n* https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions\n* https://adr.github.io/madr/\n\n## Consequences\n\nWhen decisions are made that affect the entire project then a new ADR needs to be created. Likewise, if a decision has been superceded then we need to caputure this as a new ADR and mark the previous ADR as superceded. Maintainers and contributors will need to decide when an ADR is to be created."
+    },
+    "docs/adr/0002-use-go.md": {
+     "title": "2. Use Go for the implementation",
+     "text": "# 2. Use Go for the implementation\n\n* Date: 2021-06-29\n* Authors: @richardcase\n* Deciders: @mnowster @pfzero\n\n## Context\n\nFor the implemenetation of flintlock we need to consider whether its implemented in Go or should we consider Rust. Go is the language used predominatly at Weaveworks and within the Kubernetes ecosystem. However, we need to consider Rust for flintlock for the following reasons:\n\n* [AWS](https://aws.amazon.com/blogs/opensource/innovating-with-rust/) / [Microsoft](https://msrc-blog.microsoft.com/2019/07/22/why-rust-for-safe-systems-programming/) are publicly advocating Rust for system programming\n* Firecracker & Open Hypervisor are borth written in Rust. There are benefits in terms of contributing to these projects\n* WASM support is mature\n* Rust is very efficient and [fast](https://benchmarksgame-team.pages.debian.net/benchmarksgame/which-programs-are-fastest.html)\n\n## Decision\n\nThe decision is to use Go for the implementation of flintlock due to the available skillsets of engineers. We can reconsider this in the future.\n\n## Consequences\nN/A"
+    },
+    "docs/adr/0003-grpc-validation.md": {
+     "title": "3. MicroVM Spec Validation",
+     "text": "# 3. MicroVM Spec Validation\n\n* Date: 2021-10-14\n* Authors: @jmickey\n* Deciders: @jmickey @richardcase\n\n## Context\n\nMicroVM specs are provided via the gRPC API. When a spec is received gRPC does basic type validation, but data validation is still required to ensure that the provided spec doesn't contain unsupport parameters.\n\nThere are some Protobuf level validation plugins which would allow us to set validation rules within the Protobuf specification itself, and the resulting validation Go code would be generated for us.\n\nThe two most relevant plugins found are:\n\n- https://github.com/envoyproxy/protoc-gen-validate\n- https://github.com/mwitkow/go-proto-validators\n\nUnfortunately, both of these plugins do not currently support the `optional` proto3 keyword. Additionally, [envoyproxy/protoc-gen-validate](https://github.com/envoyproxy/protoc-gen-validate) is still in alpha, and therefore the API is not stable. [mwitkow/go-proto-validators](https://github.com/mwitkow/go-proto-validators) on the other hand has not been updated in some time, with the last commit in Aug 2020, so it appears to be abandonware.\n\nAs a result, neither of these solutions is fit for purpose.\n\nAlternative options to utilising these Protobuf plugins are:\n\n1. Fork one of the above plugins and maintain it for our own purposes.\n2. Perform validation on the model. This would be done either in the implementation of the use case - e.g. https://github.com/weaveworks-liquidmetal/flintlock/blob/main/core/application/commands.go#L14, or the conversion from the request type to the model: e.g. https://github.com/weaveworks-liquidmetal/flintlock/blob/main/infrastructure/grpc/server.go#L33.\n  - For this we could utilise the [go-playground/validator](https://github.com/go-playground/validator) project.\n\n## Decision\n\nForking the Protobuf plugins is not currently feasible given both the small size of the team and current project prioritisation. It is also quite a \"heavy-handed\" solution to our problem.\n\n**Performing validation on the model** is a simpler solution that both solves our problem and remains consistent with our goals in terms of speed of development.\n\nWe should investigate and utilise the [go-playground/validator](https://github.com/go-playground/validator) project if we find it is suitable for our use case.\n\n## Consequences\n\nWe should continue to revisit this decision periodically. There would still be value in being able to do early request level validation via a gRPC interceptor. We should monitor the Protobuf validation plugins mentioned above and reevaluate their fit for purpose if/when they are updated."
+    },
+    "docs/adr/0004-merge-create-and-update-plan.md": {
+     "title": "4. Merge Create and Update Plan into a Single Plan",
+     "text": "# 4. Merge Create and Update Plan into a Single Plan\n<!-- A short and clear title which is prefixed with the ADR number -->\n\n* Date: 2021-10-29\n* Authors: @jmickey\n* Deciders: @jmickey @richardcase @Callisto13 @yitsushi\n\n## Context\n<!-- What is the context of the decision and whats the motivation -->\n\nCurrent each plan is built separately for each type of reconciliation type - e.g. Create, Update, and Delete. \n\nOn 2021-10-26 a meeting was held to consider merging all plans into a single plan - in this case all reconciliation types would generate plans through a single interface. There were some concerns that generating all plans through a single interface would lead to a number of possible issues.\n\nThe primary concern is that this would lead to a large amount of logic would exist in a single codepath. With only 3 operations to consider at the moment (create/update/delete) this wouldn't be terrible, but we don't currently have a great understanding of additional operations that might be added moving into the future.\n\nIt was identified that a simpler solution would be simply merge the plan builder for the create and update operations, as these operations are closely related, and keep plan building for delete operations on separate codepath, future plans will be decided before implementation.\n\n## Decision\n<!-- What is the decision that has been made -->\n\n1. Merge create and update plan generation.\n2. Keep plan building for delete operations on separate codepath, future plans will be decided before implementation.\n\n## Consequences\n<!-- Whats the result or impact of this decision. Does anything need to change and are new GitHub issues created as a result -->\n\nN/A"
+    },
+    "docs/adr/0005-network-device-name.md": {
+     "title": "5. Network Device Name on Host",
+     "text": "# 5. Network Device Name on Host\n\n* Date: 2021-11-08\n* Authors: @yitsushi\n* Deciders: @Callisto13 @jmickey @richardcase @yitsushi\n\n## Context\n\nWith the POC, network interface names are generated from the name of the\nMicroVM and its Namespace. It works for short VM name and Namespace\ncombinations, but device names can't be longer than 15 bytes[^1][^2].\n\nBecause of this limitation, we have to find a better way to generate network\ndevice name on the host.\n\nConsidered options:\n\n* Generate a UUID and use the first N bytes.\n* Generate a hash of the Name and Namespace combination and use the first N\n  bytes.\n* Generate a random value.\n\n[^1]: https://elixir.bootlin.com/linux/v5.6/source/include/linux/netdevice.h#L1826\n[^2]: https://elixir.bootlin.com/linux/v5.6/source/include/uapi/linux/if.h#L33\n\n## Decision\n\nFollowing the device name generator in docker-ce[^3], we decided to use a random\nvalue. Docker-ce tries to generate a name 3 times, if the generated name is\nalready taken. To reduce possible failures, we decided to retry 5 times,\nit's still not slow, but gives more opportunities on machines with a lot of\nnetwork devices.\n\n[^3]: https://github.com/docker/docker-ce/blob/1093a93b336461032352e776893afefc2cf3a50d/components/engine/libnetwork/netutils/utils.go#L126\n\n## Consequences\n\nIt is not possible to determine which MicroVM is the owner of the network\ndevice from its name and we have to query external resources to see if given\nresource is in use or not.\n\nResources: MicroVM API, Flitlock API\n\nAs a result, it is possible to leak resources, when the MicroVM deletion failed\nand we lost track of a network device status from MicroVMSpec. For that reason,\n[Resource cleanup ADR #90][issue-90] priority might be raised to higher priority.\n\n[issue-90]: https://github.com/weaveworks-liquidmetal/flintlock/issues/90"
+    },
+    "docs/adr/0234-update-api.md": {
+     "title": "Firecracker Patch Limitations & The Flintlock Update API",
+     "text": "# Firecracker Patch Limitations & The Flintlock Update API\n\n* Date: 2021-11-08\n* Authors: @jmickey\n* Deciders: @jmickey @richardcase @Callisto13 @yitsushi\n* ADR Discussion: https://github.com/weaveworks-liquidmetal/flintlock/discussions/234\n\n## Context\n\nUsers of Flintlock may want to make changes to MicroVMs that are already provisioned and running. In order to support MicroVM updates and provide users with an API to achieve this we need to understand what the limitations are within the MicroVM providers. Flintlocks initial MicroVM provider is [Firecracker](https://github.com/firecracker-microvm/firecracker).\n\nFirecracker provides [Swagger API definitions](https://github.com/firecracker-microvm/firecracker/blob/main/src/api_server/swagger/firecracker.yaml) that outlines the different operations that are possible, and when those operations are valid.\n\nUnfortunately, very few operations are valid **after** a MicroVM has been started. These include:\n\n- [Network interface rate limiting](https://github.com/firecracker-microvm/firecracker/blob/main/docs/api_requests/patch-network-interface.md).\n- [Volume rate limiting, and \"hot-swapping\" the underlying raw block device on the host](https://github.com/firecracker-microvm/firecracker/blob/main/docs/api_requests/patch-block.md). However, there are limitations with this:\n  - The guest must not have mounted the device.\n  - The guest must not read or write from the raw block device during the update sequence.\n- [MicroVM metadata service data store.](https://github.com/firecracker-microvm/firecracker/blob/main/src/api_server/swagger/firecracker.yaml#L394)\n- [Balloon devices.](https://github.com/firecracker-microvm/firecracker/blob/main/src/api_server/swagger/firecracker.yaml#L105)\n\nAs a result of discovering these limitations, the `flintlock` update gRPC API and update implementation code was removed in #222 and the need to revisit how we would handle updates moving forward was identified.\n\nMoving forward there are a few possible directions that could be taken:\n\n1. **Provide no support for in-place updates**. The primary consumer of the `flintlock` API will be the MicroVM Cluster API (CAPI) provider, which doesn't support updates. As a result it would be perfectly valid for us to decide that we won't support any in-place update capabilities, and instead all changes to MicroVM specs will result in recreation.\n2. **Implement in-place updates for valid operations**. Rate limiting, limited unmounted volume changes, metadata, and balloon devices are able to updated in-place. \n3. **Only update metadata**. The metadata service data store is probably the most logical place where in-place updates would make sense within the context of possible consumers (CAPI).\n\n## Decision\n\n**Provide no support for in-place updates**. \n\nThe primary consumer of the `flintlock` API will be the MicroVM Cluster API (CAPI) provider, which doesn't support updates. As a result it would be perfectly valid for us to decide that we won't support any in-place update capabilities, and instead all changes to MicroVM specs will result in recreation.\n\n## Consequences\n\nHaving to recreate MicroVMs in order to support spec updates could possibly lead to issues where the host does not have sufficient resources in order to support `CreateBeforeDelete` style updates, where a new MicroVM is created, workloads are migrated, and the old MicroVM is removed. However, this is less of a consequence of this decision, and more a consequence  of the inherent limitations of the Firecracker MicroVM provider."
+    },
+    "docs/adr/0241-opinionated-api-changes.md": {
+     "title": "Opinionated API Changes",
+     "text": "# Opinionated API Changes\n\n* Date: 2021-11-10\n* Authors: @jmickey\n* Deciders: @jmickey @richardcase @Callisto13 @yitsushi\n* ADR Discussion: https://github.com/weaveworks-liquidmetal/flintlock/discussions/241\n\n## Context\n\nFlintlock requires users to specify all aspects of the MicroVM spec. If something (e.g. metadata network interface) is not included in the MicroVM spec, then it won't be created. This proposal details some possible opinionated defaults for MicroVM specifications in cases where an explicit configuration is not provided by the user.\n\n### Scope\n\nThe scope of this proposal is not to decide on what aspects of MicroVM specifications are immutable / non-configurable. Rather it is to explore which potential aspects of the MicroVM specification can be provided by default, but also overridden/customised by the user if they so wish to.\n\n### Default Configurations\n\nBelow are some proposed default configurations, along with default values where relevant.\n\n| Name | Description | Model | Value |\n|----------|---|---------|---------|\n| MicroVM Resources <img width=\"150px\"/> | Provide default values for MicroVM VCPUs and RAM. This can be difficult to get right, but is even supported in Firecracker itself. However, Firecracker defaults to 1 VCPU and 128MB of RAM, which is probably a bit small for our particular use case. | `MicroVM.VCPU`<br />`MicroVM.MemoryInMb` <img width=\"400px\"/> | `vcpu: 2`<br />`memory_in_mb: 1024` <img width=\"400px\"/> |\n| Default Namespace | If a namespace is not provided than default to using the `default` namespace | `MicroVM.Namespace` | `default` |\n| Metadata network interface | Automatically generate metadata network interface with address of `169.254.0.1/16` and `allow_metadata_req: true` | `MicroVM.NetworkInterfaces` | `169.254.0.1/16` |\n| Remove allow metadata requests  | If the metadata network interface is created automatically then we should remove the `allow_metadata_req` option on the network interface model | `MicroVM.NetworkInterfaces` |  |\n| Network interface name | Automatically generate the network interface name when one is not provided. | `MicroVM.NetworkInterfaces[*].GuestDeviceName` | |\n| `RootVolume` and `AdditionalVolumes[]` | Separate the `Volumes` field in the model into two fields. `RootVolume` specifically for the root volume, allowing us to hide the `is_root` flag, and `AdditionalVolumes[]` for non-root volumes. | `MicroVM.Volumes` | `MicroVM.RootVolume` and `MicroVM.AdditionalVolumes[]` |\n\n### Unknowns/Discussion\n\n- ~~Can we generate volume names?~~\n- ~~If a volume is marked as `is_root: true`, can we automatically mount it at `/` if `mount_point` is not specified?~~\n\n### Request Example\n\nWith the defaults as described in Default Configurations, a minimal MicroVM create request would look as follows:\n\n```json\n{\n  \"microvm\": {\n    \"id\": \"mvm1\",\n    \"kernel\": {\n      \"image\": \"docker.io/richardcase/ubuntu-bionic-kernel:0.0.11\",\n      \"filename\": \"vmlinux\"\n    },\n    \"initrd\": {\n      \"image\": \"docker.io/richardcase/ubuntu-bionic-kernel:0.0.11\",\n      \"filename\": \"initrd-generic\"\n    },\n    \"interfaces\": [\n      {\n        \"type\": 0\n      }\n    ],\n  }\n}\n```\n\n## Decision\n\nImplement the following changes to the Flintlock API:\n\n| Name | Description | Model | Value |\n|----------|---|---------|---------|\n| MicroVM Resources <img width=\"100px\"/> | Provide default values for MicroVM VCPUs and RAM. This can be difficult to get right, but is even supported in Firecracker itself. However, Firecracker defaults to 1 VCPU and 128MB of RAM, which is probably a bit small for our particular use case. | `MicroVM.VCPU`<br />`MicroVM.MemoryInMb` <img width=\"200px\"/> | `vcpu: 2`<br />`memory_in_mb: 1024` <img width=\"200px\"/> |\n| Default Namespace | If a namespace is not provided than default to using the `default` namespace | `MicroVM.Namespace` | `default` |\n| Metadata network interface | Automatically generate metadata network interface with address of `169.254.0.1/16` and `allow_metadata_req: true` | `MicroVM.NetworkInterfaces` | `169.254.0.1/16` |\n| Remove allow metadata requests  | If the metadata network interface is created automatically then we should remove the `allow_metadata_req` option on the network interface model | `MicroVM.NetworkInterfaces` |  |\n| `RootVolume` and `AdditionalVolumes[]` | Separate the `Volumes` field in the model into two fields. `RootVolume` specifically for the root volume, allowing us to hide the `is_root` flag, and `AdditionalVolumes[]` for non-root volumes. | `MicroVM.Volumes` | `MicroVM.RootVolume` and `MicroVM.AdditionalVolumes[]` |\n\nNote: This proposal _specifically_ avoids diving too deep into implementation details. E.g. Automatically generating a network device name will require us to validate that there are no conflicts in the name we use. These implementation details belong within the scope of the implementation phase and PR discussion.\n\n## Consequences\n<!-- Whats the result or impact of this decision. Does anything need to change and are new GitHub issues created as a result -->"
+    },
+    "docs/adr/0246-linters.md": {
+     "title": "246. Linters",
+     "text": "# 246. Linters\n\nDate: 2021-11-10\nAuthors: @yitsushi\nDeciders: @Callisto13 @jmickey @richardcase @yitsushi\n\n# Context\n\nA few linters are disabled and they can improve the code, and the linter tool\n(golangci-lint) was misconfigured and a lot of `linters-settings` options were\nsimply ignored.\n\n# Scope\n\nEnable all linters and set reasonable exception list and linter settings.\n\n# Decision\n\n## gci\n\n> Gci control golang package import order and make it always deterministic.\n\nThis makes the import list easier to read and see what imports are from external,\nbuilt-in, or internal packages.\n\n### Example\n\n```go\nimport (\n\t\"context\"\n\t\"fmt\"\n\n\t\"github.com/sirupsen/logrus\"\n\n\t\"github.com/weaveworks-liquidmetal/flintlock/core/errors\"\n\t\"github.com/weaveworks-liquidmetal/flintlock/core/models\"\n\t\"github.com/weaveworks-liquidmetal/flintlock/core/ports\"\n\t\"github.com/weaveworks-liquidmetal/flintlock/pkg/log\"\n)\n```\n\n## godox\n\n> Tool for detection of FIXME, TODO and other comment keywords.\n\nNo `TODO`, `FIXME`, or `BUG` comments should live in the code without filed\nissues to track them.  The reason is simple: if we have a comment with \"todo\",\nit has the same value as not having that comment at all, because no one will\ncare about it.\n\nWe can mark block with `TODO`, `FIXME`, or `BUG` if we have a GitHub issues to\nfix it. We can annotate these comments with an GitHub reference at the end of\nthe line.\n\n### Example\n\n```go\n// TODO: we may hide this within the firecracker plugin. #179\n```\n\n## gochecknoglobals\n\n> A global variable is a variable declared in package scope and that can be\n> read and written to by any function within the package. Global variables can\n> cause side effects which are difficult to keep track of. A code in one\n> function may change the variables state while another unrelated chunk of code\n> may be effected by it.\n\nThe official description has all the information.\n\n## lll\n\n> Reports long lines\n\nLong lines are hard to read and hard to edit. Most of the time if a line is too\nlong, it can be reduced with a different pattern (for example Options pattern\nfor functions), or can be re-formatted into multiple lines.\n\n**Exception:**\n\nIf a line contains the `https://` substring, it will be ignored automatically.\n\n## wsl\n\n> Whitespace Linter - Forces you to use empty lines!\n\nThis linter has a lot of rules and they make the code easier to read.\n\n### Example\n\n**One big block of code**\n\n<details>\n  <summary>Without empty lines</summary>\n\n```go\nstdOutFile, err := p.fs.OpenFile(vmState.StdoutPath(), os.O_WRONLY|os.O_CREATE|os.O_APPEND, defaults.DataFilePerm)\nif err != nil {\n  return nil, fmt.Errorf(\"opening stdout file %s: %w\", vmState.StdoutPath(), err)\n}\nstdErrFile, err := p.fs.OpenFile(vmState.StderrPath(), os.O_WRONLY|os.O_CREATE|os.O_APPEND, defaults.DataFilePerm)\nif err != nil {\n  return nil, fmt.Errorf(\"opening sterr file %s: %w\", vmState.StderrPath(), err)\n}\ncmd.Stderr = stdErrFile\ncmd.Stdout = stdOutFile\ncmd.Stdin = &bytes.Buffer{}\nif !exists {\n  if err = p.fs.MkdirAll(vmState.Root(), defaults.DataDirPerm); err != nil {\n    return fmt.Errorf(\"creating state directory %s: %w\", vmState.Root(), err)\n  }\n}\n```\n</details>\n\n<details>\n  <summary>With empty lines</summary>\n\n```go\nstdOutFile, err := p.fs.OpenFile(vmState.StdoutPath(), os.O_WRONLY|os.O_CREATE|os.O_APPEND, defaults.DataFilePerm)\nif err != nil {\n  return nil, fmt.Errorf(\"opening stdout file %s: %w\", vmState.StdoutPath(), err)\n}\n\nstdErrFile, err := p.fs.OpenFile(vmState.StderrPath(), os.O_WRONLY|os.O_CREATE|os.O_APPEND, defaults.DataFilePerm)\nif err != nil {\n  return nil, fmt.Errorf(\"opening sterr file %s: %w\", vmState.StderrPath(), err)\n}\n\ncmd.Stderr = stdErrFile\ncmd.Stdout = stdOutFile\ncmd.Stdin = &bytes.Buffer{}\n\nif !exists {\n  if err = p.fs.MkdirAll(vmState.Root(), defaults.DataDirPerm); err != nil {\n    return fmt.Errorf(\"creating state directory %s: %w\", vmState.Root(), err)\n  }\n}\n```\n</details>\n\n**Error check**\n\n<details>\n  <summary>With empty lines</summary>\n\n```go\nvmState := NewState(*vmid, p.config.StateRoot, p.fs)\npidPath := vmState.PIDPath()\nexists, err := afero.Exists(p.fs, pidPath)\nif err != nil {\n\treturn ports.MicroVMStateUnknown, fmt.Errorf(\"checking pid file exists: %w\", err)\n}\nif !exists {\n\treturn ports.MicroVMStatePending, nil\n}\n```\n</details>\n\n<details>\n  <summary>With empty lines</summary>\n\n```go\nvmState := NewState(*vmid, p.config.StateRoot, p.fs)\npidPath := vmState.PIDPath()\n\nexists, err := afero.Exists(p.fs, pidPath)\nif err != nil {\n\treturn ports.MicroVMStateUnknown, fmt.Errorf(\"checking pid file exists: %w\", err)\n}\n\nif !exists {\n\treturn ports.MicroVMStatePending, nil\n}\n```\n</details>\n\n## Description on ignored linters\n\nIt is possible to add a `//nolint` command for a specific file, block, or line,\nbut it's not recommended. If it has a reason why we need that `//nolint`, tell\nus a why.\n\n\n### Example\n\n```go\nreturn rand.New(rand.NewSource(time.Now().UnixNano())) //nolint: gosec // It's not a security context.\n\n\n//nolint:exhaustivestruct // I don't want to specify all values with nil.\nroot.AddCommand(&cobra.Command{...})\n\n//nolint:gosec // The purpose of this call is to execute whatever the caller wants.\nprocess := exec.Command(options.Command, options.Args...)\n```\n\n# Consequences\n\n* All `todo` comments have a GitHub reference.\n* Code will be easier to read and update.\n* If a linter rule is ignored, the code itself documents why.\n* No unnecessary global variables, less painful debugging what changed that value.\n* Spell checker in comments with GB locale. No more `maintanence` or `color`.\n* Some of the rules are hard to keep in mind first.\n\nDiscussion: https://github.com/weaveworks-liquidmetal/flintlock/discussions/246"
+    },
+    "docs/adr/0284-testing-standards.md": {
+     "title": "Testing Practices and Standards",
+     "text": "# Testing Practices and Standards\n\nDate: 2021-11-23 (approved on 2022-05-23)\nAuthors: @Callisto13\nDeciders: @Callisto13 @jmickey @richardcase @yitsushi\n\n# Context\n\nThe codebase is moving from POC to a production alpha release. Part of getting\nproduction ready is increasing confidence in and quality of the code via automated\ntests. As it stands, a fair amount needs to be backfilled, and as the product\ngrows more will need to be added.\nThis proposal establishes some base rules and practices which all maintainers\nand contributors agree to follow when writing tests.\n\n# Scope\n\nThe scope is quite broad, and the topic one which inevitably invites Opinions.\nThis doc establishes a baseline of what testing elements would constitute an\nacceptable PR submission.\nThis ADR is more capturing what we currently do and giving space to expand,\nconsider and alter, than me prescribing a new way of doing things.\n\nTopics (include but not limited to):\n- When to write tests\n- Coverage\n- Behaviour\n- Mocking\n- Refactoring\n- Gomega\n- Table tests\n- Unit tests\n- Integration tests\n- End to end tests\n\n# Decision\n\n## When to write tests\nAlways. A PR which adds new or changes existing Go code must always come with\ncorresponding tests which cover all paths.\n\n## Coverage\n\nAll PRs currently run `test-with-cov` which generates a coverage report.\n\nCoverage is a useless metric (unless it is zero) and it is disturbingly easy\nto get to 100% without actually testing anything at all.\nFurthermore, our report is notoriously inaccurate (coverage appears to change on\npure docs PRs) although this has recently improved.\n\nWe have discussed the value of having this report at all, given few of us read\nit and it is mostly noise. We did concede that it is useful to have _something_\non PRs purely to check that tests have been added, if for no other reason than\nit saves the maintainers/reviewers having to read and nudge.\n\nWhile again the coverage report should be taken with a bucket of salt, a\nvariation in the red of more than 5% should raise flags: the submitter should\nreview their both tests and code to discover gaps.\n\n## True coverage\n\nGenerated coverage is not true coverage\\*: it indicates that code paths have\nbeen hit... and that's it. Automation will not know, for example, whether\nanything is verified after a method call: it will not know whether something\nis tested _well_.\n\n\\* _Lol yeh true coverage is not a \"thing\", as really it is subjective and\ncircumstantial. In this case I mean a shorthand for \"coverage of what we\ncare about\", which is; \"does my stuff behave the way it should?\"_\n\nTests should be reviewed as critically as any other code, and it is up to the\nreviewer to determine whether coverage is sufficient.\n\nThose who T/BDD will naturally get to 100% true coverage with very little\nthought or effort.\nThose who don't should actively try to break their code and tests after they\nhave written them.\n\n### Testing behaviour, not lines\n\nIn order to get true coverage we test against behaviour rather than\nimplementation. In other words; we don't test that various internal pathways\nhave been traversed, we test that the correct set of outcomes have occurred\nbased on a given set of inputs.\n\nEg:\n- If something is supposed to return an object, validate that the outcome values\n  are as expected given the inputs.\n- If a method is supposed to take a path and write a file, check that a file\n  exists at the location.\n- If a function is supposed to throw a catastrophic error if conditions are not\n  met, verify the error and message that is returned.\n\nTesting against behaviour also has the benefit of influencing the design of the\ncode, making it easier to change (and test) in the future. \\o/\n\nIf we notice that a given line is not covered in any of the test cases and we can see no reason\nto add a case for it, we can reasonably ask if that line can be removed. Why is it there?\nIf it turns out that the line can't be removed, there has to be a reason why it is there,\ntherefore a behaviour exists which we can test.\n\n### Separate packages\n\nIn order to facilitate testing against behaviour, and to ensure that each 'unit'\nis actually that (a neatly encapsulated package of code which fulfils a\ncontract with no sprawling hidden interdependencies), all tests are created in\na separate `_test` package.\n\n### Black-box vs White-box\n\nOn a similar theme to the above, we are strongly opposed to black-box testing; none\nshould be added, in any circumstances. If you are tempted, resist. It always causes pain at the end.\n\n## Mocking\n\nWe currently use [gomock](https://github.com/golang/mock) to generate interface mocks,\nfor our own internal interfaces.\n\nBUT gomock is really crap, so we are making a conscious effort to move\nover to [counterfeiter](https://github.com/maxbrunsfeld/counterfeiter).\n\nWe shouldn't mock what we don't own. Instead we should create a light shim\naround the external component; we integration test against the real thing and\nunit test against the mocks of our delegating wrapper.\n\nWe should be conscious of overmocking: we should use mocks sparingly when calling\nother internal interfaces which are not instrumental to the thing we are testing.\nIf the interface has a profound effect on the test scenario, we should favour\nfakes, stubs and (more sparingly still) the real thing.\n\n## Refactoring\n\nRefactoring tests should be done with a lighter hand than one would refactor\nthe actual code. While it may make sense to DRY out some tests, if it comes\nat a heavy expense of readability or accessibility, then it is not worth it.\n\n## Ginkgo/Gomega\n\nWe use the standard Go `testing` package for tests.\nWe also use [Gomega](https://onsi.github.io/gomega/) matchers to make assertions.\n\nEg:\n\n```go\nExpect(err).NotTo(HaveOccurred()) // note: NotTo is preferred over ToNot\nExpect(err).To(HaveOccurred())\nExpect(err).To(MatchError(\"o noes\"))\n\nExpect(result.Value).To(Equal(expectedValue))\nExpect(outcome).To(BeTrue())\n\nEventually(something(), \"10s\").Should(Succeed())\n```\n\nSee the docs "
+    }
+   }
+  },
+  "mahanhz/clean-architecture-example": {
+   "rev": "ba4ef58abe59650007fc8e1fa8d1f7d937373b97",
+   "adrs": {
+    "doc/adr/0001-record-architecture-decisions.md": {
+     "title": "1. Record architecture decisions",
+     "text": "# 1. Record architecture decisions\n\nDate: 15-July-2017\n\n## Context\n\nWe need to record the architectural decisions made on this project.\n\n## Decision\n\nWe will use Architecture Decision Records, as described by Michael Nygard in this article: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions\n\n## Consequences\n\nSee Michael Nygard's article, linked above.\n\n## Made by\n\nMahan Hashemizadeh"
+    },
+    "doc/adr/0002-use-clean-architecture.md": {
+     "title": "2. Use clean architecture",
+     "text": "# 2. Use clean architecture\n\nDate: 15-July-2017\n\n## Context\n\nWe need to distinguish what our application does versus how it does it.\n\n## Decision\n\nWe will use clean architecture to ensure a clear separation is maintained between what and how.\n \nSee [README.md](../../README.md) for details. \n\n## Consequences\n\nEasier to reason about the application.\n\nEasier to replace segments of the application without impacting the rest.\n\n## Made by\n\nMahan Hashemizadeh"
+    },
+    "doc/adr/0003-use-spring-framework.md": {
+     "title": "3. Use Spring framework",
+     "text": "# 3. Use Spring framework\n\nDate: 20-July-2017\n\n## Context\n\nWe need to build the how part of the application\n\n## Decision\n\nWe will use Springs ecosystem to implement how our application works.\n\nMore explicitly we will use Spring Boot, Spring Data and Spring WebMvc.\n\n## Consequences\n\nSince developers are already familiar with the technology and like ot use it, there is no delay in being productive.\n\n## Made by\n\nMahan Hashemizadeh"
+    },
+    "doc/adr/0004-documented-api.md": {
+     "title": "4. Documented API",
+     "text": "# 4. Documented API\n\nDate: 25-July-2017\n\n## Context\n\nWe need to build an API that other systems can use.\n\nThe API needs to be documented so other developers are not spending time asking how to use it.\n\n## Decision\n\nWe will use Spring HATEOAS to produce a navigable REST service.\n\nAlong with this we will use Swagger to generate documentation about our REST services.\n\n## Consequences\n\nConsumers use the navigable links to acquaint themselves with what calls our services provide.\n\nThey then use the Swagger documentation to make sample calls.\n\nAny questions about our services are no longer basic \"how do I do this?\" questions.\n\n## Made by\n\nMahan Hashemizadeh"
+    },
+    "doc/adr/0005-api-versioning.md": {
+     "title": "5. API versioning",
+     "text": "# 5. API versioning\n\nDate: 28-July-2017\n\n## Context\n\nDifferent consumers are making request for information in different formats.\n\n## Decision\n\nRather than duplicate the data in the response, we will version our api and allow consumers to choose which version best suits their needs.\n\nWe will use a custom Media Type (application/vnd.example.clean.v1+json) to version at the resource level.\n\n## Consequences\n\nConsumers get the exact format they want.\n\nConsumers now need to know when accept header to pass so that they get the expected response.\n\nOur codebase is a lot more complicated.\n\n## Made by\n\nMahan Hashemizadeh"
+    },
+    "doc/adr/0006-avoid-api-versioning.md": {
+     "title": "6. Avoid API versioning",
+     "text": "# 6. Avoid API versioning\n\nDate: 01-August-2017\n\n## Context\n\nCode base is becomes too complicated.\n\nMaintaining and supporting multiple API versions is painful and expensive.\n\n## Decision\n\nWe will avoid API versioning.\n\nWe will not introduce breaking changes.\n\n## Consequences\n\nDevelopers are happier, and the codebase is once again easier to reason about.\n\nIt's difficult to keep all the changes in the API forever, so we need metrics and to measure usage to identify when a feature can be removed.\n\n## Made by\n\nMahan Hashemizadeh"
+    },
+    "doc/adr/0007-use-kotlin.md": {
+     "title": "7. Use Kotlin",
+     "text": "# 7. Use Kotlin\n\nDate: 01-August-2017\n\n## Context\n\nThe code base is too verbose.\n\nCould do with writing less code, but avoid too large a learning curve away from Java.\n\n## Decision\n\nWe will assess the benefits of Kotlin by rewriting this application.\n\n## Consequences\n\nSee the [Kotlinization](https://github.com/mahanhz/kotlinization) repository.\n\nAlso see the [article](https://dzone.com/articles/kotlinization) based on the experience of rewriting this application in Kotlin.\n\n## Made by\n\nMahan Hashemizadeh"
+    }
+   }
+  },
+  "molgenis/molgenis-frontend": {
+   "rev": "d125e77e7969b0af0719ef62ed738c35c1919dcc",
+   "adrs": {
+    "doc/adr/0001-use-adr-to-describe-architecture-decisions.md": {
+     "title": "1. Record architecture decisions",
+     "text": "# 1. Record architecture decisions\n\nDate: 2020-09-04\n\n## Context\n\nWe need to record the architectural decisions made on this project.\n\n## Decision\n\nWe will use Architecture Decision Records, as described by Michael Nygard in this article: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions.\n\n## Consequences\n\nSee Michael Nygard's article, linked above."
+    },
+    "doc/adr/0002-use-typescript.md": {
+     "title": "2. Use TypeScript",
+     "text": "# 2. Use TypeScript\n\nDate: 2020-09-04\n\n## Context\n\nWe need a way to describe the structure of Javascript objects for readers of the code to be able to understand the structure.\nAnd we need a way to detect null references at build time Javascript.\nOur Javascript passes though a build step.\nOur Javascript is maintained by people who did not write the code.\n\n## Decision\n\nWe will use Typescript as a tool to describe object structure.\n\n## Consequences\n\nTypescript is used to write logic and typing information is added to describe object structure\nTypescript support is included in our projects build chain."
+    },
+    "doc/adr/0003-have-app-create-settings.md": {
+     "title": "3. Have App create app setting table",
+     "text": "# 3. Have App create app setting table \n\nDate: 2020-09-23\n\n## Context\n\nApps (for example the data-explorer-2 or the biobank-explorer) may need settings data to function properly. As these settings are dynamic (may be changed at run time), and may change between deployments these settings need to be stored somewhere (molgenis database). This poses two problems; 1) how to link the app with the settings data, 2) how to control access to the settings.\n\n## Decision\n\nWe leave it up to the app to create the settings entity. Each app creates 0 or 1 settings entities. By default everyone can read the settings data. Depending on the app the entity contains 1 or more rows ( in case of multiple rows the app is responsible using the correct row(s) in each context). \nRejected alternatives:\n\n- Add settings via bootstrapped entity in molgenis core; This was deemed as insufficiently flexible due to the dependance on Java knowledge and (possible major version) core release.  \n- Use of app manager; App-manager does not facilitate an automated deployment process. App manager restricts the app architecture and settings structure.\n- Use of entity meta data: Does not allow for settings per 'entity and app' combination. For instance the dataexplorer needs n settings rows or n tables.\n- Proxy settings request to external repository; Deemed as hard to manage, app and proxy settings need to be kept in sync, also requires knowledge of proxy (nginx, apache) to configure.\n\n## Consequences\n\nIf an app needs settings data to function properly, these settings need to be created. If settings data may not been seen by some users/roles the app developer must use the permission api to restrict access. An app should use no settings or default settings (stored in the app code) to be releasable without any dependency. Settings data may be created using the default molgenis features (emx, cli script, api, webapp). Just like any of the molgenis entity a settings row may contain a single attribute ( type text) that uses a json blob to store the settings data."
+    },
+    "doc/adr/0004-molgenis-core-apps.md": {
+     "title": "4. Molgenis Core Apps",
+     "text": "# 4. Molgenis Core Apps\n\nDate: 2020-10-22\n\n## Context\n\n*See [frontend architecture sessions](https://docs.google.com/document/d/1VW3ah5VAvAz2KnqNZlNmVqCzFhBMlIcjPPUlsHMFRIY/)\nfor background information on micro-frontend/SPA architecture.*\n\n## Decision\n\nWe are going to merge the following apps together in a *@molgenis-ui/core* app:\n\n* navigator\n* data explorer 2\n* data-row-edit"
+    }
+   }
+  },
+  "nielsutrecht/adr-example": {
+   "rev": "59c081cedf364e3d72f4e41ba685db9c1022a537",
+   "adrs": {
+    "doc/adr/0001-record-architecture-decisions.md": {
+     "title": "1. Record architecture decisions",
+     "text": "# 1. Record architecture decisions\n\nDate: 2018-09-27\n\n## Context\n\nWe need to record the architectural decisions made on this project.\n\n## Decision\n\nWe will use Architecture Decision Records, as [described by Michael Nygard](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions).\n\n## Consequences\n\nSee Michael Nygard's article, linked above. For a lightweight ADR toolset, see Nat Pryce's [adr-tools](https://github.com/npryce/adr-tools)."
+    },
+    "doc/adr/0002-use-junit-4-12-for-testing.md": {
+     "title": "2. Use JUnit 4.12 for testing",
+     "text": "# 2. Use JUnit 4.12 for testing\n\nDate: 2018-09-27\n\n## Context\n\nWe need to decide upon which testing framework to use\n\n## Decision\n\nWe decided upon using JUnit 4.12 for our testing"
+    },
+    "doc/adr/0003-use-junit-5-for-testing.md": {
+     "title": "3. Use JUnit 5 for testing",
+     "text": "# 3. Use JUnit 5 for testing\n\nDate: 2018-09-27\n\n## Context\n\nJUnit 5 was released and has nice additional features\n\n## Decision\n\nWe've decided to adopt JUnit 5 because it handles testing for exceptions better and offers dynamic testing capabilities\n\n## Consequences\n\n@Rule annotations we use are deprecated therefor some integration tests might need to be migrated."
+    }
+   }
+  },
+  "pmckeown/dependency-track-maven-plugin": {
+   "rev": "be3ead062a55a14a7978e470d4dd1149fd51171e",
+   "adrs": {
+    "doc/adr/0001-record-architecture-decisions.md": {
+     "title": "1. Record architecture decisions",
+     "text": "# 1. Record architecture decisions\n\nDate: 2019-07-29\n\n## Context\n\nWe need to record the architectural decisions made on this project.\n\n## Decision\n\nWe will use Architecture Decision Records, as [described by Michael Nygard](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions).\n\n## Consequences\n\nSee Michael Nygard's article, linked above. For a lightweight ADR toolset, see Nat Pryce's [adr-tools](https://github.com/npryce/adr-tools)."
+    },
+    "doc/adr/0002-use-maven-to-build-plugin.md": {
+     "title": "2. use maven to build plugin",
+     "text": "# 2. use maven to build plugin\n\nDate: 2019-07-29\n\n## Context\n\nThis Maven Plugin needed a build tool to compile, test and package it.  Maven and Gradle were the only viable options.  \n\n## Decision\n\nI decided to use Maven as it felt a better fit to use Maven to build a Maven plugin, rather than using Gradle. \n\n## Consequences\n\nWe have a more verbose dependency management and build manifest.\n\nCommitters to a OSS project for a Maven plugin will be more familiar with that build framework than Gradle so the \nlearning curve will be less."
+    },
+    "doc/adr/0003-use-two-dependency-injection-frameworks.md": {
+     "title": "3. use two dependency injection frameworks",
+     "text": "# 3. use two dependency injection frameworks\n\nDate: 2019-07-29\n\n## Context\n\nDependency Injection (DI) is a well-known software design paradigm that makes developing de-coupled software easier \nusing Inversion of Control principles and promotes designing for testability.\n\nMaven provides a very basic DI framework, called [Plexus](https://codehaus-plexus.github.io/), which allows for the \ninjection of the Maven logger and the runtime configuration.  However that does not extend to the creation and injection\nof collaborators at runtime.  This can lead to cluttered and hard to test code with having to pass around the logger and \nconfig.\n\nAs such it was deemed that, to facilitate testability and decoupling, another approach to bean creation and wiring was\nrequired.\n\n## Decision\n\nUse the Plexus DI framework to inject the Maven-specific logger and config and make these available to a different DI \nframework, Apache [Sisu](https://www.eclipse.org/sisu/), to inject into collaborating components.\n\n## Consequences\n\nNow the abstract base class for all Mojos in the project must inherit from a template method parent.  Config and logging\nwrappers are created by the Sisu IoC container and can then be injected into other beans created by the container.  The \ntemplate method base class ensures that the config and logger are initialised with the correct values from the Plexus \nframework.\n\nThis makes it slightly harder to understand how the Maven-supplied config and logger make it into the Sisu-managed \nbeans, however the increase to testability is worth this extra cognitive load."
+    }
+   }
+  },
+  "poorprogrammer/cfo": {
+   "rev": "61d99116012fdf5beaafacf0c813098378d6c04e",
+   "adrs": {
+    "doc/adr/0001-record-architecture-decisions.md": {
+     "title": "1. Record architecture decisions",
+     "text": "# 1. Record architecture decisions\n\nDate: 2020-05-07\n\n## Context\n\nWe need to record the architectural decisions made on this project.\n\n## Decision\n\nWe will use Architecture Decision Records, as [described by Michael Nygard](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions).\n\n## Consequences\n\nSee Michael Nygard's article, linked above. For a lightweight ADR toolset, see Nat Pryce's [adr-tools](https://github.com/npryce/adr-tools)."
+    },
+    "doc/adr/0002-use-yarn-install-instead-of-npm-install-for-web.md": {
+     "title": "2. Use yarn install instead of npm install for web",
+     "text": "# 2. Use yarn install instead of npm install for web\n\nDate: 2020-09-07\n\n## Context\n\nI see found both `yarn.lock` and `package-lock.json` in the repository.\n\n## Decision\n\nSticking to `yarn` for `web` for now.\n\n## Consequences\n\nAvoid mixing `yarn` and `npm install` which can cause weird errors."
+    }
+   }
+  },
+  "servian/TechChallengeApp": {
+   "rev": "d200b55cb437edf2057ba7f3a4d2f38be2a2e42d",
+   "adrs": {
+    "doc/adr/0001-record-architecture-decisions.md": {
+     "title": "1. Record architecture decisions",
+     "text": "# 1. Record architecture decisions\n\nDate: 2018-08-08\n\n## Context\n\nWe need to record the architectural decisions made on this project.\n\n## Decision\n\nWe will use Architecture Decision Records, as described by Michael Nygard in this article: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions\n\n## Consequences\n\nSee Michael Nygard's article, linked above. For a lightweight ADR toolset, see Nat Pryce's _adr-tools_ at https://github.com/npryce/adr-tools."
+    },
+    "doc/adr/0002-use-viper-for-config.md": {
+     "title": "2. Use viper for config",
+     "text": "# 2. Use viper for config\n\nDate: 2018-08-08\n\n## Context\n\nThe solution was built using a custom toml configuration solution, should we standardise on a library for less maintnance overhead?\n\n## Decision\n\nDecided to use viper as the configuration library, as it tightly integrates with cobra which we already use for helping with command line integration.\n\n## Consequences\n\nA few known issues around managing missing files with viper, but our process is set up to always have a file available so it shouldn't be a bit issue for us."
+    },
+    "doc/adr/0003-removed-scaffolding.md": {
+     "title": "3. removed scaffolding",
+     "text": "# 3. removed scaffolding\n\nDate: 2018-08-09\n\n## Context\n\nShould we provide scaffolding for the test takers, or should we expect them to be able to set that up themselves?\n\n## Decision\n\nWe decided to remove the scaffolding and rather suggest that the test taker uses the default VPC to deploy their application.\n\n## Consequences\n\nSome people will spend exta time to deploy the network infrastructure, which might make the test seem a lot bigger than it is."
+    },
+    "doc/adr/0004-config-only-in-config-file.md": {
+     "title": "4. config only in config file",
+     "text": "# 4. config only in config file\n\nDate: 2018-08-12\n\n## Context\n\nApplication configuration can be overridden by command line flags and environment variables. Is this something we want to take advantage of?\n\n## Decision\n\nNo, configuration will be limited to the configuration file for sake of simplicity and having a single way to configure the application.\n\n## Consequences\n\nCommand line parameters and environment variables will be ignored and not taken into account when starting the application"
+    },
+    "doc/adr/0005-skip-create-database.md": {
+     "title": "5. skip create database",
+     "text": "# 5. skip create database\n\nDate: 2018-08-19\n\n## Context\n\nDatabase upgrade script contains everything required to deploy and seed a test database. Some PaaS services like azure db have requirements that means it is difficult to have a generic way to create the database.\n\n## Decision\n\nTo make it easier, we've decided to add an option to skip the database creation and allow for an external process to create the database while still creating tables and seeding it with data.\n\n## Consequences\n\nnone"
+    },
+    "doc/adr/0006-environment-variables-overrides-config-file.md": {
+     "title": "6. environment variables overrides config file",
+     "text": "# 6. environment variables overrides config file\n\nDate: 2018-08-22\n\n## Context\n\nIn some environments the port and other variables are only available on startup, and will have to be overriden. See https://github.com/servian/TechChallengeApp/issues/21\n\n## Decision\n\nAdd environment variables overrides back\n\n## Consequences\n\nThere are now two ways to configure the application, which causes more complexity"
+    }
+   }
+  },
+  "theaiscope/GDD-app": {
+   "rev": "19d9f9e989ce47462ffdffb3b63ef5100b8d4855",
+   "adrs": {
+    "doc/adr/0001-record-architecture-decisions.md": {
+     "title": "1. Record architecture decisions",
+     "text": "# 1. Record architecture decisions\n\nDate: 2019-06-06\n\n## Context\n\nWe need to record the architectural decisions made on this project.\n\n## Decision\n\nWe will use Architecture Decision Records, as [described by Michael Nygard](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions).\n\n## Consequences\n\nSee Michael Nygard's article, linked above. For a lightweight ADR toolset, see Nat Pryce's [adr-tools](https://github.com/npryce/adr-tools)."
+    },
+    "doc/adr/0002-use-preferences-for-data-storage.md": {
+     "title": "2. Use preferences for data storage",
+     "text": "# 2. Use preferences for data storage\n\nDate: 2019-06-06\n\n## Context\n\nThe issue motivating this decision, and any context that influences or constrains the decision.\n\n## Decision\n\nThe change that we're proposing or have agreed to implement.\n\n## Consequences\n\nWhat becomes easier or more difficult to do and any risks introduced by the change that will need to be mitigated."
+    },
+    "doc/adr/0003-use-bitrise-for-ci.md": {
+     "title": "3. Use Bitrise for CI",
+     "text": "# 3. Use Bitrise for CI\n\nDate: 2019-06-04\n\n## Context\n\nWe need an easy way to integrate and test out code that is fast and reliable.\n\n## Decision\n\nWe choose Bitrise because it came from a suggestion from more senior devs and provides an easy interface to manage the workflows with good support for Android apps and testing.\nIt also allows us to notify users in a easy way and with different roles. \n\n## Consequences\n\nBitrise does not allow us to use Pipelines-as-code 100% of the way. There is some configuration that needs to be done of the web workflow editor.\nInstructions followed to setup: https://devcenter.bitrise.io/tips-and-tricks/use-bitrise-yml-from-repository/\n\nIt was very easy to setup UI testing as the default configurations of the steps are already working"
+    },
+    "doc/adr/0004-decouple-domain-models-from-representation.md": {
+     "title": "4. Decouple domain models from representation",
+     "text": "# 4. Decouple domain models from representation\n\nDate: 2019-09-10\n\n## Context\n\nDomain models were used as-is for persistence and over-the-wire communication, making it difficult\nto define a proper and strong domain model.\n\n## Decision\n\nSeparate DTOs should be defined for persistence and over-the-wire communication, which can have a\nmore adequate representation for their use-case, without affecting our domain model.\n\n## Consequences\n\nThe domain models can better follow the ubiquituos language, and we also avoid having an anemic domain."
+    }
+   }
+  },
+  "willgarcia/rotc": {
+   "rev": "edffb0d81662ca84e58dc8b19c8d438235620d70",
+   "adrs": {
+    "doc/adr/0001-record-architecture-decisions.md": {
+     "title": "1. Record architecture decisions",
+     "text": "# 1. Record architecture decisions\n\nDate: 2020-07-24\n\n## Context\n\nWe need to record the architectural decisions made on this project.\n\n## Decision\n\nWe will use Architecture Decision Records, as [described by Michael Nygard](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions).\n\n## Consequences\n\nSee Michael Nygard's article, linked above. For a lightweight ADR toolset, see Nat Pryce's [adr-tools](https://github.com/npryce/adr-tools)."
+    },
+    "doc/adr/0002-use-aws-as-example-cloud-platform.md": {
+     "title": "2. Use AWS as example cloud platform",
+     "text": "# 2. Use AWS as example cloud platform\n\nDate: 2020-07-24\n\n## Context\n\nThe issue motivating this decision, and any context that influences or constrains the decision.\n\n## Decision\n\nThe change that we're proposing or have agreed to implement.\n\n## Consequences\n\nWhat becomes easier or more difficult to do and any risks introduced by the change that will need to be mitigated."
+    },
+    "doc/adr/0003-use-gcp-as-example-cloud-platform.md": {
+     "title": "3. Use GCP as example cloud platform",
+     "text": "# 3. Use GCP as example cloud platform\n\nDate: 2020-07-24\n\n## Context\n\nThe issue motivating this decision, and any context that influences or constrains the decision.\n\n## Decision\n\nThe change that we're proposing or have agreed to implement.\n\n## Consequences\n\nWhat becomes easier or more difficult to do and any risks introduced by the change that will need to be mitigated."
+    },
+    "doc/adr/0004-use-azure-as-example-cloud-platform.md": {
+     "title": "4. Use Azure as example cloud platform",
+     "text": "# 4. Use Azure as example cloud platform\n\nDate: 2020-07-24\n\n## Context\n\nThe issue motivating this decision, and any context that influences or constrains the decision.\n\n## Decision\n\nThe change that we're proposing or have agreed to implement.\n\n## Consequences\n\nWhat becomes easier or more difficult to do and any risks introduced by the change that will need to be mitigated."
+    },
+    "doc/adr/0005-use-standalone-prometheus.md": {
+     "title": "5. Use standalone prometheus",
+     "text": "# 5. Use standalone prometheus\n\nDate: 2020-07-24\n\n## Context\n\nThe issue motivating this decision, and any context that influences or constrains the decision.\n\n## Decision\n\nThe change that we're proposing or have agreed to implement.\n\n## Consequences\n\nWhat becomes easier or more difficult to do and any risks introduced by the change that will need to be mitigated."
+    },
+    "doc/adr/0006-use-standalone-jaeger.md": {
+     "title": "6. Use standalone jaeger",
+     "text": "# 6. Use standalone jaeger\n\nDate: 2020-07-24\n\n## Context\n\nThe issue motivating this decision, and any context that influences or constrains the decision.\n\n## Decision\n\nThe change that we're proposing or have agreed to implement.\n\n## Consequences\n\nWhat becomes easier or more difficult to do and any risks introduced by the change that will need to be mitigated."
+    },
+    "doc/adr/0007-use-standalone-kiali.md": {
+     "title": "7. User standalone kiali",
+     "text": "# 7. User standalone kiali\n\nDate: 2020-07-24\n\n## Context\n\nThe issue motivating this decision, and any context that influences or constrains the decision.\n\n## Decision\n\nThe change that we're proposing or have agreed to implement.\n\n## Consequences\n\nWhat becomes easier or more difficult to do and any risks introduced by the change that will need to be mitigated."
+    },
+    "doc/adr/0008-use-app-gateway-for-network-isolation-in-azure.md": {
+     "title": "9. Use App Gateway for network isolation in Azure",
+     "text": "# 9. Use App Gateway for network isolation in Azure\n\nDate: 2020-07-28\n\n## Context\nWe've played fast and loose with infrastructure security in our set up processes.  Let's avoid putting our kube stacks on the internet without protection.\nOther ADRS may focus on AWS and GCP, this one focuses on Azure.\n\n## Decision\n\nUse App Gateway on Azure.\n\nOur terraform recipes use Azures simple provisioning which create a managed subnet and a managed identity, and virtual IP, and then expose the kube API to the internet.\n\nInstead, we propose putting an App Gateway between the internet and the kube cluster. \n\nWe have decided to defer this deciusion until later.  Progress is available in the azure-app-gateway branch of this repository.\n\n### Background\nDiagram - TBD.\n\nTrade-offs:\n\n* Configuration gets more complicated\n* Resources have to be explicitly managed\n* Sequencing - references between resources not always created in the right order\n* Cost - app gateways cost money even when not being used\n\n* Service-mesh awareness - The AGIC does not understand istio configuration - so traffic has to be routed through the AGIC and then to the istio-gateway-service.\n\n* Stability - App Gateway Ingres controller is availble either as an AKS add-on (not supported by Terraform, and in preview from Azure), otherwide provision by Helm.\n\n### Links\n\n* AGIC configuration page from Microsoft\n* App Gateway provisioning using terraform\n\n## Consequences\n\nWe will continue to expose our workshop cluster on the internet."
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,165 @@
+{
+ "angular": {
+  "name": "Angular",
+  "repo": "angular/angular",
+  "first_commit": "2014-09-18",
+  "last_commit": "2026-10-17",
+  "commits": 3055,
+  "maintained": [],
+  "open_source": []
+ },
+ "antlr": {
+  "name": "ANTLR",
+  "repo": "antlr/antlr4",
+  "first_commit": "2010-01-27",
+  "last_commit": "2026-02-16",
+  "commits": 1912,
+  "maintained": [],
+  "open_source": []
+ },
+ "docker": {
+  "name": "Docker",
+  "repo": "moby/moby",
+  "first_commit": "2013-01-18",
+  "last_commit": "2026-10-16",
+  "commits": 4345,
+  "maintained": [],
+  "open_source": []
+ },
+ "golang": {
+  "name": "Go",
+  "repo": "golang/go",
+  "first_commit": "1972-07-18",
+  "last_commit": "2026-10-16",
+  "commits": 6037,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "1973-07-18",
+    "quote": "no commit to the default branch since 1972-07-18"
+   },
+   {
+    "rel": "SUPPORTS",
+    "at": "1974-01-20",
+    "quote": "commits resume on 1974-01-20 after a gap since 1972-07-18"
+   },
+   {
+    "rel": "CONTRADICTS",
+    "at": "1975-01-20",
+    "quote": "no commit to the default branch since 1974-01-20"
+   },
+   {
+    "rel": "SUPPORTS",
+    "at": "1988-04-01",
+    "quote": "commits resume on 1988-04-01 after a gap since 1974-01-20"
+   },
+   {
+    "rel": "CONTRADICTS",
+    "at": "1989-04-01",
+    "quote": "no commit to the default branch since 1988-04-01"
+   },
+   {
+    "rel": "SUPPORTS",
+    "at": "2008-03-02",
+    "quote": "commits resume on 2008-03-02 after a gap since 1988-04-01"
+   }
+  ],
+  "open_source": []
+ },
+ "junit5": {
+  "name": "JUnit 5",
+  "repo": "junit-team/junit5",
+  "first_commit": "2015-06-04",
+  "last_commit": "2026-10-16",
+  "commits": 2216,
+  "maintained": [],
+  "open_source": []
+ },
+ "kiali": {
+  "name": "Kiali",
+  "repo": "kiali/kiali",
+  "first_commit": "2018-02-02",
+  "last_commit": "2026-10-16",
+  "commits": 1976,
+  "maintained": [],
+  "open_source": []
+ },
+ "maven": {
+  "name": "Maven",
+  "repo": "apache/maven",
+  "first_commit": "2003-09-01",
+  "last_commit": "2026-10-17",
+  "commits": 3671,
+  "maintained": [],
+  "open_source": []
+ },
+ "neo4j": {
+  "name": "Neo4j",
+  "repo": "neo4j/neo4j",
+  "first_commit": "2007-05-24",
+  "last_commit": "2026-10-09",
+  "commits": 5189,
+  "maintained": [],
+  "open_source": []
+ },
+ "spring": {
+  "name": "Spring Framework",
+  "repo": "spring-projects/spring-framework",
+  "first_commit": "2008-07-10",
+  "last_commit": "2026-10-16",
+  "commits": 4996,
+  "maintained": [],
+  "open_source": []
+ },
+ "spring-boot": {
+  "name": "Spring Boot",
+  "repo": "spring-projects/spring-boot",
+  "first_commit": "2012-10-21",
+  "last_commit": "2026-10-17",
+  "commits": 3777,
+  "maintained": [],
+  "open_source": []
+ },
+ "typescript": {
+  "name": "TypeScript",
+  "repo": "microsoft/TypeScript",
+  "first_commit": "2014-07-07",
+  "last_commit": "2026-10-17",
+  "commits": 3860,
+  "maintained": [],
+  "open_source": []
+ },
+ "viper": {
+  "name": "Viper",
+  "repo": "spf13/viper",
+  "first_commit": "2014-04-02",
+  "last_commit": "2025-10-15",
+  "commits": 340,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2026-10-15",
+    "quote": "no commit to the default branch since 2025-10-15"
+   }
+  ],
+  "open_source": []
+ },
+ "webpack": {
+  "name": "webpack",
+  "repo": "webpack/webpack",
+  "first_commit": "2012-03-10",
+  "last_commit": "2026-10-17",
+  "commits": 3165,
+  "maintained": [],
+  "open_source": []
+ },
+ "yarn": {
+  "name": "Yarn",
+  "repo": "yarnpkg/berry",
+  "first_commit": "2018-08-21",
+  "last_commit": "2026-09-24",
+  "commits": 1123,
+  "maintained": [],
+  "open_source": []
+ }
+}
