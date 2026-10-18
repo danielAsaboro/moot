@@ -38,7 +38,7 @@ def _q(g: Graph, cypher: str, params: dict | None = None, write: bool = False):
     tr = _trace.get()
     if tr is not None:
         tr.append(dict(cypher=cypher, params=params or {}, rows=len(res.result_set), ms=round((time.perf_counter() - t0) * 1000, 2),
-                       write=write))
+                       write=write, graph=g.name))
     return res
 
 

@@ -45,6 +45,9 @@ ROUTES = [
     ("who owns the search index rebuild", "decision_owner", {"decision_id": "D04"}),
     ("why do we deploy to a single region in virginia", "audit_decision", {"decision_id": "D28"}),
     ("D12", "audit_decision", {"decision_id": "D12"}),
+    ("What leaves with Marcus?", "departure", {"person": "marcus"}),
+    ("what if Priya left", "departure", {"person": "priya"}),
+    ("Who knows why we freeze deploys on Fridays?", "who_knows_why", {"decision_id": "D07"}),
 ]
 
 
@@ -83,7 +86,9 @@ def test_answers_never_write(g):
         answer.answer(g, q, spec.AS_OF)
     trace = tools.end_trace()
     assert (count(), edges()) == before
-    assert trace and not any(t["write"] for t in trace)
+    assert trace and not any(t["write"] and t["graph"] == g.name for t in trace)
+    # the only writes are to the scratch graph that holds the KNOWS projection for "what leaves with", deleted after
+    assert all(t["graph"].startswith(g.name + "__people_") for t in trace if t["write"])
 
 
 def test_answer_api(g, monkeypatch):

@@ -7,9 +7,10 @@ import { api } from "@/lib/api";
 import { useAppState } from "@/lib/appState";
 import { longDate, VERDICT_ORDER } from "@/lib/format";
 import type {
-  AnswerResponse, AnswerTool, Audit, Gate, LedgerAnswer, LedgerRow, Memo, OrphansResponse, OwnerResult, PacketResult, PathNode, Verdict, WhatIfResponse,
+  AnswerResponse, AnswerTool, Audit, DecisionResponse, Gate, LedgerAnswer, LedgerRow, Memo, OrphansResponse, OwnerResult, PacketResult, PathNode, Verdict, WhatIfResponse,
 } from "@/lib/types";
-import { Card, GateBadge, Group, Row, StatCard, StateTag, VERDICT_WORD, VerdictBadge } from "@/components/ui";
+import { Card, GateBadge, Group, Pill, Row, StatCard, StateTag, VERDICT_WORD, VerdictBadge } from "@/components/ui";
+import { DepartureBody, type Departure } from "@/components/people/PeopleView";
 import EmptyState from "@/components/ui/EmptyState";
 import DecisionPanel from "@/components/decision/DecisionPanel";
 import EvidenceExhibits, { collectExhibits } from "@/components/decision/EvidenceExhibits";
@@ -212,6 +213,24 @@ function ReopenAnswer({ m, reload }: { m: Memo & { audit?: Audit }; reload: () =
   );
 }
 
+type Knowers = NonNullable<DecisionResponse["knowers"]> & { decision_id: string; audit?: Audit };
+
+function KnowersAnswer({ k }: { k: Knowers }) {
+  const how = (r: { how: string; what: string }) => (r.how === "owner" ? "owns it" : r.how === "wrote the record" ? "wrote the record" : `wrote ${r.what}`);
+  return (
+    <Card>
+      <Kicker>Who knows why · <span className="id">{k.decision_id}</span>{k.audit ? <> · {k.audit.decision.title}</> : null}</Kicker>
+      <p className={s.say}><b>{k.bus_factor === 0 ? "Nobody still here" : k.bus_factor === 1 ? "One person still here" : `${k.bus_factor} people still here`} can explain it.</b> Knowing is read from what people wrote: owning it, writing its record, or writing evidence on a reason below it.</p>
+      <Group onSurface>
+        {k.people.map(p => (
+          <Row key={p.id} title={p.name} subtitle={[...new Set(p.roles.map(how))].join(", ")}
+            trailing={p.active ? undefined : <Pill tone="neutral">left {longDate(p.left)}</Pill>} />
+        ))}
+      </Group>
+    </Card>
+  );
+}
+
 export function Answer({ res, onAsk, reload }: { res: AnswerResponse; onAsk: (f: FollowUp) => void; reload: () => void }) {
   const r = res.result;
   if (!res.tool || !r) {
@@ -227,6 +246,8 @@ export function Answer({ res, onAsk, reload }: { res: AnswerResponse; onAsk: (f:
     case "ledger": return <LedgerAnswerCard l={r as LedgerAnswer} onAsk={onAsk} />;
     case "evidence_packet": return <EvidenceAnswer p={r as PacketResult} />;
     case "reopen_memo": return <ReopenAnswer m={r as Memo & { audit?: Audit }} reload={reload} />;
+    case "departure": return <Card><Kicker>What leaves · {(r as unknown as Departure).person.name}</Kicker><DepartureBody data={r as unknown as Departure} /></Card>;
+    case "who_knows_why": return <KnowersAnswer k={r as unknown as Knowers} />;
   }
 }
 

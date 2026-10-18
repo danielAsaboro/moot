@@ -24,11 +24,11 @@ const STARTERS = [
   "What if we no longer need SOC 2?",
   "What did Ada own?",
   "Show the evidence for D17",
-  "Which decisions are moot?",
+  "What leaves with Marcus?",
 ];
 const ARG: Record<AnswerTool, string> = {
   audit_decision: "decision_id", check_action: "decision_id", evidence_packet: "decision_id", reopen_memo: "decision_id",
-  decision_owner: "decision_id", what_if: "reason", orphaned_decisions: "person", ledger: "verdict",
+  decision_owner: "decision_id", what_if: "reason", orphaned_decisions: "person", ledger: "verdict", who_knows_why: "decision_id", departure: "person",
 };
 
 type State = { kind: "idle" } | { kind: "loading" } | { kind: "done"; res: AnswerResponse } | { kind: "error"; message: string };

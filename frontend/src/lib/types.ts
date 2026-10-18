@@ -137,7 +137,8 @@ export interface RealWorldResponse {
 export interface HealthResponse { ok: boolean; tenant: string; stats: { nodes: Record<string, number>; edges: Record<string, number> }; model: boolean }
 
 /** POST /api/answer: a question picks one read-only tool; `result` is that tool's rows. */
-export type AnswerTool = "audit_decision" | "check_action" | "evidence_packet" | "what_if" | "decision_owner" | "orphaned_decisions" | "reopen_memo" | "ledger";
+export type AnswerTool = "audit_decision" | "check_action" | "evidence_packet" | "what_if" | "decision_owner" | "orphaned_decisions" | "reopen_memo" | "ledger"
+  | "who_knows_why" | "departure";
 export interface PacketResult {
   found: boolean; decision: { id: string; title: string; decided_on: string }; verdict: Verdict; gate: GateDecision;
   reasons: GateReason[]; caveats: string[]; audit: Audit;

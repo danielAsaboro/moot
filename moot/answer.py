@@ -31,6 +31,10 @@ TOOLS: dict[str, dict] = {
     "orphaned_decisions": dict(description="Decisions whose owner has left, routed up the reporting line; optionally for one person.",
                                input={"person": "Person id (optional)"}),
     "reopen_memo": dict(description="Draft a memo to re-open a decision whose reason broke. Drafting writes nothing.", input={"decision_id": "Decision id"}),
+    "who_knows_why": dict(description="Who knows why a decision was made: its owner, who wrote its record, who wrote evidence on its reasons; the bus factor.",
+                          input={"decision_id": "Decision id"}),
+    "departure": dict(description="What leaves with a person if they left: decisions nobody else here can explain, reasons only they wrote evidence on.",
+                      input={"person": "Person id"}),
     "ledger": dict(description="Many decisions at once: every verdict, optionally only one verdict or one owner.",
                    input={"verdict": "MOOT, DISPUTED, HOLDS, UNDOCUMENTED or RETIRED (optional)", "owner": "Person id (optional)"}),
 }
@@ -43,6 +47,8 @@ EVIDENCE = re.compile(r"\b(evidence|proof|prove|documents?|sources?|receipts?|ci
 PERSON_Q = re.compile(r"\b(own|owns|owned|left|leave|leaving|hold|held|did|decisions?|responsible|who)\b")
 OWNER = re.compile(r"\b(who|owner|owns|owned|responsible|accountable)\b")
 LEFT = re.compile(r"\b(left|leaver|leavers|orphan\w*)\b")
+DEPART = re.compile(r"\b(leaves? with|walks? out|bus factor|if \w+ (left|leaves|quit|quits|went)|lose|loses|losing)\b")
+KNOWS = re.compile(r"\bwho (else )?(knows|understands|remembers|can explain|could explain)\b")
 MANY = re.compile(r"\b(which|list|everything|overview|how many)\b|\ball (the |our )?(rules|decisions)\b")
 VERDICTISH = re.compile(r"\b(expired|moot|disputed|holds?|still valid|rules|decisions)\b")
 
@@ -131,6 +137,10 @@ def route(g: Graph, question: str, as_of: str) -> dict:
         return dict(tool="check_action", input={"decision_id": did}, why="the question asks whether an agent may act", matched=matched)
     if EVIDENCE.search(t) and did:
         return dict(tool="evidence_packet", input={"decision_id": did}, why="the question asks for the evidence", matched=matched)
+    if person and DEPART.search(t):
+        return dict(tool="departure", input={"person": person["id"]}, why="the question asks what leaves with someone", matched=f"matched {person['name']}")
+    if KNOWS.search(t) and did:
+        return dict(tool="who_knows_why", input={"decision_id": did}, why="the question asks who knows why", matched=matched)
     if person and PERSON_Q.search(t):
         if person["left"]:
             return dict(tool="orphaned_decisions", input={"person": person["id"]}, why="the question is about someone who left", matched=f"matched {person['name']}")
@@ -177,7 +187,9 @@ def route_model(g: Graph, question: str, as_of: str) -> dict | None:
     inp = {k: str(v) for k, v in (call.input or {}).items() if k in TOOLS.get(call.name, {}).get("input", {}) and v}
     if call.name not in TOOLS or any(v not in allowed for v in inp.values()):
         return None
-    if call.name in ("audit_decision", "check_action", "evidence_packet", "decision_owner", "reopen_memo") and "decision_id" not in inp:
+    if call.name in ("audit_decision", "check_action", "evidence_packet", "decision_owner", "reopen_memo", "who_knows_why") and "decision_id" not in inp:
+        return None
+    if call.name == "departure" and "person" not in inp:
         return None
     if call.name == "what_if" and "reason" not in inp:
         return None
@@ -210,6 +222,12 @@ def run(g: Graph, tool: str, inp: dict, as_of: str, depth: int) -> dict:
     if tool == "reopen_memo":
         m = tools.reopen_memo(g, inp["decision_id"], as_of, depth)
         return dict(m, audit=tools.audit_decision(g, inp["decision_id"], as_of, depth)) if m.get("found") else m
+    if tool == "who_knows_why":
+        from . import people
+        return dict(people.knowers(g, inp["decision_id"], as_of), audit=tools.audit_decision(g, inp["decision_id"], as_of, depth))
+    if tool == "departure":
+        from . import people
+        return people.departure(g, inp["person"], as_of)
     if tool == "ledger":
         rows = tools.ledger(g, as_of, depth)
         person = next((p for p in _people(g) if p["id"] == inp.get("owner")), None)

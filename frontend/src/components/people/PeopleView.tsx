@@ -83,45 +83,50 @@ export default function PeopleView() {
   );
 }
 
-function DepartureSheet({ person, asOf, onClose }: { person: PersonRow | null; asOf: string | null; onClose: () => void }) {
+/** What leaves with a person: the decisions, the reasons only they evidenced, the systems, who inherits what they own. */
+export function DepartureBody({ data }: { data: Departure }) {
   const { link } = useAppState();
+  const when = longDate(data.as_of);
+  return (
+        <div className={s.sheet}>
+    <p className="t-body" style={{ margin: 0 }}>
+      On {when}, {plural(data.leaves.length, "live decision")} would have nobody here who knows {data.leaves.length === 1 ? "its" : "their"} reasons.
+    </p>
+    {data.leaves.length > 0 && (
+      <Group header="What leaves with them" onSurface>
+        {data.leaves.map(d => (
+          <Row key={d.id} href={link("/app/", { d: d.id })} title={d.title} subtitle={<span className="id">{d.id}</span>}
+            trailing={<VerdictBadge verdict={d.verdict} />} />
+        ))}
+      </Group>
+    )}
+    {data.only_they_evidence.length > 0 && (
+      <Group header="Reasons only they wrote evidence on" onSurface>
+        {data.only_they_evidence.map(r => (
+          <Row key={r.id} title={r.text} subtitle={<><span className="id">{r.evidence.join(", ")}</span> · under <span className="id">{r.decisions.join(", ")}</span></>} />
+        ))}
+      </Group>
+    )}
+    {data.systems_nobody_else_explains.length > 0 && (
+      <p className="t-callout" style={{ margin: 0 }}><span className="lead-in">Systems nobody else can explain:</span> {data.systems_nobody_else_explains.join(", ")}.</p>
+    )}
+    {data.owned.length > 0 && (
+      <p className="t-callout" style={{ margin: 0 }}>
+        They own {plural(data.owned.length, "live decision")}; ownership would go up the reporting line to {data.successor ? data.successor.name : "nobody still here"}.
+      </p>
+    )}
+    <p className="t-footnote" style={{ margin: 0 }}>Computed on a copy of the graph with {data.person.name} removed ({data.method}). The company graph is not written.</p>
+        </div>
+  );
+}
+
+function DepartureSheet({ person, asOf, onClose }: { person: PersonRow | null; asOf: string | null; onClose: () => void }) {
   const { data, error, loading } = useApi<Departure | null>(() => (person ? api.departure(person.id, asOf) : Promise.resolve(null)), [person?.id, asOf]);
-  const when = data ? longDate(data.as_of) : "";
   return (
     <Sheet open={!!person} title={person ? `If ${person.name} left` : ""} onClose={onClose} cancelLabel="Done">
       {loading && <div className="skeleton" style={{ width: "80%", height: 24 }} />}
       {error && <p role="alert">{error}</p>}
-      {data && !loading && (
-        <div className={s.sheet}>
-          <p className="t-body" style={{ margin: 0 }}>
-            On {when}, {plural(data.leaves.length, "live decision")} would have nobody here who knows {data.leaves.length === 1 ? "its" : "their"} reasons.
-          </p>
-          {data.leaves.length > 0 && (
-            <Group header="What leaves with them" onSurface>
-              {data.leaves.map(d => (
-                <Row key={d.id} href={link("/app/", { d: d.id })} title={d.title} subtitle={<span className="id">{d.id}</span>}
-                  trailing={<VerdictBadge verdict={d.verdict} />} />
-              ))}
-            </Group>
-          )}
-          {data.only_they_evidence.length > 0 && (
-            <Group header="Reasons only they wrote evidence on" onSurface>
-              {data.only_they_evidence.map(r => (
-                <Row key={r.id} title={r.text} subtitle={<><span className="id">{r.evidence.join(", ")}</span> · under <span className="id">{r.decisions.join(", ")}</span></>} />
-              ))}
-            </Group>
-          )}
-          {data.systems_nobody_else_explains.length > 0 && (
-            <p className="t-callout" style={{ margin: 0 }}><span className="lead-in">Systems nobody else can explain:</span> {data.systems_nobody_else_explains.join(", ")}.</p>
-          )}
-          {data.owned.length > 0 && (
-            <p className="t-callout" style={{ margin: 0 }}>
-              They own {plural(data.owned.length, "live decision")}; ownership would go up the reporting line to {data.successor ? data.successor.name : "nobody still here"}.
-            </p>
-          )}
-          <p className="t-footnote" style={{ margin: 0 }}>Computed on a copy of the graph with {data.person.name} removed ({data.method}). The company graph is not written.</p>
-        </div>
-      )}
+      {data && !loading && <DepartureBody data={data} />}
     </Sheet>
   );
 }
