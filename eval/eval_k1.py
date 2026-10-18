@@ -21,6 +21,7 @@ import re
 import subprocess
 import sys
 import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -37,7 +38,8 @@ K = ROOT / "eval" / "k1"
 Q = json.loads((K / "questions.json").read_text())
 PINNED = (K / "QUESTIONS.sha256").read_text().split()[0] if (K / "QUESTIONS.sha256").exists() else None
 CACHE = K / "cache.jsonl"
-MODEL = os.getenv("MOOT_K1_MODEL", "qwen3.8:27b")
+BACKEND = os.getenv("MOOT_K1_BACKEND", "ollama")  # "groq": the same open weights served by Groq (qwen/qwen3.8-27b)
+MODEL = os.getenv("MOOT_K1_MODEL", "qwen/qwen3.8-27b" if BACKEND == "groq" else "qwen3.8:27b")
 OLLAMA = os.getenv("OLLAMA_URL", "http://localhost:11434")
 ENH = ROOT / "data" / "github" / ".repos" / "kubernetes__enhancements"
 COM = ROOT / "data" / "github" / ".repos" / "kubernetes__community"
@@ -98,6 +100,8 @@ def parse(reply: str) -> dict:
 
 
 def chat(messages: list[dict]) -> tuple[str, int, int, float]:
+    if BACKEND == "groq":
+        return chat_groq(messages)
     body = dict(model=MODEL, stream=False, think=False, options=dict(temperature=0, seed=7, num_ctx=16384, num_predict=600),
                 messages=messages)  # no JSON mode in this build; a reply is one short JSON object
     t0 = time.perf_counter()
@@ -110,6 +114,27 @@ def chat(messages: list[dict]) -> tuple[str, int, int, float]:
             if attempt == 7:
                 raise
             time.sleep(20)
+    raise RuntimeError
+
+
+def chat_groq(messages: list[dict]) -> tuple[str, int, int, float]:
+    from moot import llm
+    body = dict(model=MODEL, temperature=0, seed=7, max_tokens=600, messages=messages)
+    for attempt in range(20):
+        req = urllib.request.Request(llm.GROQ_URL, data=json.dumps(body).encode(), headers={
+            "content-type": "application/json", "authorization": f"Bearer {llm._env_key('GROQ_API_KEY')}", "user-agent": "moot"})
+        t0 = time.perf_counter()
+        try:
+            r = json.loads(urllib.request.urlopen(req, timeout=120).read())
+            u = r.get("usage") or {}
+            return r["choices"][0]["message"].get("content") or "", u.get("prompt_tokens", 0), u.get("completion_tokens", 0), time.perf_counter() - t0
+        except urllib.error.HTTPError as e:
+            detail = e.read()
+            if e.code != 429 or attempt == 19:
+                raise RuntimeError(f"Groq {e.code}: {detail[:300]!r}") from e
+            wait = float(e.headers.get("retry-after") or 10)
+            print(f"  rate limited, waiting {wait:.0f} s: {detail[:140]!r}", flush=True)
+            time.sleep(wait)
     raise RuntimeError
 
 

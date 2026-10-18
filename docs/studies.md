@@ -116,6 +116,18 @@ Each study below states its hypothesis, data, metric and script before its first
 - **Predictions:** the graph-tool agent beats the file-tool agent overall, most on templates 2 and 3 (dates and leadership over time), and both beat RAG, which cannot see history; the deterministic graph answer is near the gold except on template 2 near quarter boundaries.
 - **Script:** `python3 -m moot.k1` (questions, gold, split, hash), `python3 eval/eval_k1.py --llm` → `eval/results_k1.md` and `.json`.
 - **Amended 09:45 UTC, after the questions were generated and before any arm ran:** template 1 has 1 question, not 15: only one SIG Auth or SIG Node KEP (KEP-3130) was replaced by another KEP and dated by a status change. So there are 46 questions (34 test, 12 dev). Template 3's dates are drawn from 2019-01-01 as registered; a first draft of the generator drew them from each KEP's first commit, which made 14 of 15 answers "in force", and was corrected to the registered rule before any arm ran.
+- **Amended 10:45 UTC, after 7 of the 102 test answers had been produced locally:** the local model ran at about ten minutes a question (generation-bound), which would take sixteen hours. The test split is re-run in full on the same open weights served by Groq (`qwen/qwen3.8-27b`, temperature 0, seed 7), every arm on that backend; the dev split is re-run on it too so dev and test match. The 7 local test answers are kept in the cache under the local model's name and not scored. Nothing about the questions, gold, tools or prompts changed.
+
+## K2. Confirmation of K1 on more SIGs and more question types
+
+- **Written:** 2026-10-21 10:50 UTC, before any K2 question, gold or graph existed, after K1's dev split had been scored and while its test split ran. Two product changes come before K2 is frozen and are not tuned on it: SIG leadership is dated to the sigs.yaml commit that changed it, not to the quarter (`moot/connectors/teams.py`, exact=True), and the graph tools return GitHub handles (K1's dev fix).
+- **Graph:** `gh_kubernetes_enhancements` rebuilt with SIG Auth, SIG Node, SIG Network and SIG Storage KEPs (no new reasons are read for the two added SIGs; K2 asks nothing about reasons) and every SIG's leadership.
+- **Questions (15 per template where the data allows, KEPs and dates drawn by sha256 over the four SIGs):** K1's four templates (replaced by what and when; leads of its SIG on a date; in force on a date and what retired it; authors and whether each is a SIG lead today) plus (5) how many of a SIG's KEPs were in force on a date, and (6) was a given person a chair or tech lead of the SIG that owns KEP-X on the day KEP-X was created.
+- **Gold:** `moot/k1.py`'s own parsing of the raw git history, as in K1 (generalised to K2's SIGs and templates), hashed and committed before any arm runs. Shared-source caveat as in K1.
+- **Arms, model and split:** as K1 (agent with Moot's graph tools, agent with file and git tools over the same checkouts, BM25 RAG, and the deterministic graph reference), qwen/qwen3.8-27b on Groq, temperature 0; 30% dev by sha256; nothing is tuned on K2's dev split (K2 is a confirmation run, prompts are K1's).
+- **Primary metric:** exact match on the test split, graph-tool agent against file-tool agent, exact McNemar test on paired questions; Wilson intervals, tokens and seconds per question.
+- **Prediction:** the graph-tool agent beats the file-tool agent by at least the margin it had on K1's dev split, and the gap is largest on templates 2, 5 and 6 (dates and counts over time); RAG stays near zero on everything that needs history.
+- **Script:** `python3 -m moot.k1 --study k2` and `python3 eval/eval_k1.py --study k2 --llm` → `eval/results_k2.md` and `.json`.
 
 ## Registered after the fact
 
