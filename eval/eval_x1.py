@@ -361,7 +361,10 @@ def readme_section(summary: dict) -> str:
             "meetings, documents and pull requests with held-out questions. Seven products held out before any of their files was "
             "downloaded, scored by HERB's own evaluation code with the same local model as answerer and judge ([register](docs/studies.md)):\n\n"
             "| arm (qwen3.8:27b) | Content | People | Customer | Artifact | **Avg** | unanswerable declined |\n|---|---|---|---|---|---|---|\n"
-            + "\n".join(rows) + "\n\n" + gap + "For reference only (a different model and judge): HERB's paper reports 32.96 for the "
+            + "\n".join(rows) + "\n\n"
+            + "Registered second row, People, Customer and Artifact read deterministically from each answer (the local judge misses links "
+              "HERB's own gold contains): " + "; ".join(f"{name[a].strip('*')} {f(summary[a + '_det']['avg'])}" for a in ARMS if a + "_det" in summary)
+            + ".\n\n" + gap + "For reference only (a different model and judge): HERB's paper reports 32.96 for the "
             "best agentic RAG it tested. [Full table](eval/results_x1_heldout.md).\n")
 
 
