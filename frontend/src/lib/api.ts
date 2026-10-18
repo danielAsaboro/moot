@@ -65,14 +65,14 @@ async function call<T>(path: string, init?: RequestInit): Promise<T> {
 const get = <T,>(path: string, p?: Params) => call<T>(`${path}${qs(p)}`);
 const post = <T,>(path: string, body: unknown) => call<T>(path, { method: "POST", body: JSON.stringify(body) });
 
-export interface View { as_of?: string | null; depth?: number }
+export interface View { as_of?: string | null; depth?: number; viewer?: string | null }
 
 export const api = {
   health: () => get<HealthResponse>("/api/health"),
   ledger: (v: View = {}) => get<LedgerResponse>("/api/ledger", { as_of: v.as_of, depth: v.depth }),
   map: (v: View = {}) => get<MapData>("/api/map", { as_of: v.as_of, depth: v.depth }),
   timeline: (depth = 4) => get<TimelineResponse>("/api/timeline", { depth }),
-  decision: (id: string, v: View = {}) => get<DecisionResponse>(`/api/decision/${encodeURIComponent(id)}`, { as_of: v.as_of, depth: v.depth }),
+  decision: (id: string, v: View = {}) => get<DecisionResponse>(`/api/decision/${encodeURIComponent(id)}`, { as_of: v.as_of, depth: v.depth, viewer: v.viewer }),
   gate: (id: string, as_of?: string | null, graph?: string) => get<Gate>(`/api/gate/${encodeURIComponent(id)}`, { as_of, graph }),
   packetUrl: (id: string, as_of?: string | null) => `${API_BASE}${withGraph(`/api/packet/${encodeURIComponent(id)}${qs({ as_of, format: "md" })}`)}`,
   graphs: () => get<GraphsResponse>("/api/graphs"),

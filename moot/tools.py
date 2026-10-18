@@ -16,6 +16,7 @@ from datetime import date, datetime, timezone
 
 from falkordb import Graph
 
+from . import access
 from .verdict import decision_verdict, event_order, gate, premise_state
 
 # Query tracing: the UI's "show the Cypher" view. Every read goes through _q, which records the
@@ -84,9 +85,11 @@ def find_decision(g: Graph, query: str, limit: int = 5) -> list[dict]:
 
 
 # 2. The audit: decision -> premises (up to `depth` hops) -> dated evidence -> verdict.
-def audit_decision(g: Graph, decision_id: str, as_of: str | None = None, depth: int = 4) -> dict:
+def audit_decision(g: Graph, decision_id: str, as_of: str | None = None, depth: int = 4, viewer: str | None = None) -> dict:
     as_of = as_of or today()
     depth = max(1, min(int(depth), 6))
+    if viewer and viewer not in access.policy():
+        return dict(found=False, decision_id=decision_id, verdict="NOT_PERMITTED", viewer=viewer, why=f"no permissions on file for {viewer}")
     # Retirement is dated like everything else: a later decision that SUPERSEDES this one, or a document that RETIRES it
     # (the ADR's own status change, when the successor is outside the graph). Neither counts before its `at`.
     head = _q(g,
@@ -111,7 +114,7 @@ def audit_decision(g: Graph, decision_id: str, as_of: str | None = None, depth: 
         "RETURN pr, nodes(p) AS pn, length(p) AS hops, "
         "collect({id: e.id, title: e.title, kind: e.kind, date: e.date, rel: type(r), at: r.at, stated: r.stated, quote: r.quote, author: a.name}) "
         "ORDER BY hops" % (depth, KNOWN), {"id": decision_id, "as_of": as_of}).result_set
-    premises, seen = [], set()
+    premises, seen, hidden = [], set(), 0
     for pr, path_nodes, _hops, events in rows:
         pid = pr.properties["id"]
         if pid in seen:
@@ -125,6 +128,10 @@ def audit_decision(g: Graph, decision_id: str, as_of: str | None = None, depth: 
                     uniq[k]["author"] += f", {e['author']}"
                 uniq.setdefault(k, e)
         events = list(uniq.values())
+        if viewer:  # viewer-scoped: what this viewer may not see cannot support or contradict anything (moot/access.py)
+            kept = [e for e in events if access.visible(viewer, e)]
+            hidden += len(events) - len(kept)
+            events = kept
         for e in events:
             if e.get("stated") is None:
                 e.pop("stated", None)
@@ -140,7 +147,8 @@ def audit_decision(g: Graph, decision_id: str, as_of: str | None = None, depth: 
     verdict = decision_verdict(premises, superseded=bool(superseded_by))
     return dict(found=True, decision=_node(d), as_of=as_of, depth=depth, verdict=verdict, premises=premises,
                 superseded_by=superseded_by, source=(_node(src) if src else None), systems=systems,
-                owner=decision_owner(g, decision_id, as_of), team=decision_team(g, decision_id, as_of))
+                owner=decision_owner(g, decision_id, as_of), team=decision_team(g, decision_id, as_of),
+                **({"viewer": viewer, "hidden": hidden} if viewer else {}))
 
 
 # 2a. Since when? The verdict can only change on a date something in the decision's subgraph happened, so the audit is

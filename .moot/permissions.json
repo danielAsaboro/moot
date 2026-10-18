@@ -1,0 +1,7 @@
+{
+  "viewers": {
+    "staff": {"note": "everyone on the payroll sees everything"},
+    "contractor": {"hide_kinds": ["chat"], "note": "contractors do not see internal chat"},
+    "partner": {"hide_kinds": ["chat", "ticket"], "hide_prefixes": ["doc-allhands"], "note": "partners see decisions, PRs and public docs"}
+  }
+}

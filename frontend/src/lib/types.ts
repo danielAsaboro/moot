@@ -34,6 +34,8 @@ export interface Audit {
   found: boolean; decision: DecisionNode; as_of: string; depth: number; verdict: Verdict; premises: Premise[];
   superseded_by: SupersededBy | null; source?: { id: string; title: string; date: string; excerpt?: string; kind?: string; path?: string } | null;
   systems: string[]; owner: Owner | null;
+  /** Viewer-scoped audits (?viewer=): who it was audited for and how many dated events their permissions withheld */
+  viewer?: string; hidden?: number;
   /** The team that answers for it on as_of, and who leads that team then (Team / LEADS) */
   team?: { id: string; name: string; source?: string; projects: number;
            leads: { id: string; name: string; role: string; from: string; to: string }[];

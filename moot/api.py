@@ -150,10 +150,10 @@ def network_map(as_of: str | None = None, depth: int = Query(4, ge=1, le=6)):
 
 
 @app.get("/api/decision/{decision_id}")
-def decision(decision_id: str, as_of: str | None = None, depth: int = Query(4, ge=1, le=6)):
+def decision(decision_id: str, as_of: str | None = None, depth: int = Query(4, ge=1, le=6), viewer: str | None = None):
     as_of = as_of_param(as_of)
     tools.start_trace()
-    a = tools.audit_decision(g(), decision_id, as_of, depth)
+    a = tools.audit_decision(g(), decision_id, as_of, depth, viewer)
     if not a["found"]:
         tools.end_trace()
         raise HTTPException(404, f"{decision_id} is not in the graph")

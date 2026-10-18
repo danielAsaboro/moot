@@ -39,14 +39,15 @@ function useNarrow(query = "(max-width: 640px)") {
 
 export default function DecisionPanel({ id }: { id: string }) {
   const { asOf, depth, select } = useAppState();
+  const viewer = useSearchParams().get("viewer");
   const status = useRef(0);
   const { data, error, loading, reload } = useApi<DecisionResponse>(() => {
     status.current = 0;
-    return api.decision(id, { as_of: asOf, depth }).catch((e: unknown) => {
+    return api.decision(id, { as_of: asOf, depth, viewer }).catch((e: unknown) => {
       if (e instanceof ApiError) status.current = e.status;
       throw e;
     });
-  }, [id, asOf, depth]);
+  }, [id, asOf, depth, viewer]);
   // ?tab=graph|cypher|steps opens that view (the landing page links straight to D01's path and its Cypher)
   const urlTab = useSearchParams().get("tab");
   const [tab, setTabState] = useState<PanelTab>(urlTab && ["audit", "graph", "steps", "cypher"].includes(urlTab) ? urlTab as PanelTab : rememberedTab);
@@ -96,6 +97,7 @@ export default function DecisionPanel({ id }: { id: string }) {
         {!notYet && <VerdictSince h={data.history} />}
         {!notYet && <KnowsWhy k={data.knowers} />}
         {!notYet && <AnswersFor team={a.team} />}
+        {a.viewer && <p className="t-footnote" style={{ margin: 0 }} aria-label="Viewer scope">Seen as {a.viewer}: {a.hidden ? `${a.hidden} dated record${a.hidden === 1 ? "" : "s"} withheld by their permissions, so this verdict is the one their view supports.` : "nothing withheld."}</p>}
       </header>
 
       {/* One drawing per screen: the preview is the hero everywhere except the Graph tab, which shows the full one. */}
