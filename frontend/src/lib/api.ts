@@ -101,6 +101,12 @@ export const api = {
     post<Finding & { memo: unknown }>("/api/reopen", b),
   handover: (b: { decision_id: string; to: string; as_of: string }) =>
     post<{ decision_id: string; to: string; to_name?: string; from_id?: string | null; valid_from?: string; unchanged?: boolean }>("/api/handover", b),
+  /** Post a change: one dated piece of evidence on a reason, applied to the visitor's own scratch copy of the graph. */
+  postChange: (b: { premise: string; rel: "SUPPORTS" | "CONTRADICTS"; at?: string | null; title: string }, as_of?: string | null) =>
+    post<{ sandbox: string; evidence: string; at: string; as_of: string; expires_in: number;
+           changed: { id: string; title: string; before: import("@/lib/types").Verdict; after: import("@/lib/types").Verdict; gate_before: string; gate_after: string }[] }>(
+      `/api/sandbox${as_of ? `?as_of=${encodeURIComponent(as_of)}` : ""}`, b),
+  resetChange: (name: string) => call<{ deleted: string }>(`/api/sandbox/${encodeURIComponent(name)}`, { method: "DELETE" }),
   ingestGithub: (repo: string) => post<IngestSummary>("/api/ingest/github", { repo }),
   ruling: (b: { decision_id: string; premise_id: string; holds: boolean; as_of: string; by?: string | null; note?: string }) =>
     post<Record<string, unknown>>("/api/ruling", b),

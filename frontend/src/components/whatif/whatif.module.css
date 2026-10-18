@@ -80,3 +80,11 @@
   .flip { flex-direction: column; gap: 2px; }
   .arrow { transform: rotate(90deg); line-height: 1; }
 }
+
+/* Post a change: the break applied for real in the visitor's own scratch graph */
+.post { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--separator); display: flex; flex-direction: column; gap: 8px; }
+.postForm { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.postForm label { flex-basis: 100%; }
+.postInput { flex: 1 1 260px; min-width: 0; padding: 8px 10px; border: 1px solid var(--separator); border-radius: 8px; background: var(--paper); color: var(--label); font: inherit; }
+.postDone { display: flex; flex-direction: column; gap: 6px; }
+.postList { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; }

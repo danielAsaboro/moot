@@ -11,7 +11,7 @@ departure), and one KNOWS edge (both directions) between each person and each de
   algo.WCC          knowledge islands: decisions joined by the people who know them; an island with decisions and no
                     person left in it is knowledge that walks out of the door
   algo.betweenness  people through whom most knowledge paths run: the bridges between otherwise separate teams
-                    (samplingSize above the node count, so the score is exact and the same on every copy)
+                    (samplingSize above the node count and a fixed seed, so the same projection always gives the same ranking; tests/test_algorithms.py checks the people come out in NetworkX's order)
 
 The scratch graph is deleted before the answer returns. (We first used GRAPH.COPY of the whole graph; on macOS the
 embedded server's copy fork can deadlock, so the projection is built from rows instead, which also keeps it small.)

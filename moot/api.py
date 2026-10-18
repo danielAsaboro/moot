@@ -14,7 +14,7 @@ from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse, Res
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from . import agent, answer, llm, mapdata, people as people_mod, snapshot, tools
+from . import agent, answer, llm, mapdata, sandbox, people as people_mod, snapshot, tools
 from .graph import BACKTEST_GRAPH, DATA, GH_PREFIX, PUBLIC_GRAPH, connect, graph, stats
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -64,13 +64,15 @@ def known_graphs() -> set[str]:
             names = set(connect().list_graphs())
         except Exception:
             names = set()
-        _known.update(at=time.time(), names={n for n in names if n.startswith(GH_PREFIX)} | {graph().name, PUBLIC_GRAPH, BACKTEST_GRAPH})
+        _known.update(at=time.time(), names={n for n in names if n.startswith((GH_PREFIX, sandbox.PREFIX))} | {graph().name, PUBLIC_GRAPH, BACKTEST_GRAPH})
     return _known["names"]
 
 
 @app.middleware("http")
 async def select_graph(request: Request, call_next):
     name = request.query_params.get("graph")
+    if name and name.startswith(sandbox.PREFIX) and name not in known_graphs():
+        _known["at"] = 0  # a sandbox made a moment ago
     if name and name != graph().name and name not in known_graphs():
         return JSONResponse({"detail": f"no graph named {name}; GET /api/graphs lists them"}, status_code=422)
     token = _selected.set(name or None)
@@ -167,7 +169,7 @@ def people(as_of: str | None = None):
 
 @app.get("/api/people/{person_id}/departure")
 def departure(person_id: str, as_of: str | None = None):
-    """What leaves with a person: computed on a GRAPH.COPY with them removed (algo.WCC). The company graph is not written."""
+    """What leaves with a person: computed on a scratch KNOWS projection with them removed (algo.WCC). The company graph is not written."""
     tools.start_trace()
     r = people_mod.departure(g(), person_id, as_of_param(as_of))
     if not r["found"]:
@@ -530,6 +532,37 @@ def ingest_github(body: Ingest):
     _known["at"] = 0
     _graphs_cache["body"] = None
     return gh.audit(repo)
+
+
+class PostChange(BaseModel):
+    premise: str
+    rel: str = "CONTRADICTS"
+    at: str | None = None
+    title: str = ""
+
+
+@app.post("/api/sandbox")
+def post_change(body: PostChange, as_of: str | None = None, depth: int = Query(4, ge=1, le=6)):
+    """Post a change: copy this graph into the visitor's own scratch graph, add one dated piece of evidence on a reason, and
+    return what it changes. The company graph is read, never written. Reset with DELETE /api/sandbox/{name}."""
+    if snapshot.enabled() or os.getenv("MOOT_ALLOW_SANDBOX", "1") != "1":
+        raise HTTPException(403, "Sandboxes are off on this deployment")
+    at = as_of_param(body.at) or tools.today()
+    try:
+        made = sandbox.create(g(), body.premise, body.rel, at, body.title.strip() or f"Posted change: {body.premise} {body.rel.lower()}")
+    except ValueError as ex:
+        raise HTTPException(422, str(ex))
+    _known["at"] = 0
+    when = max(at, as_of_param(as_of) or tools.today())
+    return dict(made, changed=sandbox.diff(g(), graph(made["sandbox"]), when, depth), as_of=when)
+
+
+@app.delete("/api/sandbox/{name}")
+def reset_sandbox(name: str):
+    if not sandbox.delete(name):
+        raise HTTPException(404, "no such sandbox")
+    _known["at"] = 0
+    return dict(deleted=name)
 
 
 @app.get("/api/schema")

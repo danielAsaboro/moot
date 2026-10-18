@@ -1,6 +1,6 @@
 "use client";
 // /app/whatif/: pretend one written-down reason broke today and show which decisions would fall, through which chain.
-// Read-only: nothing on this page writes to the graph.
+// The what-if itself is read-only; "Post it as a change" writes one evidence node to the visitor's own sandbox copy (moot/sandbox.py).
 import { useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { api, ApiError } from "@/lib/api";
@@ -178,6 +178,7 @@ function Result({ data, q, pick, stale }: { data: WhatIfResponse; q: string; pic
         )}
 
         <p className="t-footnote">A read-only path query. Nothing is written to the graph.</p>
+        <PostChange premiseId={premise.id} premiseText={premise.text} />
         {data.queries && data.queries.length > 0 && (
           <details className={s.queries}>
             <summary className={s.summary}>Show queries</summary>
@@ -185,6 +186,54 @@ function Result({ data, q, pick, stale }: { data: WhatIfResponse; q: string; pic
           </details>
         )}
       </Card>
+    </div>
+  );
+}
+
+/** Apply the break for real, in the visitor's own scratch copy of the graph, then Reset. The company graph is only read. */
+function PostChange({ premiseId, premiseText }: { premiseId: string; premiseText: string }) {
+  const { asOf } = useAppState();
+  const [title, setTitle] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+  const [made, setMade] = useState<Awaited<ReturnType<typeof api.postChange>> | null>(null);
+  useEffect(() => { setMade(null); setErr(null); }, [premiseId]);
+  const apply = async () => {
+    setBusy(true); setErr(null);
+    try { setMade(await api.postChange({ premise: premiseId, rel: "CONTRADICTS", at: asOf, title: title || `“${premiseText}” no longer holds` }, asOf)); }
+    catch (e) { setErr((e as Error).message); } finally { setBusy(false); }
+  };
+  const reset = async () => { if (made) { await api.resetChange(made.sandbox).catch(() => null); setMade(null); } };
+  return (
+    <div className={s.post}>
+      {!made ? (
+        <form onSubmit={e => { e.preventDefault(); apply(); }} className={s.postForm}>
+          <label className="t-footnote" htmlFor="moot-post">Post it as a change, in your own copy of the graph:</label>
+          <input id="moot-post" className={s.postInput} value={title} onChange={e => setTitle(e.target.value)}
+            placeholder="What happened, e.g. “We stopped selling to enterprise customers”" maxLength={200} />
+          <button type="submit" className="btn small" disabled={busy}>{busy ? "Applying…" : "Apply"}</button>
+        </form>
+      ) : (
+        <div className={s.postDone}>
+          <p className="t-footnote">
+            Applied to sandbox <code>{made.sandbox}</code> on {longDate(made.at)}: {made.changed.length
+              ? `${plural(made.changed.length, "decision")} changed verdict.` : "no verdict changed."} The company graph was not touched.
+          </p>
+          {made.changed.length > 0 && (
+            <ul className={s.postList}>
+              {made.changed.map(c => (
+                <li key={c.id}><VerdictBadge verdict={c.before} /> <span aria-label="becomes">→</span> <VerdictBadge verdict={c.after} />{" "}
+                  {c.title} <span className="t-footnote">(gate {c.gate_before} → {c.gate_after})</span></li>
+              ))}
+            </ul>
+          )}
+          <p className="t-footnote">
+            <a className="link" href={`/app/ledger/?graph=${made.sandbox}`}>Open the ledger in the sandbox</a> ·{" "}
+            <button type="button" className="link" onClick={reset}>Reset</button> · it expires in an hour.
+          </p>
+        </div>
+      )}
+      {err && <p className="t-footnote" role="alert">{err}</p>}
     </div>
   );
 }
