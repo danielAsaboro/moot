@@ -20,6 +20,7 @@ def main(argv=None):
     vf.add_argument("--rerun", action="store_true", help="first re-run the deterministic evals from committed inputs (needs FalkorDB)")
     dp = sub.add_parser("departure", help="what leaves with a person (computed on a copy of the graph)"); dp.add_argument("person_id"); dp.add_argument("--as-of"); dp.add_argument("--graph")
     pp = sub.add_parser("people", help="who only knows what: bus factor and betweenness per person"); pp.add_argument("--as-of"); pp.add_argument("--graph")
+    sn = sub.add_parser("sentinel", help="what changed between two dates: regressions, retirements, reversals, unauthorised changes"); sn.add_argument("--since", required=True); sn.add_argument("--until"); sn.add_argument("--graph")
     ot = sub.add_parser("teams", help="hidden teams: communities of collaborators against the official teams"); ot.add_argument("--graph")
     cp = sub.add_parser("connect", help="who connects two people: the shortest chain of shared records"); cp.add_argument("a"); cp.add_argument("b"); cp.add_argument("--graph")
     l = sub.add_parser("ledger"); l.add_argument("--as-of"); l.add_argument("--depth", type=int, default=4); l.add_argument("--graph")
@@ -124,6 +125,18 @@ def main(argv=None):
             print("  systems nobody else can explain:", ", ".join(r["systems_nobody_else_explains"]))
         if r["owned"]:
             print(f"  owns {len(r['owned'])} live decisions; next up the reporting line: {r['successor']['name'] if r['successor'] else 'nobody'}")
+        return
+    if args.cmd == "sentinel":
+        from . import sentinel
+        r = sentinel.scan(graph(args.graph), args.since, args.until)
+        for a in r["alerts"]:
+            flag = " UNAUTHORISED" if a["unauthorised"] else ""
+            print(f"{a['kind']:<10} {a['decision']:<14} {a['before']} -> {a['after']}{flag}  {a.get('title') or ''}")
+            for e in a["events"]:
+                print(f"           {e['at']} {e.get('rel')} {e['id']} by {e.get('author') or 'unknown'} ({e['standing']})")
+            if a.get("blast_radius"):
+                print(f"           also rests on the broken reason: {', '.join(a['blast_radius'])}")
+        print(f"{r['since']} → {r['until']}: " + ", ".join(f"{k} {v}" for k, v in r["counts"].items() if v))
         return
     if args.cmd == "teams":
         from . import org

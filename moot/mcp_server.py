@@ -75,6 +75,15 @@ def people_risk(as_of: str | None = None, graph: str | None = None) -> str:
 
 
 @mcp.tool()
+def sentinel(since: str, until: str | None = None, graph: str | None = None) -> str:
+    """What changed between two dates: decisions whose reasons broke (with blast radius and a draft re-open memo that needs
+    approval), retirements, reversals and new decisions, each with the dated events that moved it and who wrote them; a
+    status change by someone without standing (not the owner or above them, an author, or a team lead) is flagged."""
+    from . import sentinel as sn
+    return json.dumps(sn.scan(_g(graph), since, until), default=str)
+
+
+@mcp.tool()
 def hidden_teams(graph: str | None = None) -> str:
     """Communities of people who wrote records together (label propagation on a collaboration projection), set beside the
     teams they officially answer for; a community spread over several teams with none holding most of it is a hidden team."""
@@ -217,7 +226,7 @@ def real_world_ledger() -> str:
 # The public server (mounted at /mcp on the web app, streamable HTTP): read-only tools only. No finding, ruling, handover or
 # ingest; `ask` is left out too, since it may call a model. Anyone can point an MCP client at https://<host>/mcp.
 PUBLIC = ("list_graphs", "find_decision", "audit_decision", "verdict_history", "check_action", "ledger", "who_knows_why",
-          "departure_impact", "people_risk", "hidden_teams", "connection_path", "reason_single_points_of_failure", "premise_impact", "trace_document",
+          "departure_impact", "people_risk", "hidden_teams", "connection_path", "sentinel", "reason_single_points_of_failure", "premise_impact", "trace_document",
           "decision_owner", "evidence_packet", "orphaned_decisions", "reopen_memo", "what_if", "riskiest_reasons", "real_world_ledger")
 
 

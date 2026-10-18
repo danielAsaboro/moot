@@ -185,6 +185,16 @@ def people(as_of: str | None = None):
     return r
 
 
+@app.get("/api/sentinel")
+def sentinel_scan(since: str, until: str | None = None, depth: int = 4):
+    """Alerts for what changed between two dates: regressions with blast radius and a draft memo, retirements, reversals."""
+    from . import sentinel
+    tools.start_trace()
+    r = sentinel.scan(g(), since, as_of_param(until), depth)
+    r["queries"] = tools.end_trace()
+    return r
+
+
 @app.get("/api/org/teams")
 def org_teams():
     """Hidden teams: communities of collaborators (label propagation) against the official teams."""
