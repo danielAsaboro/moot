@@ -18,6 +18,14 @@ import ToolStep from "./ToolStep";
 import { Answer, followUps, whyQuestion, type FollowUp } from "./Answers";
 import s from "./ask.module.css";
 
+// Example questions per graph: Kubernetes' own KEPs on its graph, the demo company's everywhere else
+const K8S_STARTERS = [
+  "Does KEP-3130 still hold?",
+  "Who answers for KEP-3130?",
+  "Can an agent change KEP-3130?",
+  "Who knows why KEP-1205 was made?",
+  "Show the evidence for KEP-3130",
+];
 const STARTERS = [
   "Why do we cap uploads at 10 MB?",
   "Can an agent change the Friday deploy freeze?",
@@ -37,7 +45,7 @@ interface Suggestion { q: string; tool?: AnswerTool; arg?: string }
 export default function AskView() {
   const sp = useSearchParams();
   const router = useRouter();
-  const { asOf, depth, link } = useAppState();
+  const { asOf, depth, link, graph } = useAppState();
   const q = sp.get("q") ?? "", tool = sp.get("tool") as AnswerTool | null, id = sp.get("id"), owner = sp.get("owner"), d = sp.get("d");
   const [state, setState] = useState<State>({ kind: "idle" });
   const [nonce, setNonce] = useState(0);
@@ -72,7 +80,7 @@ export default function AskView() {
             <p className={s.lead}>Ask about a rule, a reason or a person. Moot picks the right read-only tool, runs it against the graph and shows the answer it returns.</p>
           </>
         )}
-        <AskBox key={q} initial="" onAsk={go} placeholder={asked ? "Ask another question" : "Why do we cap uploads at 10 MB?"} />
+        <AskBox key={q} initial="" onAsk={go} placeholder={asked ? "Ask another question" : graph?.startsWith("gh_kubernetes") ? "Does KEP-3130 still hold?" : "Why do we cap uploads at 10 MB?"} />
         {!asked && <Starters onAsk={go} />}
       </section>
 
@@ -109,13 +117,14 @@ export default function AskView() {
 }
 
 function Starters({ onAsk }: { onAsk: (f: Suggestion) => void }) {
-  const { asOf, link } = useAppState();
+  const { asOf, link, graph } = useAppState();
+  const starters = graph?.startsWith("gh_kubernetes") ? K8S_STARTERS : STARTERS;
   const { data } = useApi<LedgerResponse>(() => api.ledger({ as_of: asOf }), [asOf]);
   const moot = data?.decisions.filter(r => r.verdict === "MOOT").length;
   return (
     <>
       <div className={s.chips} role="group" aria-label="Example questions">
-        {STARTERS.map(t => <button key={t} type="button" className={s.chip} onClick={() => onAsk({ q: t })}>{t}</button>)}
+        {starters.map(t => <button key={t} type="button" className={s.chip} onClick={() => onAsk({ q: t })}>{t}</button>)}
       </div>
       {data && <p className={s.meta}>{data.decisions.length} decisions, checked against dated evidence as of {longDate(data.as_of)}. {moot} are moot.</p>}
       <Link href={link("/app/ledger/")} className={cx("link", s.browse)}>Or browse all {data ? data.decisions.length : ""} decisions <span aria-hidden="true">›</span></Link>

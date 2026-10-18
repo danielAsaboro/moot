@@ -57,6 +57,7 @@ export interface Snapshot { graph: string; as_of: string; digest: string; graph_
 export interface Gate {
   gate: GateDecision; allowed: boolean; verdict: Verdict; reasons: GateReason[]; basis: GateBasis[];
   decision_id: string; title: string | null; as_of: string; depth: number; snapshot?: Snapshot; queries?: Query[];
+  route?: { to: string; people: { id: string; name: string }[]; why: string } | null;
 }
 
 export interface MemoBroken {

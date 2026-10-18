@@ -26,7 +26,8 @@ const WORD = ["no", "one", "two", "three", "four", "five", "six", "seven", "eigh
 const num = (n: number) => (n < WORD.length ? WORD[n] : String(n));
 const cap = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
 const lc = (t: string) => t.charAt(0).toLowerCase() + t.slice(1);
-export const whyQuestion = (title: string) => `Why do we ${lc(title)}?`;
+// a KEP's title is a name, not a verb phrase ("KEP-3130: KMS Observability"), so ask why it was made
+export const whyQuestion = (title: string) => /^KEP-\d+/.test(title) ? `Why was ${title.split(":")[0]} made?` : `Why do we ${lc(title)}?`;
 
 function Kicker({ children }: { children: ReactNode }) { return <p className={s.kicker}>{children}</p>; }
 function Chain({ path, evidence }: { path?: PathNode[]; evidence?: string | null }) {
@@ -64,6 +65,13 @@ function GateAnswer({ g }: { g: Gate }) {
       {g.basis.length > 0 && (
         <Group header="What it rests on" onSurface>
           {g.basis.map((b, i) => <Row key={i} title={b.text} subtitle={b.evidence ? <>backed by <span className="id">{b.evidence}</span>{b.at ? ` on ${longDate(b.at)}` : ""}</> : "no dated evidence"} />)}
+        </Group>
+      )}
+      {g.gate !== "ALLOW" && g.route && (
+        <Group header="Who to ask" onSurface>
+          {g.route.people.length
+            ? <Row title={g.route.people.map(p => p.name).join(", ")} subtitle={g.route.why} />
+            : <Row title="Nobody still here" subtitle={g.route.why} />}
         </Group>
       )}
       <p className={s.code}><span><b>GET</b> /api/gate/{id}?as_of={g.as_of}</span><span><b>MCP</b> check_action(&quot;{id}&quot;) · read-only, {g.depth} hops deep</span></p>

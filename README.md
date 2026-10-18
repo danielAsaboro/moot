@@ -1,17 +1,45 @@
 # Moot
 
-**Ask a real organisation "does this decision still hold, who answers for it today, and why?" and get the answer with its evidence path, from a FalkorDB graph of its decisions, people, teams and documents.**
+**A company brain on FalkorDB: ask a real organisation whether a decision still holds, who answers for it on any date, and why. Every answer comes with its graph path and the Cypher behind it.**
 
 [![CI](https://github.com/danielAsaboro/moot/actions/workflows/ci.yml/badge.svg)](https://github.com/danielAsaboro/moot/actions/workflows/ci.yml)
 [![Live app](https://img.shields.io/badge/live-moot.bringaihome.xyz-b5372b)](https://moot.bringaihome.xyz)
 [![FalkorDB](https://img.shields.io/badge/FalkorDB-Cloud%20v4.22-1d1d1b)](docs/falkordb.md)
 [![License: MIT](https://img.shields.io/badge/license-MIT-5e5d58)](LICENSE)
 
-Built for [Graph Hacks](https://www.wemakedevs.org/hackathons/falkordb) (WeMakeDevs x FalkorDB), track **Company Brain** · [Live app](https://moot.bringaihome.xyz) · [Tour for judges](https://moot.bringaihome.xyz/#judges) · [Demo video](https://vimeo.com/1237038749) · `make judge-check`
+![Asking the Kubernetes graph about KEP-3130: retired by KEP-3299, the SIG that answers for it and its leads, the same question on 1 March 2022 (it held then), and the agent gate's DENY with who to ask](docs/hero-k8s.gif)
 
-## Kubernetes, as a company
+| 34 held-out questions about Kubernetes (K1, test), same model | right | tokens | $ | s per question |
+|---|---|---|---|---|
+| **agent with Moot's graph tools** | **26** | 131k | 0.04 | 11 |
+| agent with file and git tools | 22 | 362k | 0.12 | 38 |
+| BM25 RAG | 15 | 85k | 0.03 | 28 |
+| one fixed graph query, no model | 25 | 0 | 0 | – |
 
-`moot ingest-keps` reads Kubernetes into one graph: 158 SIG Auth and SIG Node enhancement proposals (KEPs) as decisions, each dated by the commit that put it in force and retired by the commit that took it out; every SIG as a team, with each chair and tech lead's window since 2018 read from `sigs.yaml`'s history; 389 people (KEP authors, approvers, SIG leads); and the reasons each KEP states, kept only as exact quoted spans. [Open it](https://moot.bringaihome.xyz/app/ledger/?graph=gh_kubernetes_enhancements) and ask about one:
+**[Try it](https://moot.bringaihome.xyz/app/?graph=gh_kubernetes_enhancements)** · **[Tour for judges](https://moot.bringaihome.xyz/#judges)** · **[Demo video](https://vimeo.com/1237038749)** · built for [Graph Hacks](https://www.wemakedevs.org/hackathons/falkordb), Company Brain track
+
+## Why the graph
+
+"Who led the SIG that owns KEP-1884 on 27 June 2021?" takes two hops, the KEP's owning SIG and then that SIG's leaders on that day, and every edge in Moot's graph carries its dates; BM25 RAG got none of these questions right. An agent with file and git tools can walk the same history, and it matches the graph agent on accuracy within the noise, but it needs about three times the tokens and three and a half times the time. What the graph adds on every answer is the path it walked and the read-only Cypher that produced it, so a reader can check it.
+
+## K1: the result in full
+
+K1 asks what Kubernetes' own records say: which KEP replaced this one and when, who led its SIG on a date, whether it was in force on a date, and whether its authors still lead a SIG. The gold is read from raw git history by a separate parser (`moot/k1.py`); the questions were frozen and hashed before any arm ran ([register](docs/studies.md)). Same model, prompt and step budget for every model arm.
+
+| arm (qwen3.8:27b, temperature 0) | test: exact match (95% CI) | dev | tokens (test) | $ at Groq's price (test) | median s per question (test) | tool calls (test) |
+|---|---|---|---|---|---|---|
+| **agent with Moot's graph tools** | **26/34** (0.60–0.88) | 11/12 | 131,474 | 0.042 | 11.0 | 74 |
+| agent with file and git tools over the same checkouts | 22/34 (0.48–0.79) | 7/12 | 362,173 | 0.115 | 38.3 | 193 |
+| BM25 RAG over the checkouts | 15/34 (0.29–0.61) | 7/12 | 84,837 | 0.026 | 28.4 | 0 |
+| BM25 RAG over the checkouts and their history (post hoc) | 17/34 (0.34–0.66) | 7/12 | 67,031 | 0.020 | 22.8 | 0 |
+| one fixed graph query per question, no model | 25/34 (0.57–0.85) | 10/12 | 0 | 0.000 | – | 0 |
+
+- **Accuracy:** level with the file and git agent (only the graph agent right on 8 questions, only the file agent on 4, exact McNemar p = 0.39); ahead of BM25 RAG beyond chance (13 against 2, p = 0.007; against RAG over history 11 against 2, p = 0.022).
+- **Fair baselines:** before any test answer was scored, three harness faults were fixed on dev and every affected arm re-run in full (the file agent could not reach `sigs.yaml` history or read past 6,000 characters; bare answers were dropped by the parser, which left RAG at 0); one name normaliser for every arm. Each is in the [register](docs/studies.md); earlier answers are kept, not scored.
+- **Shared source:** Moot's graph is built from the same repositories the gold is read from, so the fixed-query row measures how faithfully the graph holds that history. The contest is between agents with different tools. [Full tables](eval/results_k1.md). K2 (78 questions over four SIGs) is frozen and running.
+- **Not a forecaster:** on 64 held-out real decisions Moot scored 52 against 59 for calling everything "still holds". Every forecasting study (H1, A1, H2, P1, the backtest) is in [docs/results.md](docs/results.md), every number kept.
+
+## One decision, end to end
 
 ```
 KEP-3130 KMS Observability                                   RETIRED
@@ -23,31 +51,9 @@ KEP-3130 KMS Observability                                   RETIRED
 gate: DENY (retired) · ask: Anish Ramasekar, its author, still here
 ```
 
-![KEP-3130 in the app: retired by KEP-3299, who knows why, the SIG that answers for it and its leads, drawn from the rows FalkorDB returned](docs/screens/k8s-kep.png)
+`moot ingest-keps` built this from 277 SIG Auth, Node, Network and Storage KEPs, every SIG's leadership since 2018 dated to the `sigs.yaml` commit, and the reasons each KEP states as exact quoted spans. Set the date and the answer is the one that was true then. An agent asks the same thing before it acts (`GET /api/gate`, MCP `check_action`, or `moot hook` in Claude Code) and gets DENY only when the graph shows the decision is gone; otherwise it proceeds, with any warning and who to ask.
 
-Every line is a FalkorDB path query you can open: [the decision](https://moot.bringaihome.xyz/app/ledger/?graph=gh_kubernetes_enhancements&d=KEP-3130), the exact read-only Cypher it ran with rows and milliseconds, the quote with its character span. Set the date and the answer is the one that was true then: who led the SIG, whether the KEP was in force. An agent asks the same thing before it acts (`GET /api/gate`, the MCP tool `check_action`, or `moot hook` in front of Claude Code), and gets DENY only when the graph shows the decision is gone; otherwise it proceeds, with any warning and the person to ask.
-
-## Results: questions an organisation's memory should answer (K1)
-
-K1 asks Kubernetes what its own records say: which KEP replaced this one and when, who led the SIG that answers for it on a given date, whether it was in force on a date and what retired it, and whether its authors still lead a SIG. The gold is read from raw git history by a separate parser (`moot/k1.py`), and the questions were frozen and hashed before any arm ran ([register](docs/studies.md)). Every model arm gets the same model, prompt and step budget; only the tools differ.
-
-| arm (qwen3.8:27b, temperature 0) | test: exact match (95% CI) | dev | tokens (test) | $ at Groq's price (test) | median s per question (test) | tool calls (test) |
-|---|---|---|---|---|---|---|
-| **agent with Moot's graph tools** | **26/34** (0.60–0.88) | 11/12 | 131,474 | 0.042 | 11.0 | 74 |
-| agent with file and git tools over the same checkouts | 22/34 (0.48–0.79) | 7/12 | 362,173 | 0.115 | 38.3 | 193 |
-| BM25 RAG over the checkouts | 15/34 (0.29–0.61) | 7/12 | 84,837 | 0.026 | 28.4 | 0 |
-| BM25 RAG over the checkouts and their history (post hoc) | 17/34 (0.34–0.66) | 7/12 | 67,031 | 0.020 | 22.8 | 0 |
-| one fixed graph query per question, no model | 25/34 (0.57–0.85) | 10/12 | 0 | 0.000 | – | 0 |
-
-**Read it plainly.** Against the file and git agent, accuracy is level within the noise (26 against 22 of 34; only the graph agent right on 8 questions, only the file agent on 4, exact McNemar p = 0.39). What the graph buys is cost and time: the same model answers with about a third of the tokens and dollars and about 3.5 times faster, and every answer comes with the path and the read-only Cypher behind it. Against BM25 RAG the graph agent is ahead beyond chance (13 against 2, p = 0.007; against RAG over history 11 against 2, p = 0.022); RAG gets none of the leadership-on-a-date questions, which need two hops (the KEP's SIG, then its leaders that day).
-
-The baselines were audited for fairness before any test answer was scored, and three harness faults were fixed on dev, with every affected arm re-run in full (the file/git agent could not reach `sigs.yaml` history or read past a file's first 6,000 characters; every arm's bare answers were dropped by the parser, which left RAG at 0); one name-to-handle normaliser now applies to every arm, and RAG over history was added beside the registered RAG; each is recorded in the [register](docs/studies.md), and the answers from before each fix are kept, not scored.
-
-**Shared-source caveat, stated once:** Moot's graph is built from the same two repositories the gold is read from, so the last row measures how faithfully the graph holds that history, not an independent prediction. The contest is between agents with the same model and different tools. Full tables, per question type: [results_k1.md](eval/results_k1.md). K2, a larger confirmation set over four SIGs, is frozen and runs next.
-
-**Moot does not forecast which decisions die:** on 64 held-out real decisions it scored 52 against 59 for calling everything "still holds", and its flags on real history are confirmed at chance. Every forecasting study (H1, A1, H2, P1 and the 30-repository backtest) is in [docs/results.md](docs/results.md), every number kept.
-
-### Checks and supporting numbers
+## Checks and supporting numbers
 
 | what | result | note |
 |---|---|---|
@@ -61,10 +67,10 @@ The baselines were audited for fairness before any test answer was scored, and t
 
 ## What else is in the box
 
-- **Any repository's decisions:** `moot ingest-github owner/repo` reads an ADR folder, its history, pull requests and CODEOWNERS teams; a model proposes the reasons each ADR states and a validator keeps only literal quoted spans ([docs/reasons.md](docs/reasons.md)). Four are in the live app.
-- **The graph changes as you work:** *Post a change* applies a dated contradiction in your own sandbox copy and shows which verdicts move; approved Findings are written back; remembered answers are revoked when the rows under them change.
-- **Agents:** a Claude Code hook that blocks an edit to a file governed by a dead decision, a pull-request check, `moot draft-pr` for the fix, MCP on stdio and read-only over HTTP at `/mcp` ([docs/agents.md](docs/agents.md), [docs/mcp.md](docs/mcp.md)).
-- **A demo company:** Larkspur, 8 people, built to show depth, dates and departures ([docs/larkspur.md](docs/larkspur.md)). [Architecture and screens](docs/architecture.md).
+- **Any repository:** `moot ingest-github owner/repo` reads ADRs, history, pull requests and CODEOWNERS teams; quoted reasons are kept only as literal spans ([docs/reasons.md](docs/reasons.md)).
+- **Agents:** a Claude Code hook, a pull-request check, `moot draft-pr`, MCP on stdio and read-only over HTTP at `/mcp` ([docs/agents.md](docs/agents.md), [docs/mcp.md](docs/mcp.md)).
+- **What-if:** post a dated contradiction in your own sandbox copy and see which verdicts move.
+- **A demo company:** Larkspur, 8 people ([docs/larkspur.md](docs/larkspur.md)). [Architecture and screens](docs/architecture.md).
 
 ## Judging criteria: where to look
 
@@ -228,17 +234,16 @@ make test                                # pytest; CI runs it and moot verify --
 
 ## Honest limits
 
-- **Moot does not forecast which decisions die.** On held-out real decisions graded by their own repositories it does worse than calling everything HOLDS (52 against 59 of 64), and its flags on real history are confirmed at chance (1 of 12). Outside evidence about a tool (a licence change, a quiet upstream) rarely makes a team abandon a decision within three years. What Moot gives a team is the reason, the path, the date and who to ask, not a prediction.
-- **The gate trades one error for another.** The strict policy blocked every real decision it could not vouch for (59 of 59 that held on H1); the product policy ("warn") lets those through with a warning and who to ask, and so also lets through 4 of the 5 that later died. Neither is a forecast; the team's own documents (rulings, later ADRs) are what make the gate sure.
-- **Larkspur is synthetic**, and its answer key comes from the same spec as its graph, so on Larkspur the zeros show the rules agree with the spec, not that extraction is solved. The backtest is the result graded by strangers: 722 real decisions, labelled by their own maintainers' status changes. Its six tool deaths are too few to rank anything on recall, and we say so.
-- **Moot only knows what was written down.** Three in four real decisions that teams abandoned picked no outside tool, so no outside check could have seen them die. Only a company's own documents can.
-- **The gate follows the edges it is given.** The ablation shows random junk contradictions are followed like real ones, which is why every DENY names the evidence id for a human to check.
-- **No evidence is not "holds".** A reason nobody ever checked is shown as unverified, never as holding: under the product policy the agent proceeds with that warning and the person to ask; under the strict policy it stops (six false blocks on Larkspur).
-- **A stated reason is what the ADR says, not what is true.** Reading reasons from prose moves decisions from UNDOCUMENTED to HOLDS, but most of those reasons have no dated evidence either way, so the gate still says REVALIDATE. The span check stops invented quotes, not a wrong reading of a real one; every reason links to its sentence so a reader can check it. One local model, one run, no labelled set of real reasons to score extraction against.
-- **The GitHub connector reads what repositories publish.** It parses status lines and "superseded by" links, picks tools by name from the ADR title or a quoted reason, and checks maintenance, licence and known vulnerabilities. A status change is dated by the last commit to the file, never earlier than the change.
-- **Knowing is read from authorship.** A person who knows why but never wrote anything down does not count; the public repositories' people are their git authors, and Kubernetes' are the authors and approvers each KEP names. Team leadership windows are dated to the quarter (`sigs.yaml` sampled at each quarter's first commit).
-- **The Kubernetes graph covers SIG Auth and SIG Node's KEPs** (every SIG's leadership), not the whole project. Few later KEPs speak to earlier reasons, so most KEPs hold for want of contradiction; the pass that reads later KEPs against earlier reasons is being re-run over both SIGs, and until it finishes the graph holds none of those edges.
-- The full-text resolver is keyword-based: a question that shares no words with a decision returns "unknown entity", by design.
+- **Not a forecaster.** On held-out real decisions Moot does worse than calling everything HOLDS (52 against 59 of 64), and its flags on real history are confirmed at chance (1 of 12). It gives the reason, the path, the date and who to ask, not a prediction.
+- **The gate trades one error for another.** The strict policy blocked all 59 held-out decisions that held; the product policy ("warn") lets them through with a warning and who to ask, and so also lets through 4 of the 5 that later died.
+- **Larkspur is synthetic**, graded by its own spec: its zeros are a consistency ceiling. The backtest (722 real decisions, labelled by their maintainers) is graded by strangers; its six tool deaths are too few to rank recall.
+- **Only what was written down.** Three in four abandoned real decisions picked no outside tool, so no outside check could see them die.
+- **The gate follows the edges it is given**, junk included, which is why every DENY names the evidence id.
+- **No evidence is not "holds"**: an unchecked reason is shown as unverified.
+- **A stated reason is what the ADR says, not what is true.** The span check stops invented quotes, not a wrong reading of a real one; one local model, one run, no labelled set to score extraction.
+- **Knowing is read from authorship**: KEP authors and approvers, git authors elsewhere. SIG leadership is dated to the `sigs.yaml` commit (K1 was frozen against quarter dating; its deterministic row is scored on that graph).
+- **The Kubernetes graph covers four SIGs' KEPs** (every SIG's leadership), not the whole project; later KEPs rarely speak to earlier reasons, so most KEPs hold for want of contradiction, and the pass that reads them for SUPPORTS/CONTRADICTS edges is still running.
+- The full-text resolver is keyword-based: a question with no word in common with a decision returns "unknown entity".
 
 ## AI disclosure
 
