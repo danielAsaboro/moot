@@ -20,3 +20,4 @@ data/github/.repos
 eval/baseline/llm_run.log
 drafts/
 data/herb/raw
+data/herb/build

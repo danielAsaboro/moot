@@ -1,4 +1,4 @@
-"""moot: seed | stats | ask | audit | ledger | packet | verify | serve | mcp | generate | extract | eval"""
+"""moot: seed | stats | ingest-herb | ask | audit | ledger | packet | verify | serve | mcp | generate | extract | eval"""
 from __future__ import annotations
 
 import argparse
@@ -41,6 +41,11 @@ def main(argv=None):
     ik = sub.add_parser("ingest-keps", help="Kubernetes Enhancement Proposals of some SIGs -> graph gh_kubernetes_enhancements, audited (network)")
     ik.add_argument("--sig", action="append", help="a SIG folder under keps/ (repeatable; default sig-auth)")
     ik.add_argument("--cached", action="store_true", help="read stated reasons from data/github/kubernetes__enhancements/reasons.json only")
+    ih = sub.add_parser("ingest-herb", help="Salesforce HERB products -> one graph (default `herb`): org, artifacts, issues, PR actions (no model)")
+    ih.add_argument("--product", action="append", required=True, help="a HERB product (repeatable)")
+    ih.add_argument("--graph", default="herb")
+    ih.add_argument("--heldout", action="store_true", help="allow X1's held-out products (the frozen scoring run only)")
+    ih.add_argument("--model-events", action="store_true", help="fold the cached model events (herb_extract.py) instead of the regex ones")
     e = sub.add_parser("extract", help="LLM extraction from data/corpus into data/extracted.json"); e.add_argument("--limit", type=int)
     args = p.parse_args(argv)
 
@@ -66,6 +71,18 @@ def main(argv=None):
         keps.ingest(args.sig, call_model=not args.cached)
         s = keps.audit()
         print(f"{s['repo']}: {s['decisions']} KEPs from {s['folder']} ({s['people']} people) -> graph {s['graph']}; verdicts {s['verdicts']}")
+        return
+    if args.cmd == "ingest-herb":
+        from .connectors import herb
+        evs = None
+        if args.model_events:
+            from .connectors import herb_extract
+            evs = {p: herb_extract.extract(p, cached=True, heldout=args.heldout)[0] for p in args.product}
+        r = herb.ingest(args.product, args.graph, heldout=args.heldout, events_by_product=evs)
+        for p in r["products"]:
+            print(f"{p['product']}: {dict(p['artifacts'])}; issues {dict(p['issues'])}; events {dict(p['events'])}; "
+                  f"{p['conflicts']} refused claims, {p['unmatched']} unmatched; competitors {', '.join(p['competitors']) or 'none'}")
+        print(f"graph {r['graph']}: " + ", ".join(f"{k} {v}" for k, v in r["stats"]["nodes"].items()))
         return
     if args.cmd == "ingest-github":
         from .connectors import github as gh
