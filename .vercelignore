@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+.venv
+.falkordb
+.pytest_cache
+**/__pycache__
+*.egg-info
+eval/.cache
+data/backtest/.repos
+data/backtest/.tools
+data/realworld/.cache
+hackathon
+.DS_Store
+pyproject.toml
+uv.lock

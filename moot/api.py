@@ -7,11 +7,11 @@ from datetime import date
 
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse
+from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from . import agent, answer, tools
+from . import agent, answer, snapshot, tools
 from .graph import DATA, PUBLIC_GRAPH, graph, stats
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,6 +22,29 @@ app = FastAPI(title="Moot", version="0.1.0")
 # Only the Next.js dev server (`make ui-dev`) needs cross-origin access; the built UI is same-origin.
 app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:3001", "http://127.0.0.1:3001"],
                    allow_methods=["GET", "POST"], allow_headers=["content-type"])
+
+
+if snapshot.enabled():
+    _SNAP = snapshot.load()
+
+    @app.middleware("http")
+    async def serve_snapshot(request: Request, call_next):
+        """Hosts without FalkorDB (Vercel) answer from the recorded snapshot; see moot/snapshot.py."""
+        path = request.url.path
+        if not path.startswith("/api/"):
+            return await call_next(request)
+        body = None
+        if request.method == "POST":
+            try:
+                body = await request.json()
+            except Exception:
+                body = None
+        hit = _SNAP.get(snapshot.key(request.method, path, request.url.query, body))
+        if hit:
+            return Response(hit["body"], status_code=hit["status"], media_type=hit["type"])
+        if request.method == "GET" and path.startswith("/api/document/"):
+            return await call_next(request)  # read from data/corpus, no graph needed
+        return JSONResponse({"detail": snapshot.READ_ONLY}, status_code=503)
 
 
 def g():
