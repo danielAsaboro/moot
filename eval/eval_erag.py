@@ -47,7 +47,9 @@ COVERED: dict[str, set[str]] = {}   # arm -> questions its model actually read, 
 BLIND_V2 = DATA / "blind_cut_v2.json"
 BLIND_V3 = DATA / "blind_cut_v3.json"
 BLIND_V3G = DATA / "blind_cut_v3_groq.json"
-LLM_ARMS = {"moot_v3": (BLIND_V3, "random_v3", "v3"), "moot_v3g": (BLIND_V3G, "random_v3g", "v3g")}
+BLIND_V3L = DATA / "blind_cut_v3_local38.json"
+LLM_ARMS = {"moot_v3": (BLIND_V3, "random_v3", "v3"), "moot_v3g": (BLIND_V3G, "random_v3g", "v3g"),
+            "moot_v3l": (BLIND_V3L, "random_v3l", "v3l")}
 ARMS = ("baseline", "moot", "random", "moot_v2", "random_v2") + \
     tuple(a for arm, (path, rnd, _) in LLM_ARMS.items() if path.exists() for a in (arm, rnd)) + ("oracle", "oracle_drop")
 CONFLICT, NOT_FOUND = "conflicting_info", "info_not_found"
@@ -121,7 +123,7 @@ def deterministic(ctx: dict, gold: dict) -> dict:
         )
         rep[arm]["per_conflict"] = {q: dict(retired_in=inv[q]["old_doc_id"] in a[q], current_in=inv[q]["new_doc_id"] in a[q],
                                             changed=a[q] != base[q]) for q in conflicts}
-    for arm in [a for a in ("moot", "moot_v2", "moot_v3", "moot_v3g") if a in ctx]:
+    for arm in [a for a in ("moot", "moot_v2", "moot_v3", "moot_v3g", "moot_v3l") if a in ctx]:
         rep[f"harm_detail_{arm}"] = [dict(question_id=q, question_type=gold[q]["question_type"], removed=sorted(set(base[q]) - set(ctx[arm][q])),
                                           expected_removed=sorted((set(base[q]) - set(ctx[arm][q])) & set(gold[q]["expected_doc_ids"])))
                                      for q in others + not_found if ctx[arm][q] != base[q]]
@@ -224,6 +226,9 @@ def main() -> int:
     if BLIND_V3G.exists():
         b = json.loads(BLIND_V3G.read_text())
         det["v3g_extractor"], det["v3g_model"] = b["extractor"], b.get("model")
+    if BLIND_V3L.exists():
+        b = json.loads(BLIND_V3L.read_text())
+        det["v3l_extractor"], det["v3l_model"] = b["extractor"], b.get("model")
     det["canon_judge_noise"] = canon_judge_noise()
     det["failure_analysis"] = failure_analysis()
     EVIDENCE.mkdir(exist_ok=True)
@@ -244,9 +249,10 @@ def main() -> int:
                        freeze=json.loads((DATA / "freeze.json").read_text()) if (DATA / "freeze.json").exists() else None),
         graph=dict(name=blind["graph"], **blind["graph_stats"]),
         files={os.path.relpath(p, ROOT): sha(p) for p in
-               [DATA / "documents.parquet", DATA / "questions.parquet", DATA / "pools.json", BLIND, BLIND_V2, BLIND_V3, BLIND_V3G, CONTEXTS,
+               [DATA / "documents.parquet", DATA / "questions.parquet", DATA / "pools.json", BLIND, BLIND_V2, BLIND_V3, BLIND_V3G, BLIND_V3L, CONTEXTS,
                 INVENTORY, ROOT / "moot/bench_erag/extract.py", ROOT / "moot/bench_erag/extract_v2.py",
-                ROOT / "moot/bench_erag/extract_v3.py", ROOT / "moot/bench_erag/extract_v3_groq.py", ROOT / "moot/bench_erag/cut.py", ROOT / "moot/bench_erag/graph.py",
+                ROOT / "moot/bench_erag/extract_v3.py", ROOT / "moot/bench_erag/extract_v3_groq.py",
+                ROOT / "moot/bench_erag/extract_v3_local38.py", ROOT / "moot/bench_erag/cut.py", ROOT / "moot/bench_erag/graph.py",
                 EVIDENCE / "erag_deterministic.json", EVIDENCE / "erag_per_question.jsonl", RESULTS] + sorted((EVIDENCE / "erag").glob("*")) if p.exists()},
     )
     (EVIDENCE / "run_manifest.json").write_text(json.dumps(manifest, indent=1) + "\n")

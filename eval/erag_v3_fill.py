@@ -1,7 +1,8 @@
 """Fill a v3 response cache, resumably, the 40 scored questions first, then the other 460.
 
   python3 eval/erag_v3_fill.py groq           ask Groq for every question not yet cached; stop cleanly at the daily cap
-  python3 eval/erag_v3_fill.py local          the same with v3's local ollama model
+  python3 eval/erag_v3_fill.py local          the same with v3's local ollama model (qwen2.5:14b-instruct)
+  python3 eval/erag_v3_fill.py local38        the same with a local qwen3.8:27b
   python3 eval/erag_v3_fill.py groq --cut     then cut from the cache (MOOT_ERAG_V3_CACHE_ONLY) and rewrite results_erag.md
   python3 eval/erag_v3_fill.py groq --scored-only    stop after the 40 scored questions
 
@@ -22,11 +23,11 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from moot.bench_erag import DATA, pools  # noqa: E402
-from moot.bench_erag import extract_v3, extract_v3_groq  # noqa: E402
+from moot.bench_erag import extract_v3, extract_v3_groq, extract_v3_local38  # noqa: E402
 from moot.bench_erag.corpus import Corpus  # noqa: E402
 from moot.bench_erag.questions import load_gold  # noqa: E402
 
-BACKENDS = {"groq": (extract_v3_groq, "v3-groq"), "local": (extract_v3, "v3")}
+BACKENDS = {"groq": (extract_v3_groq, "v3-groq"), "local": (extract_v3, "v3"), "local38": (extract_v3_local38, "v3-local38")}
 SCORED = ("conflicting_info", "info_not_found")
 
 
@@ -58,7 +59,7 @@ def fill(backend: str, scored_only: bool = False) -> dict:
             stop = f"daily cap at {qid} ({i - 1}/{len(qs)} done): {e}"
             break
         tokens += used.get("total_tokens", 0)
-        print(f"{i}/{len(qs)} {qid} {types[qid]} tokens {used.get('total_tokens')} (run total {tokens}) {time.time() - t0:.0f}s",
+        print(f"{i}/{len(qs)} {qid} {types[qid]} tokens {used.get('total_tokens') or used.get('completion_tokens')} (run total {tokens}) {time.time() - t0:.0f}s",
               flush=True)
     have = [q for q in qs if cached(g, prompts[q])]
     prog = dict(model=g.MODEL, questions=len(qs), cached=len(have),

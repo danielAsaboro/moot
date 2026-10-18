@@ -12,7 +12,7 @@ pa = pytest.importorskip("pyarrow")
 pq = pytest.importorskip("pyarrow.parquet")
 
 PKG = Path(__file__).resolve().parents[1] / "moot" / "bench_erag"
-BLIND_MODULES = ("corpus.py", "pools.py", "extract.py", "extract_v2.py", "extract_v3.py", "extract_v3_groq.py", "graph.py",
+BLIND_MODULES = ("corpus.py", "pools.py", "extract.py", "extract_v2.py", "extract_v3.py", "extract_v3_groq.py", "extract_v3_local38.py", "graph.py",
                  "cut.py")
 GOLD = ("expected_doc_ids", "gold_doc_ids", "gold_answer", "answer_facts", "load_gold", "oracle", "conflict_inventory",
         "old_doc_id", "new_doc_id")
