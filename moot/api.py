@@ -468,9 +468,21 @@ GRAPH_INFO = {
 }
 
 
+_graphs_cache: dict = dict(at=0.0, body=None)
+GRAPHS_TTL = 60  # seconds; the list only changes on a seed or an ingest, and an ingest clears it
+
+
 @app.get("/api/graphs")
 def graphs():
     """Every graph the UI and API can read: the demo company, the real ADRs, the backtest and each ingested repository."""
+    if _graphs_cache["body"] is not None and time.time() - _graphs_cache["at"] < GRAPHS_TTL:
+        return _graphs_cache["body"]
+    body = _list_graphs()
+    _graphs_cache.update(at=time.time(), body=body)
+    return body
+
+
+def _list_graphs() -> dict:
     from .connectors import github as gh
     out = []
     for name in sorted(known_graphs(), key=lambda n: (n != graph().name, n != PUBLIC_GRAPH, n != BACKTEST_GRAPH, n)):
@@ -515,6 +527,7 @@ def ingest_github(body: Ingest):
     except SystemExit as ex:
         raise HTTPException(422, str(ex))
     _known["at"] = 0
+    _graphs_cache["body"] = None
     return gh.audit(repo)
 
 

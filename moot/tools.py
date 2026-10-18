@@ -304,9 +304,30 @@ def ledger(g: Graph, as_of: str | None = None, depth: int = 4) -> list[dict]:
     return sorted(result, key=lambda r: (order[r["verdict"]], r["id"]))
 
 
-# 7. The rot curve: the ledger re-run at month ends, so the UI can show verdicts drifting over time.
+# 7. The rot curve: the ledger re-run at month ends, so the UI can show verdicts drifting over time. One query reads every
+# dated event once; the month ends then apply the ledger's own rule (KNOWN, the verdict functions) to those rows, so a
+# timeline is one round trip instead of one per month. tests/test_graph.py checks it against ledger() at every month end.
+def _known(e: dict, as_of: str) -> bool:
+    return bool(e.get("at")) and e["at"] <= as_of and (e.get("stated") or e["at"]) <= as_of
+
+
 def timeline(g: Graph, start: str = "2025-01-01", end: str | None = None, depth: int = 4) -> list[dict]:
     end = end or today()
+    depth = max(1, min(int(depth), 6))
+    rows = _q(g,
+        "MATCH (d:Decision) "
+        "OPTIONAL MATCH (:Decision)-[su:SUPERSEDES]->(d) "
+        "OPTIONAL MATCH (:Evidence)-[rt:RETIRES]->(d) "
+        "WITH d, collect(DISTINCT {at: su.at, stated: su.stated}) + collect(DISTINCT {at: rt.at, stated: rt.stated}) AS ends "
+        "OPTIONAL MATCH p = (d)-[:BECAUSE_OF|DERIVED_FROM*1..%d]->(pr:Premise) "
+        "OPTIONAL MATCH (e)-[r:SUPPORTS|CONTRADICTS]->(pr) "
+        "WITH d, ends, pr, collect({rel: type(r), at: r.at, stated: r.stated, kind: e.kind}) AS ev "
+        "RETURN d.id, d.decided_on, ends, pr.id, ev ORDER BY d.id" % depth).result_set
+    decisions: dict[str, dict] = {}
+    for did, decided, ends, pid, ev in rows:
+        item = decisions.setdefault(did, dict(decided_on=decided or "", ends=[x for x in ends if x.get("at")], premises={}))
+        if pid:
+            item["premises"][pid] = [e for e in ev if e.get("at")]
     y, m = int(start[:4]), int(start[5:7])
     points = []
     while True:
@@ -314,12 +335,17 @@ def timeline(g: Graph, start: str = "2025-01-01", end: str | None = None, depth:
         ny, nm = (y + 1, 1) if m == 12 else (y, m + 1)
         last = (date(ny, nm, 1) - date.resolution).isoformat()
         as_of = min(last, end)
-        rows = ledger(g, as_of, depth)
+        verdicts = {}
+        for did, item in decisions.items():
+            if item["decided_on"] > as_of:
+                continue  # not decided yet as of that date
+            states = [dict(state=premise_state([e for e in evs if _known(e, as_of)])) for evs in item["premises"].values()]
+            verdicts[did] = decision_verdict(states, any(_known(x, as_of) for x in item["ends"]))
         counts: dict[str, int] = {}
-        for r in rows:
-            counts[r["verdict"]] = counts.get(r["verdict"], 0) + 1
-        points.append(dict(as_of=as_of, counts=counts, moot=[r["id"] for r in rows if r["verdict"] == "MOOT"],
-                           disputed=[r["id"] for r in rows if r["verdict"] == "DISPUTED"]))
+        for v in verdicts.values():
+            counts[v] = counts.get(v, 0) + 1
+        points.append(dict(as_of=as_of, counts=counts, moot=sorted(d for d, v in verdicts.items() if v == "MOOT"),
+                           disputed=sorted(d for d, v in verdicts.items() if v == "DISPUTED")))
         if as_of >= end:
             break
         y, m = ny, nm

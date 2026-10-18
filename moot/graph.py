@@ -24,9 +24,18 @@ FULLTEXT = [("Decision", ("title", "summary")), ("Premise", ("text",)), ("Eviden
 RANGE = [("Decision", "id"), ("Premise", "id"), ("Evidence", "id"), ("Person", "id"), ("System", "id"), ("Finding", "id")]
 
 
+_clients: dict[tuple, FalkorDB] = {}
+
+
 def connect() -> FalkorDB:
-    return FalkorDB(host=os.getenv("FALKORDB_HOST", "localhost"), port=int(os.getenv("FALKORDB_PORT", "6379")),
-                    username=os.getenv("FALKORDB_USERNAME") or None, password=os.getenv("FALKORDB_PASSWORD") or None)
+    """One client (and its connection pool) per server, reused by every call. Opening a client per call cost a new
+    connection (and AUTH) to FalkorDB Cloud each time, which is most of what made the hosted page load slow."""
+    key = (os.getenv("FALKORDB_HOST", "localhost"), int(os.getenv("FALKORDB_PORT", "6379")),
+           os.getenv("FALKORDB_USERNAME") or None, os.getenv("FALKORDB_PASSWORD") or None)
+    db = _clients.get(key)
+    if db is None:
+        db = _clients[key] = FalkorDB(host=key[0], port=key[1], username=key[2], password=key[3])
+    return db
 
 
 def tenant() -> str:

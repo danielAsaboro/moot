@@ -119,6 +119,22 @@ def test_timeline_is_monotone_until_evidence_lands(g):
     assert "D01" in next(p for p in pts if p["as_of"].startswith("2026-03"))["newly_moot"]
 
 
+def test_timeline_agrees_with_the_ledger_at_every_month_end(g):
+    """The timeline reads every event in one query and applies the ledger's rules in Python; it must never disagree."""
+    for depth in (1, 4):
+        for p in tools.timeline(g, "2024-06-01", spec.AS_OF, depth):
+            rows = tools.ledger(g, p["as_of"], depth)
+            counts: dict = {}
+            for r in rows:
+                counts[r["verdict"]] = counts.get(r["verdict"], 0) + 1
+            assert p["counts"] == counts, p["as_of"]
+            assert p["moot"] == sorted(r["id"] for r in rows if r["verdict"] == "MOOT")
+
+
+def test_one_client_per_server():
+    assert connect() is connect()
+
+
 def test_trace_records_queries(g):
     tools.start_trace()
     tools.audit_decision(g, "D01", spec.AS_OF, 4)
