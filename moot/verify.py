@@ -82,8 +82,27 @@ def backtest_md() -> str | None:
         return mod.OUT.read_text()
 
 
-def check_readme(c: Checker, R: dict, S: dict, G: dict, A: dict, bt: str | None) -> None:
+def check_headline(c: Checker, S: dict, G: dict, bt: str | None) -> None:
+    """The results table at the top of the README."""
     doc, t = "README.md", (ROOT / "README.md").read_text()
+    m = G["methods"]
+    c.expect(doc, t, "headline gate", r"agent was allowed to act on \(of (\d+)\) \| \*\*(\d+)\*\* \| BM25 \+ change cues (\d+) · trust the ADR (\d+) \|",
+             (G["n_block"], len(m["moot"]["false_allows"]), len(m["bm25"]["false_allows"]), len(m["adr"]["false_allows"])))
+    p = G["public"]
+    c.expect(doc, t, "headline public ADRs", r"denied with a dated reason \(of (\d+)\) \| \*\*(\d+)\*\* \| (\d+) of the \d+ still say",
+             (p["records"], p["gates"].get("DENY", 0), p["accepted"]))
+    big = max(S["scale"], key=lambda x: x["n"])
+    c.expect(doc, t, "headline latency", r"Audit latency at ([\d,]+) noise documents, p50 \| \*\*([\d.]+) ms\*\*", (f"{big['n']:,}", f1(big["audit"]["p50"])))
+    if bt is not None:
+        caught, dd = re.search(r"\| \*\*Moot gate \(DENY\)\*\* \| \*\*(\d+) / (\d+)\*\*", bt).groups()
+        rk = re.search(r"\| random, same number of flags \(mean of 200\) \| ([\d.]+) / ", bt).group(1)
+        tk = re.search(r"\| trust the ADR \| (\d+) / ", bt).group(1)
+        c.expect(doc, t, "headline backtest", r"maintainers \(of (\d+) tool deaths\) \| \*\*(\d+)\*\* \| trust the ADR (\d+) · random ([\d.]+) \|", (dd, caught, tk, rk))
+
+
+def check_readme(c: Checker, R: dict, S: dict, G: dict, A: dict, bt: str | None) -> None:
+    # the full tables live in docs/evaluation.md; the README keeps the headline table (check_headline)
+    doc, t = "docs/evaluation.md", (ROOT / "docs" / "evaluation.md").read_text()
     # retrieval
     c.expect(doc, t, "retrieval n", r"for the (\d+) decisions that have an invalidating document", (R["n"],))
     c.expect(doc, t, "graph recall", r"\| graph path query \(Moot\) \| \*\*([\d.]+)\*\* \(consistency check, see below\) \| \*\*(\d+)%\*\* \|",
@@ -193,6 +212,7 @@ def main(rerun: bool = False) -> int:
     bt = backtest_md()
     if bt is not None:
         c.equal("eval/results_backtest.md re-scored from data/backtest", bt, (EVAL / "results_backtest.md").read_text())
+    check_headline(c, S, G, bt)
     check_readme(c, R, S, G, A, bt)
     check_results(c, R, S, G)
     for b in c.bad:

@@ -16,7 +16,8 @@ ui-dev:    ## Next.js dev server on :3000 against the API on :8000
 	cd frontend && npm run dev
 serve:     ## web app + API on :8000
 	python3 -m moot.cli serve
-demo: db seed serve
+demo:     ## one command: FalkorDB, seed, build the UI if needed, serve on :8000
+	$(MAKE) db seed $(if $(wildcard frontend/out/index.html),,ui) serve
 eval:      ## retrieval eval, no model needed -> eval/results.md
 	python3 eval/eval_retrieval.py
 eval-scale: ## noise scaling + verdict eval, no model needed -> eval/results_scale.md
