@@ -1,0 +1,20 @@
+# A pull-request check: gate every decision that governs a changed file (.moot/paths.json). Copy to .github/workflows/.
+# It fails the check on a DENY and prints the evidence path; REVALIDATE passes with a note.
+name: moot gate
+on: pull_request
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install "git+https://github.com/danielAsaboro/moot"
+      - name: gate the changed files
+        env:  # a FalkorDB that holds your company graph, read-only use
+          FALKORDB_HOST: ${{ secrets.FALKORDB_HOST }}
+          FALKORDB_PORT: ${{ secrets.FALKORDB_PORT }}
+          FALKORDB_USERNAME: ${{ secrets.FALKORDB_USERNAME }}
+          FALKORDB_PASSWORD: ${{ secrets.FALKORDB_PASSWORD }}
+        run: moot gate-paths $(git diff --name-only origin/${{ github.base_ref }}...HEAD)

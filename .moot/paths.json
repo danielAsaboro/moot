@@ -1,0 +1,13 @@
+{
+ "graph": "larkspur",
+ "about": "Which decisions govern which files, for `moot gate-paths` and the Claude Code hook (moot/hook.py). Larkspur's demo layout.",
+ "paths": {
+  "services/uploads/*": ["D01"],
+  "services/gateway/*": ["D01"],
+  "pipeline/import/*": ["D02"],
+  "mobile/*": ["D03", "D20"],
+  ".github/workflows/deploy*": ["D07"],
+  "infra/*.tf": ["D27", "D09"],
+  "auth/keys/*": ["D06"]
+ }
+}

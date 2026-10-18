@@ -28,6 +28,12 @@ def main(argv=None):
     ig.add_argument("repo", help="owner/name"); ig.add_argument("--path", help="the ADR folder, if not found automatically"); ig.add_argument("--no-checks", action="store_true", help="skip the GitHub/OSV tool checks")
     ig.add_argument("--no-reasons", action="store_true", help="do not read stated reasons from ADR text")
     ig.add_argument("--cached", action="store_true", help="read stated reasons from data/github/<repo>/reasons.json only, never a model")
+    gp = sub.add_parser("gate-paths", help="gate every decision that governs these files (.moot/paths.json); exit 1 on a DENY")
+    gp.add_argument("files", nargs="+")
+    sub.add_parser("hook", help="Claude Code PreToolUse hook: block an edit to a file governed by a dead decision (reads stdin)")
+    ik = sub.add_parser("ingest-keps", help="Kubernetes Enhancement Proposals of some SIGs -> graph gh_kubernetes_enhancements, audited (network)")
+    ik.add_argument("--sig", action="append", help="a SIG folder under keps/ (repeatable; default sig-auth)")
+    ik.add_argument("--cached", action="store_true", help="read stated reasons from data/github/kubernetes__enhancements/reasons.json only")
     e = sub.add_parser("extract", help="LLM extraction from data/corpus into data/extracted.json"); e.add_argument("--limit", type=int)
     args = p.parse_args(argv)
 
@@ -39,6 +45,18 @@ def main(argv=None):
         from .verify import main as verify; return verify(rerun=args.rerun)
     if args.cmd == "realworld":
         from .realworld.check import main as rw; rw(); return
+    if args.cmd == "gate-paths":
+        from .hook import gate_paths_cli
+        raise SystemExit(gate_paths_cli(args.files))
+    if args.cmd == "hook":
+        from .hook import hook_cli
+        raise SystemExit(hook_cli())
+    if args.cmd == "ingest-keps":
+        from .connectors import keps
+        keps.ingest(args.sig, call_model=not args.cached)
+        s = keps.audit()
+        print(f"{s['repo']}: {s['decisions']} KEPs from {s['folder']} ({s['people']} people) -> graph {s['graph']}; verdicts {s['verdicts']}")
+        return
     if args.cmd == "ingest-github":
         from .connectors import github as gh
         s = gh.ingest(args.repo, args.path, checks=not args.no_checks, reasons=not args.no_reasons, call_model=not args.cached)
