@@ -2838,6 +2838,97 @@
     "unchecked": "no package in an OSV ecosystem",
     "advisory": true
    }
+  },
+  {
+   "label": "Project",
+   "id": "proj_github",
+   "props": {
+    "name": "/.github/",
+    "description": "alphagov/govuk-infrastructure /.github/"
+   }
+  },
+  {
+   "label": "Project",
+   "id": "proj_terraform-deployments",
+   "props": {
+    "name": "/terraform/deployments/",
+    "description": "alphagov/govuk-infrastructure /terraform/deployments/"
+   }
+  },
+  {
+   "label": "Project",
+   "id": "proj_terraform-shared-modules",
+   "props": {
+    "name": "/terraform/shared-modules/",
+    "description": "alphagov/govuk-infrastructure /terraform/shared-modules/"
+   }
+  },
+  {
+   "label": "Project",
+   "id": "proj_terraform-variables-production",
+   "props": {
+    "name": "/terraform/variables/production/",
+    "description": "alphagov/govuk-infrastructure /terraform/variables/production/"
+   }
+  },
+  {
+   "label": "Project",
+   "id": "proj_terraform-deployments-gcp-gov-graph",
+   "props": {
+    "name": "/terraform/deployments/gcp-gov-graph/",
+    "description": "alphagov/govuk-infrastructure /terraform/deployments/gcp-gov-graph/"
+   }
+  },
+  {
+   "label": "Project",
+   "id": "proj_terraform-variables-gcp-gov-graph-tfvars",
+   "props": {
+    "name": "/terraform/variables/**/gcp-gov-graph.tfvars",
+    "description": "alphagov/govuk-infrastructure /terraform/variables/**/gcp-gov-graph.tfvars"
+   }
+  },
+  {
+   "label": "Project",
+   "id": "proj_terraform-deployments-datagovuk-infrastructure",
+   "props": {
+    "name": "/terraform/deployments/datagovuk-infrastructure/",
+    "description": "alphagov/govuk-infrastructure /terraform/deployments/datagovuk-infrastructure/"
+   }
+  },
+  {
+   "label": "Project",
+   "id": "proj_terraform-variables-datagovuk-infrastructure-tfvars",
+   "props": {
+    "name": "/terraform/variables/**/datagovuk-infrastructure.tfvars",
+    "description": "alphagov/govuk-infrastructure /terraform/variables/**/datagovuk-infrastructure.tfvars"
+   }
+  },
+  {
+   "label": "Team",
+   "id": "team_alphagov_gov-uk-platform-engineering",
+   "props": {
+    "name": "alphagov/gov-uk-platform-engineering",
+    "source": "alphagov/govuk-infrastructure CODEOWNERS",
+    "mission": ""
+   }
+  },
+  {
+   "label": "Team",
+   "id": "team_alphagov_govuk-data-engineering",
+   "props": {
+    "name": "alphagov/govuk-data-engineering",
+    "source": "alphagov/govuk-infrastructure CODEOWNERS",
+    "mission": ""
+   }
+  },
+  {
+   "label": "Team",
+   "id": "team_alphagov_national-data-library",
+   "props": {
+    "name": "alphagov/national-data-library",
+    "source": "alphagov/govuk-infrastructure CODEOWNERS",
+    "mission": ""
+   }
   }
  ],
  "edges": [
@@ -5480,6 +5571,102 @@
    "rel": "DERIVED_FROM",
    "dst": "p_gatekeeper_no_known_vuln",
    "props": {}
+  },
+  {
+   "src": "team_alphagov_gov-uk-platform-engineering",
+   "rel": "RUNS",
+   "dst": "proj_github",
+   "props": {
+    "valid_from": "2025-07-17"
+   }
+  },
+  {
+   "src": "team_alphagov_gov-uk-platform-engineering",
+   "rel": "RUNS",
+   "dst": "proj_terraform-deployments",
+   "props": {
+    "valid_from": "2025-07-17"
+   }
+  },
+  {
+   "src": "team_alphagov_gov-uk-platform-engineering",
+   "rel": "RUNS",
+   "dst": "proj_terraform-shared-modules",
+   "props": {
+    "valid_from": "2026-07-07"
+   }
+  },
+  {
+   "src": "team_alphagov_gov-uk-platform-engineering",
+   "rel": "RUNS",
+   "dst": "proj_terraform-variables-production",
+   "props": {
+    "valid_from": "2026-10-19"
+   }
+  },
+  {
+   "src": "team_alphagov_gov-uk-platform-engineering",
+   "rel": "RUNS",
+   "dst": "proj_terraform-deployments-gcp-gov-graph",
+   "props": {
+    "valid_from": "2026-03-24"
+   }
+  },
+  {
+   "src": "team_alphagov_govuk-data-engineering",
+   "rel": "RUNS",
+   "dst": "proj_terraform-deployments-gcp-gov-graph",
+   "props": {
+    "valid_from": "2026-03-24"
+   }
+  },
+  {
+   "src": "team_alphagov_gov-uk-platform-engineering",
+   "rel": "RUNS",
+   "dst": "proj_terraform-variables-gcp-gov-graph-tfvars",
+   "props": {
+    "valid_from": "2026-04-29"
+   }
+  },
+  {
+   "src": "team_alphagov_govuk-data-engineering",
+   "rel": "RUNS",
+   "dst": "proj_terraform-variables-gcp-gov-graph-tfvars",
+   "props": {
+    "valid_from": "2026-04-29"
+   }
+  },
+  {
+   "src": "team_alphagov_gov-uk-platform-engineering",
+   "rel": "RUNS",
+   "dst": "proj_terraform-deployments-datagovuk-infrastructure",
+   "props": {
+    "valid_from": "2026-07-29"
+   }
+  },
+  {
+   "src": "team_alphagov_national-data-library",
+   "rel": "RUNS",
+   "dst": "proj_terraform-deployments-datagovuk-infrastructure",
+   "props": {
+    "valid_from": "2026-07-29"
+   }
+  },
+  {
+   "src": "team_alphagov_gov-uk-platform-engineering",
+   "rel": "RUNS",
+   "dst": "proj_terraform-variables-datagovuk-infrastructure-tfvars",
+   "props": {
+    "valid_from": "2026-07-29"
+   }
+  },
+  {
+   "src": "team_alphagov_national-data-library",
+   "rel": "RUNS",
+   "dst": "proj_terraform-variables-datagovuk-infrastructure-tfvars",
+   "props": {
+    "valid_from": "2026-07-29"
+   }
   }
  ]
 }

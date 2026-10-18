@@ -30,7 +30,7 @@ import subprocess
 from datetime import date
 from pathlib import Path
 
-from . import reasons as rsn
+from . import reasons as rsn  # noqa: I001
 from ..backtest.labels import OWN_DATE, PAT, SKIP, classify, status_text, title_of
 from ..backtest.tools import TOOLS as TITLE_TOOLS
 from ..realworld import check as rw
@@ -293,6 +293,12 @@ def ingest(full: str, path: str | None = None, checks: bool = True, today: str |
             for rid in rids:
                 for k in rw.PREMISE:
                     edges.append(dict(src=rid, rel="DERIVED_FROM", dst=f"p_{tid}_{k}", props={}))
+    # teams and projects from the repository's CODEOWNERS, dated by blame (moot/connectors/teams.py)
+    from . import teams as tm
+    tnodes, tedges = tm.codeowners_teams(repo_dir, full, decisions)
+    for n in tnodes:
+        add(n)
+    edges += tedges
     payload = advisory_checks(dict(nodes=list(nodes.values()), edges=edges))
     out.mkdir(parents=True, exist_ok=True)
     (out / "graph.json").write_text(json.dumps(payload, indent=1))

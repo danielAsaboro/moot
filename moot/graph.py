@@ -21,7 +21,8 @@ BACKTEST_GRAPH = "backtest"   # 97 tool decisions from 30 public repositories (m
 GH_PREFIX = "gh_"             # one graph per repository brought in with `moot ingest-github` (moot/connectors/github.py)
 
 FULLTEXT = [("Decision", ("title", "summary")), ("Premise", ("text",)), ("Evidence", ("title", "excerpt"))]
-RANGE = [("Decision", "id"), ("Premise", "id"), ("Evidence", "id"), ("Person", "id"), ("System", "id"), ("Finding", "id")]
+RANGE = [("Decision", "id"), ("Premise", "id"), ("Evidence", "id"), ("Person", "id"), ("System", "id"), ("Finding", "id"),
+         ("Team", "id"), ("Project", "id")]
 
 
 _clients: dict[tuple, FalkorDB] = {}

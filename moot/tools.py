@@ -132,7 +132,7 @@ def audit_decision(g: Graph, decision_id: str, as_of: str | None = None, depth: 
     verdict = decision_verdict(premises, superseded=bool(superseded_by))
     return dict(found=True, decision=_node(d), as_of=as_of, depth=depth, verdict=verdict, premises=premises,
                 superseded_by=superseded_by, source=(_node(src) if src else None), systems=systems,
-                owner=decision_owner(g, decision_id, as_of))
+                owner=decision_owner(g, decision_id, as_of), team=decision_team(g, decision_id, as_of))
 
 
 # 2a. Since when? The verdict can only change on a date something in the decision's subgraph happened, so the audit is
@@ -266,6 +266,25 @@ def owners_as_of(g: Graph, as_of: str | None = None, decision_id: str | None = N
 
 def decision_owner(g: Graph, decision_id: str, as_of: str | None = None) -> dict | None:
     return owners_as_of(g, as_of, decision_id).get(decision_id)
+
+
+# 5b. Which team answers for a decision on `as_of`, and who leads that team then (Team / LEADS from sigs.yaml or CODEOWNERS).
+def decision_team(g: Graph, decision_id: str, as_of: str | None = None) -> dict | None:
+    as_of = as_of or today()
+    rows = _q(g,
+        "MATCH (t:Team)-[r:RESPONSIBLE_FOR]->(:Decision {id: $id}) WHERE coalesce(r.valid_from, '') <= $as_of "
+        "OPTIONAL MATCH (p:Person)-[l:LEADS]->(t) "
+        "OPTIONAL MATCH (t)-[:RUNS]->(pj:Project) "
+        "RETURN t.id, t.name, t.source, collect(DISTINCT {id: p.id, name: p.name, role: l.role, from: l.valid_from, to: l.valid_to}), count(DISTINCT pj)",
+        {"id": decision_id, "as_of": as_of}).result_set
+    if not rows:
+        return None
+    tid, name, source, leads, projects = rows[0]
+    leads = [x for x in leads if x.get("id")]
+    now = [x for x in leads if x["from"] <= as_of and (not x["to"] or x["to"] > as_of)]
+    before = [x for x in leads if x["to"] and x["to"] <= as_of]
+    return dict(id=tid, name=name, source=source, projects=projects,
+                leads=sorted(now, key=lambda x: (x["role"], x["name"])), former=sorted(before, key=lambda x: x["to"]))
 
 
 # 6. The ledger: every decision with its verdict, in one pass.

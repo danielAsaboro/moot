@@ -237,7 +237,7 @@ def run(g: Graph, tool: str, inp: dict, as_of: str, depth: int) -> dict:
         owner = tools.decision_owner(g, inp["decision_id"], as_of)
         orphans = tools.orphans(g, as_of, depth) if owner and not owner.get("active", True) else None
         group = next((gr for gr in (orphans or {}).get("groups", []) if gr["person"]["id"] == owner["id"]), None) if owner else None
-        return dict(found=audit["found"], decision=audit.get("decision"), owner=owner, group=group,
+        return dict(found=audit["found"], decision=audit.get("decision"), owner=owner, group=group, team=audit.get("team"),
                     held=[r for r in tools.ledger(g, as_of, depth) if owner and r.get("owner_id") == owner["id"]])
     if tool == "orphaned_decisions":
         r = tools.orphans(g, as_of, depth)
