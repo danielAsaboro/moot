@@ -41,6 +41,7 @@ def repo(tmp_path, monkeypatch):
     def offline(path):
         raise OSError("offline")
     monkeypatch.setattr(gh, "api", offline)
+    monkeypatch.setattr(gh.rsn, "available", lambda: False)  # stated reasons have their own tests (test_reasons.py)
     gh.LOGINS.clear(); gh.NAMES.clear()
     return d
 

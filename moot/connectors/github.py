@@ -15,7 +15,9 @@ set GITHUB_TOKEN, or be logged in with `gh`, to lift the 60-requests-an-hour lim
                      ADRs: maintained (GitHub), open source (licence), no known vulnerability (OSV), as dated Evidence
 
 What it writes: data/github/<owner>__<repo>/graph.json and summary.json, then MERGEs the graph into FalkorDB as
-`gh_<owner>_<repo>`. An ADR that states no reason Moot can check (no tool in its title) is UNDOCUMENTED, not guessed.
+`gh_<owner>_<repo>`. The reasons each ADR states in its own words are read by a model and kept only as literal quoted spans
+(moot/connectors/reasons.py, cached in data/github/<owner>__<repo>/reasons.json); an ADR with neither a stated reason nor
+a tool in its title is UNDOCUMENTED, not guessed.
 A status-change date is the last commit to the file, so it is never earlier than the change itself.
 """
 from __future__ import annotations
@@ -28,6 +30,7 @@ import subprocess
 from datetime import date
 from pathlib import Path
 
+from . import reasons as rsn
 from ..backtest.labels import OWN_DATE, PAT, SKIP, classify, status_text, title_of
 from ..backtest.tools import TOOLS as TITLE_TOOLS
 from ..realworld import check as rw
@@ -181,7 +184,10 @@ def summary_of(txt: str) -> str:
     return re.sub(r"\s+", " ", re.sub(r"[#*>`_]|\[([^\]]*)\]\([^)]*\)", r"\1", body))[:300]
 
 
-def ingest(full: str, path: str | None = None, checks: bool = True, today: str | None = None) -> dict:
+def ingest(full: str, path: str | None = None, checks: bool = True, today: str | None = None, reasons: bool = True,
+           call_model: bool = True) -> dict:
+    """reasons=False builds the graph from titles, status lines and history alone (the connector before reason extraction);
+    call_model=False reads stated reasons from the cache only."""
     today = today or date.today().isoformat()
     token()
     repo_dir = clone(full)
@@ -248,6 +254,22 @@ def ingest(full: str, path: str | None = None, checks: bool = True, today: str |
                     add(person(change["author"]))
                     edges.append(dict(src=pid(change["author"]), rel="AUTHORED", dst=eid, props={}))
                 edges.append(dict(src=eid, rel="RETIRES", dst=d["id"], props=dict(at=d["last_commit"], quote=d["status"][:200])))
+    out = OUT / full.replace("/", "__")
+    stated = rsn.run(decisions, CATALOGUE, out / "reasons.json", call_model=call_model) if reasons else None
+    reason_tools: dict[str, list[str]] = {}
+    by_id = {d["id"]: d for d in decisions}
+    for did, rs in (stated["reasons"] if stated else {}).items():
+        for r in rs:
+            add(dict(label="Premise", id=r["id"], props=dict(text=r["text"], kind="stated", quote=r["quote"], section=r["section"],
+                                                           span=f"{r['span'][0]}-{r['span'][1]}", source=by_id[did]["url"],
+                                                           extracted_by=r["model"], decision=did)))
+            edges.append(dict(src=did, rel="BECAUSE_OF", dst=r["id"], props=dict(quote=r["quote"][:300], extracted_by=r["model"])))
+            if r["tool"]:
+                reason_tools.setdefault(r["tool"], []).append(r["id"])
+    for did, rels in (stated["relations"] if stated else {}).items():
+        for r in rels:
+            edges.append(dict(src=f"src:{did}", rel=r["rel"], dst=r["reason_id"], props=dict(at=r["at"], quote=r["quote"][:300],
+                                                                                           why=r["why"], extracted_by=r["model"])))
     tools_used: dict[str, list[str]] = {}
     for d in decisions:
         for tid, (_, rx, _) in CATALOGUE.items():
@@ -255,7 +277,7 @@ def ingest(full: str, path: str | None = None, checks: bool = True, today: str |
                 tools_used.setdefault(tid, []).append(d["id"])
     tool_checks = {}
     if checks:
-        for tid in sorted(tools_used):
+        for tid in sorted(set(tools_used) | set(reason_tools)):
             name, _, trepo = CATALOGUE[tid]
             pkg = RW_TOOLS[tid][2] if tid in RW_TOOLS else None
             tool_checks[tid] = rw.check_tool(tid, today, (name, trepo, pkg))
@@ -267,13 +289,17 @@ def ingest(full: str, path: str | None = None, checks: bool = True, today: str |
             for did in dids:
                 for k in rw.PREMISE:
                     edges.append(dict(src=did, rel="BECAUSE_OF", dst=f"p_{tid}_{k}", props=dict(quote=rw.PREMISE[k].format(name=CATALOGUE[tid][0]))))
+        for tid, rids in reason_tools.items():
+            for rid in rids:
+                for k in rw.PREMISE:
+                    edges.append(dict(src=rid, rel="DERIVED_FROM", dst=f"p_{tid}_{k}", props={}))
     payload = dict(nodes=list(nodes.values()), edges=edges)
-    out = OUT / full.replace("/", "__")
     out.mkdir(parents=True, exist_ok=True)
     (out / "graph.json").write_text(json.dumps(payload, indent=1))
     summary = dict(repo=full, graph=graph_name(full), folder=folder, read_on=today, adr_files=len(files), decisions=len(decisions),
                    retired=sum(1 for d in decisions if d["cls"] == "dead"), people=sum(1 for n in nodes.values() if n["label"] == "Person"),
-                   pull_requests=sum(1 for n in nodes.values() if n["id"].startswith("pr:")), tools=sorted(tools_used),
+                   pull_requests=sum(1 for n in nodes.values() if n["id"].startswith("pr:")), tools=sorted(set(tools_used) | set(reason_tools)),
+                   reasons=stated["stats"] if stated else None,
                    checks=sum(len(t["checks"]) for t in tool_checks.values()),
                    failing=sum(1 for t in tool_checks.values() for c in t["checks"].values() if not c["holds"]))
     (out / "summary.json").write_text(json.dumps(summary, indent=1))

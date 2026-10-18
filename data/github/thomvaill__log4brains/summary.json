@@ -14,20 +14,33 @@
   "mdx",
   "prettier-eslint"
  ],
+ "reasons": {
+  "model": "qwen3.8:27b",
+  "extracted": 11,
+  "not_read": 0,
+  "reasons": 32,
+  "dropped": 2,
+  "tool_links": 3,
+  "relations": 6,
+  "relations_dropped": 0
+ },
  "checks": 12,
  "failing": 1,
  "verdicts": {
-  "HOLDS": 3,
-  "MOOT": 1,
+  "HOLDS": 6,
+  "MOOT": 2,
   "RETIRED": 2,
-  "UNDOCUMENTED": 5
+  "UNDOCUMENTED": 1
  },
  "gates": {
-  "ALLOW": 3,
-  "DENY": 3,
-  "REVALIDATE": 5
+  "DENY": 4,
+  "REVALIDATE": 7
  },
  "moot": [
+  {
+   "id": "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna",
+   "title": "Multi-packages architecture in a monorepo with Yarn and Lerna"
+  },
   {
    "id": "20201103-use-lunr-for-search",
    "title": "Use Lunr for search"

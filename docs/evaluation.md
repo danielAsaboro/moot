@@ -101,6 +101,17 @@ The five records that are still in force and rest on a reason that no longer hol
 
 The licence checks all held: Elasticsearch and Redis both moved to source-available licences, and both now also offer AGPL, so "open source" still holds for them. Concourse CI was chosen by the Ministry of Justice in 2018 and by GOV.UK in 2025; in the graph that is one premise carrying two organisations' decisions. Limits: "no commit in a year" is a proxy for maintenance, not a verdict on quality; OSV advisories on the Kubernetes monorepo module include issues that are mitigated by configuration rather than fixed; and this is 25 records, not a survey.
 
+## Stated reasons in real repositories (before and after reading ADR text)
+
+The GitHub connector now reads the reasons each ADR states (`moot/connectors/reasons.py`): a local model proposes them, a validator keeps a reason only if its quote is a literal span of the ADR, and later ADRs are judged against earlier reasons as dated evidence. On the four ingested repositories, built twice on 2026-10-19 with the same checks and rules ([eval/results_reasons.md](../eval/results_reasons.md), descriptive entry R1 in [studies.md](studies.md)):
+
+| | HOLDS | of which ALLOW | MOOT | UNDOCUMENTED | RETIRED |
+|---|---|---|---|---|---|
+| before (titles, status lines, history) | 16 | 8 | 8 | 46 | 5 |
+| after (plus 157 quoted reasons, 31 tool links, 8 later-ADR edges) | 35 | 2 | 17 | 18 | 5 |
+
+Of the 9 new MOOT decisions, 8 come from a tool check on a tool a stated reason depends on and 1 from a later ADR's own words; each is listed with its quote in the results file. ALLOW fell because a reason an ADR states, and nobody has evidence for, makes the gate say REVALIDATE. There is no labelled set of real reasons, so extraction quality is not scored; every reason links to its sentence for a reader to check.
+
 ## Head-to-head against a retrieval company brain (study S3)
 
 Registered before it ran ([studies.md](studies.md#s3-head-to-head-graph-verdicts-against-a-retrieval-company-brain-with-ablations)): 90 frozen questions, each of Larkspur's 30 decisions on three dates, asked *does it still hold, which documents show it, since when?* The model arms share one local model (`qwen3.8:27b`), one prompt (which includes the verdict definitions) and one decoding; only the context differs. Full file: [eval/results_baseline.md](../eval/results_baseline.md).

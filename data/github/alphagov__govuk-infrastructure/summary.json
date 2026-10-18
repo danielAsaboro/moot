@@ -9,6 +9,7 @@
  "people": 8,
  "pull_requests": 25,
  "tools": [
+  "argocd",
   "aws-lbc",
   "concourse",
   "crossplane",
@@ -22,20 +23,32 @@
   "kibana",
   "kubernetes",
   "pkl",
+  "prometheus",
   "prometheus-adapter",
+  "terraform",
   "tf-aws-eks"
  ],
- "checks": 38,
- "failing": 3,
+ "reasons": {
+  "model": "qwen3.8:27b",
+  "extracted": 24,
+  "not_read": 0,
+  "reasons": 61,
+  "dropped": 2,
+  "tool_links": 18,
+  "relations": 0,
+  "relations_dropped": 0
+ },
+ "checks": 44,
+ "failing": 4,
  "verdicts": {
-  "HOLDS": 8,
-  "MOOT": 4,
+  "HOLDS": 12,
+  "MOOT": 6,
   "RETIRED": 1,
-  "UNDOCUMENTED": 11
+  "UNDOCUMENTED": 5
  },
  "gates": {
-  "ALLOW": 4,
-  "DENY": 5,
+  "ALLOW": 2,
+  "DENY": 7,
   "REVALIDATE": 15
  },
  "moot": [
@@ -44,12 +57,20 @@
    "title": "2. Use `aws-eks` Terraform module"
   },
   {
+   "id": "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases",
+   "title": "3. Split Terraform state into separate AWS cluster and Kubernetes resource phases"
+  },
+  {
    "id": "0005-use-eks-managed-node-groups",
    "title": "5. Use AWS Elastic Kubernetes Service (EKS) managed node groups"
   },
   {
    "id": "0013-expose-external-metrics-for-hpa",
    "title": "13. Expose external metrics for Horizontal Pod Autoscaler using Prometheus adapter"
+  },
+  {
+   "id": "0016-use-iam-roles-for-services",
+   "title": "16. Use IAM roles for external services and applications"
   },
   {
    "id": "0020-use-crossplane-for-abstraction",

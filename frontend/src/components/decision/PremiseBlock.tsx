@@ -66,6 +66,17 @@ export default function PremiseBlock({ premise: p, exhibits, decisionId, asOf, o
       <div id={panel} hidden={!open} className={s.detail}>
         <PathChain path={p.path} evidence={decidingEvent(p.evidence)} />
 
+        {p.quote && (
+          <figure className={s.quote}>
+            <blockquote>“{p.quote}”</blockquote>
+            <figcaption className={s.evSub}>
+              In the ADR{p.section ? `'s ${p.section}` : ""}
+              {p.source && <> · <a className="link" href={p.source} target="_blank" rel="noreferrer">source</a></>}
+              {p.extracted_by && <> · read by <span className="id">{p.extracted_by}</span>, kept because the words are in the document</>}
+            </figcaption>
+          </figure>
+        )}
+
         {sorted.length > 0 && (
           <ul className={s.events} aria-label="Dated evidence">
             {sorted.map(ev => {

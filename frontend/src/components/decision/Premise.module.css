@@ -43,3 +43,7 @@ button.event:hover { background: var(--fill); }
   .exLink { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .chev { transition: none; } }
+
+/* a reason read from the ADR: its exact words, then where they are */
+.quote { margin: 10px 0 4px; }
+.quote blockquote { margin: 0 0 4px; padding-left: 12px; border-left: 2px solid var(--separator); color: var(--label-2); font-size: 14px; line-height: 1.45; }

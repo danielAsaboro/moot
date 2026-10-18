@@ -321,6 +321,454 @@
   },
   {
    "label": "Premise",
+   "id": "r_20200924-use-markdown-architectural-decision-records_1",
+   "props": {
+    "text": "The team wants to record architectural decisions in the project.",
+    "kind": "stated",
+    "quote": "We want to record architectural decisions made in this project",
+    "section": "context",
+    "span": "120-182",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200924-use-markdown-architectural-decision-records.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20200924-use-markdown-architectural-decision-records"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20200924-use-markdown-architectural-decision-records_2",
+   "props": {
+    "text": "The MADR format is lean and fits the team's development style.",
+    "kind": "stated",
+    "quote": "The MADR format is lean and fits our development style",
+    "section": "decision",
+    "span": "1198-1252",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200924-use-markdown-architectural-decision-records.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20200924-use-markdown-architectural-decision-records"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20200924-use-markdown-architectural-decision-records_3",
+   "props": {
+    "text": "The MADR structure is comprehensible and facilitates usage and maintenance.",
+    "kind": "stated",
+    "quote": "The MADR structure is comprehensible and facilitates usage & maintenance",
+    "section": "decision",
+    "span": "1256-1328",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200924-use-markdown-architectural-decision-records.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20200924-use-markdown-architectural-decision-records"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20200924-use-markdown-architectural-decision-records_4",
+   "props": {
+    "text": "The MADR project is vivid.",
+    "kind": "stated",
+    "quote": "The MADR project is vivid",
+    "section": "decision",
+    "span": "1332-1357",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200924-use-markdown-architectural-decision-records.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20200924-use-markdown-architectural-decision-records"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna_1",
+   "props": {
+    "text": "The team wants the core library to be well-tested and developed with DDD and hexagonal architecture, which a monolith does not support.",
+    "kind": "stated",
+    "quote": "We don't want a monolith because we want the core library/API to be very well tested and probably developed with DDD and hexagonal architecture",
+    "section": "decision",
+    "span": "884-1027",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna_2",
+   "props": {
+    "text": "The team is uncertain about future features, making the multi-package structure good for extensibility.",
+    "kind": "stated",
+    "quote": "As we are not so sure about the features we will provide in the future, this is good for extensibility",
+    "section": "decision",
+    "span": "1130-1232",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna_3",
+   "props": {
+    "text": "Yarn and Lerna are considered a good practice used by many open-source projects for publishing npm packages.",
+    "kind": "stated",
+    "quote": "Yarn + Lerna seems to be a very good practice used by a lot of other open-source projects to publish npm packages",
+    "section": "decision",
+    "span": "1236-1349",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20200925-use-prettier-eslint-airbnb-for-the-code-style_1",
+   "props": {
+    "text": "Airbnb code style is widely used.",
+    "kind": "stated",
+    "quote": "Airbnb code style is widely used (see [npm trends](https://www.npmtrends.com/eslint-config-airbnb-vs-eslint-config-google-vs-standard-vs-eslint-config-standard))",
+    "section": "decision",
+    "span": "577-738",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-use-prettier-eslint-airbnb-for-the-code-style.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20200925-use-prettier-eslint-airbnb-for-the-code-style"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20200925-use-prettier-eslint-airbnb-for-the-code-style_2",
+   "props": {
+    "text": "Prettier-ESLint enforces additional code style, reducing debates.",
+    "kind": "stated",
+    "quote": "Prettier-ESLint enforce some additional code style. We like it because the more opinionated the code style is, the less debates there will be :-)",
+    "section": "decision",
+    "span": "741-886",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200925-use-prettier-eslint-airbnb-for-the-code-style.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20200925-use-prettier-eslint-airbnb-for-the-code-style"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20200926-use-the-adr-number-as-its-unique-id_1",
+   "props": {
+    "text": "The system needs to uniquely identify ADRs for web URLs and CLI command arguments.",
+    "kind": "stated",
+    "quote": "We need to be able to identify uniquely an ADR, especially in these contexts:\n\n- Web: to build its URL\n- CLI: to identify an ADR in a command argument (example: \"edit\", or \"preview\")",
+    "section": "context",
+    "span": "209-391",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200926-use-the-adr-number-as-its-unique-id.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20200926-use-the-adr-number-as-its-unique-id"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20200926-use-the-adr-number-as-its-unique-id_2",
+   "props": {
+    "text": "ADR titles can be duplicated, making them unsuitable as unique identifiers.",
+    "kind": "stated",
+    "quote": "It is possible to have duplicated titles",
+    "section": "decision",
+    "span": "613-653",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200926-use-the-adr-number-as-its-unique-id.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20200926-use-the-adr-number-as-its-unique-id"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20200926-use-the-adr-number-as-its-unique-id_3",
+   "props": {
+    "text": "Other ADR tools already use the number as a unique ID.",
+    "kind": "stated",
+    "quote": "Other ADR tools like [adr-tools](https://github.com/npryce/adr-tools) already use the number as a unique ID",
+    "section": "decision",
+    "span": "798-905",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20200926-use-the-adr-number-as-its-unique-id.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20200926-use-the-adr-number-as-its-unique-id"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20201016-use-the-adr-slug-as-its-unique-id_1",
+   "props": {
+    "text": "Using incremental numbers causes git merge conflicts when multiple developers create ADRs on separate branches.",
+    "kind": "stated",
+    "quote": "It causes an issue during a `git merge` when two developers have created a new ADR on their respective branch",
+    "section": "context",
+    "span": "233-342",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201016-use-the-adr-slug-as-its-unique-id.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20201016-use-the-adr-slug-as-its-unique-id"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20201016-use-the-adr-slug-as-its-unique-id_2",
+   "props": {
+    "text": "The date-based filename format ensures files remain correctly sorted in the IDE.",
+    "kind": "stated",
+    "quote": "the files will still be correctly sorted in the IDE thanks to the date",
+    "section": "decision",
+    "span": "786-856",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201016-use-the-adr-slug-as-its-unique-id.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20201016-use-the-adr-slug-as-its-unique-id"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx_1",
+   "props": {
+    "text": "Links between ADRs must be replaced with correct URLs",
+    "kind": "stated",
+    "quote": "Links between ADRs have to be replaced with correct URLs",
+    "section": "context",
+    "span": "209-265",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx_2",
+   "props": {
+    "text": "The header must be rendered with specific components",
+    "kind": "stated",
+    "quote": "Header (status, date, deciders etc...) has to be rendered with specific components",
+    "section": "context",
+    "span": "268-350",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx_3",
+   "props": {
+    "text": "The team may develop a VSCode extension in the future",
+    "kind": "stated",
+    "quote": "Potential future development of a VSCode extension",
+    "section": "context",
+    "span": "393-443",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20201103-use-lunr-for-search_1",
+   "props": {
+    "text": "The project must provide a search bar for full-text search on ADRs",
+    "kind": "stated",
+    "quote": "We have to provide a search bar to perform full-text search on ADRs",
+    "section": "context",
+    "span": "96-163",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201103-use-lunr-for-search.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20201103-use-lunr-for-search"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20201103-use-lunr-for-search_2",
+   "props": {
+    "text": "The search solution must work in both preview mode and the statically built version",
+    "kind": "stated",
+    "quote": "Works in preview mode AND in the statically built version",
+    "section": "context",
+    "span": "207-264",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201103-use-lunr-for-search.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20201103-use-lunr-for-search"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20201103-use-lunr-for-search_3",
+   "props": {
+    "text": "The search solution must provide good fuzzy search and stemming capabilities",
+    "kind": "stated",
+    "quote": "Provides good fuzzy search and stemming capabilities",
+    "section": "context",
+    "span": "267-319",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201103-use-lunr-for-search.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20201103-use-lunr-for-search"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20201103-use-lunr-for-search_4",
+   "props": {
+    "text": "The search solution must be fast enough to show results while typing",
+    "kind": "stated",
+    "quote": "Is fast enough to be able to show results while typing",
+    "section": "context",
+    "span": "322-376",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20201103-use-lunr-for-search.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20201103-use-lunr-for-search"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20210113-distribute-log4brains-as-a-global-npm-package_1",
+   "props": {
+    "text": "Log4brains is intended for all projects, not especially JS ones",
+    "kind": "stated",
+    "quote": "Since Log4brains is intended for all projects, not especially JS ones, we have to make the installation procedure simpler and language-agnostic",
+    "section": "context",
+    "span": "738-881",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20210113-distribute-log4brains-as-a-global-npm-package.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20210113-distribute-log4brains-as-a-global-npm-package"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20210113-distribute-log4brains-as-a-global-npm-package_2",
+   "props": {
+    "text": "The current installation procedure does not work for non-JS projects",
+    "kind": "stated",
+    "quote": "For non-JS projects, you have to install manually the packages and the `npx init-log4brains` script does not work",
+    "section": "context",
+    "span": "622-735",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20210113-distribute-log4brains-as-a-global-npm-package.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20210113-distribute-log4brains-as-a-global-npm-package"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20210113-distribute-log4brains-as-a-global-npm-package_3",
+   "props": {
+    "text": "The team prioritizes simplicity of the installation procedure",
+    "kind": "stated",
+    "quote": "Simplicity of the installation procedure",
+    "section": "context",
+    "span": "925-965",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20210113-distribute-log4brains-as-a-global-npm-package.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20210113-distribute-log4brains-as-a-global-npm-package"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20240926-transition-to-simplified-git-flow_1",
+   "props": {
+    "text": "The existing GitHub Flow process lacked clarity for stable releases and was overly manual.",
+    "kind": "stated",
+    "quote": "The existing GitHub Flow process lacked clarity for stable releases and was overly manual, making it hard to delegate and streamline contributions",
+    "section": "context",
+    "span": "193-339",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20240926-transition-to-simplified-git-flow.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20240926-transition-to-simplified-git-flow"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20240926-transition-to-simplified-git-flow_2",
+   "props": {
+    "text": "The project needs automation in releases.",
+    "kind": "stated",
+    "quote": "Need for automation in releases",
+    "section": "context",
+    "span": "635-666",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20240926-transition-to-simplified-git-flow.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20240926-transition-to-simplified-git-flow"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20240926-transition-to-simplified-git-flow_3",
+   "props": {
+    "text": "The project needs to merge quickly without breaking the stable branch while allowing beta testers to test new features.",
+    "kind": "stated",
+    "quote": "Be able to merge more quickly whithout breaking the stable branch, while making it possible for beta testers to test the new features",
+    "section": "context",
+    "span": "670-803",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20240926-transition-to-simplified-git-flow.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20240926-transition-to-simplified-git-flow"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20240926-transition-to-simplified-git-flow_4",
+   "props": {
+    "text": "The project requires easier delegation to new maintainers.",
+    "kind": "stated",
+    "quote": "Easier delegation to new maintainers",
+    "section": "context",
+    "span": "807-843",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20240926-transition-to-simplified-git-flow.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20240926-transition-to-simplified-git-flow"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20241217-switch-back-to-github-flow_1",
+   "props": {
+    "text": "Lerna does not integrate well with Git Flow processes when managing both a develop and a stable branch.",
+    "kind": "stated",
+    "quote": "Specifically, **Lerna**, which we use for managing our monorepo, does not integrate well with Git Flow processes ([Lerna issue #2023](https://github.com/lerna/lerna/issues/2023#issuecomment-480402592)), when managing both a `develop` and `stable` branches: we cannot make Lerna publish a stable release from a different branch than the main one",
+    "section": "context",
+    "span": "383-727",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20241217-switch-back-to-github-flow.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20241217-switch-back-to-github-flow"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20241217-switch-back-to-github-flow_2",
+   "props": {
+    "text": "The team needs automation in releases.",
+    "kind": "stated",
+    "quote": "Need for automation in releases",
+    "section": "context",
+    "span": "863-894",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20241217-switch-back-to-github-flow.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20241217-switch-back-to-github-flow"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20241217-switch-back-to-github-flow_3",
+   "props": {
+    "text": "The team needs to merge quickly without breaking the stable branch while allowing beta testers to test new features.",
+    "kind": "stated",
+    "quote": "Be able to merge more quickly whithout breaking the stable branch, while making it possible for beta testers to test the new features",
+    "section": "context",
+    "span": "900-1033",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20241217-switch-back-to-github-flow.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20241217-switch-back-to-github-flow"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_20241217-switch-back-to-github-flow_4",
+   "props": {
+    "text": "The team needs a simplified yet structured process for contributors.",
+    "kind": "stated",
+    "quote": "Simplified yet structured process for contributors",
+    "section": "context",
+    "span": "1081-1131",
+    "source": "https://github.com/thomvaill/log4brains/blob/HEAD/docs/adr/20241217-switch-back-to-github-flow.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "20241217-switch-back-to-github-flow"
+   }
+  },
+  {
+   "label": "Premise",
    "id": "p_lerna_maintained",
    "props": {
     "text": "Lerna is actively maintained",
@@ -966,6 +1414,360 @@
    "props": {}
   },
   {
+   "src": "20200924-use-markdown-architectural-decision-records",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20200924-use-markdown-architectural-decision-records_1",
+   "props": {
+    "quote": "We want to record architectural decisions made in this project",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20200924-use-markdown-architectural-decision-records",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20200924-use-markdown-architectural-decision-records_2",
+   "props": {
+    "quote": "The MADR format is lean and fits our development style",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20200924-use-markdown-architectural-decision-records",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20200924-use-markdown-architectural-decision-records_3",
+   "props": {
+    "quote": "The MADR structure is comprehensible and facilitates usage & maintenance",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20200924-use-markdown-architectural-decision-records",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20200924-use-markdown-architectural-decision-records_4",
+   "props": {
+    "quote": "The MADR project is vivid",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna_1",
+   "props": {
+    "quote": "We don't want a monolith because we want the core library/API to be very well tested and probably developed with DDD and hexagonal architecture",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna_2",
+   "props": {
+    "quote": "As we are not so sure about the features we will provide in the future, this is good for extensibility",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna_3",
+   "props": {
+    "quote": "Yarn + Lerna seems to be a very good practice used by a lot of other open-source projects to publish npm packages",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20200925-use-prettier-eslint-airbnb-for-the-code-style",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20200925-use-prettier-eslint-airbnb-for-the-code-style_1",
+   "props": {
+    "quote": "Airbnb code style is widely used (see [npm trends](https://www.npmtrends.com/eslint-config-airbnb-vs-eslint-config-google-vs-standard-vs-eslint-config-standard))",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20200925-use-prettier-eslint-airbnb-for-the-code-style",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20200925-use-prettier-eslint-airbnb-for-the-code-style_2",
+   "props": {
+    "quote": "Prettier-ESLint enforce some additional code style. We like it because the more opinionated the code style is, the less debates there will be :-)",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20200926-use-the-adr-number-as-its-unique-id",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20200926-use-the-adr-number-as-its-unique-id_1",
+   "props": {
+    "quote": "We need to be able to identify uniquely an ADR, especially in these contexts:\n\n- Web: to build its URL\n- CLI: to identify an ADR in a command argument (example: \"edit\", or \"preview\")",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20200926-use-the-adr-number-as-its-unique-id",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20200926-use-the-adr-number-as-its-unique-id_2",
+   "props": {
+    "quote": "It is possible to have duplicated titles",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20200926-use-the-adr-number-as-its-unique-id",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20200926-use-the-adr-number-as-its-unique-id_3",
+   "props": {
+    "quote": "Other ADR tools like [adr-tools](https://github.com/npryce/adr-tools) already use the number as a unique ID",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20201016-use-the-adr-slug-as-its-unique-id",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20201016-use-the-adr-slug-as-its-unique-id_1",
+   "props": {
+    "quote": "It causes an issue during a `git merge` when two developers have created a new ADR on their respective branch",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20201016-use-the-adr-slug-as-its-unique-id",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20201016-use-the-adr-slug-as-its-unique-id_2",
+   "props": {
+    "quote": "the files will still be correctly sorted in the IDE thanks to the date",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx_1",
+   "props": {
+    "quote": "Links between ADRs have to be replaced with correct URLs",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx_2",
+   "props": {
+    "quote": "Header (status, date, deciders etc...) has to be rendered with specific components",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx_3",
+   "props": {
+    "quote": "Potential future development of a VSCode extension",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20201103-use-lunr-for-search",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20201103-use-lunr-for-search_1",
+   "props": {
+    "quote": "We have to provide a search bar to perform full-text search on ADRs",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20201103-use-lunr-for-search",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20201103-use-lunr-for-search_2",
+   "props": {
+    "quote": "Works in preview mode AND in the statically built version",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20201103-use-lunr-for-search",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20201103-use-lunr-for-search_3",
+   "props": {
+    "quote": "Provides good fuzzy search and stemming capabilities",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20201103-use-lunr-for-search",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20201103-use-lunr-for-search_4",
+   "props": {
+    "quote": "Is fast enough to be able to show results while typing",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20210113-distribute-log4brains-as-a-global-npm-package",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20210113-distribute-log4brains-as-a-global-npm-package_1",
+   "props": {
+    "quote": "Since Log4brains is intended for all projects, not especially JS ones, we have to make the installation procedure simpler and language-agnostic",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20210113-distribute-log4brains-as-a-global-npm-package",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20210113-distribute-log4brains-as-a-global-npm-package_2",
+   "props": {
+    "quote": "For non-JS projects, you have to install manually the packages and the `npx init-log4brains` script does not work",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20210113-distribute-log4brains-as-a-global-npm-package",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20210113-distribute-log4brains-as-a-global-npm-package_3",
+   "props": {
+    "quote": "Simplicity of the installation procedure",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20240926-transition-to-simplified-git-flow",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20240926-transition-to-simplified-git-flow_1",
+   "props": {
+    "quote": "The existing GitHub Flow process lacked clarity for stable releases and was overly manual, making it hard to delegate and streamline contributions",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20240926-transition-to-simplified-git-flow",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20240926-transition-to-simplified-git-flow_2",
+   "props": {
+    "quote": "Need for automation in releases",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20240926-transition-to-simplified-git-flow",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20240926-transition-to-simplified-git-flow_3",
+   "props": {
+    "quote": "Be able to merge more quickly whithout breaking the stable branch, while making it possible for beta testers to test the new features",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20240926-transition-to-simplified-git-flow",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20240926-transition-to-simplified-git-flow_4",
+   "props": {
+    "quote": "Easier delegation to new maintainers",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20241217-switch-back-to-github-flow",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20241217-switch-back-to-github-flow_1",
+   "props": {
+    "quote": "Specifically, **Lerna**, which we use for managing our monorepo, does not integrate well with Git Flow processes ([Lerna issue #2023](https://github.com/lerna/lerna/issues/2023#issuecomment-480402592)), when managing both a `develop` and `stable` branches: we cannot make Lerna publish a stable relea",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20241217-switch-back-to-github-flow",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20241217-switch-back-to-github-flow_2",
+   "props": {
+    "quote": "Need for automation in releases",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20241217-switch-back-to-github-flow",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20241217-switch-back-to-github-flow_3",
+   "props": {
+    "quote": "Be able to merge more quickly whithout breaking the stable branch, while making it possible for beta testers to test the new features",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "20241217-switch-back-to-github-flow",
+   "rel": "BECAUSE_OF",
+   "dst": "r_20241217-switch-back-to-github-flow_4",
+   "props": {
+    "quote": "Simplified yet structured process for contributors",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "src:20201016-use-the-adr-slug-as-its-unique-id",
+   "rel": "CONTRADICTS",
+   "dst": "r_20200926-use-the-adr-number-as-its-unique-id_1",
+   "props": {
+    "at": "2020-10-16",
+    "quote": "From now on, we won't use ADR numbers anymore.\nAn ADR will be uniquely identified by its slug",
+    "why": "The later ADR explicitly replaces the use of ADR numbers with slugs for unique identification, directly contradicting the earlier decision to use numbers for this purpose.",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "src:20201016-use-the-adr-slug-as-its-unique-id",
+   "rel": "CONTRADICTS",
+   "dst": "r_20200926-use-the-adr-number-as-its-unique-id_3",
+   "props": {
+    "at": "2020-10-16",
+    "quote": "From now on, we won't use ADR numbers anymore.\nAn ADR will be uniquely identified by its slug",
+    "why": "By abandoning the use of ADR numbers in favor of slugs, the later ADR negates the alignment with other tools that use numbers as unique IDs.",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "src:20241217-switch-back-to-github-flow",
+   "rel": "SUPPORTS",
+   "dst": "r_20240926-transition-to-simplified-git-flow_3",
+   "props": {
+    "at": "2024-12-17",
+    "quote": "Be able to merge more quickly whithout breaking the stable branch, while making it possible for beta testers to test the new features",
+    "why": "The later ADR explicitly lists this requirement as a benefit to be kept, affirming that the need for quick merging without breaking stable remains valid.",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "src:20241217-switch-back-to-github-flow",
+   "rel": "SUPPORTS",
+   "dst": "r_20240926-transition-to-simplified-git-flow_2",
+   "props": {
+    "at": "2024-12-17",
+    "quote": "Need for automation in releases",
+    "why": "The later ADR lists this as a benefit to be kept, confirming that the need for release automation persists.",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "src:20241217-switch-back-to-github-flow",
+   "rel": "SUPPORTS",
+   "dst": "r_20240926-transition-to-simplified-git-flow_4",
+   "props": {
+    "at": "2024-12-17",
+    "quote": "Easier delegation to new maintainers",
+    "why": "The later ADR includes this as a benefit to be kept, affirming that the requirement for easier delegation still holds.",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "src:20241217-switch-back-to-github-flow",
+   "rel": "CONTRADICTS",
+   "dst": "r_20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna_3",
+   "props": {
+    "at": "2024-12-17",
+    "quote": "Lerna**, which we use for managing our monorepo, does not integrate well with Git Flow processes",
+    "why": "The later ADR states that Lerna has significant integration limitations with the previous workflow, contradicting the earlier assumption that it was a good practice suitable for the project's needs without issues.",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
    "src": "maintained:lerna",
    "rel": "SUPPORTS",
    "dst": "p_lerna_maintained",
@@ -1168,6 +1970,60 @@
    "props": {
     "quote": "The current release of Lunr.js has no known vulnerability"
    }
+  },
+  {
+   "src": "r_20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_lerna_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_lerna_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_lerna_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_20241217-switch-back-to-github-flow_1",
+   "rel": "DERIVED_FROM",
+   "dst": "p_lerna_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_20241217-switch-back-to-github-flow_1",
+   "rel": "DERIVED_FROM",
+   "dst": "p_lerna_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_20241217-switch-back-to-github-flow_1",
+   "rel": "DERIVED_FROM",
+   "dst": "p_lerna_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_20200925-use-prettier-eslint-airbnb-for-the-code-style_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_prettier-eslint_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_20200925-use-prettier-eslint-airbnb-for-the-code-style_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_prettier-eslint_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_20200925-use-prettier-eslint-airbnb-for-the-code-style_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_prettier-eslint_no_known_vuln",
+   "props": {}
   }
  ]
 }

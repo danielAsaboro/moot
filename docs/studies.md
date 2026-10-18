@@ -58,3 +58,10 @@ Kept here so the surviving numbers can be read against what was claimed before.
 | Retrieval recall@5 = 1.00 read as a retrieval result | README and `eval/results.md` | The targets are the CONTRADICTS edges in `truth.json` and the graph's CONTRADICTS edges come from the same spec, so the graph reads back its own edges. The number stands as a consistency check, not as evidence that the graph finds documents. | same number, labelled as a consistency check |
 | Latency columns "full ledger" and "SPpaths trace" | `eval/results_scale.md` before 2026-10-18 | One timing each, no warm/cold split, so 3, 3, 9, 3 ms was noise. | n, p50, p95 and a cold first call per row |
 | ERAG v2 as a result in its own right | — | Not withdrawn, but written after v1 was scored; it is labelled post-hoc and never the headline. | v1 stays the headline |
+
+## R1. Stated reasons from ADR text (descriptive, not a study)
+
+- **Written:** 2026-10-19 17:00 UTC, after the connector's UNDOCUMENTED counts were seen (adr-tools 9 of 9, govuk-aws 21 of 31, govuk-infrastructure 11 of 24, log4brains 5 of 11) and after a trial on adr-tools changed the extraction prompt once (the first prompt returned no reasons for ADRs whose Context plainly states them). So this is a before/after description, not a registered test: there is no labelled set of real reasons to score extraction against.
+- **What it reports:** verdict and gate counts per repository, built twice on the same day with the same checks and rules (titles only, then with stated reasons); what the validator kept and dropped; every decision whose verdict or gate changed.
+- **What would make it look better than it is:** counting UNDOCUMENTED → HOLDS as progress. The report therefore splits HOLDS into checked (gate ALLOW) and unevidenced (REVALIDATE).
+- **Script:** `python3 eval/eval_reasons.py` (model calls only on a cache miss; `--cached` reads `data/github/*/reasons.json` only) → `eval/results_reasons.md` and `.json`.

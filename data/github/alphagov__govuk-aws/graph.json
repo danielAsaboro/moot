@@ -7,7 +7,7 @@
     "title": "1. Record architecture decisions",
     "summary": "We will use Architecture Decision Records, as described by Michael Nygard in documenting architecture decisions",
     "decided_on": "2017-06-30",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0001-record-architecture-decisions.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0001-record-architecture-decisions.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -19,7 +19,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 1. Record architecture decisions",
     "date": "2017-06-30",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0001-record-architecture-decisions.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0001-record-architecture-decisions.md",
     "excerpt": "We will use Architecture Decision Records, as described by Michael Nygard in documenting architecture decisions"
    }
   },
@@ -38,7 +38,7 @@
    "label": "Person",
    "id": "gh:chrisbashton",
    "props": {
-    "name": "ChrisBAshton",
+    "name": "Chris Ashton",
     "role": "contributor",
     "joined": "",
     "left": "",
@@ -63,7 +63,7 @@
     "title": "2. Hosting Platforms",
     "summary": "We are using Amazon Web Services as our hosting provider of choice. This conforms to the GDS Tech Forum Hosting Guide. We will initially be using the eu-west-1 region, Ireland. This region has 3 availability zones and also contains the GDS PaaS which will allow easier sharing and peering.",
     "decided_on": "2017-06-30",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0002-hosting-platforms.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0002-hosting-platforms.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -75,7 +75,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 2. Hosting Platforms",
     "date": "2017-06-30",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0002-hosting-platforms.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0002-hosting-platforms.md",
     "excerpt": "We are using Amazon Web Services as our hosting provider of choice. This conforms to the GDS Tech Forum Hosting Guide. We will initially be using the eu-west-1 region, Ireland. This region has 3 availability zones and also contains the GDS PaaS which will allow easier sharing and peering."
    }
   },
@@ -97,7 +97,7 @@
     "title": "3. Networking Outline",
     "summary": " 1 VPC per environment (currently integration, staging and production) 3 public subnets, spread across availability zones 3 private subnets, spread across availability zones These IP ranges have been superseded by ADR #0033. The VPCs will be assigned the following IP ranges: |Environment|IP Range| |",
     "decided_on": "2017-06-30",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0003-aws-networking-outline.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0003-aws-networking-outline.md",
     "repo": "alphagov/govuk-aws",
     "status": "Partly superseded"
    }
@@ -109,7 +109,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 3. Networking Outline",
     "date": "2017-06-30",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0003-aws-networking-outline.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0003-aws-networking-outline.md",
     "excerpt": " 1 VPC per environment (currently integration, staging and production) 3 public subnets, spread across availability zones 3 private subnets, spread across availability zones These IP ranges have been superseded by ADR #0033. The VPCs will be assigned the following IP ranges: |Environment|IP Range| |"
    }
   },
@@ -164,7 +164,7 @@
     "title": "4. DNS definitions for hosts and services",
     "summary": "Each stack will have an internal, private, zone for internal services such as the puppetmaster. These will be in the following format: $servicename.$stackname.internal puppet.perftesting.internal monitoring.mystack.internal",
     "decided_on": "2017-07-04",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0004-dns-definitions-for-hosts-and-services.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0004-dns-definitions-for-hosts-and-services.md",
     "repo": "alphagov/govuk-aws",
     "status": "Superseded by [DNS Infrastructure](0015-dns-infrastructure.md)"
    }
@@ -176,7 +176,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 4. DNS definitions for hosts and services",
     "date": "2017-07-04",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0004-dns-definitions-for-hosts-and-services.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0004-dns-definitions-for-hosts-and-services.md",
     "excerpt": "Each stack will have an internal, private, zone for internal services such as the puppetmaster. These will be in the following format: $servicename.$stackname.internal puppet.perftesting.internal monitoring.mystack.internal"
    }
   },
@@ -209,7 +209,7 @@
     "title": "5. Terraform Module Location",
     "summary": "Whilst developing a module we will source it locally (within this repository). Once we feel our modules \"ready\" we will consider moving them to separate repositories.",
     "decided_on": "2017-07-04",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0005-terraform-module-location.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0005-terraform-module-location.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -221,7 +221,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 5. Terraform Module Location",
     "date": "2017-07-04",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0005-terraform-module-location.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0005-terraform-module-location.md",
     "excerpt": "Whilst developing a module we will source it locally (within this repository). Once we feel our modules \"ready\" we will consider moving them to separate repositories."
    }
   },
@@ -254,7 +254,7 @@
     "title": "7. Puppet certificate management",
     "summary": "We will defer this until a later date while we're testing this with Integration to concentrate on getting the stack up and running and accept the loss of certicates. At a later date we will re-visit this approach and implement a suitable solution.",
     "decided_on": "2017-07-04",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0007-puppet-cert-management.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0007-puppet-cert-management.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -266,7 +266,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 7. Puppet certificate management",
     "date": "2017-07-04",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0007-puppet-cert-management.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0007-puppet-cert-management.md",
     "excerpt": "We will defer this until a later date while we're testing this with Integration to concentrate on getting the stack up and running and accept the loss of certicates. At a later date we will re-visit this approach and implement a suitable solution."
    }
   },
@@ -277,7 +277,7 @@
     "title": "8. Postgres on Puppetmaster",
     "summary": "The Puppetmaster will continue to use a local instance of PostgreSQL.",
     "decided_on": "2017-07-04",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0008-postgres-on-puppetmaster.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0008-postgres-on-puppetmaster.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -289,7 +289,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 8. Postgres on Puppetmaster",
     "date": "2017-07-04",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0008-postgres-on-puppetmaster.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0008-postgres-on-puppetmaster.md",
     "excerpt": "The Puppetmaster will continue to use a local instance of PostgreSQL."
    }
   },
@@ -300,7 +300,7 @@
     "title": "10. Terraform directory structure",
     "summary": "The initial solution presents three directories: data, modules and projects: - The data directory contains a subdirectory per Terraform project, to store variable values that can be customised per environment. - The data directory also contains \\secrets files with sensitive data encrypted with 'sops",
     "decided_on": "2017-07-04",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0010-terraform-directory-structure.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0010-terraform-directory-structure.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -312,7 +312,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 10. Terraform directory structure",
     "date": "2017-07-04",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0010-terraform-directory-structure.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0010-terraform-directory-structure.md",
     "excerpt": "The initial solution presents three directories: data, modules and projects: - The data directory contains a subdirectory per Terraform project, to store variable values that can be customised per environment. - The data directory also contains \\secrets files with sensitive data encrypted with 'sops"
    }
   },
@@ -323,7 +323,7 @@
     "title": "11. Migration Strategy",
     "summary": "The second option - all in one go - was decided because: a) The change is atomic. Either the environment is live in AWS or it's live in the current environment. This is much easier to manage than having elements of the environment in two places and having two sets of monitoring, Puppet masters, metr",
     "decided_on": "2017-07-04",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0011-migration-strategy.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0011-migration-strategy.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -335,7 +335,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 11. Migration Strategy",
     "date": "2017-07-04",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0011-migration-strategy.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0011-migration-strategy.md",
     "excerpt": "The second option - all in one go - was decided because: a) The change is atomic. Either the environment is live in AWS or it's live in the current environment. This is much easier to manage than having elements of the environment in two places and having two sets of monitoring, Puppet masters, metr"
    }
   },
@@ -368,7 +368,7 @@
     "title": "12. Security Groups in Terraform",
     "summary": "Security groups will be defined separate to their rules. Additionally each security group will be defined, in its entirety, in a single file.",
     "decided_on": "2017-07-05",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0012-security-groups-in-terraform.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0012-security-groups-in-terraform.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -380,7 +380,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 12. Security Groups in Terraform",
     "date": "2017-07-05",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0012-security-groups-in-terraform.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0012-security-groups-in-terraform.md",
     "excerpt": "Security groups will be defined separate to their rules. Additionally each security group will be defined, in its entirety, in a single file."
    }
   },
@@ -402,7 +402,7 @@
     "title": "14. Launch Config change propagation process",
     "summary": "In order to propagate LC changes we will manually terminate effected instances.",
     "decided_on": "2017-07-14",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0014-launch-config-change-propagation-process.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0014-launch-config-change-propagation-process.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -414,7 +414,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 14. Launch Config change propagation process",
     "date": "2017-07-14",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0014-launch-config-change-propagation-process.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0014-launch-config-change-propagation-process.md",
     "excerpt": "In order to propagate LC changes we will manually terminate effected instances."
    }
   },
@@ -436,7 +436,7 @@
     "title": "15. DNS infrastructure",
     "summary": "!DNS",
     "decided_on": "2017-07-14",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0015-dns-infrastructure.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0015-dns-infrastructure.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -448,7 +448,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 15. DNS infrastructure",
     "date": "2017-07-14",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0015-dns-infrastructure.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0015-dns-infrastructure.md",
     "excerpt": "!DNS"
    }
   },
@@ -470,7 +470,7 @@
     "title": "16. internal DNS zones",
     "summary": "We've bought a domain name that will not be connected to the rest of the public DNS system. This will be used by our internal services. This domain will not have DNS records added to it.",
     "decided_on": "2017-07-19",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0016-internal-dns-zones.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0016-internal-dns-zones.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -482,7 +482,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 16. internal DNS zones",
     "date": "2017-07-19",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0016-internal-dns-zones.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0016-internal-dns-zones.md",
     "excerpt": "We've bought a domain name that will not be connected to the rest of the public DNS system. This will be used by our internal services. This domain will not have DNS records added to it."
    }
   },
@@ -504,7 +504,7 @@
     "title": "17. Terraform Data Structure",
     "summary": "The data portion of ADR 0010 will now be: \u251c\u2500\u2500 data \u2502 \u251c\u2500\u2500 common \u2502 \u2502 \u2514\u2500\u2500 <environment \u2502 \u2502 \u251c\u2500\u2500 common.tfvars \u2502 \u2502 \u2514\u2500\u2500 <stackname.tfvars \u2502 \u251c\u2500\u2500 <project \u2502 \u2502 \u2514\u2500\u2500 <environment \u2502 \u2502 \u251c\u2500\u2500 common.tfvars \u2502 \u2502 \u251c\u2500\u2500 <stackname.tfvars \u2502 \u2502 \u2514\u2500\u2500 <stacknamesecrets.json Where: <environment is the account being deployed to",
     "decided_on": "2017-07-14",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0017-terraform-data-structure.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0017-terraform-data-structure.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -516,7 +516,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 17. Terraform Data Structure",
     "date": "2017-07-14",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0017-terraform-data-structure.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0017-terraform-data-structure.md",
     "excerpt": "The data portion of ADR 0010 will now be: \u251c\u2500\u2500 data \u2502 \u251c\u2500\u2500 common \u2502 \u2502 \u2514\u2500\u2500 <environment \u2502 \u2502 \u251c\u2500\u2500 common.tfvars \u2502 \u2502 \u2514\u2500\u2500 <stackname.tfvars \u2502 \u251c\u2500\u2500 <project \u2502 \u2502 \u2514\u2500\u2500 <environment \u2502 \u2502 \u251c\u2500\u2500 common.tfvars \u2502 \u2502 \u251c\u2500\u2500 <stackname.tfvars \u2502 \u2502 \u2514\u2500\u2500 <stacknamesecrets.json Where: <environment is the account being deployed to"
    }
   },
@@ -538,7 +538,7 @@
     "title": "18. Use RDS instead of provisioned EC2 databases",
     "summary": "We are going to use RDS to remove a significant portion of our Puppet code that traditionally managed both PostgreSQL and MySQL. To manage databases, users, data loading and long-term offsite backups, we will create a new type of node class named \"dbadmin\". This will be able to connect and configure",
     "decided_on": "2017-08-01",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0018-use-rds-instead-of-provisioned-ec2-databases.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0018-use-rds-instead-of-provisioned-ec2-databases.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -550,7 +550,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 18. Use RDS instead of provisioned EC2 databases",
     "date": "2017-08-01",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0018-use-rds-instead-of-provisioned-ec2-databases.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0018-use-rds-instead-of-provisioned-ec2-databases.md",
     "excerpt": "We are going to use RDS to remove a significant portion of our Puppet code that traditionally managed both PostgreSQL and MySQL. To manage databases, users, data loading and long-term offsite backups, we will create a new type of node class named \"dbadmin\". This will be able to connect and configure"
    }
   },
@@ -572,7 +572,7 @@
     "title": "19. Centralise MySQL Databases",
     "summary": "We discussed three options: 1. have one admin instance per MySQL database and keep the databases separate 2. manage the users and databases in terraform itself 3. centralise the MySQL databases and have one admin machine manage them all The first option is the simplest, has the most moving parts and",
     "decided_on": "2017-08-02",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0019-centralise-mysql-databases.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0019-centralise-mysql-databases.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -584,7 +584,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 19. Centralise MySQL Databases",
     "date": "2017-08-02",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0019-centralise-mysql-databases.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0019-centralise-mysql-databases.md",
     "excerpt": "We discussed three options: 1. have one admin instance per MySQL database and keep the databases separate 2. manage the users and databases in terraform itself 3. centralise the MySQL databases and have one admin machine manage them all The first option is the simplest, has the most moving parts and"
    }
   },
@@ -606,7 +606,7 @@
     "title": "20. Merge API PostgreSQL instance into main PostgreSQL instance",
     "summary": "We should merge the API PostgreSQL instance into the main PostgreSQL instance.",
     "decided_on": "2017-08-07",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0020-merge-api-postgresql-instance-into-main-postgresql-instance.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0020-merge-api-postgresql-instance-into-main-postgresql-instance.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -618,7 +618,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 20. Merge API PostgreSQL instance into main PostgreSQL instance",
     "date": "2017-08-07",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0020-merge-api-postgresql-instance-into-main-postgresql-instance.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0020-merge-api-postgresql-instance-into-main-postgresql-instance.md",
     "excerpt": "We should merge the API PostgreSQL instance into the main PostgreSQL instance."
    }
   },
@@ -640,7 +640,7 @@
     "title": "21. Use ACM for SSL purchases and terminate certificates on ELBs",
     "summary": "We have decided to use ACM to manage our SSL certificates, and terminate SSL on the ELBs. This gives us the following advantages: - Automatic renewal and notifications related to the SSL certificates we purchase through ACM - Multi-domain certificates; this helps us manage several stacks within an e",
     "decided_on": "2017-08-14",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0021-use-acm-for-ssl-purchases-and-terminate-certificates-on-elbs.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0021-use-acm-for-ssl-purchases-and-terminate-certificates-on-elbs.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -652,7 +652,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 21. Use ACM for SSL purchases and terminate certificates on ELBs",
     "date": "2017-08-14",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0021-use-acm-for-ssl-purchases-and-terminate-certificates-on-elbs.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0021-use-acm-for-ssl-purchases-and-terminate-certificates-on-elbs.md",
     "excerpt": "We have decided to use ACM to manage our SSL certificates, and terminate SSL on the ELBs. This gives us the following advantages: - Automatic renewal and notifications related to the SSL certificates we purchase through ACM - Multi-domain certificates; this helps us manage several stacks within an e"
    }
   },
@@ -674,7 +674,7 @@
     "title": "22. Remove the Elasticsearch proxy",
     "summary": "We've tested the instances in AWS without the local proxies and we have not discovered any degradation of service when using the ELBs. In light of this we will remove the configuration and exclude this puppet code from running in AWS and accept the ELBs as its replacement.",
     "decided_on": "2017-08-16",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0022-remove-the-elasticsearch-proxy.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0022-remove-the-elasticsearch-proxy.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -686,7 +686,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 22. Remove the Elasticsearch proxy",
     "date": "2017-08-16",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0022-remove-the-elasticsearch-proxy.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0022-remove-the-elasticsearch-proxy.md",
     "excerpt": "We've tested the instances in AWS without the local proxies and we have not discovered any degradation of service when using the ELBs. In light of this we will remove the configuration and exclude this puppet code from running in AWS and accept the ELBs as its replacement."
    }
   },
@@ -708,7 +708,7 @@
     "title": "23. Use separate data repository",
     "summary": "The terraform/data directory will be split out into its own repository that will be kept private and all sensitive data within it will be encrypted using sops.",
     "decided_on": "2017-08-18",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0023-use-separate-data-repository.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0023-use-separate-data-repository.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -720,7 +720,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 23. Use separate data repository",
     "date": "2017-08-18",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0023-use-separate-data-repository.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0023-use-separate-data-repository.md",
     "excerpt": "The terraform/data directory will be split out into its own repository that will be kept private and all sensitive data within it will be encrypted using sops."
    }
   },
@@ -742,7 +742,7 @@
     "title": "24. AMI Lookups",
     "summary": "We override the instanceamifiltername parameter of the nodegroup module in all the projects. In the data directory, there is a common variable that sets the default value of the parameter for an environment. This can be customised per project in the project tfvars file.",
     "decided_on": "2017-08-29",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0024-ami-lookups.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0024-ami-lookups.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -754,7 +754,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 24. AMI Lookups",
     "date": "2017-08-29",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0024-ami-lookups.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0024-ami-lookups.md",
     "excerpt": "We override the instanceamifiltername parameter of the nodegroup module in all the projects. In the data directory, there is a common variable that sets the default value of the parameter for an environment. This can be customised per project in the project tfvars file."
    }
   },
@@ -776,7 +776,7 @@
     "title": "25. Use Elasticache for Redis",
     "summary": "We are using Elasticache instead of provisioning our own Redis instances.",
     "decided_on": "2017-09-04",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0025-use-elasticache-for-redis.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0025-use-elasticache-for-redis.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -788,7 +788,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 25. Use Elasticache for Redis",
     "date": "2017-09-04",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0025-use-elasticache-for-redis.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0025-use-elasticache-for-redis.md",
     "excerpt": "We are using Elasticache instead of provisioning our own Redis instances."
    }
   },
@@ -810,7 +810,7 @@
     "title": "26. Remove load balancer tier",
     "summary": "We will not change the current vcloud based platforms. In the AWS environment we will remove the load balancer hosts / ELBs and instead add external ELBs to a number of other autoscaling groups (such as the frontend / backend hosts themselves) to make them directly available, but security group rest",
     "decided_on": "2017-08-16",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0026-remove-load-balancer-tier.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0026-remove-load-balancer-tier.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -822,7 +822,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 26. Remove load balancer tier",
     "date": "2017-08-16",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0026-remove-load-balancer-tier.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0026-remove-load-balancer-tier.md",
     "excerpt": "We will not change the current vcloud based platforms. In the AWS environment we will remove the load balancer hosts / ELBs and instead add external ELBs to a number of other autoscaling groups (such as the frontend / backend hosts themselves) to make them directly available, but security group rest"
    }
   },
@@ -844,7 +844,7 @@
     "title": "27. Move PublicAPI away from frontend-lb",
     "summary": "Move publicapi application to either the cache instances themselves, or replace the configuration with an Application Load Balancer.",
     "decided_on": "2017-09-04",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0027-move-publicapi-away-from-frontend-lb.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0027-move-publicapi-away-from-frontend-lb.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -856,7 +856,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 27. Move PublicAPI away from frontend-lb",
     "date": "2017-09-04",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0027-move-publicapi-away-from-frontend-lb.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0027-move-publicapi-away-from-frontend-lb.md",
     "excerpt": "Move publicapi application to either the cache instances themselves, or replace the configuration with an Application Load Balancer."
    }
   },
@@ -889,7 +889,7 @@
     "title": "28. Combine api-mongo cluster into mongo cluster",
     "summary": "We are going to remove the api-mongo cluster, and update Content Store so it reads from the application mongo cluster.",
     "decided_on": "2017-09-14",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0028-combine-api-mongo-cluster-into-mongo-cluster.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0028-combine-api-mongo-cluster-into-mongo-cluster.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -901,7 +901,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 28. Combine api-mongo cluster into mongo cluster",
     "date": "2017-09-14",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0028-combine-api-mongo-cluster-into-mongo-cluster.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0028-combine-api-mongo-cluster-into-mongo-cluster.md",
     "excerpt": "We are going to remove the api-mongo cluster, and update Content Store so it reads from the application mongo cluster."
    }
   },
@@ -923,7 +923,7 @@
     "title": "29. Combine api-redis into backend-redis",
     "summary": "Update Rummager configuration so it uses backend-redis, and remove api-redis.",
     "decided_on": "2017-09-14",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0029-combine-api-redis-into-backend-redis.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0029-combine-api-redis-into-backend-redis.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -935,7 +935,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 29. Combine api-redis into backend-redis",
     "date": "2017-09-14",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0029-combine-api-redis-into-backend-redis.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0029-combine-api-redis-into-backend-redis.md",
     "excerpt": "Update Rummager configuration so it uses backend-redis, and remove api-redis."
    }
   },
@@ -946,7 +946,7 @@
     "title": "30. Change in architecture to Asset Master",
     "summary": "We will create an EFS resource and expose the mount using our internal Route 53 DNS. We will allow the required machines to mount the resource using Security Groups. The backend and whitehall-backend instances will mount as usual, and the asset-master will also mount the disk like an external share.",
     "decided_on": "2017-09-15",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0030-change-in-architecture-to-asset-master.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0030-change-in-architecture-to-asset-master.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -958,7 +958,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 30. Change in architecture to Asset Master",
     "date": "2017-09-15",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0030-change-in-architecture-to-asset-master.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0030-change-in-architecture-to-asset-master.md",
     "excerpt": "We will create an EFS resource and expose the mount using our internal Route 53 DNS. We will allow the required machines to mount the resource using Security Groups. The backend and whitehall-backend instances will mount as usual, and the asset-master will also mount the disk like an external share."
    }
   },
@@ -969,7 +969,7 @@
     "title": "32. transfer artefact binary",
     "summary": "We decided to use a mechanism that is located outside the environments involved and pass the contents to the correct locations when the package becomes available. !Transfer Mechanism",
     "decided_on": "2018-03-26",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0032-transfer-artefact-binary.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0032-transfer-artefact-binary.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -981,7 +981,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 32. transfer artefact binary",
     "date": "2018-03-26",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0032-transfer-artefact-binary.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0032-transfer-artefact-binary.md",
     "excerpt": "We decided to use a mechanism that is located outside the environments involved and pass the contents to the correct locations when the package becomes available. !Transfer Mechanism"
    }
   },
@@ -1014,7 +1014,7 @@
     "title": "37. ALB Health Checks",
     "summary": "When an instance is running more than one application, we are going to route traffic to the instance with an ALB. Each application has a dedicated target group, with a specific health check path, following the format /healthcheck<app-name. This health check path is configured in the default Vhost to",
     "decided_on": "2019-06-24",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0037-alb-health-checks.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0037-alb-health-checks.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -1026,7 +1026,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 37. ALB Health Checks",
     "date": "2019-06-24",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0037-alb-health-checks.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0037-alb-health-checks.md",
     "excerpt": "When an instance is running more than one application, we are going to route traffic to the instance with an ALB. Each application has a dedicated target group, with a specific health check path, following the format /healthcheck<app-name. This health check path is configured in the default Vhost to"
    }
   },
@@ -1048,7 +1048,7 @@
     "title": "38. Mongo Replacement by DocumentDB",
     "summary": "The approaches taken for migrating from MongoDB to AWS DocumentDB are: 1. new apps that are being migrated from legacy cloud providers (e.g UKCloud and Carrenza) to AWS and use MongoDB should be evaluated for compatibility with AWS DocumentDB during the migration phase. Based on this evaluation, a d",
     "decided_on": "2019-10-17",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0038-mongo_replacement_by_documentdb.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0038-mongo_replacement_by_documentdb.md",
     "repo": "alphagov/govuk-aws",
     "status": "Approved"
    }
@@ -1060,7 +1060,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 38. Mongo Replacement by DocumentDB",
     "date": "2019-10-17",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0038-mongo_replacement_by_documentdb.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0038-mongo_replacement_by_documentdb.md",
     "excerpt": "The approaches taken for migrating from MongoDB to AWS DocumentDB are: 1. new apps that are being migrated from legacy cloud providers (e.g UKCloud and Carrenza) to AWS and use MongoDB should be evaluated for compatibility with AWS DocumentDB during the migration phase. Based on this evaluation, a d"
    }
   },
@@ -1093,7 +1093,7 @@
     "title": "39. Non-GOV.UK domain policy",
     "summary": " 39. Non-GOV.UK domain policy Date: 2022-10-10 Status Accepted Definitions This proposal uses the RFC2119 standard for definitions of MUST, MUST NOT and MAY. Definitions: - \"Authenticated\": through an authentication method such as Signon, through basic access authentication, or similar - \"Non-GOV.UK",
     "decided_on": "2022-10-07",
-    "source": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0039-non-govuk-domain-policy.md",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0039-non-govuk-domain-policy.md",
     "repo": "alphagov/govuk-aws",
     "status": "Accepted"
    }
@@ -1105,7 +1105,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-aws: 39. Non-GOV.UK domain policy",
     "date": "2022-10-07",
-    "path": "https://github.com/alphagov/govuk-aws/blob/main/docs/architecture/decisions/0039-non-govuk-domain-policy.md",
+    "path": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0039-non-govuk-domain-policy.md",
     "excerpt": " 39. Non-GOV.UK domain policy Date: 2022-10-10 Status Accepted Definitions This proposal uses the RFC2119 standard for definitions of MUST, MUST NOT and MAY. Definitions: - \"Authenticated\": through an authentication method such as Signon, through basic access authentication, or similar - \"Non-GOV.UK"
    }
   },
@@ -1118,6 +1118,636 @@
     "date": "2022-10-07",
     "path": "https://github.com/alphagov/govuk-aws/pull/1638",
     "excerpt": ""
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0001-record-architecture-decisions_1",
+   "props": {
+    "text": "The project needs to record its architectural decisions",
+    "kind": "stated",
+    "quote": "We need to record the architectural decisions made on this project",
+    "section": "context",
+    "span": "87-153",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0001-record-architecture-decisions.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0001-record-architecture-decisions"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0004-dns-definitions-for-hosts-and-services_1",
+   "props": {
+    "text": "Icinga needs to communicate with hosts and services for monitoring to work",
+    "kind": "stated",
+    "quote": "For our current monitoring to work we need Icinga to be able to communicate with hosts and services",
+    "section": "context",
+    "span": "150-249",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0004-dns-definitions-for-hosts-and-services.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0004-dns-definitions-for-hosts-and-services"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0010-terraform-directory-structure_1",
+   "props": {
+    "text": "The team wants to separate code from data to allow open-sourcing code without disclosing implementation details.",
+    "kind": "stated",
+    "quote": "We want to separate code from data, so in the future we can open source the code without disclosing our implementation details,\nmaybe keeping the data in a private Github repository",
+    "section": "context",
+    "span": "278-459",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0010-terraform-directory-structure.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0010-terraform-directory-structure"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0010-terraform-directory-structure_2",
+   "props": {
+    "text": "The team wants to encrypt sensitive data within the same repository and process.",
+    "kind": "stated",
+    "quote": "We want to be able to encrypt sensitive data in the repository: we want to support sensitive data encryption as part of the same\nprocess, without having to manage secrets in a different repository, with different scripts, etc",
+    "section": "context",
+    "span": "462-687",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0010-terraform-directory-structure.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0010-terraform-directory-structure"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0010-terraform-directory-structure_3",
+   "props": {
+    "text": "The team wants to create Terraform modules to reuse code.",
+    "kind": "stated",
+    "quote": "We want to create Terraform modules to reuse code",
+    "section": "context",
+    "span": "691-740",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0010-terraform-directory-structure.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0010-terraform-directory-structure"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0010-terraform-directory-structure_4",
+   "props": {
+    "text": "The team wants to separate Terraform code into different projects to manage infrastructure tiers or application stacks, especially for GOV.UK applications.",
+    "kind": "stated",
+    "quote": "We want to separate Terraform code into different projects, each one managing an infrastructure tier or application stack. This\nis especially important to separate resources between GOV.UK applications",
+    "section": "context",
+    "span": "743-944",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0010-terraform-directory-structure.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0010-terraform-directory-structure"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0011-migration-strategy_1",
+   "props": {
+    "text": "The team already runs Puppet on every host",
+    "kind": "stated",
+    "quote": "This is much easier to manage than having elements of the environment in two places and having two sets of monitoring, Puppet masters, metrics etc",
+    "section": "decision",
+    "span": "865-1011",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0011-migration-strategy.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0011-migration-strategy"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0011-migration-strategy_2",
+   "props": {
+    "text": "The migration process doubles as disaster recovery preparation and rehearsal",
+    "kind": "stated",
+    "quote": "This method much more accurately mirrors a DR situation and so this migration to AWS also doubles as DR preparation and rehearsal as complete environments are built, tested, removed and built again continuously over the course of the task",
+    "section": "decision",
+    "span": "1460-1698",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0011-migration-strategy.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0011-migration-strategy"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0011-migration-strategy_3",
+   "props": {
+    "text": "Test stacks do not require infrastructure from the existing hosting platform",
+    "kind": "stated",
+    "quote": "Higher flexibility to test tearing down and bringing up stacks in their entirety without affecting a live service. That is, no test stack will require any infrastructure from the existing hosting platform to support it",
+    "section": "decision",
+    "span": "1236-1454",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0011-migration-strategy.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0011-migration-strategy"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0011-migration-strategy_4",
+   "props": {
+    "text": "Running on two platforms creates extra work for a long period without a strict migration plan",
+    "kind": "stated",
+    "quote": "unless there is a very strict migration plan with dates and deadlines, we risk running on two platforms with all the extra work that creates for a long period of time if we don't migrate atomically",
+    "section": "decision",
+    "span": "1033-1230",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0011-migration-strategy.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0011-migration-strategy"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0014-launch-config-change-propagation-process_1",
+   "props": {
+    "text": "Changes to a Launch Configuration are only propagated to new instances, not existing ones.",
+    "kind": "stated",
+    "quote": "When the LC of an ASG is changed those changes are only propagated to new instances",
+    "section": "context",
+    "span": "291-374",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0014-launch-config-change-propagation-process.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0014-launch-config-change-propagation-process"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0014-launch-config-change-propagation-process_2",
+   "props": {
+    "text": "Many instances are long-lived, causing LC changes to take a long time to propagate fully.",
+    "kind": "stated",
+    "quote": "Historically many of our instances are long lived (e.g. production puppetmaster, at time of writing, has an uptime of 79 days)",
+    "section": "context",
+    "span": "498-624",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0014-launch-config-change-propagation-process.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0014-launch-config-change-propagation-process"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0014-launch-config-change-propagation-process_3",
+   "props": {
+    "text": "The team uses Terraform to manage infrastructure.",
+    "kind": "stated",
+    "quote": "There are several possible ways to force propagation of LC changes within the existing Terraform code were considered",
+    "section": "context",
+    "span": "823-940",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0014-launch-config-change-propagation-process.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0014-launch-config-change-propagation-process"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0016-internal-dns-zones_1",
+   "props": {
+    "text": "Internal services need internal-only service records to connect without fully qualified domain names.",
+    "kind": "stated",
+    "quote": "We have a number of internal services that need to have\ninternal only service records. This allows clients to connect\nwithin their own environment or stack without needing a fully\nqualified domain name",
+    "section": "context",
+    "span": "77-278",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0016-internal-dns-zones.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0016-internal-dns-zones"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0016-internal-dns-zones_2",
+   "props": {
+    "text": "Internal service records must not be visible outside the local environment or stack.",
+    "kind": "stated",
+    "quote": "These records should not be visible outside the local environment or stack",
+    "section": "context",
+    "span": "281-355",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0016-internal-dns-zones.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0016-internal-dns-zones"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0016-internal-dns-zones_3",
+   "props": {
+    "text": "Sister teams use the same approach of buying an unused domain for internal DNS.",
+    "kind": "stated",
+    "quote": "This is also the approach taken by some of our sister teams",
+    "section": "consequences",
+    "span": "821-880",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0016-internal-dns-zones.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0016-internal-dns-zones"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0019-centralise-mysql-databases_1",
+   "props": {
+    "text": "The MySQL databases receive low traffic, allowing them to be grouped together with capacity safety.",
+    "kind": "stated",
+    "quote": "Due to the low amount of traffic most of the \nMySQL databases receive we decided against this due to cost and the number of\ninstances it would require",
+    "section": "decision",
+    "span": "1043-1193",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0019-centralise-mysql-databases.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0019-centralise-mysql-databases"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0019-centralise-mysql-databases_2",
+   "props": {
+    "text": "The team has a large, existing investment in using Puppet for managing database tasks.",
+    "kind": "stated",
+    "quote": "we do not want to manage individual aspects of databases and their users\nusing Terraform providers at this date as we have a large, existing, investment in using puppet \nfor these tasks",
+    "section": "decision",
+    "span": "1223-1408",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0019-centralise-mysql-databases.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0019-centralise-mysql-databases"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0019-centralise-mysql-databases_3",
+   "props": {
+    "text": "Centralising databases simplifies connectivity code, connection strings, and secret management.",
+    "kind": "stated",
+    "quote": "centralising the\ndatabases themselves in to a single RDS instance in order to simplify our connectivity code,\nconnection strings and secret management",
+    "section": "decision",
+    "span": "1715-1865",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0019-centralise-mysql-databases.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0019-centralise-mysql-databases"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0019-centralise-mysql-databases_4",
+   "props": {
+    "text": "Centralising databases is a cheaper approach than maintaining separate instances.",
+    "kind": "stated",
+    "quote": "This is also a much cheaper approach",
+    "section": "decision",
+    "span": "1867-1903",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0019-centralise-mysql-databases.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0019-centralise-mysql-databases"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0020-merge-api-postgresql-instance-into-main-postgresql-instance_1",
+   "props": {
+    "text": "Stagecraft is the only database running on API PostgreSQL instances",
+    "kind": "stated",
+    "quote": "The only database that runs on API PostgreSQL instances is Stagecraft, which is\nfor the Performance Platform",
+    "section": "context",
+    "span": "118-226",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0020-merge-api-postgresql-instance-into-main-postgresql-instance.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0020-merge-api-postgresql-instance-into-main-postgresql-instance"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0020-merge-api-postgresql-instance-into-main-postgresql-instance_2",
+   "props": {
+    "text": "The main PostgreSQL instance can host Stagecraft because the team does not have the split of vDCs present in the current hosting provider",
+    "kind": "stated",
+    "quote": "This is able to run on the main PostgreSQL instance as we do not have the split\nof \"vDCs\" that we have in our current hosting provider",
+    "section": "context",
+    "span": "229-363",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0020-merge-api-postgresql-instance-into-main-postgresql-instance.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0020-merge-api-postgresql-instance-into-main-postgresql-instance"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0020-merge-api-postgresql-instance-into-main-postgresql-instance_3",
+   "props": {
+    "text": "Work is ongoing to migrate the Performance Platform away from the team's infrastructure to The Government PaaS",
+    "kind": "stated",
+    "quote": "Work is ongoing to migrate the Performance Platform away from our infrastructure\nand to The Government PaaS, so the long term plan is not have this database in\nour infrastructure at all",
+    "section": "context",
+    "span": "366-551",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0020-merge-api-postgresql-instance-into-main-postgresql-instance.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0020-merge-api-postgresql-instance-into-main-postgresql-instance"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0022-remove-the-elasticsearch-proxy_1",
+   "props": {
+    "text": "AWS environments place Elasticsearch services behind an ELB, making the local proxy layer unnecessary.",
+    "kind": "stated",
+    "quote": "In the AWS environments these services are behind an ELB so this layer may\nno longer be required",
+    "section": "context",
+    "span": "501-597",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0022-remove-the-elasticsearch-proxy.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0022-remove-the-elasticsearch-proxy"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0022-remove-the-elasticsearch-proxy_2",
+   "props": {
+    "text": "Testing AWS instances without local proxies shows no service degradation when using ELBs.",
+    "kind": "stated",
+    "quote": "We've tested the instances in AWS without the local proxies and we have not discovered any\ndegradation of service when using the ELBs",
+    "section": "decision",
+    "span": "613-746",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0022-remove-the-elasticsearch-proxy.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0022-remove-the-elasticsearch-proxy"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0022-remove-the-elasticsearch-proxy_3",
+   "props": {
+    "text": "Removing the proxy simplifies networking and application data flow paths.",
+    "kind": "stated",
+    "quote": "This means we won't be\ntesting the exact same thing but will simplify the networking and application \ndata flow paths",
+    "section": "consequences",
+    "span": "1041-1158",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0022-remove-the-elasticsearch-proxy.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0022-remove-the-elasticsearch-proxy"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0024-ami-lookups_1",
+   "props": {
+    "text": "Specifying a specific image name ensures the deployed version is known and cannot change without intervention.",
+    "kind": "stated",
+    "quote": "This has the benefit that\nwe know exactly which version we deploy and it cannot change without our intervention",
+    "section": "context",
+    "span": "968-1079",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0024-ami-lookups.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0024-ami-lookups"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0024-ami-lookups_2",
+   "props": {
+    "text": "Security issues from older AMIs are mitigated by overnight security patching deployed via Puppet.",
+    "kind": "stated",
+    "quote": "We'd\nwork around this in the same way we do our other environments; by using the overnight\nsecurity patching we deploy via puppet",
+    "section": "consequences",
+    "span": "1553-1682",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0024-ami-lookups.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0024-ami-lookups"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0026-remove-load-balancer-tier_1",
+   "props": {
+    "text": "ELBs in Amazon handle autoscaling, making dedicated load balancer tiers less useful",
+    "kind": "stated",
+    "quote": "In the Amazon world these are less useful as we also have ELBs in place to handle\nthe autoscaling of instances",
+    "section": "context",
+    "span": "177-287",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0026-remove-load-balancer-tier.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0026-remove-load-balancer-tier"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0026-remove-load-balancer-tier_2",
+   "props": {
+    "text": "The team wants to reduce networking complexity",
+    "kind": "stated",
+    "quote": "We want to reduce the networking complexity and remove these machines",
+    "section": "context",
+    "span": "289-358",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0026-remove-load-balancer-tier.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0026-remove-load-balancer-tier"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0028-combine-api-mongo-cluster-into-mongo-cluster_1",
+   "props": {
+    "text": "Content Store is the only application that uses the api-mongo cluster.",
+    "kind": "stated",
+    "quote": "The only application that uses the api-mongo cluster is Content Store",
+    "section": "context",
+    "span": "518-587",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0028-combine-api-mongo-cluster-into-mongo-cluster.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0028-combine-api-mongo-cluster-into-mongo-cluster"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0028-combine-api-mongo-cluster-into-mongo-cluster_2",
+   "props": {
+    "text": "Removing the api-mongo cluster simplifies the architecture and saves money.",
+    "kind": "stated",
+    "quote": "Removing the api-mongo cluster will simplify our architecture, and save money",
+    "section": "consequences",
+    "span": "1174-1251",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0028-combine-api-mongo-cluster-into-mongo-cluster.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0028-combine-api-mongo-cluster-into-mongo-cluster"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0028-combine-api-mongo-cluster-into-mongo-cluster_3",
+   "props": {
+    "text": "The router-backend cluster must remain independent due to the critical nature of the Router application.",
+    "kind": "stated",
+    "quote": "The router-backend cluster is used by Router. This should remain independent due to the\ncritical nature of this application",
+    "section": "context",
+    "span": "590-713",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0028-combine-api-mongo-cluster-into-mongo-cluster.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0028-combine-api-mongo-cluster-into-mongo-cluster"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0029-combine-api-redis-into-backend-redis_1",
+   "props": {
+    "text": "Rummager is the only application that currently uses api-redis.",
+    "kind": "stated",
+    "quote": "Rummager uses api-redis",
+    "section": "context",
+    "span": "315-338",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0029-combine-api-redis-into-backend-redis.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0029-combine-api-redis-into-backend-redis"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0029-combine-api-redis-into-backend-redis_2",
+   "props": {
+    "text": "The historical separation of Rummager into a different vDC is no longer a concern in AWS.",
+    "kind": "stated",
+    "quote": "This was traditionally the case because Rummager lived in a different vDC to redis-1/redis-2,\nbut this is no longer a concern in AWS",
+    "section": "context",
+    "span": "341-473",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0029-combine-api-redis-into-backend-redis.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0029-combine-api-redis-into-backend-redis"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0029-combine-api-redis-into-backend-redis_3",
+   "props": {
+    "text": "Combining instances saves money by not running multiple Elasticache instances.",
+    "kind": "stated",
+    "quote": "We will save money on not running multiple Elasticache instances",
+    "section": "consequences",
+    "span": "715-779",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0029-combine-api-redis-into-backend-redis.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0029-combine-api-redis-into-backend-redis"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0037-alb-health-checks_1",
+   "props": {
+    "text": "The current health check only tests the basic Nginx configuration, causing premature traffic routing to instances where applications are not ready.",
+    "kind": "stated",
+    "quote": "The current ALB health check is rudimentary and does only test for the basic Nginx configuration being in place, rather than testing whether\nall apps are properly deployed",
+    "section": "context",
+    "span": "1610-1781",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0037-alb-health-checks.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0037-alb-health-checks"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0037-alb-health-checks_2",
+   "props": {
+    "text": "Nginx serves 200 OK responses for health checks even when the application port is unavailable, masking deployment issues.",
+    "kind": "stated",
+    "quote": "Nginx will serve 5xx responses. The\nload balancer still sees the health check responses as `200 OK`, so it continues sending traffic to that instance, even though the application\nis not ready to receive traffic",
+    "section": "context",
+    "span": "1397-1607",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0037-alb-health-checks.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0037-alb-health-checks"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0037-alb-health-checks_3",
+   "props": {
+    "text": "The health check path is configured in Puppet via the `govuk::app::config` module.",
+    "kind": "stated",
+    "quote": "This is configured in Puppet, in `govuk::app::config`, as the `health_check_path`\nparameter",
+    "section": "decision",
+    "span": "2396-2487",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0037-alb-health-checks.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0037-alb-health-checks"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0038-mongo_replacement_by_documentdb_1",
+   "props": {
+    "text": "TechOps strategy prioritizes AWS managed services to reduce the burden of managing COTS functionality.",
+    "kind": "stated",
+    "quote": "One architectural strategy principle of TechOps is to make use as much as\npossible AWS managed services in order to reduce the burden on GOV.UK teams to\nmanage Commercial off-the-shelf (COTS) functionality/services",
+    "section": "context",
+    "span": "455-669",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0038-mongo_replacement_by_documentdb.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0038-mongo_replacement_by_documentdb"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0038-mongo_replacement_by_documentdb_2",
+   "props": {
+    "text": "GOV.UK uses MongoDB as the backing database for a number of apps across multiple clusters.",
+    "kind": "stated",
+    "quote": "GOV.UK uses MongoDB as the backing database for a number of apps",
+    "section": "context",
+    "span": "90-154",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0038-mongo_replacement_by_documentdb.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0038-mongo_replacement_by_documentdb"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0038-mongo_replacement_by_documentdb_3",
+   "props": {
+    "text": "AWS DocumentDB is compatible with the open source MongoDB API 3.6.",
+    "kind": "stated",
+    "quote": "AWS DocumentDB has been developed to be [compatible](https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html)\n   with the open source MongoDB API 3.6",
+    "section": "consequences",
+    "span": "1485-1655",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0038-mongo_replacement_by_documentdb.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0038-mongo_replacement_by_documentdb"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0039-non-govuk-domain-policy_1",
+   "props": {
+    "text": "Non-GOV.UK domains that look like GOV.UK sites or serve content to them may be flagged as phishing by systems like Google's Safe Browsing.",
+    "kind": "stated",
+    "quote": "In either case, the domain might be flagged as a phishing site by systems such as [Google's Safe Browsing](https://transparencyreport.google.com/safe-browsing/search) technology, which is used by browsers including (but not limited to) Chrome to automatically block requests to the site",
+    "section": "context",
+    "span": "856-1142",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0039-non-govuk-domain-policy.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0039-non-govuk-domain-policy"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0039-non-govuk-domain-policy_2",
+   "props": {
+    "text": "Being flagged as a phishing site could cause a major incident making large parts of GOV.UK inaccessible.",
+    "kind": "stated",
+    "quote": "At worst, this could cause a major incident, making large parts of GOV.UK inaccessible",
+    "section": "context",
+    "span": "1242-1328",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0039-non-govuk-domain-policy.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0039-non-govuk-domain-policy"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0039-non-govuk-domain-policy_3",
+   "props": {
+    "text": "Several Signon domains currently violate the policy by being publicly routable without authentication.",
+    "kind": "stated",
+    "quote": "A number of Signon domains are currently in violation of this proposal",
+    "section": "consequences",
+    "span": "2302-2372",
+    "source": "https://github.com/alphagov/govuk-aws/blob/HEAD/docs/architecture/decisions/0039-non-govuk-domain-policy.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0039-non-govuk-domain-policy"
    }
   },
   {
@@ -2746,6 +3376,433 @@
    "props": {}
   },
   {
+   "src": "0001-record-architecture-decisions",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0001-record-architecture-decisions_1",
+   "props": {
+    "quote": "We need to record the architectural decisions made on this project",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0004-dns-definitions-for-hosts-and-services",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0004-dns-definitions-for-hosts-and-services_1",
+   "props": {
+    "quote": "For our current monitoring to work we need Icinga to be able to communicate with hosts and services",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0010-terraform-directory-structure",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0010-terraform-directory-structure_1",
+   "props": {
+    "quote": "We want to separate code from data, so in the future we can open source the code without disclosing our implementation details,\nmaybe keeping the data in a private Github repository",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0010-terraform-directory-structure",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0010-terraform-directory-structure_2",
+   "props": {
+    "quote": "We want to be able to encrypt sensitive data in the repository: we want to support sensitive data encryption as part of the same\nprocess, without having to manage secrets in a different repository, with different scripts, etc",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0010-terraform-directory-structure",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0010-terraform-directory-structure_3",
+   "props": {
+    "quote": "We want to create Terraform modules to reuse code",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0010-terraform-directory-structure",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0010-terraform-directory-structure_4",
+   "props": {
+    "quote": "We want to separate Terraform code into different projects, each one managing an infrastructure tier or application stack. This\nis especially important to separate resources between GOV.UK applications",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0011-migration-strategy",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0011-migration-strategy_1",
+   "props": {
+    "quote": "This is much easier to manage than having elements of the environment in two places and having two sets of monitoring, Puppet masters, metrics etc",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0011-migration-strategy",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0011-migration-strategy_2",
+   "props": {
+    "quote": "This method much more accurately mirrors a DR situation and so this migration to AWS also doubles as DR preparation and rehearsal as complete environments are built, tested, removed and built again continuously over the course of the task",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0011-migration-strategy",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0011-migration-strategy_3",
+   "props": {
+    "quote": "Higher flexibility to test tearing down and bringing up stacks in their entirety without affecting a live service. That is, no test stack will require any infrastructure from the existing hosting platform to support it",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0011-migration-strategy",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0011-migration-strategy_4",
+   "props": {
+    "quote": "unless there is a very strict migration plan with dates and deadlines, we risk running on two platforms with all the extra work that creates for a long period of time if we don't migrate atomically",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0014-launch-config-change-propagation-process",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0014-launch-config-change-propagation-process_1",
+   "props": {
+    "quote": "When the LC of an ASG is changed those changes are only propagated to new instances",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0014-launch-config-change-propagation-process",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0014-launch-config-change-propagation-process_2",
+   "props": {
+    "quote": "Historically many of our instances are long lived (e.g. production puppetmaster, at time of writing, has an uptime of 79 days)",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0014-launch-config-change-propagation-process",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0014-launch-config-change-propagation-process_3",
+   "props": {
+    "quote": "There are several possible ways to force propagation of LC changes within the existing Terraform code were considered",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0016-internal-dns-zones",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0016-internal-dns-zones_1",
+   "props": {
+    "quote": "We have a number of internal services that need to have\ninternal only service records. This allows clients to connect\nwithin their own environment or stack without needing a fully\nqualified domain name",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0016-internal-dns-zones",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0016-internal-dns-zones_2",
+   "props": {
+    "quote": "These records should not be visible outside the local environment or stack",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0016-internal-dns-zones",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0016-internal-dns-zones_3",
+   "props": {
+    "quote": "This is also the approach taken by some of our sister teams",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0019-centralise-mysql-databases",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0019-centralise-mysql-databases_1",
+   "props": {
+    "quote": "Due to the low amount of traffic most of the \nMySQL databases receive we decided against this due to cost and the number of\ninstances it would require",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0019-centralise-mysql-databases",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0019-centralise-mysql-databases_2",
+   "props": {
+    "quote": "we do not want to manage individual aspects of databases and their users\nusing Terraform providers at this date as we have a large, existing, investment in using puppet \nfor these tasks",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0019-centralise-mysql-databases",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0019-centralise-mysql-databases_3",
+   "props": {
+    "quote": "centralising the\ndatabases themselves in to a single RDS instance in order to simplify our connectivity code,\nconnection strings and secret management",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0019-centralise-mysql-databases",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0019-centralise-mysql-databases_4",
+   "props": {
+    "quote": "This is also a much cheaper approach",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0020-merge-api-postgresql-instance-into-main-postgresql-instance",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0020-merge-api-postgresql-instance-into-main-postgresql-instance_1",
+   "props": {
+    "quote": "The only database that runs on API PostgreSQL instances is Stagecraft, which is\nfor the Performance Platform",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0020-merge-api-postgresql-instance-into-main-postgresql-instance",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0020-merge-api-postgresql-instance-into-main-postgresql-instance_2",
+   "props": {
+    "quote": "This is able to run on the main PostgreSQL instance as we do not have the split\nof \"vDCs\" that we have in our current hosting provider",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0020-merge-api-postgresql-instance-into-main-postgresql-instance",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0020-merge-api-postgresql-instance-into-main-postgresql-instance_3",
+   "props": {
+    "quote": "Work is ongoing to migrate the Performance Platform away from our infrastructure\nand to The Government PaaS, so the long term plan is not have this database in\nour infrastructure at all",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0022-remove-the-elasticsearch-proxy",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0022-remove-the-elasticsearch-proxy_1",
+   "props": {
+    "quote": "In the AWS environments these services are behind an ELB so this layer may\nno longer be required",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0022-remove-the-elasticsearch-proxy",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0022-remove-the-elasticsearch-proxy_2",
+   "props": {
+    "quote": "We've tested the instances in AWS without the local proxies and we have not discovered any\ndegradation of service when using the ELBs",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0022-remove-the-elasticsearch-proxy",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0022-remove-the-elasticsearch-proxy_3",
+   "props": {
+    "quote": "This means we won't be\ntesting the exact same thing but will simplify the networking and application \ndata flow paths",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0024-ami-lookups",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0024-ami-lookups_1",
+   "props": {
+    "quote": "This has the benefit that\nwe know exactly which version we deploy and it cannot change without our intervention",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0024-ami-lookups",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0024-ami-lookups_2",
+   "props": {
+    "quote": "We'd\nwork around this in the same way we do our other environments; by using the overnight\nsecurity patching we deploy via puppet",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0026-remove-load-balancer-tier",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0026-remove-load-balancer-tier_1",
+   "props": {
+    "quote": "In the Amazon world these are less useful as we also have ELBs in place to handle\nthe autoscaling of instances",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0026-remove-load-balancer-tier",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0026-remove-load-balancer-tier_2",
+   "props": {
+    "quote": "We want to reduce the networking complexity and remove these machines",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0028-combine-api-mongo-cluster-into-mongo-cluster",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0028-combine-api-mongo-cluster-into-mongo-cluster_1",
+   "props": {
+    "quote": "The only application that uses the api-mongo cluster is Content Store",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0028-combine-api-mongo-cluster-into-mongo-cluster",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0028-combine-api-mongo-cluster-into-mongo-cluster_2",
+   "props": {
+    "quote": "Removing the api-mongo cluster will simplify our architecture, and save money",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0028-combine-api-mongo-cluster-into-mongo-cluster",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0028-combine-api-mongo-cluster-into-mongo-cluster_3",
+   "props": {
+    "quote": "The router-backend cluster is used by Router. This should remain independent due to the\ncritical nature of this application",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0029-combine-api-redis-into-backend-redis",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0029-combine-api-redis-into-backend-redis_1",
+   "props": {
+    "quote": "Rummager uses api-redis",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0029-combine-api-redis-into-backend-redis",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0029-combine-api-redis-into-backend-redis_2",
+   "props": {
+    "quote": "This was traditionally the case because Rummager lived in a different vDC to redis-1/redis-2,\nbut this is no longer a concern in AWS",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0029-combine-api-redis-into-backend-redis",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0029-combine-api-redis-into-backend-redis_3",
+   "props": {
+    "quote": "We will save money on not running multiple Elasticache instances",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0037-alb-health-checks",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0037-alb-health-checks_1",
+   "props": {
+    "quote": "The current ALB health check is rudimentary and does only test for the basic Nginx configuration being in place, rather than testing whether\nall apps are properly deployed",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0037-alb-health-checks",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0037-alb-health-checks_2",
+   "props": {
+    "quote": "Nginx will serve 5xx responses. The\nload balancer still sees the health check responses as `200 OK`, so it continues sending traffic to that instance, even though the application\nis not ready to receive traffic",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0037-alb-health-checks",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0037-alb-health-checks_3",
+   "props": {
+    "quote": "This is configured in Puppet, in `govuk::app::config`, as the `health_check_path`\nparameter",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0038-mongo_replacement_by_documentdb",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0038-mongo_replacement_by_documentdb_1",
+   "props": {
+    "quote": "One architectural strategy principle of TechOps is to make use as much as\npossible AWS managed services in order to reduce the burden on GOV.UK teams to\nmanage Commercial off-the-shelf (COTS) functionality/services",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0038-mongo_replacement_by_documentdb",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0038-mongo_replacement_by_documentdb_2",
+   "props": {
+    "quote": "GOV.UK uses MongoDB as the backing database for a number of apps",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0038-mongo_replacement_by_documentdb",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0038-mongo_replacement_by_documentdb_3",
+   "props": {
+    "quote": "AWS DocumentDB has been developed to be [compatible](https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html)\n   with the open source MongoDB API 3.6",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0039-non-govuk-domain-policy",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0039-non-govuk-domain-policy_1",
+   "props": {
+    "quote": "In either case, the domain might be flagged as a phishing site by systems such as [Google's Safe Browsing](https://transparencyreport.google.com/safe-browsing/search) technology, which is used by browsers including (but not limited to) Chrome to automatically block requests to the site",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0039-non-govuk-domain-policy",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0039-non-govuk-domain-policy_2",
+   "props": {
+    "quote": "At worst, this could cause a major incident, making large parts of GOV.UK inaccessible",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0039-non-govuk-domain-policy",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0039-non-govuk-domain-policy_3",
+   "props": {
+    "quote": "A number of Signon domains are currently in violation of this proposal",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "src:0023-use-separate-data-repository",
+   "rel": "SUPPORTS",
+   "dst": "r_0010-terraform-directory-structure_1",
+   "props": {
+    "at": "2017-08-18",
+    "quote": "The `terraform/data` directory will be split out into its own repository that will be kept private",
+    "why": "The decision to move data to a private repository directly affirms the earlier goal of separating code from data to allow open-sourcing the code without disclosing implementation details.",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "src:0023-use-separate-data-repository",
+   "rel": "SUPPORTS",
+   "dst": "r_0010-terraform-directory-structure_2",
+   "props": {
+    "at": "2017-08-18",
+    "quote": "all sensitive data within it will be encrypted using [sops](https://github.com/mozilla/sops)",
+    "why": "The decision to encrypt sensitive data using sops affirms the earlier desire to support sensitive data encryption as part of the process.",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
    "src": "maintained:elasticsearch",
    "rel": "SUPPORTS",
    "dst": "p_elasticsearch_maintained",
@@ -3035,6 +4092,186 @@
    "props": {
     "quote": "The current release of MongoDB has no known vulnerability"
    }
+  },
+  {
+   "src": "r_0010-terraform-directory-structure_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_terraform_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0010-terraform-directory-structure_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_terraform_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0010-terraform-directory-structure_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_terraform_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0014-launch-config-change-propagation-process_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_terraform_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0014-launch-config-change-propagation-process_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_terraform_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0014-launch-config-change-propagation-process_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_terraform_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0011-migration-strategy_1",
+   "rel": "DERIVED_FROM",
+   "dst": "p_puppet_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0011-migration-strategy_1",
+   "rel": "DERIVED_FROM",
+   "dst": "p_puppet_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0011-migration-strategy_1",
+   "rel": "DERIVED_FROM",
+   "dst": "p_puppet_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0019-centralise-mysql-databases_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_puppet_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0019-centralise-mysql-databases_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_puppet_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0019-centralise-mysql-databases_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_puppet_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0024-ami-lookups_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_puppet_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0024-ami-lookups_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_puppet_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0024-ami-lookups_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_puppet_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0037-alb-health-checks_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_puppet_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0037-alb-health-checks_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_puppet_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0037-alb-health-checks_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_puppet_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0022-remove-the-elasticsearch-proxy_1",
+   "rel": "DERIVED_FROM",
+   "dst": "p_elasticsearch_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0022-remove-the-elasticsearch-proxy_1",
+   "rel": "DERIVED_FROM",
+   "dst": "p_elasticsearch_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0022-remove-the-elasticsearch-proxy_1",
+   "rel": "DERIVED_FROM",
+   "dst": "p_elasticsearch_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0022-remove-the-elasticsearch-proxy_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_elasticsearch_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0022-remove-the-elasticsearch-proxy_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_elasticsearch_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0022-remove-the-elasticsearch-proxy_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_elasticsearch_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0029-combine-api-redis-into-backend-redis_1",
+   "rel": "DERIVED_FROM",
+   "dst": "p_redis_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0029-combine-api-redis-into-backend-redis_1",
+   "rel": "DERIVED_FROM",
+   "dst": "p_redis_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0029-combine-api-redis-into-backend-redis_1",
+   "rel": "DERIVED_FROM",
+   "dst": "p_redis_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0038-mongo_replacement_by_documentdb_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_mongodb_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0038-mongo_replacement_by_documentdb_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_mongodb_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0038-mongo_replacement_by_documentdb_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_mongodb_no_known_vuln",
+   "props": {}
   }
  ]
 }

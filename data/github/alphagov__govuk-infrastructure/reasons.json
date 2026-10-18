@@ -1,0 +1,386 @@
+{
+ "evidence": {
+  "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "f3e298f256a94f56e9d3",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 15.4
+  },
+  "0004-use-aws-load-balancer-controller-for-edge-traffic-services": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "b559993c71b484d9f1f6",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 22.6
+  },
+  "0005-use-eks-managed-node-groups": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "b227a720643d87e28aec",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 19.9
+  },
+  "0006-use-helm-for-application-package-management": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "991e21d906306ff08d24",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 25.6
+  },
+  "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "3b53d20a8ec59440b0e1",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 21.5
+  },
+  "0008-use-external-secrets-for-secrets-storage": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "50b2f67e100eaea9950e",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 32.4
+  },
+  "0009-use-external-dns-for-dns-record-management": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "a2ccc0b7890fc175b9b8",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 16.7
+  },
+  "0010-use-dex-idp-for-user-web-authentication": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "43ed9e7d7a332b9b2204",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 19.6
+  },
+  "0011-use-graviton-for-compute-instances": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ffdf85b7015d451b7073",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 21.9
+  },
+  "0012-non-govuk-domain-policy": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "0e23f443051b843d810d",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 18.0
+  },
+  "0013-expose-external-metrics-for-hpa": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "20901c0b76742d316e6f",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 22.9
+  },
+  "0014-replace-terraform-cloud": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "00263c5dc2e372022b88",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 22.6
+  },
+  "0015-maintain-a-readonly-role": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "92ebc368b066d15d876a",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 24.3
+  },
+  "0016-use-iam-roles-for-services": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "1628f53d7655cb16f8c8",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 19.6
+  },
+  "0017-retire-use-of-github-topics-for-config-management": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "5fd24c404423e9dfd9a7",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 18.7
+  },
+  "0018-use-concourse-ci": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "133902e1e2f49178175b",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 31.3
+  },
+  "0019-restructure-cicd": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "2ca7ecbddc6fd15f2cca",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 41.9
+  },
+  "0020-use-crossplane-for-abstraction": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "98d37a0181117fe54398",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 33.7
+  },
+  "0021-give-fastly-cname-records-a-TTL-of-300": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "9708ba799e0948c203c1",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 19.3
+  },
+  "0022-use-pkl-for-configuration": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "cda0bf9d510cc3e764b2",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 36.5
+  },
+  "0023-use-opa-gatekeeper": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "8efdb38c7e5ee5e93179",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 23.5
+  },
+  "0024-use-of-admission-policy": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "153a417e3b2cc9acebe5",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 17.7
+  }
+ },
+ "extract": {
+  "0001-record-architecture-decisions": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "9a2fd3aaf210b6727b14",
+   "model": "qwen3.8:27b",
+   "reply": "```json\n{\"reasons\": [{\"text\": \"The project needs to record its architectural decisions.\", \"quote\": \"We need to record the architectural decisions made on this project.\", \"tool\": null}]}\n```",
+   "seconds": 4.9
+  },
+  "0002-use-aws-eks-terraform-module": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "89eba9fdd655d20c42df",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Defining each EKS resource in a custom module requires significant effort.\", \"quote\": \"Defining each resource in our own Terraform module maximises flexibility but also requires a significant level of effort.\", \"tool\": null}, {\"text\": \"The existing Terraform registry EKS module optimizes for speed of delivery.\", \"quote\": \"We could instead make use of the [existing Terraform registry EKS module](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest) to optimise for speed of delivery.\", \"tool\": \"terraform-aws-eks module\"}, {\"text\": \"Many module defaults are fine for the team's purposes for the foreseeable future.\", \"quote\": \"We can define fully configured EKS clusters quickly and easily, because many module defaults will be fine for our purposes for the foreseeable future.\", \"tool\": \"terraform-aws-eks module\"}, {\"text\": \"The EKS module has comprehensive support for many EKS cluster configuration options.\", \"quote\": \"The EKS module has comprehensive support for many of the options for EKS cluster config (e.g. worker node types).\", \"tool\": \"terraform-aws-eks module\"}]}",
+   "seconds": 17.0
+  },
+  "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases": {
+   "backend": "ollama",
+   "dropped": [
+    {
+     "text": "The Kubernetes provider requires arguments that depend on AWS resource outputs, causing race conditions in a single state.",
+     "tool": "Terraform",
+     "why": "tool link dropped: not a catalogue tool named in the quote or title"
+    }
+   ],
+   "key": "b7b1ee17420bc85eecf2",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Terraform providers are not nodes in the plan graph, so AWS resources are not guaranteed to be created before the Kubernetes provider initializes.\",\n      \"quote\": \"Terraform providers are not handled as nodes in the Terraform plan graph, so Terraform cannot guarantee that AWS resources are fully created at the point that it configures the `kubernetes` provider.\",\n      \"tool\": \"Terraform\"\n    },\n    {\n      \"text\": \"The Kubernetes provider requires arguments that depend on AWS resource outputs, causing race conditions in a single state.\",\n      \"quote\": \"The `kubernetes` provider requires arguments that are dependent on AWS resource outputs, so a na\u00efve implementation would look like this:\",\n      \"tool\": \"Terraform\"\n    },\n    {\n      \"text\": \"Terraform cannot include AWS load balancers provisioned by Kubernetes services in its destruction plan, preventing EKS cluster deletion.\",\n      \"quote\": \"Ingress controllers and Kubernetes `Service` objects commonly provision AWS load balancers that Terraform does not know about, and therefore cannot include in a destruction plan.\",\n      \"tool\": \"Terraform\"\n    },\n    {\n      \"text\": \"The separation keeps generic cluster infrastructure distinct from GOV.UK-specific configuration, allowing for future cluster switching.\",\n      \"quote\": \"This is an important and useful separation to enforce, because it keeps the largely generic cluster infrastructure separate from the GOV.UK-specific configuration and supporting services.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 36.9
+  },
+  "0004-use-aws-load-balancer-controller-for-edge-traffic-services": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "5bf8614dbac2efd212fa",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"The project requires an AWS load balancer in front of the cluster to avoid direct internet exposure.\", \"quote\": \"We do not want to expose the cluster directly to the internet, so we require an AWS load balancer in front of the cluster.\", \"tool\": null}, {\"text\": \"The load balancer must support TLS termination and integration with AWS Route 53.\", \"quote\": \"The load balancer must support TLS termination and integration with our DNS provider (AWS Route 53).\", \"tool\": null}, {\"text\": \"Built-in Kubernetes cloud providers are deprecated in favor of out-of-tree providers.\", \"quote\": \"Built-in cloud providers are now [considered deprecated overall, in favour of out-of-tree providers](https://kubernetes.io/blog/2019/04/17/the-future-of-cloud-providers-in-kubernetes/),\\nso users are now required to use an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) \\nwith support for `Service` resources.\", \"tool\": null}, {\"text\": \"The AWS Load Balancer Controller is the primary and recommended ingress controller for AWS EKS.\", \"quote\": \"The primary, and recommended, ingress controller for AWS' Elastic Kubernetes Service (EKS) is\\nthe [AWS Load Balancer Controller](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html), which can provision and manage [ALBs for `Ingress` resources and NLBs for\\n`Service` resources](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/#aws-load-balancer-controller).\", \"tool\": \"AWS Load Balancer Controller\"}]}",
+   "seconds": 32.0
+  },
+  "0005-use-eks-managed-node-groups": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "612bd45805b23db7de4f",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Kubernetes has a 4-month release cycle, making frequent upgrades necessary.\", \"quote\": \"Kubernetes has a 4-month release cycle, so upgrades will be relatively frequent.\", \"tool\": \"Kubernetes\"}, {\"text\": \"The team requires a robust and mature node upgrade process due to the destructive nature of worker updates.\", \"quote\": \"We will require a robust and mature node upgrade process, given the potentially destructive nature of worker updates.\", \"tool\": null}, {\"text\": \"The requirements for worker nodes are not fully known, making flexibility important.\", \"quote\": \"At this stage our requirements for worker nodes are not fully known, so maintaining flexibility is important.\", \"tool\": null}, {\"text\": \"Managed node groups handle graceful upgrades largely automatically, unlike self-managed groups.\", \"quote\": \"Managed node groups handle graceful upgrades largely automatically\", \"tool\": \"Kubernetes\"}]}",
+   "seconds": 17.3
+  },
+  "0006-use-helm-for-application-package-management": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "b0685f6f170a66dec43e",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"The team requires a way to define Kubernetes resources as installable packages with configuration options passed at deploy time.\", \"quote\": \"At a high level, we require a means to define an application's Kubernetes resources as an installable package, with configuration options passed in at deploy time.\", \"tool\": null}, {\"text\": \"The team uses Terraform for AWS infrastructure management and wants to maintain a strict separation of concerns between infrastructure and application management.\", \"quote\": \"We are currently using Terraform for AWS infrastructure management, and we should maintain a strict separation of concerns between managing cloud infrastructure and the software applications that run on top.\", \"tool\": null}, {\"text\": \"Helm has widespread industry adoption, a large number of existing packages, and support in the wider devops and development ecosystem.\", \"quote\": \"Helm by comparison has widespread industry adoption, a [large number of existing packages](https://artifacthub.io/packages/search), and widespread support in the wider devops and development ecosystem.\", \"tool\": \"Helm\"}]}",
+   "seconds": 23.5
+  },
+  "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "d8e340ed0e09fb0afe78",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"The sidecar pattern does not meet the need for logging as a default service for all containers\", \"quote\": \"We must have logging as a service and enable it by default for all containers, so the sidecar pattern does not meet our needs.\", \"tool\": null}, {\"text\": \"The logging agent must annotate and index logs with Kubernetes cluster metadata\", \"quote\": \"To make application logs searchable and navigable, we require the logging agent to annotate and index logs with Kubernetes cluster metadata (namespace, pod name, labels, and so on).\", \"tool\": null}, {\"text\": \"Elasticsearch and Kibana are chosen due to their extensive support for this use case and ecosystem\", \"quote\": \"For now, the obvious choice is Elasticsearch and Kibana, due to their extensive support for this use case and in this ecosystem.\", \"tool\": \"Elasticsearch\"}, {\"text\": \"Deploying a local logging service ensures usability sooner and familiarity with Kubernetes logging details\", \"quote\": \"Doing so will ensure we have a usable logging service for our users sooner rather than later, and get familiar with the details of logging within Kubernetes ourselves.\", \"tool\": null}]}",
+   "seconds": 28.2
+  },
+  "0008-use-external-secrets-for-secrets-storage": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ed98c984eb876665ec55",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The team wants to reconstitute the full state of a running cluster from an external source of truth.\",\n      \"quote\": \"We want to do this because we want the ability to reconstitute the full state of a running cluster from an external source of truth.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Managing sensitive configuration in Git repositories presents significant challenges and pain points.\",\n      \"quote\": \"there are significant challenges and pain points when managing sensitive config in Git repositories\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The team must maintain end-to-end encryption of secrets until a running container uses them.\",\n      \"quote\": \"We must maintain end-to-end encryption of secrets, up until the point a running container uses a secret, where Kubernetes must necessarily decrypt the secret for use.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The team must support automatic propagation of secret rotations from AWS to services in the cluster.\",\n      \"quote\": \"We must be able to support rotation of secrets in AWS SecretsManager, where a change of value in AWS is automatically propagated to services in the cluster.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 37.5
+  },
+  "0009-use-external-dns-for-dns-record-management": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "179e285007473e9d4ce9",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 5.0
+  },
+  "0010-use-dex-idp-for-user-web-authentication": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "3d87632cef52010b6385",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Prometheus and Alertmanager lack built-in web authentication, requiring authentication at the load balancer level.\",\n      \"quote\": \"Prometheus and Alertmanager do not support any form of web-based user authentication, so authentication must happen at a proxy or load balancer in front of the application.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The AWS Load Balancer Controller supports OIDC authentication, which is required for the infrastructure.\",\n      \"quote\": \"We are currently using Application Load Balancers (ALB) in front of Prometheus and Alertmanager, from the [AWS Load Balancer Controller](0004-use-aws-load-balancer-controller-for-edge-traffic-services.md), which supports [authentication with AWS Cognito or OIDC-compliant identity providers](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.3/guide/ingress/annotations/#authentication).\",\n      \"tool\": \"AWS Load Balancer Controller\"\n    },\n    {\n      \"text\": \"GitHub does not support OIDC, and AWS Cognito does not support OAuth2, preventing direct integration between them.\",\n      \"quote\": \"GitHub as an identity provider does not support OIDC, only OAuth2, so we cannot use it for ALB authentication. AWS Cognito [does not support OAuth2, only OIDC](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html), so we cannot use it with GitHub as an identity provider.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Argo CD already includes Dex as an OIDC-compliant identity broker.\",\n      \"quote\": \"ArgoCD, our current CD tool, also [implements authentication with OIDC](https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/#existing-oidc-provider), and [includes an OIDC-compliant identity broker](https://argoproj.github.io/argo-workflows/argo-server-sso-argocd/): [Dex](https://dexidp.io).\",\n      \"tool\": \"Argo CD\"\n    }\n  ]\n}",
+   "seconds": 32.3
+  },
+  "0011-use-graviton-for-compute-instances": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "0360ab7001f28f7d0f40",
+   "model": "qwen3.8:27b",
+   "reply": "[\n  {\n    \"text\": \"The majority of engineers use MacBooks with Apple Silicon CPUs, so matching the production architecture to local development ensures consistency.\",\n    \"quote\": \"The majority of engineers on GOV.UK (and the wider GDS) are using GDS-issued MacBooks, which have Apple Silicon CPUs that are based on the ARM CPU architecture. Switching our Production (and non-Production) workloads to use the same architecture would ensure that what we develop and test on locally and in non-Prod matches what we run in Production.\",\n    \"tool\": null\n  },\n  {\n    \"text\": \"AWS Graviton-powered instances are typically cheaper than their AMD or Intel counterparts, which reduces running costs.\",\n    \"quote\": \"AWS Graviton-powered compute instances (usually denoted with a \\\"g\\\", e.g. `M7g`, `R7g`, and so on) are typically cheaper than their AMD (`M7a`, `R7a`) or Intel (`M7i`, `R7i`) counterparts. This will reduce running costs.\",\n    \"tool\": null\n  },\n  {\n    \"text\": \"Switching to AWS EKS has made it easier to support different CPU architectures side-by-side and migrate workloads gracefully.\",\n    \"quote\": \"Switching to AWS Elastic Kubernetes Service (EKS) has made it easier for us to support different CPU architectures side-by-side and to migrate our workloads gracefully with no downtime.\",\n    \"tool\": \"Kubernetes\"\n  },\n  {\n    \"text\": \"Kubernetes is architecture-agnostic, allowing x86_64 workloads to be supported side-by-side with Graviton workloads if needed in the future.\",\n    \"quote\": \"If we need to run x86_64 workloads again in the future, we can easily support this side-by-side with Graviton workloads, thanks to Kubernetes being architecture-agnostic.\",\n    \"tool\": \"Kubernetes\"\n  }\n]",
+   "seconds": 31.4
+  },
+  "0012-non-govuk-domain-policy": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c6c410d3696fb8fbe15c",
+   "model": "qwen3.8:27b",
+   "reply": "```json\n{\n  \"reasons\": [\n    {\n      \"text\": \"Systems like Google's Safe Browsing might flag a Non-GOV.UK domain as a phishing site if it looks like a GOV.UK site or plays a publicly detectable role in serving content.\",\n      \"quote\": \"In either case, systems such as [Google's Safe Browsing](https://transparencyreport.google.com/safe-browsing/search), in use by browsers to automatically block requests to dangerous sites, might flag the domain as a phishing site.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Such flagging could cause a major incident, making large parts of GOV.UK inaccessible.\",\n      \"quote\": \"At worst, this could cause a major incident, making large parts of GOV.UK inaccessible.\",\n      \"tool\": null\n    }\n  ]\n}\n```",
+   "seconds": 29.4
+  },
+  "0013-expose-external-metrics-for-hpa": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ba53aeda366e313e8d21",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Kubernetes HPAs currently scale only on CPU and memory metrics from metrics-server\", \"quote\": \"Kubernetes Horizontal Pod Autoscalers (HPAs) on GOV.UK currently scale only on CPU and memory metrics from `metrics-server`.\", \"tool\": null}, {\"text\": \"Workloads need to scale on application-level signals such as Sidekiq queue backlog length\", \"quote\": \"Several workloads (starting with Chat AI) need to scale on application-level signals, such as a Sidekiq queue backlog length.\", \"tool\": null}, {\"text\": \"Kubernetes requires external signals to be available through the external.metrics.k8s.io API group\", \"quote\": \"Kubernetes requires these signals to be available through the `external.metrics.k8s.io` API group.\", \"tool\": null}, {\"text\": \"Prometheus already scrapes the backlog metric in every cluster but lacks a component to translate it to the external-metrics API\", \"quote\": \"Prometheus already scrapes the backlog metric (`sidekiq_queue_backlog{job=\\\"govuk-chat-worker\\\"}`) in every cluster, but the cluster lacks a component that translates Prometheus data into the `external-metrics` API.\", \"tool\": \"Prometheus\"}]}",
+   "seconds": 23.9
+  },
+  "0014-replace-terraform-cloud": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "d068601aedb638ce2782",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Terraform Cloud's cost and proprietary lock-in are no longer acceptable to the team.\", \"quote\": \"its cost and proprietary lock\u2011in are no longer acceptable\", \"tool\": null}, {\"text\": \"A renewal decision for the Terraform Cloud service is due within six months.\", \"quote\": \"A renewal decision is due within six months\", \"tool\": null}, {\"text\": \"S3-backed state with S3 native locking has matured.\", \"quote\": \"S3\u2011backed state with S3 native locking has matured\", \"tool\": null}, {\"text\": \"AWS already meets the organization's security baseline.\", \"quote\": \"AWS already meets our security baseline\", \"tool\": null}]}",
+   "seconds": 20.4
+  },
+  "0015-maintain-a-readonly-role": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "9023e1fd7987a50c584a",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"The team aims to adhere to the principle of least privilege by providing specific IAM and Kubernetes roles.\", \"quote\": \"We aim to adhere to the principle of least privilege wherever we can.\", \"tool\": null}, {\"text\": \"The lowest level of privilege should not be capable of causing a production outage.\", \"quote\": \"we felt that the lowest level of privilege should not be capable of causing a production outage.\", \"tool\": null}, {\"text\": \"Developers need a role to look around without changing anything.\", \"quote\": \"Developers wanting to just look about without changing anything\", \"tool\": null}, {\"text\": \"Junior or apprentice level roles need access without the ability to accidentally change anything.\", \"quote\": \"Junior/apprentice level roles needing access without the ability to accidentally change anything\", \"tool\": null}]}",
+   "seconds": 22.6
+  },
+  "0016-use-iam-roles-for-services": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "bd5c20cc08b6b3cfe5cd",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Compromised IAM access keys pose a significant security risk.\", \"quote\": \"If these keys are compromised through leakage or reuse by unauthorised actors, they can pose a significant security risk.\", \"tool\": null}, {\"text\": \"Long-lived keys increase security risk.\", \"quote\": \"Long-lived keys increase this risk, and regular rotation is encouraged to mitigate it.\", \"tool\": null}, {\"text\": \"Many third-party services support the use of IAM roles.\", \"quote\": \"Many third-party services now support the use of IAM roles.\", \"tool\": null}, {\"text\": \"Internal applications can use Kubernetes Pod identities or assume IAM roles directly.\", \"quote\": \"Where possible, these applications (or their Kubernetes pods) should use Kubernetes `Pod` identities or assume IAM roles directly, rather than relying on access keys.\", \"tool\": \"Kubernetes\"}]}",
+   "seconds": 18.0
+  },
+  "0017-retire-use-of-github-topics-for-config-management": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c7a74ae75ffcdf688d85",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 9.9
+  },
+  "0018-use-concourse-ci": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "464de5abc276990cbcdb",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"The existing CI/CD implementation has security flaws and causes incidents\", \"quote\": \"An IT Health Check carried out in 2024 identified security flaws in the implementation of the deployment process. This, and a number of incidents directly caused by this process, and the team's ongoing issues with Argo Workflows has led us to want to re-engineer our CI/CD pipelines.\", \"tool\": null}, {\"text\": \"The team is moving away from Terraform Cloud and needs a replacement for applying Terraform code\", \"quote\": \"An additional, contributing factor for making the decision was [ADR 0014](./0014-replace-terraform-cloud.md), in which we decided we would move away from Terraform Cloud. To do so will require us to have a replacement for automatically applying Terraform code in different environments.\", \"tool\": null}, {\"text\": \"The team does not want to rely on undocumented features in alternative tools\", \"quote\": \"We did not want to rely on undocumented features, so we opted to prototype a workaround for the problem with Argo Rollouts to see how it would look and feel.\", \"tool\": null}, {\"text\": \"The team prefers not to run virtual machines to avoid additional infrastructure support\", \"quote\": \"We discussed the implications of running EC2 instances versus running Concourse in the Kubernetes clusters, and we decided that we should stay away from running virtual machines. It adds additional infrastructure for us to support long term, which is different from everything else we support.\", \"tool\": null}]}",
+   "seconds": 34.5
+  },
+  "0019-restructure-cicd": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c2b5951d32c3688be9a8",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 26.7
+  },
+  "0020-use-crossplane-for-abstraction": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "32429503299285bfcfdb",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The existing generic Helm chart has become complex, hard to navigate, and difficult to maintain due to embedded Golang templates and variable dependencies.\",\n      \"quote\": \"For us, as a Platform Engineering team, this had led to a code base that: * has lots of Golang templates embedded in YAML, * has lots of importing and variable values derived from other variables, * is hard to navigate, * is hard to reason about, * is hard to change, * and is easy to get wrong.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Application teams lack the deep Kubernetes and infrastructure knowledge required to manage resources directly, which the Platform Engineering team possesses.\",\n      \"quote\": \"Knowing what resources you need, their configuration, and how their interrelations requires a good amount of Kubernetes knowledge, and knowledge of the rest of your infrastructure. This knowledge is readily available within the Platform Engineering team, but less so among the application teams we serve.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The team intends to use Crossplane to create a higher-level API that abstracts resource types for users, simplifying deployment standardization.\",\n      \"quote\": \"We have decided that we want to use Crossplane to create a Kubernetes-flavoured API for our users. The API will abstract the types of resources our users need to create at a higher level than offered by the standard Kubernetes API.\",\n      \"tool\": \"Crossplane\"\n    },\n    {\n      \"text\": \"The team plans to use Crossplane to manage backing services within Kubernetes, eventually replacing the current use of Terraform for this purpose.\",\n      \"quote\": \"We plan to use this feature to create a catalogue of backing services our users can get access to through Kubernetes. This will eventually replace creating application backing services in Terraform.\",\n      \"tool\": \"Crossplane\"\n    }\n  ]\n}",
+   "seconds": 44.2
+  },
+  "0021-give-fastly-cname-records-a-TTL-of-300": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "978b157a434c47f909c1",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 4.8
+  },
+  "0022-use-pkl-for-configuration": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "50ab029b92756368ab2a",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 27.6
+  },
+  "0023-use-opa-gatekeeper": {
+   "backend": "ollama",
+   "dropped": [
+    {
+     "quote": "I want to prevent a user from requesting and approving their own jobs <br /> So that a malicious user cannot bypass a second human reviewing the content of a job",
+     "text": "The team needs to prevent users from requesting and approving their own jobs to ensure a second human reviews job content.",
+     "why": "quote is not a span of the ADR"
+    }
+   ],
+   "key": "b37cd716be9baf1be646",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"The team needs to prevent users from requesting and approving their own jobs to ensure a second human reviews job content.\", \"quote\": \"I want to prevent a user from requesting and approving their own jobs <br /> So that a malicious user cannot bypass a second human reviewing the content of a job\", \"tool\": null}, {\"text\": \"The team requires the ability to perform automated testing of policies in isolation of a full Kubernetes cluster.\", \"quote\": \"The single other requirement we set ourselves for choosing a tool was the ability to perform automated testing of the policies in isolation of a full Kubernetes cluster.\", \"tool\": null}, {\"text\": \"OPA Gatekeeper is a mature CNCF graduated project with good adoption among other Kubernetes users.\", \"quote\": \"We have chosen to adopt OPA Gatekeeper for applying policy to Kubernetes objects because it is a mature CNCF graduated project with good adoption among other Kubernetes users.\", \"tool\": \"OPA Gatekeeper\"}, {\"text\": \"The team has members with strong, positive open source experience of running and working with OPA Gatekeeper.\", \"quote\": \"We also have a number people in the team at the time we've made the decision with strong, positive, open source experience of running and working with OPA Gatekeeper.\", \"tool\": \"OPA Gatekeeper\"}]}",
+   "seconds": 23.7
+  },
+  "0024-use-of-admission-policy": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "471c4eb9c08a7a07fc56",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 5.5
+  }
+ }
+}

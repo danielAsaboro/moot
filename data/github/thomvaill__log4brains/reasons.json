@@ -1,0 +1,186 @@
+{
+ "evidence": {
+  "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "0e8e541cc39360ff9732",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 9.5
+  },
+  "20200925-use-prettier-eslint-airbnb-for-the-code-style": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "aeaaf09f4e407ac4d7d8",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 6.0
+  },
+  "20200926-use-the-adr-number-as-its-unique-id": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "a4cc7a57809e9492372b",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 7.9
+  },
+  "20200927-avoid-default-exports": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ce70cd11841a32a1617b",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 4.8
+  },
+  "20201016-use-the-adr-slug-as-its-unique-id": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "5090e54057ea3c2b1365",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": [{\"reason_id\": \"r_20200926-use-the-adr-number-as-its-unique-id_1\", \"rel\": \"CONTRADICTS\", \"quote\": \"From now on, we won't use ADR numbers anymore. An ADR will be uniquely identified by its slug\", \"why\": \"The later ADR explicitly replaces the use of ADR numbers with slugs for unique identification, directly contradicting the earlier decision to use numbers for this purpose.\"}, {\"reason_id\": \"r_20200926-use-the-adr-number-as-its-unique-id_3\", \"rel\": \"CONTRADICTS\", \"quote\": \"From now on, we won't use ADR numbers anymore. An ADR will be uniquely identified by its slug\", \"why\": \"By abandoning the use of ADR numbers in favor of slugs, the later ADR negates the alignment with other tools that use numbers as unique IDs.\"}]}",
+   "seconds": 18.3
+  },
+  "20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "6ad9df0775521ca1de82",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 4.9
+  },
+  "20201103-use-lunr-for-search": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "48c6b04614a1d48ac8c9",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 11.6
+  },
+  "20210113-distribute-log4brains-as-a-global-npm-package": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "bd6b2e07f27f2ebbcca0",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 12.9
+  },
+  "20240926-transition-to-simplified-git-flow": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "33240b95546aed496363",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 20.5
+  },
+  "20241217-switch-back-to-github-flow": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "2c53a6cb43fab7e2f3ab",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": [\n  {\"reason_id\": \"r_20240926-transition-to-simplified-git-flow_3\", \"rel\": \"SUPPORTS\", \"quote\": \"Be able to merge more quickly whithout breaking the stable branch, while making it possible for beta testers to test the new features.\", \"why\": \"The later ADR explicitly lists this requirement as a benefit to be kept, affirming that the need for quick merging without breaking stable remains valid.\"},\n  {\"reason_id\": \"r_20240926-transition-to-simplified-git-flow_2\", \"rel\": \"SUPPORTS\", \"quote\": \"Need for automation in releases.\", \"why\": \"The later ADR lists this as a benefit to be kept, confirming that the need for release automation persists.\"},\n  {\"reason_id\": \"r_20240926-transition-to-simplified-git-flow_4\", \"rel\": \"SUPPORTS\", \"quote\": \"Easier delegation to new maintainers.\", \"why\": \"The later ADR includes this as a benefit to be kept, affirming that the requirement for easier delegation still holds.\"},\n  {\"reason_id\": \"r_20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna_3\", \"rel\": \"CONTRADICTS\", \"quote\": \"Lerna, which we use for managing our monorepo, does not integrate well with Git Flow processes\", \"why\": \"The later ADR states that Lerna has significant integration limitations with the previous workflow, contradicting the earlier assumption that it was a good practice suitable for the project's needs without issues.\"}\n]}",
+   "seconds": 41.9
+  }
+ },
+ "extract": {
+  "20200924-use-markdown-architectural-decision-records": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "b1f423cdc0c58770039e",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The team wants to record architectural decisions in the project.\",\n      \"quote\": \"We want to record architectural decisions made in this project.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The MADR format is lean and fits the team's development style.\",\n      \"quote\": \"The MADR format is lean and fits our development style.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The MADR structure is comprehensible and facilitates usage and maintenance.\",\n      \"quote\": \"The MADR structure is comprehensible and facilitates usage & maintenance.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The MADR project is vivid.\",\n      \"quote\": \"The MADR project is vivid.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 23.0
+  },
+  "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "11db79c18fb7f3140e8c",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The team wants the core library to be well-tested and developed with DDD and hexagonal architecture, which a monolith does not support.\",\n      \"quote\": \"We don't want a monolith because we want the core library/API to be very well tested and probably developed with DDD and hexagonal architecture.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The team is uncertain about future features, making the multi-package structure good for extensibility.\",\n      \"quote\": \"As we are not so sure about the features we will provide in the future, this is good for extensibility.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Yarn and Lerna are considered a good practice used by many open-source projects for publishing npm packages.\",\n      \"quote\": \"Yarn + Lerna seems to be a very good practice used by a lot of other open-source projects to publish npm packages.\",\n      \"tool\": \"Lerna\"\n    }\n  ]\n}",
+   "seconds": 22.6
+  },
+  "20200925-use-prettier-eslint-airbnb-for-the-code-style": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "dd4de3989187c276aff1",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Airbnb code style is widely used.\",\n      \"quote\": \"Airbnb code style is widely used (see [npm trends](https://www.npmtrends.com/eslint-config-airbnb-vs-eslint-config-google-vs-standard-vs-eslint-config-standard))\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Prettier-ESLint enforces additional code style, reducing debates.\",\n      \"quote\": \"Prettier-ESLint enforce some additional code style. We like it because the more opinionated the code style is, the less debates there will be :-)\",\n      \"tool\": \"prettier-eslint\"\n    }\n  ]\n}",
+   "seconds": 15.1
+  },
+  "20200926-use-the-adr-number-as-its-unique-id": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c87fdcb9528fc2005441",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The system needs to uniquely identify ADRs for web URLs and CLI command arguments.\",\n      \"quote\": \"We need to be able to identify uniquely an ADR, especially in these contexts:\\n\\n- Web: to build its URL\\n- CLI: to identify an ADR in a command argument (example: \\\"edit\\\", or \\\"preview\\\")\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"ADR titles can be duplicated, making them unsuitable as unique identifiers.\",\n      \"quote\": \"It is possible to have duplicated titles\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Other ADR tools already use the number as a unique ID.\",\n      \"quote\": \"Other ADR tools like [adr-tools](https://github.com/npryce/adr-tools) already use the number as a unique ID\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 19.2
+  },
+  "20200927-avoid-default-exports": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "2e6ab37215fab4355b65",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 3.7
+  },
+  "20201016-use-the-adr-slug-as-its-unique-id": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "f573325cddf924aadeac",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Using incremental numbers causes git merge conflicts when multiple developers create ADRs on separate branches.\",\n      \"quote\": \"It causes an issue during a `git merge` when two developers have created a new ADR on their respective branch.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The date-based filename format ensures files remain correctly sorted in the IDE.\",\n      \"quote\": \"the files will still be correctly sorted in the IDE thanks to the date\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 14.3
+  },
+  "20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx": {
+   "backend": "ollama",
+   "dropped": [
+    {
+     "quote": "it is better tested",
+     "text": "Business logic in the core package is better tested",
+     "why": "quote too short"
+    }
+   ],
+   "key": "b1a354f8c227d15ed6b6",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Links between ADRs must be replaced with correct URLs\",\n      \"quote\": \"Links between ADRs have to be replaced with correct URLs\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The header must be rendered with specific components\",\n      \"quote\": \"Header (status, date, deciders etc...) has to be rendered with specific components\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The team may develop a VSCode extension in the future\",\n      \"quote\": \"Potential future development of a VSCode extension\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Business logic in the core package is better tested\",\n      \"quote\": \"it is better tested\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 16.0
+  },
+  "20201103-use-lunr-for-search": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "7333af195281faf9b20b",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"The project must provide a search bar for full-text search on ADRs\", \"quote\": \"We have to provide a search bar to perform full-text search on ADRs.\", \"tool\": null}, {\"text\": \"The search solution must work in both preview mode and the statically built version\", \"quote\": \"Works in preview mode AND in the statically built version\", \"tool\": null}, {\"text\": \"The search solution must provide good fuzzy search and stemming capabilities\", \"quote\": \"Provides good fuzzy search and stemming capabilities\", \"tool\": null}, {\"text\": \"The search solution must be fast enough to show results while typing\", \"quote\": \"Is fast enough to be able to show results while typing\", \"tool\": null}]}",
+   "seconds": 16.1
+  },
+  "20210113-distribute-log4brains-as-a-global-npm-package": {
+   "backend": "ollama",
+   "dropped": [
+    {
+     "quote": "Language agnostic",
+     "text": "The team prioritizes a language-agnostic approach",
+     "why": "quote too short"
+    }
+   ],
+   "key": "2370f657f9f67b0a8389",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Log4brains is intended for all projects, not especially JS ones\", \"quote\": \"Since Log4brains is intended for all projects, not especially JS ones, we have to make the installation procedure simpler and language-agnostic.\", \"tool\": null}, {\"text\": \"The current installation procedure does not work for non-JS projects\", \"quote\": \"For non-JS projects, you have to install manually the packages and the `npx init-log4brains` script does not work.\", \"tool\": null}, {\"text\": \"The team prioritizes simplicity of the installation procedure\", \"quote\": \"Simplicity of the installation procedure\", \"tool\": null}, {\"text\": \"The team prioritizes a language-agnostic approach\", \"quote\": \"Language agnostic\", \"tool\": null}]}",
+   "seconds": 16.4
+  },
+  "20240926-transition-to-simplified-git-flow": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "1262d69c0acf1de41ad8",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"The existing GitHub Flow process lacked clarity for stable releases and was overly manual.\", \"quote\": \"The existing GitHub Flow process lacked clarity for stable releases and was overly manual, making it hard to delegate and streamline contributions.\", \"tool\": null}, {\"text\": \"The project needs automation in releases.\", \"quote\": \"Need for automation in releases.\", \"tool\": null}, {\"text\": \"The project needs to merge quickly without breaking the stable branch while allowing beta testers to test new features.\", \"quote\": \"Be able to merge more quickly whithout breaking the stable branch, while making it possible for beta testers to test the new features.\", \"tool\": null}, {\"text\": \"The project requires easier delegation to new maintainers.\", \"quote\": \"Easier delegation to new maintainers.\", \"tool\": null}]}",
+   "seconds": 15.4
+  },
+  "20241217-switch-back-to-github-flow": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "bf470db7f5cedff270a7",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Lerna does not integrate well with Git Flow processes when managing both a develop and a stable branch.\", \"quote\": \"Specifically, **Lerna**, which we use for managing our monorepo, does not integrate well with Git Flow processes ([Lerna issue #2023](https://github.com/lerna/lerna/issues/2023#issuecomment-480402592)), when managing both a `develop` and `stable` branches: we cannot make Lerna publish a stable release from a different branch than the main one.\", \"tool\": \"Lerna\"}, {\"text\": \"The team needs automation in releases.\", \"quote\": \"Need for automation in releases.\", \"tool\": null}, {\"text\": \"The team needs to merge quickly without breaking the stable branch while allowing beta testers to test new features.\", \"quote\": \"Be able to merge more quickly whithout breaking the stable branch, while making it possible for beta testers to test the new features.\", \"tool\": null}, {\"text\": \"The team needs a simplified yet structured process for contributors.\", \"quote\": \"Simplified yet structured process for contributors.\", \"tool\": null}]}",
+   "seconds": 16.5
+  }
+ }
+}

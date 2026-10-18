@@ -21,11 +21,14 @@ import s from "./ledger.module.css";
 const tenantName = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
 
 export default function LedgerPane() {
-  const { asOf, depth, selected, select, setAsOf } = useAppState();
+  const { asOf, depth, selected, select, setAsOf, graph } = useAppState();
   const v = useSearchParams().get("v") as Verdict | null;
   const ledger = useApi(() => api.ledger({ as_of: asOf, depth }), [asOf, depth]);
   const timeline = useApi(() => api.timeline(depth), [depth]);
   const health = useApi(() => api.health(), []);
+  const graphs = useApi(() => api.graphs(), []);
+  const info = graphs.data?.graphs.find(x => (graph ? x.name === graph : x.default));
+  const graphLabel = info ? (info.kind === "demo" ? "Larkspur" : info.title) : graph ?? (health.data ? tenantName(health.data.tenant) : "");
   const [verdict, setVerdict] = useState<Verdict | null>(v && VERDICT_ORDER.includes(v) ? v : null);
   const [q, setQ] = useState("");
   const [filterOpen, setFilterOpen] = useState(false);
@@ -51,7 +54,7 @@ export default function LedgerPane() {
       <header className={s.head}>
         <h1 className={cx("t-large", s.title)}>Ledger</h1>
         <p className={cx("t-footnote", s.sub)}>
-          {health.data ? `${tenantName(health.data.tenant)} · ` : ""}
+          {graphLabel ? `${graphLabel} · ` : ""}
           {ledger.data ? `as of ${longDate(ledger.data.as_of)}` : asOf ? `as of ${longDate(asOf)}` : "today"} · depth {depth}
           {asOf && <> · <button type="button" className={s.inlineBtn} onClick={() => setAsOf(null)}>Back to today</button></>}
         </p>

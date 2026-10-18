@@ -1,0 +1,134 @@
+{
+ "evidence": {
+  "0002-implement-as-shell-scripts": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "28f4bca7cf246875eea1",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 3.3
+  },
+  "0004-markdown-format": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "0be3ee1ce4300a7cf544",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 5.2
+  },
+  "0005-help-comments": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "36c197cd362293e72942",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 8.4
+  },
+  "0006-packaging-and-distribution-in-other-version-control-repositories": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "b25fcb990fa338969516",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 17.2
+  },
+  "0007-invoke-adr-config-executable-to-get-configuration": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "69d5e54e7add9cea0e8d",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 31.9
+  },
+  "0008-use-iso-8601-format-for-dates": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "778612b47238c5489c18",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 17.8
+  },
+  "0009-help-scripts": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "eb926e156ecf1df632ea",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 15.7
+  }
+ },
+ "extract": {
+  "0001-record-architecture-decisions": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "d182e0b1293e5b0c23cd",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"The project needs to record its architectural decisions\", \"quote\": \"We need to record the architectural decisions made on this project.\", \"tool\": null}]}",
+   "seconds": 6.9
+  },
+  "0002-implement-as-shell-scripts": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "aa141bfa9cf70f9ed5a2",
+   "model": "qwen3.8:27b",
+   "reply": "```json\n{\"reasons\": [{\"text\": \"ADRs are plain text files stored in a subdirectory of the project.\", \"quote\": \"ADRs are plain text files stored in a subdirectory of the project.\", \"tool\": null}, {\"text\": \"The tool needs to create new files and apply small edits to the Status section of existing files.\", \"quote\": \"The tool needs to create new files and apply small edits to the Status section of existing files.\", \"tool\": null}]}`\n}\n```",
+   "seconds": 8.4
+  },
+  "0003-single-command-with-subcommands": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "32f3a10dead0203bb66b",
+   "model": "qwen3.8:27b",
+   "reply": "```json\n{\n  \"reasons\": [\n    {\n      \"text\": \"Users are already used to this style of command-line tool, as exemplified by Git.\",\n      \"quote\": \"Users are already used to this style of command-line tool.  For example, Git works this way.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The tool provides a number of related commands to create and manipulate architecture decision records.\",\n      \"quote\": \"The tool provides a number of related commands to create and manipulate architecture decision records.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Each subcommand can be implemented in the most appropriate language.\",\n      \"quote\": \"Each subcommand can be implemented in the most appropriate language.\",\n      \"tool\": null\n    }\n  ]\n}\n```",
+   "seconds": 10.3
+  },
+  "0004-markdown-format": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "abf8a52e74e8c7a8d5a0",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Decision records must be stored in a plain text format to work well with version control systems.\", \"quote\": \"The decision records must be stored in a plain text format:\\n\\n* This works well with version control systems.\", \"tool\": null}, {\"text\": \"The tool needs to modify the status of records and insert hyperlinks when one decision supersedes another.\", \"quote\": \"It allows the tool to modify the status of records and insert\\n  hyperlinks when one decision supercedes another.\", \"tool\": null}, {\"text\": \"People want to use formatting such as lists and code examples.\", \"quote\": \"People will want to use some formatting: lists, code examples,\\nand so on.\", \"tool\": null}, {\"text\": \"People want to view decision records in a more readable format than plain text and possibly print them out.\", \"quote\": \"People will want to view the decision records in a more readable\\nformat than plain text, and maybe print them out.\", \"tool\": null}]}",
+   "seconds": 12.7
+  },
+  "0005-help-comments": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "5195dab1790c601dde73",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"The tool will have a help subcommand to provide documentation for users\", \"quote\": \"The tool will have a `help` subcommand to provide documentation for users.\", \"tool\": null}, {\"text\": \"Usage documentation in script files is the first place to look for information when reading code\", \"quote\": \"When reading the code, that's the first place to look for information about how to run a script.\", \"tool\": null}, {\"text\": \"The adr help command can parse comments out from the script using standard Unix tools\", \"quote\": \"The `adr help` command can parse comments out from the script using the standard Unix tools `grep` and `cut`.\", \"tool\": null}, {\"text\": \"Subcommands are implemented as scripts that use '#' as a comment character\", \"quote\": \"This won't work if any subcommands are not implemented as scripts that use '#' as a comment character.\", \"tool\": null}]}",
+   "seconds": 12.4
+  },
+  "0006-packaging-and-distribution-in-other-version-control-repositories": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "a70ee6913ca08f0b4034",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Users want to install adr-tools with their preferred package manager\", \"quote\": \"Users want to install adr-tools with their preferred package manager.\", \"tool\": null}, {\"text\": \"The developers of adr-tools don't know how, nor have permissions, to use all these packaging and distribution systems\", \"quote\": \"The developers of `adr-tools` don't know how, nor have permissions, to use all these packaging and distribution systems.\", \"tool\": null}, {\"text\": \"The developers of the tool should not favour any one particular packaging and distribution solution\", \"quote\": \"The developers of the tool should not favour any one particular packaging and distribution solution.\", \"tool\": null}]}",
+   "seconds": 9.1
+  },
+  "0007-invoke-adr-config-executable-to-get-configuration": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "79a233789f10c4741be6",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 3.7
+  },
+  "0008-use-iso-8601-format-for-dates": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "707e7318ee0b21fb5ec6",
+   "model": "qwen3.8:27b",
+   "reply": "```json\n{\n  \"reasons\": [\n    {\n      \"text\": \"The tool must communicate decision history unambiguously by using culture-neutral data formats.\",\n      \"quote\": \"To communicate effectively, `adr-tools` should present information as unambiguously as possible.  That means that culture-neutral data formats should be preferred over culture-specific formats.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The previous default date format is easily confused with the US format.\",\n      \"quote\": \"That formatting is common formatting in the United Kingdom (where the `adr-tools` project was originally written), but is easily confused with the `mm/dd/yyyy` format preferred in the United States.\",\n      \"tool\": null\n    }\n  ]\n}\n```",
+   "seconds": 11.8
+  },
+  "0009-help-scripts": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "5471d0d22be790330b31",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Help text cannot include calculated values such as file locations when extracted from comments\", \"quote\": \"But, it means that help text cannot include calculated values, such as the location of files.\", \"tool\": null}, {\"text\": \"Help scripts can locate files to give users accurate instructions reflecting their environment\", \"quote\": \"Help scripts can include helper scripts to locate files, giving more accurate instructions to the user that reflect how the tool is deployed in their environment.\", \"tool\": null}]}",
+   "seconds": 7.5
+  }
+ }
+}

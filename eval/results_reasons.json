@@ -1,0 +1,1910 @@
+{
+ "read_on": "2026-10-19",
+ "repos": [
+  {
+   "repo": "npryce/adr-tools",
+   "graph": "gh_npryce_adr_tools",
+   "decisions": 9,
+   "model": "qwen3.8:27b",
+   "before": {
+    "verdicts": {
+     "HOLDS": 0,
+     "MOOT": 0,
+     "DISPUTED": 0,
+     "UNDOCUMENTED": 9,
+     "RETIRED": 0
+    },
+    "gates": {
+     "ALLOW": 0,
+     "REVALIDATE": 9,
+     "DENY": 0
+    },
+    "holds_allow": 0
+   },
+   "after": {
+    "verdicts": {
+     "HOLDS": 7,
+     "MOOT": 0,
+     "DISPUTED": 0,
+     "UNDOCUMENTED": 2,
+     "RETIRED": 0
+    },
+    "gates": {
+     "ALLOW": 0,
+     "REVALIDATE": 9,
+     "DENY": 0
+    },
+    "holds_allow": 0
+   },
+   "extraction": {
+    "adrs_read": 9,
+    "adrs_not_read": 0,
+    "reasons_kept": 19,
+    "reasons_dropped": 0,
+    "tool_links": 0,
+    "relations_kept": 0,
+    "relations_dropped": 0,
+    "adrs_with_no_stated_reason": 2
+   },
+   "holds_split": {
+    "checked": 0,
+    "unevidenced": 7
+   },
+   "changed": [
+    {
+     "id": "0001-record-architecture-decisions",
+     "title": "1. Record architecture decisions",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "0003-single-command-with-subcommands",
+     "title": "3. Single command with subcommands",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "0004-markdown-format",
+     "title": "4. Markdown format",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "0005-help-comments",
+     "title": "5. Help comments",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "0006-packaging-and-distribution-in-other-version-control-repositories",
+     "title": "6. Packaging and distribution in other version control repositories",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "0008-use-iso-8601-format-for-dates",
+     "title": "8. Use ISO 8601 Format for Dates",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "0009-help-scripts",
+     "title": "9. Help scripts",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    }
+   ],
+   "per_decision": {
+    "0002-implement-as-shell-scripts": {
+     "title": "2. Implement as shell scripts",
+     "verdict": "UNDOCUMENTED",
+     "gate": "REVALIDATE",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "graph_has_no_evidence",
+      "undocumented"
+     ],
+     "expired": []
+    },
+    "0007-invoke-adr-config-executable-to-get-configuration": {
+     "title": "7. Invoke adr-config executable to get configuration",
+     "verdict": "UNDOCUMENTED",
+     "gate": "REVALIDATE",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "graph_has_no_evidence",
+      "undocumented"
+     ],
+     "expired": []
+    },
+    "0001-record-architecture-decisions": {
+     "title": "1. Record architecture decisions",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 1
+     },
+     "stated": 1,
+     "stated_evidenced": 0,
+     "reasons": [
+      "graph_has_no_evidence",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0003-single-command-with-subcommands": {
+     "title": "3. Single command with subcommands",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 3
+     },
+     "stated": 3,
+     "stated_evidenced": 0,
+     "reasons": [
+      "graph_has_no_evidence",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0004-markdown-format": {
+     "title": "4. Markdown format",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 4
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "graph_has_no_evidence",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0005-help-comments": {
+     "title": "5. Help comments",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 4
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "graph_has_no_evidence",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0006-packaging-and-distribution-in-other-version-control-repositories": {
+     "title": "6. Packaging and distribution in other version control repositories",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 3
+     },
+     "stated": 3,
+     "stated_evidenced": 0,
+     "reasons": [
+      "graph_has_no_evidence",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0008-use-iso-8601-format-for-dates": {
+     "title": "8. Use ISO 8601 Format for Dates",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 2
+     },
+     "stated": 2,
+     "stated_evidenced": 0,
+     "reasons": [
+      "graph_has_no_evidence",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0009-help-scripts": {
+     "title": "9. Help scripts",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 2
+     },
+     "stated": 2,
+     "stated_evidenced": 0,
+     "reasons": [
+      "graph_has_no_evidence",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    }
+   }
+  },
+  {
+   "repo": "thomvaill/log4brains",
+   "graph": "gh_thomvaill_log4brains",
+   "decisions": 11,
+   "model": "qwen3.8:27b",
+   "before": {
+    "verdicts": {
+     "HOLDS": 3,
+     "MOOT": 1,
+     "DISPUTED": 0,
+     "UNDOCUMENTED": 5,
+     "RETIRED": 2
+    },
+    "gates": {
+     "ALLOW": 3,
+     "REVALIDATE": 5,
+     "DENY": 3
+    },
+    "holds_allow": 3
+   },
+   "after": {
+    "verdicts": {
+     "HOLDS": 6,
+     "MOOT": 2,
+     "DISPUTED": 0,
+     "UNDOCUMENTED": 1,
+     "RETIRED": 2
+    },
+    "gates": {
+     "ALLOW": 0,
+     "REVALIDATE": 7,
+     "DENY": 4
+    },
+    "holds_allow": 0
+   },
+   "extraction": {
+    "adrs_read": 11,
+    "adrs_not_read": 0,
+    "reasons_kept": 32,
+    "reasons_dropped": 2,
+    "tool_links": 3,
+    "relations_kept": 6,
+    "relations_dropped": 0,
+    "adrs_with_no_stated_reason": 1
+   },
+   "holds_split": {
+    "checked": 0,
+    "unevidenced": 6
+   },
+   "changed": [
+    {
+     "id": "20200924-use-markdown-architectural-decision-records",
+     "title": "Use Markdown Architectural Decision Records",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna",
+     "title": "Multi-packages architecture in a monorepo with Yarn and Lerna",
+     "before": "HOLDS",
+     "after": "MOOT",
+     "gate_before": "ALLOW",
+     "gate_after": "DENY"
+    },
+    {
+     "id": "20200925-use-prettier-eslint-airbnb-for-the-code-style",
+     "title": "Use Prettier-ESLint Airbnb for the code style",
+     "before": "HOLDS",
+     "after": "HOLDS",
+     "gate_before": "ALLOW",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "20201016-use-the-adr-slug-as-its-unique-id",
+     "title": "Use the ADR slug as its unique ID",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx",
+     "title": "The core API is responsible for enhancing the ADR markdown body with MDX",
+     "before": "HOLDS",
+     "after": "HOLDS",
+     "gate_before": "ALLOW",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "20210113-distribute-log4brains-as-a-global-npm-package",
+     "title": "Distribute Log4brains as a global NPM package",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "20241217-switch-back-to-github-flow",
+     "title": "Switch back to GitHub Flow, but keeping the automated beta releases",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    }
+   ],
+   "per_decision": {
+    "20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna": {
+     "title": "Multi-packages architecture in a monorepo with Yarn and Lerna",
+     "verdict": "MOOT",
+     "gate": "DENY",
+     "premises": {
+      "unevidenced": 2,
+      "holds": 3,
+      "expired": 1
+     },
+     "stated": 3,
+     "stated_evidenced": 1,
+     "reasons": [
+      "premise_expired",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": [
+      {
+       "premise": "r_20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna_3",
+       "text": "Yarn and Lerna are considered a good practice used by many open-source projects for publishing npm packages.",
+       "stated": true,
+       "evidence": "src:20241217-switch-back-to-github-flow",
+       "at": "2024-12-17",
+       "quote": "Lerna**, which we use for managing our monorepo, does not integrate well with Git Flow processes"
+      }
+     ]
+    },
+    "20201103-use-lunr-for-search": {
+     "title": "Use Lunr for search",
+     "verdict": "MOOT",
+     "gate": "DENY",
+     "premises": {
+      "holds": 2,
+      "unevidenced": 4,
+      "expired": 1
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_expired",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": [
+      {
+       "premise": "p_lunr_maintained",
+       "text": "Lunr.js is actively maintained",
+       "stated": false,
+       "evidence": "maintained:lunr",
+       "at": "2026-10-19",
+       "quote": "last commit to master on 2020-08-19"
+      }
+     ]
+    },
+    "20200927-avoid-default-exports": {
+     "title": "Avoid default exports",
+     "verdict": "UNDOCUMENTED",
+     "gate": "REVALIDATE",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "undocumented"
+     ],
+     "expired": []
+    },
+    "20200924-use-markdown-architectural-decision-records": {
+     "title": "Use Markdown Architectural Decision Records",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 4
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "20200925-use-prettier-eslint-airbnb-for-the-code-style": {
+     "title": "Use Prettier-ESLint Airbnb for the code style",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 2,
+      "holds": 3
+     },
+     "stated": 2,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "20201016-use-the-adr-slug-as-its-unique-id": {
+     "title": "Use the ADR slug as its unique ID",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 2
+     },
+     "stated": 2,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "20201026-the-core-api-is-responsible-for-enhancing-the-adr-markdown-body-with-mdx": {
+     "title": "The core API is responsible for enhancing the ADR markdown body with MDX",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "holds": 3,
+      "unevidenced": 3
+     },
+     "stated": 3,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "20210113-distribute-log4brains-as-a-global-npm-package": {
+     "title": "Distribute Log4brains as a global NPM package",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 3
+     },
+     "stated": 3,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "20241217-switch-back-to-github-flow": {
+     "title": "Switch back to GitHub Flow, but keeping the automated beta releases",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 4,
+      "holds": 3
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "20200926-use-the-adr-number-as-its-unique-id": {
+     "title": "Use the ADR number as its unique ID",
+     "verdict": "RETIRED",
+     "gate": "DENY",
+     "premises": {
+      "expired": 2,
+      "unevidenced": 1
+     },
+     "stated": 3,
+     "stated_evidenced": 2,
+     "reasons": [
+      "retired"
+     ],
+     "expired": [
+      {
+       "premise": "r_20200926-use-the-adr-number-as-its-unique-id_1",
+       "text": "The system needs to uniquely identify ADRs for web URLs and CLI command arguments.",
+       "stated": true,
+       "evidence": "src:20201016-use-the-adr-slug-as-its-unique-id",
+       "at": "2020-10-16",
+       "quote": "From now on, we won't use ADR numbers anymore.\nAn ADR will be uniquely identified by its slug"
+      },
+      {
+       "premise": "r_20200926-use-the-adr-number-as-its-unique-id_3",
+       "text": "Other ADR tools already use the number as a unique ID.",
+       "stated": true,
+       "evidence": "src:20201016-use-the-adr-slug-as-its-unique-id",
+       "at": "2020-10-16",
+       "quote": "From now on, we won't use ADR numbers anymore.\nAn ADR will be uniquely identified by its slug"
+      }
+     ]
+    },
+    "20240926-transition-to-simplified-git-flow": {
+     "title": "Transition to Simplified Git Flow",
+     "verdict": "RETIRED",
+     "gate": "DENY",
+     "premises": {
+      "holds": 3,
+      "unevidenced": 1
+     },
+     "stated": 4,
+     "stated_evidenced": 3,
+     "reasons": [
+      "retired"
+     ],
+     "expired": []
+    }
+   }
+  },
+  {
+   "repo": "alphagov/govuk-infrastructure",
+   "graph": "gh_alphagov_govuk_infrastructure",
+   "decisions": 24,
+   "model": "qwen3.8:27b",
+   "before": {
+    "verdicts": {
+     "HOLDS": 8,
+     "MOOT": 4,
+     "DISPUTED": 0,
+     "UNDOCUMENTED": 11,
+     "RETIRED": 1
+    },
+    "gates": {
+     "ALLOW": 4,
+     "REVALIDATE": 15,
+     "DENY": 5
+    },
+    "holds_allow": 4
+   },
+   "after": {
+    "verdicts": {
+     "HOLDS": 12,
+     "MOOT": 6,
+     "DISPUTED": 0,
+     "UNDOCUMENTED": 5,
+     "RETIRED": 1
+    },
+    "gates": {
+     "ALLOW": 2,
+     "REVALIDATE": 15,
+     "DENY": 7
+    },
+    "holds_allow": 2
+   },
+   "extraction": {
+    "adrs_read": 24,
+    "adrs_not_read": 0,
+    "reasons_kept": 61,
+    "reasons_dropped": 2,
+    "tool_links": 18,
+    "relations_kept": 0,
+    "relations_dropped": 0,
+    "adrs_with_no_stated_reason": 7
+   },
+   "holds_split": {
+    "checked": 2,
+    "unevidenced": 10
+   },
+   "changed": [
+    {
+     "id": "0001-record-architecture-decisions",
+     "title": "1. Record architecture decisions",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases",
+     "title": "3. Split Terraform state into separate AWS cluster and Kubernetes resource phases",
+     "before": "UNDOCUMENTED",
+     "after": "MOOT",
+     "gate_before": "REVALIDATE",
+     "gate_after": "DENY"
+    },
+    {
+     "id": "0006-use-helm-for-application-package-management",
+     "title": "6. Use Helm for application package management",
+     "before": "HOLDS",
+     "after": "HOLDS",
+     "gate_before": "ALLOW",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "0012-non-govuk-domain-policy",
+     "title": "12. Non-GOV.UK domain policy",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "0014-replace-terraform-cloud",
+     "title": "14. Replace Terraform Cloud backend with AWS S3",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "0015-maintain-a-readonly-role",
+     "title": "15. Maintain a read-only IAM role",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "0016-use-iam-roles-for-services",
+     "title": "16. Use IAM roles for external services and applications",
+     "before": "UNDOCUMENTED",
+     "after": "MOOT",
+     "gate_before": "REVALIDATE",
+     "gate_after": "DENY"
+    },
+    {
+     "id": "0023-use-opa-gatekeeper",
+     "title": "23. Use OPA Gatekeeper",
+     "before": "HOLDS",
+     "after": "HOLDS",
+     "gate_before": "ALLOW",
+     "gate_after": "REVALIDATE"
+    }
+   ],
+   "per_decision": {
+    "0002-use-aws-eks-terraform-module": {
+     "title": "2. Use `aws-eks` Terraform module",
+     "verdict": "MOOT",
+     "gate": "DENY",
+     "premises": {
+      "holds": 4,
+      "unchecked": 1,
+      "expired": 1,
+      "unevidenced": 4
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_expired",
+      "premise_unchecked",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": [
+      {
+       "premise": "p_kubernetes_no_known_vuln",
+       "text": "The current release of Kubernetes has no known vulnerability",
+       "stated": false,
+       "evidence": "no_known_vuln:kubernetes",
+       "at": "2026-10-19",
+       "quote": "2 OSV advisories affect v1.37.1"
+      }
+     ]
+    },
+    "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases": {
+     "title": "3. Split Terraform state into separate AWS cluster and Kubernetes resource phases",
+     "verdict": "MOOT",
+     "gate": "DENY",
+     "premises": {
+      "unevidenced": 4,
+      "holds": 1,
+      "expired": 1,
+      "unchecked": 1
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_expired",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unchecked"
+     ],
+     "expired": [
+      {
+       "premise": "p_terraform_open_source",
+       "text": "Terraform is open source",
+       "stated": false,
+       "evidence": "open_source:terraform",
+       "at": "2026-10-19",
+       "quote": "source-available: BUSL-1.1"
+      }
+     ]
+    },
+    "0005-use-eks-managed-node-groups": {
+     "title": "5. Use AWS Elastic Kubernetes Service (EKS) managed node groups",
+     "verdict": "MOOT",
+     "gate": "DENY",
+     "premises": {
+      "unevidenced": 4,
+      "holds": 2,
+      "expired": 1
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_expired",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": [
+      {
+       "premise": "p_kubernetes_no_known_vuln",
+       "text": "The current release of Kubernetes has no known vulnerability",
+       "stated": false,
+       "evidence": "no_known_vuln:kubernetes",
+       "at": "2026-10-19",
+       "quote": "2 OSV advisories affect v1.37.1"
+      }
+     ]
+    },
+    "0013-expose-external-metrics-for-hpa": {
+     "title": "13. Expose external metrics for Horizontal Pod Autoscaler using Prometheus adapter",
+     "verdict": "MOOT",
+     "gate": "DENY",
+     "premises": {
+      "unevidenced": 4,
+      "holds": 4,
+      "expired": 1,
+      "unchecked": 1
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_expired",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unchecked"
+     ],
+     "expired": [
+      {
+       "premise": "p_prometheus-adapter_maintained",
+       "text": "Prometheus Adapter is actively maintained",
+       "stated": false,
+       "evidence": "maintained:prometheus-adapter",
+       "at": "2026-10-19",
+       "quote": "last commit to master on 2025-04-01"
+      }
+     ]
+    },
+    "0016-use-iam-roles-for-services": {
+     "title": "16. Use IAM roles for external services and applications",
+     "verdict": "MOOT",
+     "gate": "DENY",
+     "premises": {
+      "unevidenced": 4,
+      "holds": 2,
+      "expired": 1
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_expired",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": [
+      {
+       "premise": "p_kubernetes_no_known_vuln",
+       "text": "The current release of Kubernetes has no known vulnerability",
+       "stated": false,
+       "evidence": "no_known_vuln:kubernetes",
+       "at": "2026-10-19",
+       "quote": "2 OSV advisories affect v1.37.1"
+      }
+     ]
+    },
+    "0020-use-crossplane-for-abstraction": {
+     "title": "20. Use Crossplane for abstraction",
+     "verdict": "MOOT",
+     "gate": "DENY",
+     "premises": {
+      "unevidenced": 4,
+      "holds": 2,
+      "expired": 1
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_expired",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": [
+      {
+       "premise": "p_crossplane_no_known_vuln",
+       "text": "The current release of Crossplane has no known vulnerability",
+       "stated": false,
+       "evidence": "no_known_vuln:crossplane",
+       "at": "2026-10-19",
+       "quote": "1 OSV advisory affects v2.4.2"
+      }
+     ]
+    },
+    "0011-use-graviton-for-compute-instances": {
+     "title": "11. Use AWS Graviton (ARM) for compute instances",
+     "verdict": "UNDOCUMENTED",
+     "gate": "REVALIDATE",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "undocumented"
+     ],
+     "expired": []
+    },
+    "0017-retire-use-of-github-topics-for-config-management": {
+     "title": "17. Retire use of GitHub topics for configuration management",
+     "verdict": "UNDOCUMENTED",
+     "gate": "REVALIDATE",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "undocumented"
+     ],
+     "expired": []
+    },
+    "0019-restructure-cicd": {
+     "title": "19. Restructure CI/CD",
+     "verdict": "UNDOCUMENTED",
+     "gate": "REVALIDATE",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "undocumented"
+     ],
+     "expired": []
+    },
+    "0021-give-fastly-cname-records-a-TTL-of-300": {
+     "title": "21. Give Fastly CNAME records a TTL of 300",
+     "verdict": "UNDOCUMENTED",
+     "gate": "REVALIDATE",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "undocumented"
+     ],
+     "expired": []
+    },
+    "0024-use-of-admission-policy": {
+     "title": "24. Use of admission policy",
+     "verdict": "UNDOCUMENTED",
+     "gate": "REVALIDATE",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "undocumented"
+     ],
+     "expired": []
+    },
+    "0001-record-architecture-decisions": {
+     "title": "1. Record architecture decisions",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 1
+     },
+     "stated": 1,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0004-use-aws-load-balancer-controller-for-edge-traffic-services": {
+     "title": "4. Use AWS Load Balancer Controller for edge traffic services",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "holds": 2,
+      "unevidenced": 4,
+      "unchecked": 1
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unchecked",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0006-use-helm-for-application-package-management": {
+     "title": "6. Use Helm for application package management",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "holds": 3,
+      "unevidenced": 3
+     },
+     "stated": 3,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0008-use-external-secrets-for-secrets-storage": {
+     "title": "8. Use external-secrets for secrets storage",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 4,
+      "holds": 2,
+      "unchecked": 1
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unchecked",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0009-use-external-dns-for-dns-record-management": {
+     "title": "9. Use `external-dns` for DNS record management",
+     "verdict": "HOLDS",
+     "gate": "ALLOW",
+     "premises": {
+      "holds": 3
+     },
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [],
+     "expired": []
+    },
+    "0010-use-dex-idp-for-user-web-authentication": {
+     "title": "10. Use Dex IdP for user web authentication",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 4,
+      "holds": 6,
+      "unchecked": 3
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unchecked",
+      "premise_unevidenced",
+      "premise_unchecked",
+      "premise_unchecked"
+     ],
+     "expired": []
+    },
+    "0012-non-govuk-domain-policy": {
+     "title": "12. Non-GOV.UK domain policy",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 2
+     },
+     "stated": 2,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0014-replace-terraform-cloud": {
+     "title": "14. Replace Terraform Cloud backend with AWS S3",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 4
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0015-maintain-a-readonly-role": {
+     "title": "15. Maintain a read-only IAM role",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 4
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0018-use-concourse-ci": {
+     "title": "18. Use Concourse CI",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 4,
+      "holds": 2,
+      "unchecked": 1
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unchecked",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0022-use-pkl-for-configuration": {
+     "title": "22. Use Pkl for configuration",
+     "verdict": "HOLDS",
+     "gate": "ALLOW",
+     "premises": {
+      "holds": 3
+     },
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [],
+     "expired": []
+    },
+    "0023-use-opa-gatekeeper": {
+     "title": "23. Use OPA Gatekeeper",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 3,
+      "holds": 3
+     },
+     "stated": 3,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs": {
+     "title": "7. Use Fluent Bit, Elasticsearch and Kibana for application logs",
+     "verdict": "RETIRED",
+     "gate": "DENY",
+     "premises": {
+      "holds": 7,
+      "unevidenced": 4,
+      "unchecked": 2
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "retired"
+     ],
+     "expired": []
+    }
+   }
+  },
+  {
+   "repo": "alphagov/govuk-aws",
+   "graph": "gh_alphagov_govuk_aws",
+   "decisions": 31,
+   "model": "qwen3.8:27b",
+   "before": {
+    "verdicts": {
+     "HOLDS": 5,
+     "MOOT": 3,
+     "DISPUTED": 0,
+     "UNDOCUMENTED": 21,
+     "RETIRED": 2
+    },
+    "gates": {
+     "ALLOW": 1,
+     "REVALIDATE": 25,
+     "DENY": 5
+    },
+    "holds_allow": 1
+   },
+   "after": {
+    "verdicts": {
+     "HOLDS": 10,
+     "MOOT": 9,
+     "DISPUTED": 0,
+     "UNDOCUMENTED": 10,
+     "RETIRED": 2
+    },
+    "gates": {
+     "ALLOW": 0,
+     "REVALIDATE": 20,
+     "DENY": 11
+    },
+    "holds_allow": 0
+   },
+   "extraction": {
+    "adrs_read": 31,
+    "adrs_not_read": 0,
+    "reasons_kept": 45,
+    "reasons_dropped": 2,
+    "tool_links": 10,
+    "relations_kept": 2,
+    "relations_dropped": 0,
+    "adrs_with_no_stated_reason": 14
+   },
+   "holds_split": {
+    "checked": 0,
+    "unevidenced": 10
+   },
+   "changed": [
+    {
+     "id": "0001-record-architecture-decisions",
+     "title": "1. Record architecture decisions",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "0010-terraform-directory-structure",
+     "title": "10. Terraform directory structure",
+     "before": "UNDOCUMENTED",
+     "after": "MOOT",
+     "gate_before": "REVALIDATE",
+     "gate_after": "DENY"
+    },
+    {
+     "id": "0011-migration-strategy",
+     "title": "11. Migration Strategy",
+     "before": "UNDOCUMENTED",
+     "after": "MOOT",
+     "gate_before": "REVALIDATE",
+     "gate_after": "DENY"
+    },
+    {
+     "id": "0014-launch-config-change-propagation-process",
+     "title": "14. Launch Config change propagation process",
+     "before": "UNDOCUMENTED",
+     "after": "MOOT",
+     "gate_before": "REVALIDATE",
+     "gate_after": "DENY"
+    },
+    {
+     "id": "0016-internal-dns-zones",
+     "title": "16. internal DNS zones",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "0019-centralise-mysql-databases",
+     "title": "19. Centralise MySQL Databases",
+     "before": "UNDOCUMENTED",
+     "after": "MOOT",
+     "gate_before": "REVALIDATE",
+     "gate_after": "DENY"
+    },
+    {
+     "id": "0020-merge-api-postgresql-instance-into-main-postgresql-instance",
+     "title": "20. Merge API PostgreSQL instance into main PostgreSQL instance",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "0022-remove-the-elasticsearch-proxy",
+     "title": "22. Remove the Elasticsearch proxy",
+     "before": "HOLDS",
+     "after": "HOLDS",
+     "gate_before": "ALLOW",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "0024-ami-lookups",
+     "title": "24. AMI Lookups",
+     "before": "UNDOCUMENTED",
+     "after": "MOOT",
+     "gate_before": "REVALIDATE",
+     "gate_after": "DENY"
+    },
+    {
+     "id": "0026-remove-load-balancer-tier",
+     "title": "26. Remove load balancer tier",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    },
+    {
+     "id": "0037-alb-health-checks",
+     "title": "37. ALB Health Checks",
+     "before": "UNDOCUMENTED",
+     "after": "MOOT",
+     "gate_before": "REVALIDATE",
+     "gate_after": "DENY"
+    },
+    {
+     "id": "0039-non-govuk-domain-policy",
+     "title": "39. Non-GOV.UK domain policy",
+     "before": "UNDOCUMENTED",
+     "after": "HOLDS",
+     "gate_before": "REVALIDATE",
+     "gate_after": "REVALIDATE"
+    }
+   ],
+   "per_decision": {
+    "0007-puppet-cert-management": {
+     "title": "7. Puppet certificate management",
+     "verdict": "MOOT",
+     "gate": "DENY",
+     "premises": {
+      "expired": 1,
+      "holds": 2
+     },
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_expired"
+     ],
+     "expired": [
+      {
+       "premise": "p_puppet_maintained",
+       "text": "Puppet is actively maintained",
+       "stated": false,
+       "evidence": "maintained:puppet",
+       "at": "2026-10-19",
+       "quote": "last commit to main on 2024-12-11"
+      }
+     ]
+    },
+    "0008-postgres-on-puppetmaster": {
+     "title": "8. Postgres on Puppetmaster",
+     "verdict": "MOOT",
+     "gate": "DENY",
+     "premises": {
+      "expired": 1,
+      "holds": 2
+     },
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_expired"
+     ],
+     "expired": [
+      {
+       "premise": "p_puppet_maintained",
+       "text": "Puppet is actively maintained",
+       "stated": false,
+       "evidence": "maintained:puppet",
+       "at": "2026-10-19",
+       "quote": "last commit to main on 2024-12-11"
+      }
+     ]
+    },
+    "0010-terraform-directory-structure": {
+     "title": "10. Terraform directory structure",
+     "verdict": "MOOT",
+     "gate": "DENY",
+     "premises": {
+      "holds": 3,
+      "unevidenced": 2,
+      "unchecked": 1,
+      "expired": 1
+     },
+     "stated": 4,
+     "stated_evidenced": 2,
+     "reasons": [
+      "premise_expired",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unchecked"
+     ],
+     "expired": [
+      {
+       "premise": "p_terraform_open_source",
+       "text": "Terraform is open source",
+       "stated": false,
+       "evidence": "open_source:terraform",
+       "at": "2026-10-19",
+       "quote": "source-available: BUSL-1.1"
+      }
+     ]
+    },
+    "0011-migration-strategy": {
+     "title": "11. Migration Strategy",
+     "verdict": "MOOT",
+     "gate": "DENY",
+     "premises": {
+      "unevidenced": 4,
+      "holds": 2,
+      "expired": 1
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_expired",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": [
+      {
+       "premise": "p_puppet_maintained",
+       "text": "Puppet is actively maintained",
+       "stated": false,
+       "evidence": "maintained:puppet",
+       "at": "2026-10-19",
+       "quote": "last commit to main on 2024-12-11"
+      }
+     ]
+    },
+    "0012-security-groups-in-terraform": {
+     "title": "12. Security Groups in Terraform",
+     "verdict": "MOOT",
+     "gate": "DENY",
+     "premises": {
+      "expired": 1,
+      "holds": 1,
+      "unchecked": 1
+     },
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_expired",
+      "premise_unchecked"
+     ],
+     "expired": [
+      {
+       "premise": "p_terraform_open_source",
+       "text": "Terraform is open source",
+       "stated": false,
+       "evidence": "open_source:terraform",
+       "at": "2026-10-19",
+       "quote": "source-available: BUSL-1.1"
+      }
+     ]
+    },
+    "0014-launch-config-change-propagation-process": {
+     "title": "14. Launch Config change propagation process",
+     "verdict": "MOOT",
+     "gate": "DENY",
+     "premises": {
+      "unevidenced": 3,
+      "holds": 1,
+      "unchecked": 1,
+      "expired": 1
+     },
+     "stated": 3,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_expired",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unchecked"
+     ],
+     "expired": [
+      {
+       "premise": "p_terraform_open_source",
+       "text": "Terraform is open source",
+       "stated": false,
+       "evidence": "open_source:terraform",
+       "at": "2026-10-19",
+       "quote": "source-available: BUSL-1.1"
+      }
+     ]
+    },
+    "0019-centralise-mysql-databases": {
+     "title": "19. Centralise MySQL Databases",
+     "verdict": "MOOT",
+     "gate": "DENY",
+     "premises": {
+      "unevidenced": 4,
+      "holds": 2,
+      "expired": 1
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_expired",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": [
+      {
+       "premise": "p_puppet_maintained",
+       "text": "Puppet is actively maintained",
+       "stated": false,
+       "evidence": "maintained:puppet",
+       "at": "2026-10-19",
+       "quote": "last commit to main on 2024-12-11"
+      }
+     ]
+    },
+    "0024-ami-lookups": {
+     "title": "24. AMI Lookups",
+     "verdict": "MOOT",
+     "gate": "DENY",
+     "premises": {
+      "unevidenced": 2,
+      "holds": 2,
+      "expired": 1
+     },
+     "stated": 2,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_expired",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": [
+      {
+       "premise": "p_puppet_maintained",
+       "text": "Puppet is actively maintained",
+       "stated": false,
+       "evidence": "maintained:puppet",
+       "at": "2026-10-19",
+       "quote": "last commit to main on 2024-12-11"
+      }
+     ]
+    },
+    "0037-alb-health-checks": {
+     "title": "37. ALB Health Checks",
+     "verdict": "MOOT",
+     "gate": "DENY",
+     "premises": {
+      "unevidenced": 3,
+      "holds": 2,
+      "expired": 1
+     },
+     "stated": 3,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_expired",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": [
+      {
+       "premise": "p_puppet_maintained",
+       "text": "Puppet is actively maintained",
+       "stated": false,
+       "evidence": "maintained:puppet",
+       "at": "2026-10-19",
+       "quote": "last commit to main on 2024-12-11"
+      }
+     ]
+    },
+    "0002-hosting-platforms": {
+     "title": "2. Hosting Platforms",
+     "verdict": "UNDOCUMENTED",
+     "gate": "REVALIDATE",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "undocumented"
+     ],
+     "expired": []
+    },
+    "0005-terraform-module-location": {
+     "title": "5. Terraform Module Location",
+     "verdict": "UNDOCUMENTED",
+     "gate": "REVALIDATE",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "undocumented"
+     ],
+     "expired": []
+    },
+    "0015-dns-infrastructure": {
+     "title": "15. DNS infrastructure",
+     "verdict": "UNDOCUMENTED",
+     "gate": "REVALIDATE",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "undocumented"
+     ],
+     "expired": []
+    },
+    "0017-terraform-data-structure": {
+     "title": "17. Terraform Data Structure",
+     "verdict": "UNDOCUMENTED",
+     "gate": "REVALIDATE",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "undocumented"
+     ],
+     "expired": []
+    },
+    "0018-use-rds-instead-of-provisioned-ec2-databases": {
+     "title": "18. Use RDS instead of provisioned EC2 databases",
+     "verdict": "UNDOCUMENTED",
+     "gate": "REVALIDATE",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "undocumented"
+     ],
+     "expired": []
+    },
+    "0021-use-acm-for-ssl-purchases-and-terminate-certificates-on-elbs": {
+     "title": "21. Use ACM for SSL purchases and terminate certificates on ELBs",
+     "verdict": "UNDOCUMENTED",
+     "gate": "REVALIDATE",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "undocumented"
+     ],
+     "expired": []
+    },
+    "0023-use-separate-data-repository": {
+     "title": "23. Use separate data repository",
+     "verdict": "UNDOCUMENTED",
+     "gate": "REVALIDATE",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "undocumented"
+     ],
+     "expired": []
+    },
+    "0027-move-publicapi-away-from-frontend-lb": {
+     "title": "27. Move PublicAPI away from frontend-lb",
+     "verdict": "UNDOCUMENTED",
+     "gate": "REVALIDATE",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "undocumented"
+     ],
+     "expired": []
+    },
+    "0030-change-in-architecture-to-asset-master": {
+     "title": "30. Change in architecture to Asset Master",
+     "verdict": "UNDOCUMENTED",
+     "gate": "REVALIDATE",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "undocumented"
+     ],
+     "expired": []
+    },
+    "0032-transfer-artefact-binary": {
+     "title": "32. transfer artefact binary",
+     "verdict": "UNDOCUMENTED",
+     "gate": "REVALIDATE",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "undocumented"
+     ],
+     "expired": []
+    },
+    "0001-record-architecture-decisions": {
+     "title": "1. Record architecture decisions",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 1
+     },
+     "stated": 1,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0016-internal-dns-zones": {
+     "title": "16. internal DNS zones",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 3
+     },
+     "stated": 3,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0020-merge-api-postgresql-instance-into-main-postgresql-instance": {
+     "title": "20. Merge API PostgreSQL instance into main PostgreSQL instance",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 3
+     },
+     "stated": 3,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0022-remove-the-elasticsearch-proxy": {
+     "title": "22. Remove the Elasticsearch proxy",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "holds": 3,
+      "unevidenced": 3
+     },
+     "stated": 3,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0025-use-elasticache-for-redis": {
+     "title": "25. Use Elasticache for Redis",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unchecked": 1,
+      "holds": 2
+     },
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unchecked"
+     ],
+     "expired": []
+    },
+    "0026-remove-load-balancer-tier": {
+     "title": "26. Remove load balancer tier",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 2
+     },
+     "stated": 2,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0028-combine-api-mongo-cluster-into-mongo-cluster": {
+     "title": "28. Combine api-mongo cluster into mongo cluster",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unchecked": 2,
+      "unevidenced": 3,
+      "holds": 1
+     },
+     "stated": 3,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unchecked",
+      "premise_unchecked",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0029-combine-api-redis-into-backend-redis": {
+     "title": "29. Combine api-redis into backend-redis",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 3,
+      "unchecked": 1,
+      "holds": 2
+     },
+     "stated": 3,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unchecked",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0038-mongo_replacement_by_documentdb": {
+     "title": "38. Mongo Replacement by DocumentDB",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "holds": 1,
+      "unchecked": 2,
+      "unevidenced": 3
+     },
+     "stated": 3,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unchecked",
+      "premise_unevidenced",
+      "premise_unchecked",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0039-non-govuk-domain-policy": {
+     "title": "39. Non-GOV.UK domain policy",
+     "verdict": "HOLDS",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 3
+     },
+     "stated": 3,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0003-aws-networking-outline": {
+     "title": "3. Networking Outline",
+     "verdict": "RETIRED",
+     "gate": "DENY",
+     "premises": {},
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "retired"
+     ],
+     "expired": []
+    },
+    "0004-dns-definitions-for-hosts-and-services": {
+     "title": "4. DNS definitions for hosts and services",
+     "verdict": "RETIRED",
+     "gate": "DENY",
+     "premises": {
+      "unevidenced": 1
+     },
+     "stated": 1,
+     "stated_evidenced": 0,
+     "reasons": [
+      "retired"
+     ],
+     "expired": []
+    }
+   }
+  }
+ ],
+ "total": {
+  "decisions": 75,
+  "before": {
+   "verdicts": {
+    "HOLDS": 16,
+    "MOOT": 8,
+    "DISPUTED": 0,
+    "UNDOCUMENTED": 46,
+    "RETIRED": 5
+   },
+   "gates": {
+    "ALLOW": 8,
+    "REVALIDATE": 54,
+    "DENY": 13
+   }
+  },
+  "after": {
+   "verdicts": {
+    "HOLDS": 35,
+    "MOOT": 17,
+    "DISPUTED": 0,
+    "UNDOCUMENTED": 18,
+    "RETIRED": 5
+   },
+   "gates": {
+    "ALLOW": 2,
+    "REVALIDATE": 51,
+    "DENY": 22
+   }
+  },
+  "adrs_read": 75,
+  "adrs_not_read": 0,
+  "reasons_kept": 157,
+  "reasons_dropped": 6,
+  "tool_links": 31,
+  "relations_kept": 8,
+  "relations_dropped": 0,
+  "adrs_with_no_stated_reason": 24,
+  "holds_checked": 2,
+  "holds_unevidenced": 33
+ }
+}

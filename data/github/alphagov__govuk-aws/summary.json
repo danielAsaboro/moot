@@ -15,18 +15,27 @@
   "redis",
   "terraform"
  ],
+ "reasons": {
+  "model": "qwen3.8:27b",
+  "extracted": 31,
+  "not_read": 0,
+  "reasons": 45,
+  "dropped": 2,
+  "tool_links": 10,
+  "relations": 2,
+  "relations_dropped": 0
+ },
  "checks": 11,
  "failing": 2,
  "verdicts": {
-  "HOLDS": 5,
-  "MOOT": 3,
+  "HOLDS": 10,
+  "MOOT": 9,
   "RETIRED": 2,
-  "UNDOCUMENTED": 21
+  "UNDOCUMENTED": 10
  },
  "gates": {
-  "ALLOW": 1,
-  "DENY": 5,
-  "REVALIDATE": 25
+  "DENY": 11,
+  "REVALIDATE": 20
  },
  "moot": [
   {
@@ -38,8 +47,32 @@
    "title": "8. Postgres on Puppetmaster"
   },
   {
+   "id": "0010-terraform-directory-structure",
+   "title": "10. Terraform directory structure"
+  },
+  {
+   "id": "0011-migration-strategy",
+   "title": "11. Migration Strategy"
+  },
+  {
    "id": "0012-security-groups-in-terraform",
    "title": "12. Security Groups in Terraform"
+  },
+  {
+   "id": "0014-launch-config-change-propagation-process",
+   "title": "14. Launch Config change propagation process"
+  },
+  {
+   "id": "0019-centralise-mysql-databases",
+   "title": "19. Centralise MySQL Databases"
+  },
+  {
+   "id": "0024-ami-lookups",
+   "title": "24. AMI Lookups"
+  },
+  {
+   "id": "0037-alb-health-checks",
+   "title": "37. ALB Health Checks"
   }
  ]
 }

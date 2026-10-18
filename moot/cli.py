@@ -26,6 +26,8 @@ def main(argv=None):
     sub.add_parser("realworld", help="check real public ADRs against GitHub and OSV -> data/realworld/ (network)")
     ig = sub.add_parser("ingest-github", help="a public repo's ADR folder + PRs -> graph gh_<owner>_<repo>, audited (network)")
     ig.add_argument("repo", help="owner/name"); ig.add_argument("--path", help="the ADR folder, if not found automatically"); ig.add_argument("--no-checks", action="store_true", help="skip the GitHub/OSV tool checks")
+    ig.add_argument("--no-reasons", action="store_true", help="do not read stated reasons from ADR text")
+    ig.add_argument("--cached", action="store_true", help="read stated reasons from data/github/<repo>/reasons.json only, never a model")
     e = sub.add_parser("extract", help="LLM extraction from data/corpus into data/extracted.json"); e.add_argument("--limit", type=int)
     args = p.parse_args(argv)
 
@@ -39,9 +41,13 @@ def main(argv=None):
         from .realworld.check import main as rw; rw(); return
     if args.cmd == "ingest-github":
         from .connectors import github as gh
-        s = gh.ingest(args.repo, args.path, checks=not args.no_checks)
+        s = gh.ingest(args.repo, args.path, checks=not args.no_checks, reasons=not args.no_reasons, call_model=not args.cached)
         s = gh.audit(args.repo)
         print(f"{s['repo']}: {s['decisions']} decisions from {s['folder']} ({s['pull_requests']} pull requests, {s['people']} people) -> graph {s['graph']}")
+        if s.get("reasons"):
+            r = s["reasons"]
+            print(f"stated reasons: {r['reasons']} kept from {r['extracted']} ADRs ({r['dropped']} dropped by the validator, {r['not_read']} not read), "
+                  f"{r['tool_links']} linked to tool checks, {r['relations']} dated SUPPORTS/CONTRADICTS from later ADRs; model {r['model']}")
         print("verdicts:", ", ".join(f"{k} {v}" for k, v in s["verdicts"].items()), "· gate:", ", ".join(f"{k} {v}" for k, v in s["gates"].items()))
         for m in s["moot"]:
             print(f"  MOOT  {m['id']}  {m['title']}")

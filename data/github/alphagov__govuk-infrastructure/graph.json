@@ -7,7 +7,7 @@
     "title": "1. Record architecture decisions",
     "summary": "We will use Architecture Decision Records (ADRs), as described by Michael Nygard.",
     "decided_on": "2021-08-10",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0001-record-architecture-decisions.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0001-record-architecture-decisions.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -19,7 +19,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 1. Record architecture decisions",
     "date": "2021-08-10",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0001-record-architecture-decisions.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0001-record-architecture-decisions.md",
     "excerpt": "We will use Architecture Decision Records (ADRs), as described by Michael Nygard."
    }
   },
@@ -74,7 +74,7 @@
     "title": "2. Use `aws-eks` Terraform module",
     "summary": "Adopt the existing Terraform registry EKS module.",
     "decided_on": "2021-08-10",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0002-use-aws-eks-terraform-module.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0002-use-aws-eks-terraform-module.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -86,7 +86,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 2. Use `aws-eks` Terraform module",
     "date": "2021-08-10",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0002-use-aws-eks-terraform-module.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0002-use-aws-eks-terraform-module.md",
     "excerpt": "Adopt the existing Terraform registry EKS module."
    }
   },
@@ -108,7 +108,7 @@
     "title": "3. Split Terraform state into separate AWS cluster and Kubernetes resource phases",
     "summary": "Split Terraform resources into two separate states and phases: 1. cluster-infrastructure - EKS cluster and associated AWS resources. We do not define a kubernetes provider in this root. 2. cluster-services - Kubernetes resources (for example, ingress controllers) and in-cluster configuration (for ex",
     "decided_on": "2021-08-11",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -120,7 +120,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 3. Split Terraform state into separate AWS cluster and Kubernetes resource phases",
     "date": "2021-08-11",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases.md",
     "excerpt": "Split Terraform resources into two separate states and phases: 1. cluster-infrastructure - EKS cluster and associated AWS resources. We do not define a kubernetes provider in this root. 2. cluster-services - Kubernetes resources (for example, ingress controllers) and in-cluster configuration (for ex"
    }
   },
@@ -142,7 +142,7 @@
     "title": "4. Use AWS Load Balancer Controller for edge traffic services",
     "summary": "Use the AWS Load Balancer Controller.",
     "decided_on": "2021-08-12",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -154,7 +154,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 4. Use AWS Load Balancer Controller for edge traffic services",
     "date": "2021-08-12",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
     "excerpt": "Use the AWS Load Balancer Controller."
    }
   },
@@ -176,7 +176,7 @@
     "title": "5. Use AWS Elastic Kubernetes Service (EKS) managed node groups",
     "summary": "Use managed node groups.",
     "decided_on": "2021-08-13",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0005-use-eks-managed-node-groups.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0005-use-eks-managed-node-groups.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -188,7 +188,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 5. Use AWS Elastic Kubernetes Service (EKS) managed node groups",
     "date": "2021-08-13",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0005-use-eks-managed-node-groups.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0005-use-eks-managed-node-groups.md",
     "excerpt": "Use managed node groups."
    }
   },
@@ -210,7 +210,7 @@
     "title": "6. Use Helm for application package management",
     "summary": "Use Helm v3+.",
     "decided_on": "2021-08-16",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0006-use-helm-for-application-package-management.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0006-use-helm-for-application-package-management.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -222,7 +222,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 6. Use Helm for application package management",
     "date": "2021-08-16",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0006-use-helm-for-application-package-management.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0006-use-helm-for-application-package-management.md",
     "excerpt": "Use Helm v3+."
    }
   },
@@ -244,7 +244,7 @@
     "title": "7. Use Fluent Bit, Elasticsearch and Kibana for application logs",
     "summary": "Use a Fluent Bit DaemonsSet with AWS Elasticsearch Service.",
     "decided_on": "2021-08-16",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Deprecated (no superseding ADR)"
    }
@@ -256,7 +256,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 7. Use Fluent Bit, Elasticsearch and Kibana for application logs",
     "date": "2021-08-16",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
     "excerpt": "Use a Fluent Bit DaemonsSet with AWS Elasticsearch Service."
    }
   },
@@ -289,7 +289,7 @@
     "title": "8. Use external-secrets for secrets storage",
     "summary": "Use **`external-secrets`**. While kubernetes-external-secrets is more mature and slightly simpler to deploy and use, it is also on a deprecation path, with no plans for a migration path to external-secrets. external-secrets is less mature and slightly more complex, but not significantly so, and proo",
     "decided_on": "2021-08-26",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0008-use-external-secrets-for-secrets-storage.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0008-use-external-secrets-for-secrets-storage.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -301,7 +301,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 8. Use external-secrets for secrets storage",
     "date": "2021-08-26",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0008-use-external-secrets-for-secrets-storage.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0008-use-external-secrets-for-secrets-storage.md",
     "excerpt": "Use **`external-secrets`**. While kubernetes-external-secrets is more mature and slightly simpler to deploy and use, it is also on a deprecation path, with no plans for a migration path to external-secrets. external-secrets is less mature and slightly more complex, but not significantly so, and proo"
    }
   },
@@ -323,7 +323,7 @@
     "title": "9. Use `external-dns` for DNS record management",
     "summary": "Use `external-dns`.",
     "decided_on": "2021-08-27",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0009-use-external-dns-for-dns-record-management.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0009-use-external-dns-for-dns-record-management.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -335,7 +335,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 9. Use `external-dns` for DNS record management",
     "date": "2021-08-27",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0009-use-external-dns-for-dns-record-management.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0009-use-external-dns-for-dns-record-management.md",
     "excerpt": "Use `external-dns`."
    }
   },
@@ -357,7 +357,7 @@
     "title": "10. Use Dex IdP for user web authentication",
     "summary": "Use Dex as a Single Sign-On (SSO) service and identity provider for all web-based user authentication. This is strictly for use with user-facing, web-based cluster services such as monitoring and CI/CD tools. We should not used it for any other purposes, such as AWS or Kubernetes authentication.",
     "decided_on": "2021-12-01",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0010-use-dex-idp-for-user-web-authentication.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0010-use-dex-idp-for-user-web-authentication.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -369,7 +369,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 10. Use Dex IdP for user web authentication",
     "date": "2021-12-01",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0010-use-dex-idp-for-user-web-authentication.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0010-use-dex-idp-for-user-web-authentication.md",
     "excerpt": "Use Dex as a Single Sign-On (SSO) service and identity provider for all web-based user authentication. This is strictly for use with user-facing, web-based cluster services such as monitoring and CI/CD tools. We should not used it for any other purposes, such as AWS or Kubernetes authentication."
    }
   },
@@ -402,7 +402,7 @@
     "title": "11. Use AWS Graviton (ARM) for compute instances",
     "summary": "1. Update our CI/CD to build all GOV.UK app images with ARM support 2. Update our EKS node groups to add Graviton EC2 instances to our clusters 3. Instruct Kubernetes to deploy only ARM-architecture images 4. Scale our x8664 (Intel) node groups down to zero.",
     "decided_on": "2025-03-03",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0011-use-graviton-for-compute-instances.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0011-use-graviton-for-compute-instances.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -414,7 +414,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 11. Use AWS Graviton (ARM) for compute instances",
     "date": "2025-03-03",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0011-use-graviton-for-compute-instances.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0011-use-graviton-for-compute-instances.md",
     "excerpt": "1. Update our CI/CD to build all GOV.UK app images with ARM support 2. Update our EKS node groups to add Graviton EC2 instances to our clusters 3. Instruct Kubernetes to deploy only ARM-architecture images 4. Scale our x8664 (Intel) node groups down to zero."
    }
   },
@@ -447,7 +447,7 @@
     "title": "12. Non-GOV.UK domain policy",
     "summary": "<!-- vale GOVUK.Acronyms = NO -- <!-- This document uses upper case words that aren't acronyms. See definitions. -- <!-- vale RedHat.TermsWarnings = NO -- <!-- This document uses \"MAY\" deliberately, which RedHat.TermsWarnings warns against using -- <!-- vale RedHat.PassiveVoice = NO -- <!-- This doc",
     "decided_on": "2025-05-06",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0012-non-govuk-domain-policy.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0012-non-govuk-domain-policy.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -459,7 +459,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 12. Non-GOV.UK domain policy",
     "date": "2025-05-06",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0012-non-govuk-domain-policy.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0012-non-govuk-domain-policy.md",
     "excerpt": "<!-- vale GOVUK.Acronyms = NO -- <!-- This document uses upper case words that aren't acronyms. See definitions. -- <!-- vale RedHat.TermsWarnings = NO -- <!-- This document uses \"MAY\" deliberately, which RedHat.TermsWarnings warns against using -- <!-- vale RedHat.PassiveVoice = NO -- <!-- This doc"
    }
   },
@@ -492,7 +492,7 @@
     "title": "13. Expose external metrics for Horizontal Pod Autoscaler using Prometheus adapter",
     "summary": " Adopt the Prometheus Adapter Helm chart (prometheus-community/prometheus-adapter) as the standard way to serve external metrics. Deploy the chart in the monitoring namespace and manage it with our existing GitOps repository (govuk-helm-charts) and Argo CD. Create a minimal external-metrics rule set",
     "decided_on": "2025-06-03",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0013-expose-external-metrics-for-hpa.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0013-expose-external-metrics-for-hpa.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -504,7 +504,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 13. Expose external metrics for Horizontal Pod Autoscaler using Prometheus adapter",
     "date": "2025-06-03",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0013-expose-external-metrics-for-hpa.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0013-expose-external-metrics-for-hpa.md",
     "excerpt": " Adopt the Prometheus Adapter Helm chart (prometheus-community/prometheus-adapter) as the standard way to serve external metrics. Deploy the chart in the monitoring namespace and manage it with our existing GitOps repository (govuk-helm-charts) and Argo CD. Create a minimal external-metrics rule set"
    }
   },
@@ -537,7 +537,7 @@
     "title": "14. Replace Terraform Cloud backend with AWS S3",
     "summary": " Adopt S3 as the canonical Terraform backend for all workspaces. Provision one bucket per environment: govuk-terraform-state-integration govuk-terraform-state-staging govuk-terraform-state-production with versioning, bucket\u2011level public\u2011access blocks and SSE\u2011KMS. Retain object versions for 90 days v",
     "decided_on": "2025-06-10",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0014-replace-terraform-cloud.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0014-replace-terraform-cloud.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -549,7 +549,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 14. Replace Terraform Cloud backend with AWS S3",
     "date": "2025-06-10",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0014-replace-terraform-cloud.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0014-replace-terraform-cloud.md",
     "excerpt": " Adopt S3 as the canonical Terraform backend for all workspaces. Provision one bucket per environment: govuk-terraform-state-integration govuk-terraform-state-staging govuk-terraform-state-production with versioning, bucket\u2011level public\u2011access blocks and SSE\u2011KMS. Retain object versions for 90 days v"
    }
   },
@@ -571,7 +571,7 @@
     "title": "15. Maintain a read-only IAM role",
     "summary": "We have decided to reintroduce the ReadOnly role to give a fully read-only level of privilege in a number of scenarios: 1. Developers wanting to just look about without changing anything, 2. Junior/apprentice level roles needing access without the ability to accidentally change anything, 3. External",
     "decided_on": "2025-06-18",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0015-maintain-a-readonly-role.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0015-maintain-a-readonly-role.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -583,7 +583,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 15. Maintain a read-only IAM role",
     "date": "2025-06-18",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0015-maintain-a-readonly-role.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0015-maintain-a-readonly-role.md",
     "excerpt": "We have decided to reintroduce the ReadOnly role to give a fully read-only level of privilege in a number of scenarios: 1. Developers wanting to just look about without changing anything, 2. Junior/apprentice level roles needing access without the ability to accidentally change anything, 3. External"
    }
   },
@@ -605,7 +605,7 @@
     "title": "16. Use IAM roles for external services and applications",
     "summary": "We have decided to retire (delete) IAM users and their associated access keys, replacing them with suitable IAM roles. This change will occur when: We identify a long-lived access key that is a candidate for rotation. The service using the access key supports assuming IAM roles. The application usin",
     "decided_on": "2025-06-20",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0016-use-iam-roles-for-services.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0016-use-iam-roles-for-services.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -617,7 +617,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 16. Use IAM roles for external services and applications",
     "date": "2025-06-20",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0016-use-iam-roles-for-services.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0016-use-iam-roles-for-services.md",
     "excerpt": "We have decided to retire (delete) IAM users and their associated access keys, replacing them with suitable IAM roles. This change will occur when: We identify a long-lived access key that is a candidate for rotation. The service using the access key supports assuming IAM roles. The application usin"
    }
   },
@@ -639,7 +639,7 @@
     "title": "17. Retire use of GitHub topics for configuration management",
     "summary": "We have decided to stop using GitHub topics as selectors or identifiers for our automation scripts, including Terraform. As a consequence, we must now configure our GitHub repositories using configuration files or in code explicitly, rather than implicitly through remotely-managed tags or labels. We",
     "decided_on": "2025-08-06",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0017-retire-use-of-github-topics-for-config-management.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0017-retire-use-of-github-topics-for-config-management.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -651,7 +651,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 17. Retire use of GitHub topics for configuration management",
     "date": "2025-08-06",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0017-retire-use-of-github-topics-for-config-management.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0017-retire-use-of-github-topics-for-config-management.md",
     "excerpt": "We have decided to stop using GitHub topics as selectors or identifiers for our automation scripts, including Terraform. As a consequence, we must now configure our GitHub repositories using configuration files or in code explicitly, rather than implicitly through remotely-managed tags or labels. We"
    }
   },
@@ -673,7 +673,7 @@
     "title": "18. Use Concourse CI",
     "summary": "After playing back both investigations into Kargo and Concourse, the team decided to pursue Concourse as its CI/CD tool of choice. In our research we deployed it on virtual machines in EC2, because we borrowed Terraform code from another team to speed our prototyping time. We discussed the implicati",
     "decided_on": "2025-08-12",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0018-use-concourse-ci.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0018-use-concourse-ci.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -685,7 +685,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 18. Use Concourse CI",
     "date": "2025-08-12",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0018-use-concourse-ci.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0018-use-concourse-ci.md",
     "excerpt": "After playing back both investigations into Kargo and Concourse, the team decided to pursue Concourse as its CI/CD tool of choice. In our research we deployed it on virtual machines in EC2, because we borrowed Terraform code from another team to speed our prototyping time. We discussed the implicati"
    }
   },
@@ -707,7 +707,7 @@
     "title": "19. Restructure CI/CD",
     "summary": "The decision we have landed on is a blend between options 2 and 3. We will have a Concourse deployment in each environment, with a central Concourse deployment in a \"tools\" account or similar. The central Concourse will not have permission to reach into other accounts. <!-- vale PlatformEngineering.",
     "decided_on": "2025-10-16",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0019-restructure-cicd.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0019-restructure-cicd.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -719,7 +719,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 19. Restructure CI/CD",
     "date": "2025-10-16",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0019-restructure-cicd.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0019-restructure-cicd.md",
     "excerpt": "The decision we have landed on is a blend between options 2 and 3. We will have a Concourse deployment in each environment, with a central Concourse deployment in a \"tools\" account or similar. The central Concourse will not have permission to reach into other accounts. <!-- vale PlatformEngineering."
    }
   },
@@ -741,7 +741,7 @@
     "title": "20. Use Crossplane for abstraction",
     "summary": "<!-- vale RedHat.TermsSuggestions = NO -- We have decided that we want to use Crossplane to create a Kubernetes-flavoured API for our users. The API will abstract the types of resources our users need to create at a higher level than offered by the standard Kubernetes API. <!-- \"higher\" in \"higher l",
     "decided_on": "2025-10-20",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0020-use-crossplane-for-abstraction.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0020-use-crossplane-for-abstraction.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -753,7 +753,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 20. Use Crossplane for abstraction",
     "date": "2025-10-20",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0020-use-crossplane-for-abstraction.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0020-use-crossplane-for-abstraction.md",
     "excerpt": "<!-- vale RedHat.TermsSuggestions = NO -- We have decided that we want to use Crossplane to create a Kubernetes-flavoured API for our users. The API will abstract the types of resources our users need to create at a higher level than offered by the standard Kubernetes API. <!-- \"higher\" in \"higher l"
    }
   },
@@ -775,7 +775,7 @@
     "title": "21. Give Fastly CNAME records a TTL of 300",
     "summary": "We have decided to give Fastly CNAME records for assets.publishing.service.gov.uk and www-cdn.production.govuk.service.gov.uk a TTL of 300.",
     "decided_on": "2025-10-27",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0021-give-fastly-cname-records-a-TTL-of-300.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0021-give-fastly-cname-records-a-TTL-of-300.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -787,7 +787,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 21. Give Fastly CNAME records a TTL of 300",
     "date": "2025-10-27",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0021-give-fastly-cname-records-a-TTL-of-300.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0021-give-fastly-cname-records-a-TTL-of-300.md",
     "excerpt": "We have decided to give Fastly CNAME records for assets.publishing.service.gov.uk and www-cdn.production.govuk.service.gov.uk a TTL of 300."
    }
   },
@@ -820,7 +820,7 @@
     "title": "22. Use Pkl for configuration",
     "summary": "After the research and discussion outlined in the Context section, we have decided to use Pkl for configuration code going forwards. We have chosen Pkl because, of the options we short-listed, it was the most mature, well-supported, and feature rich option. It has strong support in IDEs and on GitHu",
     "decided_on": "2025-11-06",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0022-use-pkl-for-configuration.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0022-use-pkl-for-configuration.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -832,7 +832,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 22. Use Pkl for configuration",
     "date": "2025-11-06",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0022-use-pkl-for-configuration.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0022-use-pkl-for-configuration.md",
     "excerpt": "After the research and discussion outlined in the Context section, we have decided to use Pkl for configuration code going forwards. We have chosen Pkl because, of the options we short-listed, it was the most mature, well-supported, and feature rich option. It has strong support in IDEs and on GitHu"
    }
   },
@@ -854,7 +854,7 @@
     "title": "23. Use OPA Gatekeeper",
     "summary": "We have chosen to adopt OPA Gatekeeper for applying policy to Kubernetes objects because it is a mature CNCF graduated project with good adoption among other Kubernetes users. We also view its dedicated Rego language as a positive. It is testable, not overly complicated or hard to learn, and adoptin",
     "decided_on": "2026-07-07",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0023-use-opa-gatekeeper.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0023-use-opa-gatekeeper.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -866,7 +866,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 23. Use OPA Gatekeeper",
     "date": "2026-07-07",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0023-use-opa-gatekeeper.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0023-use-opa-gatekeeper.md",
     "excerpt": "We have chosen to adopt OPA Gatekeeper for applying policy to Kubernetes objects because it is a mature CNCF graduated project with good adoption among other Kubernetes users. We also view its dedicated Rego language as a positive. It is testable, not overly complicated or hard to learn, and adoptin"
    }
   },
@@ -888,7 +888,7 @@
     "title": "24. Use of admission policy",
     "summary": "Keep using Open Policy Agent (OPA) and Rego. Pick Gatekeeper and Admission Webhooks over CEL and Admission Policy where possible. OPA proves particularly useful for the team, as we expect to utilise the engine with our upcoming concourse work.",
     "decided_on": "2026-08-07",
-    "source": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0024-use-of-admission-policy.md",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0024-use-of-admission-policy.md",
     "repo": "alphagov/govuk-infrastructure",
     "status": "Accepted"
    }
@@ -900,7 +900,7 @@
     "kind": "adr",
     "title": "alphagov/govuk-infrastructure: 24. Use of admission policy",
     "date": "2026-08-07",
-    "path": "https://github.com/alphagov/govuk-infrastructure/blob/main/docs/architecture/decisions/0024-use-of-admission-policy.md",
+    "path": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0024-use-of-admission-policy.md",
     "excerpt": "Keep using Open Policy Agent (OPA) and Rego. Pick Gatekeeper and Admission Webhooks over CEL and Admission Policy where possible. OPA proves particularly useful for the team, as we expect to utilise the engine with our upcoming concourse work."
    }
   },
@@ -913,6 +913,913 @@
     "date": "2026-08-11",
     "path": "https://github.com/alphagov/govuk-infrastructure/pull/4630",
     "excerpt": "Following our discussion at SU, we need to record our decision to prefer Gatekeeper and rego policies over CEL based admission policies.\r\n\r\n- adds an adr about Admission Policies"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0001-record-architecture-decisions_1",
+   "props": {
+    "text": "The project needs to record its architectural decisions.",
+    "kind": "stated",
+    "quote": "We need to record the architectural decisions made on this project",
+    "section": "context",
+    "span": "87-153",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0001-record-architecture-decisions.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0001-record-architecture-decisions"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0002-use-aws-eks-terraform-module_1",
+   "props": {
+    "text": "Defining each EKS resource in a custom module requires significant effort.",
+    "kind": "stated",
+    "quote": "Defining each resource in our own Terraform module maximises flexibility but also requires a significant level of effort",
+    "section": "context",
+    "span": "204-324",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0002-use-aws-eks-terraform-module.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0002-use-aws-eks-terraform-module"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0002-use-aws-eks-terraform-module_2",
+   "props": {
+    "text": "The existing Terraform registry EKS module optimizes for speed of delivery.",
+    "kind": "stated",
+    "quote": "We could instead make use of the [existing Terraform registry EKS module](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest) to optimise for speed of delivery",
+    "section": "context",
+    "span": "326-509",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0002-use-aws-eks-terraform-module.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0002-use-aws-eks-terraform-module"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0002-use-aws-eks-terraform-module_3",
+   "props": {
+    "text": "Many module defaults are fine for the team's purposes for the foreseeable future.",
+    "kind": "stated",
+    "quote": "We can define fully configured EKS clusters quickly and easily, because many module defaults will be fine for our purposes \nfor the foreseeable future",
+    "section": "consequences",
+    "span": "671-821",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0002-use-aws-eks-terraform-module.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0002-use-aws-eks-terraform-module"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0002-use-aws-eks-terraform-module_4",
+   "props": {
+    "text": "The EKS module has comprehensive support for many EKS cluster configuration options.",
+    "kind": "stated",
+    "quote": "The EKS module has comprehensive support for many of the options for EKS cluster config (e.g. worker node types)",
+    "section": "consequences",
+    "span": "824-936",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0002-use-aws-eks-terraform-module.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0002-use-aws-eks-terraform-module"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases_1",
+   "props": {
+    "text": "Terraform providers are not nodes in the plan graph, so AWS resources are not guaranteed to be created before the Kubernetes provider initializes.",
+    "kind": "stated",
+    "quote": "Terraform providers are not handled as nodes in the Terraform plan graph, so Terraform cannot guarantee that AWS resources \nare fully created at the point that it configures the `kubernetes` provider",
+    "section": "context",
+    "span": "892-1091",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases_2",
+   "props": {
+    "text": "The Kubernetes provider requires arguments that depend on AWS resource outputs, causing race conditions in a single state.",
+    "kind": "stated",
+    "quote": "The `kubernetes` provider requires arguments that are dependent on AWS resource \noutputs, so a na\u00efve implementation would look like this:",
+    "section": "context",
+    "span": "415-552",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases_3",
+   "props": {
+    "text": "Terraform cannot include AWS load balancers provisioned by Kubernetes services in its destruction plan, preventing EKS cluster deletion.",
+    "kind": "stated",
+    "quote": "Ingress controllers and Kubernetes \n`Service` objects commonly provision AWS load balancers that Terraform does not know about, and therefore cannot include \nin a destruction plan",
+    "section": "consequences",
+    "span": "2579-2758",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases_4",
+   "props": {
+    "text": "The separation keeps generic cluster infrastructure distinct from GOV.UK-specific configuration, allowing for future cluster switching.",
+    "kind": "stated",
+    "quote": "This is an important and useful separation to enforce, because it keeps the largely \ngeneric cluster infrastructure separate from the GOV.UK-specific configuration and supporting services",
+    "section": "consequences",
+    "span": "3007-3194",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0004-use-aws-load-balancer-controller-for-edge-traffic-services_1",
+   "props": {
+    "text": "The project requires an AWS load balancer in front of the cluster to avoid direct internet exposure.",
+    "kind": "stated",
+    "quote": "We do not want to expose the cluster directly to the internet, so we require an AWS load balancer in front of the\ncluster",
+    "section": "context",
+    "span": "546-667",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0004-use-aws-load-balancer-controller-for-edge-traffic-services"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0004-use-aws-load-balancer-controller-for-edge-traffic-services_2",
+   "props": {
+    "text": "The load balancer must support TLS termination and integration with AWS Route 53.",
+    "kind": "stated",
+    "quote": "The load balancer must support TLS termination and integration with our DNS provider (AWS Route 53)",
+    "section": "context",
+    "span": "669-768",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0004-use-aws-load-balancer-controller-for-edge-traffic-services"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0004-use-aws-load-balancer-controller-for-edge-traffic-services_3",
+   "props": {
+    "text": "Built-in Kubernetes cloud providers are deprecated in favor of out-of-tree providers.",
+    "kind": "stated",
+    "quote": "Built-in cloud providers are now [considered deprecated overall, in favour of out-of-tree providers](https://kubernetes.io/blog/2019/04/17/the-future-of-cloud-providers-in-kubernetes/),\nso users are now required to use an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) \nwith support for `Service` resources",
+    "section": "context",
+    "span": "1127-1485",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0004-use-aws-load-balancer-controller-for-edge-traffic-services"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0004-use-aws-load-balancer-controller-for-edge-traffic-services_4",
+   "props": {
+    "text": "The AWS Load Balancer Controller is the primary and recommended ingress controller for AWS EKS.",
+    "kind": "stated",
+    "quote": "The primary, and recommended, ingress controller for AWS' Elastic Kubernetes Service (EKS) is\nthe [AWS Load Balancer Controller](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html), which can provision and manage [ALBs for `Ingress` resources and NLBs for\n`Service` resources](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/#aws-load-balancer-controller)",
+    "section": "context",
+    "span": "1488-1895",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0004-use-aws-load-balancer-controller-for-edge-traffic-services.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0004-use-aws-load-balancer-controller-for-edge-traffic-services"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0005-use-eks-managed-node-groups_1",
+   "props": {
+    "text": "Kubernetes has a 4-month release cycle, making frequent upgrades necessary.",
+    "kind": "stated",
+    "quote": "Kubernetes has a 4-month release cycle, so upgrades will be relatively frequent",
+    "section": "context",
+    "span": "1101-1180",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0005-use-eks-managed-node-groups.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0005-use-eks-managed-node-groups"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0005-use-eks-managed-node-groups_2",
+   "props": {
+    "text": "The team requires a robust and mature node upgrade process due to the destructive nature of worker updates.",
+    "kind": "stated",
+    "quote": "We will require a robust and mature node upgrade \nprocess, given the potentially destructive nature of worker updates",
+    "section": "context",
+    "span": "1182-1299",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0005-use-eks-managed-node-groups.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0005-use-eks-managed-node-groups"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0005-use-eks-managed-node-groups_3",
+   "props": {
+    "text": "The requirements for worker nodes are not fully known, making flexibility important.",
+    "kind": "stated",
+    "quote": "At this stage our requirements for worker nodes are not fully known, so maintaining flexibility is important",
+    "section": "context",
+    "span": "1302-1410",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0005-use-eks-managed-node-groups.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0005-use-eks-managed-node-groups"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0005-use-eks-managed-node-groups_4",
+   "props": {
+    "text": "Managed node groups handle graceful upgrades largely automatically, unlike self-managed groups.",
+    "kind": "stated",
+    "quote": "Managed node groups handle graceful upgrades largely automatically",
+    "section": "context",
+    "span": "1843-1909",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0005-use-eks-managed-node-groups.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0005-use-eks-managed-node-groups"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0006-use-helm-for-application-package-management_1",
+   "props": {
+    "text": "The team requires a way to define Kubernetes resources as installable packages with configuration options passed at deploy time.",
+    "kind": "stated",
+    "quote": "At a high level, we require a means to define an application's Kubernetes resources as an installable \npackage, with configuration options passed in at deploy time",
+    "section": "context",
+    "span": "354-517",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0006-use-helm-for-application-package-management.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0006-use-helm-for-application-package-management"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0006-use-helm-for-application-package-management_2",
+   "props": {
+    "text": "The team uses Terraform for AWS infrastructure management and wants to maintain a strict separation of concerns between infrastructure and application management.",
+    "kind": "stated",
+    "quote": "We are currently using Terraform for AWS infrastructure management, and we should maintain a strict separation of\nconcerns between managing cloud infrastructure and the software applications that run on top",
+    "section": "context",
+    "span": "1135-1341",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0006-use-helm-for-application-package-management.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0006-use-helm-for-application-package-management"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0006-use-helm-for-application-package-management_3",
+   "props": {
+    "text": "Helm has widespread industry adoption, a large number of existing packages, and support in the wider devops and development ecosystem.",
+    "kind": "stated",
+    "quote": "Helm by comparison has widespread industry adoption,\na [large number of existing packages](https://artifacthub.io/packages/search), and widespread support in the wider\ndevops and development ecosystem",
+    "section": "context",
+    "span": "1943-2143",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0006-use-helm-for-application-package-management.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0006-use-helm-for-application-package-management"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs_1",
+   "props": {
+    "text": "The sidecar pattern does not meet the need for logging as a default service for all containers",
+    "kind": "stated",
+    "quote": "We must have logging as a service and enable it by default for all containers, so the sidecar pattern does not meet\nour needs",
+    "section": "other",
+    "span": "1223-1348",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs_2",
+   "props": {
+    "text": "The logging agent must annotate and index logs with Kubernetes cluster metadata",
+    "kind": "stated",
+    "quote": "To make application logs searchable and navigable, we require the logging agent to annotate and index logs with\nKubernetes cluster metadata (namespace, pod name, labels, and so on)",
+    "section": "other",
+    "span": "1351-1531",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs_3",
+   "props": {
+    "text": "Elasticsearch and Kibana are chosen due to their extensive support for this use case and ecosystem",
+    "kind": "stated",
+    "quote": "For now, the obvious choice is Elasticsearch and Kibana, due to their extensive support for this use case and in this\necosystem",
+    "section": "other",
+    "span": "2392-2519",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs_4",
+   "props": {
+    "text": "Deploying a local logging service ensures usability sooner and familiarity with Kubernetes logging details",
+    "kind": "stated",
+    "quote": "Doing so will ensure we have a usable logging service for our users sooner rather than later, and \nget familiar with the details of logging within Kubernetes ourselves",
+    "section": "other",
+    "span": "2222-2389",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0008-use-external-secrets-for-secrets-storage_1",
+   "props": {
+    "text": "The team wants to reconstitute the full state of a running cluster from an external source of truth.",
+    "kind": "stated",
+    "quote": "We want\nto do this because we want the ability to reconstitute the full state of a running cluster from an external source of truth",
+    "section": "context",
+    "span": "211-342",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0008-use-external-secrets-for-secrets-storage.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0008-use-external-secrets-for-secrets-storage"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0008-use-external-secrets-for-secrets-storage_2",
+   "props": {
+    "text": "Managing sensitive configuration in Git repositories presents significant challenges and pain points.",
+    "kind": "stated",
+    "quote": "there are significant challenges and pain points when\nmanaging sensitive config in Git repositories",
+    "section": "context",
+    "span": "412-511",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0008-use-external-secrets-for-secrets-storage.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0008-use-external-secrets-for-secrets-storage"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0008-use-external-secrets-for-secrets-storage_3",
+   "props": {
+    "text": "The team must maintain end-to-end encryption of secrets until a running container uses them.",
+    "kind": "stated",
+    "quote": "We must maintain end-to-end encryption of secrets, up until the point a running container uses a secret, where Kubernetes\nmust necessarily decrypt the secret for use",
+    "section": "context",
+    "span": "567-732",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0008-use-external-secrets-for-secrets-storage.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0008-use-external-secrets-for-secrets-storage"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0008-use-external-secrets-for-secrets-storage_4",
+   "props": {
+    "text": "The team must support automatic propagation of secret rotations from AWS to services in the cluster.",
+    "kind": "stated",
+    "quote": "We must be able to support rotation of secrets in AWS SecretsManager, where a change of value in AWS is automatically\npropagated to services in the cluster",
+    "section": "context",
+    "span": "834-989",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0008-use-external-secrets-for-secrets-storage.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0008-use-external-secrets-for-secrets-storage"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0010-use-dex-idp-for-user-web-authentication_1",
+   "props": {
+    "text": "Prometheus and Alertmanager lack built-in web authentication, requiring authentication at the load balancer level.",
+    "kind": "stated",
+    "quote": "Prometheus and Alertmanager do not support any form of web-based user authentication, so authentication must happen at a\nproxy or load balancer in front of the application",
+    "section": "context",
+    "span": "897-1068",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0010-use-dex-idp-for-user-web-authentication.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0010-use-dex-idp-for-user-web-authentication"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0010-use-dex-idp-for-user-web-authentication_2",
+   "props": {
+    "text": "The AWS Load Balancer Controller supports OIDC authentication, which is required for the infrastructure.",
+    "kind": "stated",
+    "quote": "We are currently using Application Load Balancers (ALB) in front of Prometheus and Alertmanager, from\nthe [AWS Load Balancer Controller](0004-use-aws-load-balancer-controller-for-edge-traffic-services.md), which\nsupports [authentication with AWS Cognito or OIDC-compliant identity providers](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.3/guide/ingress/annotations/#authentication)",
+    "section": "context",
+    "span": "1071-1473",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0010-use-dex-idp-for-user-web-authentication.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0010-use-dex-idp-for-user-web-authentication"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0010-use-dex-idp-for-user-web-authentication_3",
+   "props": {
+    "text": "GitHub does not support OIDC, and AWS Cognito does not support OAuth2, preventing direct integration between them.",
+    "kind": "stated",
+    "quote": "GitHub as an identity provider does not support OIDC, only OAuth2, so we cannot use it for ALB authentication. AWS\nCognito [does not support OAuth2, only OIDC](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html),\nso we cannot use it with GitHub as an identity provider",
+    "section": "context",
+    "span": "1476-1773",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0010-use-dex-idp-for-user-web-authentication.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0010-use-dex-idp-for-user-web-authentication"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0010-use-dex-idp-for-user-web-authentication_4",
+   "props": {
+    "text": "Argo CD already includes Dex as an OIDC-compliant identity broker.",
+    "kind": "stated",
+    "quote": "ArgoCD, our current CD tool,\nalso [implements authentication with OIDC](https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/#existing-oidc-provider),\nand [includes an OIDC-compliant identity broker](https://argoproj.github.io/argo-workflows/argo-server-sso-argocd/): [Dex](https://dexidp.io)",
+    "section": "context",
+    "span": "1776-2088",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0010-use-dex-idp-for-user-web-authentication.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0010-use-dex-idp-for-user-web-authentication"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0012-non-govuk-domain-policy_1",
+   "props": {
+    "text": "Systems like Google's Safe Browsing might flag a Non-GOV.UK domain as a phishing site if it looks like a GOV.UK site or plays a publicly detectable role in serving content.",
+    "kind": "stated",
+    "quote": "In either case, systems such as [Google's Safe Browsing](https://transparencyreport.google.com/safe-browsing/search),\nin use by browsers to automatically block requests to dangerous sites, might flag the domain as a phishing site",
+    "section": "context",
+    "span": "1237-1466",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0012-non-govuk-domain-policy.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0012-non-govuk-domain-policy"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0012-non-govuk-domain-policy_2",
+   "props": {
+    "text": "Such flagging could cause a major incident, making large parts of GOV.UK inaccessible.",
+    "kind": "stated",
+    "quote": "At worst, this could\ncause a major incident, making large parts of GOV.UK inaccessible",
+    "section": "context",
+    "span": "1566-1652",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0012-non-govuk-domain-policy.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0012-non-govuk-domain-policy"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0013-expose-external-metrics-for-hpa_1",
+   "props": {
+    "text": "Kubernetes HPAs currently scale only on CPU and memory metrics from metrics-server",
+    "kind": "stated",
+    "quote": "Kubernetes Horizontal Pod Autoscalers (HPAs) on GOV.UK currently scale only on CPU and memory metrics from `metrics-server",
+    "section": "context",
+    "span": "245-367",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0013-expose-external-metrics-for-hpa.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0013-expose-external-metrics-for-hpa"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0013-expose-external-metrics-for-hpa_2",
+   "props": {
+    "text": "Workloads need to scale on application-level signals such as Sidekiq queue backlog length",
+    "kind": "stated",
+    "quote": "Several workloads (starting with Chat AI) need to scale on application-level signals, such as a Sidekiq queue backlog length",
+    "section": "context",
+    "span": "370-494",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0013-expose-external-metrics-for-hpa.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0013-expose-external-metrics-for-hpa"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0013-expose-external-metrics-for-hpa_3",
+   "props": {
+    "text": "Kubernetes requires external signals to be available through the external.metrics.k8s.io API group",
+    "kind": "stated",
+    "quote": "Kubernetes requires these signals to be available through the `external.metrics.k8s.io` API group",
+    "section": "context",
+    "span": "496-593",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0013-expose-external-metrics-for-hpa.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0013-expose-external-metrics-for-hpa"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0013-expose-external-metrics-for-hpa_4",
+   "props": {
+    "text": "Prometheus already scrapes the backlog metric in every cluster but lacks a component to translate it to the external-metrics API",
+    "kind": "stated",
+    "quote": "Prometheus already scrapes the backlog metric (`sidekiq_queue_backlog{job=\"govuk-chat-worker\"}`) in every cluster, but\nthe cluster lacks a component that translates Prometheus data into the `external-metrics` API",
+    "section": "context",
+    "span": "596-808",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0013-expose-external-metrics-for-hpa.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0013-expose-external-metrics-for-hpa"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0014-replace-terraform-cloud_1",
+   "props": {
+    "text": "Terraform Cloud's cost and proprietary lock-in are no longer acceptable to the team.",
+    "kind": "stated",
+    "quote": "its cost and\nproprietary lock\u2011in are no longer acceptable",
+    "section": "context",
+    "span": "413-470",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0014-replace-terraform-cloud.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0014-replace-terraform-cloud"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0014-replace-terraform-cloud_2",
+   "props": {
+    "text": "A renewal decision for the Terraform Cloud service is due within six months.",
+    "kind": "stated",
+    "quote": "A renewal decision is due within six months",
+    "section": "context",
+    "span": "472-515",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0014-replace-terraform-cloud.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0014-replace-terraform-cloud"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0014-replace-terraform-cloud_3",
+   "props": {
+    "text": "S3-backed state with S3 native locking has matured.",
+    "kind": "stated",
+    "quote": "S3\u2011backed state with S3 native locking has matured",
+    "section": "context",
+    "span": "518-568",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0014-replace-terraform-cloud.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0014-replace-terraform-cloud"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0014-replace-terraform-cloud_4",
+   "props": {
+    "text": "AWS already meets the organization's security baseline.",
+    "kind": "stated",
+    "quote": "AWS already meets our security baseline",
+    "section": "context",
+    "span": "574-613",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0014-replace-terraform-cloud.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0014-replace-terraform-cloud"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0015-maintain-a-readonly-role_1",
+   "props": {
+    "text": "The team aims to adhere to the principle of least privilege by providing specific IAM and Kubernetes roles.",
+    "kind": "stated",
+    "quote": "We aim to adhere to the principle of least privilege wherever we can",
+    "section": "context",
+    "span": "88-156",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0015-maintain-a-readonly-role.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0015-maintain-a-readonly-role"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0015-maintain-a-readonly-role_2",
+   "props": {
+    "text": "The lowest level of privilege should not be capable of causing a production outage.",
+    "kind": "stated",
+    "quote": "we felt that the lowest level of privilege should not be capable of causing a production outage",
+    "section": "context",
+    "span": "1765-1860",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0015-maintain-a-readonly-role.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0015-maintain-a-readonly-role"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0015-maintain-a-readonly-role_3",
+   "props": {
+    "text": "Developers need a role to look around without changing anything.",
+    "kind": "stated",
+    "quote": "Developers wanting to just look about without changing anything",
+    "section": "decision",
+    "span": "2175-2238",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0015-maintain-a-readonly-role.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0015-maintain-a-readonly-role"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0015-maintain-a-readonly-role_4",
+   "props": {
+    "text": "Junior or apprentice level roles need access without the ability to accidentally change anything.",
+    "kind": "stated",
+    "quote": "Junior/apprentice level roles needing access without the ability to accidentally change anything",
+    "section": "decision",
+    "span": "2243-2339",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0015-maintain-a-readonly-role.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0015-maintain-a-readonly-role"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0016-use-iam-roles-for-services_1",
+   "props": {
+    "text": "Compromised IAM access keys pose a significant security risk.",
+    "kind": "stated",
+    "quote": "If these keys are compromised through leakage or reuse by unauthorised actors, they can pose a significant\nsecurity risk",
+    "section": "context",
+    "span": "279-399",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0016-use-iam-roles-for-services.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0016-use-iam-roles-for-services"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0016-use-iam-roles-for-services_2",
+   "props": {
+    "text": "Long-lived keys increase security risk.",
+    "kind": "stated",
+    "quote": "Long-lived keys increase this risk, and regular rotation is encouraged to mitigate it",
+    "section": "context",
+    "span": "401-486",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0016-use-iam-roles-for-services.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0016-use-iam-roles-for-services"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0016-use-iam-roles-for-services_3",
+   "props": {
+    "text": "Many third-party services support the use of IAM roles.",
+    "kind": "stated",
+    "quote": "Many third-party services now support the use of IAM roles",
+    "section": "context",
+    "span": "580-638",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0016-use-iam-roles-for-services.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0016-use-iam-roles-for-services"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0016-use-iam-roles-for-services_4",
+   "props": {
+    "text": "Internal applications can use Kubernetes Pod identities or assume IAM roles directly.",
+    "kind": "stated",
+    "quote": "Where possible, these applications (or their Kubernetes pods) should use Kubernetes `Pod` identities or assume IAM roles\ndirectly, rather than relying on access keys",
+    "section": "context",
+    "span": "920-1085",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0016-use-iam-roles-for-services.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0016-use-iam-roles-for-services"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0018-use-concourse-ci_1",
+   "props": {
+    "text": "The existing CI/CD implementation has security flaws and causes incidents",
+    "kind": "stated",
+    "quote": "An IT Health Check carried out in 2024 identified security flaws in the implementation of the deployment process. This, \nand a number of incidents directly caused by this process, and the team's ongoing issues with Argo Workflows has led us \nto want to re-engineer our CI/CD pipelines",
+    "section": "context",
+    "span": "915-1199",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0018-use-concourse-ci.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0018-use-concourse-ci"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0018-use-concourse-ci_2",
+   "props": {
+    "text": "The team is moving away from Terraform Cloud and needs a replacement for applying Terraform code",
+    "kind": "stated",
+    "quote": "An additional, contributing factor for making the decision was [ADR 0014](./0014-replace-terraform-cloud.md), in which we\ndecided we would move away from Terraform Cloud. To do so will require us to have a replacement for automatically applying\nTerraform code in different environments",
+    "section": "context",
+    "span": "1202-1487",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0018-use-concourse-ci.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0018-use-concourse-ci"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0018-use-concourse-ci_3",
+   "props": {
+    "text": "The team does not want to rely on undocumented features in alternative tools",
+    "kind": "stated",
+    "quote": "We did not want to rely on undocumented features, so we opted to prototype a workaround for the problem with Argo \nRollouts to see how it would look and feel",
+    "section": "other",
+    "span": "2668-2825",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0018-use-concourse-ci.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0018-use-concourse-ci"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0018-use-concourse-ci_4",
+   "props": {
+    "text": "The team prefers not to run virtual machines to avoid additional infrastructure support",
+    "kind": "stated",
+    "quote": "We discussed the implications of running EC2 instances versus running Concourse in the Kubernetes \nclusters, and we decided that we should stay away from running virtual machines. It adds additional infrastructure for \nus to support long term, which is different from everything else we support",
+    "section": "decision",
+    "span": "4782-5076",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0018-use-concourse-ci.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0018-use-concourse-ci"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0020-use-crossplane-for-abstraction_1",
+   "props": {
+    "text": "The existing generic Helm chart has become complex, hard to navigate, and difficult to maintain due to embedded Golang templates and variable dependencies.",
+    "kind": "stated",
+    "quote": "For us, as a\nPlatform Engineering team, this had led to a code base that:\n\n* has lots of Golang templates embedded in YAML,\n* has lots of importing and variable values derived from other variables,\n* is hard to navigate,\n* is hard to reason about,\n* is hard to change,\n* and is easy to get wrong",
+    "section": "context",
+    "span": "891-1186",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0020-use-crossplane-for-abstraction.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0020-use-crossplane-for-abstraction"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0020-use-crossplane-for-abstraction_2",
+   "props": {
+    "text": "Application teams lack the deep Kubernetes and infrastructure knowledge required to manage resources directly, which the Platform Engineering team possesses.",
+    "kind": "stated",
+    "quote": "Knowing what resources you need, their configuration, and how their interrelations\nrequires a good amount of Kubernetes knowledge, and knowledge of the rest of your infrastructure. This knowledge is \nreadily available within the Platform Engineering team, but less so among the application teams we serve",
+    "section": "context",
+    "span": "239-543",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0020-use-crossplane-for-abstraction.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0020-use-crossplane-for-abstraction"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0020-use-crossplane-for-abstraction_3",
+   "props": {
+    "text": "The team intends to use Crossplane to create a higher-level API that abstracts resource types for users, simplifying deployment standardization.",
+    "kind": "stated",
+    "quote": "We have decided that we want to use Crossplane to create a Kubernetes-flavoured API for our users. The API will abstract\nthe types of resources our users need to create at a higher level than offered by the standard Kubernetes API",
+    "section": "decision",
+    "span": "2972-3202",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0020-use-crossplane-for-abstraction.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0020-use-crossplane-for-abstraction"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0020-use-crossplane-for-abstraction_4",
+   "props": {
+    "text": "The team plans to use Crossplane to manage backing services within Kubernetes, eventually replacing the current use of Terraform for this purpose.",
+    "kind": "stated",
+    "quote": "We plan to use this feature to create a catalogue of backing services our users can get access to through Kubernetes. \nThis will eventually replace creating application backing services in Terraform",
+    "section": "other",
+    "span": "3808-4006",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0020-use-crossplane-for-abstraction.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0020-use-crossplane-for-abstraction"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0023-use-opa-gatekeeper_1",
+   "props": {
+    "text": "The team requires the ability to perform automated testing of policies in isolation of a full Kubernetes cluster.",
+    "kind": "stated",
+    "quote": "The single other requirement we set ourselves for choosing a tool was the ability to perform automated testing of the \npolicies in isolation of a full Kubernetes cluster",
+    "section": "context",
+    "span": "949-1118",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0023-use-opa-gatekeeper.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0023-use-opa-gatekeeper"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0023-use-opa-gatekeeper_2",
+   "props": {
+    "text": "OPA Gatekeeper is a mature CNCF graduated project with good adoption among other Kubernetes users.",
+    "kind": "stated",
+    "quote": "We have chosen to adopt OPA Gatekeeper for applying policy to Kubernetes objects because it is a mature CNCF graduated \nproject with good adoption among other Kubernetes users",
+    "section": "decision",
+    "span": "2053-2228",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0023-use-opa-gatekeeper.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0023-use-opa-gatekeeper"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0023-use-opa-gatekeeper_3",
+   "props": {
+    "text": "The team has members with strong, positive open source experience of running and working with OPA Gatekeeper.",
+    "kind": "stated",
+    "quote": "We also have a number people in the team at the time we've made the decision with strong, positive, open source \nexperience of running and working with OPA Gatekeeper",
+    "section": "decision",
+    "span": "2496-2662",
+    "source": "https://github.com/alphagov/govuk-infrastructure/blob/HEAD/docs/architecture/decisions/0023-use-opa-gatekeeper.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0023-use-opa-gatekeeper"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_argocd_maintained",
+   "props": {
+    "text": "Argo CD is actively maintained",
+    "kind": "unwritten",
+    "tool": "argocd",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:argocd",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to master on 2026-10-19",
+    "date": "2026-10-19",
+    "excerpt": "last commit to master on 2026-10-19",
+    "path": "https://github.com/argoproj/argo-cd"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_argocd_open_source",
+   "props": {
+    "text": "Argo CD is open source",
+    "kind": "unwritten",
+    "tool": "argocd",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:argocd",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/argoproj/argo-cd"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_argocd_no_known_vuln",
+   "props": {
+    "text": "The current release of Argo CD has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "argocd",
+    "check": "no_known_vuln",
+    "unchecked": "no package in an OSV ecosystem"
    }
   },
   {
@@ -1676,6 +2583,59 @@
   },
   {
    "label": "Premise",
+   "id": "p_prometheus_maintained",
+   "props": {
+    "text": "Prometheus is actively maintained",
+    "kind": "unwritten",
+    "tool": "prometheus",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:prometheus",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-19",
+    "date": "2026-10-19",
+    "excerpt": "last commit to main on 2026-10-19",
+    "path": "https://github.com/prometheus/prometheus"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prometheus_open_source",
+   "props": {
+    "text": "Prometheus is open source",
+    "kind": "unwritten",
+    "tool": "prometheus",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:prometheus",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: GitHub reports Apache-2.0",
+    "date": "2026-10-19",
+    "excerpt": "GitHub reports Apache-2.0",
+    "path": "https://github.com/prometheus/prometheus"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prometheus_no_known_vuln",
+   "props": {
+    "text": "The current release of Prometheus has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "prometheus",
+    "check": "no_known_vuln",
+    "unchecked": "no package in an OSV ecosystem"
+   }
+  },
+  {
+   "label": "Premise",
    "id": "p_prometheus-adapter_maintained",
    "props": {
     "text": "Prometheus Adapter is actively maintained",
@@ -1735,6 +2695,59 @@
     "date": "2026-10-19",
     "excerpt": "no OSV advisory affects v0.12.0",
     "path": "https://github.com/kubernetes-sigs/prometheus-adapter"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_terraform_maintained",
+   "props": {
+    "text": "Terraform is actively maintained",
+    "kind": "unwritten",
+    "tool": "terraform",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:terraform",
+   "props": {
+    "kind": "check",
+    "title": "GitHub activity: last commit to main on 2026-10-19",
+    "date": "2026-10-19",
+    "excerpt": "last commit to main on 2026-10-19",
+    "path": "https://github.com/hashicorp/terraform"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_terraform_open_source",
+   "props": {
+    "text": "Terraform is open source",
+    "kind": "unwritten",
+    "tool": "terraform",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:terraform",
+   "props": {
+    "kind": "check",
+    "title": "GitHub license: source-available: BUSL-1.1",
+    "date": "2026-10-19",
+    "excerpt": "source-available: BUSL-1.1",
+    "path": "https://github.com/hashicorp/terraform"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_terraform_no_known_vuln",
+   "props": {
+    "text": "The current release of Terraform has no known vulnerability",
+    "kind": "unwritten",
+    "tool": "terraform",
+    "check": "no_known_vuln",
+    "unchecked": "no package in an OSV ecosystem"
    }
   },
   {
@@ -2780,6 +3793,573 @@
    "props": {}
   },
   {
+   "src": "0001-record-architecture-decisions",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0001-record-architecture-decisions_1",
+   "props": {
+    "quote": "We need to record the architectural decisions made on this project",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0002-use-aws-eks-terraform-module",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0002-use-aws-eks-terraform-module_1",
+   "props": {
+    "quote": "Defining each resource in our own Terraform module maximises flexibility but also requires a significant level of effort",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0002-use-aws-eks-terraform-module",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0002-use-aws-eks-terraform-module_2",
+   "props": {
+    "quote": "We could instead make use of the [existing Terraform registry EKS module](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest) to optimise for speed of delivery",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0002-use-aws-eks-terraform-module",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0002-use-aws-eks-terraform-module_3",
+   "props": {
+    "quote": "We can define fully configured EKS clusters quickly and easily, because many module defaults will be fine for our purposes \nfor the foreseeable future",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0002-use-aws-eks-terraform-module",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0002-use-aws-eks-terraform-module_4",
+   "props": {
+    "quote": "The EKS module has comprehensive support for many of the options for EKS cluster config (e.g. worker node types)",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases_1",
+   "props": {
+    "quote": "Terraform providers are not handled as nodes in the Terraform plan graph, so Terraform cannot guarantee that AWS resources \nare fully created at the point that it configures the `kubernetes` provider",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases_2",
+   "props": {
+    "quote": "The `kubernetes` provider requires arguments that are dependent on AWS resource \noutputs, so a na\u00efve implementation would look like this:",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases_3",
+   "props": {
+    "quote": "Ingress controllers and Kubernetes \n`Service` objects commonly provision AWS load balancers that Terraform does not know about, and therefore cannot include \nin a destruction plan",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases_4",
+   "props": {
+    "quote": "This is an important and useful separation to enforce, because it keeps the largely \ngeneric cluster infrastructure separate from the GOV.UK-specific configuration and supporting services",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0004-use-aws-load-balancer-controller-for-edge-traffic-services",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0004-use-aws-load-balancer-controller-for-edge-traffic-services_1",
+   "props": {
+    "quote": "We do not want to expose the cluster directly to the internet, so we require an AWS load balancer in front of the\ncluster",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0004-use-aws-load-balancer-controller-for-edge-traffic-services",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0004-use-aws-load-balancer-controller-for-edge-traffic-services_2",
+   "props": {
+    "quote": "The load balancer must support TLS termination and integration with our DNS provider (AWS Route 53)",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0004-use-aws-load-balancer-controller-for-edge-traffic-services",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0004-use-aws-load-balancer-controller-for-edge-traffic-services_3",
+   "props": {
+    "quote": "Built-in cloud providers are now [considered deprecated overall, in favour of out-of-tree providers](https://kubernetes.io/blog/2019/04/17/the-future-of-cloud-providers-in-kubernetes/),\nso users are now required to use an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/i",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0004-use-aws-load-balancer-controller-for-edge-traffic-services",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0004-use-aws-load-balancer-controller-for-edge-traffic-services_4",
+   "props": {
+    "quote": "The primary, and recommended, ingress controller for AWS' Elastic Kubernetes Service (EKS) is\nthe [AWS Load Balancer Controller](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html), which can provision and manage [ALBs for `Ingress` resources and NLBs for\n`Service` re",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0005-use-eks-managed-node-groups",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0005-use-eks-managed-node-groups_1",
+   "props": {
+    "quote": "Kubernetes has a 4-month release cycle, so upgrades will be relatively frequent",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0005-use-eks-managed-node-groups",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0005-use-eks-managed-node-groups_2",
+   "props": {
+    "quote": "We will require a robust and mature node upgrade \nprocess, given the potentially destructive nature of worker updates",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0005-use-eks-managed-node-groups",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0005-use-eks-managed-node-groups_3",
+   "props": {
+    "quote": "At this stage our requirements for worker nodes are not fully known, so maintaining flexibility is important",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0005-use-eks-managed-node-groups",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0005-use-eks-managed-node-groups_4",
+   "props": {
+    "quote": "Managed node groups handle graceful upgrades largely automatically",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0006-use-helm-for-application-package-management",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0006-use-helm-for-application-package-management_1",
+   "props": {
+    "quote": "At a high level, we require a means to define an application's Kubernetes resources as an installable \npackage, with configuration options passed in at deploy time",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0006-use-helm-for-application-package-management",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0006-use-helm-for-application-package-management_2",
+   "props": {
+    "quote": "We are currently using Terraform for AWS infrastructure management, and we should maintain a strict separation of\nconcerns between managing cloud infrastructure and the software applications that run on top",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0006-use-helm-for-application-package-management",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0006-use-helm-for-application-package-management_3",
+   "props": {
+    "quote": "Helm by comparison has widespread industry adoption,\na [large number of existing packages](https://artifacthub.io/packages/search), and widespread support in the wider\ndevops and development ecosystem",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs_1",
+   "props": {
+    "quote": "We must have logging as a service and enable it by default for all containers, so the sidecar pattern does not meet\nour needs",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs_2",
+   "props": {
+    "quote": "To make application logs searchable and navigable, we require the logging agent to annotate and index logs with\nKubernetes cluster metadata (namespace, pod name, labels, and so on)",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs_3",
+   "props": {
+    "quote": "For now, the obvious choice is Elasticsearch and Kibana, due to their extensive support for this use case and in this\necosystem",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs_4",
+   "props": {
+    "quote": "Doing so will ensure we have a usable logging service for our users sooner rather than later, and \nget familiar with the details of logging within Kubernetes ourselves",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0008-use-external-secrets-for-secrets-storage",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0008-use-external-secrets-for-secrets-storage_1",
+   "props": {
+    "quote": "We want\nto do this because we want the ability to reconstitute the full state of a running cluster from an external source of truth",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0008-use-external-secrets-for-secrets-storage",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0008-use-external-secrets-for-secrets-storage_2",
+   "props": {
+    "quote": "there are significant challenges and pain points when\nmanaging sensitive config in Git repositories",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0008-use-external-secrets-for-secrets-storage",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0008-use-external-secrets-for-secrets-storage_3",
+   "props": {
+    "quote": "We must maintain end-to-end encryption of secrets, up until the point a running container uses a secret, where Kubernetes\nmust necessarily decrypt the secret for use",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0008-use-external-secrets-for-secrets-storage",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0008-use-external-secrets-for-secrets-storage_4",
+   "props": {
+    "quote": "We must be able to support rotation of secrets in AWS SecretsManager, where a change of value in AWS is automatically\npropagated to services in the cluster",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0010-use-dex-idp-for-user-web-authentication",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0010-use-dex-idp-for-user-web-authentication_1",
+   "props": {
+    "quote": "Prometheus and Alertmanager do not support any form of web-based user authentication, so authentication must happen at a\nproxy or load balancer in front of the application",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0010-use-dex-idp-for-user-web-authentication",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0010-use-dex-idp-for-user-web-authentication_2",
+   "props": {
+    "quote": "We are currently using Application Load Balancers (ALB) in front of Prometheus and Alertmanager, from\nthe [AWS Load Balancer Controller](0004-use-aws-load-balancer-controller-for-edge-traffic-services.md), which\nsupports [authentication with AWS Cognito or OIDC-compliant identity providers](https://",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0010-use-dex-idp-for-user-web-authentication",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0010-use-dex-idp-for-user-web-authentication_3",
+   "props": {
+    "quote": "GitHub as an identity provider does not support OIDC, only OAuth2, so we cannot use it for ALB authentication. AWS\nCognito [does not support OAuth2, only OIDC](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html),\nso we cannot use it with GitHub as an identity provider",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0010-use-dex-idp-for-user-web-authentication",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0010-use-dex-idp-for-user-web-authentication_4",
+   "props": {
+    "quote": "ArgoCD, our current CD tool,\nalso [implements authentication with OIDC](https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/#existing-oidc-provider),\nand [includes an OIDC-compliant identity broker](https://argoproj.github.io/argo-workflows/argo-server-sso-argocd/): [Dex](https:",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0012-non-govuk-domain-policy",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0012-non-govuk-domain-policy_1",
+   "props": {
+    "quote": "In either case, systems such as [Google's Safe Browsing](https://transparencyreport.google.com/safe-browsing/search),\nin use by browsers to automatically block requests to dangerous sites, might flag the domain as a phishing site",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0012-non-govuk-domain-policy",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0012-non-govuk-domain-policy_2",
+   "props": {
+    "quote": "At worst, this could\ncause a major incident, making large parts of GOV.UK inaccessible",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0013-expose-external-metrics-for-hpa",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0013-expose-external-metrics-for-hpa_1",
+   "props": {
+    "quote": "Kubernetes Horizontal Pod Autoscalers (HPAs) on GOV.UK currently scale only on CPU and memory metrics from `metrics-server",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0013-expose-external-metrics-for-hpa",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0013-expose-external-metrics-for-hpa_2",
+   "props": {
+    "quote": "Several workloads (starting with Chat AI) need to scale on application-level signals, such as a Sidekiq queue backlog length",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0013-expose-external-metrics-for-hpa",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0013-expose-external-metrics-for-hpa_3",
+   "props": {
+    "quote": "Kubernetes requires these signals to be available through the `external.metrics.k8s.io` API group",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0013-expose-external-metrics-for-hpa",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0013-expose-external-metrics-for-hpa_4",
+   "props": {
+    "quote": "Prometheus already scrapes the backlog metric (`sidekiq_queue_backlog{job=\"govuk-chat-worker\"}`) in every cluster, but\nthe cluster lacks a component that translates Prometheus data into the `external-metrics` API",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0014-replace-terraform-cloud",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0014-replace-terraform-cloud_1",
+   "props": {
+    "quote": "its cost and\nproprietary lock\u2011in are no longer acceptable",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0014-replace-terraform-cloud",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0014-replace-terraform-cloud_2",
+   "props": {
+    "quote": "A renewal decision is due within six months",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0014-replace-terraform-cloud",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0014-replace-terraform-cloud_3",
+   "props": {
+    "quote": "S3\u2011backed state with S3 native locking has matured",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0014-replace-terraform-cloud",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0014-replace-terraform-cloud_4",
+   "props": {
+    "quote": "AWS already meets our security baseline",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0015-maintain-a-readonly-role",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0015-maintain-a-readonly-role_1",
+   "props": {
+    "quote": "We aim to adhere to the principle of least privilege wherever we can",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0015-maintain-a-readonly-role",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0015-maintain-a-readonly-role_2",
+   "props": {
+    "quote": "we felt that the lowest level of privilege should not be capable of causing a production outage",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0015-maintain-a-readonly-role",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0015-maintain-a-readonly-role_3",
+   "props": {
+    "quote": "Developers wanting to just look about without changing anything",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0015-maintain-a-readonly-role",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0015-maintain-a-readonly-role_4",
+   "props": {
+    "quote": "Junior/apprentice level roles needing access without the ability to accidentally change anything",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0016-use-iam-roles-for-services",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0016-use-iam-roles-for-services_1",
+   "props": {
+    "quote": "If these keys are compromised through leakage or reuse by unauthorised actors, they can pose a significant\nsecurity risk",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0016-use-iam-roles-for-services",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0016-use-iam-roles-for-services_2",
+   "props": {
+    "quote": "Long-lived keys increase this risk, and regular rotation is encouraged to mitigate it",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0016-use-iam-roles-for-services",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0016-use-iam-roles-for-services_3",
+   "props": {
+    "quote": "Many third-party services now support the use of IAM roles",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0016-use-iam-roles-for-services",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0016-use-iam-roles-for-services_4",
+   "props": {
+    "quote": "Where possible, these applications (or their Kubernetes pods) should use Kubernetes `Pod` identities or assume IAM roles\ndirectly, rather than relying on access keys",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0018-use-concourse-ci",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0018-use-concourse-ci_1",
+   "props": {
+    "quote": "An IT Health Check carried out in 2024 identified security flaws in the implementation of the deployment process. This, \nand a number of incidents directly caused by this process, and the team's ongoing issues with Argo Workflows has led us \nto want to re-engineer our CI/CD pipelines",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0018-use-concourse-ci",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0018-use-concourse-ci_2",
+   "props": {
+    "quote": "An additional, contributing factor for making the decision was [ADR 0014](./0014-replace-terraform-cloud.md), in which we\ndecided we would move away from Terraform Cloud. To do so will require us to have a replacement for automatically applying\nTerraform code in different environments",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0018-use-concourse-ci",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0018-use-concourse-ci_3",
+   "props": {
+    "quote": "We did not want to rely on undocumented features, so we opted to prototype a workaround for the problem with Argo \nRollouts to see how it would look and feel",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0018-use-concourse-ci",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0018-use-concourse-ci_4",
+   "props": {
+    "quote": "We discussed the implications of running EC2 instances versus running Concourse in the Kubernetes \nclusters, and we decided that we should stay away from running virtual machines. It adds additional infrastructure for \nus to support long term, which is different from everything else we support",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0020-use-crossplane-for-abstraction",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0020-use-crossplane-for-abstraction_1",
+   "props": {
+    "quote": "For us, as a\nPlatform Engineering team, this had led to a code base that:\n\n* has lots of Golang templates embedded in YAML,\n* has lots of importing and variable values derived from other variables,\n* is hard to navigate,\n* is hard to reason about,\n* is hard to change,\n* and is easy to get wrong",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0020-use-crossplane-for-abstraction",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0020-use-crossplane-for-abstraction_2",
+   "props": {
+    "quote": "Knowing what resources you need, their configuration, and how their interrelations\nrequires a good amount of Kubernetes knowledge, and knowledge of the rest of your infrastructure. This knowledge is \nreadily available within the Platform Engineering team, but less so among the application teams we s",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0020-use-crossplane-for-abstraction",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0020-use-crossplane-for-abstraction_3",
+   "props": {
+    "quote": "We have decided that we want to use Crossplane to create a Kubernetes-flavoured API for our users. The API will abstract\nthe types of resources our users need to create at a higher level than offered by the standard Kubernetes API",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0020-use-crossplane-for-abstraction",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0020-use-crossplane-for-abstraction_4",
+   "props": {
+    "quote": "We plan to use this feature to create a catalogue of backing services our users can get access to through Kubernetes. \nThis will eventually replace creating application backing services in Terraform",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0023-use-opa-gatekeeper",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0023-use-opa-gatekeeper_1",
+   "props": {
+    "quote": "The single other requirement we set ourselves for choosing a tool was the ability to perform automated testing of the \npolicies in isolation of a full Kubernetes cluster",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0023-use-opa-gatekeeper",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0023-use-opa-gatekeeper_2",
+   "props": {
+    "quote": "We have chosen to adopt OPA Gatekeeper for applying policy to Kubernetes objects because it is a mature CNCF graduated \nproject with good adoption among other Kubernetes users",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0023-use-opa-gatekeeper",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0023-use-opa-gatekeeper_3",
+   "props": {
+    "quote": "We also have a number people in the team at the time we've made the decision with strong, positive, open source \nexperience of running and working with OPA Gatekeeper",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "maintained:argocd",
+   "rel": "SUPPORTS",
+   "dst": "p_argocd_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to master on 2026-10-19"
+   }
+  },
+  {
+   "src": "open_source:argocd",
+   "rel": "SUPPORTS",
+   "dst": "p_argocd_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
    "src": "maintained:aws-lbc",
    "rel": "SUPPORTS",
    "dst": "p_aws-lbc_maintained",
@@ -3077,6 +4657,24 @@
    }
   },
   {
+   "src": "maintained:prometheus",
+   "rel": "SUPPORTS",
+   "dst": "p_prometheus_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to main on 2026-10-19"
+   }
+  },
+  {
+   "src": "open_source:prometheus",
+   "rel": "SUPPORTS",
+   "dst": "p_prometheus_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "GitHub reports Apache-2.0"
+   }
+  },
+  {
    "src": "maintained:prometheus-adapter",
    "rel": "CONTRADICTS",
    "dst": "p_prometheus-adapter_maintained",
@@ -3101,6 +4699,24 @@
    "props": {
     "at": "2026-10-19",
     "quote": "no OSV advisory affects v0.12.0"
+   }
+  },
+  {
+   "src": "maintained:terraform",
+   "rel": "SUPPORTS",
+   "dst": "p_terraform_maintained",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "last commit to main on 2026-10-19"
+   }
+  },
+  {
+   "src": "open_source:terraform",
+   "rel": "CONTRADICTS",
+   "dst": "p_terraform_open_source",
+   "props": {
+    "at": "2026-10-19",
+    "quote": "source-available: BUSL-1.1"
    }
   },
   {
@@ -3504,6 +5120,330 @@
    "props": {
     "quote": "The current release of OPA Gatekeeper has no known vulnerability"
    }
+  },
+  {
+   "src": "r_0002-use-aws-eks-terraform-module_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_tf-aws-eks_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0002-use-aws-eks-terraform-module_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_tf-aws-eks_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0002-use-aws-eks-terraform-module_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_tf-aws-eks_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0002-use-aws-eks-terraform-module_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_tf-aws-eks_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0002-use-aws-eks-terraform-module_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_tf-aws-eks_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0002-use-aws-eks-terraform-module_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_tf-aws-eks_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0002-use-aws-eks-terraform-module_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_tf-aws-eks_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0002-use-aws-eks-terraform-module_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_tf-aws-eks_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0002-use-aws-eks-terraform-module_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_tf-aws-eks_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases_1",
+   "rel": "DERIVED_FROM",
+   "dst": "p_terraform_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases_1",
+   "rel": "DERIVED_FROM",
+   "dst": "p_terraform_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases_1",
+   "rel": "DERIVED_FROM",
+   "dst": "p_terraform_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_terraform_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_terraform_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_terraform_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0004-use-aws-load-balancer-controller-for-edge-traffic-services_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_aws-lbc_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0004-use-aws-load-balancer-controller-for-edge-traffic-services_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_aws-lbc_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0004-use-aws-load-balancer-controller-for-edge-traffic-services_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_aws-lbc_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0010-use-dex-idp-for-user-web-authentication_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_aws-lbc_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0010-use-dex-idp-for-user-web-authentication_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_aws-lbc_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0010-use-dex-idp-for-user-web-authentication_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_aws-lbc_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0005-use-eks-managed-node-groups_1",
+   "rel": "DERIVED_FROM",
+   "dst": "p_kubernetes_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0005-use-eks-managed-node-groups_1",
+   "rel": "DERIVED_FROM",
+   "dst": "p_kubernetes_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0005-use-eks-managed-node-groups_1",
+   "rel": "DERIVED_FROM",
+   "dst": "p_kubernetes_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0005-use-eks-managed-node-groups_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_kubernetes_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0005-use-eks-managed-node-groups_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_kubernetes_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0005-use-eks-managed-node-groups_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_kubernetes_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0016-use-iam-roles-for-services_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_kubernetes_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0016-use-iam-roles-for-services_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_kubernetes_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0016-use-iam-roles-for-services_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_kubernetes_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0006-use-helm-for-application-package-management_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_helm_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0006-use-helm-for-application-package-management_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_helm_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0006-use-helm-for-application-package-management_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_helm_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_elasticsearch_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_elasticsearch_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_elasticsearch_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0010-use-dex-idp-for-user-web-authentication_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_argocd_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0010-use-dex-idp-for-user-web-authentication_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_argocd_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0010-use-dex-idp-for-user-web-authentication_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_argocd_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0013-expose-external-metrics-for-hpa_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_prometheus_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0013-expose-external-metrics-for-hpa_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_prometheus_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0013-expose-external-metrics-for-hpa_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_prometheus_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0020-use-crossplane-for-abstraction_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_crossplane_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0020-use-crossplane-for-abstraction_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_crossplane_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0020-use-crossplane-for-abstraction_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_crossplane_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0020-use-crossplane-for-abstraction_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_crossplane_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0020-use-crossplane-for-abstraction_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_crossplane_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0020-use-crossplane-for-abstraction_4",
+   "rel": "DERIVED_FROM",
+   "dst": "p_crossplane_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0023-use-opa-gatekeeper_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_gatekeeper_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0023-use-opa-gatekeeper_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_gatekeeper_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0023-use-opa-gatekeeper_2",
+   "rel": "DERIVED_FROM",
+   "dst": "p_gatekeeper_no_known_vuln",
+   "props": {}
+  },
+  {
+   "src": "r_0023-use-opa-gatekeeper_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_gatekeeper_maintained",
+   "props": {}
+  },
+  {
+   "src": "r_0023-use-opa-gatekeeper_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_gatekeeper_open_source",
+   "props": {}
+  },
+  {
+   "src": "r_0023-use-opa-gatekeeper_3",
+   "rel": "DERIVED_FROM",
+   "dst": "p_gatekeeper_no_known_vuln",
+   "props": {}
   }
  ]
 }

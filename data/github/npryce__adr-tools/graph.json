@@ -7,7 +7,7 @@
     "title": "1. Record architecture decisions",
     "summary": "We will use Architecture Decision Records, as described by Michael Nygard in this article: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions",
     "decided_on": "2016-02-09",
-    "source": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0001-record-architecture-decisions.md",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0001-record-architecture-decisions.md",
     "repo": "npryce/adr-tools",
     "status": "Accepted"
    }
@@ -19,7 +19,7 @@
     "kind": "adr",
     "title": "npryce/adr-tools: 1. Record architecture decisions",
     "date": "2016-02-09",
-    "path": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0001-record-architecture-decisions.md",
+    "path": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0001-record-architecture-decisions.md",
     "excerpt": "We will use Architecture Decision Records, as described by Michael Nygard in this article: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions"
    }
   },
@@ -41,7 +41,7 @@
     "title": "2. Implement as shell scripts",
     "summary": "The tool is implemented as shell scripts that use standard Unix tools -- grep, sed, awk, etc.",
     "decided_on": "2016-02-12",
-    "source": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0002-implement-as-shell-scripts.md",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0002-implement-as-shell-scripts.md",
     "repo": "npryce/adr-tools",
     "status": "Accepted"
    }
@@ -53,7 +53,7 @@
     "kind": "adr",
     "title": "npryce/adr-tools: 2. Implement as shell scripts",
     "date": "2016-02-12",
-    "path": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0002-implement-as-shell-scripts.md",
+    "path": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0002-implement-as-shell-scripts.md",
     "excerpt": "The tool is implemented as shell scripts that use standard Unix tools -- grep, sed, awk, etc."
    }
   },
@@ -64,7 +64,7 @@
     "title": "3. Single command with subcommands",
     "summary": "The tool defines a single command, called adr. The first argument to adr (the subcommand) specifies the action to perform. Further arguments are interpreted by the subcommand. Running adr without any arguments lists the available subcommands. Subcommands are implemented as scripts in the same direct",
     "decided_on": "2016-02-12",
-    "source": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0003-single-command-with-subcommands.md",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0003-single-command-with-subcommands.md",
     "repo": "npryce/adr-tools",
     "status": "Accepted"
    }
@@ -76,7 +76,7 @@
     "kind": "adr",
     "title": "npryce/adr-tools: 3. Single command with subcommands",
     "date": "2016-02-12",
-    "path": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0003-single-command-with-subcommands.md",
+    "path": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0003-single-command-with-subcommands.md",
     "excerpt": "The tool defines a single command, called adr. The first argument to adr (the subcommand) specifies the action to perform. Further arguments are interpreted by the subcommand. Running adr without any arguments lists the available subcommands. Subcommands are implemented as scripts in the same direct"
    }
   },
@@ -87,7 +87,7 @@
     "title": "4. Markdown format",
     "summary": "Record architecture decisions in Markdown format.",
     "decided_on": "2016-02-12",
-    "source": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0004-markdown-format.md",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0004-markdown-format.md",
     "repo": "npryce/adr-tools",
     "status": "Accepted"
    }
@@ -99,7 +99,7 @@
     "kind": "adr",
     "title": "npryce/adr-tools: 4. Markdown format",
     "date": "2016-02-12",
-    "path": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0004-markdown-format.md",
+    "path": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0004-markdown-format.md",
     "excerpt": "Record architecture decisions in Markdown format."
    }
   },
@@ -110,7 +110,7 @@
     "title": "5. Help comments",
     "summary": "Write usage documentation in comments in the source file. Distinguish between documentation comments and normal comments. Documentation comments have two hash characters at the start of the line. The adr help command can parse comments out from the script using the standard Unix tools grep and cut.",
     "decided_on": "2016-02-13",
-    "source": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0005-help-comments.md",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0005-help-comments.md",
     "repo": "npryce/adr-tools",
     "status": "Accepted"
    }
@@ -122,7 +122,7 @@
     "kind": "adr",
     "title": "npryce/adr-tools: 5. Help comments",
     "date": "2016-02-13",
-    "path": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0005-help-comments.md",
+    "path": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0005-help-comments.md",
     "excerpt": "Write usage documentation in comments in the source file. Distinguish between documentation comments and normal comments. Documentation comments have two hash characters at the start of the line. The adr help command can parse comments out from the script using the standard Unix tools grep and cut."
    }
   },
@@ -155,7 +155,7 @@
     "title": "6. Packaging and distribution in other version control repositories",
     "summary": "The adr-tools project will not contain any packaging or distribution scripts and config. Packaging and distribution will be managed by other projects in separate version control repositories.",
     "decided_on": "2016-02-16",
-    "source": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0006-packaging-and-distribution-in-other-version-control-repositories.md",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0006-packaging-and-distribution-in-other-version-control-repositories.md",
     "repo": "npryce/adr-tools",
     "status": "Accepted"
    }
@@ -167,7 +167,7 @@
     "kind": "adr",
     "title": "npryce/adr-tools: 6. Packaging and distribution in other version control repositories",
     "date": "2016-02-16",
-    "path": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0006-packaging-and-distribution-in-other-version-control-repositories.md",
+    "path": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0006-packaging-and-distribution-in-other-version-control-repositories.md",
     "excerpt": "The adr-tools project will not contain any packaging or distribution scripts and config. Packaging and distribution will be managed by other projects in separate version control repositories."
    }
   },
@@ -178,7 +178,7 @@
     "title": "7. Invoke adr-config executable to get configuration",
     "summary": "Replace config.sh with an executable, named adr-config that outputs configuration. Each script in ADR Tools will eval the output of adr-config to configure itself.",
     "decided_on": "2016-12-17",
-    "source": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0007-invoke-adr-config-executable-to-get-configuration.md",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0007-invoke-adr-config-executable-to-get-configuration.md",
     "repo": "npryce/adr-tools",
     "status": "Accepted"
    }
@@ -190,7 +190,7 @@
     "kind": "adr",
     "title": "npryce/adr-tools: 7. Invoke adr-config executable to get configuration",
     "date": "2016-12-17",
-    "path": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0007-invoke-adr-config-executable-to-get-configuration.md",
+    "path": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0007-invoke-adr-config-executable-to-get-configuration.md",
     "excerpt": "Replace config.sh with an executable, named adr-config that outputs configuration. Each script in ADR Tools will eval the output of adr-config to configure itself."
    }
   },
@@ -223,7 +223,7 @@
     "title": "8. Use ISO 8601 Format for Dates",
     "summary": "adr-tools will use the ISO 8601 format for dates: yyyy-mm-dd",
     "decided_on": "2017-02-21",
-    "source": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0008-use-iso-8601-format-for-dates.md",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0008-use-iso-8601-format-for-dates.md",
     "repo": "npryce/adr-tools",
     "status": "Accepted"
    }
@@ -235,7 +235,7 @@
     "kind": "adr",
     "title": "npryce/adr-tools: 8. Use ISO 8601 Format for Dates",
     "date": "2017-02-21",
-    "path": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0008-use-iso-8601-format-for-dates.md",
+    "path": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0008-use-iso-8601-format-for-dates.md",
     "excerpt": "adr-tools will use the ISO 8601 format for dates: yyyy-mm-dd"
    }
   },
@@ -246,7 +246,7 @@
     "title": "9. Help scripts",
     "summary": "Where necessary, help text can be generated by a script. The script will be called adrhelp<command<subcommand",
     "decided_on": "2018-06-26",
-    "source": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0009-help-scripts.md",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0009-help-scripts.md",
     "repo": "npryce/adr-tools",
     "status": "Accepted"
    }
@@ -258,7 +258,7 @@
     "kind": "adr",
     "title": "npryce/adr-tools: 9. Help scripts",
     "date": "2018-06-26",
-    "path": "https://github.com/npryce/adr-tools/blob/master/doc/adr/0009-help-scripts.md",
+    "path": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0009-help-scripts.md",
     "excerpt": "Where necessary, help text can be generated by a script. The script will be called adrhelp<command<subcommand"
    }
   },
@@ -282,6 +282,272 @@
     "joined": "",
     "left": "",
     "login": ""
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0001-record-architecture-decisions_1",
+   "props": {
+    "text": "The project needs to record its architectural decisions",
+    "kind": "stated",
+    "quote": "We need to record the architectural decisions made on this project",
+    "section": "context",
+    "span": "87-153",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0001-record-architecture-decisions.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0001-record-architecture-decisions"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0003-single-command-with-subcommands_1",
+   "props": {
+    "text": "Users are already used to this style of command-line tool, as exemplified by Git.",
+    "kind": "stated",
+    "quote": "Users are already used to this style of command-line tool.  For\nexample, Git works this way",
+    "section": "consequences",
+    "span": "1004-1095",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0003-single-command-with-subcommands.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0003-single-command-with-subcommands"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0003-single-command-with-subcommands_2",
+   "props": {
+    "text": "The tool provides a number of related commands to create and manipulate architecture decision records.",
+    "kind": "stated",
+    "quote": "The tool provides a number of related commands to create\nand manipulate architecture decision records",
+    "section": "context",
+    "span": "89-190",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0003-single-command-with-subcommands.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0003-single-command-with-subcommands"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0003-single-command-with-subcommands_3",
+   "props": {
+    "text": "Each subcommand can be implemented in the most appropriate language.",
+    "kind": "stated",
+    "quote": "Each subcommand can be implemented in the most appropriate\nlanguage",
+    "section": "consequences",
+    "span": "1098-1165",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0003-single-command-with-subcommands.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0003-single-command-with-subcommands"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0004-markdown-format_1",
+   "props": {
+    "text": "Decision records must be stored in a plain text format to work well with version control systems.",
+    "kind": "stated",
+    "quote": "The decision records must be stored in a plain text format:\n\n* This works well with version control systems",
+    "section": "context",
+    "span": "73-180",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0004-markdown-format.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0004-markdown-format"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0004-markdown-format_2",
+   "props": {
+    "text": "The tool needs to modify the status of records and insert hyperlinks when one decision supersedes another.",
+    "kind": "stated",
+    "quote": "It allows the tool to modify the status of records and insert\n  hyperlinks when one decision supercedes another",
+    "section": "context",
+    "span": "185-296",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0004-markdown-format.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0004-markdown-format"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0004-markdown-format_3",
+   "props": {
+    "text": "People want to use formatting such as lists and code examples.",
+    "kind": "stated",
+    "quote": "People will want to use some formatting: lists, code examples,\nand so on",
+    "section": "context",
+    "span": "378-450",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0004-markdown-format.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0004-markdown-format"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0004-markdown-format_4",
+   "props": {
+    "text": "People want to view decision records in a more readable format than plain text and possibly print them out.",
+    "kind": "stated",
+    "quote": "People will want to view the decision records in a more readable\nformat than plain text, and maybe print them out",
+    "section": "context",
+    "span": "453-566",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0004-markdown-format.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0004-markdown-format"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0005-help-comments_1",
+   "props": {
+    "text": "The tool will have a help subcommand to provide documentation for users",
+    "kind": "stated",
+    "quote": "The tool will have a `help` subcommand to provide documentation\nfor users",
+    "section": "context",
+    "span": "123-196",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0005-help-comments.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0005-help-comments"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0005-help-comments_2",
+   "props": {
+    "text": "Usage documentation in script files is the first place to look for information when reading code",
+    "kind": "stated",
+    "quote": "When reading the code, that's the first\nplace to look for information about how to run a script",
+    "section": "context",
+    "span": "283-378",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0005-help-comments.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0005-help-comments"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0005-help-comments_3",
+   "props": {
+    "text": "The adr help command can parse comments out from the script using standard Unix tools",
+    "kind": "stated",
+    "quote": "The `adr help` command can parse comments out from the script\nusing the standard Unix tools `grep` and `cut",
+    "section": "decision",
+    "span": "592-699",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0005-help-comments.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0005-help-comments"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0005-help-comments_4",
+   "props": {
+    "text": "Subcommands are implemented as scripts that use '#' as a comment character",
+    "kind": "stated",
+    "quote": "This won't work if any subcommands are not implemented as scripts\nthat use '#' as a comment character",
+    "section": "consequences",
+    "span": "1019-1120",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0005-help-comments.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0005-help-comments"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0006-packaging-and-distribution-in-other-version-control-repositories_1",
+   "props": {
+    "text": "Users want to install adr-tools with their preferred package manager",
+    "kind": "stated",
+    "quote": "Users want to install adr-tools with their preferred package\nmanager",
+    "section": "context",
+    "span": "122-190",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0006-packaging-and-distribution-in-other-version-control-repositories.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0006-packaging-and-distribution-in-other-version-control-repositories"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0006-packaging-and-distribution-in-other-version-control-repositories_2",
+   "props": {
+    "text": "The developers of adr-tools don't know how, nor have permissions, to use all these packaging and distribution systems",
+    "kind": "stated",
+    "quote": "The developers of `adr-tools` don't know how, nor have permissions,\nto use all these packaging and distribution systems",
+    "section": "context",
+    "span": "305-424",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0006-packaging-and-distribution-in-other-version-control-repositories.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0006-packaging-and-distribution-in-other-version-control-repositories"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0006-packaging-and-distribution-in-other-version-control-repositories_3",
+   "props": {
+    "text": "The developers of the tool should not favour any one particular packaging and distribution solution",
+    "kind": "stated",
+    "quote": "The developers of the tool should not favour any one particular\npackaging and distribution solution",
+    "section": "context",
+    "span": "502-601",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0006-packaging-and-distribution-in-other-version-control-repositories.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0006-packaging-and-distribution-in-other-version-control-repositories"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0008-use-iso-8601-format-for-dates_1",
+   "props": {
+    "text": "The tool must communicate decision history unambiguously by using culture-neutral data formats.",
+    "kind": "stated",
+    "quote": "To communicate effectively, `adr-tools` should present information as\nunambiguously as possible.  That means that culture-neutral data formats should\nbe preferred over culture-specific formats",
+    "section": "context",
+    "span": "255-447",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0008-use-iso-8601-format-for-dates.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0008-use-iso-8601-format-for-dates"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0008-use-iso-8601-format-for-dates_2",
+   "props": {
+    "text": "The previous default date format is easily confused with the US format.",
+    "kind": "stated",
+    "quote": "That\nformatting is common formatting in the United Kingdom (where the `adr-tools`\nproject was originally written), but is easily confused with the `mm/dd/yyyy`\nformat preferred in the United States",
+    "section": "context",
+    "span": "526-723",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0008-use-iso-8601-format-for-dates.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0008-use-iso-8601-format-for-dates"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0009-help-scripts_1",
+   "props": {
+    "text": "Help text cannot include calculated values such as file locations when extracted from comments",
+    "kind": "stated",
+    "quote": "But, it means that help text cannot include calculated values, such as the location of files",
+    "section": "context",
+    "span": "326-418",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0009-help-scripts.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0009-help-scripts"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "r_0009-help-scripts_2",
+   "props": {
+    "text": "Help scripts can locate files to give users accurate instructions reflecting their environment",
+    "kind": "stated",
+    "quote": "Help scripts can include helper scripts to locate files, giving more accurate instructions to the user that reflect how the tool is deployed in their environment",
+    "section": "consequences",
+    "span": "569-730",
+    "source": "https://github.com/npryce/adr-tools/blob/HEAD/doc/adr/0009-help-scripts.md",
+    "extracted_by": "qwen3.8:27b",
+    "decision": "0009-help-scripts"
    }
   }
  ],
@@ -543,6 +809,177 @@
    "rel": "AUTHORED",
    "dst": "pr:41",
    "props": {}
+  },
+  {
+   "src": "0001-record-architecture-decisions",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0001-record-architecture-decisions_1",
+   "props": {
+    "quote": "We need to record the architectural decisions made on this project",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0003-single-command-with-subcommands",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0003-single-command-with-subcommands_1",
+   "props": {
+    "quote": "Users are already used to this style of command-line tool.  For\nexample, Git works this way",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0003-single-command-with-subcommands",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0003-single-command-with-subcommands_2",
+   "props": {
+    "quote": "The tool provides a number of related commands to create\nand manipulate architecture decision records",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0003-single-command-with-subcommands",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0003-single-command-with-subcommands_3",
+   "props": {
+    "quote": "Each subcommand can be implemented in the most appropriate\nlanguage",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0004-markdown-format",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0004-markdown-format_1",
+   "props": {
+    "quote": "The decision records must be stored in a plain text format:\n\n* This works well with version control systems",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0004-markdown-format",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0004-markdown-format_2",
+   "props": {
+    "quote": "It allows the tool to modify the status of records and insert\n  hyperlinks when one decision supercedes another",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0004-markdown-format",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0004-markdown-format_3",
+   "props": {
+    "quote": "People will want to use some formatting: lists, code examples,\nand so on",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0004-markdown-format",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0004-markdown-format_4",
+   "props": {
+    "quote": "People will want to view the decision records in a more readable\nformat than plain text, and maybe print them out",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0005-help-comments",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0005-help-comments_1",
+   "props": {
+    "quote": "The tool will have a `help` subcommand to provide documentation\nfor users",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0005-help-comments",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0005-help-comments_2",
+   "props": {
+    "quote": "When reading the code, that's the first\nplace to look for information about how to run a script",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0005-help-comments",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0005-help-comments_3",
+   "props": {
+    "quote": "The `adr help` command can parse comments out from the script\nusing the standard Unix tools `grep` and `cut",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0005-help-comments",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0005-help-comments_4",
+   "props": {
+    "quote": "This won't work if any subcommands are not implemented as scripts\nthat use '#' as a comment character",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0006-packaging-and-distribution-in-other-version-control-repositories",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0006-packaging-and-distribution-in-other-version-control-repositories_1",
+   "props": {
+    "quote": "Users want to install adr-tools with their preferred package\nmanager",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0006-packaging-and-distribution-in-other-version-control-repositories",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0006-packaging-and-distribution-in-other-version-control-repositories_2",
+   "props": {
+    "quote": "The developers of `adr-tools` don't know how, nor have permissions,\nto use all these packaging and distribution systems",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0006-packaging-and-distribution-in-other-version-control-repositories",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0006-packaging-and-distribution-in-other-version-control-repositories_3",
+   "props": {
+    "quote": "The developers of the tool should not favour any one particular\npackaging and distribution solution",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0008-use-iso-8601-format-for-dates",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0008-use-iso-8601-format-for-dates_1",
+   "props": {
+    "quote": "To communicate effectively, `adr-tools` should present information as\nunambiguously as possible.  That means that culture-neutral data formats should\nbe preferred over culture-specific formats",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0008-use-iso-8601-format-for-dates",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0008-use-iso-8601-format-for-dates_2",
+   "props": {
+    "quote": "That\nformatting is common formatting in the United Kingdom (where the `adr-tools`\nproject was originally written), but is easily confused with the `mm/dd/yyyy`\nformat preferred in the United States",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0009-help-scripts",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0009-help-scripts_1",
+   "props": {
+    "quote": "But, it means that help text cannot include calculated values, such as the location of files",
+    "extracted_by": "qwen3.8:27b"
+   }
+  },
+  {
+   "src": "0009-help-scripts",
+   "rel": "BECAUSE_OF",
+   "dst": "r_0009-help-scripts_2",
+   "props": {
+    "quote": "Help scripts can include helper scripts to locate files, giving more accurate instructions to the user that reflect how the tool is deployed in their environment",
+    "extracted_by": "qwen3.8:27b"
+   }
   }
  ]
 }

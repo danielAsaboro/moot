@@ -126,7 +126,9 @@ def audit_decision(g: Graph, decision_id: str, as_of: str | None = None, depth: 
         premises.append(dict(id=pid, text=pr.properties["text"], kind=pr.properties.get("kind"), hops=len(path_nodes) - 1,
                              path=_path_ids(path_nodes), state=state, unchecked=unchecked,
                              evidence=sorted(events, key=event_order),
-                             contradicted_before_decision=any(e["rel"] == "CONTRADICTS" and e["at"] < d.properties["decided_on"] for e in events)))
+                             contradicted_before_decision=any(e["rel"] == "CONTRADICTS" and e["at"] < d.properties["decided_on"] for e in events),
+                             # a reason read from the ADR's own words carries its provenance (moot/connectors/reasons.py)
+                             **{k: pr.properties[k] for k in ("quote", "section", "source", "extracted_by") if pr.properties.get(k)}))
     verdict = decision_verdict(premises, superseded=bool(superseded_by))
     return dict(found=True, decision=_node(d), as_of=as_of, depth=depth, verdict=verdict, premises=premises,
                 superseded_by=superseded_by, source=(_node(src) if src else None), systems=systems,

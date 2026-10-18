@@ -19,6 +19,8 @@ export interface EvidenceEvent {
 export interface Premise {
   id: string; text: string; kind?: string; hops: number; path: PathNode[]; state: PremiseState;
   unchecked?: string | null; evidence: EvidenceEvent[]; contradicted_before_decision?: boolean;
+  /** a reason read from the ADR's own words: the exact span, its section, the document and the model that read it */
+  quote?: string; section?: string; source?: string; extracted_by?: string;
 }
 
 export interface Owner {

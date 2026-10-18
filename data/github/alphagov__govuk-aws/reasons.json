@@ -1,0 +1,458 @@
+{
+ "evidence": {
+  "0008-postgres-on-puppetmaster": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "acc835f70f9ac6e4fdcc",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 7.2
+  },
+  "0010-terraform-directory-structure": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "7f4411f7031255c9d988",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 11.8
+  },
+  "0012-security-groups-in-terraform": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "84ec77fa1c0381afe994",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 8.4
+  },
+  "0014-launch-config-change-propagation-process": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "4b81895a152a99265b53",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 12.4
+  },
+  "0015-dns-infrastructure": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "46af61ed3d352c09e269",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 15.2
+  },
+  "0016-internal-dns-zones": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "78c787a17afcc4147207",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 8.0
+  },
+  "0017-terraform-data-structure": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "955ada766950e6bc7cc2",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 8.1
+  },
+  "0018-use-rds-instead-of-provisioned-ec2-databases": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "aee23c34deb307cf834e",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 13.9
+  },
+  "0019-centralise-mysql-databases": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c131e08aa41f8d269469",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 16.5
+  },
+  "0020-merge-api-postgresql-instance-into-main-postgresql-instance": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "6b74ba0696a6cb91db21",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 11.3
+  },
+  "0021-use-acm-for-ssl-purchases-and-terminate-certificates-on-elbs": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "68409bbcb6c643c7abeb",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 12.8
+  },
+  "0022-remove-the-elasticsearch-proxy": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "344248ab9d70987afa48",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 13.8
+  },
+  "0023-use-separate-data-repository": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "b0aaf648bad4e2eaa99f",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": [\n  {\n    \"reason_id\": \"r_0010-terraform-directory-structure_1\",\n    \"rel\": \"SUPPORTS\",\n    \"quote\": \"The `terraform/data` directory will be split out into its own repository that will be kept private\",\n    \"why\": \"The decision to move data to a private repository directly affirms the earlier goal of separating code from data to allow open-sourcing the code without disclosing implementation details.\"\n  },\n  {\n    \"reason_id\": \"r_0010-terraform-directory-structure_2\",\n    \"rel\": \"SUPPORTS\",\n    \"quote\": \"all sensitive data within it will be encrypted using [sops](https://github.com/mozilla/sops)\",\n    \"why\": \"The decision to encrypt sensitive data using sops affirms the earlier desire to support sensitive data encryption as part of the process.\"\n  }\n]}",
+   "seconds": 20.0
+  },
+  "0024-ami-lookups": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "8a6ca3b92ae25e99a4b7",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 15.0
+  },
+  "0025-use-elasticache-for-redis": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "6b7df6344ff23dccfbc7",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 9.6
+  },
+  "0026-remove-load-balancer-tier": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "3fce5b534a8222df50bf",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 14.5
+  },
+  "0027-move-publicapi-away-from-frontend-lb": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "e98a74959a9519794c0c",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 12.4
+  },
+  "0028-combine-api-mongo-cluster-into-mongo-cluster": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c27dfc6f2a2c3e30689c",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 14.1
+  },
+  "0029-combine-api-redis-into-backend-redis": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "feae23d55501f04a2c1e",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 10.6
+  },
+  "0030-change-in-architecture-to-asset-master": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c96a5bf9a31550974df5",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 15.4
+  },
+  "0032-transfer-artefact-binary": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "b82fec9902517c20c388",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 13.8
+  },
+  "0037-alb-health-checks": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "8b607f306895ae4ece74",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 19.2
+  },
+  "0038-mongo_replacement_by_documentdb": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "708eb48c0dbbb2ca3391",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 21.7
+  },
+  "0039-non-govuk-domain-policy": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "5ff3334a813f5260982b",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 17.7
+  }
+ },
+ "extract": {
+  "0001-record-architecture-decisions": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "7d041529ff86ae1b47e1",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"The project needs to record its architectural decisions\", \"quote\": \"We need to record the architectural decisions made on this project.\", \"tool\": null}]}",
+   "seconds": 8.7
+  },
+  "0002-hosting-platforms": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "1c81d5142551dffe0882",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 10.1
+  },
+  "0003-aws-networking-outline": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "8ca1a4e8b93607bdc4b7",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 6.1
+  },
+  "0004-dns-definitions-for-hosts-and-services": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "e45734f6cb62921e5bce",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Icinga needs to communicate with hosts and services for monitoring to work\", \"quote\": \"For our current monitoring to work we need Icinga to be able to communicate with hosts and services.\", \"tool\": null}]}",
+   "seconds": 9.1
+  },
+  "0005-terraform-module-location": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "7eb4a04f6bf68765fbd8",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 3.5
+  },
+  "0007-puppet-cert-management": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "d49a196fdea0475bb2dc",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 4.4
+  },
+  "0008-postgres-on-puppetmaster": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "4840361b4f62774cc762",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 4.4
+  },
+  "0010-terraform-directory-structure": {
+   "backend": "ollama",
+   "dropped": [
+    {
+     "text": "The team wants to create Terraform modules to reuse code.",
+     "tool": "Terraform",
+     "why": "tool link dropped: not a catalogue tool named in the quote or title"
+    }
+   ],
+   "key": "419b63593d7f041ccc61",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"The team wants to separate code from data to allow open-sourcing code without disclosing implementation details.\", \"quote\": \"We want to separate code from data, so in the future we can open source the code without disclosing our implementation details, maybe keeping the data in a private Github repository\", \"tool\": null}, {\"text\": \"The team wants to encrypt sensitive data within the same repository and process.\", \"quote\": \"We want to be able to encrypt sensitive data in the repository: we want to support sensitive data encryption as part of the same process, without having to manage secrets in a different repository, with different scripts, etc.\", \"tool\": null}, {\"text\": \"The team wants to create Terraform modules to reuse code.\", \"quote\": \"We want to create Terraform modules to reuse code\", \"tool\": \"Terraform\"}, {\"text\": \"The team wants to separate Terraform code into different projects to manage infrastructure tiers or application stacks, especially for GOV.UK applications.\", \"quote\": \"We want to separate Terraform code into different projects, each one managing an infrastructure tier or application stack. This is especially important to separate resources between GOV.UK applications.\", \"tool\": \"Terraform\"}]}",
+   "seconds": 20.5
+  },
+  "0011-migration-strategy": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "494902970d4e1d21df85",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"The team already runs Puppet on every host\", \"quote\": \"This is much easier to manage than having elements of the environment in two places and having two sets of monitoring, Puppet masters, metrics etc.\", \"tool\": \"Puppet\"}, {\"text\": \"The migration process doubles as disaster recovery preparation and rehearsal\", \"quote\": \"This method much more accurately mirrors a DR situation and so this migration to AWS also doubles as DR preparation and rehearsal as complete environments are built, tested, removed and built again continuously over the course of the task.\", \"tool\": null}, {\"text\": \"Test stacks do not require infrastructure from the existing hosting platform\", \"quote\": \"Higher flexibility to test tearing down and bringing up stacks in their entirety without affecting a live service. That is, no test stack will require any infrastructure from the existing hosting platform to support it.\", \"tool\": null}, {\"text\": \"Running on two platforms creates extra work for a long period without a strict migration plan\", \"quote\": \"unless there is a very strict migration plan with dates and deadlines, we risk running on two platforms with all the extra work that creates for a long period of time if we don't migrate atomically\", \"tool\": null}]}",
+   "seconds": 18.0
+  },
+  "0012-security-groups-in-terraform": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "b1931d4d876a43d8ab50",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 5.0
+  },
+  "0014-launch-config-change-propagation-process": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ca63d05eedf8cf3bdf9b",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Changes to a Launch Configuration are only propagated to new instances, not existing ones.\", \"quote\": \"When the LC of an ASG is changed those changes are only propagated to new instances.\", \"tool\": null}, {\"text\": \"Many instances are long-lived, causing LC changes to take a long time to propagate fully.\", \"quote\": \"Historically many of our instances are long lived (e.g. production puppetmaster, at time of writing, has an uptime of 79 days).\", \"tool\": null}, {\"text\": \"The team uses Terraform to manage infrastructure.\", \"quote\": \"There are several possible ways to force propagation of LC changes within the existing Terraform code were considered\", \"tool\": \"Terraform\"}]}",
+   "seconds": 13.8
+  },
+  "0015-dns-infrastructure": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "202352504eb989bbe804",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 8.9
+  },
+  "0016-internal-dns-zones": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "a5ae26531fb61dd92745",
+   "model": "qwen3.8:27b",
+   "reply": "```json\n{\n  \"reasons\": [\n    {\n      \"text\": \"Internal services need internal-only service records to connect without fully qualified domain names.\",\n      \"quote\": \"We have a number of internal services that need to have internal only service records. This allows clients to connect within their own environment or stack without needing a fully qualified domain name.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Internal service records must not be visible outside the local environment or stack.\",\n      \"quote\": \"These records should not be visible outside the local environment or stack.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Sister teams use the same approach of buying an unused domain for internal DNS.\",\n      \"quote\": \"This is also the approach taken by some of our sister teams.\",\n      \"tool\": null\n    }\n  ]\n}\n```",
+   "seconds": 12.7
+  },
+  "0017-terraform-data-structure": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "d0a90d5fde937d2b2598",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 5.8
+  },
+  "0018-use-rds-instead-of-provisioned-ec2-databases": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "353caf2aa6f84cc39e18",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 5.1
+  },
+  "0019-centralise-mysql-databases": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "1dde5f3041d376a16cb8",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"The MySQL databases receive low traffic, allowing them to be grouped together with capacity safety.\", \"quote\": \"Due to the low amount of traffic most of the MySQL databases receive we decided against this due to cost and the number of instances it would require.\", \"tool\": null}, {\"text\": \"The team has a large, existing investment in using Puppet for managing database tasks.\", \"quote\": \"we do not want to manage individual aspects of databases and their users using Terraform providers at this date as we have a large, existing, investment in using puppet for these tasks\", \"tool\": \"Puppet\"}, {\"text\": \"Centralising databases simplifies connectivity code, connection strings, and secret management.\", \"quote\": \"centralising the databases themselves in to a single RDS instance in order to simplify our connectivity code, connection strings and secret management\", \"tool\": null}, {\"text\": \"Centralising databases is a cheaper approach than maintaining separate instances.\", \"quote\": \"This is also a much cheaper approach.\", \"tool\": null}]}",
+   "seconds": 19.1
+  },
+  "0020-merge-api-postgresql-instance-into-main-postgresql-instance": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "67ba65206a4f5ecaff5b",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Stagecraft is the only database running on API PostgreSQL instances\", \"quote\": \"The only database that runs on API PostgreSQL instances is Stagecraft, which is for the Performance Platform.\", \"tool\": null}, {\"text\": \"The main PostgreSQL instance can host Stagecraft because the team does not have the split of vDCs present in the current hosting provider\", \"quote\": \"This is able to run on the main PostgreSQL instance as we do not have the split of \\\"vDCs\\\" that we have in our current hosting provider.\", \"tool\": null}, {\"text\": \"Work is ongoing to migrate the Performance Platform away from the team's infrastructure to The Government PaaS\", \"quote\": \"Work is ongoing to migrate the Performance Platform away from our infrastructure and to The Government PaaS, so the long term plan is not have this database in our infrastructure at all.\", \"tool\": null}]}",
+   "seconds": 11.0
+  },
+  "0021-use-acm-for-ssl-purchases-and-terminate-certificates-on-elbs": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "0901b537e4ee9066c784",
+   "model": "qwen3.8:27b",
+   "reply": "[{\"reasons\": [{\"text\": \"The team previously managed SSL certificates manually with third-party purchases and nginx termination\", \"quote\": \"Traditionally to manage our SSL certificates, we did the following:\\n\\n - Purchased SSL certificates from a third party company, and did manual renewals\\n - Set up monitoring so we were aware when a certificate needed to be renewed\\n - Terminated SSL using nginx on the frontend_lb and backend_lb machines\", \"tool\": null}, {\"text\": \"ACM provides automatic renewal and notifications for SSL certificates\", \"quote\": \"Automatic renewal and notifications related to the SSL certificates we purchase through ACM\", \"tool\": \"Terraform\"}, {\"text\": \"ACM supports multi-domain certificates which helps manage several stacks within an environment\", \"quote\": \"Multi-domain certificates; this helps us manage several stacks within an environment eg *.blue.integration.govuk.digital, *.green.integration.govuk.digital\", \"tool\": \"Terraform\"}, {\"text\": \"Terminating SSL on ELBs allows the deployment to be managed through Terraform\", \"quote\": \"Terminate SSL on ELBs means the deployment is managed through Terraform\", \"tool\": \"Terraform\"}]}}",
+   "seconds": 16.3
+  },
+  "0022-remove-the-elasticsearch-proxy": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "bc27d7f689e499ece47a",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"AWS environments place Elasticsearch services behind an ELB, making the local proxy layer unnecessary.\", \"quote\": \"In the AWS environments these services are behind an ELB so this layer may no longer be required.\", \"tool\": \"Elasticsearch\"}, {\"text\": \"Testing AWS instances without local proxies shows no service degradation when using ELBs.\", \"quote\": \"We've tested the instances in AWS without the local proxies and we have not discovered any degradation of service when using the ELBs.\", \"tool\": \"Elasticsearch\"}, {\"text\": \"Removing the proxy simplifies networking and application data flow paths.\", \"quote\": \"This means we won't be testing the exact same thing but will simplify the networking and application data flow paths.\", \"tool\": null}]}",
+   "seconds": 11.1
+  },
+  "0023-use-separate-data-repository": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "b49ad79d0509e24d1629",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 4.2
+  },
+  "0024-ami-lookups": {
+   "backend": "ollama",
+   "dropped": [
+    {
+     "quote": "On the downside, as this can change without our intervention, our terraform runs sometimes want to change more than we would expect: ... In some cases _this is fine_ but due to the legacy nature of ou",
+     "text": "Dynamic AMI lookups cause unexpected Terraform runs that change resources, which breaks legacy deployments requiring manual steps.",
+     "why": "quote is not a span of the ADR"
+    }
+   ],
+   "key": "b52f92352870b6407525",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Dynamic AMI lookups cause unexpected Terraform runs that change resources, which breaks legacy deployments requiring manual steps.\",\n      \"quote\": \"On the downside, as this can change without our intervention, our terraform runs sometimes want to change more than we would expect: ... In some cases _this is fine_ but due to the legacy nature of our deployments it causes issues with machines that need a number of manual deployment steps applied to them.\",\n      \"tool\": \"Terraform\"\n    },\n    {\n      \"text\": \"Specifying a specific image name ensures the deployed version is known and cannot change without intervention.\",\n      \"quote\": \"This has the benefit that we know exactly which version we deploy and it cannot change without our intervention.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Security issues from older AMIs are mitigated by overnight security patching deployed via Puppet.\",\n      \"quote\": \"We'd work around this in the same way we do our other environments; by using the overnight security patching we deploy via puppet.\",\n      \"tool\": \"Puppet\"\n    }\n  ]\n}",
+   "seconds": 17.2
+  },
+  "0025-use-elasticache-for-redis": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "8e1e6c80e351643eb63c",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 3.8
+  },
+  "0026-remove-load-balancer-tier": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "2cb99f9c201f21b96a8d",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"ELBs in Amazon handle autoscaling, making dedicated load balancer tiers less useful\", \"quote\": \"In the Amazon world these are less useful as we also have ELBs in place to handle the autoscaling of instances.\", \"tool\": null}, {\"text\": \"The team wants to reduce networking complexity\", \"quote\": \"We want to reduce the networking complexity and remove these machines.\", \"tool\": null}]}",
+   "seconds": 9.5
+  },
+  "0027-move-publicapi-away-from-frontend-lb": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c458f8d3254e608eaa3b",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 6.1
+  },
+  "0028-combine-api-mongo-cluster-into-mongo-cluster": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "621e38faef53be724572",
+   "model": "qwen3.8:27b",
+   "reply": "```json\n{\n  \"reasons\": [\n    {\n      \"text\": \"Content Store is the only application that uses the api-mongo cluster.\",\n      \"quote\": \"The only application that uses the api-mongo cluster is Content Store.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Removing the api-mongo cluster simplifies the architecture and saves money.\",\n      \"quote\": \"Removing the api-mongo cluster will simplify our architecture, and save money.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The router-backend cluster must remain independent due to the critical nature of the Router application.\",\n      \"quote\": \"The router-backend cluster is used by Router. This should remain independent due to the critical nature of this application.\",\n      \"tool\": null\n    }\n  ]\n}\n```",
+   "seconds": 11.4
+  },
+  "0029-combine-api-redis-into-backend-redis": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "bc27d4faf3cdc824f5c4",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Rummager is the only application that currently uses api-redis.\", \"quote\": \"Rummager uses api-redis.\", \"tool\": \"Redis\"}, {\"text\": \"The historical separation of Rummager into a different vDC is no longer a concern in AWS.\", \"quote\": \"This was traditionally the case because Rummager lived in a different vDC to redis-1/redis-2, but this is no longer a concern in AWS.\", \"tool\": null}, {\"text\": \"Combining instances saves money by not running multiple Elasticache instances.\", \"quote\": \"We will save money on not running multiple Elasticache instances.\", \"tool\": null}]}",
+   "seconds": 9.7
+  },
+  "0030-change-in-architecture-to-asset-master": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "1a082ca69984b420225e",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 5.1
+  },
+  "0032-transfer-artefact-binary": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "268e2940a70c62fac448",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 7.7
+  },
+  "0037-alb-health-checks": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "74ebbd2417223736d011",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The current health check only tests the basic Nginx configuration, causing premature traffic routing to instances where applications are not ready.\",\n      \"quote\": \"The current ALB health check is rudimentary and does only test for the basic Nginx configuration being in place, rather than testing whether all apps are properly deployed.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Nginx serves 200 OK responses for health checks even when the application port is unavailable, masking deployment issues.\",\n      \"quote\": \"Nginx will serve 5xx responses. The load balancer still sees the health check responses as `200 OK`, so it continues sending traffic to that instance, even though the application is not ready to receive traffic.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The health check path is configured in Puppet via the `govuk::app::config` module.\",\n      \"quote\": \"This is configured in Puppet, in `govuk::app::config`, as the `health_check_path` parameter.\",\n      \"tool\": \"Puppet\"\n    }\n  ]\n}",
+   "seconds": 20.3
+  },
+  "0038-mongo_replacement_by_documentdb": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "f9ed7fe87ef2a5632fa3",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"TechOps strategy prioritizes AWS managed services to reduce the burden of managing COTS functionality.\",\n      \"quote\": \"One architectural strategy principle of TechOps is to make use as much as possible AWS managed services in order to reduce the burden on GOV.UK teams to manage Commercial off-the-shelf (COTS) functionality/services.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"GOV.UK uses MongoDB as the backing database for a number of apps across multiple clusters.\",\n      \"quote\": \"GOV.UK uses MongoDB as the backing database for a number of apps.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"AWS DocumentDB is compatible with the open source MongoDB API 3.6.\",\n      \"quote\": \"AWS DocumentDB has been developed to be [compatible](https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html) with the open source MongoDB API 3.6.\",\n      \"tool\": \"MongoDB\"\n    }\n  ]\n}",
+   "seconds": 21.0
+  },
+  "0039-non-govuk-domain-policy": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "e17f7ffff3ab02a2a71e",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Non-GOV.UK domains that look like GOV.UK sites or serve content to them may be flagged as phishing by systems like Google's Safe Browsing.\", \"quote\": \"In either case, the domain might be flagged as a phishing site by systems such as [Google's Safe Browsing](https://transparencyreport.google.com/safe-browsing/search) technology, which is used by browsers including (but not limited to) Chrome to automatically block requests to the site.\", \"tool\": null}, {\"text\": \"Being flagged as a phishing site could cause a major incident making large parts of GOV.UK inaccessible.\", \"quote\": \"At worst, this could cause a major incident, making large parts of GOV.UK inaccessible.\", \"tool\": null}, {\"text\": \"Several Signon domains currently violate the policy by being publicly routable without authentication.\", \"quote\": \"A number of Signon domains are currently in violation of this proposal.\", \"tool\": null}]}",
+   "seconds": 17.9
+  }
+ }
+}
