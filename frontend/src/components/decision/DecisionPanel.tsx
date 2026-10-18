@@ -91,6 +91,7 @@ export default function DecisionPanel({ id }: { id: string }) {
         <VerdictWhy audit={a} onSelect={select} />
         {!notYet && <VerdictMeta audit={a} />}
         {!notYet && <VerdictSince h={data.history} />}
+        {!notYet && <KnowsWhy k={data.knowers} />}
       </header>
 
       {/* One drawing per screen: the preview is the hero everywhere except the Graph tab, which shows the full one. */}
@@ -137,6 +138,20 @@ function VerdictSince({ h }: { h?: DecisionResponse["history"] }) {
     <p className="t-footnote" style={{ margin: 0 }} aria-label="Verdict history">
       {VERDICT_WORD[h.verdict]} since {longDate(h.since)}
       {prev.map((x, i) => <span key={i}>{i === 0 ? ", after " : ", "}{VERDICT_WORD[x.verdict].toLowerCase()} from {longDate(x.since)}</span>)}.
+    </p>
+  );
+}
+
+/** "Who knows why: Marcus Chen (wrote PR-412), Ada Okafor (owner, left 15 May 2026). Bus factor 1." */
+function KnowsWhy({ k }: { k?: DecisionResponse["knowers"] }) {
+  const { link } = useAppState();
+  if (!k) return null;
+  const role = (r: { how: string; what: string }) => (r.how === "owner" ? "owner" : r.how === "wrote the record" ? "wrote the record" : `wrote ${r.what}`);
+  return (
+    <p className="t-footnote" style={{ margin: 0 }} aria-label="Who knows why">
+      Who knows why: {k.people.length === 0 ? "nobody on record" : k.people.map((p, i) => (
+        <span key={p.id}>{i > 0 && ", "}{p.name} ({[...new Set(p.roles.map(role))].slice(0, 2).join(", ")}{!p.active && p.left ? `, left ${longDate(p.left)}` : ""})</span>
+      ))}. Bus factor {k.bus_factor}. <a className="link" href={link("/app/people/")}>People ›</a>
     </p>
   );
 }

@@ -51,6 +51,36 @@ def verdict_history(decision_id: str, as_of: str | None = None, graph: str | Non
 
 
 @mcp.tool()
+def who_knows_why(decision_id: str, as_of: str | None = None, graph: str | None = None) -> str:
+    """Who knows why a decision was made: its owner, who wrote its record, who wrote evidence on its reasons; bus_factor is
+    how many of them are still here. Read from authorship: knowing without writing it down does not count."""
+    from . import people
+    return json.dumps(people.knowers(_g(graph), decision_id, as_of), default=str)
+
+
+@mcp.tool()
+def departure_impact(person_id: str, as_of: str | None = None, graph: str | None = None) -> str:
+    """What leaves with a person: live decisions nobody else still here knows the reasons for, reasons only they wrote
+    evidence on, systems nobody else can explain, and who would inherit what they own. Computed on a copy of the graph."""
+    from . import people
+    return json.dumps(people.departure(_g(graph), person_id, as_of), default=str)
+
+
+@mcp.tool()
+def people_risk(as_of: str | None = None, graph: str | None = None) -> str:
+    """Everyone still here ranked by the decisions only they know (bus factor 1) and by betweenness on the knowledge graph."""
+    from . import people
+    return json.dumps(people.people(_g(graph), as_of), default=str)
+
+
+@mcp.tool()
+def reason_single_points_of_failure(as_of: str | None = None, graph: str | None = None) -> str:
+    """Reasons two or more live decisions rest on that only one document, or one person still here, vouches for."""
+    from . import people
+    return json.dumps(people.premise_spof(_g(graph), as_of), default=str)
+
+
+@mcp.tool()
 def ingest_github(repo: str, path: str | None = None) -> str:
     """Bring a public GitHub repository's ADR folder and its pull requests into a new graph (gh_<owner>_<repo>) and audit
     every decision. Writes a new graph and calls GitHub: call only after the user approves."""

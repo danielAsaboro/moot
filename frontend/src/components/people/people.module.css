@@ -1,0 +1,10 @@
+/* People: one sentence, three stat cards, grouped lists. Tokens only. */
+.view { display: flex; flex-direction: column; gap: 24px; max-width: 880px; }
+.head h1 { margin: 0 0 8px; }
+.head p { margin: 0; color: var(--label-2); max-width: 62ch; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.trail { display: inline-flex; align-items: center; gap: 8px; flex: none; }
+.bridge { font-size: 13px; color: var(--label-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sheet { display: flex; flex-direction: column; gap: 16px; }
+.queries summary { cursor: pointer; }
+@media (max-width: 640px) { .stats { grid-template-columns: 1fr; } .bridge { display: none; } }

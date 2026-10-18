@@ -19,6 +19,7 @@ const NAV: [string, string][] = [
   ["/app/map/", "Map"],
   ["/app/gate/", "Agent gate"],
   ["/app/orphans/", "Owners"],
+  ["/app/people/", "People"],
   ["/app/whatif/", "What-if"],
   ["/app/realworld/", "Real world"],
 ];

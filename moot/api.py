@@ -14,7 +14,7 @@ from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse, Res
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from . import agent, answer, mapdata, snapshot, tools
+from . import agent, answer, mapdata, people as people_mod, snapshot, tools
 from .graph import BACKTEST_GRAPH, DATA, GH_PREFIX, PUBLIC_GRAPH, connect, graph, stats
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -141,7 +141,8 @@ def decision(decision_id: str, as_of: str | None = None, depth: int = Query(4, g
     memo = tools.reopen_memo(g(), decision_id, as_of, depth) if a["verdict"] in ("MOOT", "DISPUTED") else None
     gate = tools.check_action(g(), decision_id, as_of)
     hist = tools.verdict_history(g(), decision_id, as_of, depth)
-    return dict(audit=a, impact=impact, findings=f, memo=memo, gate=gate, history=hist, ticket=memo["text"] if memo else agent.draft_ticket(a, impact),
+    know = people_mod.knowers(g(), decision_id, as_of)
+    return dict(audit=a, impact=impact, findings=f, memo=memo, gate=gate, history=hist, knowers=know, ticket=memo["text"] if memo else agent.draft_ticket(a, impact),
                 queries=tools.end_trace())
 
 
@@ -152,6 +153,42 @@ def history(decision_id: str, as_of: str | None = None, depth: int = Query(4, ge
     if not r["found"]:
         raise HTTPException(404, f"{decision_id} is not in the graph")
     return r
+
+
+@app.get("/api/people")
+def people(as_of: str | None = None):
+    """Everyone still here: what they own, what only they know (bus factor 1), and betweenness on the knowledge projection."""
+    tools.start_trace()
+    r = people_mod.people(g(), as_of_param(as_of))
+    r["queries"] = tools.end_trace()
+    return r
+
+
+@app.get("/api/people/{person_id}/departure")
+def departure(person_id: str, as_of: str | None = None):
+    """What leaves with a person: computed on a GRAPH.COPY with them removed (algo.WCC). The company graph is not written."""
+    tools.start_trace()
+    r = people_mod.departure(g(), person_id, as_of_param(as_of))
+    if not r["found"]:
+        tools.end_trace()
+        raise HTTPException(404, f"{person_id} is not in the graph")
+    r["queries"] = tools.end_trace()
+    return r
+
+
+@app.get("/api/knowers/{decision_id}")
+def knowers(decision_id: str, as_of: str | None = None):
+    """Who knows why a decision was made: its owner, who wrote its record, who wrote evidence on its reasons."""
+    r = people_mod.knowers(g(), decision_id, as_of_param(as_of))
+    if not r["found"]:
+        raise HTTPException(404, f"{decision_id} is not in the graph")
+    return r
+
+
+@app.get("/api/spof")
+def spof(as_of: str | None = None, limit: int = Query(10, ge=1, le=50)):
+    """Reasons two or more live decisions rest on that only one document, or one person still here, vouches for."""
+    return people_mod.premise_spof(g(), as_of_param(as_of), limit)
 
 
 @app.get("/api/gate/{decision_id}")

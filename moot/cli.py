@@ -18,6 +18,8 @@ def main(argv=None):
     k = sub.add_parser("packet", help="the evidence packet behind one verdict (Markdown or JSON)"); k.add_argument("decision_id"); k.add_argument("--as-of"); k.add_argument("--json", action="store_true")
     vf = sub.add_parser("verify", help="check every headline number in README.md and eval/results*.md against the eval JSON; non-zero on drift")
     vf.add_argument("--rerun", action="store_true", help="first re-run the deterministic evals from committed inputs (needs FalkorDB)")
+    dp = sub.add_parser("departure", help="what leaves with a person (computed on a copy of the graph)"); dp.add_argument("person_id"); dp.add_argument("--as-of"); dp.add_argument("--graph")
+    pp = sub.add_parser("people", help="who only knows what: bus factor and betweenness per person"); pp.add_argument("--as-of"); pp.add_argument("--graph")
     l = sub.add_parser("ledger"); l.add_argument("--as-of"); l.add_argument("--depth", type=int, default=4); l.add_argument("--graph")
     v = sub.add_parser("serve"); v.add_argument("--port", type=int, default=None)
     sub.add_parser("mcp", help="run the read-only MCP server on stdio")
@@ -76,6 +78,29 @@ def main(argv=None):
         if not pk["found"]:
             print(f"{args.decision_id} is not in the graph"); return 1
         print(json.dumps(pk, indent=1, default=str) if args.json else tools.packet_markdown(pk)); return
+    if args.cmd == "departure":
+        from . import people
+        r = people.departure(graph(args.graph), args.person_id, args.as_of)
+        if not r["found"]:
+            print(f"{args.person_id} is not in the graph"); return 1
+        print(f"If {r['person']['name']} left on {r['as_of']}:")
+        print(f"  decisions nobody else here knows the reasons for: {len(r['leaves'])}")
+        for d in r["leaves"]:
+            print(f"    {d['verdict']:<12} {d['id']}  {d['title']}")
+        for x in r["only_they_evidence"]:
+            print(f"  only they wrote evidence on: {x['id']} \"{x['text']}\" ({', '.join(x['evidence'])})")
+        if r["systems_nobody_else_explains"]:
+            print("  systems nobody else can explain:", ", ".join(r["systems_nobody_else_explains"]))
+        if r["owned"]:
+            print(f"  owns {len(r['owned'])} live decisions; next up the reporting line: {r['successor']['name'] if r['successor'] else 'nobody'}")
+        return
+    if args.cmd == "people":
+        from . import people
+        r = people.people(graph(args.graph), args.as_of)
+        for p in r["people"]:
+            print(f"{p['name'] or p['id']:<24} only knows {len(p['sole']):>2}  knows {p['knows']:>2}  betweenness {p['betweenness']:>7}  {', '.join(p['sole'])}")
+        print(f"bus factor 0: {', '.join(r['bus_factor']['zero']) or 'none'} · bus factor 1: {len(r['bus_factor']['one'])} decisions")
+        return
     if args.cmd == "ledger":
         for r in tools.ledger(graph(args.graph), args.as_of, args.depth):
             print(f"{r['verdict']:<13} {r['id']}  {r['title']}  (owner: {r['owner']}{'' if r['owner_active'] else ', left'})")
