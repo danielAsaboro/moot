@@ -393,7 +393,11 @@ def direct(q: dict):
         return dict(was_lead=q["person"] in {x["id"].removeprefix("u_") for x in (team or {}).get("leads", [])})
 
 
-FILE_DOC_V1 = FILE_DOC.split("\n- git_log(")[0] + "\n- git_log(repo, path): the commits that changed a path, newest first (hash, date, subject)"
+# the file tools' first description, kept verbatim: the HEAD-only RAG's cache key and every v1 answer's key are built from it
+FILE_DOC_V1 = """- list_files(repo, prefix): file paths under a prefix; repo is "enhancements" (kubernetes/enhancements) or "community" (kubernetes/community)
+- read_file(repo, path, rev): a file's text at a commit (rev defaults to the latest)
+- grep(repo, pattern, prefix): lines matching a regex in kep.yaml files under a prefix (enhancements) or in sigs.yaml (community)
+- git_log(repo, path): the commits that changed a path, newest first (hash, date, subject)"""
 
 
 HARNESS = "v2"  # v2 (register, fairness audit): every arm accepts a bare answer object; v1 answers are kept, not scored
