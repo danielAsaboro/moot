@@ -332,13 +332,20 @@ def check_k1(c: Checker) -> None:
     if not f.exists():
         return
     R = json.loads(f.read_text())["results"]
-    cell = lambda s: f"{s['right']}/{s['n']}" if s["n"] == s["of"] else "running"
+    cell = lambda s: (f"{s['right']}/{s['n']}" if s["n"] == s["of"] else "running")
+    ci = lambda s: f"{s['ci'][0]:.2f}–{s['ci'][1]:.2f}"
+    text = (ROOT / "README.md").read_text()
     for arm, label in (("moot_tools", r"\*\*agent with Moot's graph tools\*\*"), ("file_tools", "agent with file and git tools over the same checkouts"),
-                       ("rag_bm25", r"BM25 RAG over the checkouts"),
-                       ("rag_history", r"BM25 RAG over the checkouts and their history \(post hoc\)"), ("moot_direct", "one fixed graph query per question, no model")):
+                       ("rag_bm25", r"BM25 RAG over the checkouts"), ("rag_history", r"BM25 RAG over the checkouts and their history \(post hoc\)"),
+                       ("moot_direct", "one fixed graph query per question, no model")):
         t, d = R["test"][arm], R["dev"][arm]
-        c.expect("README.md", (ROOT / "README.md").read_text(), f"K1 row {arm}", rf"\| {label} \| ([^|]+) \| ([^|]+) \| ([\d,]+) \| ([^|]+) \| (\d+) \|",
-                 (cell(t), cell(d), f"{d['tokens']:,}", d["seconds_median"] if d["seconds_median"] is not None else "–", d["calls"]))
+        c.expect("README.md", text, f"K1 row {arm}", rf"\| {label} \| (?:\*\*)?([\d/]+)(?:\*\*)? \(([\d.–]+)\) \| ([^|]+) \| ([\d,]+) \| ([\d.]+) \| ([^|]+) \| (\d+) \|",
+                 (cell(t), ci(t), cell(d), f"{t['tokens']:,}", f"{t['usd']:.3f}", t["seconds_median"] if t["seconds_median"] is not None else "–", t["calls"]))
+    pf, pr, ph = R["test"]["paired"]["file_tools"], R["test"]["paired"]["rag_bm25"], R["test"]["paired"]["rag_history"]
+    c.expect("README.md", text, "K1 McNemar", r"only the graph agent right on (\d+) questions, only the file agent on (\d+), exact McNemar p = ([\d.]+)\).*?"
+             r"\((\d+) against (\d+), p = ([\d.]+); against RAG over history (\d+) against (\d+), p = ([\d.]+)\)",
+             (pf["only_moot"], pf["only_other"], f"{pf['p']:.2f}".rstrip("0") if pf["p"] >= 0.1 else pf["p"], pr["only_moot"], pr["only_other"], pr["p"],
+              ph["only_moot"], ph["only_other"], ph["p"]))
 
 
 def check_test_count(c: Checker) -> None:
