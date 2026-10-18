@@ -6,7 +6,8 @@ Pipeline for a question:
   3. check memory: a Finding written earlier, still current, means "answered from memory"
   4. narrate: a model writes the prose from the rows, and a validator rejects any decision,
      premise or evidence id in the prose that the rows did not contain
-  5. if no model key is configured, a template narrates instead; verdicts never depend on a model
+  5. if no model is configured (moot/llm.py: Groq, Anthropic or off, with a daily spend cap), a template narrates
+     instead; verdicts never depend on a model
   6. UNDOCUMENTED, RETIRED and NOT_YET never reach the model: the graph's own sentence is the answer
 
 Four outcomes, as the reference architecture asks for:
@@ -15,14 +16,11 @@ Four outcomes, as the reference architecture asks for:
 from __future__ import annotations
 
 import json
-import os
 import re
 
 from falkordb import Graph
 
-from . import tools
-
-MODEL = os.getenv("MOOT_MODEL", "claude-opus-5-5")
+from . import llm, tools
 
 SYSTEM = """You narrate audits of company decisions for Moot. You receive JSON rows from a graph
 database and nothing else. Write 3 to 6 plain sentences for an engineering lead.
@@ -33,18 +31,8 @@ Cite evidence by its id in square brackets, like [PR-412]. Never add facts that 
 No headings, no bullet points, no markdown."""
 
 
-def _client():
-    try:
-        import anthropic
-    except ImportError:
-        return None
-    if not os.getenv("ANTHROPIC_API_KEY"):
-        return None
-    return anthropic.Anthropic()
-
-
 def has_model() -> bool:
-    return _client() is not None
+    return llm.backend() is not None
 
 
 def _ids_in_rows(audit: dict, impact: list[dict]) -> set[str]:
@@ -112,18 +100,10 @@ def narrate(audit: dict, impact: list[dict]) -> tuple[str, str]:
     so no model is called at all. The abstention happens before the model, not inside it."""
     if audit["verdict"] in STRUCTURAL:
         return template_narration(audit, impact), "structural"
-    client = _client()
-    if client is None:
-        return template_narration(audit, impact), "template"
     rows = dict(audit={k: v for k, v in audit.items() if k != "found"}, shared_premises=impact)
-    try:
-        resp = client.messages.create(
-            model=MODEL, max_tokens=800, system=SYSTEM,
-            messages=[{"role": "user", "content": "Rows:\n" + json.dumps(rows, default=str)}])
-        if resp.stop_reason == "refusal":
-            return template_narration(audit, impact), "template"
-        prose = "".join(b.text for b in resp.content if b.type == "text").strip()
-    except Exception:
+    reply = llm.chat(SYSTEM, "Rows:\n" + json.dumps(rows, default=str), max_tokens=800)
+    prose = (reply or {}).get("text", "")
+    if not prose:
         return template_narration(audit, impact), "template"
     ok, bad = validate(prose, _ids_in_rows(audit, impact))
     if not ok:

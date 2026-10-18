@@ -14,7 +14,7 @@ from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse, Res
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from . import agent, answer, mapdata, people as people_mod, snapshot, tools
+from . import agent, answer, llm, mapdata, people as people_mod, snapshot, tools
 from .graph import BACKTEST_GRAPH, DATA, GH_PREFIX, PUBLIC_GRAPH, connect, graph, stats
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -105,7 +105,8 @@ def as_of_param(as_of: str | None) -> str | None:
 @app.get("/api/health")
 def health():
     try:
-        return dict(ok=True, tenant=g().name, stats=stats(g()), model=agent.has_model())
+        return dict(ok=True, tenant=g().name, stats=stats(g()), model=agent.has_model(),
+                    llm=dict(backend=llm.backend(), model=llm.model() if llm.backend() else None, spend=llm.spend()))
     except Exception as ex:  # FalkorDB down
         raise HTTPException(503, f"FalkorDB unreachable: {ex}")
 

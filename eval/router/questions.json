@@ -1,0 +1,383 @@
+{
+ "about": "Router questions on Larkspur. 'misrouted': ordinary questions the keyword rules get wrong, written and labelled before any model saw them (2026-10-21). 'control': the questions the rules already route (tests/test_answer.py ROUTES), to show the model does not break them. A pick is right when the tool matches and its input equals one of the accepted inputs exactly.",
+ "frozen_on": "2026-10-21",
+ "graph": "larkspur",
+ "as_of": "2026-10-16",
+ "misrouted": [
+  {
+   "q": "Who owns billing?",
+   "tool": "ledger",
+   "accept": [
+    {
+     "system": "Billing"
+    }
+   ]
+  },
+  {
+   "q": "Why can't we ship on Fridays?",
+   "tool": "audit_decision",
+   "accept": [
+    {
+     "decision_id": "D07"
+    }
+   ]
+  },
+  {
+   "q": "Why is everything in Postgres?",
+   "tool": "audit_decision",
+   "accept": [
+    {
+     "decision_id": "D05"
+    }
+   ]
+  },
+  {
+   "q": "Is it fine to start a new microservice?",
+   "tool": "check_action",
+   "accept": [
+    {
+     "decision_id": "D08"
+    }
+   ]
+  },
+  {
+   "q": "What happens if we stop selling in Europe?",
+   "tool": "what_if",
+   "accept": [
+    {
+     "reason": "p_eu_market"
+    }
+   ]
+  },
+  {
+   "q": "Suppose Stripe turns on multi-currency, what changes?",
+   "tool": "what_if",
+   "accept": [
+    {
+     "reason": "p_stripe_multi"
+    }
+   ]
+  },
+  {
+   "q": "Who can tell me why logs are kept 30 days?",
+   "tool": "who_knows_why",
+   "accept": [
+    {
+     "decision_id": "D26"
+    }
+   ]
+  },
+  {
+   "q": "Show me what's broken",
+   "tool": "ledger",
+   "accept": [
+    {
+     "verdict": "MOOT"
+    }
+   ]
+  },
+  {
+   "q": "What should we revisit first?",
+   "tool": "ledger",
+   "accept": [
+    {
+     "verdict": "MOOT"
+    }
+   ]
+  },
+  {
+   "q": "Where's the paper trail for the EU data residency rule?",
+   "tool": "evidence_packet",
+   "accept": [
+    {
+     "decision_id": "D09"
+    }
+   ]
+  },
+  {
+   "q": "Write up a case for reconsidering the upload cap",
+   "tool": "reopen_memo",
+   "accept": [
+    {
+     "decision_id": "D01"
+    }
+   ]
+  },
+  {
+   "q": "Which of Tomi's rules are dead?",
+   "tool": "ledger",
+   "accept": [
+    {
+     "owner": "tomi",
+     "verdict": "MOOT"
+    }
+   ]
+  },
+  {
+   "q": "Is the Safari 15 floor still right?",
+   "tool": "audit_decision",
+   "accept": [
+    {
+     "decision_id": "D15"
+    }
+   ]
+  },
+  {
+   "q": "What breaks if our SOC 2 audit goes away?",
+   "tool": "what_if",
+   "accept": [
+    {
+     "reason": "p_soc2_cert"
+    }
+   ]
+  },
+  {
+   "q": "What depends on Chrome killing third-party cookies?",
+   "tool": "what_if",
+   "accept": [
+    {
+     "reason": "p_chrome_3p"
+    }
+   ]
+  },
+  {
+   "q": "Who runs auth?",
+   "tool": "ledger",
+   "accept": [
+    {
+     "system": "Auth"
+    }
+   ]
+  },
+  {
+   "q": "What decisions cover the mobile app?",
+   "tool": "ledger",
+   "accept": [
+    {
+     "system": "Mobile app"
+    }
+   ]
+  },
+  {
+   "q": "Anything in search that's shaky?",
+   "tool": "ledger",
+   "accept": [
+    {
+     "system": "Search"
+    },
+    {
+     "system": "Search",
+     "verdict": "DISPUTED"
+    }
+   ]
+  },
+  {
+   "q": "Give me the documents behind the LaunchDarkly choice",
+   "tool": "evidence_packet",
+   "accept": [
+    {
+     "decision_id": "D17"
+    }
+   ]
+  },
+  {
+   "q": "Why don't we take customer calls?",
+   "tool": "audit_decision",
+   "accept": [
+    {
+     "decision_id": "D29"
+    }
+   ]
+  },
+  {
+   "q": "What rules does Marcus own that are disputed?",
+   "tool": "ledger",
+   "accept": [
+    {
+     "owner": "marcus",
+     "verdict": "DISPUTED"
+    }
+   ]
+  },
+  {
+   "q": "What if logs got cheaper to store?",
+   "tool": "what_if",
+   "accept": [
+    {
+     "reason": "p_log_cost"
+    }
+   ]
+  }
+ ],
+ "control": [
+  {
+   "q": "Why do we cap uploads at 10 MB?",
+   "tool": "audit_decision",
+   "accept": [
+    {
+     "decision_id": "D01"
+    }
+   ]
+  },
+  {
+   "q": "Can an agent change the Friday deploy freeze?",
+   "tool": "check_action",
+   "accept": [
+    {
+     "decision_id": "D07"
+    }
+   ]
+  },
+  {
+   "q": "is it safe for a bot to rotate the api keys?",
+   "tool": "check_action",
+   "accept": [
+    {
+     "decision_id": "D06"
+    }
+   ]
+  },
+  {
+   "q": "What if we no longer need SOC 2?",
+   "tool": "what_if",
+   "accept": [
+    {
+     "reason": "p_soc2_cert"
+    }
+   ]
+  },
+  {
+   "q": "what if the gateway limit changed",
+   "tool": "what_if",
+   "accept": [
+    {
+     "reason": "p_gateway_limit"
+    }
+   ]
+  },
+  {
+   "q": "What did Ada own?",
+   "tool": "orphaned_decisions",
+   "accept": [
+    {
+     "person": "ada"
+    }
+   ]
+  },
+  {
+   "q": "what does Kwame own",
+   "tool": "ledger",
+   "accept": [
+    {
+     "owner": "kwame"
+    }
+   ]
+  },
+  {
+   "q": "who left?",
+   "tool": "orphaned_decisions",
+   "accept": [
+    {}
+   ]
+  },
+  {
+   "q": "Show the evidence for D17",
+   "tool": "evidence_packet",
+   "accept": [
+    {
+     "decision_id": "D17"
+    }
+   ]
+  },
+  {
+   "q": "proof behind keeping the monolith",
+   "tool": "evidence_packet",
+   "accept": [
+    {
+     "decision_id": "D08"
+    }
+   ]
+  },
+  {
+   "q": "Which decisions are moot?",
+   "tool": "ledger",
+   "accept": [
+    {
+     "verdict": "MOOT"
+    }
+   ]
+  },
+  {
+   "q": "which rules are disputed",
+   "tool": "ledger",
+   "accept": [
+    {
+     "verdict": "DISPUTED"
+    }
+   ]
+  },
+  {
+   "q": "re-open the upload limit decision",
+   "tool": "reopen_memo",
+   "accept": [
+    {
+     "decision_id": "D01"
+    }
+   ]
+  },
+  {
+   "q": "who owns the search index rebuild",
+   "tool": "decision_owner",
+   "accept": [
+    {
+     "decision_id": "D04"
+    }
+   ]
+  },
+  {
+   "q": "why do we deploy to a single region in virginia",
+   "tool": "audit_decision",
+   "accept": [
+    {
+     "decision_id": "D28"
+    }
+   ]
+  },
+  {
+   "q": "D12",
+   "tool": "audit_decision",
+   "accept": [
+    {
+     "decision_id": "D12"
+    }
+   ]
+  },
+  {
+   "q": "What leaves with Marcus?",
+   "tool": "departure",
+   "accept": [
+    {
+     "person": "marcus"
+    }
+   ]
+  },
+  {
+   "q": "what if Priya left",
+   "tool": "departure",
+   "accept": [
+    {
+     "person": "priya"
+    }
+   ]
+  },
+  {
+   "q": "Who knows why we freeze deploys on Fridays?",
+   "tool": "who_knows_why",
+   "accept": [
+    {
+     "decision_id": "D07"
+    }
+   ]
+  }
+ ]
+}

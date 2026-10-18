@@ -1,9 +1,11 @@
 """Search-first answers: a question picks one read-only tool, and that tool's rows are the answer.
 
-  1. pick the tool: rules read the question ("can an agent…" -> check_action, "what if…" -> what_if, …). With
-     ANTHROPIC_API_KEY set, a model may pick instead, from the same list, filling in only the tool's input. It sees the
-     question, the tool descriptions and candidate ids that the graph's own resolvers returned, nothing else; it never
-     writes Cypher and never touches the database, and any id it returns must be one of those candidates.
+  1. pick the tool: with a model configured (moot/llm.py: Groq by default, a daily spend cap), the model picks from the
+     list by tool call, filling in only the tool's input. It sees the question, the tool descriptions and a catalogue of
+     ids read from the graph (decisions, reasons, people, systems), nothing else; it never writes Cypher and never
+     touches the database, and any id it returns must be in that catalogue. With no model, over the cap, on a failure or
+     on an id outside the catalogue, rules read the question instead ("can an agent…" -> check_action, "what if…" ->
+     what_if, …). eval/eval_router.py measures both on questions the rules get wrong.
   2. resolve what the question is about with the graph's full-text resolvers (find_decision, find_premise), keeping
      a match only when it covers most of the question's own words, so an unrelated question gets "nothing matches".
   3. run the tool (read-only) and return its rows; the UI draws the one component that fits the tool.
@@ -17,7 +19,7 @@ import re
 
 from falkordb import Graph
 
-from . import agent, tools
+from . import llm, tools
 
 # Read-only tools an answer may run. The descriptions are what a model sees when it picks.
 TOOLS: dict[str, dict] = {
@@ -35,8 +37,9 @@ TOOLS: dict[str, dict] = {
                           input={"decision_id": "Decision id"}),
     "departure": dict(description="What leaves with a person if they left: decisions nobody else here can explain, reasons only they wrote evidence on.",
                       input={"person": "Person id"}),
-    "ledger": dict(description="Many decisions at once: every verdict, optionally only one verdict or one owner.",
-                   input={"verdict": "MOOT, DISPUTED, HOLDS, UNDOCUMENTED or RETIRED (optional)", "owner": "Person id (optional)"}),
+    "ledger": dict(description="Many decisions at once: every verdict, optionally only one verdict, one owner or one system.",
+                   input={"verdict": "MOOT, DISPUTED, HOLDS, UNDOCUMENTED or RETIRED (optional)", "owner": "Person id (optional)",
+                          "system": "System name, e.g. Billing (optional)"}),
 }
 
 ID = re.compile(r"\bd\s?-?0?(\d{1,2})\b", re.I)
@@ -160,40 +163,62 @@ def route(g: Graph, question: str, as_of: str) -> dict:
     return dict(tool=None, input={}, why="nothing in the graph matches the question", matched=None)
 
 
-def route_model(g: Graph, question: str, as_of: str) -> dict | None:
-    """A model picks the tool from the same list. It sees the tool descriptions and candidate ids the resolvers found;
-    any id it returns that is not a candidate is rejected and the rules answer instead. None means: use the rules."""
-    client = agent._client()
-    if client is None:
-        return None
+ROUTER_SYSTEM = """You route one question about a company's standing decisions to the one read-only tool that answers it.
+Call exactly one tool. Fill its inputs only with ids from the catalogue in the user message (decision ids like D07,
+reason ids like p_eu_market, person ids like priya, system names exactly as listed); never invent one.
+- why a rule exists, whether it still holds, whether it is still right -> audit_decision
+- whether someone (a person, an agent, a bot) may do something a decision forbids or requires -> check_action on that decision
+- who owns or decided one decision -> decision_owner; who owns an area or system -> ledger with system
+- who knows, understands or can explain why -> who_knows_why
+- "what if", "suppose", "what happens if" a fact stops being true -> what_if on the reason that fact is
+- what someone owns or looks after -> ledger with owner; what is stale, broken or worth revisiting -> ledger with verdict MOOT
+- the documents, paper trail or proof -> evidence_packet; a case or memo to reconsider -> reopen_memo
+- what is lost if a person leaves -> departure; decisions whose owner left -> orphaned_decisions"""
+
+CATALOGUE_CAP = 120  # decisions and reasons listed to the model; a bigger graph lists the full-text matches first
+
+
+def _catalogue(g: Graph, question: str) -> dict:
+    """Everything the model may name, read from the graph: decision titles, reason texts, people, systems."""
     words = " ".join(_words(question)) or question
-    cands = dict(
-        decisions=[dict(id=c["id"], title=c["title"]) for c in tools.find_decision(g, words)[:5]],
-        reasons=[dict(id=c["id"], text=c["text"]) for c in tools.find_premise(g, words)[:5]],
-        people=[dict(id=p["id"], name=p["name"], left=bool(p["left"])) for p in _people(g)],
-    )
-    allowed = {c["id"] for k in cands for c in cands[k]} | {"MOOT", "DISPUTED", "HOLDS", "UNDOCUMENTED", "RETIRED"}
+    first = [c["id"] for c in tools.find_decision(g, words)] + [c["id"] for c in tools.find_premise(g, words)]
+    dec = [dict(id=r[0], title=r[1]) for r in tools._q(g, "MATCH (d:Decision) RETURN d.id, d.title ORDER BY d.id").result_set]
+    rea = [dict(id=r[0], text=r[1]) for r in tools._q(g, "MATCH (p:Premise) RETURN p.id, p.text ORDER BY p.id").result_set]
+    rank = {i: n for n, i in enumerate(first)}
+    dec.sort(key=lambda c: rank.get(c["id"], len(rank)))
+    rea.sort(key=lambda c: rank.get(c["id"], len(rank)))
+    systems = [r[0] for r in tools._q(g, "MATCH (s:System) RETURN s.name ORDER BY s.name").result_set]
+    return dict(decisions=dec[:CATALOGUE_CAP], reasons=rea[:CATALOGUE_CAP],
+                people=[dict(id=p["id"], name=p["name"], left=bool(p["left"])) for p in _people(g)], systems=systems)
+
+
+def route_model(g: Graph, question: str, as_of: str) -> dict | None:
+    """A model picks the tool from the same list (moot/llm.py: Groq by default, with a daily spend cap). It sees the tool
+    descriptions and a catalogue of ids read from the graph; any input that is not in the catalogue is rejected and the
+    rules answer instead. None means: use the rules."""
+    if llm.backend() is None:
+        return None
+    cat = _catalogue(g, question)
+    allowed = dict(decision_id={c["id"] for c in cat["decisions"]}, reason={c["id"] for c in cat["reasons"]},
+                   person={p["id"] for p in cat["people"]}, owner={p["id"] for p in cat["people"]}, system=set(cat["systems"]),
+                   verdict={"MOOT", "DISPUTED", "HOLDS", "UNDOCUMENTED", "RETIRED"})
     specs = [dict(name=n, description=t["description"],
-                  input_schema=dict(type="object", properties={k: dict(type="string", description=v) for k, v in t["input"].items()}))
+                  parameters=dict(type="object", properties={k: dict(type="string", description=v) for k, v in t["input"].items()}))
              for n, t in TOOLS.items()]
-    try:
-        resp = client.messages.create(
-            model=agent.MODEL, max_tokens=300, tools=specs, tool_choice={"type": "any"},
-            system="Pick the one tool that answers the question. Use only ids from the candidates. If none fits, pick ledger.",
-            messages=[{"role": "user", "content": f"Question: {question}\nCandidates: {json.dumps(cands)}"}])
-        call = next(b for b in resp.content if b.type == "tool_use")
-    except Exception:
+    reply = llm.chat(ROUTER_SYSTEM, f"Question: {question}\nCatalogue: {json.dumps(cat)}", tools=specs, max_tokens=400)
+    call = (reply or {}).get("tool")
+    if not call or call["name"] not in TOOLS:
         return None
-    inp = {k: str(v) for k, v in (call.input or {}).items() if k in TOOLS.get(call.name, {}).get("input", {}) and v}
-    if call.name not in TOOLS or any(v not in allowed for v in inp.values()):
+    inp = {k: str(v) for k, v in (call.get("input") or {}).items() if k in TOOLS[call["name"]]["input"] and v not in (None, "")}
+    if any(v not in allowed[k] for k, v in inp.items()):
         return None
-    if call.name in ("audit_decision", "check_action", "evidence_packet", "decision_owner", "reopen_memo", "who_knows_why") and "decision_id" not in inp:
+    need = dict(audit_decision="decision_id", check_action="decision_id", evidence_packet="decision_id", decision_owner="decision_id",
+                reopen_memo="decision_id", who_knows_why="decision_id", departure="person", what_if="reason").get(call["name"])
+    if need and need not in inp:
         return None
-    if call.name == "departure" and "person" not in inp:
-        return None
-    if call.name == "what_if" and "reason" not in inp:
-        return None
-    return dict(tool=call.name, input=inp, why="a model picked it from the tool list", matched=None)
+    return dict(tool=call["name"], input=inp, why=f"{reply['model']} picked it from the tool list", matched=None,
+                model=dict(name=reply["model"], tokens_in=reply["tokens_in"], tokens_out=reply["tokens_out"],
+                           usd=round(reply["usd"], 6), ms=reply.get("ms"), cached=reply.get("cached", False)))
 
 
 def run(g: Graph, tool: str, inp: dict, as_of: str, depth: int) -> dict:
@@ -235,7 +260,9 @@ def run(g: Graph, tool: str, inp: dict, as_of: str, depth: int) -> dict:
             rows = [r for r in rows if r["verdict"] == inp["verdict"]]
         if person:
             rows = [r for r in rows if r.get("owner_id") == person["id"]]
-        return dict(as_of=as_of, depth=depth, decisions=rows, verdict=inp.get("verdict"), owner=person)
+        if inp.get("system"):
+            rows = [r for r in rows if inp["system"] in (r.get("systems") or [])]
+        return dict(as_of=as_of, depth=depth, decisions=rows, verdict=inp.get("verdict"), owner=person, system=inp.get("system"))
     raise KeyError(tool)
 
 

@@ -28,7 +28,8 @@ question → `db.idx.fulltext.queryNodes` on `Decision` → `audit_decision` (pa
 | question matches no decision | `unknown_entity`, no guess |
 | decision id not present | `not_in_graph` |
 | model narration cites an id outside the rows | narration rejected, template used, rejection shown |
-| no ANTHROPIC_API_KEY | template narration; verdicts unaffected |
+| no model key, `MOOT_LLM=off`, or today's spend cap reached | keyword rules pick the tool, template narration; verdicts unaffected |
+| the model picks an id the graph's catalogue did not list | pick rejected, keyword rules answer instead |
 | verdict is UNDOCUMENTED, RETIRED or NOT_YET | answered from the rows with no model call (`narration: structural`) |
 | a real-world check could not be answered | the premise exists, marked `unchecked`, with no evidence; the gate says REVALIDATE instead of guessing |
 | FalkorDB unreachable | `/api/health` 503; UI shows a toast; nothing is served from a cache |

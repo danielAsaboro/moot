@@ -102,7 +102,9 @@ def test_gate(g):
 
 
 def test_structural_answers_skip_the_model(g, monkeypatch):
-    monkeypatch.setattr(agent, "_client", lambda: (_ for _ in ()).throw(AssertionError("model called")))
+    from moot import llm
+    monkeypatch.setattr(llm, "backend", lambda: "groq")
+    monkeypatch.setattr(llm, "chat", lambda *a, **kw: (_ for _ in ()).throw(AssertionError("model called")))
     r = agent.ask(g, "why do we use Postgres for every storage need", spec.AS_OF, 4)
     assert r["audit"]["verdict"] == "UNDOCUMENTED" and r["narration"] == "structural"
 

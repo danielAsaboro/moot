@@ -1,0 +1,1409 @@
+{
+ "summary": {
+  "misrouted": {
+   "n": 22,
+   "rules": 0,
+   "model": 20,
+   "model_refused": 0,
+   "rules_ci": [
+    1.3877787807814457e-17,
+    0.14865952572596125
+   ],
+   "model_ci": [
+    0.7218461934161421,
+    0.9747051037171622
+   ],
+   "tokens_in": 49882,
+   "tokens_out": 1206,
+   "usd": 0.008206,
+   "ms_median": 683
+  },
+  "control": {
+   "n": 19,
+   "rules": 19,
+   "model": 18,
+   "model_refused": 1,
+   "rules_ci": [
+    0.8318156346315496,
+    1.0
+   ],
+   "model_ci": [
+    0.7536078466345479,
+    0.99064824750947
+   ],
+   "tokens_in": 40795,
+   "tokens_out": 839,
+   "usd": 0.006623,
+   "ms_median": 701
+  }
+ },
+ "models": [
+  "openai/gpt-oss-120b"
+ ],
+ "rows": [
+  {
+   "split": "misrouted",
+   "q": "Who owns billing?",
+   "want": {
+    "tool": "ledger",
+    "accept": [
+     {
+      "system": "Billing"
+     }
+    ]
+   },
+   "rules": {
+    "tool": null,
+    "input": {},
+    "right": false
+   },
+   "model": {
+    "tool": "ledger",
+    "input": {
+     "system": "Billing"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2263,
+     "tokens_out": 42,
+     "usd": 0.000365,
+     "ms": 457
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "Why can't we ship on Fridays?",
+   "want": {
+    "tool": "audit_decision",
+    "accept": [
+     {
+      "decision_id": "D07"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "audit_decision",
+    "input": {
+     "decision_id": "D16"
+    },
+    "right": false
+   },
+   "model": {
+    "tool": "audit_decision",
+    "input": {
+     "decision_id": "D07"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2266,
+     "tokens_out": 40,
+     "usd": 0.000364,
+     "ms": 451
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "Why is everything in Postgres?",
+   "want": {
+    "tool": "audit_decision",
+    "accept": [
+     {
+      "decision_id": "D05"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "ledger",
+    "input": {},
+    "right": false
+   },
+   "model": {
+    "tool": "audit_decision",
+    "input": {
+     "decision_id": "D05"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2266,
+     "tokens_out": 40,
+     "usd": 0.000364,
+     "ms": 691
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "Is it fine to start a new microservice?",
+   "want": {
+    "tool": "check_action",
+    "accept": [
+     {
+      "decision_id": "D08"
+     }
+    ]
+   },
+   "rules": {
+    "tool": null,
+    "input": {},
+    "right": false
+   },
+   "model": {
+    "tool": "audit_decision",
+    "input": {
+     "decision_id": "D08"
+    },
+    "right": false,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2269,
+     "tokens_out": 40,
+     "usd": 0.000364,
+     "ms": 759
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "What happens if we stop selling in Europe?",
+   "want": {
+    "tool": "what_if",
+    "accept": [
+     {
+      "reason": "p_eu_market"
+     }
+    ]
+   },
+   "rules": {
+    "tool": null,
+    "input": {},
+    "right": false
+   },
+   "model": {
+    "tool": "what_if",
+    "input": {
+     "reason": "p_eu_market"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2268,
+     "tokens_out": 68,
+     "usd": 0.000381,
+     "ms": 767
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "Suppose Stripe turns on multi-currency, what changes?",
+   "want": {
+    "tool": "what_if",
+    "accept": [
+     {
+      "reason": "p_stripe_multi"
+     }
+    ]
+   },
+   "rules": {
+    "tool": null,
+    "input": {},
+    "right": false
+   },
+   "model": {
+    "tool": "what_if",
+    "input": {
+     "reason": "p_stripe_multi"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2270,
+     "tokens_out": 76,
+     "usd": 0.000386,
+     "ms": 683
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "Who can tell me why logs are kept 30 days?",
+   "want": {
+    "tool": "who_knows_why",
+    "accept": [
+     {
+      "decision_id": "D26"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "decision_owner",
+    "input": {
+     "decision_id": "D26"
+    },
+    "right": false
+   },
+   "model": {
+    "tool": "who_knows_why",
+    "input": {
+     "decision_id": "D26"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2271,
+     "tokens_out": 57,
+     "usd": 0.000375,
+     "ms": 741
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "Show me what's broken",
+   "want": {
+    "tool": "ledger",
+    "accept": [
+     {
+      "verdict": "MOOT"
+     }
+    ]
+   },
+   "rules": {
+    "tool": null,
+    "input": {},
+    "right": false
+   },
+   "model": {
+    "tool": "ledger",
+    "input": {
+     "verdict": "MOOT"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2264,
+     "tokens_out": 54,
+     "usd": 0.000372,
+     "ms": 817
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "What should we revisit first?",
+   "want": {
+    "tool": "ledger",
+    "accept": [
+     {
+      "verdict": "MOOT"
+     }
+    ]
+   },
+   "rules": {
+    "tool": null,
+    "input": {},
+    "right": false
+   },
+   "model": {
+    "tool": "ledger",
+    "input": {
+     "verdict": "MOOT"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2265,
+     "tokens_out": 52,
+     "usd": 0.000371,
+     "ms": 587
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "Where's the paper trail for the EU data residency rule?",
+   "want": {
+    "tool": "evidence_packet",
+    "accept": [
+     {
+      "decision_id": "D09"
+     }
+    ]
+   },
+   "rules": {
+    "tool": null,
+    "input": {},
+    "right": false
+   },
+   "model": {
+    "tool": "evidence_packet",
+    "input": {
+     "decision_id": "D09"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2271,
+     "tokens_out": 65,
+     "usd": 0.00038,
+     "ms": 953
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "Write up a case for reconsidering the upload cap",
+   "want": {
+    "tool": "reopen_memo",
+    "accept": [
+     {
+      "decision_id": "D01"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "audit_decision",
+    "input": {
+     "decision_id": "D01"
+    },
+    "right": false
+   },
+   "model": {
+    "tool": "reopen_memo",
+    "input": {
+     "decision_id": "D01"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2270,
+     "tokens_out": 48,
+     "usd": 0.000369,
+     "ms": 653
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "Which of Tomi's rules are dead?",
+   "want": {
+    "tool": "ledger",
+    "accept": [
+     {
+      "owner": "tomi",
+      "verdict": "MOOT"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "ledger",
+    "input": {
+     "verdict": "MOOT"
+    },
+    "right": false
+   },
+   "model": {
+    "tool": "ledger",
+    "input": {
+     "owner": "tomi",
+     "verdict": "MOOT"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2268,
+     "tokens_out": 60,
+     "usd": 0.000376,
+     "ms": 685
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "Is the Safari 15 floor still right?",
+   "want": {
+    "tool": "audit_decision",
+    "accept": [
+     {
+      "decision_id": "D15"
+     }
+    ]
+   },
+   "rules": {
+    "tool": null,
+    "input": {},
+    "right": false
+   },
+   "model": {
+    "tool": "audit_decision",
+    "input": {
+     "decision_id": "D15"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2268,
+     "tokens_out": 40,
+     "usd": 0.000364,
+     "ms": 675
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "What breaks if our SOC 2 audit goes away?",
+   "want": {
+    "tool": "what_if",
+    "accept": [
+     {
+      "reason": "p_soc2_cert"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "what_if",
+    "input": {
+     "reason": "p_soc2_rotation"
+    },
+    "right": false
+   },
+   "model": {
+    "tool": "what_if",
+    "input": {
+     "reason": "p_soc2_cert"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2270,
+     "tokens_out": 54,
+     "usd": 0.000373,
+     "ms": 1029
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "What depends on Chrome killing third-party cookies?",
+   "want": {
+    "tool": "what_if",
+    "accept": [
+     {
+      "reason": "p_chrome_3p"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "audit_decision",
+    "input": {
+     "decision_id": "D30"
+    },
+    "right": false
+   },
+   "model": {
+    "tool": "what_if",
+    "input": {
+     "reason": "p_chrome_3p"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2268,
+     "tokens_out": 58,
+     "usd": 0.000375,
+     "ms": 540
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "Who runs auth?",
+   "want": {
+    "tool": "ledger",
+    "accept": [
+     {
+      "system": "Auth"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "decision_owner",
+    "input": {
+     "decision_id": "D29"
+    },
+    "right": false
+   },
+   "model": {
+    "tool": "ledger",
+    "input": {
+     "system": "Auth"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2263,
+     "tokens_out": 49,
+     "usd": 0.000369,
+     "ms": 508
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "What decisions cover the mobile app?",
+   "want": {
+    "tool": "ledger",
+    "accept": [
+     {
+      "system": "Mobile app"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "audit_decision",
+    "input": {
+     "decision_id": "D20"
+    },
+    "right": false
+   },
+   "model": {
+    "tool": "ledger",
+    "input": {
+     "system": "Mobile app"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2266,
+     "tokens_out": 89,
+     "usd": 0.000393,
+     "ms": 551
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "Anything in search that's shaky?",
+   "want": {
+    "tool": "ledger",
+    "accept": [
+     {
+      "system": "Search"
+     },
+     {
+      "system": "Search",
+      "verdict": "DISPUTED"
+     }
+    ]
+   },
+   "rules": {
+    "tool": null,
+    "input": {},
+    "right": false
+   },
+   "model": {
+    "tool": "audit_decision",
+    "input": {
+     "decision_id": "D04"
+    },
+    "right": false,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2265,
+     "tokens_out": 90,
+     "usd": 0.000394,
+     "ms": 1282
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "Give me the documents behind the LaunchDarkly choice",
+   "want": {
+    "tool": "evidence_packet",
+    "accept": [
+     {
+      "decision_id": "D17"
+     }
+    ]
+   },
+   "rules": {
+    "tool": null,
+    "input": {},
+    "right": false
+   },
+   "model": {
+    "tool": "evidence_packet",
+    "input": {
+     "decision_id": "D17"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2270,
+     "tokens_out": 35,
+     "usd": 0.000362,
+     "ms": 654
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "Why don't we take customer calls?",
+   "want": {
+    "tool": "audit_decision",
+    "accept": [
+     {
+      "decision_id": "D29"
+     }
+    ]
+   },
+   "rules": {
+    "tool": null,
+    "input": {},
+    "right": false
+   },
+   "model": {
+    "tool": "audit_decision",
+    "input": {
+     "decision_id": "D29"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2266,
+     "tokens_out": 59,
+     "usd": 0.000375,
+     "ms": 473
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "What rules does Marcus own that are disputed?",
+   "want": {
+    "tool": "ledger",
+    "accept": [
+     {
+      "owner": "marcus",
+      "verdict": "DISPUTED"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "ledger",
+    "input": {
+     "owner": "marcus"
+    },
+    "right": false
+   },
+   "model": {
+    "tool": "ledger",
+    "input": {
+     "owner": "marcus",
+     "verdict": "DISPUTED"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2268,
+     "tokens_out": 45,
+     "usd": 0.000367,
+     "ms": 863
+    }
+   }
+  },
+  {
+   "split": "misrouted",
+   "q": "What if logs got cheaper to store?",
+   "want": {
+    "tool": "what_if",
+    "accept": [
+     {
+      "reason": "p_log_cost"
+     }
+    ]
+   },
+   "rules": {
+    "tool": null,
+    "input": {},
+    "right": false
+   },
+   "model": {
+    "tool": "what_if",
+    "input": {
+     "reason": "p_log_cost"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2267,
+     "tokens_out": 45,
+     "usd": 0.000367,
+     "ms": 424
+    }
+   }
+  },
+  {
+   "split": "control",
+   "q": "Why do we cap uploads at 10 MB?",
+   "want": {
+    "tool": "audit_decision",
+    "accept": [
+     {
+      "decision_id": "D01"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "audit_decision",
+    "input": {
+     "decision_id": "D01"
+    },
+    "right": true
+   },
+   "model": {
+    "tool": "audit_decision",
+    "input": {
+     "decision_id": "D01"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2269,
+     "tokens_out": 36,
+     "usd": 0.000362,
+     "ms": 722
+    }
+   }
+  },
+  {
+   "split": "control",
+   "q": "Can an agent change the Friday deploy freeze?",
+   "want": {
+    "tool": "check_action",
+    "accept": [
+     {
+      "decision_id": "D07"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "check_action",
+    "input": {
+     "decision_id": "D07"
+    },
+    "right": true
+   },
+   "model": {
+    "tool": "check_action",
+    "input": {
+     "decision_id": "D07"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2268,
+     "tokens_out": 38,
+     "usd": 0.000363,
+     "ms": 1198
+    }
+   }
+  },
+  {
+   "split": "control",
+   "q": "is it safe for a bot to rotate the api keys?",
+   "want": {
+    "tool": "check_action",
+    "accept": [
+     {
+      "decision_id": "D06"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "check_action",
+    "input": {
+     "decision_id": "D06"
+    },
+    "right": true
+   },
+   "model": {
+    "tool": "check_action",
+    "input": {
+     "decision_id": "D06"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2271,
+     "tokens_out": 57,
+     "usd": 0.000375,
+     "ms": 512
+    }
+   }
+  },
+  {
+   "split": "control",
+   "q": "What if we no longer need SOC 2?",
+   "want": {
+    "tool": "what_if",
+    "accept": [
+     {
+      "reason": "p_soc2_cert"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "what_if",
+    "input": {
+     "reason": "p_soc2_cert"
+    },
+    "right": true
+   },
+   "model": {
+    "tool": "what_if",
+    "input": {
+     "reason": "p_soc2_cert"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2269,
+     "tokens_out": 54,
+     "usd": 0.000373,
+     "ms": 448
+    }
+   }
+  },
+  {
+   "split": "control",
+   "q": "what if the gateway limit changed",
+   "want": {
+    "tool": "what_if",
+    "accept": [
+     {
+      "reason": "p_gateway_limit"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "what_if",
+    "input": {
+     "reason": "p_gateway_limit"
+    },
+    "right": true
+   },
+   "model": {
+    "tool": "what_if",
+    "input": {
+     "reason": "p_gateway_limit"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2266,
+     "tokens_out": 52,
+     "usd": 0.000371,
+     "ms": 1270
+    }
+   }
+  },
+  {
+   "split": "control",
+   "q": "What did Ada own?",
+   "want": {
+    "tool": "orphaned_decisions",
+    "accept": [
+     {
+      "person": "ada"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "orphaned_decisions",
+    "input": {
+     "person": "ada"
+    },
+    "right": true
+   },
+   "model": {
+    "tool": "ledger",
+    "input": {
+     "owner": "ada"
+    },
+    "right": false,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2264,
+     "tokens_out": 36,
+     "usd": 0.000361,
+     "ms": 422
+    }
+   }
+  },
+  {
+   "split": "control",
+   "q": "what does Kwame own",
+   "want": {
+    "tool": "ledger",
+    "accept": [
+     {
+      "owner": "kwame"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "ledger",
+    "input": {
+     "owner": "kwame"
+    },
+    "right": true
+   },
+   "model": {
+    "tool": "ledger",
+    "input": {
+     "owner": "kwame"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2265,
+     "tokens_out": 33,
+     "usd": 0.00036,
+     "ms": 721
+    }
+   }
+  },
+  {
+   "split": "control",
+   "q": "who left?",
+   "want": {
+    "tool": "orphaned_decisions",
+    "accept": [
+     {}
+    ]
+   },
+   "rules": {
+    "tool": "orphaned_decisions",
+    "input": {},
+    "right": true
+   },
+   "model": {
+    "tool": "orphaned_decisions",
+    "input": {},
+    "right": true,
+    "by": "rules",
+    "meta": null
+   }
+  },
+  {
+   "split": "control",
+   "q": "Show the evidence for D17",
+   "want": {
+    "tool": "evidence_packet",
+    "accept": [
+     {
+      "decision_id": "D17"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "evidence_packet",
+    "input": {
+     "decision_id": "D17"
+    },
+    "right": true
+   },
+   "model": {
+    "tool": "evidence_packet",
+    "input": {
+     "decision_id": "D17"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2266,
+     "tokens_out": 39,
+     "usd": 0.000363,
+     "ms": 644
+    }
+   }
+  },
+  {
+   "split": "control",
+   "q": "proof behind keeping the monolith",
+   "want": {
+    "tool": "evidence_packet",
+    "accept": [
+     {
+      "decision_id": "D08"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "evidence_packet",
+    "input": {
+     "decision_id": "D08"
+    },
+    "right": true
+   },
+   "model": {
+    "tool": "evidence_packet",
+    "input": {
+     "decision_id": "D08"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2266,
+     "tokens_out": 39,
+     "usd": 0.000363,
+     "ms": 500
+    }
+   }
+  },
+  {
+   "split": "control",
+   "q": "Which decisions are moot?",
+   "want": {
+    "tool": "ledger",
+    "accept": [
+     {
+      "verdict": "MOOT"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "ledger",
+    "input": {
+     "verdict": "MOOT"
+    },
+    "right": true
+   },
+   "model": {
+    "tool": "ledger",
+    "input": {
+     "verdict": "MOOT"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2264,
+     "tokens_out": 47,
+     "usd": 0.000368,
+     "ms": 491
+    }
+   }
+  },
+  {
+   "split": "control",
+   "q": "which rules are disputed",
+   "want": {
+    "tool": "ledger",
+    "accept": [
+     {
+      "verdict": "DISPUTED"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "ledger",
+    "input": {
+     "verdict": "DISPUTED"
+    },
+    "right": true
+   },
+   "model": {
+    "tool": "ledger",
+    "input": {
+     "verdict": "DISPUTED"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2264,
+     "tokens_out": 51,
+     "usd": 0.00037,
+     "ms": 514
+    }
+   }
+  },
+  {
+   "split": "control",
+   "q": "re-open the upload limit decision",
+   "want": {
+    "tool": "reopen_memo",
+    "accept": [
+     {
+      "decision_id": "D01"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "reopen_memo",
+    "input": {
+     "decision_id": "D01"
+    },
+    "right": true
+   },
+   "model": {
+    "tool": "reopen_memo",
+    "input": {
+     "decision_id": "D01"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2266,
+     "tokens_out": 65,
+     "usd": 0.000379,
+     "ms": 623
+    }
+   }
+  },
+  {
+   "split": "control",
+   "q": "who owns the search index rebuild",
+   "want": {
+    "tool": "decision_owner",
+    "accept": [
+     {
+      "decision_id": "D04"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "decision_owner",
+    "input": {
+     "decision_id": "D04"
+    },
+    "right": true
+   },
+   "model": {
+    "tool": "decision_owner",
+    "input": {
+     "decision_id": "D04"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2266,
+     "tokens_out": 39,
+     "usd": 0.000363,
+     "ms": 734
+    }
+   }
+  },
+  {
+   "split": "control",
+   "q": "why do we deploy to a single region in virginia",
+   "want": {
+    "tool": "audit_decision",
+    "accept": [
+     {
+      "decision_id": "D28"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "audit_decision",
+    "input": {
+     "decision_id": "D28"
+    },
+    "right": true
+   },
+   "model": {
+    "tool": "audit_decision",
+    "input": {
+     "decision_id": "D28"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2271,
+     "tokens_out": 40,
+     "usd": 0.000365,
+     "ms": 701
+    }
+   }
+  },
+  {
+   "split": "control",
+   "q": "D12",
+   "want": {
+    "tool": "audit_decision",
+    "accept": [
+     {
+      "decision_id": "D12"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "audit_decision",
+    "input": {
+     "decision_id": "D12"
+    },
+    "right": true
+   },
+   "model": {
+    "tool": "audit_decision",
+    "input": {
+     "decision_id": "D12"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2262,
+     "tokens_out": 53,
+     "usd": 0.000371,
+     "ms": 787
+    }
+   }
+  },
+  {
+   "split": "control",
+   "q": "What leaves with Marcus?",
+   "want": {
+    "tool": "departure",
+    "accept": [
+     {
+      "person": "marcus"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "departure",
+    "input": {
+     "person": "marcus"
+    },
+    "right": true
+   },
+   "model": {
+    "tool": "departure",
+    "input": {
+     "person": "marcus"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2264,
+     "tokens_out": 35,
+     "usd": 0.000361,
+     "ms": 409
+    }
+   }
+  },
+  {
+   "split": "control",
+   "q": "what if Priya left",
+   "want": {
+    "tool": "departure",
+    "accept": [
+     {
+      "person": "priya"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "departure",
+    "input": {
+     "person": "priya"
+    },
+    "right": true
+   },
+   "model": {
+    "tool": "departure",
+    "input": {
+     "person": "priya"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2265,
+     "tokens_out": 75,
+     "usd": 0.000385,
+     "ms": 827
+    }
+   }
+  },
+  {
+   "split": "control",
+   "q": "Who knows why we freeze deploys on Fridays?",
+   "want": {
+    "tool": "who_knows_why",
+    "accept": [
+     {
+      "decision_id": "D07"
+     }
+    ]
+   },
+   "rules": {
+    "tool": "who_knows_why",
+    "input": {
+     "decision_id": "D07"
+    },
+    "right": true
+   },
+   "model": {
+    "tool": "who_knows_why",
+    "input": {
+     "decision_id": "D07"
+    },
+    "right": true,
+    "by": "model",
+    "meta": {
+     "name": "openai/gpt-oss-120b",
+     "tokens_in": 2269,
+     "tokens_out": 50,
+     "usd": 0.00037,
+     "ms": 784
+    }
+   }
+  }
+ ]
+}

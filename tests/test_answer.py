@@ -1,10 +1,8 @@
 """Search-first answers: a question picks one read-only tool. Integration tests against a live FalkorDB (skipped when
 none is reachable), on their own tenant graph."""
-from types import SimpleNamespace
-
 import pytest
 
-from moot import agent, answer, tools
+from moot import answer, llm, tools
 from moot.corpus import spec
 from moot.graph import connect, seed
 
@@ -25,7 +23,7 @@ def g():
 
 @pytest.fixture(autouse=True)
 def no_model(monkeypatch):
-    monkeypatch.setattr(agent, "_client", lambda: None)
+    monkeypatch.setattr(llm, "backend", lambda: None)
 
 
 ROUTES = [
@@ -64,15 +62,18 @@ def test_unrelated_questions_match_nothing(g, question):
     assert r["tool"] is None and r["result"] is None
 
 
-def test_a_model_may_only_pick_ids_the_resolvers_returned(g, monkeypatch):
+def test_a_model_may_only_pick_ids_the_graph_listed(g, monkeypatch):
     """The model picks from the tool list, but an id it invents is rejected and the rules answer instead."""
     def fake(name, inp):
-        call = SimpleNamespace(type="tool_use", name=name, input=inp)
-        return SimpleNamespace(messages=SimpleNamespace(create=lambda **kw: SimpleNamespace(content=[call])))
-    monkeypatch.setattr(agent, "_client", lambda: fake("check_action", {"decision_id": "D99"}))
-    r = answer.answer(g, "Can an agent change the Friday deploy freeze?", spec.AS_OF)
-    assert r["picked_by"] == "rules" and r["input"] == {"decision_id": "D07"}
-    monkeypatch.setattr(agent, "_client", lambda: fake("check_action", {"decision_id": "D07"}))
+        return lambda *a, **kw: dict(text="", tool=dict(name=name, input=inp), model="fake", tokens_in=0, tokens_out=0, usd=0.0)
+    monkeypatch.setattr(llm, "backend", lambda: "groq")
+    for name, bad in (("check_action", {"decision_id": "D99"}), ("ledger", {"system": "Payroll"}), ("what_if", {})):
+        monkeypatch.setattr(llm, "chat", fake(name, bad))
+        r = answer.answer(g, "Can an agent change the Friday deploy freeze?", spec.AS_OF)
+        assert r["picked_by"] == "rules" and r["input"] == {"decision_id": "D07"}
+    monkeypatch.setattr(llm, "chat", fake("drop_graph", {}))
+    assert answer.answer(g, "Can an agent change the Friday deploy freeze?", spec.AS_OF)["picked_by"] == "rules"
+    monkeypatch.setattr(llm, "chat", fake("check_action", {"decision_id": "D07"}))
     r = answer.answer(g, "Can an agent change the Friday deploy freeze?", spec.AS_OF)
     assert r["picked_by"] == "model" and r["tool"] == "check_action" and r["result"]["gate"] in ("ALLOW", "DENY", "REVALIDATE")
 

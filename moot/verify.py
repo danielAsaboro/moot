@@ -236,6 +236,21 @@ def check_reasons(c: Checker) -> None:
         c.equal(f"docs/charts/{name} drawn from the result files", out.read_text() if out.exists() else None, svg)
 
 
+def check_router(c: Checker) -> None:
+    """The router eval (eval/results_router.json): the README sentence and the summary table in the results file."""
+    f = EVAL / "results_router.json"
+    if not f.exists():
+        return
+    S = json.loads(f.read_text())["summary"]
+    m = S["misrouted"]
+    c.expect("README.md", (ROOT / "README.md").read_text(), "router sentence",
+             r"On (\d+) ordinary questions the keyword rules misroute it routes (\d+) correctly", (m["n"], m["model"]))
+    t = (EVAL / "results_router.md").read_text()
+    for name, s in (("rules misroute them", m), ("rules already route them", S["control"])):
+        c.expect("eval/results_router.md", t, f"router row, {name}", rf"\| {name} \| (\d+) \| (\d+)/\d+ .*?\| \*\*(\d+)/\d+\*\*",
+                 (s["n"], s["rules"], s["model"]))
+
+
 def strip_timing(x):
     if isinstance(x, dict):
         return {k: strip_timing(v) for k, v in x.items() if k not in TIMING}
@@ -266,6 +281,7 @@ def main(rerun: bool = False) -> int:
     check_readme(c, R, S, G, A, bt)
     check_results(c, R, S, G)
     check_reasons(c)
+    check_router(c)
     for b in c.bad:
         print("MISMATCH", b)
     print(f"moot verify: {c.ok} checks passed, {len(c.bad)} failed")
