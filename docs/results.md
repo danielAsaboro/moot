@@ -77,6 +77,8 @@ On recall the backtest cannot rank anything: the age rule catches 3 of the 6 dea
 
 ## Limits, in full
 
+- **X1's judge is the local answer model**, running HERB's own prompts (the paper used gpt-4o); its PR-link extraction misses links HERB's own gold contains, so X1 also reports a registered deterministic row for People, Customer and Artifact.
+
 - **Not a forecaster.** On held-out real decisions Moot does worse than calling everything HOLDS (52 against 59 of 64), and its flags on real history are confirmed at chance (1 of 12). It gives the reason, the path, the date and who to ask, not a prediction.
 - **The gate trades one error for another.** The strict policy blocked all 59 held-out decisions that held; the product policy ("warn") lets them through with a warning and who to ask, and so also lets through 4 of the 5 that later died.
 - **Larkspur is synthetic**, graded by its own spec: its zeros are a consistency ceiling. The backtest (722 real decisions, labelled by their maintainers) is graded by strangers; its six tool deaths are too few to rank recall.

@@ -132,6 +132,41 @@ def judge(E, q: dict, answer: str | None) -> dict:
         return dict(category=cat, judge_failed=True, **({"declined": False} if cat == "unanswerable" else {"score": 0.0}))
 
 
+# ---- the registered second row (docs/studies.md, X1 amendment): People, Customer and Artifact read deterministically
+
+URL = re.compile(r"https?://[^\s)\]>,'\"]+")
+EID = re.compile(r"\beid_[0-9a-f]{8}\b")
+_companies: list[str] | None = None
+
+
+def companies() -> list[str]:
+    global _companies
+    if _companies is None:
+        _companies = sorted({c["company"] for c in json.loads((RAW / "metadata" / "customers_data.json").read_text())}, key=len, reverse=True)
+    return _companies
+
+
+def extract_det(t: str, answer: str) -> list[str]:
+    """The ids, links or company names an answer gives, read by pattern: citation brackets ([id] after a claim) are removed
+    first, so only what the answer states counts; extra items cost precision through HERB's own F1."""
+    text = re.sub(r"\s\[[^\]\n]+\]", " ", answer or "")
+    if t == "person":
+        return sorted(set(EID.findall(text)))
+    if t in ("url", "pr"):
+        links = {u.rstrip(".;:") for u in URL.findall(text)}
+        return sorted(l for l in links if "/pull/" in l) if t == "pr" else sorted(links)
+    if t == "company":
+        return sorted({c for c in companies() if re.search(rf"\b{re.escape(c)}\b", text, re.I)})
+    return []
+
+
+def judge_det(E, q: dict, answer: str | None) -> dict | None:
+    if q["kind"] != "answerable" or q["type"] == "content":
+        return None
+    got = extract_det(q["type"], "I don't know." if answer is None else answer)
+    return dict(category="url" if q["type"] == "pr" else q["type"], score=100.0 * E.f1_score_sets(got, q["ground_truth"]), extracted=got)
+
+
 def _judge(E, q: dict, answer: str | None) -> dict:
     if q["kind"] == "unanswerable":
         declined = answer is None or not E.unanswerability_eval(q["question"], answer)
@@ -264,6 +299,8 @@ def main() -> None:
                 continue
             try:
                 scored[q["id"]] = dict(judge(E, q, r.get("answer")), tokens=r["tokens_in"] + r["tokens_out"], seconds=r["seconds"])
+                det = judge_det(E, q, r.get("answer"))  # the registered second row (deterministic People, Customer, Artifact)
+                scored[q["id"]]["score_det"] = det["score"] if det else scored[q["id"]].get("score")
             except LookupError:
                 continue
             if FILL:
@@ -282,6 +319,10 @@ def main() -> None:
         have = [v for v in mean.values() if v is not None]
         avg = sum(have) / len(have) if have else None
         secs = sorted(x["seconds"] for x in s.values())
+        by_det = {c: [x.get("score_det", x.get("score")) for x in s.values() if x["category"] == c] for c in CATS}
+        mean_det = {c: (sum(v) / len(v) if v else None) for c, v in by_det.items()}
+        have_det = [v for v in mean_det.values() if v is not None]
+        summary[arm + "_det"] = dict(categories=mean_det, avg=sum(have_det) / len(have_det) if have_det else None)
         summary[arm] = dict(categories=mean, n={c: len(v) for c, v in by.items()}, avg=avg, declined=(sum(un) / len(un) if un else None),
                             n_unanswerable=len(un), tokens=(sum(x["tokens"] for x in s.values()) / len(s) if s else None),
                             seconds_median=secs[len(secs) // 2] if secs else None)
@@ -289,6 +330,13 @@ def main() -> None:
         lines.append(f"| {arm} | " + " | ".join(f(mean[c]) for c in CATS) + f" | **{f(avg)}** | "
                      + ("–" if not un else f"{100 * sum(un) / len(un):.1f}%") + f" | {len(s)} | "
                      + ("–" if not s else f"{summary[arm]['tokens']:,.0f}") + f" | {f(summary[arm]['seconds_median'])} |")
+    lines += ["", "Second row (registered amendment): People, Customer and Artifact read deterministically from each answer (ids, links, "
+              "company names), then HERB's own F1; Content is the same Likert score.", "",
+              "| arm | Content | People | Customer | Artifact | **Avg** |", "|---|---|---|---|---|---|"]
+    for arm in results:
+        d = summary[arm + "_det"]
+        f = lambda v: "–" if v is None else f"{v:.1f}"
+        lines.append(f"| {arm} | " + " | ".join(f(d["categories"][c]) for c in CATS) + f" | **{f(d['avg'])}** |")
     if "graph" in results and "search" in results and results["graph"] and results["search"]:
         ans = lambda s: {k: v for k, v in s.items() if v["category"] != "unanswerable"}
         pt, lo, hi = bootstrap_diff(ans(results["graph"]), ans(results["search"]))
