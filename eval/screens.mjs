@@ -17,9 +17,11 @@ const shots = [
   { name: "cypher", path: "/app/?d=D01", wait: 3000, scroll: 420,
     then: async p => { await p.getByRole("tab", { name: "Cypher" }).or(p.getByRole("button", { name: "Cypher", exact: true })).first().click(); await p.waitForTimeout(1500); } },
   { name: "people", path: "/app/people/", wait: 4000 },
-  { name: "graph-picker", path: "/app/ledger/?graph=gh_alphagov_govuk_infrastructure", wait: 3000,
+  { name: "graph-picker", path: "/app/ledger/?graph=gh_alphagov_govuk_infrastructure", wait: 8000,
     then: async p => { await p.getByRole("button", { name: /^Graph:/ }).click(); await p.waitForTimeout(1200); } },
-  { name: "stated-reason", path: process.env.STATED_PATH || "/app/?graph=gh_npryce_adr_tools&d=0003-single-command-with-subcommands", wait: 4000 },
+  { name: "stated-reason", idle: false, path: "/app/?graph=gh_thomvaill_log4brains&d=20200925-multi-packages-architecture-in-a-monorepo-with-yarn-and-lerna", wait: 4000,
+    then: async p => { const row = p.getByRole("button", { name: /Yarn and Lerna are considered/ }).first(); await row.scrollIntoViewIfNeeded(); await row.click();
+      await p.waitForTimeout(800); await p.evaluate(() => window.scrollBy(0, 420)); await p.waitForTimeout(400); } },
 ];
 
 const browser = await chromium.launch();
@@ -27,7 +29,7 @@ const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 }, d
 for (const s of shots) {
   if (process.env.ONLY && !process.env.ONLY.split(",").includes(s.name)) continue;
   const p = await ctx.newPage();
-  await p.goto(BASE + s.path, { waitUntil: "networkidle" });
+  await p.goto(BASE + s.path, { waitUntil: s.idle === false ? "load" : "networkidle", timeout: 90000 });
   await p.waitForTimeout(s.wait);
   if (s.then) await s.then(p);
   if (s.scroll) { await p.mouse.wheel(0, s.scroll); await p.waitForTimeout(800); }
