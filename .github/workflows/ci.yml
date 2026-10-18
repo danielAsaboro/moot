@@ -34,7 +34,7 @@ jobs:
           python-version: "3.12"
           cache: pip
       - name: Install
-        run: pip install -e . "pytest>=8"
+        run: pip install -e . "pytest>=8" "networkx>=3.3" "scipy>=1.13"
       - name: Seed every graph (Larkspur, public ADRs, backtest, ingested repos)
         run: python -m moot.cli seed
       - name: Tests

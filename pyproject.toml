@@ -16,7 +16,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "falkordblite>=0.10"]
+dev = ["pytest>=8", "falkordblite>=0.10", "networkx>=3.3", "scipy>=1.13"]
 
 [project.scripts]
 moot = "moot.cli:main"
@@ -30,3 +30,4 @@ include = ["moot*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["integration: needs a reachable FalkorDB (skipped when none is)"]
