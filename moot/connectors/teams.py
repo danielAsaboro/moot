@@ -40,12 +40,20 @@ def quarters(start: str, end: str) -> list[str]:
     return out
 
 
+def _load_sigs(text: str) -> dict:
+    """sigs.yaml at some commits has a stray tab; YAML forbids tabs in indentation, so read it with tabs as spaces."""
+    try:
+        return yaml.safe_load(text) or {}
+    except yaml.YAMLError:
+        try:
+            return yaml.safe_load(text.replace("\t", "  ")) or {}
+        except yaml.YAMLError:
+            return {}
+
+
 def _seats(community: Path, rev: str, sigs: list[str] | None, cache: dict) -> set:
     if rev not in cache:
-        try:
-            y = yaml.safe_load(_show(community, f"{rev}:sigs.yaml")) or {}
-        except yaml.YAMLError:
-            y = {}
+        y = _load_sigs(_show(community, f"{rev}:sigs.yaml"))
         cache[rev] = {(str(p.get("github", "")).lower(), s["dir"], role) for s in y.get("sigs", []) if sigs is None or s.get("dir") in sigs
                       for role in ("chairs", "tech_leads") for p in (s.get("leadership") or {}).get(role) or [] if p.get("github")}
     return cache[rev]
@@ -80,9 +88,8 @@ def k8s_sigs(community: Path, sigs: list[str] | None, today: str | None = None, 
         rev = _git(community, "rev-list", "-1", f"--before={q}T23:59:59", tip).strip()
         if not rev:
             continue
-        try:
-            y = yaml.safe_load(_show(community, f"{rev}:sigs.yaml")) or {}
-        except yaml.YAMLError:
+        y = _load_sigs(_show(community, f"{rev}:sigs.yaml"))
+        if not y:
             continue
         for s in y.get("sigs", []):
             if sigs is not None and s.get("dir") not in sigs:

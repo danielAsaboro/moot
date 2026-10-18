@@ -20,8 +20,11 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 ENH = ROOT / "data" / "github" / ".repos" / "kubernetes__enhancements"
 COM = ROOT / "data" / "github" / ".repos" / "kubernetes__community"
-OUT = ROOT / "eval" / "k1" / "questions.json"
-SIGS = ("sig-auth", "sig-node")
+import sys
+
+STUDY = "k2" if "--study" in sys.argv and sys.argv[sys.argv.index("--study") + 1] == "k2" else "k1"
+OUT = ROOT / "eval" / STUDY / "questions.json"
+SIGS = ("sig-auth", "sig-node", "sig-network", "sig-storage") if STUDY == "k2" else ("sig-auth", "sig-node")
 PER_TEMPLATE = 15
 TODAY = "2026-10-17"
 IN_FORCE = {"implementable", "implemented"}
@@ -41,6 +44,17 @@ def h(s: str) -> str:
 
 def handle(a) -> str:
     return str(a).strip().lstrip("@").split()[0].lower() if a else ""
+
+
+def load_yaml(text: str) -> dict:
+    """sigs.yaml at some commits has a stray tab; YAML forbids tabs in indentation, so read it with tabs as spaces."""
+    try:
+        return yaml.safe_load(text) or {}
+    except yaml.YAMLError:
+        try:
+            return yaml.safe_load(text.replace("\t", "  ")) or {}
+        except yaml.YAMLError:
+            return {}
 
 
 def head_rev(d: Path) -> str:
@@ -72,7 +86,7 @@ def keps() -> dict[str, dict]:
             except yaml.YAMLError:
                 st = ""
             hist.append((day, st))
-        out[num] = dict(num=num, path=f, sig=y.get("owning-sig"), status=str(y.get("status", "")).lower(), title=str(y.get("title", "")),
+        out[num] = dict(num=num, path=f, sig=y.get("owning-sig"), created=str(y.get("creation-date", "")).strip("'\"")[:10], status=str(y.get("status", "")).lower(), title=str(y.get("title", "")),
                         authors=[handle(a) for a in y.get("authors") or [] if handle(a)], hist=hist,
                         replaces=[re.sub(r"\D", "", str(x)) for x in y.get("replaces") or []],
                         superseded_by=[re.sub(r"\D", "", str(x)) for x in y.get("superseded-by") or []])
@@ -86,7 +100,7 @@ def leads_on(day: str) -> dict[str, list[str]]:
     """sig dir -> sorted chair and tech-lead handles in sigs.yaml at the last commit on or before `day`."""
     if day not in _leads_cache:
         rev = git(COM, "rev-list", "-1", f"--before={day}T23:59:59", head_rev(COM)).strip()
-        y = yaml.safe_load(show(COM, f"{rev}:sigs.yaml")) or {} if rev else {}
+        y = load_yaml(show(COM, f"{rev}:sigs.yaml")) if rev else {}
         _leads_cache[day] = {s["dir"]: sorted({handle(p.get("github")) for role in ("chairs", "tech_leads")
                                                 for p in (s.get("leadership") or {}).get(role) or [] if handle(p.get("github"))})
                              for s in y.get("sigs", [])}
@@ -160,8 +174,27 @@ def main() -> None:
         k = K[n]
         qs.append(dict(template=4, question=f"Who are the authors of KEP-{n} ({k['title']}), and is each of them a chair or tech lead of any SIG as of {TODAY}? Give GitHub handles.",
                        gold=dict(authors=sorted([a, a in lead_now] for a in k["authors"])), kep=f"KEP-{n}"))
+    if STUDY == "k2":
+        # (5) how many of a SIG's KEPs were in force on a date
+        for i, sig in enumerate(pick([s for s in SIGS for _ in range(4)], PER_TEMPLATE, "t5")):
+            d = a_date(f"t5{sig}{i}")
+            n = sum(1 for k in K.values() if k["sig"] == sig and status_on(k, d) in IN_FORCE)
+            qs.append(dict(template=5, question=f"How many KEPs owned by {sig} were in force (implementable or implemented) on {d}?",
+                           gold=dict(count=n), sig=sig, date=d))
+        # (6) was a person a lead of the SIG that owns KEP-X on the day it was created
+        pool = [n for n, k in K.items() if k["sig"] in SIGS and k.get("created")]
+        for j, n in enumerate(pick(pool, PER_TEMPLATE, "t6")):
+            k = K[n]
+            then = leads_on(k["created"]).get(k["sig"], [])
+            other = sorted({x for v in leads_on(a_date("t6o" + n)).values() for x in v} - set(then))
+            who = (then if (then and int(h("t6p" + n), 16) % 2 == 0) or not other else other)
+            p = sorted(who)[int(h("t6q" + n), 16) % len(who)] if who else None
+            if not p:
+                continue
+            qs.append(dict(template=6, question=f"Was {p} a chair or tech lead of the SIG that owns KEP-{n} ({k['title']}) on the day KEP-{n} was created ({k['created']})?",
+                           gold=dict(was_lead=p in then), kep=f"KEP-{n}", person=p, date=k["created"]))
     for q in qs:
-        q["id"] = "k1-" + h(q["question"])[:10]
+        q["id"] = f"{STUDY}-" + h(q["question"])[:10]
     by_t = {}
     for q in qs:
         by_t.setdefault(q["template"], []).append(q)
