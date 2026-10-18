@@ -144,3 +144,20 @@ export interface AnswerResponse {
   question: string; as_of: string; depth: number; tool: AnswerTool | null; input: Record<string, string>;
   why: string; matched: string | null; picked_by: "rules" | "model" | "you"; result: AnswerResult | null; queries: Query[];
 }
+
+/** GET /api/map: the whole network with each verdict and reason state at every month end (the map view). */
+export interface MapNode {
+  label: "Decision" | "Premise" | "Evidence" | "System" | "Person"; id: string;
+  title?: string; text?: string; name?: string; role?: string; kind?: string; decided_on?: string; summary?: string;
+  source?: string; author?: string | null; excerpt?: string; date?: string; left?: string;
+}
+export interface MapEdge { src: string; rel: string; dst: string; at?: string; quote?: string; stated?: string; valid_from?: string; valid_to?: string }
+export interface MapPathRow { id: string; hops: number; state: PremiseState; path: string[] }
+export interface MapData {
+  tenant: string; as_of: string; depth: number; months: string[]; nodes: MapNode[]; edges: MapEdge[];
+  pagerank: Record<string, number>; islands: Record<string, number>;
+  verdicts: Record<string, (Verdict | null)[]>; premise_state: Record<string, (PremiseState | null)[]>;
+  gate: Record<string, { action: GateDecision; reasons: { text: string }[] }>;
+  owners: Record<string, { id: string; name: string; role: string; valid_to: string | null; active: boolean }>;
+  paths: Record<string, MapPathRow[]>; queries: Record<string, string>;
+}

@@ -2,7 +2,7 @@
 // (findings, reopen, handover, ruling) are called only from an explicit approval click.
 import type {
   AskResponse, DecisionResponse, DocumentResponse, Finding, Gate, HealthResponse, LedgerResponse, OrphansResponse,
-  RealWorldResponse, RiskyResponse, TimelineResponse, TraceResponse, WhatIfResponse, AnswerResponse } from "./types";
+  MapData, RealWorldResponse, RiskyResponse, TimelineResponse, TraceResponse, WhatIfResponse, AnswerResponse } from "./types";
 
 export const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "";
 
@@ -51,6 +51,7 @@ export interface View { as_of?: string | null; depth?: number }
 export const api = {
   health: () => get<HealthResponse>("/api/health"),
   ledger: (v: View = {}) => get<LedgerResponse>("/api/ledger", { as_of: v.as_of, depth: v.depth }),
+  map: (v: View = {}) => get<MapData>("/api/map", { as_of: v.as_of, depth: v.depth }),
   timeline: (depth = 4) => get<TimelineResponse>("/api/timeline", { depth }),
   decision: (id: string, v: View = {}) => get<DecisionResponse>(`/api/decision/${encodeURIComponent(id)}`, { as_of: v.as_of, depth: v.depth }),
   gate: (id: string, as_of?: string | null, graph?: "public_adrs") => get<Gate>(`/api/gate/${encodeURIComponent(id)}`, { as_of, graph }),
