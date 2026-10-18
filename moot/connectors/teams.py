@@ -78,12 +78,21 @@ def k8s_sigs(community: Path, sigs: list[str], today: str | None = None, since: 
             edges.append(dict(src=tid, rel="RUNS", dst=pid, props={}))
         for p in (s.get("leadership") or {}).get("emeritus_leads") or []:
             names.setdefault(str(p.get("github", "")).lower(), p.get("name") or p.get("github"))
+    # one LEADS edge per person and team (the graph merges edges between the same pair): the span they held any seat, the
+    # seat they hold last, and every seat with its own window in `history`
+    spans: dict[tuple, list] = {}
     for (gh, sig, role), qs in seen.items():
         last = qs[-1]
         valid_to = "" if last == today else next((q for q in samples if q > last), today)
+        spans.setdefault((gh, sig), []).append((qs[0], valid_to, role.rstrip("s").replace("_", " ")))
+    for (gh, sig), ws in spans.items():
+        ws.sort()
+        current = [w for w in ws if not w[1]]
+        role = (current or ws)[-1][2]
         edges.append(dict(src=f"u_{gh}", rel="LEADS", dst=f"team_{sig}",
-                          props=dict(role=role.rstrip("s").replace("_", " "), valid_from=qs[0], valid_to=valid_to)))
-        nodes.append(dict(label="Person", id=f"u_{gh}", props=dict(name=names.get(gh, gh), role=f"SIG {role.replace('_', ' ').rstrip('s')}", joined="", left="")))
+                          props=dict(role=role, valid_from=ws[0][0], valid_to="" if current else max(w[1] for w in ws),
+                                     history="; ".join(f"{r} {a}..{b or 'now'}" for a, b, r in ws))))
+        nodes.append(dict(label="Person", id=f"u_{gh}", props=dict(name=names.get(gh, gh), role=f"SIG {role}", joined="", left="")))
     return nodes, edges
 
 

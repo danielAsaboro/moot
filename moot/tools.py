@@ -116,7 +116,14 @@ def audit_decision(g: Graph, decision_id: str, as_of: str | None = None, depth: 
         if pid in seen:
             continue
         seen.add(pid)
-        events = [e for e in events if e.get("id")]
+        uniq: dict = {}  # one row per event, however many people authored it
+        for e in events:
+            if e.get("id"):
+                k = (e["id"], e["rel"], e["at"])
+                if k in uniq and e.get("author") and uniq[k].get("author") and e["author"] not in uniq[k]["author"]:
+                    uniq[k]["author"] += f", {e['author']}"
+                uniq.setdefault(k, e)
+        events = list(uniq.values())
         for e in events:
             if e.get("stated") is None:
                 e.pop("stated", None)
