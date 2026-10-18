@@ -21,7 +21,7 @@ Each study below states its hypothesis, data, metric and script before its first
 
 ## S2. Gate eval after the empty-evidence fix
 
-- **Written:** 2026-10-18 06:58 UTC, after the hydradb-oss-hack teardown counted the effect by hand (ALLOW 10 → 4), before `eval/eval_gate.py` was re-run.
+- **Written:** 2026-10-18 06:58 UTC, after a hand count of the effect (ALLOW 10 → 4), before `eval/eval_gate.py` was re-run.
 - **Change:** `premise_state([])` returns `unevidenced` instead of `holds`; the gate says REVALIDATE on it. The verdict (HOLDS) does not change.
 - **Prediction:** ALLOW 10 → 4 (D12, D14, D15, D24); false allows stay 0; false blocks 0 → 6, all REVALIDATE with `premise_unevidenced` (D06, D10, D16, D22, D26, D27). The verdict eval (30/30) does not move.
 - **Script:** `python3 eval/eval_gate.py`.

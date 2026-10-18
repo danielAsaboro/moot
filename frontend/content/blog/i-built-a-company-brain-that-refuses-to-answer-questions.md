@@ -6,9 +6,11 @@ Everyone at Graph Hacks is building a brain you can chat with. I built one that 
 
 This post covers why I think that's the more useful question, how a graph answers it where search can't, and the parts of my own results I had to take back.
 
+> **Since this post (2026-10-21).** Moot now reads the reasons a real ADR states in its own words (a model proposes, a validator keeps only exact quoted spans), which cut UNDOCUMENTED from 46 to 18 of 75 decisions in four real repositories. A head-to-head on 90 frozen Larkspur questions with the same local model scored Moot 90/90 against plain RAG's 62/90; since Larkspur's answer key shares a spec with its graph, that is a consistency ceiling, not a field result. Questions are now routed by a model's tool call (Groq, with a daily spend cap, falling back to the keyword rules), and the hosted app reuses one FalkorDB connection, so the slow first load is gone. The numbers below are as they were when the post went up; the README has the current ones.
+
 ## The rule nobody could justify
 
-Every team older than a year follows rules nobody can justify. The demo company in Moot, a fictional 30-person startup called Larkspur, has one that every engineer has met in some form:
+Every team older than a year follows rules nobody can justify. The demo company in Moot, a fictional 8-person startup called Larkspur, has one that every engineer has met in some form:
 
 > **D01: Cap file uploads at 10 MB.** All uploads pass through the API gateway, and the gateway enforces a 10 MB body limit.
 
@@ -221,13 +223,11 @@ On the 6 it could see, Moot caught 2, both license changes. GOV.UK's MongoDB dec
 
 **1. My best-looking number wasn't a result.** Retrieval recall of the invalidating document: graph 1.00, BM25 0.81, random 0.01. It looked great. But the graph's CONTRADICTS edges and the eval's targets came from the same spec, so the graph was reading back its own edges. It's a consistency check, and the README now says that right next to the number.
 
-**2. I tried to beat a competitor's benchmark blind, and didn't.** Another team, Canon, reported a big gain on EnterpriseRAG-Bench's conflicting-information questions with a supersession graph. Reading their repo, I found their graph had been seeded from an inventory written by reading each question's gold answer. So I built the same idea blind: Moot could only read the question and the documents BM25 retrieved, and a test fails if the blind code ever names an answer-key field.
+**2. I tried a supersession graph on a public benchmark, blind, and it tied BM25.** EnterpriseRAG-Bench has 20 conflicting-information questions: an older and a newer document disagree, and a good brain should keep the superseded one out of the model's context. I built the graph blind: Moot could only read the question and the documents BM25 retrieved, and a test fails if the blind code ever names an answer-key field.
 
-The result, counting questions where the superseded document is still in the model's context (lower is better): BM25 14 of 20, my frozen blind rules 13, the best post-hoc LLM extraction (qwen3.8 27B, run locally) 12, Canon's oracle setup 1. The bottleneck wasn't retrieval: in all 14 leaks, the current document was also in the top 10. It was extraction. Most conflicts are phrased as tiers, names or procedures, not "changed from X to Y". I report 13 as the headline because it was frozen before it ran; the 12 is labelled post-hoc everywhere.
+The result, counting questions where the superseded document is still in the model's context (lower is better): BM25 14 of 20, my frozen blind rules 13, the best post-hoc LLM extraction (qwen3.8 27B, run locally) 12. A tie, within noise. The bottleneck wasn't retrieval: in all 14 leaks, the current document was also in the top 10. It was extraction. Most conflicts are phrased as tiers, names or procedures, not "changed from X to Y". I report 13 as the headline because it was frozen before it ran; the 12 is labelled post-hoc everywhere.
 
-I also found that in Canon's own published files, all 20 "info not found" answers were byte-identical across their arms, and the judge still scored them 13, 13 and 15. A single judged run can't separate a two-question effect from that noise.
-
-**3. Write the hypothesis down before you run it.** After reading another entry's repo I added `docs/studies.md`: each study's prediction, committed before the script exists, and the result ships whatever it is. My graph ablation predicted four things; one failed, and the file says which.
+**3. Write the hypothesis down before you run it.** I added `docs/studies.md`: each study's prediction, committed before the script exists, and the result ships whatever it is. My graph ablation predicted four things; one failed, and the file says which.
 
 **4. Make your README numbers checkable.** `moot verify` compares every number in the README against the JSON the evals wrote and exits non-zero on drift. `--rerun` re-derives them from committed inputs first, so a stale number in the README fails the build before a judge finds it.
 

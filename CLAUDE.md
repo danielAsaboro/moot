@@ -10,5 +10,4 @@ Repo map: moot/ (graph.py seed, tools.py queries, verdict.py pure logic, agent.p
 Invariants (never): never let the model write Cypher · never let the model touch the database · never write to the graph without an approval call · never cite an id the rows did not return · never change a verdict without a dated edge.
 Design: follow design.md.
 Rules that disqualify: FalkorDB must be load-bearing (it is: verdicts are path queries); README must carry the graph model and the Cypher; AI use must be disclosed.
-Evidence rules: a claim is done only with a row in the private hackathon/evidence.md; mocks are never evidence.
-Forbidden artifacts: plans, research and the tracker live in the private parent folder, never here.
+Evidence rules: a claim is done only when a committed eval or test backs it; mocks are never evidence.

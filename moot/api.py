@@ -463,7 +463,7 @@ def evals():
 
 
 GRAPH_INFO = {
-    "larkspur": dict(title="Larkspur (demo company)", kind="demo", source="data/corpus: a synthetic 30-person company"),
+    "larkspur": dict(title="Larkspur (demo company)", kind="demo", source="data/corpus: a synthetic 8-person company"),
     PUBLIC_GRAPH: dict(title="25 real public ADRs", kind="real", source="5 GitHub repositories, checked against GitHub and OSV"),
     BACKTEST_GRAPH: dict(title="Backtest: 97 tool decisions from 30 repos", kind="backtest", source="ADR git history, replayed monthly", as_of="2026-10-17"),
 }

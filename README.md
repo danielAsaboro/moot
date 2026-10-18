@@ -9,7 +9,7 @@
 
 | | |
 |---|---|
-| **Try it** | [Live app](https://moot.bringaihome.xyz) · [D01's evidence path](https://moot.bringaihome.xyz/app/?d=D01&tab=graph) · [the Cypher it ran](https://moot.bringaihome.xyz/app/?d=D01&tab=cypher) · [People](https://moot.bringaihome.xyz/app/people/) · [a real repo, audited](https://moot.bringaihome.xyz/app/ledger/?graph=gh_alphagov_govuk_infrastructure) |
+| **Try it** | [Live app](https://moot.bringaihome.xyz) · [D01's evidence path](https://moot.bringaihome.xyz/app/?d=D01&tab=graph) · [the Cypher it ran](https://moot.bringaihome.xyz/app/?d=D01&tab=cypher) · [People](https://moot.bringaihome.xyz/app/people/) · [a real repo, audited](https://moot.bringaihome.xyz/app/ledger/?graph=gh_thomvaill_log4brains): log4brains, whose later ADR contradicts its Lerna decision |
 | **Watch / read** | [Demo video](https://vimeo.com/1237038749) · [Blog: I built a company brain that refuses to answer questions](https://moot.bringaihome.xyz/i-built-a-company-brain-that-refuses-to-answer-questions/) |
 | **Check it** | [Evaluation](docs/evaluation.md) · [Study S3 head-to-head](eval/results_baseline.md) · [Stated reasons, before/after](eval/results_reasons.md) · [Studies register](docs/studies.md) |
 | **Build on it** | [Query catalogue](docs/queries.md) · [How FalkorDB is used](docs/falkordb.md) · [MCP setup](docs/mcp.md) · [Run it](#run-it) |
@@ -35,7 +35,7 @@ owner: Ada Okafor, left 2026-05-15 · D02 and D03 rest on the same dead reason
 - Ask an agent's question, **"may I enforce D01?"** (`GET /api/gate/D01`, or the MCP tool `check_action`): **DENY**, with the path to PR-412.
 - Ask **since when**: MOOT since 2026-03-02, after HOLDS from 2025-02-10. Moot re-audits on every date something in the decision's graph happened.
 - Ask **who knows why**: Marcus Chen, who wrote PR-412, and Ada Okafor, the owner, who left. Bus factor 1. **What leaves with Marcus?** Five live decisions nobody else here can explain, five reasons only he wrote evidence on, and the Uploads API.
-- Point it at a real repository: `moot ingest-github alphagov/govuk-infrastructure` reads its ADR folder, git history and pull requests into a new graph, reads the reasons each ADR states in its own words (kept only as exact quoted spans), and audits every decision against GitHub, OSV and the repository's later ADRs.
+- Point it at a real repository: `moot ingest-github thomvaill/log4brains` reads its ADR folder, git history and pull requests into a new graph, reads the reasons each ADR states in its own words (kept only as exact quoted spans), and audits every decision against GitHub, OSV and the repository's later ADRs.
 
 Verdicts are FalkorDB path queries. The model only narrates and proposes quotes; every id it cites is checked against the rows, every quote against the document, and it never writes Cypher.
 
@@ -45,7 +45,9 @@ Verdicts are FalkorDB path queries. The model only narrates and proposes quotes;
 |---|---|---|---|
 | Larkspur: stale or retired decisions an agent was allowed to act on (of 20) | **0** | BM25 + change cues 4 · trust the ADR 20 | [gate eval](eval/results_gate.md) |
 | Larkspur, 90 questions (still holds? why? since when?): dead decisions called HOLDS (of 22) | **0** | RAG + same model 13 · RAG over stated reasons 7 | [head-to-head](eval/results_baseline.md) |
-| Real repositories: decisions caught dead before their own maintainers (of 6 tool deaths) | **2** | trust the ADR 0 · random 1.4 | [backtest, 30 public repos](eval/results_backtest.md) |
+| Real repositories: decisions caught dead before their own maintainers (of 6 tool deaths) | **2** | age ≥ 3 years 3 · random 1.4 · trust the ADR 0 | [backtest, 30 public repos](eval/results_backtest.md) |
+| Real repositories: flags on decisions still listed in force, each with a dated reason | **22** (15 real, 2 false alarms) | age ≥ 3 years 73, none with a reason | [backtest](eval/results_backtest.md#every-flag-on-a-decision-its-repository-still-lists-as-in-force) |
+| EnterpriseRAG-Bench conflicts: superseded document still in the model's context (of 20, lower is better) | **13** | BM25 14: a tie | [blind supersession cut](eval/results_erag.md) |
 | Real public ADRs denied with a dated reason (of 25) | **7** | 23 of the 25 still say *accepted* | [real-world audit](docs/evaluation.md#real-world-proof-public-adrs) |
 | Audit latency at 20,000 noise documents, p50 | **0.9 ms** | flat from 0 to 20,000 | [scale eval](eval/results_scale.md) |
 
@@ -54,6 +56,8 @@ Verdicts are FalkorDB path queries. The model only narrates and proposes quotes;
 On the same 90 questions Moot gets 90/90 verdicts and 24/24 "since when" dates exactly; plain RAG with the same local model gets 62/90 and 8/24. The ablations say what carries it: ignoring dates drops Moot to 62/90, removing FalkorDB (same rules over retrieved documents) to 60/90, depth 1 to 88/90. Larkspur's labels share a spec with its graph, so Moot's row is a ceiling, not extraction quality ([threats](eval/results_baseline.md#threats-to-validity-worst-first)).
 
 <p align="center"><img src="docs/charts/s3_dead_called_holds.svg" alt="Dead decisions called HOLDS of 22: Moot 0, depth 1 2, RAG over stated reasons 7, FalkorDB removed 8, BM25 RAG 13, trust the ADR 22" width="760"></p>
+
+On recall the backtest cannot rank anything: the age rule catches 3 of the 6 deaths to Moot's 2, and six is too few to separate them. The difference is precision. To catch its 3, the age rule raises 73 flags on decisions still in force and says nothing about why; Moot raises 22, each naming a dated fact (a licence change, a repository gone quiet) that a reviewer can check in a minute, and reading all 22 found 15 whose reason really died upstream and 2 false alarms. On EnterpriseRAG-Bench, built blind, Moot's supersession cut ties BM25.
 
 Every number above is checked by `moot verify` against the JSON the evals wrote (`moot verify --rerun` re-derives it from committed inputs), and the charts are drawn from the same files by `eval/charts.py` (verify fails if a committed chart drifts). Studies are registered before they run, withdrawn results stay listed with the reason ([docs/studies.md](docs/studies.md)), and every table is in [docs/evaluation.md](docs/evaluation.md).
 
@@ -80,14 +84,14 @@ On the four ingested repositories, UNDOCUMENTED fell from 46 to 18 of 75 decisio
 | **Graph-native use of FalkorDB** | Verdicts *are* path queries: `(Decision)-[:BECAUSE_OF\|DERIVED_FROM*1..depth]->(Premise)<-[:SUPPORTS\|CONTRADICTS]-(Evidence)` with dated edges, all through `GRAPH.RO_QUERY` ([queries](docs/queries.md)). `algo.WCC`, `algo.betweenness`, `algo.pageRank` and `algo.SPpaths` answer who knows why, what leaves with a person, blast radius and what a PR broke. One named graph per company; Findings, rulings and handovers are written back only after approval ([docs/falkordb.md](docs/falkordb.md)). Removing FalkorDB but keeping the rules drops S3 from 90/90 to 60/90. |
 | **Agent effectiveness** | The agent gate (`check_action`, `GET /api/gate`) let 0 of 20 stale or retired Larkspur decisions through, against 4 for BM25 with change cues and 20 for trusting the ADR ([gate eval](eval/results_gate.md)). On real history it caught 2 of 6 tool deaths before the maintainers did ([backtest](eval/results_backtest.md)). Same local model, graph context vs retrieval: 90/90 vs 62/90 ([S3](eval/results_baseline.md)). |
 | **Potential impact** | Every team inherits rules whose reasons died quietly. Moot works on any public GitHub repository today (`moot ingest-github owner/repo`): four are in the live app, with stated reasons read from their ADR text ([before/after](eval/results_reasons.md)), and 25 real public ADRs are checked against GitHub and OSV. |
-| **Technical excellence** | One-command setup (`docker compose up --build`, or `make demo`), 128 tests, CI on FalkorDB v4.22.1 and v4.18.3 plus the UI build, `moot verify --rerun` re-derives every README number from committed inputs. Deployed at [moot.bringaihome.xyz](https://moot.bringaihome.xyz) on FalkorDB Cloud. |
+| **Technical excellence** | One-command setup (`docker compose up --build`, or `make demo`), 136 tests, CI on FalkorDB v4.22.1 and v4.18.3 plus the UI build, `moot verify --rerun` re-derives every README number from committed inputs. Deployed at [moot.bringaihome.xyz](https://moot.bringaihome.xyz) on FalkorDB Cloud. |
 | **Explainability and provenance** | Every answer carries its traversal path, the evidence ids and dates, the Cypher it ran, and a digest of the rows it read. A model's citation is checked against the rows; a stated reason's quote against the document, with its character span, section, source link and model on the node. "No evidence" is never "holds". |
 | **Creativity and presentation** | A brain that refuses: it says MOOT, REVALIDATE or "not in the graph" instead of an answer. Isometric drawings of the real rows, an unplugged cable for an expired reason, the ruled ledger, the [video](https://vimeo.com/1237038749) and the [blog](https://moot.bringaihome.xyz/i-built-a-company-brain-that-refuses-to-answer-questions/). |
 
 ## Submission checklist
 
 - [x] FalkorDB is the primary database and the product stops working without it: every verdict is a `ro_query` path query
-- [x] Data: a synthetic 30-person company (Larkspur: 30 decisions, 208 documents), 25 real public ADRs checked against GitHub and OSV, a backtest on 722 real decisions from 30 public repositories, and a connector for any public GitHub repository (four ingested: 75 decisions, 59 pull requests, 157 stated reasons)
+- [x] Data: a synthetic 8-person company (Larkspur: 30 decisions, 238 documents: 30 ADRs and 208 PRs, tickets, chat and docs), 25 real public ADRs checked against GitHub and OSV, a backtest on 722 real decisions from 30 public repositories, and a connector for any public GitHub repository (four ingested: 75 decisions, 59 pull requests, 157 stated reasons)
 - [x] Graph data model, key Cypher queries and graph algorithms ([below](#graph-model), [full catalogue](docs/queries.md))
 - [x] Setup in one command ([Run it](#run-it)), MCP server ([setup](docs/mcp.md))
 - [x] Demo video: https://vimeo.com/1237038749
@@ -141,7 +145,7 @@ sequenceDiagram
 
 ## Graph model
 
-One named graph per company (`select_graph(tenant)`): `larkspur` (demo), `public_adrs` (real ADRs), `backtest` (30 real repositories), and one `gh_<owner>_<repo>` graph per repository brought in with `moot ingest-github`. All of them are selectable in the UI (the Graph menu), the API (`?graph=`) and MCP (`graph=`).
+One named graph per company (`select_graph(tenant)`): `larkspur` (demo), `public_adrs` (real ADRs), `backtest` (30 real repositories), and one `gh_<owner>_<repo>` graph per repository brought in with `moot ingest-github`. All of them are selectable in the UI (the Graph menu), the API (`?graph=`) and the MCP audit, gate, ledger and people tools (`graph=`).
 
 ```mermaid
 graph LR

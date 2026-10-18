@@ -57,4 +57,4 @@ writes. Example: `check_action("D01")` is DENY, because PR-412 contradicted the 
 | `ask` | a question in words, routed to one of the tools above, narrated with validated citations |
 | `record_finding` / `record_ruling` / `record_handover` | the approval-gated writes |
 
-Every tool takes `graph=` to read a graph other than the default.
+`find_decision`, `audit_decision`, `verdict_history`, `check_action`, `ledger`, `who_knows_why`, `departure_impact`, `people_risk` and `reason_single_points_of_failure` take `graph=` to read a graph other than the default; the others read the default graph (`check_action` and `evidence_packet` also take `public_adrs=true`).

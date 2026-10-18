@@ -51,4 +51,4 @@ Confusion (expected → graph):
 2. **Templated noise.** The padding documents touch no premise and share a template, so they cannot crowd the graph and only test BM25's vocabulary problem. Realistic noise that mentions the same premises would be harder for both.
 3. **A shared laptop.** Latencies were measured on one machine with other work running (this run shared it with a local model job). They are good for the shape of the curve against corpus size, not as a number to quote for production.
 4. **Cold is not a server restart.** The FalkorDB server was shared and not restarted, so *cold* means a fresh graph and a fresh client process; a cold server start (loading the graph from disk) is not measured.
-5. **No model baseline.** The staleness baseline has no model, by design, so the whole file reproduces offline. A model-judged RAG baseline is in `eval/eval_e2e.py` and needs an API key.
+5. **No model baseline.** The staleness baseline has no model, by design, so the whole file reproduces offline. The model-judged RAG baseline is study S3 (`eval/results_baseline.md`): BM25 RAG with a local model, 62/90 against Moot's 90/90.

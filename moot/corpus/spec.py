@@ -1,6 +1,6 @@
 """Ground-truth specification for the synthetic demo company, Larkspur.
 
-Larkspur is a fictional 30-person B2B SaaS company (2024-2026). Everything here is
+Larkspur is a fictional 8-person B2B SaaS company (2024-2026). Everything here is
 invented. The spec is the single source of truth: the corpus generator renders it into
 ADRs, tickets, pull requests and chat; the graph builder turns it into graph.json; the
 eval scores extraction and retrieval against it.

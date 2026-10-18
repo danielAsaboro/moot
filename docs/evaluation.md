@@ -71,7 +71,7 @@ On the 25 real public ADRs, which have no answer key, the gate denies 7 (5 rest 
 
 Deleting the evidence that killed a decision makes the legacy rule wave it through; the current gate turns the missing evidence into REVALIDATE instead. Junk contradictions get followed too: the gate cannot tell a plausible wrong edge from a real one, which is why every DENY names the evidence id for a human to check. One of the four predictions failed (deleting reason edges never raised false allows, because every stale Larkspur decision states exactly one premise), and the file says so.
 
-`make eval-e2e` (needs a key) runs the model-in-the-loop comparison: a BM25 RAG company brain asked "does this still hold?" against Moot's graph verdict. The headline column is how many of the 16 decisions whose premise was contradicted each system still calls HOLDS, i.e. treats the dead premise as current; it also scores verdict accuracy and whether the cited document is the true invalidating one. Results land in `eval/results_e2e.md`.
+`make eval-e2e` (needs a key) runs the model-in-the-loop comparison: a BM25 RAG company brain asked "does this still hold?" against Moot's graph verdict. The headline column is how many of the 16 decisions whose premise was contradicted each system still calls HOLDS, i.e. treats the dead premise as current; it also scores verdict accuracy and whether the cited document is the true invalidating one. It has never been run (it needs an Anthropic key), so there is no `eval/results_e2e.md`; the model-in-the-loop comparison that was run is study S3, [eval/results_baseline.md](../eval/results_baseline.md), with a local model.
 
 ## Real-world proof: public ADRs
 

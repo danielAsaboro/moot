@@ -35,7 +35,7 @@ Depth matters, but this corpus hides it: at depth 1, D01, D19 audit as HOLDS, be
 
 1. **Common-mode answer key.** The Larkspur answer key comes from the same spec as the graph, so the Moot row says the gate rule and the verdict rule agree, not that extraction is solved. The graph ablation ([results_ablation.md](results_ablation.md)) shows which edges the answers depend on.
 2. **Small n.** 20 decisions to stop and 10 to allow; one decision moves a rate by 5–10 points. Read the bounds, not the zeros.
-3. **Baselines without a model.** BM25 + cues and trust-the-ADR get no model, by design, so this file reproduces offline. A model-judged RAG baseline is in `eval/eval_e2e.py` and has not been run (no key on the build machine).
+3. **Baselines without a model.** BM25 + cues and trust-the-ADR get no model, by design, so this file reproduces offline. The model-judged RAG baseline is study S3 (`eval/results_baseline.md`): with the same local model it calls 13 of 22 dead decisions HOLDS.
 4. **Real ADRs have no answer key.** The second table reports what the gate did and on what evidence, not whether it was right.
 
 REVALIDATE is not a verdict on the decision; it means the graph cannot vouch for it, which is exactly when an agent should stop.

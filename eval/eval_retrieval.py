@@ -8,7 +8,7 @@ CONTRADICT one of its premises (truth.json). Three methods try to find them:
   random   k documents drawn at random (the control), averaged over 20 seeds
 
 Reported: recall@k of the invalidating documents, and the share of decisions where at least one was found.
-No model is involved, so this runs anywhere with a seeded FalkorDB. `eval/eval_e2e.py` is the model-based follow-up.
+No model is involved, so this runs anywhere with a seeded FalkorDB. The model-based follow-up is study S3 (eval/eval_baseline.py).
 """
 from __future__ import annotations
 

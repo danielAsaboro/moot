@@ -97,7 +97,16 @@ def check_headline(c: Checker, S: dict, G: dict, bt: str | None) -> None:
         caught, dd = re.search(r"\| \*\*Moot gate \(DENY\)\*\* \| \*\*(\d+) / (\d+)\*\*", bt).groups()
         rk = re.search(r"\| random, same number of flags \(mean of 200\) \| ([\d.]+) / ", bt).group(1)
         tk = re.search(r"\| trust the ADR \| (\d+) / ", bt).group(1)
-        c.expect(doc, t, "headline backtest", r"maintainers \(of (\d+) tool deaths\) \| \*\*(\d+)\*\* \| trust the ADR (\d+) · random ([\d.]+) \|", (dd, caught, tk, rk))
+        ak = re.search(r"\| age ≥ 3 years \| (\d+) / ", bt).group(1)
+        c.expect(doc, t, "headline backtest", r"maintainers \(of (\d+) tool deaths\) \| \*\*(\d+)\*\* \| age ≥ 3 years (\d+) · random ([\d.]+) · trust the ADR (\d+) \|",
+                 (dd, caught, ak, rk, tk))
+        flags = re.search(r"\| \*\*Moot gate \(DENY\)\*\* \|.*?\| (\d+) of \d+ \|", bt).group(1)
+        age_flags = re.search(r"\| age ≥ 3 years \|.*?\| (\d+) of \d+ \|", bt).group(1)
+        real, false = re.search(r"\*\*(\d+)\*\* real, \*\*\d+\*\* right, \*\*(\d+)\*\* false alarm", bt).groups()
+        c.expect(doc, t, "headline backtest flags", r"each with a dated reason \| \*\*(\d+)\*\* \((\d+) real, (\d+) false alarms\) \| age ≥ 3 years (\d+), none",
+                 (flags, real, false, age_flags))
+        c.expect(doc, t, "backtest precision sentence", r"the age rule catches (\d+) of the (\d+) deaths to Moot's (\d+).*?raises (\d+) flags.*?Moot raises (\d+), each.*?found (\d+) whose reason really died upstream and (\d+) false alarms",
+                 (ak, dd, caught, age_flags, flags, real, false))
 
 
 def check_baseline(c: Checker, B: dict) -> None:
@@ -203,6 +212,9 @@ def check_results(c: Checker, R: dict, S: dict, G: dict) -> None:
                  r"Moot blind (\d+)/(\d+) · ORACLE \(Canon's setup\) (\d+)/\d+ · BM25 baseline (\d+)/\d+",
                  (d["moot"]["retired_gold_in_context"], d["moot"]["counts"]["conflicts"] if "counts" in d["moot"] else d["counts"]["conflicts"],
                   d["oracle"]["retired_gold_in_context"], d["baseline"]["retired_gold_in_context"]))
+        c.expect("README.md", (ROOT / "README.md").read_text(), "headline EnterpriseRAG-Bench",
+                 r"still in the model's context \(of (\d+), lower is better\) \| \*\*(\d+)\*\* \| BM25 (\d+): a tie",
+                 (d["counts"]["conflicts"] if "counts" in d else d["moot"]["counts"]["conflicts"], d["moot"]["retired_gold_in_context"], d["baseline"]["retired_gold_in_context"]))
 
 
 def check_reasons(c: Checker) -> None:
@@ -251,6 +263,14 @@ def check_router(c: Checker) -> None:
                  (s["n"], s["rules"], s["model"]))
 
 
+def check_test_count(c: Checker) -> None:
+    """The README's test count is the number pytest collects."""
+    out = subprocess.run([sys.executable, "-m", "pytest", "--collect-only", "-q"], cwd=ROOT, capture_output=True, text=True).stdout
+    m = re.search(r"(\d+) tests? collected", out)
+    if m:
+        c.expect("README.md", (ROOT / "README.md").read_text(), "test count", r"`make demo`\), (\d+) tests,", (m.group(1),))
+
+
 def strip_timing(x):
     if isinstance(x, dict):
         return {k: strip_timing(v) for k, v in x.items() if k not in TIMING}
@@ -282,6 +302,7 @@ def main(rerun: bool = False) -> int:
     check_results(c, R, S, G)
     check_reasons(c)
     check_router(c)
+    check_test_count(c)
     for b in c.bad:
         print("MISMATCH", b)
     print(f"moot verify: {c.ok} checks passed, {len(c.bad)} failed")

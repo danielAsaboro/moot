@@ -236,8 +236,8 @@ def main() -> None:
             "They are good for the shape of the curve against corpus size, not as a number to quote for production.",
             "4. **Cold is not a server restart.** The FalkorDB server was shared and not restarted, so *cold* means a fresh graph and a fresh client "
             "process; a cold server start (loading the graph from disk) is not measured.",
-            "5. **No model baseline.** The staleness baseline has no model, by design, so the whole file reproduces offline. A model-judged RAG "
-            "baseline is in `eval/eval_e2e.py` and needs an API key."]
+            "5. **No model baseline.** The staleness baseline has no model, by design, so the whole file reproduces offline. The model-judged RAG "
+            "baseline is study S3 (`eval/results_baseline.md`): BM25 RAG with a local model, 62/90 against Moot's 90/90."]
     (OUT / "results_scale.md").write_text("\n".join(out) + "\n")
     raw = dict(as_of=truth["as_of"], k=K, warmup=WARMUP, rounds=ROUNDS, repeat=REPEAT, scale=scale_rows,
                verdicts=dict(exact=exact, n=len(gold), stale_graph=dict(zip(("precision", "recall", "f1"), pg)),
