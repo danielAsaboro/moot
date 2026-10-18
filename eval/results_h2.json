@@ -124,12 +124,12 @@
    },
    "agent_tools": {
     "n": 16,
-    "answered": 2,
-    "right": 1,
-    "accuracy": 0.0625,
+    "answered": 16,
+    "right": 13,
+    "accuracy": 0.8125,
     "accuracy_ci": [
-     0.01111905730833121,
-     0.2832926836802987
+     0.5699064013154177,
+     0.9340852122641324
     ],
     "dead": 1,
     "caught": 0,
@@ -138,12 +138,15 @@
      0.0,
      0.7934567085261071
     ],
-    "flagged": 0,
-    "precision": null,
-    "precision_ci": null,
-    "holds": 1,
-    "held": 1,
-    "balanced_accuracy": 0.5
+    "flagged": 2,
+    "precision": 0.0,
+    "precision_ci": [
+     0.0,
+     0.6576280471103807
+    ],
+    "holds": 15,
+    "held": 13,
+    "balanced_accuracy": 0.43333333333333335
    },
    "paired_vs_moot": {
     "majority": {
@@ -167,9 +170,9 @@
      "p": 1.0
     },
     "agent_tools": {
-     "only_moot": 0,
+     "only_moot": 2,
      "only_other": 0,
-     "p": 1.0
+     "p": 0.5
     }
    }
   },
@@ -294,12 +297,12 @@
    },
    "agent_tools": {
     "n": 6,
-    "answered": 2,
-    "right": 2,
-    "accuracy": 0.3333333333333333,
+    "answered": 6,
+    "right": 6,
+    "accuracy": 1.0,
     "accuracy_ci": [
-     0.09676933255921683,
-     0.7000116786584712
+     0.6096569663469354,
+     0.9999999999999999
     ],
     "dead": 0,
     "caught": 0,
@@ -311,8 +314,8 @@
     "flagged": 0,
     "precision": null,
     "precision_ci": null,
-    "holds": 2,
-    "held": 2,
+    "holds": 6,
+    "held": 6,
     "balanced_accuracy": 0.5
    },
    "paired_vs_moot": {
@@ -464,12 +467,12 @@
    },
    "agent_tools": {
     "n": 22,
-    "answered": 4,
-    "right": 3,
-    "accuracy": 0.13636363636363635,
+    "answered": 22,
+    "right": 19,
+    "accuracy": 0.8636363636363636,
     "accuracy_ci": [
-     0.04748917264236269,
-     0.3333541187947
+     0.6666458812053,
+     0.9525108273576373
     ],
     "dead": 1,
     "caught": 0,
@@ -478,12 +481,15 @@
      0.0,
      0.7934567085261071
     ],
-    "flagged": 0,
-    "precision": null,
-    "precision_ci": null,
-    "holds": 3,
-    "held": 3,
-    "balanced_accuracy": 0.5
+    "flagged": 2,
+    "precision": 0.0,
+    "precision_ci": [
+     0.0,
+     0.6576280471103807
+    ],
+    "holds": 21,
+    "held": 19,
+    "balanced_accuracy": 0.4523809523809524
    },
    "paired_vs_moot": {
     "majority": {
@@ -507,9 +513,9 @@
      "p": 1.0
     },
     "agent_tools": {
-     "only_moot": 0,
+     "only_moot": 2,
      "only_other": 0,
-     "p": 1.0
+     "p": 0.5
     }
    }
   }
@@ -568,7 +574,7 @@
    "trust_adr": "HOLDS",
    "age": "DEAD",
    "rag_bm25": "HOLDS",
-   "agent_tools": null
+   "agent_tools": "HOLDS"
   },
   {
    "id": "adr/adr-manager:0001-use-vue.js.md",
@@ -579,7 +585,7 @@
    "trust_adr": "HOLDS",
    "age": "HOLDS",
    "rag_bm25": "HOLDS",
-   "agent_tools": null
+   "agent_tools": "HOLDS"
   },
   {
    "id": "adr/adr-manager:0002-use-antlr-for-parsing-adrs.md",
@@ -590,7 +596,7 @@
    "trust_adr": "HOLDS",
    "age": "HOLDS",
    "rag_bm25": "HOLDS",
-   "agent_tools": null
+   "agent_tools": "HOLDS"
   },
   {
    "id": "architecture-topography/topo:0002-use-neo4j-as-persistence.md",
@@ -601,7 +607,7 @@
    "trust_adr": "HOLDS",
    "age": "HOLDS",
    "rag_bm25": "HOLDS",
-   "agent_tools": null
+   "agent_tools": "HOLDS"
   },
   {
    "id": "arvos-dev/arvos:0002-use-golang.md",
@@ -612,7 +618,7 @@
    "trust_adr": "HOLDS",
    "age": "HOLDS",
    "rag_bm25": "HOLDS",
-   "agent_tools": null
+   "agent_tools": "HOLDS"
   },
   {
    "id": "fragaria/ng2-f-template-spa:0003-use-webpack-for-build.md",
@@ -623,7 +629,7 @@
    "trust_adr": "HOLDS",
    "age": "DEAD",
    "rag_bm25": "HOLDS",
-   "agent_tools": null
+   "agent_tools": "HOLDS"
   },
   {
    "id": "hycomsa/mokka:0003-upgrade-to-spring-boot-2-2-1.md",
@@ -634,7 +640,7 @@
    "trust_adr": "HOLDS",
    "age": "HOLDS",
    "rag_bm25": "HOLDS",
-   "agent_tools": null
+   "agent_tools": "DEAD"
   },
   {
    "id": "liquidmetal-dev/flintlock:0002-use-go.md",
@@ -645,7 +651,7 @@
    "trust_adr": "HOLDS",
    "age": "HOLDS",
    "rag_bm25": "HOLDS",
-   "agent_tools": null
+   "agent_tools": "HOLDS"
   },
   {
    "id": "mahanhz/clean-architecture-example:0003-use-spring-framework.md",
@@ -656,7 +662,7 @@
    "trust_adr": "HOLDS",
    "age": "DEAD",
    "rag_bm25": "HOLDS",
-   "agent_tools": null
+   "agent_tools": "HOLDS"
   },
   {
    "id": "molgenis/molgenis-frontend:0002-use-typescript.md",
@@ -667,7 +673,7 @@
    "trust_adr": "HOLDS",
    "age": "HOLDS",
    "rag_bm25": "HOLDS",
-   "agent_tools": null
+   "agent_tools": "HOLDS"
   },
   {
    "id": "nielsutrecht/adr-example:0003-use-junit-5-for-testing.md",
@@ -678,7 +684,7 @@
    "trust_adr": "HOLDS",
    "age": "DEAD",
    "rag_bm25": "HOLDS",
-   "agent_tools": null
+   "agent_tools": "DEAD"
   },
   {
    "id": "pmckeown/dependency-track-maven-plugin:0002-use-maven-to-build-plugin.md",
@@ -689,7 +695,7 @@
    "trust_adr": "HOLDS",
    "age": "DEAD",
    "rag_bm25": "HOLDS",
-   "agent_tools": null
+   "agent_tools": "HOLDS"
   },
   {
    "id": "poorprogrammer/cfo:0002-use-yarn-install-instead-of-npm-install-for-web.md",
@@ -700,7 +706,7 @@
    "trust_adr": "HOLDS",
    "age": "HOLDS",
    "rag_bm25": "HOLDS",
-   "agent_tools": null
+   "agent_tools": "HOLDS"
   },
   {
    "id": "servian/TechChallengeApp:0002-user-viper-for-config.md",
@@ -711,7 +717,7 @@
    "trust_adr": "HOLDS",
    "age": "DEAD",
    "rag_bm25": "HOLDS",
-   "agent_tools": null
+   "agent_tools": "HOLDS"
   },
   {
    "id": "theaiscope/GDD-app:0003-use-bitrise-for-ci.md",
@@ -722,7 +728,7 @@
    "trust_adr": "HOLDS",
    "age": "DEAD",
    "rag_bm25": "HOLDS",
-   "agent_tools": null
+   "agent_tools": "HOLDS"
   },
   {
    "id": "willgarcia/rotc:0005-use-standalone-prometheus.md",
@@ -733,7 +739,7 @@
    "trust_adr": "HOLDS",
    "age": "HOLDS",
    "rag_bm25": "HOLDS",
-   "agent_tools": null
+   "agent_tools": "HOLDS"
   },
   {
    "id": "willgarcia/rotc:0006-use-standalone-jaeger.md",
@@ -744,7 +750,7 @@
    "trust_adr": "HOLDS",
    "age": "HOLDS",
    "rag_bm25": "HOLDS",
-   "agent_tools": null
+   "agent_tools": "HOLDS"
   },
   {
    "id": "willgarcia/rotc:0007-user-standalone-kiali.md",
@@ -755,7 +761,7 @@
    "trust_adr": "HOLDS",
    "age": "HOLDS",
    "rag_bm25": "HOLDS",
-   "agent_tools": null
+   "agent_tools": "HOLDS"
   }
  ]
 }

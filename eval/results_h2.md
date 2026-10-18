@@ -11,6 +11,6 @@
 | trust the ADR's status | 0.50 | 15/16 | 0/1 | 0/15 | 0 / 0, p = 1.000 |
 | age ≥ 3 years | 0.87 | 12/16 | 1/1 | 4/15 | 4 / 1, p = 0.375 |
 | BM25 RAG + qwen3.8:27b | 0.50 | 15/16 | 0/1 | 0/15 | 0 / 0, p = 1.000 |
-| LLM agent with GitHub/OSV tools (openai/gpt-oss-20b) | 0.50 | 1/16 | 0/1 | 0/1 | 0 / 0, p = 1.000 |
+| LLM agent with GitHub/OSV tools (openai/gpt-oss-20b) | 0.43 | 13/16 | 0/1 | 2/15 | 2 / 0, p = 0.500 |
 
-All 22 decisions (dev and test; nothing was tuned on dev): Moot gate, product policy (warn) 21/22 right, 0/1 caught, 0 false alarms, majority class (dev) 21/22 right, 0/1 caught, 0 false alarms, trust the ADR's status 21/22 right, 0/1 caught, 0 false alarms, age ≥ 3 years 14/22 right, 1/1 caught, 8 false alarms, BM25 RAG + qwen3.8:27b 21/22 right, 0/1 caught, 0 false alarms, LLM agent with GitHub/OSV tools (openai/gpt-oss-20b) 3/22 right, 0/1 caught, 0 false alarms.
+All 22 decisions (dev and test; nothing was tuned on dev): Moot gate, product policy (warn) 21/22 right, 0/1 caught, 0 false alarms, majority class (dev) 21/22 right, 0/1 caught, 0 false alarms, trust the ADR's status 21/22 right, 0/1 caught, 0 false alarms, age ≥ 3 years 14/22 right, 1/1 caught, 8 false alarms, BM25 RAG + qwen3.8:27b 21/22 right, 0/1 caught, 0 false alarms, LLM agent with GitHub/OSV tools (openai/gpt-oss-20b) 19/22 right, 0/1 caught, 2 false alarms.
