@@ -8,7 +8,7 @@ owning and participating SIGs, replaces / superseded-by) and a README whose Summ
   each KEP         kep.yaml at HEAD, and its history: the commit that first made it implementable (when it came into force)
                    and the commit that marked it withdrawn, replaced or deferred (a dated RETIRES, with the PR from "(#123)")
   replaces         a SUPERSEDES edge from the newer KEP, dated on the commit that retired the older one, or the newer KEP's date
-  its people       the authors in kep.yaml (the first author owns it) and every git author of the KEP's folder, who know why
+  its people       the authors and approvers in kep.yaml, by GitHub handle (the first author owns it); they know why
   its SIGs         the owning and participating SIGs, as the Systems the decision governs
   stated reasons   read from the Summary, Motivation and Goals by a model and kept only as literal quoted spans
                    (moot/connectors/reasons.py, cached in data/github/kubernetes__enhancements/reasons.json); each later KEP is
@@ -146,6 +146,7 @@ def ingest(sigs: list[str] | None = None, call_model: bool = True, today: str | 
         dec = dict(id=did, num=num, title=str(y.get("title", did)).strip(), status=status, stage=str(y.get("stage", "")),
                    decided_on=min(x for x in (created, came["date"]) if x), came=came, gone=gone, folder=folder,
                    url=f"https://github.com/{REPO}/tree/master/{folder}", authors=[handle(a) for a in (y.get("authors") or []) if handle(a)],
+                   approvers=[handle(a) for a in (y.get("approvers") or []) if handle(a)],
                    sigs=[s for s in [y.get("owning-sig")] + list(y.get("participating-sigs") or []) if s],
                    replaces=[str(x) for x in (y.get("replaces") or []) if x], superseded_by=[str(x) for x in (y.get("superseded-by") or []) if x],
                    text=why_text(readme), milestone=str(y.get("latest-milestone", "")).strip("'\""))
@@ -159,10 +160,10 @@ def ingest(sigs: list[str] | None = None, call_model: bool = True, today: str | 
         add(dict(label="Evidence", id=src, props=dict(kind="adr", title=f"{dec['id']}: {dec['title']}", date=dec["decided_on"], path=dec["url"],
                                                     excerpt=summary)))
         edges.append(dict(src=dec["id"], rel="RECORDED_IN", dst=src, props={}))
-        knowers = list(dict.fromkeys(dec["authors"] + [handle(a) for a in git(d, "log", "--format=%an", "--", dec["folder"]).splitlines()
-                                                         if handle(a) and not a.endswith("[bot]")]))
+        # who knows why: the authors and the approvers kep.yaml names, by GitHub handle (git author names are not handles)
+        knowers = list(dict.fromkeys(dec["authors"] + dec["approvers"]))
         for who in knowers:
-            add(dict(label="Person", id=f"u_{who}", props=dict(name=who, role="KEP author" if who in dec["authors"] else "contributor",
+            add(dict(label="Person", id=f"u_{who}", props=dict(name=who, role="KEP author" if who in dec["authors"] else "KEP approver",
                                                                joined="", left="")))
             edges.append(dict(src=f"u_{who}", rel="AUTHORED", dst=src, props={}))
         if dec["authors"]:
