@@ -46,7 +46,7 @@ ENH = ROOT / "data" / "github" / ".repos" / "kubernetes__enhancements"
 COM = ROOT / "data" / "github" / ".repos" / "kubernetes__community"
 REPOS = {"enhancements": ENH, "community": COM}
 GRAPH = "gh_kubernetes_enhancements"
-ARMS = ("moot_tools", "file_tools", "rag_bm25", "moot_direct")
+ARMS = ("moot_tools", "file_tools", "rag_bm25", "rag_history", "moot_direct")
 TEMPLATES = (1, 2, 3, 4, 5, 6) if "--study" in sys.argv and sys.argv[sys.argv.index("--study") + 1] == "k2" else (1, 2, 3, 4)
 MAX_STEPS = 6
 RESULT_CHARS = 3000  # a tool result in the conversation; keeps a run inside the model's 16k context
@@ -64,6 +64,32 @@ FORMATS = {1: '{"kep": "KEP-<number>", "date": "YYYY-MM-DD"}', 2: '{"leads": ["<
            4: '{"authors": [["<github handle>", true or false], ...]}', 5: '{"count": <integer>}', 6: '{"was_lead": true or false}'}
 
 
+_names: dict[str, str] | None = None
+
+
+def names() -> dict[str, str]:
+    """display name -> GitHub handle, from sigs.yaml at quarterly revisions since 2018 and HEAD (raw git, never Moot's graph)."""
+    global _names
+    if _names is None:
+        from moot.k1 import COM as C, git as kgit, head_rev, load_yaml, show
+        from moot.connectors.teams import quarters
+        tip, _names = head_rev(C), {}
+        revs = {kgit(C, "rev-list", "-1", f"--before={q}", tip).strip() for q in quarters("2018-01-01", Q["today"])} | {tip}
+        for rev in filter(None, revs):
+            for s in load_yaml(show(C, f"{rev}:sigs.yaml")).get("sigs", []):
+                for grp in (s.get("leadership") or {}).values():
+                    for p in grp or []:
+                        if isinstance(p, dict) and p.get("name") and p.get("github"):
+                            _names[str(p["name"]).strip().lower()] = str(p["github"]).strip().lower()
+    return _names
+
+
+def person(x) -> str:
+    """One normaliser for every arm: a GitHub handle, or a display name mapped to one; case and a leading @ ignored."""
+    s = str(x).strip().lstrip("@").lower()
+    return names().get(s, s)
+
+
 def norm(t: int, a) -> object:
     if not isinstance(a, dict):
         return None
@@ -71,12 +97,12 @@ def norm(t: int, a) -> object:
         if t == 1:
             return (str(a.get("kep", "")).upper().replace(" ", ""), str(a.get("date", ""))[:10])
         if t == 2:
-            return tuple(sorted({str(x).lower().lstrip("@") for x in a.get("leads") or []}))
+            return tuple(sorted({person(x) for x in a.get("leads") or []}))
         if t == 3:
             rb = a.get("retired_by")
             return (bool(a.get("in_force")), (str(rb).upper().replace(" ", "") if rb and str(rb).upper().startswith("KEP") else (str(rb).lower() if rb else None)))
         if t == 4:
-            return tuple(sorted((str(x[0]).lower().lstrip("@"), bool(x[1])) for x in a.get("authors") or []))
+            return tuple(sorted((person(x[0]), bool(x[1])) for x in a.get("authors") or []))
         if t == 5:
             return int(a.get("count"))
         if t == 6:
@@ -160,7 +186,7 @@ def agent(q: dict, tool_doc: str, run) -> dict:
         tin, tout, secs = tin + i, tout + o, secs + s
         x = parse(reply)
         if "answer" in x:
-            return dict(answer=x["answer"], tokens_in=tin, tokens_out=tout, seconds=round(secs, 1), calls=calls)
+            return dict(answer=x["answer"], tokens_in=tin, tokens_out=tout, seconds=round(secs, 1), calls=calls, transcript=msgs[1:] + [dict(role="assistant", content=reply)])
         if x.get("tool") and calls < MAX_STEPS:
             calls += 1
             try:
@@ -170,7 +196,7 @@ def agent(q: dict, tool_doc: str, run) -> dict:
             msgs += [dict(role="assistant", content=reply), dict(role="user", content=f"Result of {x['tool']}:\n{str(res)[:RESULT_CHARS]}")]
             continue
         msgs += [dict(role="assistant", content=reply or "{}"), dict(role="user", content='Reply now with {"answer": ...} in the requested format.')]
-    return dict(answer=None, tokens_in=tin, tokens_out=tout, seconds=round(secs, 1), calls=calls)
+    return dict(answer=None, tokens_in=tin, tokens_out=tout, seconds=round(secs, 1), calls=calls, transcript=msgs[1:])
 
 
 # ---- Moot's graph tools
@@ -247,15 +273,18 @@ def file_run(name: str, a: dict):
             if len(out) > 80:
                 break
         return "\n".join(out[:80]) or "no match"
-    if name == "git_log":
-        return git("log", "--format=%H %cs %s", "-n", "40", rev, "--", str(a.get("path", "")))[:6000] or "no commits"
+    if name == "git_log":  # fairness fix (register, 12:05 UTC): dates reach the whole history, not just the 40 newest commits
+        when = [f"--before={a['before']}T23:59:59"] if a.get("before") else []
+        when += [f"--after={a['after']}"] if a.get("after") else []
+        n = str(min(int(a.get("n") or 40), 100))
+        return git("log", "--format=%H %cs %s", "-n", n, *when, rev, "--", str(a.get("path", "")))[:6000] or "no commits"
     return "unknown tool"
 
 
 FILE_DOC = """- list_files(repo, prefix): file paths under a prefix; repo is "enhancements" (kubernetes/enhancements) or "community" (kubernetes/community)
 - read_file(repo, path, rev): a file's text at a commit (rev defaults to the latest)
 - grep(repo, pattern, prefix): lines matching a regex in kep.yaml files under a prefix (enhancements) or in sigs.yaml (community)
-- git_log(repo, path): the commits that changed a path, newest first (hash, date, subject)"""
+- git_log(repo, path, before, after, n): the commits that changed a path, newest first (hash, date, subject); before / after are YYYY-MM-DD and optional, n at most 100 (default 40). Pass a hash as rev to read_file or grep to see the file at that commit"""
 
 
 # ---- retrieval
@@ -273,16 +302,51 @@ def rag_pool() -> list[dict]:
     return pool
 
 
+def history_pool() -> list[dict]:
+    """Post hoc (register, 12:05 UTC): each KEP's status history and each SIG's leadership at every sigs.yaml commit that changed it,
+    one document per SIG per year. Cached outside the repo, rebuilt from the checkouts."""
+    from moot.k1 import keps, load_yaml, show
+    cache = ROOT / "data" / "github" / ".repos" / "k1_history_pool.json"
+    if cache.exists():
+        return json.loads(cache.read_text())
+    pool = []
+    for n, k in keps().items():
+        lines = [f"{d}: status {s}" for i, (d, s) in enumerate(k["hist"]) if s and (i == 0 or s != k["hist"][i - 1][1])]
+        pool.append(dict(id=f"history:KEP-{n}", text=f"KEP-{n} {k['title']} (owning-sig: {k['sig']}, {k['path']}) status history:\n" + "\n".join(lines)))
+    g = lambda *x: subprocess.run(["git", "-C", str(COM), *x], capture_output=True, text=True, errors="replace").stdout
+    changes: dict[str, list[tuple[str, str]]] = {}  # sig -> [(day, leadership text)] on the mainline (first parent), oldest first
+    for line in g("log", "--first-parent", "--reverse", "--format=%H %cs", _rev(COM), "--", "sigs.yaml").splitlines():
+        sha, day = line.split()
+        for s in load_yaml(show(COM, f"{sha}:sigs.yaml")).get("sigs", []):
+            lead = s.get("leadership") or {}
+            text = "; ".join(f"{role.replace('_', ' ')}: " + ", ".join(f"{p.get('github')} ({p.get('name')})" for p in lead.get(role) or [] if isinstance(p, dict))
+                             for role in ("chairs", "tech_leads"))
+            xs = changes.setdefault(s.get("dir"), [])
+            if not xs or xs[-1][1] != text:
+                xs.append((day, text))
+    for sig, xs in sorted(changes.items()):  # one document per SIG per year: who led it on 1 January, then every change that year
+        for year in range(int(xs[0][0][:4]), int(Q["today"][:4]) + 1):
+            start = [t for d, t in xs if d < f"{year}-01-01"]
+            body = ([f"on {year}-01-01: {start[-1]}"] if start else []) + [f"from {d}: {t}" for d, t in xs if d[:4] == str(year)]
+            pool.append(dict(id=f"history:{sig}:{year}", text=f"{sig} leadership in {year}, from sigs.yaml history:\n" + "\n".join(body)))
+    cache.write_text(json.dumps(pool))
+    return pool
+
+
 POOL = None
+POOL_H = None
 
 
-def rag(q: dict) -> dict:
-    global POOL
+def rag(q: dict, history: bool = False) -> dict:
+    global POOL, POOL_H
     POOL = POOL or rag_pool()
+    if history:
+        POOL_H = POOL_H or POOL + history_pool()
+    pool = POOL_H if history else POOL
     tok = lambda s: re.findall(r"[a-z0-9]+", s.lower())
-    bm = BM25Okapi([tok(p["text"]) for p in POOL])
+    bm = BM25Okapi([tok(p["text"]) for p in pool])
     sc = bm.get_scores(tok(q["question"]))
-    top = [POOL[i] for i in sorted(range(len(POOL)), key=lambda i: -sc[i])[:5]]
+    top = [pool[i] for i in sorted(range(len(pool)), key=lambda i: -sc[i])[:5]]
     ctx = "\n\n".join(f"[{p['id']}]\n{p['text']}" for p in top)
     reply, i, o, s = chat([dict(role="system", content="Answer from the context only. Reply with one JSON object: {\"answer\": <the answer in the requested format>}."),
                            dict(role="user", content=f"{q['question']}\nAnswer format: {FORMATS[q['template']]}\n\nContext:\n{ctx}")])
@@ -319,8 +383,12 @@ def direct(q: dict):
         return dict(was_lead=q["person"] in {x["id"].removeprefix("u_") for x in (team or {}).get("leads", [])})
 
 
+FILE_DOC_V1 = FILE_DOC.split("\n- git_log(")[0] + "\n- git_log(repo, path): the commits that changed a path, newest first (hash, date, subject)"
+
+
 def key_for(arm: str, q: dict, model: str) -> str:
-    return hashlib.sha256(json.dumps([arm, model, q["id"], SYSTEM, MOOT_DOC if arm == "moot_tools" else FILE_DOC]).encode()).hexdigest()[:20]
+    doc = dict(moot_tools=MOOT_DOC, file_tools=FILE_DOC, rag_bm25=FILE_DOC_V1, rag_history="rag over history v1")[arm]  # the HEAD RAG keeps its key
+    return hashlib.sha256(json.dumps([arm, model, q["id"], SYSTEM, doc]).encode()).hexdigest()[:20]
 
 
 LOCAL = "qwen3.8:27b"  # the registered model; K1's test split was moved to Groq and back (docs/studies.md, amendments)
@@ -334,7 +402,8 @@ def cached(arm: str, q: dict, fill: bool, cache: dict) -> dict | None:
     if not fill:
         return None
     try:
-        r = agent(q, MOOT_DOC, moot_run) if arm == "moot_tools" else agent(q, FILE_DOC, file_run) if arm == "file_tools" else rag(q)
+        r = (agent(q, MOOT_DOC, moot_run) if arm == "moot_tools" else agent(q, FILE_DOC, file_run) if arm == "file_tools"
+             else rag(q, history=arm == "rag_history"))
     except Exception as ex:  # the model server failed on this question after retries: scored as no answer, and recorded
         r = dict(answer=None, tokens_in=0, tokens_out=0, seconds=0.0, calls=0, error=str(ex)[:200])
     row = dict(key=key, arm=arm, id=q["id"], **r)
@@ -359,7 +428,7 @@ def main() -> None:
     for q in Q["questions"]:
         r = dict(id=q["id"], template=q["template"], split=q["split"])
         r["moot_direct"] = right(q, direct(q))
-        for arm in ("moot_tools", "file_tools", "rag_bm25"):
+        for arm in ("moot_tools", "file_tools", "rag_bm25", "rag_history"):
             c = cached(arm, q, fill and (only is None or q["split"] == only) and arm in arms, cache)
             r[arm] = right(q, c["answer"]) if c else None
             if c:
@@ -380,7 +449,7 @@ def main() -> None:
                                    calls=sum(c["calls"] for c in costs))
     (OUT / f"results_{STUDY}.json").write_text(json.dumps(dict(model=MODEL, questions_sha256=Q["sha256"], results=res, rows=rows), indent=1) + "\n")
     names = dict(moot_tools="**agent with Moot's graph tools**", file_tools="agent with file and git tools over the same checkouts",
-                 rag_bm25="BM25 RAG over the checkouts at HEAD", moot_direct="Moot, one fixed graph query per template, no model (shared-source reference)")
+                 rag_bm25="BM25 RAG over the checkouts at HEAD", rag_history="BM25 RAG over the checkouts and their history (post hoc, see register)", moot_direct="Moot, one fixed graph query per template, no model (shared-source reference)")
     L = [f"# {STUDY.upper()}: questions about Kubernetes as an organisation (study {STUDY.upper()})", "",
          f"{len(Q['questions'])} templated questions about SIG Auth and SIG Node KEPs; gold from the raw git history of kubernetes/enhancements and "
          f"kubernetes/community (`moot/k1.py`), hashed before any arm ran (`{Q['sha256'][:16]}…`). Same model ({MODEL}, temperature 0) for every "
@@ -400,7 +469,7 @@ def main() -> None:
                      + f" | {s['tokens']:,} | {s['seconds_median'] if s['seconds_median'] is not None else '–'} | {s['calls']} |")
         L.append("")
     if OTHER:
-        local = [(arm, q, cache[key_for(arm, q, OTHER)]) for q in Q["questions"] for arm in ("moot_tools", "file_tools", "rag_bm25")
+        local = [(arm, q, cache[key_for(arm, q, OTHER)]) for q in Q["questions"] for arm in ("moot_tools", "file_tools", "rag_bm25", "rag_history")
                  if q["split"] == "test" and key_for(arm, q, OTHER) in cache]
         if local:
             L += [f"## The {len(local)} test answers produced on {OTHER} (not in the table above)", "",
