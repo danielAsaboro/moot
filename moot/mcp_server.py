@@ -75,6 +75,21 @@ def people_risk(as_of: str | None = None, graph: str | None = None) -> str:
 
 
 @mcp.tool()
+def hidden_teams(graph: str | None = None) -> str:
+    """Communities of people who wrote records together (label propagation on a collaboration projection), set beside the
+    teams they officially answer for; a community spread over several teams with none holding most of it is a hidden team."""
+    from . import org
+    return json.dumps(org.hidden_teams(_g(graph)), default=str)
+
+
+@mcp.tool()
+def connection_path(person_a: str, person_b: str, graph: str | None = None) -> str:
+    """Who connects two people: the shortest chain of people who wrote records together, with the shared records."""
+    from . import org
+    return json.dumps(org.connection(_g(graph), person_a, person_b), default=str)
+
+
+@mcp.tool()
 def reason_single_points_of_failure(as_of: str | None = None, graph: str | None = None) -> str:
     """Reasons two or more live decisions rest on that only one document, or one person still here, vouches for."""
     from . import people
@@ -202,7 +217,7 @@ def real_world_ledger() -> str:
 # The public server (mounted at /mcp on the web app, streamable HTTP): read-only tools only. No finding, ruling, handover or
 # ingest; `ask` is left out too, since it may call a model. Anyone can point an MCP client at https://<host>/mcp.
 PUBLIC = ("list_graphs", "find_decision", "audit_decision", "verdict_history", "check_action", "ledger", "who_knows_why",
-          "departure_impact", "people_risk", "reason_single_points_of_failure", "premise_impact", "trace_document",
+          "departure_impact", "people_risk", "hidden_teams", "connection_path", "reason_single_points_of_failure", "premise_impact", "trace_document",
           "decision_owner", "evidence_packet", "orphaned_decisions", "reopen_memo", "what_if", "riskiest_reasons", "real_world_ledger")
 
 

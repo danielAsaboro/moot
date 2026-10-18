@@ -20,6 +20,8 @@ def main(argv=None):
     vf.add_argument("--rerun", action="store_true", help="first re-run the deterministic evals from committed inputs (needs FalkorDB)")
     dp = sub.add_parser("departure", help="what leaves with a person (computed on a copy of the graph)"); dp.add_argument("person_id"); dp.add_argument("--as-of"); dp.add_argument("--graph")
     pp = sub.add_parser("people", help="who only knows what: bus factor and betweenness per person"); pp.add_argument("--as-of"); pp.add_argument("--graph")
+    ot = sub.add_parser("teams", help="hidden teams: communities of collaborators against the official teams"); ot.add_argument("--graph")
+    cp = sub.add_parser("connect", help="who connects two people: the shortest chain of shared records"); cp.add_argument("a"); cp.add_argument("b"); cp.add_argument("--graph")
     l = sub.add_parser("ledger"); l.add_argument("--as-of"); l.add_argument("--depth", type=int, default=4); l.add_argument("--graph")
     v = sub.add_parser("serve"); v.add_argument("--port", type=int, default=None)
     sub.add_parser("mcp", help="run the read-only MCP server on stdio")
@@ -122,6 +124,20 @@ def main(argv=None):
             print("  systems nobody else can explain:", ", ".join(r["systems_nobody_else_explains"]))
         if r["owned"]:
             print(f"  owns {len(r['owned'])} live decisions; next up the reporting line: {r['successor']['name'] if r['successor'] else 'nobody'}")
+        return
+    if args.cmd == "teams":
+        from . import org
+        r = org.hidden_teams(graph(args.graph))
+        for c in r["communities"]:
+            print(f"{'HIDDEN ' if c['hidden'] else ''}{c['size']:>3} people, {c['main_share']:.0%} {c['main_team']}  hub {c['hub']}  {c['teams']}")
+        print("bridges: " + ", ".join(f"{b['name']} ({b['betweenness']:g})" for b in r["bridges"][:5]))
+        return
+    if args.cmd == "connect":
+        from . import org
+        r = org.connection(graph(args.graph), args.a, args.b)
+        print(" → ".join(r["people"]) if r["found"] else r["why"])
+        for st in r.get("steps", []):
+            print(f"  {st['frm']} – {st['to']}: {', '.join(st['records'])}")
         return
     if args.cmd == "people":
         from . import people

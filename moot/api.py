@@ -185,6 +185,23 @@ def people(as_of: str | None = None):
     return r
 
 
+@app.get("/api/org/teams")
+def org_teams():
+    """Hidden teams: communities of collaborators (label propagation) against the official teams."""
+    from . import org
+    tools.start_trace()
+    r = org.hidden_teams(g())
+    r["queries"] = tools.end_trace()
+    return r
+
+
+@app.get("/api/org/path")
+def org_path(a: str, b: str):
+    """Who connects two people: the shortest chain of shared records."""
+    from . import org
+    return org.connection(g(), a, b)
+
+
 @app.get("/api/people/{person_id}/departure")
 def departure(person_id: str, as_of: str | None = None):
     """What leaves with a person: computed on a scratch KNOWS projection with them removed (algo.WCC). The company graph is not written."""
