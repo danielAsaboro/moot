@@ -1,0 +1,1134 @@
+{
+ "frozen_from": "data/truth.json",
+ "dates": [
+  "2026-10-16",
+  "2025-06-01",
+  "2026-01-01"
+ ],
+ "questions": [
+  {
+   "id": "D01@2026-10-16",
+   "decision_id": "D01",
+   "title": "Cap file uploads at 10 MB",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Cap file uploads at 10 MB\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "MOOT",
+    "invalidating": [
+     "PR-412"
+    ],
+    "since": "2026-03-02"
+   }
+  },
+  {
+   "id": "D02@2026-10-16",
+   "decision_id": "D02",
+   "title": "Chunk CSV imports into 5 MB parts",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Chunk CSV imports into 5 MB parts\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "MOOT",
+    "invalidating": [
+     "PR-412"
+    ],
+    "since": "2026-03-02"
+   }
+  },
+  {
+   "id": "D03@2026-10-16",
+   "decision_id": "D03",
+   "title": "Reject photos over 8 MB in the mobile app",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Reject photos over 8 MB in the mobile app\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "MOOT",
+    "invalidating": [
+     "PR-412"
+    ],
+    "since": "2026-03-02"
+   }
+  },
+  {
+   "id": "D04@2026-10-16",
+   "decision_id": "D04",
+   "title": "Rebuild the search index in full every night",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Rebuild the search index in full every night\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "DISPUTED",
+    "invalidating": [
+     "SRCH-233"
+    ],
+    "since": "2025-10-02"
+   }
+  },
+  {
+   "id": "D05@2026-10-16",
+   "decision_id": "D05",
+   "title": "Use Postgres for every storage need",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Use Postgres for every storage need\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "UNDOCUMENTED",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D06@2026-10-16",
+   "decision_id": "D06",
+   "title": "Rotate API keys every 90 days",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Rotate API keys every 90 days\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D07@2026-10-16",
+   "decision_id": "D07",
+   "title": "Freeze production deploys on Fridays",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Freeze production deploys on Fridays\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "MOOT",
+    "invalidating": [
+     "PR-350"
+    ],
+    "since": "2025-11-18"
+   }
+  },
+  {
+   "id": "D08@2026-10-16",
+   "decision_id": "D08",
+   "title": "Keep the monolith; no new services",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Keep the monolith; no new services\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "MOOT",
+    "invalidating": [
+     "doc-allhands-2026-04"
+    ],
+    "since": "2026-04-03"
+   }
+  },
+  {
+   "id": "D09@2026-10-16",
+   "decision_id": "D09",
+   "title": "Serve EU customers from Frankfurt only",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Serve EU customers from Frankfurt only\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "MOOT",
+    "invalidating": [
+     "SALES-91"
+    ],
+    "since": "2026-02-20"
+   }
+  },
+  {
+   "id": "D10@2026-10-16",
+   "decision_id": "D10",
+   "title": "Send notifications through SendGrid",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Send notifications through SendGrid\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D11@2026-10-16",
+   "decision_id": "D11",
+   "title": "Require two reviewers on every pull request",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Require two reviewers on every pull request\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "DISPUTED",
+    "invalidating": [
+     "PR-201"
+    ],
+    "since": "2025-08-21"
+   }
+  },
+  {
+   "id": "D12@2026-10-16",
+   "decision_id": "D12",
+   "title": "Store sessions in Redis",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Store sessions in Redis\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D13@2026-10-16",
+   "decision_id": "D13",
+   "title": "Encrypt PII in the application layer",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Encrypt PII in the application layer\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "MOOT",
+    "invalidating": [
+     "doc-aws-cmk"
+    ],
+    "since": "2025-12-05"
+   }
+  },
+  {
+   "id": "D14@2026-10-16",
+   "decision_id": "D14",
+   "title": "Bill in USD only",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Bill in USD only\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D15@2026-10-16",
+   "decision_id": "D15",
+   "title": "Support Safari 15 and newer only",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Support Safari 15 and newer only\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D16@2026-10-16",
+   "decision_id": "D16",
+   "title": "Never write PII to logs",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Never write PII to logs\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D17@2026-10-16",
+   "decision_id": "D17",
+   "title": "Use LaunchDarkly for feature flags",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Use LaunchDarkly for feature flags\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "DISPUTED",
+    "invalidating": [
+     "chat-2026-07-09-ld"
+    ],
+    "since": "2026-08-15"
+   }
+  },
+  {
+   "id": "D18@2026-10-16",
+   "decision_id": "D18",
+   "title": "Manual QA sign-off before every release",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Manual QA sign-off before every release\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "MOOT",
+    "invalidating": [
+     "PR-520"
+    ],
+    "since": "2026-05-22"
+   }
+  },
+  {
+   "id": "D19@2026-10-16",
+   "decision_id": "D19",
+   "title": "Run the data pipeline hourly, not continuously",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Run the data pipeline hourly, not continuously\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "MOOT",
+    "invalidating": [
+     "DATA-140"
+    ],
+    "since": "2026-04-30"
+   }
+  },
+  {
+   "id": "D20@2026-10-16",
+   "decision_id": "D20",
+   "title": "Pin the mobile app to React Native 0.72",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Pin the mobile app to React Native 0.72\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "MOOT",
+    "invalidating": [
+     "doc-vendor-rn"
+    ],
+    "since": "2026-02-11"
+   }
+  },
+  {
+   "id": "D21@2026-10-16",
+   "decision_id": "D21",
+   "title": "Self-host the status page",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Self-host the status page\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "UNDOCUMENTED",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D22@2026-10-16",
+   "decision_id": "D22",
+   "title": "Review access grants every month",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Review access grants every month\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D23@2026-10-16",
+   "decision_id": "D23",
+   "title": "Use UUIDv4 for every primary key",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Use UUIDv4 for every primary key\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "DISPUTED",
+    "invalidating": [
+     "ADR-notes-sharding"
+    ],
+    "since": "2026-03-18"
+   }
+  },
+  {
+   "id": "D24@2026-10-16",
+   "decision_id": "D24",
+   "title": "One-week on-call shifts",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"One-week on-call shifts\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D25@2026-10-16",
+   "decision_id": "D25",
+   "title": "Disable public sign-ups",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Disable public sign-ups\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "MOOT",
+    "invalidating": [
+     "doc-abuse-2026-06"
+    ],
+    "since": "2026-06-12"
+   }
+  },
+  {
+   "id": "D26@2026-10-16",
+   "decision_id": "D26",
+   "title": "Retain logs for 30 days",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Retain logs for 30 days\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D27@2026-10-16",
+   "decision_id": "D27",
+   "title": "Manage all infrastructure with Terraform",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Manage all infrastructure with Terraform\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D28@2026-10-16",
+   "decision_id": "D28",
+   "title": "Deploy to a single region in Virginia",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Deploy to a single region in Virginia\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "RETIRED",
+    "invalidating": [],
+    "since": "2025-07-01"
+   }
+  },
+  {
+   "id": "D29@2026-10-16",
+   "decision_id": "D29",
+   "title": "Support customers by email only",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Support customers by email only\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "UNDOCUMENTED",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D30@2026-10-16",
+   "decision_id": "D30",
+   "title": "Block third-party cookies in the embed widget",
+   "as_of": "2026-10-16",
+   "question": "As of 2026-10-16, does the decision \"Block third-party cookies in the embed widget\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "MOOT",
+    "invalidating": [
+     "doc-news-cookies"
+    ],
+    "since": "2025-11-05"
+   }
+  },
+  {
+   "id": "D01@2025-06-01",
+   "decision_id": "D01",
+   "title": "Cap file uploads at 10 MB",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Cap file uploads at 10 MB\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D02@2025-06-01",
+   "decision_id": "D02",
+   "title": "Chunk CSV imports into 5 MB parts",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Chunk CSV imports into 5 MB parts\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D03@2025-06-01",
+   "decision_id": "D03",
+   "title": "Reject photos over 8 MB in the mobile app",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Reject photos over 8 MB in the mobile app\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D04@2025-06-01",
+   "decision_id": "D04",
+   "title": "Rebuild the search index in full every night",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Rebuild the search index in full every night\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D05@2025-06-01",
+   "decision_id": "D05",
+   "title": "Use Postgres for every storage need",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Use Postgres for every storage need\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "UNDOCUMENTED",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D06@2025-06-01",
+   "decision_id": "D06",
+   "title": "Rotate API keys every 90 days",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Rotate API keys every 90 days\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D07@2025-06-01",
+   "decision_id": "D07",
+   "title": "Freeze production deploys on Fridays",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Freeze production deploys on Fridays\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D08@2025-06-01",
+   "decision_id": "D08",
+   "title": "Keep the monolith; no new services",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Keep the monolith; no new services\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D09@2025-06-01",
+   "decision_id": "D09",
+   "title": "Serve EU customers from Frankfurt only",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Serve EU customers from Frankfurt only\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "NOT_YET",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D10@2025-06-01",
+   "decision_id": "D10",
+   "title": "Send notifications through SendGrid",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Send notifications through SendGrid\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D11@2025-06-01",
+   "decision_id": "D11",
+   "title": "Require two reviewers on every pull request",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Require two reviewers on every pull request\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "MOOT",
+    "invalidating": [
+     "PR-201"
+    ],
+    "since": "2025-04-09"
+   }
+  },
+  {
+   "id": "D12@2025-06-01",
+   "decision_id": "D12",
+   "title": "Store sessions in Redis",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Store sessions in Redis\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D13@2025-06-01",
+   "decision_id": "D13",
+   "title": "Encrypt PII in the application layer",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Encrypt PII in the application layer\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D14@2025-06-01",
+   "decision_id": "D14",
+   "title": "Bill in USD only",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Bill in USD only\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D15@2025-06-01",
+   "decision_id": "D15",
+   "title": "Support Safari 15 and newer only",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Support Safari 15 and newer only\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D16@2025-06-01",
+   "decision_id": "D16",
+   "title": "Never write PII to logs",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Never write PII to logs\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D17@2025-06-01",
+   "decision_id": "D17",
+   "title": "Use LaunchDarkly for feature flags",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Use LaunchDarkly for feature flags\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "NOT_YET",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D18@2025-06-01",
+   "decision_id": "D18",
+   "title": "Manual QA sign-off before every release",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Manual QA sign-off before every release\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D19@2025-06-01",
+   "decision_id": "D19",
+   "title": "Run the data pipeline hourly, not continuously",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Run the data pipeline hourly, not continuously\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "NOT_YET",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D20@2025-06-01",
+   "decision_id": "D20",
+   "title": "Pin the mobile app to React Native 0.72",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Pin the mobile app to React Native 0.72\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "NOT_YET",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D21@2025-06-01",
+   "decision_id": "D21",
+   "title": "Self-host the status page",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Self-host the status page\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "UNDOCUMENTED",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D22@2025-06-01",
+   "decision_id": "D22",
+   "title": "Review access grants every month",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Review access grants every month\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D23@2025-06-01",
+   "decision_id": "D23",
+   "title": "Use UUIDv4 for every primary key",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Use UUIDv4 for every primary key\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D24@2025-06-01",
+   "decision_id": "D24",
+   "title": "One-week on-call shifts",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"One-week on-call shifts\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D25@2025-06-01",
+   "decision_id": "D25",
+   "title": "Disable public sign-ups",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Disable public sign-ups\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "NOT_YET",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D26@2025-06-01",
+   "decision_id": "D26",
+   "title": "Retain logs for 30 days",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Retain logs for 30 days\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D27@2025-06-01",
+   "decision_id": "D27",
+   "title": "Manage all infrastructure with Terraform",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Manage all infrastructure with Terraform\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D28@2025-06-01",
+   "decision_id": "D28",
+   "title": "Deploy to a single region in Virginia",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Deploy to a single region in Virginia\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "UNDOCUMENTED",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D29@2025-06-01",
+   "decision_id": "D29",
+   "title": "Support customers by email only",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Support customers by email only\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "UNDOCUMENTED",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D30@2025-06-01",
+   "decision_id": "D30",
+   "title": "Block third-party cookies in the embed widget",
+   "as_of": "2025-06-01",
+   "question": "As of 2025-06-01, does the decision \"Block third-party cookies in the embed widget\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "NOT_YET",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D01@2026-01-01",
+   "decision_id": "D01",
+   "title": "Cap file uploads at 10 MB",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Cap file uploads at 10 MB\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D02@2026-01-01",
+   "decision_id": "D02",
+   "title": "Chunk CSV imports into 5 MB parts",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Chunk CSV imports into 5 MB parts\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D03@2026-01-01",
+   "decision_id": "D03",
+   "title": "Reject photos over 8 MB in the mobile app",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Reject photos over 8 MB in the mobile app\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D04@2026-01-01",
+   "decision_id": "D04",
+   "title": "Rebuild the search index in full every night",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Rebuild the search index in full every night\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "DISPUTED",
+    "invalidating": [
+     "SRCH-233"
+    ],
+    "since": "2025-10-02"
+   }
+  },
+  {
+   "id": "D05@2026-01-01",
+   "decision_id": "D05",
+   "title": "Use Postgres for every storage need",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Use Postgres for every storage need\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "UNDOCUMENTED",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D06@2026-01-01",
+   "decision_id": "D06",
+   "title": "Rotate API keys every 90 days",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Rotate API keys every 90 days\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D07@2026-01-01",
+   "decision_id": "D07",
+   "title": "Freeze production deploys on Fridays",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Freeze production deploys on Fridays\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "MOOT",
+    "invalidating": [
+     "PR-350"
+    ],
+    "since": "2025-11-18"
+   }
+  },
+  {
+   "id": "D08@2026-01-01",
+   "decision_id": "D08",
+   "title": "Keep the monolith; no new services",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Keep the monolith; no new services\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D09@2026-01-01",
+   "decision_id": "D09",
+   "title": "Serve EU customers from Frankfurt only",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Serve EU customers from Frankfurt only\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D10@2026-01-01",
+   "decision_id": "D10",
+   "title": "Send notifications through SendGrid",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Send notifications through SendGrid\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D11@2026-01-01",
+   "decision_id": "D11",
+   "title": "Require two reviewers on every pull request",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Require two reviewers on every pull request\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "DISPUTED",
+    "invalidating": [
+     "PR-201"
+    ],
+    "since": "2025-08-21"
+   }
+  },
+  {
+   "id": "D12@2026-01-01",
+   "decision_id": "D12",
+   "title": "Store sessions in Redis",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Store sessions in Redis\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D13@2026-01-01",
+   "decision_id": "D13",
+   "title": "Encrypt PII in the application layer",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Encrypt PII in the application layer\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "MOOT",
+    "invalidating": [
+     "doc-aws-cmk"
+    ],
+    "since": "2025-12-05"
+   }
+  },
+  {
+   "id": "D14@2026-01-01",
+   "decision_id": "D14",
+   "title": "Bill in USD only",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Bill in USD only\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D15@2026-01-01",
+   "decision_id": "D15",
+   "title": "Support Safari 15 and newer only",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Support Safari 15 and newer only\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D16@2026-01-01",
+   "decision_id": "D16",
+   "title": "Never write PII to logs",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Never write PII to logs\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D17@2026-01-01",
+   "decision_id": "D17",
+   "title": "Use LaunchDarkly for feature flags",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Use LaunchDarkly for feature flags\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D18@2026-01-01",
+   "decision_id": "D18",
+   "title": "Manual QA sign-off before every release",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Manual QA sign-off before every release\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D19@2026-01-01",
+   "decision_id": "D19",
+   "title": "Run the data pipeline hourly, not continuously",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Run the data pipeline hourly, not continuously\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D20@2026-01-01",
+   "decision_id": "D20",
+   "title": "Pin the mobile app to React Native 0.72",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Pin the mobile app to React Native 0.72\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D21@2026-01-01",
+   "decision_id": "D21",
+   "title": "Self-host the status page",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Self-host the status page\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "UNDOCUMENTED",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D22@2026-01-01",
+   "decision_id": "D22",
+   "title": "Review access grants every month",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Review access grants every month\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D23@2026-01-01",
+   "decision_id": "D23",
+   "title": "Use UUIDv4 for every primary key",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Use UUIDv4 for every primary key\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D24@2026-01-01",
+   "decision_id": "D24",
+   "title": "One-week on-call shifts",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"One-week on-call shifts\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D25@2026-01-01",
+   "decision_id": "D25",
+   "title": "Disable public sign-ups",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Disable public sign-ups\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D26@2026-01-01",
+   "decision_id": "D26",
+   "title": "Retain logs for 30 days",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Retain logs for 30 days\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D27@2026-01-01",
+   "decision_id": "D27",
+   "title": "Manage all infrastructure with Terraform",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Manage all infrastructure with Terraform\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "HOLDS",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D28@2026-01-01",
+   "decision_id": "D28",
+   "title": "Deploy to a single region in Virginia",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Deploy to a single region in Virginia\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "RETIRED",
+    "invalidating": [],
+    "since": "2025-07-01"
+   }
+  },
+  {
+   "id": "D29@2026-01-01",
+   "decision_id": "D29",
+   "title": "Support customers by email only",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Support customers by email only\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "UNDOCUMENTED",
+    "invalidating": [],
+    "since": null
+   }
+  },
+  {
+   "id": "D30@2026-01-01",
+   "decision_id": "D30",
+   "title": "Block third-party cookies in the embed widget",
+   "as_of": "2026-01-01",
+   "question": "As of 2026-01-01, does the decision \"Block third-party cookies in the embed widget\" still hold? If not, which documents show it, and since when?",
+   "label": {
+    "verdict": "MOOT",
+    "invalidating": [
+     "doc-news-cookies"
+    ],
+    "since": "2025-11-05"
+   }
+  }
+ ]
+}

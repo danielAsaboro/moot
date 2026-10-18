@@ -26,6 +26,22 @@ Each study below states its hypothesis, data, metric and script before its first
 - **Prediction:** ALLOW 10 → 4 (D12, D14, D15, D24); false allows stay 0; false blocks 0 → 6, all REVALIDATE with `premise_unevidenced` (D06, D10, D16, D22, D26, D27). The verdict eval (30/30) does not move.
 - **Script:** `python3 eval/eval_gate.py`.
 
+## S3. Head-to-head: graph verdicts against a retrieval company brain, with ablations
+
+- **Written:** 2026-10-19 16:40 UTC, after the question set was frozen and before any arm ran (deterministic or model).
+- **Question:** asked *does decision X still hold as of T, which documents show it, since when?*, how does a retrieval company brain compare with Moot's graph verdict, and which part of Moot carries the answer: depth, dates, or FalkorDB itself?
+- **Data:** `eval/baseline/questions.json`, 90 questions (Larkspur's 30 decisions on 2026-10-16, 2025-06-01 and 2026-01-01), frozen by `eval/baseline_questions.py` from `truth.json` alone with a verdict rule written independently of `moot/verdict.py`; it reproduces the spec's expected verdicts on all 30 (asserted). sha256 of the file: `5431b7b273fb44368e119090fc9d170cb650a7d8fd7bda8ae2bbd261c9ee9d45`.
+- **Arms:** Moot (depth 4, as of T; *since* from `tools.verdict_history`); Moot rows handed to the model; RAG = the ADR + BM25 top-5 + the model; RAG over the ADR's stated reasons + the model (FalkorDB removed, model kept); ablations: depth 1, dates ignored, FalkorDB removed with the rules kept; trust the ADR. One local model (`qwen3.8:27b`, temperature 0, seed 7), the same prompt for all model arms, which includes the verdict definitions.
+- **Metrics:** verdicts right (of 90); dead decisions (MOOT or DISPUTED) called HOLDS; for those, whether a cited document is one that killed it; exact *since* date on MOOT, DISPUTED and RETIRED; false alarms on HOLDS.
+- **Predictions:**
+  1. Moot answers 90/90 with every *why* and *since* right. This is the common-mode ceiling (labels and graph share the spec), not a finding.
+  2. RAG + model calls at least 4 of the 21 dead decisions HOLDS, and gets fewer than half of the *since* dates exactly.
+  3. RAG over stated reasons does better than plain RAG on *why*, but still misses the decisions whose dead reason is two hops below the stated one (D01, D02, D03).
+  4. Depth 1 calls those same decisions HOLDS on the dates after PR-412 (2026-03-02).
+  5. Dates ignored: every question on 2025-06-01 and 2026-01-01 whose label differs from today's verdict is wrong, and NOT_YET is never answered.
+  6. Moot rows + model is within 5 verdicts of Moot: the model can read a path without breaking it.
+- **Script:** `python3 eval/eval_baseline.py --llm` (fills the model cache) then `python3 eval/eval_baseline.py` → `eval/results_baseline.md` and `.json`.
+
 ## Registered after the fact
 
 - **Backtest** (`eval/results_backtest.md`). The answer key (maintainers' own status changes) was fixed by code before the gate ran, but this file did not exist then, so the order rests on the results file's own account. Its gate was replayed before the empty-evidence fix; its score counts DENY only, which the fix does not touch (the fix turns some ALLOWs into REVALIDATE).
