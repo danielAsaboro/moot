@@ -32,3 +32,11 @@ DENY D01 (Cap file uploads at 10 MB) governs services/uploads/limits.py
 
 Both are the same read-only `check_action` the API (`GET /api/gate/{id}`) and the MCP server serve; neither writes to the graph.
 Tested in `tests/test_hook.py`.
+
+## Drafting the fix
+
+`moot draft-pr owner/repo <decision>` writes the pull request a maintainer would open for a decision Moot calls MOOT or
+DISPUTED in an ingested repository: a patch (`git apply`-able) that puts a dated "under review" note under the ADR's status,
+naming the reason that broke and the evidence, and a PR body that is the re-open memo with the suggested owner. Nothing is
+pushed or opened. For log4brains' Lerna decision the note reads: *Under review (2026-10-21): this decision rests on "Yarn and
+Lerna are considered a good practice…", which src:20241217-switch-back-to-github-flow contradicted on 2024-12-17.*

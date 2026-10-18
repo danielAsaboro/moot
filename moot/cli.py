@@ -30,6 +30,8 @@ def main(argv=None):
     ig.add_argument("--cached", action="store_true", help="read stated reasons from data/github/<repo>/reasons.json only, never a model")
     gp = sub.add_parser("gate-paths", help="gate every decision that governs these files (.moot/paths.json); exit 1 on a DENY")
     gp.add_argument("files", nargs="+")
+    dr = sub.add_parser("draft-pr", help="draft the pull request that re-opens a MOOT decision in an ingested repository (nothing is pushed)")
+    dr.add_argument("repo"); dr.add_argument("decision_id"); dr.add_argument("--as-of")
     sub.add_parser("hook", help="Claude Code PreToolUse hook: block an edit to a file governed by a dead decision (reads stdin)")
     ik = sub.add_parser("ingest-keps", help="Kubernetes Enhancement Proposals of some SIGs -> graph gh_kubernetes_enhancements, audited (network)")
     ik.add_argument("--sig", action="append", help="a SIG folder under keps/ (repeatable; default sig-auth)")
@@ -48,6 +50,9 @@ def main(argv=None):
     if args.cmd == "gate-paths":
         from .hook import gate_paths_cli
         raise SystemExit(gate_paths_cli(args.files))
+    if args.cmd == "draft-pr":
+        from .draftpr import draft
+        print(json.dumps(draft(args.repo, args.decision_id, args.as_of), indent=1)); return
     if args.cmd == "hook":
         from .hook import hook_cli
         raise SystemExit(hook_cli())
