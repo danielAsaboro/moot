@@ -1,0 +1,150 @@
+{
+ "graphs": {
+  "larkspur": {
+   "decisions": 30,
+   "moot": {
+    "asked": 639,
+    "from_memory": 577,
+    "stale": 0,
+    "stale_clearance": 0
+   },
+   "ttl90": {
+    "asked": 639,
+    "from_memory": 415,
+    "stale": 22,
+    "stale_clearance": 0
+   },
+   "ttl365": {
+    "asked": 639,
+    "from_memory": 570,
+    "stale": 69,
+    "stale_clearance": 0
+   }
+  },
+  "backtest": {
+   "decisions": 97,
+   "moot": {
+    "asked": 6254,
+    "from_memory": 6121,
+    "stale": 0,
+    "stale_clearance": 0
+   },
+   "ttl90": {
+    "asked": 6254,
+    "from_memory": 4135,
+    "stale": 35,
+    "stale_clearance": 0
+   },
+   "ttl365": {
+    "asked": 6254,
+    "from_memory": 5682,
+    "stale": 179,
+    "stale_clearance": 0
+   }
+  },
+  "gh_npryce_adr_tools": {
+   "decisions": 9,
+   "moot": {
+    "asked": 1102,
+    "from_memory": 1093,
+    "stale": 0,
+    "stale_clearance": 0
+   },
+   "ttl90": {
+    "asked": 1102,
+    "from_memory": 731,
+    "stale": 0,
+    "stale_clearance": 0
+   },
+   "ttl365": {
+    "asked": 1102,
+    "from_memory": 1007,
+    "stale": 0,
+    "stale_clearance": 0
+   }
+  },
+  "gh_thomvaill_log4brains": {
+   "decisions": 11,
+   "moot": {
+    "asked": 696,
+    "from_memory": 681,
+    "stale": 0,
+    "stale_clearance": 0
+   },
+   "ttl90": {
+    "asked": 696,
+    "from_memory": 459,
+    "stale": 2,
+    "stale_clearance": 0
+   },
+   "ttl365": {
+    "asked": 696,
+    "from_memory": 632,
+    "stale": 29,
+    "stale_clearance": 0
+   }
+  },
+  "gh_alphagov_govuk_infrastructure": {
+   "decisions": 24,
+   "moot": {
+    "asked": 796,
+    "from_memory": 771,
+    "stale": 0,
+    "stale_clearance": 0
+   },
+   "ttl90": {
+    "asked": 796,
+    "from_memory": 522,
+    "stale": 1,
+    "stale_clearance": 0
+   },
+   "ttl365": {
+    "asked": 796,
+    "from_memory": 715,
+    "stale": 7,
+    "stale_clearance": 0
+   }
+  },
+  "gh_alphagov_govuk_aws": {
+   "decisions": 31,
+   "moot": {
+    "asked": 3305,
+    "from_memory": 3271,
+    "stale": 0,
+    "stale_clearance": 0
+   },
+   "ttl90": {
+    "asked": 3305,
+    "from_memory": 2194,
+    "stale": 2,
+    "stale_clearance": 0
+   },
+   "ttl365": {
+    "asked": 3305,
+    "from_memory": 3007,
+    "stale": 1,
+    "stale_clearance": 0
+   }
+  }
+ },
+ "total": {
+  "moot": {
+   "asked": 12792,
+   "from_memory": 12514,
+   "stale": 0,
+   "stale_clearance": 0
+  },
+  "ttl90": {
+   "asked": 12792,
+   "from_memory": 8456,
+   "stale": 62,
+   "stale_clearance": 0
+  },
+  "ttl365": {
+   "asked": 12792,
+   "from_memory": 11613,
+   "stale": 285,
+   "stale_clearance": 0
+  }
+ }
+}
