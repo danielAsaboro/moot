@@ -300,6 +300,16 @@ def decision_owner(g: Graph, decision_id: str, as_of: str | None = None) -> dict
     return owners_as_of(g, as_of, decision_id).get(decision_id)
 
 
+# 5a. Who wrote a decision's record, and whether each leads a team on `as_of` (AUTHORED role, LEADS windows).
+def decision_authors(g: Graph, decision_id: str, as_of: str | None = None) -> list[dict]:
+    as_of = as_of or today()
+    rows = _q(g,
+        "MATCH (:Decision {id: $id})-[:RECORDED_IN]->(:Evidence)<-[w:AUTHORED]-(p:Person) WHERE coalesce(w.role, 'author') = 'author' "
+        "OPTIONAL MATCH (p)-[l:LEADS]->(t:Team) WHERE l.valid_from <= $as_of AND (l.valid_to = '' OR l.valid_to > $as_of) "
+        "RETURN DISTINCT p.id, p.name, collect(DISTINCT t.name)", {"id": decision_id, "as_of": as_of}).result_set
+    return sorted((dict(id=i, name=n, leads=[x for x in ts if x]) for i, n, ts in rows), key=lambda x: x["id"])
+
+
 # 5b. Which team answers for a decision on `as_of`, and who leads that team then (Team / LEADS from sigs.yaml or CODEOWNERS).
 def decision_team(g: Graph, decision_id: str, as_of: str | None = None) -> dict | None:
     as_of = as_of or today()

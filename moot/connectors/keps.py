@@ -165,7 +165,7 @@ def ingest(sigs: list[str] | None = None, call_model: bool = True, today: str | 
         for who in knowers:
             add(dict(label="Person", id=f"u_{who}", props=dict(name=who, role="KEP author" if who in dec["authors"] else "KEP approver",
                                                                joined="", left="")))
-            edges.append(dict(src=f"u_{who}", rel="AUTHORED", dst=src, props={}))
+            edges.append(dict(src=f"u_{who}", rel="AUTHORED", dst=src, props=dict(role="author" if who in dec["authors"] else "approver")))
         if dec["authors"]:
             edges.append(dict(src=f"u_{dec['authors'][0]}", rel="OWNS", dst=dec["id"],
                               props=dict(valid_from=dec["decided_on"], valid_to="", handed_over_from="")))
@@ -207,7 +207,7 @@ def ingest(sigs: list[str] | None = None, call_model: bool = True, today: str | 
             edges.append(dict(src=f"src:{did}", rel=r["rel"], dst=r["reason_id"], props=dict(at=r["at"], quote=r["quote"][:300], why=r["why"],
                                                                                            extracted_by=r["model"])))
     # the SIGs as teams: who leads each one, when, and the decisions it answers for (kubernetes/community sigs.yaml)
-    tnodes, tedges = tm.k8s_sigs(gh.clone("kubernetes/community"), sigs, today)
+    tnodes, tedges = tm.k8s_sigs(gh.clone("kubernetes/community"), None, today)  # every SIG's leadership; KEPs only for `sigs`
     for n in tnodes:
         if n["id"] in nodes and n["label"] == "Person":
             nodes[n["id"]]["props"].update(name=n["props"]["name"], role=n["props"]["role"])

@@ -1,0 +1,706 @@
+{
+ "sha256": "b5b5ee1c96b319a5184dfc32bdce9309c2c9a61554f16fc5ebecad25067c2fc6",
+ "today": "2026-10-17",
+ "sigs": [
+  "sig-auth",
+  "sig-node"
+ ],
+ "questions": [
+  {
+   "template": 1,
+   "question": "Which KEP replaced KEP-3130 (KMS Observability), and on what date did KEP-3130 stop being in force?",
+   "gold": {
+    "kep": "KEP-3299",
+    "date": "2022-05-09"
+   },
+   "kep": "KEP-3130",
+   "id": "k1-f5f572e333",
+   "split": "test"
+  },
+  {
+   "template": 2,
+   "question": "Who were the chairs and tech leads of the SIG that owns KEP-6007 (NUMA Utilization-Aware Topology Manager Policy Options) on 2022-07-17? Give GitHub handles.",
+   "gold": {
+    "leads": [
+     "dchen1107",
+     "derekwaynecarr"
+    ]
+   },
+   "kep": "KEP-6007",
+   "date": "2022-07-17",
+   "id": "k1-07a3bd3497",
+   "split": "test"
+  },
+  {
+   "template": 2,
+   "question": "Who were the chairs and tech leads of the SIG that owns KEP-1287 (In-place Update of Pod Resources) on 2024-01-03? Give GitHub handles.",
+   "gold": {
+    "leads": [
+     "dchen1107",
+     "derekwaynecarr",
+     "mrunalp",
+     "sergeykanzhelev"
+    ]
+   },
+   "kep": "KEP-1287",
+   "date": "2024-01-03",
+   "id": "k1-0b89a1cace",
+   "split": "test"
+  },
+  {
+   "template": 2,
+   "question": "Who were the chairs and tech leads of the SIG that owns KEP-727 (Kubelet Resource Metrics Endpoint) on 2025-10-04? Give GitHub handles.",
+   "gold": {
+    "leads": [
+     "dchen1107",
+     "derekwaynecarr",
+     "haircommander",
+     "mrunalp",
+     "sergeykanzhelev"
+    ]
+   },
+   "kep": "KEP-727",
+   "date": "2025-10-04",
+   "id": "k1-32b58a66e3",
+   "split": "test"
+  },
+  {
+   "template": 2,
+   "question": "Who were the chairs and tech leads of the SIG that owns KEP-4639 (OCI images as VolumeSource) on 2026-01-24? Give GitHub handles.",
+   "gold": {
+    "leads": [
+     "dchen1107",
+     "derekwaynecarr",
+     "haircommander",
+     "mrunalp",
+     "sergeykanzhelev"
+    ]
+   },
+   "kep": "KEP-4639",
+   "date": "2026-01-24",
+   "id": "k1-49ab39407e",
+   "split": "test"
+  },
+  {
+   "template": 2,
+   "question": "Who were the chairs and tech leads of the SIG that owns KEP-4188 (New kubelet gRPC API with endpoint returning local pods information) on 2024-12-11? Give GitHub handles.",
+   "gold": {
+    "leads": [
+     "dchen1107",
+     "derekwaynecarr",
+     "haircommander",
+     "mrunalp",
+     "sergeykanzhelev"
+    ]
+   },
+   "kep": "KEP-4188",
+   "date": "2024-12-11",
+   "id": "k1-69fd57c98b",
+   "split": "test"
+  },
+  {
+   "template": 2,
+   "question": "Who were the chairs and tech leads of the SIG that owns KEP-5573 (Remove cgroup v1 support) on 2026-02-13? Give GitHub handles.",
+   "gold": {
+    "leads": [
+     "dchen1107",
+     "derekwaynecarr",
+     "haircommander",
+     "mrunalp",
+     "sergeykanzhelev"
+    ]
+   },
+   "kep": "KEP-5573",
+   "date": "2026-02-13",
+   "id": "k1-6b0c6fea61",
+   "split": "test"
+  },
+  {
+   "template": 2,
+   "question": "Who were the chairs and tech leads of the SIG that owns KEP-5067 (Pod Generation) on 2022-05-22? Give GitHub handles.",
+   "gold": {
+    "leads": [
+     "dchen1107",
+     "derekwaynecarr"
+    ]
+   },
+   "kep": "KEP-5067",
+   "date": "2022-05-22",
+   "id": "k1-76a2fb2a5b",
+   "split": "test"
+  },
+  {
+   "template": 2,
+   "question": "Who were the chairs and tech leads of the SIG that owns KEP-541 (External credential providers) on 2021-05-21? Give GitHub handles.",
+   "gold": {
+    "leads": [
+     "deads2k",
+     "enj",
+     "liggitt",
+     "mikedanese",
+     "ritazh"
+    ]
+   },
+   "kep": "KEP-541",
+   "date": "2021-05-21",
+   "id": "k1-77f8b59b01",
+   "split": "test"
+  },
+  {
+   "template": 2,
+   "question": "Who were the chairs and tech leads of the SIG that owns KEP-4818 (Allow zero value for Sleep Action of PreStop Hook) on 2020-03-13? Give GitHub handles.",
+   "gold": {
+    "leads": [
+     "dchen1107",
+     "derekwaynecarr"
+    ]
+   },
+   "kep": "KEP-4818",
+   "date": "2020-03-13",
+   "id": "k1-8926926d46",
+   "split": "dev"
+  },
+  {
+   "template": 2,
+   "question": "Who were the chairs and tech leads of the SIG that owns KEP-1884 (Kubelet endpoint for pod resource assignment) on 2021-06-27? Give GitHub handles.",
+   "gold": {
+    "leads": [
+     "dchen1107",
+     "derekwaynecarr"
+    ]
+   },
+   "kep": "KEP-1884",
+   "date": "2021-06-27",
+   "id": "k1-8c8a58cf9d",
+   "split": "dev"
+  },
+  {
+   "template": 2,
+   "question": "Who were the chairs and tech leads of the SIG that owns KEP-5683 (Node Lifecycle Conditions) on 2019-05-16? Give GitHub handles.",
+   "gold": {
+    "leads": [
+     "dchen1107",
+     "derekwaynecarr"
+    ]
+   },
+   "kep": "KEP-5683",
+   "date": "2019-05-16",
+   "id": "k1-a4be602e49",
+   "split": "test"
+  },
+  {
+   "template": 2,
+   "question": "Who were the chairs and tech leads of the SIG that owns KEP-4205 (Expose PSI Metrics) on 2020-10-28? Give GitHub handles.",
+   "gold": {
+    "leads": [
+     "dchen1107",
+     "derekwaynecarr"
+    ]
+   },
+   "kep": "KEP-4205",
+   "date": "2020-10-28",
+   "id": "k1-aab226a901",
+   "split": "dev"
+  },
+  {
+   "template": 2,
+   "question": "Who were the chairs and tech leads of the SIG that owns KEP-495 (Shared PID Namespace) on 2023-11-12? Give GitHub handles.",
+   "gold": {
+    "leads": [
+     "dchen1107",
+     "derekwaynecarr",
+     "mrunalp",
+     "sergeykanzhelev"
+    ]
+   },
+   "kep": "KEP-495",
+   "date": "2023-11-12",
+   "id": "k1-b146559885",
+   "split": "dev"
+  },
+  {
+   "template": 2,
+   "question": "Who were the chairs and tech leads of the SIG that owns KEP-740 (Support external signing of service account tokens) on 2022-10-17? Give GitHub handles.",
+   "gold": {
+    "leads": [
+     "deads2k",
+     "enj",
+     "liggitt",
+     "mikedanese",
+     "ritazh"
+    ]
+   },
+   "kep": "KEP-740",
+   "date": "2022-10-17",
+   "id": "k1-c6decb57e9",
+   "split": "test"
+  },
+  {
+   "template": 2,
+   "question": "Who were the chairs and tech leads of the SIG that owns KEP-1972 (Kubelet Exec Probe Timeouts) on 2021-12-08? Give GitHub handles.",
+   "gold": {
+    "leads": [
+     "dchen1107",
+     "derekwaynecarr"
+    ]
+   },
+   "kep": "KEP-1972",
+   "date": "2021-12-08",
+   "id": "k1-ec2ad2acb8",
+   "split": "test"
+  },
+  {
+   "template": 3,
+   "question": "Was KEP-2133 (Kubelet Credential Providers) in force on 2019-04-05? If not, what retired it (the replacing KEP, or 'withdrawn' / 'deferred')?",
+   "gold": {
+    "in_force": false,
+    "retired_by": null
+   },
+   "kep": "KEP-2133",
+   "date": "2019-04-05",
+   "id": "k1-448842ccb0",
+   "split": "test"
+  },
+  {
+   "template": 3,
+   "question": "Was KEP-2837 (Pod Level Resource Specifications) in force on 2024-05-01? If not, what retired it (the replacing KEP, or 'withdrawn' / 'deferred')?",
+   "gold": {
+    "in_force": false,
+    "retired_by": null
+   },
+   "kep": "KEP-2837",
+   "date": "2024-05-01",
+   "id": "k1-48e70e80b3",
+   "split": "test"
+  },
+  {
+   "template": 3,
+   "question": "Was KEP-3960 (Pod lifecycle sleep action) in force on 2019-02-20? If not, what retired it (the replacing KEP, or 'withdrawn' / 'deferred')?",
+   "gold": {
+    "in_force": false,
+    "retired_by": null
+   },
+   "kep": "KEP-3960",
+   "date": "2019-02-20",
+   "id": "k1-6407eabb66",
+   "split": "dev"
+  },
+  {
+   "template": 3,
+   "question": "Was KEP-5681 (Conditional Authorization) in force on 2025-05-19? If not, what retired it (the replacing KEP, or 'withdrawn' / 'deferred')?",
+   "gold": {
+    "in_force": false,
+    "retired_by": null
+   },
+   "kep": "KEP-5681",
+   "date": "2025-05-19",
+   "id": "k1-66b4e833cf",
+   "split": "dev"
+  },
+  {
+   "template": 3,
+   "question": "Was KEP-4033 (Discover cgroup driver from CRI) in force on 2025-07-02? If not, what retired it (the replacing KEP, or 'withdrawn' / 'deferred')?",
+   "gold": {
+    "in_force": true,
+    "retired_by": null
+   },
+   "kep": "KEP-4033",
+   "date": "2025-07-02",
+   "id": "k1-71d56afb89",
+   "split": "test"
+  },
+  {
+   "template": 3,
+   "question": "Was KEP-606 (Kubelet endpoint for device assignment observation details) in force on 2019-07-05? If not, what retired it (the replacing KEP, or 'withdrawn' / 'deferred')?",
+   "gold": {
+    "in_force": false,
+    "retired_by": null
+   },
+   "kep": "KEP-606",
+   "date": "2019-07-05",
+   "id": "k1-78b497549e",
+   "split": "test"
+  },
+  {
+   "template": 3,
+   "question": "Was KEP-5714 (Allow specifying whether to unshare cgroup namespaces) in force on 2023-04-21? If not, what retired it (the replacing KEP, or 'withdrawn' / 'deferred')?",
+   "gold": {
+    "in_force": false,
+    "retired_by": null
+   },
+   "kep": "KEP-5714",
+   "date": "2023-04-21",
+   "id": "k1-92504084e6",
+   "split": "test"
+  },
+  {
+   "template": 3,
+   "question": "Was KEP-1314 (Extended NodeRestrictions for Pods) in force on 2025-06-02? If not, what retired it (the replacing KEP, or 'withdrawn' / 'deferred')?",
+   "gold": {
+    "in_force": true,
+    "retired_by": null
+   },
+   "kep": "KEP-1314",
+   "date": "2025-06-02",
+   "id": "k1-a4602d8ebb",
+   "split": "test"
+  },
+  {
+   "template": 3,
+   "question": "Was KEP-4210 (ImageMaximumGCAge in Kubelet) in force on 2023-01-11? If not, what retired it (the replacing KEP, or 'withdrawn' / 'deferred')?",
+   "gold": {
+    "in_force": false,
+    "retired_by": null
+   },
+   "kep": "KEP-4210",
+   "date": "2023-01-11",
+   "id": "k1-a8f77de2e1",
+   "split": "test"
+  },
+  {
+   "template": 3,
+   "question": "Was KEP-4569 (Move cgroup v1 in maintenance mode) in force on 2024-09-28? If not, what retired it (the replacing KEP, or 'withdrawn' / 'deferred')?",
+   "gold": {
+    "in_force": true,
+    "retired_by": null
+   },
+   "kep": "KEP-4569",
+   "date": "2024-09-28",
+   "id": "k1-c0d15c80ce",
+   "split": "test"
+  },
+  {
+   "template": 3,
+   "question": "Was KEP-4369 (Allow special characters environment variable) in force on 2024-06-30? If not, what retired it (the replacing KEP, or 'withdrawn' / 'deferred')?",
+   "gold": {
+    "in_force": true,
+    "retired_by": null
+   },
+   "kep": "KEP-4369",
+   "date": "2024-06-30",
+   "id": "k1-c14007315a",
+   "split": "test"
+  },
+  {
+   "template": 3,
+   "question": "Was KEP-793 (Promote Node Operating System & Architecture labels to GA) in force on 2024-12-18? If not, what retired it (the replacing KEP, or 'withdrawn' / 'deferred')?",
+   "gold": {
+    "in_force": true,
+    "retired_by": null
+   },
+   "kep": "KEP-793",
+   "date": "2024-12-18",
+   "id": "k1-c1e9e3f929",
+   "split": "dev"
+  },
+  {
+   "template": 3,
+   "question": "Was KEP-1687 (Hierarchical Namespace Controller As A Subproject) in force on 2019-12-15? If not, what retired it (the replacing KEP, or 'withdrawn' / 'deferred')?",
+   "gold": {
+    "in_force": false,
+    "retired_by": null
+   },
+   "kep": "KEP-1687",
+   "date": "2019-12-15",
+   "id": "k1-c42395fc86",
+   "split": "test"
+  },
+  {
+   "template": 3,
+   "question": "Was KEP-2254 (cgroups v2) in force on 2024-04-20? If not, what retired it (the replacing KEP, or 'withdrawn' / 'deferred')?",
+   "gold": {
+    "in_force": true,
+    "retired_by": null
+   },
+   "kep": "KEP-2254",
+   "date": "2024-04-20",
+   "id": "k1-e27dc28cef",
+   "split": "dev"
+  },
+  {
+   "template": 3,
+   "question": "Was KEP-727 (Kubelet Resource Metrics Endpoint) in force on 2019-11-03? If not, what retired it (the replacing KEP, or 'withdrawn' / 'deferred')?",
+   "gold": {
+    "in_force": false,
+    "retired_by": null
+   },
+   "kep": "KEP-727",
+   "date": "2019-11-03",
+   "id": "k1-eea47256b8",
+   "split": "test"
+  },
+  {
+   "template": 4,
+   "question": "Who are the authors of KEP-5978 (DRA: ClusterResourceClaimTemplate), and is each of them a chair or tech lead of any SIG as of 2026-10-17? Give GitHub handles.",
+   "gold": {
+    "authors": [
+     [
+      "troychiu",
+      false
+     ]
+    ]
+   },
+   "kep": "KEP-5978",
+   "id": "k1-0689eb9a7e",
+   "split": "dev"
+  },
+  {
+   "template": 4,
+   "question": "Who are the authors of KEP-2033 (Rootless mode), and is each of them a chair or tech lead of any SIG as of 2026-10-17? Give GitHub handles.",
+   "gold": {
+    "authors": [
+     [
+      "akihirosuda",
+      false
+     ]
+    ]
+   },
+   "kep": "KEP-2033",
+   "id": "k1-07e8dcc866",
+   "split": "test"
+  },
+  {
+   "template": 4,
+   "question": "Who are the authors of KEP-789 (Harden Default RBAC Discovery ClusterRole(Binding)s), and is each of them a chair or tech lead of any SIG as of 2026-10-17? Give GitHub handles.",
+   "gold": {
+    "authors": [
+     [
+      "dekkagaijin",
+      false
+     ]
+    ]
+   },
+   "kep": "KEP-789",
+   "id": "k1-1545dc9325",
+   "split": "test"
+  },
+  {
+   "template": 4,
+   "question": "Who are the authors of KEP-5419 (In-Place Pod-Level Resources Resize), and is each of them a chair or tech lead of any SIG as of 2026-10-17? Give GitHub handles.",
+   "gold": {
+    "authors": [
+     [
+      "ndixita",
+      false
+     ]
+    ]
+   },
+   "kep": "KEP-5419",
+   "id": "k1-33bd9cde83",
+   "split": "test"
+  },
+  {
+   "template": 4,
+   "question": "Who are the authors of KEP-1287 (In-place Update of Pod Resources), and is each of them a chair or tech lead of any SIG as of 2026-10-17? Give GitHub handles.",
+   "gold": {
+    "authors": [
+     [
+      "bskiba",
+      false
+     ],
+     [
+      "kgolab",
+      false
+     ],
+     [
+      "natasha41575",
+      false
+     ],
+     [
+      "schylek",
+      false
+     ],
+     [
+      "tallclair",
+      false
+     ],
+     [
+      "vinaykul",
+      false
+     ]
+    ]
+   },
+   "kep": "KEP-1287",
+   "id": "k1-42d65e973f",
+   "split": "dev"
+  },
+  {
+   "template": 4,
+   "question": "Who are the authors of KEP-5593 (Configure the max CrashLoopBackOff delay), and is each of them a chair or tech lead of any SIG as of 2026-10-17? Give GitHub handles.",
+   "gold": {
+    "authors": [
+     [
+      "hankfreund",
+      false
+     ],
+     [
+      "lauralorenz",
+      false
+     ]
+    ]
+   },
+   "kep": "KEP-5593",
+   "id": "k1-4ae6ac51ba",
+   "split": "dev"
+  },
+  {
+   "template": 4,
+   "question": "Who are the authors of KEP-127 (Support User Namespaces), and is each of them a chair or tech lead of any SIG as of 2026-10-17? Give GitHub handles.",
+   "gold": {
+    "authors": [
+     [
+      "giuseppe",
+      false
+     ],
+     [
+      "rata",
+      false
+     ],
+     [
+      "saschagrunert",
+      true
+     ]
+    ]
+   },
+   "kep": "KEP-127",
+   "id": "k1-51c5ca7458",
+   "split": "test"
+  },
+  {
+   "template": 4,
+   "question": "Who are the authors of KEP-6007 (NUMA Utilization-Aware Topology Manager Policy Options), and is each of them a chair or tech lead of any SIG as of 2026-10-17? Give GitHub handles.",
+   "gold": {
+    "authors": [
+     [
+      "swatisehgal",
+      false
+     ]
+    ]
+   },
+   "kep": "KEP-6007",
+   "id": "k1-5330f24cd3",
+   "split": "test"
+  },
+  {
+   "template": 4,
+   "question": "Who are the authors of KEP-6283 (Leveraging certificate APIs in the platform), and is each of them a chair or tech lead of any SIG as of 2026-10-17? Give GitHub handles.",
+   "gold": {
+    "authors": [
+     [
+      "stlaz",
+      false
+     ]
+    ]
+   },
+   "kep": "KEP-6283",
+   "id": "k1-6383dad6eb",
+   "split": "test"
+  },
+  {
+   "template": 4,
+   "question": "Who are the authors of KEP-3857 (Recursive read-only mounts), and is each of them a chair or tech lead of any SIG as of 2026-10-17? Give GitHub handles.",
+   "gold": {
+    "authors": [
+     [
+      "akihirosuda",
+      false
+     ]
+    ]
+   },
+   "kep": "KEP-3857",
+   "id": "k1-722e14e752",
+   "split": "test"
+  },
+  {
+   "template": 4,
+   "question": "Who are the authors of KEP-3130 (KMS Observability), and is each of them a chair or tech lead of any SIG as of 2026-10-17? Give GitHub handles.",
+   "gold": {
+    "authors": [
+     [
+      "aramase",
+      true
+     ]
+    ]
+   },
+   "kep": "KEP-3130",
+   "id": "k1-7862904c1b",
+   "split": "test"
+  },
+  {
+   "template": 4,
+   "question": "Who are the authors of KEP-3573 (Device Plugins), and is each of them a chair or tech lead of any SIG as of 2026-10-17? Give GitHub handles.",
+   "gold": {
+    "authors": [
+     [
+      "jiayingz",
+      false
+     ],
+     [
+      "renaudwastaken",
+      false
+     ],
+     [
+      "swatisehgal",
+      false
+     ]
+    ]
+   },
+   "kep": "KEP-3573",
+   "id": "k1-97d05b592f",
+   "split": "dev"
+  },
+  {
+   "template": 4,
+   "question": "Who are the authors of KEP-727 (Kubelet Resource Metrics Endpoint), and is each of them a chair or tech lead of any SIG as of 2026-10-17? Give GitHub handles.",
+   "gold": {
+    "authors": [
+     [
+      "dashpole",
+      true
+     ],
+     [
+      "richabanker",
+      true
+     ]
+    ]
+   },
+   "kep": "KEP-727",
+   "id": "k1-ccb0c0769a",
+   "split": "test"
+  },
+  {
+   "template": 4,
+   "question": "Who are the authors of KEP-3288 (Split Stdout and Stderr Log Stream of Container), and is each of them a chair or tech lead of any SIG as of 2026-10-17? Give GitHub handles.",
+   "gold": {
+    "authors": [
+     [
+      "knight42",
+      false
+     ]
+    ]
+   },
+   "kep": "KEP-3288",
+   "id": "k1-ce78c777da",
+   "split": "test"
+  },
+  {
+   "template": 4,
+   "question": "Who are the authors of KEP-2907 (Secrets Store CSI Driver), and is each of them a chair or tech lead of any SIG as of 2026-10-17? Give GitHub handles.",
+   "gold": {
+    "authors": [
+     [
+      "aramase",
+      true
+     ],
+     [
+      "tam7t",
+      false
+     ]
+    ]
+   },
+   "kep": "KEP-2907",
+   "id": "k1-eb55d3f622",
+   "split": "test"
+  }
+ ]
+}

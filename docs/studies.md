@@ -114,6 +114,7 @@ Each study below states its hypothesis, data, metric and script before its first
 - **Metrics:** exact match per question (sets compared as sets, dates to the day) with Wilson intervals, per template and overall; tokens, seconds per question.
 - **Predictions:** the graph-tool agent beats the file-tool agent overall, most on templates 2 and 3 (dates and leadership over time), and both beat RAG, which cannot see history; the deterministic graph answer is near the gold except on template 2 near quarter boundaries.
 - **Script:** `python3 -m moot.k1` (questions, gold, split, hash), `python3 eval/eval_k1.py --llm` → `eval/results_k1.md` and `.json`.
+- **Amended 09:45 UTC, after the questions were generated and before any arm ran:** template 1 has 1 question, not 15: only one SIG Auth or SIG Node KEP (KEP-3130) was replaced by another KEP and dated by a status change. So there are 46 questions (34 test, 12 dev). Template 3's dates are drawn from 2019-01-01 as registered; a first draft of the generator drew them from each KEP's first commit, which made 14 of 15 answers "in force", and was corrected to the registered rule before any arm ran.
 
 ## Registered after the fact
 

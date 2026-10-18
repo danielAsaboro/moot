@@ -40,15 +40,17 @@ def quarters(start: str, end: str) -> list[str]:
     return out
 
 
-def k8s_sigs(community: Path, sigs: list[str], today: str | None = None, since: str = "2018-01-01") -> tuple[list[dict], list[dict]]:
+def k8s_sigs(community: Path, sigs: list[str] | None, today: str | None = None, since: str = "2018-01-01") -> tuple[list[dict], list[dict]]:
     """Team, Project and LEADS from sigs.yaml and its history. Returns (nodes, edges)."""
     today = today or date.today().isoformat()
     seen: dict[tuple, list[str]] = {}  # (person, sig, role) -> quarters present
     names: dict[str, str] = {}
     head = None
     samples = quarters(since, today) + [today]
+    tip = next((r for r in (_git(community, "rev-parse", "--verify", "-q", ref).strip() for ref in ("refs/heads/master", "refs/heads/main"))
+                if r), "HEAD")
     for q in samples:
-        rev = _git(community, "rev-list", "-1", f"--before={q}T23:59:59", "refs/heads/master" if _git(community, "rev-parse", "--verify", "-q", "refs/heads/master").strip() else "HEAD").strip()
+        rev = _git(community, "rev-list", "-1", f"--before={q}T23:59:59", tip).strip()
         if not rev:
             continue
         try:
@@ -56,7 +58,7 @@ def k8s_sigs(community: Path, sigs: list[str], today: str | None = None, since: 
         except yaml.YAMLError:
             continue
         for s in y.get("sigs", []):
-            if s.get("dir") not in sigs:
+            if sigs is not None and s.get("dir") not in sigs:
                 continue
             if q == today:
                 head = head or {}
