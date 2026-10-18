@@ -11,7 +11,7 @@
 | BM25 RAG over the checkouts at HEAD | 15/34 (0.29–0.61) | 1/1 | 0/11 | 7/11 | 7/11 | 84,837 | 0.026 | 28.4 | 0 |
 | BM25 RAG over the checkouts and their history (post hoc, see register) | 17/34 (0.34–0.66) | 1/1 | 0/11 | 9/11 | 7/11 | 67,031 | 0.020 | 22.8 | 0 |
 | Moot, one fixed graph query per template, no model (shared-source reference) | 25/34 (0.57–0.85) | 1/1 | 6/11 | 8/11 | 10/11 | 0 | 0.000 | – | 0 |
-| the same fixed query on the graph rebuilt with commit-dated SIG leadership (post hoc, product change registered before K2) | 26/34 (0.60–0.88) | 1/1 | 7/11 | 8/11 | 10/11 | 0 | 0.000 | 0.0009 | 0 |
+| the same fixed query on the graph rebuilt with commit-dated SIG leadership (post hoc, product change registered before K2) | 26/34 (0.60–0.88) | 1/1 | 7/11 | 8/11 | 10/11 | 0 | 0.000 | 0.0008 | 0 |
 
 - graph agent vs agent with file and git tools over the same checkouts: on 34 questions both answered, only the graph agent right on 8, only the other on 4; exact McNemar p = 0.388
 - graph agent vs BM25 RAG over the checkouts at HEAD: on 34 questions both answered, only the graph agent right on 13, only the other on 2; exact McNemar p = 0.007
@@ -26,7 +26,7 @@
 | BM25 RAG over the checkouts at HEAD | 7/12 (0.32–0.81) | 0/0 | 0/4 | 4/4 | 3/4 | 30,672 | 0.009 | 30.5 | 0 |
 | BM25 RAG over the checkouts and their history (post hoc, see register) | 7/12 (0.32–0.81) | 0/0 | 0/4 | 4/4 | 3/4 | 24,060 | 0.007 | 22.2 | 0 |
 | Moot, one fixed graph query per template, no model (shared-source reference) | 10/12 (0.55–0.95) | 0/0 | 2/4 | 4/4 | 4/4 | 0 | 0.000 | – | 0 |
-| the same fixed query on the graph rebuilt with commit-dated SIG leadership (post hoc, product change registered before K2) | 10/12 (0.55–0.95) | 0/0 | 2/4 | 4/4 | 4/4 | 0 | 0.000 | 0.0006 | 0 |
+| the same fixed query on the graph rebuilt with commit-dated SIG leadership (post hoc, product change registered before K2) | 10/12 (0.55–0.95) | 0/0 | 2/4 | 4/4 | 4/4 | 0 | 0.000 | 0.0007 | 0 |
 
 - graph agent vs agent with file and git tools over the same checkouts: on 12 questions both answered, only the graph agent right on 5, only the other on 1; exact McNemar p = 0.219
 - graph agent vs BM25 RAG over the checkouts at HEAD: on 12 questions both answered, only the graph agent right on 4, only the other on 0; exact McNemar p = 0.125

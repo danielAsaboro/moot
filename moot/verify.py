@@ -343,13 +343,38 @@ def check_k1(c: Checker) -> None:
                  (cell(t), ci(t), cell(d), f"{t['tokens']:,}", f"{t['usd']:.3f}", t["seconds_median"] if t["seconds_median"] is not None else "–", t["calls"]))
     if "moot_direct_exact" in R["test"]:
         x = R["test"]["moot_direct_exact"]
-        c.expect("README.md", text, "K1 post-hoc exact row", r"the same fixed query answers (\d+) of (\d+), median ([\d.]+) ms",
-                 (x["right"], x["n"], f"{x['seconds_median'] * 1000:.1f}"))
+        c.expect("README.md", text, "K1 post-hoc exact row", r"the same fixed query answers (\d+) of (\d+), median (under a millisecond)",
+                 (x["right"], x["n"], "under a millisecond" if x["seconds_median"] < 0.001 else f"{x['seconds_median'] * 1000:.1f} ms"))
     pf, pr, ph = R["test"]["paired"]["file_tools"], R["test"]["paired"]["rag_bm25"], R["test"]["paired"]["rag_history"]
     c.expect("README.md", text, "K1 McNemar", r"only the graph agent right on (\d+) questions, only the file agent on (\d+), exact McNemar p = ([\d.]+)\).*?"
              r"\((\d+) against (\d+), p = ([\d.]+); against RAG over history (\d+) against (\d+), p = ([\d.]+)\)",
              (pf["only_moot"], pf["only_other"], f"{pf['p']:.2f}".rstrip("0") if pf["p"] >= 0.1 else pf["p"], pr["only_moot"], pr["only_other"], pr["p"],
               ph["only_moot"], ph["only_other"], ph["p"]))
+
+
+def check_k2(c: Checker) -> None:
+    """Study K2, the README's confirmation table and sentences, against eval/results_k2.json."""
+    f = EVAL / "results_k2.json"
+    if not f.exists():
+        return
+    R = json.loads(f.read_text())["results"]
+    text = (ROOT / "README.md").read_text()
+    k2 = text[text.index("### K2"):] if "### K2" in text else ""
+    sec = lambda x: "<0.001" if x is not None and x < 0.001 else ("–" if x is None else str(x))
+    for arm, label in (("moot_tools", r"\*\*graph-tool agent\*\*"), ("file_tools", "file and git agent over the same checkouts"),
+                       ("rag_bm25", "BM25 RAG at HEAD"), ("rag_history", r"BM25 RAG over history \(post hoc\)"),
+                       ("moot_direct", "fixed graph query, no model")):
+        t, d = R["test"][arm], R["dev"][arm]
+        c.expect("README.md", k2, f"K2 row {arm}", rf"\| {label} \| (?:\*\*)?([\d/]+)(?:\*\*)? \(([\d.–]+)\) \| ([^|]+) \| ([\d,]+) \| ([\d.]+) \| ([^|]+) \| (\d+) \|",
+                 (f"{t['right']}/{t['n']}", f"{t['ci'][0]:.2f}–{t['ci'][1]:.2f}", f"{d['right']}/{d['n']}", f"{t['tokens']:,}", f"{t['usd']:.3f}",
+                  sec(t["seconds_median"]), t["calls"]))
+    pf, pr = R["test"]["paired"]["file_tools"], R["test"]["paired"]["rag_bm25"]
+    pv = lambda x: "< 0.001" if x["p_exact"] < 0.001 else f"= {x['p']}"
+    c.expect("README.md", k2, "K2 McNemar", r"only the graph agent right on (\d+) questions, only the file agent on (\d+), exact McNemar p ([<=] [\d.]+)\) and of BM25 RAG \((\d+) against (\d+), p ([<=] [\d.]+)\)",
+             (pf["only_moot"], pf["only_other"], pv(pf), pr["only_moot"], pr["only_other"], pv(pr)))
+    m, fl, rg, fx = (R["test"][a] for a in ("moot_tools", "file_tools", "rag_bm25", "moot_direct"))
+    c.expect("README.md", text, "K2 hero table", r"\| \*\*agent with Moot's graph tools\*\* \| \*\*(\d+)\*\* \|.*?\n\| agent with file and git tools \| (\d+) \|.*?\n\| BM25 RAG \| (\d+) \|.*?\n\| \*\*Moot alone: one fixed graph query, no model\*\* \| \*\*(\d+)\*\*",
+             (m["right"], fl["right"], rg["right"], fx["right"]))
 
 
 def check_test_count(c: Checker) -> None:
@@ -392,6 +417,7 @@ def main(rerun: bool = False) -> int:
     check_reasons(c)
     check_router(c)
     check_k1(c)
+    check_k2(c)
     check_history(c)
     check_studies(c)
     check_test_count(c)

@@ -498,7 +498,7 @@ def main() -> None:
         for other in ("file_tools", "rag_bm25", "rag_history"):  # exact McNemar, the graph agent against each baseline, questions both answered
             both = [r for r in rs if r["moot_tools"] is not None and r[other] is not None]
             b_, c_ = sum(1 for r in both if r["moot_tools"] and not r[other]), sum(1 for r in both if r[other] and not r["moot_tools"])
-            res[split]["paired"][other] = dict(n=len(both), only_moot=b_, only_other=c_, p=round(mcnemar_exact(b_, c_), 3))
+            res[split]["paired"][other] = dict(n=len(both), only_moot=b_, only_other=c_, p=round(mcnemar_exact(b_, c_), 3), p_exact=mcnemar_exact(b_, c_))
     (OUT / f"results_{STUDY}.json").write_text(json.dumps(dict(model=MODEL, questions_sha256=Q["sha256"], results=res, rows=rows), indent=1) + "\n")
     names = dict(moot_tools="**agent with Moot's graph tools**", file_tools="agent with file and git tools over the same checkouts",
                  rag_bm25="BM25 RAG over the checkouts at HEAD", rag_history="BM25 RAG over the checkouts and their history (post hoc, see register)", moot_direct="Moot, one fixed graph query per template, no model (shared-source reference)",
@@ -524,7 +524,7 @@ def main() -> None:
         for other, pr in res[split]["paired"].items():
             if pr["n"]:
                 L.append(f"- graph agent vs {names[other].strip('*')}: on {pr['n']} questions both answered, only the graph agent right on "
-                         f"{pr['only_moot']}, only the other on {pr['only_other']}; exact McNemar p = {pr['p']}")
+                         f"{pr['only_moot']}, only the other on {pr['only_other']}; exact McNemar p {('= ' + str(pr['p'])) if pr['p_exact'] >= 0.001 else '< 0.001'}")
         L.append("")
     if OTHER:
         local = [(arm, q, cache[key_for(arm, q, OTHER, "v1")]) for q in Q["questions"] for arm in ("moot_tools", "file_tools", "rag_bm25")

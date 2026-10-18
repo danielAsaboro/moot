@@ -9,20 +9,20 @@
 
 ![Asking the Kubernetes graph about KEP-3130: retired by KEP-3299, the SIG that answers for it and its leads, the same question on 1 March 2022 (it held then), and the agent gate's DENY with who to ask](docs/hero-k8s.gif)
 
-| 34 held-out questions about Kubernetes (K1, test), same model | right | tokens | $ | s per question |
+| 57 held-out questions about Kubernetes (K2, the registered confirmation), same model | right | tokens | $ | s per question |
 |---|---|---|---|---|
-| **agent with Moot's graph tools** | **26** | 131k | 0.04 | 11 |
-| agent with file and git tools | 22 | 362k | 0.12 | 38 |
-| BM25 RAG | 15 | 85k | 0.03 | 28 |
-| **Moot alone: one fixed graph query, no model** | **25** | **0** | **0** | **0.001** |
+| **agent with Moot's graph tools** | **41** | 189k | 0.06 | 11 |
+| agent with file and git tools | 22 | 724k | 0.23 | 40 |
+| BM25 RAG | 26 | 131k | 0.04 | 26 |
+| **Moot alone: one fixed graph query, no model** | **38** | **0** | **0** | **0.001** |
 
 **[Try it](https://moot.bringaihome.xyz/app/?graph=gh_kubernetes_enhancements)** · **[Tour for judges](https://moot.bringaihome.xyz/#judges)** · **[Demo video](https://vimeo.com/1237038749)** · built for [Graph Hacks](https://www.wemakedevs.org/hackathons/falkordb), Company Brain track
 
 ## Why the graph
 
-"Who led the SIG that owns KEP-1884 on 27 June 2021?" takes two hops, the KEP's owning SIG and then that SIG's leaders on that day, and every edge in Moot's graph carries its dates; BM25 RAG got none of these questions right. An agent with file and git tools can walk the same history, and it matches the graph agent on accuracy within the noise, but it needs about three times the tokens and three and a half times the time. Most of these questions need no model at all: one fixed graph query per question answers 25 of 34 at zero tokens in about a millisecond, as many as the best agent within the noise, so in Moot the model only routes the question and phrases the answer. And every answer carries the path it walked and the read-only Cypher that produced it, so a reader can check it.
+"Who led the SIG that owns KEP-1884 on 27 June 2021?" takes two hops, the KEP's owning SIG and then that SIG's leaders on that day, and every edge in Moot's graph carries its dates; BM25 RAG got none of these questions right. On K2, the confirmation registered before it ran (four SIGs, six kinds of question), the same model answers 41 of 57 with Moot's graph tools against 22 with file and git tools over the same repositories (exact McNemar p < 0.001), with a quarter of the tokens in a quarter of the time; on K1 the two were level within the noise (26 against 22 of 34). Most of these questions need no model at all: one fixed graph query per question answers 38 of 57 at zero tokens in about a millisecond, so in Moot the model only routes the question and phrases the answer. And every answer carries the path it walked and the read-only Cypher that produced it, so a reader can check it.
 
-## K1: the result in full
+## K1 and K2: the result in full
 
 K1 asks what Kubernetes' own records say: which KEP replaced this one and when, who led its SIG on a date, whether it was in force on a date, and whether its authors still lead a SIG. The gold is read from raw git history by a separate parser (`moot/k1.py`); the questions were frozen and hashed before any arm ran ([register](docs/studies.md)). Same model, prompt and step budget for every model arm.
 
@@ -36,8 +36,23 @@ K1 asks what Kubernetes' own records say: which KEP replaced this one and when, 
 
 - **Accuracy:** level with the file and git agent (only the graph agent right on 8 questions, only the file agent on 4, exact McNemar p = 0.39); ahead of BM25 RAG beyond chance (13 against 2, p = 0.007; against RAG over history 11 against 2, p = 0.022).
 - **Fair baselines:** before any test answer was scored, three harness faults were fixed on dev and every affected arm re-run in full (the file agent could not reach `sigs.yaml` history or read past 6,000 characters; bare answers were dropped by the parser, which left RAG at 0); one name normaliser for every arm. Each is in the [register](docs/studies.md); earlier answers are kept, not scored.
-- **Post hoc, a product fix:** SIG leadership is now dated to the `sigs.yaml` commit instead of the quarter (registered before K2); on the rebuilt graph the same fixed query answers 26 of 34, median 0.9 ms. The frozen row above stays 25.
-- **Shared source:** Moot's graph is built from the same repositories the gold is read from, so the fixed-query row measures how faithfully the graph holds that history. The contest is between agents with different tools. [Full tables](eval/results_k1.md). K2 (78 questions over four SIGs) is frozen and running.
+- **Post hoc, a product fix:** SIG leadership is now dated to the `sigs.yaml` commit instead of the quarter (registered before K2); on the rebuilt graph the same fixed query answers 26 of 34, median under a millisecond. The frozen row above stays 25.
+- **Shared source:** Moot's graph is built from the same repositories the gold is read from, so the fixed-query row measures how faithfully the graph holds that history. The contest is between agents with different tools. [Full tables](eval/results_k1.md).
+### K2, the confirmation
+
+K2 was registered before any of its questions existed and frozen before any arm ran: 78 questions over SIG Auth, Node, Network and Storage KEPs, K1's four kinds plus how many of a SIG's KEPs were in force on a date and whether a person led the owning SIG the day a KEP was created; the same model, harness and prompts as K1's final run, nothing tuned on its dev split.
+
+| K2 arm (qwen3.8:27b, temperature 0) | test: exact match (95% CI) | dev | tokens (test) | $ at Groq's price (test) | median s per question (test) | tool calls (test) |
+|---|---|---|---|---|---|---|
+| **graph-tool agent** | **41/57** (0.59–0.82) | 13/21 | 189,181 | 0.060 | 10.9 | 117 |
+| file and git agent over the same checkouts | 22/57 (0.27–0.52) | 12/21 | 723,781 | 0.229 | 40.5 | 271 |
+| BM25 RAG at HEAD | 26/57 (0.33–0.58) | 10/21 | 131,478 | 0.040 | 25.8 | 0 |
+| BM25 RAG over history (post hoc) | 27/57 (0.35–0.60) | 10/21 | 84,654 | 0.026 | 16.6 | 0 |
+| fixed graph query, no model | 38/57 (0.54–0.78) | 14/21 | 0 | 0.000 | <0.001 | 0 |
+
+- **Accuracy:** the graph agent is ahead of the file and git agent beyond chance (only the graph agent right on 22 questions, only the file agent on 3, exact McNemar p < 0.001) and of BM25 RAG (18 against 3, p = 0.001).
+- **Against the registered prediction:** the margin over the file agent is at least K1's dev margin, as predicted, and largest where a date has to be joined to a person: whether someone led the owning SIG the day a KEP was created (11 of 11 against 1 of 11), and whether a KEP's authors lead a SIG today (11 against 6). Two parts did not hold: on how many of a SIG's KEPs were in force on a date every arm, the fixed query included, got 0 of 11 (the graph dates a KEP's force from its first implementable commit, the gold reads every status change), and RAG did not stay near zero (26 of 57). [Full tables](eval/results_k2.md).
+
 - **Not a forecaster:** on 64 held-out real decisions Moot scored 52 against 59 for calling everything "still holds". Every forecasting study (H1, A1, H2, P1, the backtest) is in [docs/results.md](docs/results.md), every number kept.
 
 ## One decision, end to end
@@ -83,7 +98,7 @@ gate: DENY (retired) · ask: Anish Ramasekar, its author, still here
 | criterion | the evidence |
 |---|---|
 | **Graph-native use of FalkorDB** | Verdicts *are* path queries over dated edges, all through `GRAPH.RO_QUERY` ([queries](docs/queries.md)); `algo.WCC`, `algo.betweenness`, `algo.pageRank`, `algo.SPpaths` answer who knows why, what leaves with a person, blast radius and what a PR broke; one named graph per organisation. Removing FalkorDB but keeping the rules drops Larkspur's head-to-head from 90/90 to 60/90 and H1 from 52/64 to 24/64. |
-| **Agent effectiveness** | On K1 the same model with Moot's graph tools matches an agent with file and git tools within the noise (test 26 against 22 of 34) at about a third of its tokens and 3.5 times its speed, and beats BM25 RAG (15 of 34) beyond chance. The gate answers before an agent acts, names who to ask, and blocks a coding agent's edit under a dead decision. On real decisions the old strict policy blocked everything it could not vouch for (59 of 59 that held); the product policy lets 4 of 5 later-dead decisions through but blocks only 8 of 59 that held. A tool-call router routes 20 of 22 questions the keyword rules misroute. |
+| **Agent effectiveness** | On K2, the registered confirmation, the same model with Moot's graph tools answers 41 of 57 Kubernetes questions against 22 with file and git tools (exact McNemar p < 0.001) and 26 for BM25 RAG, at a quarter of the file agent's tokens and time; on K1 it was level with the file agent (26 against 22 of 34). The gate answers before an agent acts, names who to ask, and blocks a coding agent's edit under a dead decision. On real decisions the old strict policy blocked everything it could not vouch for (59 of 59 that held); the product policy lets 4 of 5 later-dead decisions through but blocks only 8 of 59 that held. A tool-call router routes 20 of 22 questions the keyword rules misroute. |
 | **Potential impact** | A real organisation end to end (Kubernetes), any public repository's ADRs and CODEOWNERS, and an agent gate that works over HTTP, MCP and in the editor. |
 | **Technical excellence** | One-command setup (`docker compose up --build`, or `make demo`), 186 tests, CI on FalkorDB v4.22.1 and v4.18.3 plus the UI build, `moot verify --rerun` re-derives every number above from committed inputs, `make judge-check` runs it all. |
 | **Explainability and provenance** | Every answer carries its path, evidence ids and dates, the Cypher it ran and a digest of the rows; every model-proposed quote is a checked literal span with its source and model. "No evidence" is never "holds". |
