@@ -149,6 +149,16 @@ Each study below states its hypothesis, data, metric and script before its first
 - **Primary metric:** held-out Avg, graph agent against search-only agent; paired bootstrap 95% interval of the difference (10,000 resamples within each category). Also: unanswerable declined share, tokens, seconds.
 - **Prediction:** the graph agent beats the search-only agent and the interval of the difference excludes zero.
 
+## H3. Ranking decisions by risk, where "everything holds" cannot score
+
+- **Written:** 2026-10-22, before any H3 repository was chosen or mined. H1 and H2 asked Moot to call each decision dead or alive; calling everything alive wins that game because deaths are rare (5 of 64, 1 of 22). H3 asks the question a team can use: rank the decisions in force by how likely each is to be abandoned, so the few that die are near the top. A constant answer has no ranking (AUC 0.5 by definition, precision at k equal to the base rate).
+- **Units:** decisions that pick an outside tool, in force on T0 = 2022-10-17, in public repositories with an ADR folder that no earlier study used (not the backtest's 30, H1's or H2's), found by GitHub search and mined with H2's code until at least 300 units or the candidates run out; labelled by 2025-10-17 with H1's rule (a status change, an archive move, a later ADR dropping the tool, or the tool leaving the dependency manifests or Terraform).
+- **Split and freeze:** 30% dev, 70% test by sha256 of the unit id; the gold is hashed and committed before any score is computed; nothing is fit on test.
+- **Scores (higher = more at risk), each from what was knowable on T0:** (1) Moot: a logistic model over features read from Moot's graph as of T0 (expired, disputed and unchecked reasons; maintenance, licence and advisory hits on the tool; the decision's age; retired or superseded decisions in the same repository), its weights fit on dev only; (2) age alone; (3) random (mean over 1,000 draws); (4) "everything holds" (a constant).
+- **Primary metric:** test ROC AUC of Moot's score, with a 95% bootstrap interval, and the paired bootstrap difference against age alone. Secondary: precision and recall in the top 10%.
+- **Power rule:** if the test split has fewer than 10 abandoned decisions, H3 is reported as underpowered and makes no claim.
+- **Prediction:** Moot's AUC is above 0.5 with an interval that excludes 0.5. No prediction against age alone (the backtest found age a strong signal).
+
 ## Registered after the fact
 
 - **Backtest** (`eval/results_backtest.md`). The answer key (maintainers' own status changes) was fixed by code before the gate ran, but this file did not exist then, so the order rests on the results file's own account. Its gate was replayed before the empty-evidence fix; its score counts DENY only, which the fix does not touch (the fix turns some ALLOWs into REVALIDATE).
