@@ -16,6 +16,7 @@ import s from "./shell.module.css";
 const NAV: [string, string][] = [
   ["/app/", "Ask"],
   ["/app/ledger/", "Ledger"],
+  ["/app/map/", "Map"],
   ["/app/gate/", "Agent gate"],
   ["/app/orphans/", "Owners"],
   ["/app/whatif/", "What-if"],

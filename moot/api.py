@@ -14,7 +14,7 @@ from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse, Res
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from . import agent, answer, snapshot, tools
+from . import agent, answer, mapdata, snapshot, tools
 from .graph import BACKTEST_GRAPH, DATA, GH_PREFIX, PUBLIC_GRAPH, connect, graph, stats
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -120,6 +120,12 @@ def ledger(as_of: str | None = None, depth: int = Query(4, ge=1, le=6)):
 def timeline(start: str = "2025-01-01", end: str | None = None, depth: int = Query(4, ge=1, le=6)):
     """The ledger re-run at every month end: how many decisions had quietly gone MOOT by then."""
     return dict(depth=depth, points=tools.timeline(g(), as_of_param(start) or "2025-01-01", as_of_param(end), depth))
+
+
+@app.get("/api/map")
+def network_map(as_of: str | None = None, depth: int = Query(4, ge=1, le=6)):
+    """The whole network for the map view, with every verdict and reason state at each month end. Read-only."""
+    return mapdata.export(g(), as_of_param(as_of), depth)
 
 
 @app.get("/api/decision/{decision_id}")

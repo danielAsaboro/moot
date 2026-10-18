@@ -60,6 +60,7 @@ def _urls(get) -> tuple[list[str], list[str]]:
     for d in get("/api/realworld").get("decisions", []):
         urls += [f"/api/gate/{d['id']}?graph=public_adrs", f"/api/gate/{d['id']}?as_of={REF_DATE}&graph=public_adrs"]
     urls += [f"/api/premise/{p}" for p in ids["Premise"]]
+    urls += [f"/api/map?as_of={a}&depth={d}" for a in dates for d in ("", 1, 2, 3, 4, 5, 6)]   # the map scrubs months itself
     urls += [f"/api/trace/{e}" for e in ids["Evidence"]] + [f"/api/document/{e}" for e in ids["Evidence"]]
     return list(dict.fromkeys(urls)), points
 
