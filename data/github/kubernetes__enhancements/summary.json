@@ -1,37 +1,28 @@
 {
  "repo": "kubernetes/enhancements",
  "graph": "gh_kubernetes_enhancements",
- "folder": "keps/sig-auth",
+ "folder": "keps/sig-auth,sig-node",
  "read_on": "2026-10-21",
- "adr_files": 36,
- "decisions": 30,
+ "adr_files": 175,
+ "decisions": 158,
  "retired": 2,
  "sigs": [
-  "sig-auth"
+  "sig-auth",
+  "sig-node"
  ],
- "people": 70,
+ "people": 389,
  "pull_requests": 1,
  "tools": [],
  "reasons": {
-  "model": "qwen/qwen3.8-27b",
-  "extracted": 30,
+  "model": "qwen/qwen3.8-27b, qwen3.8:27b",
+  "extracted": 158,
   "not_read": 0,
-  "reasons": 90,
-  "dropped": 5,
+  "reasons": 277,
+  "dropped": 14,
   "tool_links": 0,
-  "relations": 3,
+  "relations": 7,
   "relations_dropped": 0
  },
  "checks": 0,
- "failing": 0,
- "verdicts": {
-  "HOLDS": 26,
-  "RETIRED": 2,
-  "UNDOCUMENTED": 2
- },
- "gates": {
-  "DENY": 2,
-  "REVALIDATE": 28
- },
- "moot": []
+ "failing": 0
 }

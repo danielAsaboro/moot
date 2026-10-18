@@ -1,228 +1,1260 @@
 {
  "evidence": {
-  "KEP-1205": {
-   "backend": "groq",
+  "KEP-1029": {
+   "backend": "ollama",
    "dropped": [],
-   "key": "6712d35f82121bcda79b",
-   "model": "qwen/qwen3.8-27b",
+   "key": "60f5161e09bec6bbe875",
+   "model": "qwen3.8:27b",
    "reply": "{\"relations\": []}",
-   "seconds": 7.6
+   "seconds": 32.0
+  },
+  "KEP-1205": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "518e808c7130a3111753",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 11.7
+  },
+  "KEP-127": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "701d7d4756aabc2ad6eb",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": [\n  {\n    \"reason_id\": \"r_KEP-213_1\",\n    \"rel\": \"SUPPORTS\",\n    \"quote\": \"The goal of supporting user namespaces in Kubernetes is to be able to run processes in pods with a different user and group IDs than in the host. Specifically, a privileged process in the pod runs as an unprivileged process in the host.\",\n    \"why\": \"The later ADR affirms the motivation for running containers with non-root privileges on the host by proposing user namespaces to map privileged container processes to unprivileged host processes.\"\n  },\n  {\n    \"reason_id\": \"r_KEP-2172_1\",\n    \"rel\": \"SUPPORTS\",\n    \"quote\": \"If such a process is able to break out of the container to the host, it'll have limited impact as it'll be running as an unprivileged user there.\",\n    \"why\": \"The later ADR supports the reason that running as root worsens escape vulnerabilities by explicitly stating that user namespaces limit the impact of a breakout by ensuring the process is unprivileged on the host.\"\n  }\n]}",
+   "seconds": 40.6
+  },
+  "KEP-1287": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "5291e3436364007a4ec9",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 21.0
   },
   "KEP-1314": {
-   "backend": "groq",
+   "backend": "ollama",
    "dropped": [],
-   "key": "b341e015cf1ea2c81fa5",
-   "model": "qwen/qwen3.8-27b",
+   "key": "df13f99130478782124f",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 20.3
+  },
+  "KEP-135": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "36a18a89265f2594b286",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 18.2
+  },
+  "KEP-1393": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "d8f5f4e5137c0d372134",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 23.1
+  },
+  "KEP-1513": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ab97ceba7f0d3504e0f4",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 15.5
+  },
+  "KEP-1539": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ae0eef80fbfea33b6b3d",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 44.8
+  },
+  "KEP-1547": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "a6b7c8179a617ad9d2f2",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 24.7
+  },
+  "KEP-1558": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "fb3af89eec3a4a9a65b7",
+   "model": "qwen3.8:27b",
    "reply": "{\"relations\": []}",
    "seconds": 17.0
   },
-  "KEP-1393": {
-   "backend": "groq",
+  "KEP-166": {
+   "backend": "ollama",
    "dropped": [],
-   "key": "750e1fa45892c1de56db",
-   "model": "qwen/qwen3.8-27b",
+   "key": "0bce4aa283cda89c28a4",
+   "model": "qwen3.8:27b",
    "reply": "{\"relations\": []}",
-   "seconds": 0.4
-  },
-  "KEP-1513": {
-   "backend": "groq",
-   "dropped": [],
-   "key": "1183ad970dbb1ad83c06",
-   "model": "qwen/qwen3.8-27b",
-   "reply": "{\"relations\": []}",
-   "seconds": 6.9
+   "seconds": 12.2
   },
   "KEP-1687": {
-   "backend": "groq",
+   "backend": "ollama",
    "dropped": [],
-   "key": "5aae7f8c929a0af0890a",
-   "model": "qwen/qwen3.8-27b",
+   "key": "e2edcd966c7a86089b1e",
+   "model": "qwen3.8:27b",
    "reply": "{\"relations\": []}",
-   "seconds": 9.6
+   "seconds": 13.0
   },
-  "KEP-2718": {
-   "backend": "groq",
+  "KEP-1769": {
+   "backend": "ollama",
    "dropped": [],
-   "key": "2311f529ff3e2b15b7af",
-   "model": "qwen/qwen3.8-27b",
+   "key": "ef290bbbab583d04cadb",
+   "model": "qwen3.8:27b",
    "reply": "{\"relations\": []}",
-   "seconds": 19.1
+   "seconds": 21.0
   },
-  "KEP-2784": {
-   "backend": "groq",
+  "KEP-1797": {
+   "backend": "ollama",
    "dropped": [],
-   "key": "cb0485641c91fa969c4e",
-   "model": "qwen/qwen3.8-27b",
+   "key": "b0ab0ef1aec6b682a648",
+   "model": "qwen3.8:27b",
    "reply": "{\"relations\": []}",
-   "seconds": 14.7
+   "seconds": 24.6
   },
-  "KEP-2799": {
-   "backend": "groq",
+  "KEP-1867": {
+   "backend": "ollama",
    "dropped": [],
-   "key": "92ce7c12014850240457",
-   "model": "qwen/qwen3.8-27b",
+   "key": "5aa7164300cd22344463",
+   "model": "qwen3.8:27b",
    "reply": "{\"relations\": []}",
-   "seconds": 14.7
+   "seconds": 11.1
   },
-  "KEP-2907": {
-   "backend": "groq",
+  "KEP-1884": {
+   "backend": "ollama",
    "dropped": [],
-   "key": "1ef702627ec71cd08048",
-   "model": "qwen/qwen3.8-27b",
+   "key": "8ae2fa3648774c2e99ab",
+   "model": "qwen3.8:27b",
    "reply": "{\"relations\": []}",
-   "seconds": 15.7
-  },
-  "KEP-3130": {
-   "backend": "groq",
-   "dropped": [],
-   "key": "97c56468bc2a334f297b",
-   "model": "qwen/qwen3.8-27b",
-   "reply": "{\"relations\": []}",
-   "seconds": 8.8
-  },
-  "KEP-3221": {
-   "backend": "groq",
-   "dropped": [],
-   "key": "49e598a9f649d4d2e156",
-   "model": "qwen/qwen3.8-27b",
-   "reply": "{\"relations\": []}",
-   "seconds": 25.9
-  },
-  "KEP-3257": {
-   "backend": "groq",
-   "dropped": [],
-   "key": "674ac11df3275e5f093c",
-   "model": "qwen/qwen3.8-27b",
-   "reply": "{\"relations\": []}",
-   "seconds": 23.8
-  },
-  "KEP-3299": {
-   "backend": "groq",
-   "dropped": [],
-   "key": "802a83e83f8ce5372280",
-   "model": "qwen/qwen3.8-27b",
-   "reply": "{\n  \"relations\": [\n    {\n      \"reason_id\": \"r_KEP-3130_2\",\n      \"rel\": \"SUPPORTS\",\n      \"quote\": \"The only way to correlate a successful/failed envelope operation today is to use the approximate timestamp of the operation to check events in kube-apiserver, kms-plugin and KMS.\",\n      \"why\": \"The later ADR explicitly restates this limitation as the current state ('today') to motivate the introduction of transaction IDs.\"\n    },\n    {\n      \"reason_id\": \"r_KEP-3130_3\",\n      \"rel\": \"SUPPORTS\",\n      \"quote\": \"There is no guarantee that the timestamp of the operation is the same as the timestamp of the corresponding event in KMS.\",\n      \"why\": \"The later ADR explicitly restates this lack of guarantee as the current state ('today') to justify the need for a more reliable correlation mechanism.\"\n    }\n  ]\n}",
-   "seconds": 19.8
-  },
-  "KEP-3331": {
-   "backend": "groq",
-   "dropped": [],
-   "key": "231f2f5d143c6082e395",
-   "model": "qwen/qwen3.8-27b",
-   "reply": "{\"relations\": []}",
-   "seconds": 13.9
-  },
-  "KEP-3926": {
-   "backend": "groq",
-   "dropped": [],
-   "key": "5a00029d813d196d9934",
-   "model": "qwen/qwen3.8-27b",
-   "reply": "{\"relations\": []}",
-   "seconds": 18.7
-  },
-  "KEP-4193": {
-   "backend": "groq",
-   "dropped": [],
-   "key": "45ebfb61b3cc6271c565",
-   "model": "qwen/qwen3.8-27b",
-   "reply": "{\"relations\": []}",
-   "seconds": 17.7
-  },
-  "KEP-4317": {
-   "backend": "groq",
-   "dropped": [],
-   "key": "d2e46e4eabd3c42d5448",
-   "model": "qwen/qwen3.8-27b",
-   "reply": "{\"relations\": []}",
-   "seconds": 26.8
-  },
-  "KEP-4412": {
-   "backend": "groq",
-   "dropped": [],
-   "key": "66729aeb708cbaad1599",
-   "model": "qwen/qwen3.8-27b",
-   "reply": "{\"relations\": []}",
-   "seconds": 21.8
-  },
-  "KEP-4601": {
-   "backend": "groq",
-   "dropped": [],
-   "key": "5809550722bdd0e02392",
-   "model": "qwen/qwen3.8-27b",
-   "reply": "{\"relations\": []}",
-   "seconds": 19.8
-  },
-  "KEP-4633": {
-   "backend": "groq",
-   "dropped": [],
-   "key": "7872e33c940653e52284",
-   "model": "qwen/qwen3.8-27b",
-   "reply": "{\n  \"relations\": [\n    {\n      \"reason_id\": \"r_KEP-789_3\",\n      \"rel\": \"SUPPORTS\",\n      \"quote\": \"this is not possible for many deployments that depend on unauthenticated requests (from clients like load balancers or the kubelet) to check health endpoints of a kubernetes cluster (`healthz`, `livez` and `readyz`).\",\n      \"why\": \"The later ADR explicitly cites the dependency on unauthenticated health checks as a reason why a blanket disable of anonymous auth is not feasible, affirming the earlier reason that legitimate use-cases for unauthenticated calls must not be broken.\"\n    }\n  ]\n}",
    "seconds": 20.0
   },
-  "KEP-4872": {
-   "backend": "groq",
+  "KEP-1898": {
+   "backend": "ollama",
    "dropped": [],
-   "key": "180a1c532dffbdc05056",
-   "model": "qwen/qwen3.8-27b",
+   "key": "49afa951419d1531da0a",
+   "model": "qwen3.8:27b",
    "reply": "{\"relations\": []}",
-   "seconds": 16.7
+   "seconds": 13.0
   },
-  "KEP-4940": {
-   "backend": "groq",
+  "KEP-1967": {
+   "backend": "ollama",
    "dropped": [],
-   "key": "d5ee58025feb15b91bb4",
-   "model": "qwen/qwen3.8-27b",
+   "key": "7757cebb316ef8633e44",
+   "model": "qwen3.8:27b",
    "reply": "{\"relations\": []}",
-   "seconds": 12.7
+   "seconds": 12.6
   },
-  "KEP-541": {
-   "backend": "groq",
+  "KEP-1972": {
+   "backend": "ollama",
    "dropped": [],
-   "key": "1ffd51e995074df5a41f",
-   "model": "qwen/qwen3.8-27b",
+   "key": "dd7a29903514b7acb36e",
+   "model": "qwen3.8:27b",
    "reply": "{\"relations\": []}",
-   "seconds": 9.7
+   "seconds": 13.0
   },
-  "KEP-5681": {
-   "backend": "groq",
+  "KEP-2000": {
+   "backend": "ollama",
    "dropped": [],
-   "key": "e718ea6d619dc845fd65",
-   "model": "qwen/qwen3.8-27b",
+   "key": "ef3e4a93011d529f8bf2",
+   "model": "qwen3.8:27b",
    "reply": "{\"relations\": []}",
-   "seconds": 12.7
+   "seconds": 31.6
   },
-  "KEP-600": {
-   "backend": "groq",
+  "KEP-2008": {
+   "backend": "ollama",
    "dropped": [],
-   "key": "e892011880e843f06fef",
-   "model": "qwen/qwen3.8-27b",
+   "key": "8dd4d1c0e0a79fdcf1db",
+   "model": "qwen3.8:27b",
    "reply": "{\"relations\": []}",
-   "seconds": 22.9
+   "seconds": 16.8
   },
-  "KEP-6283": {
-   "backend": "groq",
+  "KEP-2033": {
+   "backend": "ollama",
    "dropped": [],
-   "key": "19ec5837d92c76ae661d",
-   "model": "qwen/qwen3.8-27b",
+   "key": "f01ef842c0d147ae36ff",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 36.4
+  },
+  "KEP-2040": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "8528c8e9d11df5a912d9",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 12.5
+  },
+  "KEP-2053": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "b379c90bfe1d6e92665c",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 11.8
+  },
+  "KEP-2129": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "63473293ead59ab269d2",
+   "model": "qwen3.8:27b",
    "reply": "{\"relations\": []}",
    "seconds": 14.9
   },
-  "KEP-740": {
-   "backend": "groq",
+  "KEP-213": {
+   "backend": "ollama",
    "dropped": [],
-   "key": "bce2533ad8195c4707bb",
-   "model": "qwen/qwen3.8-27b",
+   "key": "75bcaa9fbfce9cc1aeaa",
+   "model": "qwen3.8:27b",
    "reply": "{\"relations\": []}",
-   "seconds": 0.5
+   "seconds": 6.2
+  },
+  "KEP-2133": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "bdfe510945680e6bbdc7",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 13.8
+  },
+  "KEP-2172": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "05dac72f60a039018865",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 23.1
+  },
+  "KEP-2221": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "06946abf601145e7a40f",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 16.8
+  },
+  "KEP-2238": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ce5501f0b00ee96de8c6",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 15.1
+  },
+  "KEP-2254": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "f707b36982f13500b4d5",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 12.2
+  },
+  "KEP-2371": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "cd09a521ed75e22908f3",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 27.6
+  },
+  "KEP-24": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c51b5b7327230c096552",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 14.3
+  },
+  "KEP-2400": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "befded048f72d9f27747",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 32.3
+  },
+  "KEP-2403": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "cd8c8ef8b0d5ee7cfad1",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": [{\"reason_id\": \"r_KEP-1884_2\", \"rel\": \"SUPPORTS\", \"quote\": \"The kubelet is the best source of information because it manages concrete resources assignment.\", \"why\": \"The later ADR explicitly restates this reason to justify using the kubelet for tracking allocated resources in the context of topology-aware scheduling.\"}]}",
+   "seconds": 18.1
+  },
+  "KEP-2411": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "6346d58216423cc71222",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 13.2
+  },
+  "KEP-2413": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "7754351b402f9a6a1eee",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 14.1
+  },
+  "KEP-2535": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "8716d9b8eff24d360b7a",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 24.2
+  },
+  "KEP-2570": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "4213c1625a924dae038a",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 31.1
+  },
+  "KEP-2625": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "1d5b7779e93d05efd6c7",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 16.8
+  },
+  "KEP-266": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "8bf2338e565167338af1",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 5.6
+  },
+  "KEP-2712": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "8e45f7c5f275d087b8df",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 23.1
+  },
+  "KEP-2718": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "1b27300c512798d0bb3b",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 23.7
+  },
+  "KEP-2727": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "1925bbdc2a82972a3d23",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 12.5
+  },
+  "KEP-277": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "4de8709cb030f365f8ad",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 36.5
+  },
+  "KEP-2784": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "7d4f016e1df38e3030f0",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 16.9
+  },
+  "KEP-279": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "03b5a061587c55c177b3",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 9.1
+  },
+  "KEP-2799": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "339bcb6b1d465f3db56c",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 15.1
+  },
+  "KEP-281": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "1923023ed8ad927a3d75",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 5.5
+  },
+  "KEP-2837": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "952ce8a1366491d168ec",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 29.1
+  },
+  "KEP-2862": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "da6009367a001ce9e072",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 24.2
+  },
+  "KEP-2902": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "46048748ebd5377b8c78",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 13.6
+  },
+  "KEP-2907": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "9bfea3a80f3ea939eeed",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 19.2
+  },
+  "KEP-3063": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "13079b80feea1cd99a2c",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 20.7
+  },
+  "KEP-3085": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "81f0c6d892a31cb28d01",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 29.5
+  },
+  "KEP-3130": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "d5138ae1409c0f2f8015",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 13.0
+  },
+  "KEP-3221": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "af227ab3b2ec9a840106",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 30.2
+  },
+  "KEP-3257": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "caf57573a8b5e3d31b2d",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 27.0
+  },
+  "KEP-3288": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "f6e00023a9d38b137ef3",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 17.1
+  },
+  "KEP-3299": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "e3a8a78b51bade995c68",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": [\n  {\n    \"reason_id\": \"r_KEP-3130_2\",\n    \"rel\": \"SUPPORTS\",\n    \"quote\": \"The only way to correlate a successful/failed envelope operation today is to use the approximate timestamp of the operation to check events in kube-apiserver, kms-plugin and KMS.\",\n    \"why\": \"The later ADR explicitly restates this reason in its Motivation section to justify the need for the proposed transaction ID feature.\"\n  },\n  {\n    \"reason_id\": \"r_KEP-3130_3\",\n    \"rel\": \"SUPPORTS\",\n    \"quote\": \"There is no guarantee that the timestamp of the operation is the same as the timestamp of the corresponding event in KMS.\",\n    \"why\": \"The later ADR explicitly restates this reason in its Motivation section to support the argument for using a transaction ID instead of timestamps.\"\n  },\n  {\n    \"reason_id\": \"r_KEP-740_1\",\n    \"rel\": \"SUPPORTS\",\n    \"quote\": \"Any change to the `EncryptionConfiguration` requires a kube-apiserver restart for the changes to take effect.\",\n    \"why\": \"The later ADR confirms that the current rotation process requires restarts, affirming the constraint that rotating keys currently requires restarting the kube-apiserver.\"\n  }\n]}",
+   "seconds": 33.8
+  },
+  "KEP-3327": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "f498d2948bd8cfa15f34",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 15.0
+  },
+  "KEP-3331": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "8ad359ddc3015cd272a7",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 17.6
+  },
+  "KEP-3386": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "35a08dc9462300cc3c71",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 22.0
+  },
+  "KEP-34": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "2ce2f4fd507ad91f485a",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 15.5
+  },
+  "KEP-3545": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ec144bdc25d17492a4a7",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 15.9
+  },
+  "KEP-3570": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ed9f03b942ccc035df6d",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 15.7
+  },
+  "KEP-3573": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "859b093d22bde41ee03f",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 23.7
+  },
+  "KEP-3673": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "77c83bf986cca10c8e6d",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 23.1
+  },
+  "KEP-3695": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "6295b0ccc5a220cbcc03",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 13.3
+  },
+  "KEP-3721": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "558d2f48ca78d2222269",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 25.3
+  },
+  "KEP-3857": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "95d323c66d84fed299e4",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 20.3
+  },
+  "KEP-3926": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "45b5127fd8b42d7f37c5",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 22.2
+  },
+  "KEP-3953": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "8462fea029188e3b8e15",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 31.1
+  },
+  "KEP-3960": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "38ad7bfa0c670cb079d5",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 19.0
+  },
+  "KEP-3983": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "a7af6364fb944c5abc34",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 20.9
+  },
+  "KEP-4009": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "8badeb483657d9caf569",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 15.6
+  },
+  "KEP-4033": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "28ccb391dcbcd3b258fb",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 17.8
+  },
+  "KEP-4176": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "b16fee88641ec143fe33",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 20.8
+  },
+  "KEP-4188": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "33b630078ff67d4b6e96",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 28.8
+  },
+  "KEP-4191": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ee7679b51fc6e60f110f",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 30.4
+  },
+  "KEP-4193": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "5379f0eb0445db39dd0a",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 20.7
+  },
+  "KEP-4205": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "b9a8f069f45e4cef18bf",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 13.6
+  },
+  "KEP-4210": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "1fda5f60c4027cae60bb",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 18.6
+  },
+  "KEP-4216": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "02973908c97b43740903",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 38.6
+  },
+  "KEP-4265": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "7ce8a3da81e9bddf09eb",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 13.1
+  },
+  "KEP-4317": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "b98b5837e5b9299e3e97",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 32.3
+  },
+  "KEP-4381": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "96e4b8ea61bf950851ee",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 30.5
+  },
+  "KEP-4412": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c6b18a1d057811b59c17",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 27.0
+  },
+  "KEP-4438": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "6a2d3716ecf6b8f65bba",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 27.9
+  },
+  "KEP-4540": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "daeb6988ea1679d5792b",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 17.4
+  },
+  "KEP-4563": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "8efac4fd387f34ea9884",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 32.0
+  },
+  "KEP-4569": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "86a4395a78ce61f67d25",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 16.9
+  },
+  "KEP-4601": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "fd4549049e4eecb6fa0c",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 22.8
+  },
+  "KEP-4622": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "0c0d9449d9f2e744b5fc",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 17.2
+  },
+  "KEP-4633": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "07b9c630e2e6298e8bf3",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": [{\"reason_id\": \"r_KEP-789_3\", \"rel\": \"SUPPORTS\", \"quote\": \"this is not possible for many deployments that depend on unauthenticated requests (from clients like load balancers or the kubelet) to check health endpoints of a kubernetes cluster (`healthz`, `livez` and `readyz`)\", \"why\": \"The later ADR explicitly acknowledges that health checks require unauthenticated access, affirming the earlier reason that legitimate use-cases for unauthenticated calls must not be broken.\"}]}",
+   "seconds": 28.7
+  },
+  "KEP-4680": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "321691be4e48bf560fbd",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 20.5
+  },
+  "KEP-4742": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "8568b60be5e5a334f52c",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 19.0
+  },
+  "KEP-4800": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "0d231cc72a4b7d08e012",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 24.3
+  },
+  "KEP-4817": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "de18d01850cdd1c30414",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 19.3
+  },
+  "KEP-4818": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "7b6685bca5ffed40885c",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 19.2
+  },
+  "KEP-4872": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "11fabbc9e0084c256a72",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 19.8
+  },
+  "KEP-4939": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "9bdd2101db62b02b95d8",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 19.2
+  },
+  "KEP-4940": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "8108ffbaeece85f08693",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 14.6
+  },
+  "KEP-4960": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c487518b3cf995e72804",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 20.1
+  },
+  "KEP-5067": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c9cc2e37f9b5a96ec837",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 16.5
+  },
+  "KEP-5304": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "139a84a46e3f76ed78b8",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 20.7
+  },
+  "KEP-5307": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "493c20bcd48ad36a6ae2",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 27.8
+  },
+  "KEP-5328": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "383b13b65ea83a8bdd56",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 27.8
+  },
+  "KEP-5359": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "f7d35cbfe5f634739c22",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 25.7
+  },
+  "KEP-5394": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "2c6409b9b4dfb38e0ba2",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 13.3
+  },
+  "KEP-541": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "f7169341ce8573ccbb57",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 14.8
+  },
+  "KEP-5419": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "467d8ef03ccee7c9560b",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 17.4
+  },
+  "KEP-5474": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "97591679fbe414fc436a",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 29.7
+  },
+  "KEP-5526": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "2c2740be40f7e88af088",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 31.9
+  },
+  "KEP-5532": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "1e36de1b30765cfda9fb",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 30.1
+  },
+  "KEP-5554": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "89b5a4a20535249e32a7",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 21.3
+  },
+  "KEP-5573": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "0905b48867de6cfa202e",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 23.7
+  },
+  "KEP-5593": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "421b8ba402e5f0353cdf",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 31.8
+  },
+  "KEP-5607": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "696234db30b0691b6012",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 16.3
+  },
+  "KEP-5681": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "643b745dad554de65c3a",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 17.1
+  },
+  "KEP-5683": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "af4ac2c5564c31fa8fd3",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 32.9
+  },
+  "KEP-5714": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "3c9345afb6a40ff1c0dd",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 20.1
+  },
+  "KEP-5758": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "aaa58a82010aea340053",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 20.6
+  },
+  "KEP-5823": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "73b15ef1324798742da5",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 30.5
+  },
+  "KEP-5825": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "33167ae11882b012f28b",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 19.6
+  },
+  "KEP-585": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "7f1ce6defef6b67ef638",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 15.1
+  },
+  "KEP-5855": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "bc7a38101550e7a55833",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 31.6
+  },
+  "KEP-589": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "88c0452e17fab69aa46a",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 8.7
+  },
+  "KEP-5894": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "97ceb5a58575992ffc4e",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 22.4
+  },
+  "KEP-5945": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c02d8f2748c940276a12",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 27.1
+  },
+  "KEP-5972": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "d2716e2763cd1d886d70",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 24.6
+  },
+  "KEP-5978": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "8d613d22adf0a6b3c733",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 21.8
+  },
+  "KEP-5996": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "1236236bd37d0ac06c36",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 21.3
+  },
+  "KEP-5999": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ea28746d6f20ced452c5",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 21.1
+  },
+  "KEP-600": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "2cf003d42ae4dc7a4955",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 25.5
+  },
+  "KEP-6030": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "7d7f1607028d0ae8aece",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 20.7
+  },
+  "KEP-6035": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "4229acbb267b392db76c",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 30.2
+  },
+  "KEP-606": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "737925004e92d7ba4903",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 18.9
+  },
+  "KEP-6061": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "90e0c2a073df50198d9a",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 31.4
+  },
+  "KEP-6063": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "5a4de94aed647ab2317b",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 29.7
+  },
+  "KEP-6072": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "6bbd0ee9dfe4c33fd8fc",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 24.7
+  },
+  "KEP-6122": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ceb5cac2bba8f4d62a39",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 22.1
+  },
+  "KEP-6232": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "5e27a44f9d3ef7cb4fde",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 27.6
+  },
+  "KEP-6247": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "f7fe32f9e4ccb008eba7",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 20.2
+  },
+  "KEP-6252": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "715faffbb6ea4237e5a1",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 28.2
+  },
+  "KEP-6283": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "cbde6e3b22d573ec2cff",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 18.4
+  },
+  "KEP-6371": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "9ba8dc8a9dafe7cfb9e1",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 21.6
+  },
+  "KEP-688": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c8a5ad774c59b23ddf59",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 15.2
+  },
+  "KEP-693": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "00055a153c1cb9778cd3",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 25.9
+  },
+  "KEP-727": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "6330e95ccf0706dbeb17",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 22.8
+  },
+  "KEP-740": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "34fa9f64964572f7ef0a",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 26.0
+  },
+  "KEP-753": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "6fb5ec1464fba279c615",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 26.7
+  },
+  "KEP-757": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "4f0cf8f3984a937993b9",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 25.3
   },
   "KEP-789": {
-   "backend": "groq",
+   "backend": "ollama",
    "dropped": [],
-   "key": "61d3e25fd403c4b9a73f",
-   "model": "qwen/qwen3.8-27b",
+   "key": "bd5ae05eec4b58f0d442",
+   "model": "qwen3.8:27b",
    "reply": "{\"relations\": []}",
-   "seconds": 0.3
+   "seconds": 289.1
+  },
+  "KEP-793": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "bf36370d81594c0cf109",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 13.2
+  },
+  "KEP-950": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "2e5de4efad7ce14ec266",
+   "model": "qwen3.8:27b",
+   "reply": "{\"relations\": []}",
+   "seconds": 18.7
   }
  },
  "extract": {
@@ -535,10 +1567,59 @@
   },
   "KEP-2400": {
    "backend": "ollama",
+   "dropped": [],
    "key": "408cc270ef22e4c76e3d",
    "model": "qwen3.8:27b",
    "reply": "{\"reasons\": []}",
    "seconds": 72.7
+  },
+  "KEP-2403": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "59941874b141249d0397",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Node monitoring agents need to know the allocatable compute resources on a node to properly calculate node compute resource utilization.\",\n      \"quote\": \"Enable node monitoring agents to know the allocatable compute resources on a node, thus properly calculate the node compute resource utilization.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The kubelet is the best source of information because it manages concrete resources assignment.\",\n      \"quote\": \"The kubelet is the best source of information because it manages concrete resources assignment.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Combining current allocation and allocatable resources allows monitoring agents to reliably report compute device utilization and availability.\",\n      \"quote\": \"Combining the information reported by the `List` API, which pertains the current allocation, with the information reported by the `GetAllocatableResources` API, monitoring agent can reliably report the compute device utilization and availability.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 27.5
+  },
+  "KEP-2411": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "d75f8a2bc0f259a669fe",
+   "model": "qwen3.8:27b",
+   "reply": "[\n  {\n    \"text\": \"Container runtimes communicate with the kubelet via the Container Runtime Interface (CRI).\",\n    \"quote\": \"Container runtimes that communicate with the kubelet via the Container Runtime Interface (CRI) needed a container log management system.\",\n    \"tool\": null\n  },\n  {\n    \"text\": \"The kubelet already determines the container log file path and passes it to the container runtime.\",\n    \"quote\": \"The kubelet was already in charge of determining the container log file path and passing that down to the container runtime so that it can write the container logs there.\",\n    \"tool\": null\n  },\n  {\n    \"text\": \"Logging agents can ingest files directly without further integrations with the container runtime.\",\n    \"quote\": \"An added advantage of this is that logging agents can ingest files directly without any further integrations with the container runtime.\",\n    \"tool\": null\n  },\n  {\n    \"text\": \"The CRIContainerLogRotation feature has been in production use for a significant time.\",\n    \"quote\": \"We would like to identify any gaps in the implementation of this feature so that we can promote it to stable as it has already been in production use for quite some time now.\",\n    \"tool\": null\n  }\n]",
+   "seconds": 21.2
+  },
+  "KEP-2413": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "bb5cc827896c80d9df46",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 5.0
+  },
+  "KEP-2535": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "2a722f0f9934a3b72722",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Customers have requested improvements to Kubernetes' ability to secure images pulled with authentication on a node.\",\n      \"quote\": \"There have been customer requests for improving upon kubernetes' ability to secure images pulled with auth on a node.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Securing images currently requires injecting the `Always` `ImagePullPolicy` into pod specs via an admission plugin.\",\n      \"quote\": \"To secure images one currently needs to inject `Always` `ImagePullPolicy` into pod specs via an admission plugin.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The `Always` pull policy puts the registry in the critical path of starting a container, causing failures if the registry is unavailable.\",\n      \"quote\": \"However, the `pull` does put the registry in the critical path of starting a container, since an unavailable registry will fail the pull image manifest check (with or without proper authentication.)\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Users need to ensure the kubelet requires an image pull auth check for each new set of credentials regardless of whether the image is already present on the node.\",\n      \"quote\": \"Thus, the motivation is to allow users to ensure the kubelet requires an image pull auth check for each new set of credentials, regardless of whether the image is already present on the node.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 27.0
+  },
+  "KEP-2570": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "1daf9d060356fe61efda",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 21.3
+  },
+  "KEP-2625": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "257d46457f40ae2bfe5c",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Latency-sensitive applications require exclusive CPU allocation to meet performance requirements.\",\n      \"quote\": \"Latency-sensitive applications want to have exclusive CPU allocation to enable better isolation to meet application's latency and performance requirements.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"SMT-enabled systems benefit from thread-level allocation to avoid physical CPU sharing and interference.\",\n      \"quote\": \"for some classes of these latency-sensitive applications running on simultaneous multithreading (SMT) enabled system, it is also beneficial to consider thread-level allocation, to avoid physical CPU sharing and prevent possible interferences caused by noisy neighborhoods.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Preventing core sharing improves cache efficiency and mitigates interference with other workloads.\",\n      \"quote\": \"This guarantees that no physical core is shared among different containers, which improves cache efficiency and mitigates the interference with other workloads that can consume resources of the same physical core, e.g. first level caches.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The community prefers fine-tuning the static policy over adding new policies.\",\n      \"quote\": \"The community feedback and the conversation we gathered when proposing this KEP were all in favor of adding options to fine-tune the behavior of the static policy rather than adding new policies.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 19.9
   },
   "KEP-266": {
    "backend": "groq",
@@ -548,6 +1629,14 @@
    "reply": "{\n  \"reasons\": []\n}",
    "seconds": 18.7
   },
+  "KEP-2712": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "2273fe4be9b0692cddb2",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The existing node graceful shutdown feature only distinguishes between critical and regular pods, lacking fine-grained control over shutdown order.\",\n      \"quote\": \"However, there is a need to allow more fine grained control over the pod shutdown order beyond _critical_ and _regular_ pods.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Kubernetes API design discourages hard-coding instances by name, making priority values preferable to class names.\",\n      \"quote\": \"in general, kubernetes API design discourages hard coding anything by instances of name.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Pod priority values are more portable than names.\",\n      \"quote\": \"the values are more portable as well\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The feature relies on systemd inhibitor locks introduced in version 183.\",\n      \"quote\": \"The feature relies on systemd inhibitor locks that were introduced in systemd version [183](https://lwn.net/Articles/499480/).\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 24.0
+  },
   "KEP-2718": {
    "backend": "groq",
    "dropped": [],
@@ -555,6 +1644,22 @@
    "model": "qwen/qwen3.8-27b",
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Existing authentication mechanisms cannot satisfy the requirement to implement a Kubernetes client that implements AWS's request signing process.\",\n      \"quote\": \"The motivation for this KEP stems from the inability of the existing authentication mechanisms to satisfy the author's requirement to implement a Kubernetes client that implements AWS's request signing process, known as Signature Version 4 (sig-v4)\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The request signer must have access to the entire request, which the existing exec-based authentication does not provide.\",\n      \"quote\": \"In order to achieve this, the request signer must have access to the entire request, so the existing exec-based authentication is unsatisfactory.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The operator experience of setting up and managing an external proxy is poor.\",\n      \"quote\": \"The problem with this solution is that the operator experience of setting up and managing an external proxy is poor.\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 1.2
+  },
+  "KEP-2727": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "d66a8327956afb4bce77",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 2.8
+  },
+  "KEP-277": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "6fb97ce99e90d4121513",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 24.1
   },
   "KEP-2784": {
    "backend": "groq",
@@ -586,6 +1691,38 @@
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"BoundServiceAccountTokenVolume is GA in 1.22, allowing pods to obtain tokens via the TokenRequest API.\",\n      \"quote\": \"As BoundServiceAccountTokenVolume is GA in 1.22, pods\u2019 service account tokens would be obtained via TokenRequest API and stored as projected volume.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Secret-based service account tokens are less secure than bound tokens.\",\n      \"quote\": \"This change obviates the need for auto-generation of secret-based service account tokens which are less secure than the bound token\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 10.3
   },
+  "KEP-281": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "109cf87da1d87fda1429",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 2.2
+  },
+  "KEP-2837": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "083053887dbf507c4845",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 20.1
+  },
+  "KEP-2862": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "36953edb108294b6fd86",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The Kubelet API on the authenticated port uses a coarse authorization scheme where reading health status and executing code require the same RBAC permissions.\",\n      \"quote\": \"However, the Kubelet API on the authenticated(10250) port currently uses a very coarse scheme for authorizing requests. For example, reading `/healthz` and calling `/exec/\u2026` (i.e. execute arbitrary code) require the same `proxy` subresource.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Monitoring and logging agents must be granted the `proxy` subresource to list pods, which grants powerful permissions that could be exploited to escalate privilege.\",\n      \"quote\": \"So, if an application needs to say `list` `pods` on the node, as many monitoring and logging agents do, they must be granted the `proxy` subresource in RBAC. Doing so grants many other powerful permissions to these agents which could be exploited by an attacker to escalate privilege.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The kubelet read-only port is disabled by default and enabling it is considered a security worst practice.\",\n      \"quote\": \"Historically the `/healthz` and \\n`/pods` endpoints were available on the unauthenticated kubelet read-only port(10255) \\nbut kubelet read-only port is disabled by default and enabling the port is\\nconsidered a security worst practice.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The selected endpoints are read-only, allowing for safe separation from other permissions.\",\n      \"quote\": \"We picked `/configz`, `/healthz` and `/pods` endpoints as they are read-only.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 30.3
+  },
+  "KEP-2902": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "415cbbe53c385e43ae3a",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Parallel code relying on barriers runs only as fast as its slowest worker, which is slowed down when fewer CPUs are available on one NUMA node.\",\n      \"quote\": \"This can cause undesired bottlenecks in parallel code relying on barriers (and similar synchronization primitivies), as this type of code tends to run only as fast as its slowest worker (which is slowed down by the fact that fewer CPUs are available on at least one NUMA node).\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Distributing CPUs evenly across NUMA nodes ensures no single worker suffers from NUMA effects more than any other, improving overall performance.\",\n      \"quote\": \"By distributing CPUs evenly across NUMA nodes, application developers can more easily ensure that no single worker suffers from NUMA effects more than any other, improving the overall performance of these types of applications.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The default CPUManager behavior packs CPUs onto one NUMA node until filled, causing spillover to the next node.\",\n      \"quote\": \"By default, the `CPUManager` will pack CPUs onto one NUMA node until it is filled, with any remaining CPUs simply spilling over to the next NUMA node.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 15.7
+  },
   "KEP-2907": {
    "backend": "groq",
    "dropped": [],
@@ -593,6 +1730,22 @@
    "model": "qwen/qwen3.8-27b",
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The driver provides a portable method for applications to consume secrets from external secret APIs through the filesystem.\",\n      \"quote\": \"The [secrets-store-csi-driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) project provides a portable method for applications to consume secrets from external secret APIs through the filesystem.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The driver interface and implementation need to signal stability for the core task of making secrets available to the pod filesystem.\",\n      \"quote\": \"Signal the stability of the driver interface and implementation for the core task of making secrets available to pod filesystem.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The driver is a storage driver, so native support for presenting secrets to a process through environment variables is not possible.\",\n      \"quote\": \"Since the proposal is a storage driver, native support for presenting secrets to a process through environment variables is not possible.\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 8.1
+  },
+  "KEP-3063": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "07ab7dd6f125f7f192e4",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 10.9
+  },
+  "KEP-3085": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "d7c0361be22f43c383c6",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 20.5
   },
   "KEP-3130": {
    "backend": "groq",
@@ -618,6 +1771,20 @@
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Kubernetes lacks a standardized mechanism for signers to distribute their trust anchors to workloads.\",\n      \"quote\": \"Kubernetes lacks a standardized mechanism for signers to distribute their trust anchors to workloads.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Creating a ConfigMap in every namespace requires granting over-broad permissions to the responsible controller.\",\n      \"quote\": \"Creating a ConfigMap in every namespace requires granting over-broad permissions to the responsible controller (create ConfigMaps in **all** namespaces).\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Static trust anchor sets embedded directly in configuration complicate the job of rotating the backing CA's roots of trust.\",\n      \"quote\": \"Static trust anchor sets embedded directly in configuration complicate the job of rotating the backing CA's roots of trust.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"CRDs are inappropriate for use by core APIs.\",\n      \"quote\": \"CRDs work well, but are inappropriate for use by core APIs.\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 18.5
   },
+  "KEP-3288": {
+   "backend": "ollama",
+   "dropped": [
+    {
+     "quote": "many users have been interested in the ability to retrieve certain log stream of a container, so it is great to implement this long-wanted feature.",
+     "text": "Many users have expressed interest in the ability to retrieve a specific log stream of a container.",
+     "why": "quote is not a span of the ADR"
+    }
+   ],
+   "key": "92ed197ad990e8e2cbce",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Kubelet currently returns combined stdout and stderr logs, which is inconvenient for users who only want to view a specific log stream.\",\n      \"quote\": \"now kubelet always returns combined stdout and stderr logs, which is not convenient for users who only want to view certain log stream.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Many users have expressed interest in the ability to retrieve a specific log stream of a container.\",\n      \"quote\": \"many users have been interested in the ability to retrieve certain log stream of a container, so it is great to implement this long-wanted feature.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Combined logs make error messages difficult to notice when a service misbehaves.\",\n      \"quote\": \"the error message is not easy to notice because the apiserver always returns the combined stdout and stderr from the container.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 14.6
+  },
   "KEP-3299": {
    "backend": "groq",
    "dropped": [
@@ -632,6 +1799,14 @@
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Serial processing of LIST requests with an empty DEK cache causes significant informer initialization time and KMS rate limit hits.\",\n      \"quote\": \"due to the serial processing of LIST requests and the data encryption key (DEK) cache being empty, the initialization of informers may take significant time as a result of the large number of consecutive trips to the KMS plugin -> external KMS for all the DEKs that have been generated so far.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The current key rotation process requires manual steps, multiple API server restarts, and is error-prone.\",\n      \"quote\": \"Currently, it requires lots of manual steps to rotate a KMS key for Kubernetes and the process is error prone.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Current health checks use Encrypt/Decrypt operations that incur costs and do not allow for holistic health checks or KEK rotation notification.\",\n      \"quote\": \"Today, the health check from kube-apiserver to KMS plugin is an Encrypt operation followed by Decrypt operation. These operations cost money in cloud environments and do not allow the plugin to perform more holistic checks on if it is healthy.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"There is no reliable way to correlate envelope operations between kube-apiserver, KMS plugins, and KMS due to timestamp mismatches.\",\n      \"quote\": \"The only way to correlate a successful/failed envelope operation today is to use the approximate timestamp of the operation to check events in kube-apiserver, kms-plugin and KMS.\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 13.5
   },
+  "KEP-3327": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "da18cbaa98959509bd8e",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"The number of NUMA nodes per socket has increased with the evolution of CPU architectures.\", \"quote\": \"With the evolution of CPU architectures, the number of NUMA nodes per socket has increased.\", \"tool\": null}, {\"text\": \"Devices managed by DeviceManager may not be uniformly distributed across all NUMA nodes.\", \"quote\": \"The devices managed by `DeviceManager` may not be uniformly distributed across all NUMA nodes.\", \"tool\": null}, {\"text\": \"Latency sensitive applications desire resources to be aligned at least within the same socket if NUMA alignment is not possible for optimal performance.\", \"quote\": \"Latency sensitive applications desire resources to be aligned at least within the same socket if NUMA alignment is not possible for optimal performance.\", \"tool\": null}, {\"text\": \"If the NUMA nodes selected for allocation are spread across sockets, it results in degraded performance.\", \"quote\": \"However, if the NUMA nodes selected for allocation are spread across sockets, it results in degraded performance.\", \"tool\": null}]}",
+   "seconds": 13.1
+  },
   "KEP-3331": {
    "backend": "groq",
    "dropped": [],
@@ -639,6 +1814,78 @@
    "model": "qwen/qwen3.8-27b",
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The current flag-based configuration is growing without bounds.\",\n      \"quote\": \"We want to migrate away from a flag-based config that is growing without bounds to a proper versioned config format.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Users want to support multiple ClientIDs.\",\n      \"quote\": \"Support multiple ClientIDs\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Users want to identify users by more JWT claims than just a single one.\",\n      \"quote\": \"Identify user by more JWT claims than just a single one\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Users want to use more than one OIDC provider.\",\n      \"quote\": \"Use more than one OIDC provider\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 23.4
+  },
+  "KEP-3386": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "7d8ef65856127e9c7a54",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 12.3
+  },
+  "KEP-34": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "0170941195064f3a6e8f",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Annotations expose the cluster to time-bomb data added as unstructured annotations against an earlier API server.\",\n      \"quote\": \"They expose the cluster to \\\"time-bomb\\\" data added as unstructured annotations against an earlier API server (https://issue.k8s.io/30819)\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Annotations cannot be migrated to first-class fields in the same API version.\",\n      \"quote\": \"They cannot be migrated to first-class fields in the same API version (see the issues with representing a single value in multiple places in backward compatibility gotchas)\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The original intent of annotations was to provide additional description of Kubernetes objects through metadata.\",\n      \"quote\": \"The original intent of annotations was to provide additional description of Kubernetes objects through metadata.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Object specifications with sysctl annotations must still work after the graduation to assure backward compatibility.\",\n      \"quote\": \"We need to assure backward compatibility, i.e. object specifications with `sysctl` annotations must still work after the graduation.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 20.8
+  },
+  "KEP-3545": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "5c2fec4f4541f54d5c50",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"NUMA locality is crucial for supporting latency-critical execution and high-throughput applications.\",\n      \"quote\": \"To support latency-critical execution and high-throughput applications (including those running on Kubernetes), NUMA locality (topology) of resources assigned to the workloads is crucial.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The Topology Manager is not aware of NUMA distances and does not take them into account when making admission decisions.\",\n      \"quote\": \"However, the `TopologyManager` is not aware of NUMA distances and does not take them into account when making admission decisions.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Aligning resources on non-adjacent NUMA nodes can cause significant performance degradation in latency-critical and high-throughput applications.\",\n      \"quote\": \"This limitation surfaces in multi-socket, as well as single-socket multi NUMA systems (commonly present in AMD hardware), and can cause significant performance degradation in latency-critical execution and high-throughput applications if the `TopologyManager` decides to align resources on non-adjacent NUMA nodes.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 15.7
+  },
+  "KEP-3570": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "00b62ae07c3eff0f4f9e",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 10.2
+  },
+  "KEP-3573": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "7b6a77b2ef54cfdd0a22",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Kubernetes currently supports discovery of CPU and Memory only to a minimal extent, leaving few devices handled natively by Kubelet.\",\n      \"quote\": \"Kubernetes currently supports discovery of CPU and Memory primarily to a minimal extent. Very few devices are handled natively by Kubelet.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"It is not sustainable to expect every hardware vendor to add their vendor-specific code inside Kubernetes to make their devices usable.\",\n      \"quote\": \"It is not a sustainable solution to expect every hardware vendor to add their vendor specific code inside Kubernetes to make their devices usable.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Vendors need a solution to advertise their resources to Kubelet and monitor them without writing custom Kubernetes code.\",\n      \"quote\": \"Instead, we want a solution for vendors to be able to advertise their resources to Kubelet and monitor them without writing custom Kubernetes code.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Users need a consistent and portable solution to consume hardware devices across Kubernetes clusters.\",\n      \"quote\": \"We also want to provide a consistent and portable solution for users to consume hardware devices across k8s clusters.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 25.5
+  },
+  "KEP-3673": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "e18abbce1180153aff56",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 16.5
+  },
+  "KEP-3695": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "f896ac5e33d30faa065f",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Node monitoring agents need to access information about resources allocated by DRA.\",\n      \"quote\": \"One of the primary motivations for this KEP is to extend the PodResources API to allow node monitoring agents to access information about resources allocated by DRA.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Node components need to use the PodResources API to access DRA information for new features and integrations.\",\n      \"quote\": \"To allow node components to use the PodResourcesAPI to use the DRA information to develop new features and integrations.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 10.1
+  },
+  "KEP-3721": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "7d57c511aa185168a624",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 14.4
+  },
+  "KEP-3857": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "edc699aec57398f5162e",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 11.1
   },
   "KEP-3926": {
    "backend": "groq",
@@ -648,6 +1895,70 @@
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Encryption at rest for API resources has been a stable part of Kubernetes for a long time.\",\n      \"quote\": \"Encryption at rest for API resources has been a stable part of Kubernetes for a long time.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"If a single object of a resource type cannot be decrypted, listing resources of that type in a path prefix containing the object always fails, even if the rest of the resource instances is accessible.\",\n      \"quote\": \"If a single object of a resource type cannot be decrypted, listing resources of that type in a path prefix containing the object always fails, even if the rest of the resource instances is accessible.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Currently, removing a resource that causes such failures is not possible.\",\n      \"quote\": \"Currently, removing a resource that causes such failures is not possible.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"A cluster administrator must access etcd directly and remove the malformed data manually.\",\n      \"quote\": \"A cluster administrator must access etcd directly and remove the malformed data manually.\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 1.0
   },
+  "KEP-3953": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "264f7d4c3db5c1f142a7",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 21.7
+  },
+  "KEP-3960": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "23628ac7501704c1240e",
+   "model": "qwen3.8:27b",
+   "reply": "[\n  {\n    \"text\": \"Kubernetes currently supports only exec and httpGet actions for PreStop hooks, which require additional scripting or custom solutions to achieve a simple sleep functionality.\",\n    \"quote\": \"Currently, Kubernetes supports two types of actions for PreStop hooks: exec and httpGet. Although these actions offer flexibility, they often require additional scripting or custom solutions to achieve a simple sleep functionality.\",\n    \"tool\": null\n  },\n  {\n    \"text\": \"Users need to pause containers before shutting down to ensure graceful resource release and smooth transitions in load balancers or service meshes.\",\n    \"quote\": \"A built-in sleep action would provide a more user-friendly and native solution for scenarios where a container needs to pause before shutting down, such as: Ensuring that the container gracefully releases resources and connections. Allowing a smooth transition in load balancers or service meshes.\",\n    \"tool\": null\n  },\n  {\n    \"text\": \"Users want to configure containers to sleep during graceful termination without needing a sleep binary in their image.\",\n    \"quote\": \"As a Kubernetes user, I want to configure my container to sleep for a specific duration during graceful termination and I want to do it without needing a sleep binary in my image.\",\n    \"tool\": null\n  }\n]",
+   "seconds": 21.5
+  },
+  "KEP-3983": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ab56ac97fed31379320b",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Multiple entities configure Kubernetes components, and preventing races between them is cumbersome.\",\n      \"quote\": \"Components in Kubernetes can similarly be configured by multiple entities and preventing races between them is cumbersome.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The Kubelet is the node agent and is often distributed as a package on the host operating system along with the container runtime.\",\n      \"quote\": \"Since the Kubelet is the node agent, and is often distributed as a package on the host operating system along with the container runtime, configuring it similarly to other host processes seems clear.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"A common pattern for software configuration in Linux is support for a drop-in configuration directory.\",\n      \"quote\": \"A common pattern for software configuration in linux is support for a drop-in configuration directory.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 23.9
+  },
+  "KEP-4009": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "0b3da508b52232d28ea9",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 6.9
+  },
+  "KEP-4033": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "8dcd5462c5f3c2d6bb31",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 7.5
+  },
+  "KEP-4176": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "e4ad2ea16ea92e5dc905",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 11.4
+  },
+  "KEP-4188": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "3d0cd43a47ee1763e01e",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 19.8
+  },
+  "KEP-4191": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "1a80e293b54ab3a7a77e",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 21.6
+  },
   "KEP-4193": {
    "backend": "groq",
    "dropped": [],
@@ -655,6 +1966,38 @@
    "model": "qwen/qwen3.8-27b",
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"It is not possible to verify that a Pod is associated with a specific Node without getting the Pod object and cross-referencing the spec.nodeName.\",\n      \"quote\": \"When attempting to verify a token associated with a Pod, it is not possible to verify that the Pod is associated with a specific Node without `get`ing the relevant Pod object (embedded as a private claim in the JWT) and cross-referencing the named `spec.nodeName`.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"External software wants to avoid replay attacks with projected service account tokens.\",\n      \"quote\": \"This is especially useful in cases where the external software wants to avoid replay attacks with projected service account tokens.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"A robust means of tracking token usage within the audit log is needed.\",\n      \"quote\": \"Additionally, to provide a robust means of tracking token usage within the audit log we can embed a unique identifier for each token which is can then also be recorded in future audit entries made by this token.\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 23.9
+  },
+  "KEP-4205": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "5afc5653a7b1ac3c9f61",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 4.8
+  },
+  "KEP-4210": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "83fd6431fd0e058c11fd",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 8.7
+  },
+  "KEP-4216": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "f25ffd9d7ed203014990",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The Windows platform matcher requires an exact OS version match between the host and guest, which is incorrect for HyperV isolated containers where the host and UVM versions can differ.\",\n      \"quote\": \"However, it is not ideal for hyperV isolated windows containers. This is because OS version of the host and the UVM image need not be the same.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Windows Server 2019 container images can run inside a Utility VM on a Windows Server 2022 host, requiring platform matching to allow different versions.\",\n      \"quote\": \"For example, Windows Server 2019 container images can run inside a Utility VM (UVM) on a Windows Server 2022 host and because the container will be running in the UVM, the platform matching image pulls for the UVM instances should be allowed.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Referencing images by a tuple of image name/digest and runtime class allows the pull implementation to select the appropriate manifest based on the runtime class configuration.\",\n      \"quote\": \"This problem can be fixed if container runtimes, CRI, and kubelet refer to images as a tuple of (imageName/imageDigest, runtimeClass) instead of the imageName/imageDigest.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Supporting image pulls per runtime class enables different versions of the same image on a node, which is beneficial for virtualization-based runtimes and future snapshotter support.\",\n      \"quote\": \"Adding this support would enable us to have different versions of the same image on a given node and could be really beneficial in virtualization based runtimes.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 45.0
+  },
+  "KEP-4265": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "24e7377d2991926048d4",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Kubernetes defaults to masking the /proc mount of a container, setting some paths as read only.\", \"quote\": \"Kubernetes defaults to masking the `/proc` mount of a container, setting some paths as read only.\", \"tool\": null}, {\"text\": \"Users need a way to override the default masking behavior to run nested containers within an unprivileged Pod.\", \"quote\": \"To run a nested container within an unprivileged Pod, a user would need a way to override that default masking behavior.\", \"tool\": null}, {\"text\": \"The ProcMountType feature gate was introduced in 1.12 and has languished in alpha since.\", \"quote\": \"In 1.12, this was introduced as the ProcMountType feature gate, and has it has languished in alpha ever since.\", \"tool\": null}]}",
+   "seconds": 16.2
   },
   "KEP-4317": {
    "backend": "groq",
@@ -664,6 +2007,14 @@
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Bearer tokens must not be involved at any step to preserve the security benefits of mTLS.\",\n      \"quote\": \"In order to preserve this guarantee, it's important that bearer tokens are not involved *at any step*, otherwise the security of the scheme devolves to just being a bearer token.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Third-party signer implementations require intimate familiarity with Kubernetes' security model to avoid negating the node restriction security boundary.\",\n      \"quote\": \"Securely implementing and operating a third-party signer implementation today requires intimate familiarity with Kubernetes' security model, otherwise your signer may negate Kubernetes' node restriction security boundary.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"A significant base of deployed systems, such as Vault, requires PKCS#10 certificate signing requests to issue certificates.\",\n      \"quote\": \"However, there is a significant base of deployed systems (Vault, for example), that need a PKCS#10 certificate signing request in order to issue certificates.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"PodCertificateRequest issuance is fully-automated because the process blocks pod startup for pods that use PodCertificate projected volume sources.\",\n      \"quote\": \"This KEP assumes that PodCertificateRequest issuance is fully-automated, because this process blocks pod startup for pods that use PodCertificate projected volume sources.\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 1.1
   },
+  "KEP-4381": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "94f02e156ed64ca29d25",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 22.1
+  },
   "KEP-4412": {
    "backend": "groq",
    "dropped": [],
@@ -671,6 +2022,38 @@
    "model": "qwen/qwen3.8-27b",
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Image pull secrets stored in the Kubernetes API are long-lived and hard to rotate.\",\n      \"quote\": \"Today, admins are limited to image pull secrets that are stored directly in the Kubernetes API and thus are long lived and hard to rotate\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Kubelet credential providers allow any pod on the node to access images, lacking workload-specific identity.\",\n      \"quote\": \"or secrets that are managed at the Kubelet level via a Kubelet credential provider (meaning that any pod running on that node can access those images)\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The project aims to reduce security risks associated with long-lived secrets.\",\n      \"quote\": \"Reduce security risks associated with long lived secrets\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The design must avoid changes to Kubernetes REST APIs, CRI API, and registries to keep implementation minimal.\",\n      \"quote\": \"No changes to any Kubernetes REST APIs\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 19.0
+  },
+  "KEP-4438": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ef28777dddec4c4c2f2a",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 17.3
+  },
+  "KEP-4540": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "723ce3939c1b6a34f6d5",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Burstable and best-effort pods currently use reservedSystemCPUs, causing host OS services to starve in real-life deployments.\",\n      \"quote\": \"Since the cpu limit are higher than the request, it allows burstable and best-effort pods to use up the capacity of `reservedSystemCPUs` and cause host OS services to starve in real life deployments.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Systemd daemons including irqbalance are commonly constrained to reserved CPUs to protect workload latency.\",\n      \"quote\": \"To protect latency of workload, systemd daemons including irqbalance daemon are commonly constrained to the reserved CPUs.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Allowing workloads on reserved CPUs makes benchmarking infrastructure and workloads inaccurate.\",\n      \"quote\": \"Silently allowing workloads running on the reserved CPUs makes benchmarking infrastructure and workloads both inaccurate.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 15.6
+  },
+  "KEP-4563": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c0c862a8ea7130d07b79",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 24.0
+  },
+  "KEP-4569": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "d0f99e09bd880dab9798",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 7.2
   },
   "KEP-4601": {
    "backend": "groq",
@@ -680,6 +2063,14 @@
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Security for per-node workloads could be improved by exposing field and label selectors to authorizers.\",\n      \"quote\": \"Security for per-node workloads could be improved by exposing field and label selectors to authorizers.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Adding selectors as authorization attributes allows the development of new kinds of authorizers that leverage this information.\",\n      \"quote\": \"Adding them as authorization attributes allows the development of new kinds of authorizers that leverage this information to provide security.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"It enables out-of-tree authorizers to experiment with ways to express restrictions based on field and label selectors.\",\n      \"quote\": \"In particular, it enables out-of-tree authorizers to experiment with ways to express restrictions based on field and label selectors.\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 15.3
   },
+  "KEP-4622": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ba393155fef6a7bd35bf",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 7.6
+  },
   "KEP-4633": {
    "backend": "groq",
    "dropped": [],
@@ -687,6 +2078,46 @@
    "model": "qwen/qwen3.8-27b",
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Misconfigured RoleBindings and ClusterRoleBindings can bind powerful roles to the anonymous user, allowing full cluster takeover.\",\n      \"quote\": \"Many kubernetes users still misconfigure their cluster by creating RoleBindings and ClusterRoleBindings to powerful rules in their cluster.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Many deployments depend on unauthenticated requests to check health endpoints, making it impossible to disable anonymous authentication entirely.\",\n      \"quote\": \"this is not possible for many deployments that depend on unauthenticated requests (from clients like load balancers or the kubelet) to check health endpoints of a kubernetes cluster (`healthz`, `livez` and `readyz`).\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Enabling anonymous requests to allow health checks opens the door for misconfigurations.\",\n      \"quote\": \"In order to allow these health checks a cluster admin has to enable anonymous requests opening the door for misconfigurations.\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 13.2
+  },
+  "KEP-4680": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "f978e6c415acf909cf48",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 11.2
+  },
+  "KEP-4742": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "a71e2ee52950a0d6aabc",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 9.7
+  },
+  "KEP-4800": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c265e9aac938fad2e927",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The current Kubelet CPU Manager is unaware of split uncore cache architecture and distributes CPU assignments across multiple uncore caches.\",\n      \"quote\": \"The challenge with the current Kubelet\u2019s CPU Manager is that it is unaware of split uncore cache architecture and can distribute CPU assignments across multiple uncore caches.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Distributing CPU assignments across multiple uncore caches creates a noisy neighbor problem where multiple pods or containers compete for access to the same uncore cache.\",\n      \"quote\": \"This creates a noisy neighbor problem where multiple pods/containers are sharing and competing for access to the same uncore cache.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Containers spread across multiple uncore caches experience higher latency and reduced performance due to inter-cache access.\",\n      \"quote\": \"In addition, containers spread across multiple uncore caches can see higher latency and reduced performance due to inter-cache access where a CPU will need to access an undedicated uncore cache.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Workloads that are sensitive to cache latency and performance deterministic benefit significantly from minimizing uncore cache spread.\",\n      \"quote\": \"For workload use cases that are sensitive to cache latency and are performance deterministic, minimizing the uncore cache spread can have significant improvements in performance.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 27.0
+  },
+  "KEP-4817": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "70a540e6830657f42351",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 10.5
+  },
+  "KEP-4818": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "588e2782310f01545239",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The Go standard library's time.After function permits a zero sleep duration and returns immediately.\",\n      \"quote\": \"The `time.After()` which is used to implement the sleep permits a zero sleep duration.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Users need a no-op PreStop hook to satisfy admission webhook validation without actually sleeping.\",\n      \"quote\": \"A potential use case for this behaviour is when you need a PreStop hook to be defined for the validation of your resource, but don't really need to sleep as part of the PreStop hook.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 14.4
   },
   "KEP-4872": {
    "backend": "groq",
@@ -696,6 +2127,14 @@
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"IPs in cloud environments can change rapidly, allowing old certificates to be used for new nodes sharing an IP.\",\n      \"quote\": \"In cloud environments, IPs can change rapidly due to the ephemeral nature of the infrastructure.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"On-premises environments lack a reliable source of truth for IP ownership, making CSR validation difficult.\",\n      \"quote\": \"in on-premises environments, verifying that the IP addresses in a Certificate Signing Request (CSR) are owned by the requesting node can be challenging due to the lack of a reliable source of truth for IP ownership.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Rogue nodes can exploit routing attacks to obtain certificates for IPs they do not own and impersonate other nodes.\",\n      \"quote\": \"This vulnerability can be exploited through ARP poisoning or other routing attacks, allowing a rogue node to obtain a certificate for an IP it does not own and reroute traffic to itself.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The Kube API server currently only verifies that the IP or hostname is in the certificate's SANs, not that the CN matches the node name.\",\n      \"quote\": \"When the Kube API server connects to a kubelet, it verifies that the serving certificate is signed by a trusted CA and that the IP or hostname it\u2019s connecting to is included in the certificate's SANs.\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 14.7
   },
+  "KEP-4939": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "c39207caba9d4a862345",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 8.2
+  },
   "KEP-4940": {
    "backend": "groq",
    "dropped": [],
@@ -703,6 +2142,70 @@
    "model": "qwen/qwen3.8-27b",
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The Host field allows users to specify any entity, including security-sensitive external hosts or localhost, for Kubelet probes.\",\n      \"quote\": \"the `Host` field can be set to pretty much any value in the system including security sensitive external hosts or localhost on the node.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Kubelet probing a user-set Host value can lead to blind SSRF attacks.\",\n      \"quote\": \"Kubelet will be probing this set `Host` value which can lead to blind SSRF attacks.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The Baseline Pod Security Standard is updated to enforce blocking this field to help with easier adoption for workload operators.\",\n      \"quote\": \"The Baseline Pod Security Standard (PSS) will be updated to enforce blocking this field so that it helps with easier adoption for workload operators given this is a known issue we want to prevent.\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 17.1
+  },
+  "KEP-495": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "4088bc65686bba3804d7",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Docker previously lacked support for sharing the PID namespace, creating an implicit API that container images now rely on.\",\n      \"quote\": \"Pods share namespaces where possible, but support for sharing the PID namespace had not been defined due to lack of support in Docker. This created an implicit API on which certain container images now rely.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The system must maintain backwards compatibility with container images expecting `pid == 1` semantics.\",\n      \"quote\": \"Backwards compatibility with container images expecting `pid == 1` semantics\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Sharing a PID namespace enables signaling between containers, which is useful for sidecars.\",\n      \"quote\": \"signaling between containers, which is useful for side cars (e.g. for signaling a daemon process after rotating logs).\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Sharing a PID namespace addresses Docker's zombie problem by reaping orphaned zombies in the infra container.\",\n      \"quote\": \"addressing [Docker's zombie problem][docker-zombies] by reaping orphaned zombies in the infra container.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 35.2
+  },
+  "KEP-4960": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ce08edc0a76adad933b3",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Kubernetes currently lacks an API equivalent to the container runtime's STOPSIGNAL configuration.\",\n      \"quote\": \"Kubernetes has no equivalent for STOPSIGNAL as part of Pod or Container APIs.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Changing the stop signal currently requires rebuilding the container image.\",\n      \"quote\": \"Currently you can only configure this by defining STOPSIGNAL in the container image definition file before you build the image.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Default SIGTERM signals cause applications like nginx to drop requests during termination.\",\n      \"quote\": \"Kubernetes by default sends a SIGTERM to all containers while killing them. When running nginx on Kubernetes, this can result in nginx dropping requests\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 17.2
+  },
+  "KEP-5067": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "081e9b013be15dacd820",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 7.9
+  },
+  "KEP-5304": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "b87522b2ef08fd37305a",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Workloads like KubeVirt require access to device-specific metadata such as PCIe bus addresses or mediated device UUIDs.\",\n      \"quote\": \"Workloads that need to interact with DRA-allocated devices (like KubeVirt virtual machines) require access to device specific metadata such as PCIe bus addresses or mediated device UUIDs.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The current process of fetching attributes from allocated devices is complex and forces ecosystem projects to build fragile custom controllers.\",\n      \"quote\": \"This complexity forces ecosystem projects like KubeVirt to build custom controllers that watch these objects and inject attributes via annotations/labels, leading to fragile, error-prone, and racy designs.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The system must maintain full backward compatibility with existing DRA drivers and workloads.\",\n      \"quote\": \"Maintain full backward compatibility with existing DRA drivers and workloads\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Drivers need to support metadata updates after NodePrepareResources, such as from NRI hooks.\",\n      \"quote\": \"Support metadata updates after NodePrepareResources so that drivers (e.g. network DRA) can update metadata from NRI hooks such as RunPodSandbox.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 24.1
+  },
+  "KEP-5307": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ba476de844d025b26118",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Rescheduling AI/ML training jobs is very expensive, making in-place restarts preferable.\",\n      \"quote\": \"This scenario is important for use cases, when rescheduling of a task is very expensive, and restarting in-place is preferable.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The OnFailure restart policy cannot differentiate between hardware failures requiring rescheduling and in-place restart requests.\",\n      \"quote\": \"The cases of failed hardware must result in a Pod failure and rescheduling. There needs to be a differentiation of these two failures - caused by hardware issue and caused by a in-place restart request.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Pods are often parts of JobSets with a Job failure policy that is incompatible with the OnFailure restart policy.\",\n      \"quote\": \"Pods are often parts of JobSets with the Job failure policy configured (see https://kubernetes.io/docs/tasks/job/pod-failure-policy/). The pod failure policy is a server-side policy and is not compatible with the Pods with restartPolicy OnFailure.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The kubelet is more suitable to handle container restart policy than the Job controller.\",\n      \"quote\": \"Instead of making Job controller to handle container-level restart and failures, kubelet is more suitable to handle the container restart policy.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 33.9
+  },
+  "KEP-5328": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "4773595a31ae58192e11",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 17.6
+  },
+  "KEP-5359": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "bb2bc89bc98c2ffd034b",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 16.7
+  },
+  "KEP-5394": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "4989df7d931a7d896fcc",
+   "model": "qwen3.8:27b",
+   "reply": "[]",
+   "seconds": 5.4
   },
   "KEP-541": {
    "backend": "groq",
@@ -712,6 +2215,81 @@
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Static credentials in kubeconfig files require client process restarts for rotation.\",\n      \"quote\": \"Credential rotation requires client process restart and extra tooling.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Static credentials must exist in a plaintext file on disk.\",\n      \"quote\": \"Credentials must exist in a plaintext file on disk.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Static credentials must be long-lived.\",\n      \"quote\": \"Credentials must be long-lived.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Users already use key management systems or short-lived token providers.\",\n      \"quote\": \"Many users already use key management/protection systems, such as Key Management Systems (KMS), Trusted Platform Modules (TPM) or Hardware Security Modules (HSM).\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 19.9
   },
+  "KEP-5419": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "666d1ccdcee0ea86fabf",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 9.2
+  },
+  "KEP-5474": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "343ad9273d397d3e67ed",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The kernel's nsdelegate mount option ensures containers can only manage their own cgroup subtrees, preventing unauthorized access to system resources.\",\n      \"quote\": \"This feature relies on the kernel's `nsdelegate` mount option to ensure containers can only manage their own cgroup subtrees, preventing unauthorized access to system resources.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Requiring an explicit opt-in via the API ensures the capability is visible to cluster administrators and can be restricted via policy.\",\n      \"quote\": \"Requiring an explicit opt-in via the API ensures this capability is visible to cluster administrators, can be restricted via policy (e.g., Pod Security Standards), and maintains the principle of defense-in-depth by keeping the default secure and restricted.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The host's cgroup v2 filesystem must be mounted with nsdelegate and the kubelet must manage a cgroup per Pod.\",\n      \"quote\": \"The host's cgroup v2 filesystem must be mounted with `nsdelegate`, and the kubelet must manage a cgroup per Pod (`--cgroups-per-qos`).\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The kubelet applies descendant and depth limits to the Pod cgroup to prevent resource exhaustion from excessive cgroup creation.\",\n      \"quote\": \"When `mountMode: Writable` is enabled, the kubelet applies descendant and depth limits to the Pod cgroup before any container starts; see [Descendant and Depth Limits](#descendant-and-depth-limits-pod-level-no-cri-changes).\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 36.6
+  },
+  "KEP-5526": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "87ff4810c90b0a61ae2d",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 22.9
+  },
+  "KEP-5532": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "324e8edcaa32a7452feb",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 20.7
+  },
+  "KEP-5554": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "471dabc2d42ee3aa9604",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 12.5
+  },
+  "KEP-5573": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "839100f4f90421e1c8e6",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 13.8
+  },
+  "KEP-5593": {
+   "backend": "ollama",
+   "dropped": [
+    {
+     "quote": "there are use cases representative of some of Kubernetes' most rapidly growing workload types like gaming and AI/ML that would benefit from this behavior being different for varying types of container",
+     "text": "Rapidly growing workload types like gaming and AI/ML benefit from different restart behaviors for varying container types.",
+     "why": "quote is not a span of the ADR"
+    },
+    {
+     "quote": "Application-based workarounds using init containers or startup wrapper scripts, or custom operators like kube_remediator and descheduler are used by the community to anticipate crashloopbackoff behavi",
+     "text": "The community currently uses application-based workarounds or custom operators to force faster restarts because the default behavior is too slow.",
+     "why": "quote is not a span of the ADR"
+    }
+   ],
+   "key": "396e39ccc839a51e8e32",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The current 5-minute backoff delay and 10-minute recovery threshold are too conservative for containers that exit successfully or run for less than 10 minutes.\",\n      \"quote\": \"Both the decay to 5 minute back-off delay, and the 10 minute recovery threshold, are considered too conservative, especially in cases where the exit code was 0 (Success) and the pod is transitioned into a \\\"Completed\\\" state or the expected length of the pod run is less than 10 minutes.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Rapidly growing workload types like gaming and AI/ML benefit from different restart behaviors for varying container types.\",\n      \"quote\": \"there are use cases representative of some of Kubernetes' most rapidly growing workload types like gaming and AI/ML that would benefit from this behavior being different for varying types of containers.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The community currently uses application-based workarounds or custom operators to force faster restarts because the default behavior is too slow.\",\n      \"quote\": \"Application-based workarounds using init containers or startup wrapper scripts, or custom operators like kube_remediator and descheduler are used by the community to anticipate crashloopbackoff behavior, prune pods with nonzero backoff counters, or otherwise \\\"pretend\\\" the pod did not exit recently to force a faster restart from kubelet.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"A single pod failure in highly-coupled workloads can cause a cascade delay greater than the 5-minute backoff timeout.\",\n      \"quote\": \"With the existing max crashloop backoff timeout, a failure of a single pod in a highly-coupled workload can cause a cascade in the workload leading to an overall delay of (much) greater than the 5 minute backoff.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 41.8
+  },
+  "KEP-5607": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "7fcfe72f81cc13ee4a55",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Control plane components like kube-apiserver and kube-controller-manager run as static Pods with hostNetwork enabled to bind to node ports or interact with the host network stack.\",\n      \"quote\": \"Many control plane components, such as the `kube-apiserver` and `kube-controller-manager` often run as static Pods and are configured with `hostNetwork: true` to bind to node ports or interact directly with the host's network stack.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"A validation rule in the kube-apiserver currently prevents the combination of hostNetwork and user namespaces.\",\n      \"quote\": \"Currently, a validation rule in the kube-apiserver prevents the combination of `hostNetwork: true` and `hostUsers: false`.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The UserNamespacesSupport feature gate is nearing GA, making it unwise to add new unstable features with external dependencies to it.\",\n      \"quote\": \"As `UserNamespacesSupport` is nearing GA, it would be unwise to add a new, unstable feature with external dependencies.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 17.9
+  },
   "KEP-5681": {
    "backend": "groq",
    "dropped": [],
@@ -719,6 +2297,118 @@
    "model": "qwen/qwen3.8-27b",
    "reply": "{\"reasons\": []}",
    "seconds": 11.7
+  },
+  "KEP-5683": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "fb91ccd7d6f778e60937",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 24.6
+  },
+  "KEP-5714": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "2112380936be51b6e6c6",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 11.8
+  },
+  "KEP-5758": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "507907ce3bbb9c35d291",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Users currently cannot configure ulimits for individual containers.\",\n      \"quote\": \"Currently, Users cannot configure ulimits for individual containers.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Fine-grained control over ulimits is necessary to optimize performance, ensure stability, or meet application needs.\",\n      \"quote\": \"fine-grained control over ulimits is often necessary to optimize performance, ensure stability, or meet application needs.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Workarounds for setting ulimits lack portability, security, and scalability in multi-tenant clusters.\",\n      \"quote\": \"all of which lack portability, security, and scalability in multi-tenant clusters.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 18.6
+  },
+  "KEP-5823": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "2d5e88f08dad9db9c73a",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 20.5
+  },
+  "KEP-5825": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "f7a3e8571fc03c3b5917",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Nodes with 10k+ containers cause CRI List operations to exceed the 16 MB gRPC message limit, resulting in RPC failures.\",\n      \"quote\": \"Currently, these APIs return all results in a single unary response, causing failures on nodes with 10k+ containers when responses exceed the 16 MB gRPC message limit.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The project requires maintaining backward compatibility with existing kubelet and runtime combinations.\",\n      \"quote\": \"Maintain backward compatibility with existing kubelet/runtime combinations\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Kubelet is designed to see an atomic view of all pods, necessitating that streamed items be aggregated into a single list.\",\n      \"quote\": \"Kubelet is designed to see an atomic view of all pods.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 19.9
+  },
+  "KEP-585": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "45a528d27f1bfa65d9bc",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 7.8
+  },
+  "KEP-5855": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "51c1507ee10fe3d379c5",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Volume mounts inside containers do not carry noexec, nosuid, or nodev flags by default, which undermines security for containers relying on read-only root filesystems.\",\n      \"quote\": \"Today, volume mounts inside containers do not carry `noexec`, `nosuid`, or `nodev` flags by default, which can undermine security for containers that rely on read-only root filesystems or need to meet hardening standards.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The inability to set mount options on emptyDir volumes has been flagged as a security gap in audits.\",\n      \"quote\": \"Recognized security gap - the inability to set mount options on `emptyDir` was flagged in an audit but remains unresolved as of 2026.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"PersistentVolume mountOptions do not reliably translate into bind mount flags inside the container.\",\n      \"quote\": \"PersistentVolumes have a `mountOptions` field, but those options are filesystem-level flags applied by the CSI driver at the node - they do not reliably translate into bind mount flags inside the container.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Users need a native way to specify bind options in the pod spec to pass security audits without node-level changes.\",\n      \"quote\": \"I want a native way to specify bind options in the pod spec so teams can pass security audits without node-level changes.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 37.5
+  },
+  "KEP-589": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "a9bc3059b58f2af61d34",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Large clusters with many images cause etcd to exceed database size limits and stop accepting writes.\",\n      \"quote\": \"While running different scalability tests we observed that in big enough clusters (more than 2000 nodes) with non-trivial number of images used by pods on all nodes (10-15), we were hitting etcd limits for its database size. That effectively means that etcd enters \\\"alert mode\\\" and stops accepting all write requests.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Node heartbeats are large objects that can exceed 15kB due to images and volumes.\",\n      \"quote\": \"node heartbeats being pontetially very large objects (note that images are only one potential problem, the second are volumes and customers want to mount 100+ volumes to a single node) - they may easily exceed 15kB; even though the patch send over network is small, in etcd we store the whole Node object\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Kubelet sends heartbeats every 10 seconds, contributing to high write volume.\",\n      \"quote\": \"Kubelet sending heartbeats every 10s\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The system must preserve existing behavior where missing updates mark nodes NotReady or trigger pod evictions.\",\n      \"quote\": \"We would like to preserve that behavior.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 25.3
+  },
+  "KEP-5894": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "6ef1b50b2074ae648528",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 12.9
+  },
+  "KEP-5945": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "6a16f2a3f33ab6fdc7dc",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 18.0
+  },
+  "KEP-5972": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "a9e5b821286fa312f347",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 17.4
+  },
+  "KEP-5978": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "75bdcca3bcaf798c5e91",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 12.4
+  },
+  "KEP-5996": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "054e538a900c22926e69",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 12.7
+  },
+  "KEP-5999": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "ccbbd4f10775c1dbf431",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 11.6
   },
   "KEP-600": {
    "backend": "groq",
@@ -728,6 +2418,104 @@
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Configuring advanced auditing features requires deep insight into the deployment mechanism and often takes many iterations to configure properly.\",\n      \"quote\": \"The configuration requires deep insight into the deployment mechanism of choice and often takes many iterations to configure properly requiring a restart of the apiserver each time.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The ability to install addon tools that configure and enhance auditing is hindered by the overhead in configuration.\",\n      \"quote\": \"Moreover, the ability to install addon tools that configure and enhance auditing is hindered by the overhead in configuration.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Cluster admins need to easily enable and tweak internal auditing features of an existing cluster.\",\n      \"quote\": \"As a cluster admin, I will easily be able to enable the internal auditing features of an existing cluster, and tweak the configurations as necessary.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Kubernetes extension developers need to provide drop-in extensions that utilize audit data.\",\n      \"quote\": \"As a Kubernetes extension developer, I will be able to provide drop in extensions that utilize audit data.\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 1.0
   },
+  "KEP-6030": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "e2eb889a1ea0a30fae03",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Increasing memory-backed storage currently requires Pod recreation, which is disruptive for high-performance caches or in-memory databases.\",\n      \"quote\": \"Currently, increasing memory-backed storage (tmpfs `emptyDir` volumes) requires Pod recreation, which is disruptive for high-performance caches or in-memory databases that are otherwise capable of resizing their memory footprints dynamically.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"High-performance workloads frequently require scaling their scratch space or in-memory caches simultaneously with container CPU and memory resources.\",\n      \"quote\": \"high-performance workloads frequently require scaling their scratch space or in-memory caches simultaneously\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Memory-backed emptyDir volumes consume the node's memory and can be bounded by the Pod's memory limits.\",\n      \"quote\": \"Since memory-backed `emptyDir` volumes consume the node's memory (and can be bounded by the Pod's memory limits), integrating their resize lifecycle with the IPPVS allocation and actuation phases ensures consistent resource accounting and prevents node exhaustion.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The feature is supported on cgroup v2 nodes only where memory charging and charge migration for tmpfs are properly supported by the kernel.\",\n      \"quote\": \"Support dynamic resizing of memory-backed volumes on cgroup v2 nodes only (where memory charging and charge migration for `tmpfs` are properly supported by the kernel).\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 25.1
+  },
+  "KEP-6035": {
+   "backend": "ollama",
+   "dropped": [
+    {
+     "quote": "The `ExecRequest` protobuf message in the CRI specification contains only six fields (`container_id`, `cmd`, `tty`, `stdin`, `stdout`, `stderr`). There is no field for request metadata.",
+     "text": "The `ExecRequest` protobuf message in the CRI specification contains no field for request metadata.",
+     "why": "quote is not a span of the ADR"
+    }
+   ],
+   "key": "b1f03621d93f60e048a0",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"The API server does not forward the caller's identity to the kubelet or container runtime.\", \"quote\": \"When a user runs `kubectl exec`, the API server authenticates the caller and records their identity in the audit log, but this information is never forwarded to the kubelet or the container runtime.\", \"tool\": null}, {\"text\": \"The existing workaround of prepending the exec command with the `env` binary is unreliable on distroless or minimal images.\", \"quote\": \"The existing workaround of prepending the exec command with the `env` binary is unreliable: it fails silently on distroless or minimal images, and carries no runtime contract.\", \"tool\": null}, {\"text\": \"The `ExecRequest` protobuf message in the CRI specification contains no field for request metadata.\", \"quote\": \"The `ExecRequest` protobuf message in the CRI specification contains only six fields (`container_id`, `cmd`, `tty`, `stdin`, `stdout`, `stderr`). There is no field for request metadata.\", \"tool\": null}, {\"text\": \"Time-based correlation between audit logs and runtime events only works when sessions do not overlap, a condition that cannot be guaranteed in production.\", \"quote\": \"Time-based correlation between audit logs and runtime events only works when sessions do not overlap, a condition that cannot be guaranteed in production.\", \"tool\": null}]}",
+   "seconds": 32.4
+  },
+  "KEP-606": {
+   "backend": "ollama",
+   "dropped": [
+    {
+     "quote": "Device Monitoring in Kubernetes is expected to be implemented out of the kubernetes tree.",
+     "text": "Device monitoring in Kubernetes is expected to be implemented outside the main Kubernetes tree.",
+     "why": "quote is not a span of the ADR"
+    }
+   ],
+   "key": "70ddd30debfd5ac0b426",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Device monitoring in Kubernetes is expected to be implemented outside the main Kubernetes tree.\",\n      \"quote\": \"Device Monitoring in Kubernetes is expected to be implemented out of the kubernetes tree.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Metrics need to be matched to specific containers and pods to be relevant to administrators and owners.\",\n      \"quote\": \"For the metrics to be relevant to cluster administrators or Pod owners, they need to be able to be matched to specific containers and pod (e.g: GPU utilization for pod X).\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"External monitoring agents need to determine which devices are in use by containers and attach pod and container metadata.\",\n      \"quote\": \"As such the external monitoring agents need to be able to determine the set of devices in-use by containers and attach pod and container metadata to the metrics.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 19.2
+  },
+  "KEP-6061": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "d20ac2a4bd5ada7d9912",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 23.6
+  },
+  "KEP-6063": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "d15a1b42ed45c5c4a15b",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 21.6
+  },
+  "KEP-6072": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "0fab43222f0cebdea7e1",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 15.7
+  },
+  "KEP-6122": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "499d96182277b96c7c19",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Latency-sensitive applications require exclusive CPUs to achieve predictable performance and resource isolation.\",\n      \"quote\": \"Latency-sensitive applications often require exclusive CPUs to achieve predictable performance and resource isolation.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Guaranteed QoS pods need to know in advance which CPUs will be removed from their cpuset during scaling down.\",\n      \"quote\": \"When scaling down, guaranteed QoS pods need to know in advance which CPUs will be removed from their cpuset.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The scale-down delay feature only applies to in-place resize enabled by KEP-1287 and exclusive CPUs resize enabled by KEP-5554.\",\n      \"quote\": \"The scale-down delay feature only applies to in-place resize enabled by KEP-1287 and exclusive CPUs resize enabled by KEP-5554.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 21.3
+  },
+  "KEP-6232": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "74f2469f3032552fff64",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 18.7
+  },
+  "KEP-6247": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "0b304a3ae92725b26afd",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"A watchdog-triggered kubelet restart currently leaves insufficient evidence to distinguish a checker error from a notification error.\",\n      \"quote\": \"A watchdog-triggered kubelet restart can currently leave insufficient evidence to distinguish a checker error from a notification error.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The existing retry path does not provide a concise default-visible summary after all attempts fail.\",\n      \"quote\": \"The existing retry path also does not provide a concise default-visible summary after all attempts fail.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Operators need to separate node environment issues from kubelet health issues by comparing kubelet and systemd journal entries.\",\n      \"quote\": \"An operator compares kubelet and systemd journal entries. A named checker error leads to kubelet investigation; an `SdNotify()` error leads to node-local systemd notification investigation.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Platform engineers need to query externally collected kubelet logs to determine whether repeated restarts are isolated or correlated with a node image or systemd configuration.\",\n      \"quote\": \"A platform engineer queries externally collected kubelet logs by operation, checker, error, and retry summary to determine whether repeated restarts are isolated or correlated with a node image or systemd configuration.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 22.2
+  },
+  "KEP-6252": {
+   "backend": "ollama",
+   "dropped": [
+    {
+     "quote": "System daemons such as OVS-DPDK allocate hugepages at startup for their own use... When this happens, kubelet is unaware that those hugepages are taken and continues to report them as `Allocatable`. T",
+     "text": "System daemons like OVS-DPDK consume hugepages at startup, causing kubelet to incorrectly report them as allocatable and leading to pod scheduling failures.",
+     "why": "quote is not a span of the ADR"
+    }
+   ],
+   "key": "8c0f0c940616f1f1bee0",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"System daemons like OVS-DPDK consume hugepages at startup, causing kubelet to incorrectly report them as allocatable and leading to pod scheduling failures.\",\n      \"quote\": \"System daemons such as OVS-DPDK allocate hugepages at startup for their own use... When this happens, kubelet is unaware that those hugepages are taken and continues to report them as `Allocatable`. This leads to pods being scheduled with hugepages requests that cannot actually be fulfilled, causing allocation failures at runtime.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The `--system-reserved` and `--kube-reserved` flags currently do not support hugepages, leaving no way to exclude system-consumed hugepages from the allocatable pool.\",\n      \"quote\": \"Today, `--system-reserved` and `--kube-reserved` only accept `cpu`, `memory`, `pid`, and `ephemeral-storage`. There is no supported way to tell kubelet to exclude system-consumed hugepages from the allocatable pool.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The memory manager's validation requires `--reserved-memory` totals to match `system-reserved + kube-reserved + eviction-threshold`, which currently fails for hugepages because the latter flags do not accept them.\",\n      \"quote\": \"The memory manager's validation requires that `--reserved-memory` totals match `system-reserved + kube-reserved + eviction-threshold` for memory and hugepages resource type. Once hugepages are accepted in `--system-reserved` / `--kube-reserved`, this validation will naturally pass\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 34.1
+  },
   "KEP-6283": {
    "backend": "groq",
    "dropped": [],
@@ -735,6 +2523,38 @@
    "model": "qwen/qwen3.8-27b",
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Two KEPs that improve Kubernetes' ability to work with X.509 certificates went stable in Kube 1.37.\",\n      \"quote\": \"Two KEPs that significantly improve Kubernetes ability to work with X.509 certificates went stable in Kube 1.37 - 3257-ClusterTrustBundles and 4317-PodCertificates.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The platform introduced mechanisms to simplify X.509 certificate experiences but does not currently use them in places where they would make sense.\",\n      \"quote\": \"We introduced mechanisms that are supposed to simplify people's experience with X.509 certificates and bring their own signers but we don't currently use these in places where they would make sense.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The KEP aims to enhance the security of the Kubernetes ecosystem by providing built-in server TLS for service DNS names.\",\n      \"quote\": \"The KEP also aims to enhance the security of the Kubernetes ecosystem by providing built-in server TLS for service DNS names.\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 17.4
+  },
+  "KEP-6371": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "7588d65ab5eee699be8a",
+   "model": "qwen3.8:27b",
+   "reply": "[\n  {\n    \"text\": \"Node lease writes are the largest single class of writes to the API server at scale.\",\n    \"quote\": \"At scale, they are the largest single class of writes to the API server (~29% of all writes in a 5000-node scalability run), and the cost grows with every node added.\",\n    \"tool\": null\n  },\n  {\n    \"text\": \"External systems can detect node health faster than node leases in many environments.\",\n    \"quote\": \"In many environments, external systems can detect whether a node is healthy, and in some cases they do so faster than node leases.\",\n    \"tool\": null\n  },\n  {\n    \"text\": \"The node lifecycle controller fails to mark pods NotReady when external systems write Ready=Unknown.\",\n    \"quote\": \"If an external system writes `Ready=Unknown`, the node lifecycle controller taints and evicts the node but never marks the node's pods NotReady.\",\n    \"tool\": null\n  },\n  {\n    \"text\": \"There is currently no way to disable kubelet heartbeats.\",\n    \"quote\": \"Today, there is no way to disable kubelet heartbeats.\",\n    \"tool\": null\n  }\n]",
+   "seconds": 22.4
+  },
+  "KEP-688": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "b5eee895fcfdd6a3044a",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": [{\"text\": \"Sandbox runtimes introduce non-negligible overhead at the pod level that must be accounted for scheduling and resource management.\", \"quote\": \"Sandbox runtimes introduce a non-negligible overhead at the pod level which must be accounted for effective scheduling, resource quota management, and constraining.\", \"tool\": null}, {\"text\": \"The current heuristic approach to reserving resources for system components does not scale well.\", \"quote\": \"this approach is heuristic at best and doesn't scale well\", \"tool\": null}, {\"text\": \"The overhead from sandbox pods is too large to ignore, requiring accounting starting from quota enforcement and scheduling.\", \"quote\": \"Since this overhead is too big to ignore, we need a way to account for it, starting from quota enforcement and scheduling.\", \"tool\": null}]}",
+   "seconds": 10.9
+  },
+  "KEP-693": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "88ca3a39020be5a8c3d0",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Multiple Kubelet components make disjoint decisions about system topology-related assignments.\",\n      \"quote\": \"Multiple components in the Kubelet make decisions about system topology-related assignments:\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Misalignment between the device manager and CPU manager causes additional hops over the processor interconnect fabric.\",\n      \"quote\": \"If the device manager and the CPU manager are misaligned, all communication between the CPU and the device can incur an additional hop over the processor interconnect fabric.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"NICs including SR-IOV Virtual Functions have affinity to one socket with measurable performance ramifications.\",\n      \"quote\": \"NICs including SR-IOV Virtual Functions have affinity to one socket, with measurable performance ramifications.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The kernel receives accurate topology information from the underlying hardware via the SLIT table.\",\n      \"quote\": \"Correct behavior requires that the kernel receive accurate topology information from the underlying hardware (typically via the SLIT table).\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 24.0
+  },
+  "KEP-727": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "9fcc8b217bda8664fe57",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The Kubelet Summary API provides far more information than required by the Metrics Server.\",\n      \"quote\": \"It provides much more information than required by the Metrics Server, as demonstrated by [kubernetes/kubernetes#68841](https://github.com/kubernetes/kubernetes/pull/68841).\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The Metrics Server currently depends on the Kubelet's JSON Summary API.\",\n      \"quote\": \"The Kubelet\u2019s [JSON Summary API](https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/apis/stats/v1alpha1/types.go) is currently used by the [Metrics Server](https://github.com/kubernetes-incubator/metrics-server#kubernetes-metrics-server).\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The system must provide the minimum set of metrics required to serve the Resource Metrics API.\",\n      \"quote\": \"Provide the minimum set of metrics required to serve the Resource Metrics API\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"The metrics format must be familiar to the kubernetes community and interoperable with common monitoring pipelines.\",\n      \"quote\": \"Use a format that is familiar to the kubernetes community, which can be consumed by common monitoring pipelines, and is interoperable with commonly-used monitoring pipelines.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 26.3
   },
   "KEP-740": {
    "backend": "groq",
@@ -744,6 +2564,22 @@
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Rotating service account keys currently requires restarting the kube-apiserver process.\",\n      \"quote\": \"Thus, rotating keys require a kube-apiserver to restart.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Anyone with privileged access to the kube-apiserver filesystem could exfiltrate signing material stored on disk.\",\n      \"quote\": \"This means anyone with privileged access to the kube-apiserver configuration / filesystem could exfiltrate signing material.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Kubernetes distributions need to integrate with external key management solutions like HSMs and cloud KMSes.\",\n      \"quote\": \"This KEP proposes updates that will allow Kubernetes distributions to integrate with key management solutions of their choice (eg: HSMs, cloud KMSes).\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 16.2
   },
+  "KEP-753": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "2a68f0d6ad18c4d8c96a",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 19.6
+  },
+  "KEP-757": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "6488dd3deb4fed26f14d",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"Pids are a fundamental resource on Linux hosts that can be exhausted without hitting other resource limits, causing host instability.\",\n      \"quote\": \"Pids are a fundamental resource on Linux hosts.  It is trivial to hit the task limit without hitting any other resource limits and cause instability to a host machine.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"Administrators require mechanisms to ensure user pods cannot induce pid exhaustion that prevents host daemons from running.\",\n      \"quote\": \"Administrators require mechanisms to ensure that user pods cannot induce pid exhaustion that prevents host daemons (runtime, kubelet, etc) from running.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"It is important to ensure pids are limited among pods to limit their impact on other workloads on the node.\",\n      \"quote\": \"In addition, it is important to ensure that pids are limited among pods in order to ensure they have limited impact to other workloads on the node.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 19.4
+  },
   "KEP-789": {
    "backend": "groq",
    "dropped": [],
@@ -751,6 +2587,22 @@
    "model": "qwen/qwen3.8-27b",
    "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The post-mortem of CVE-2018-1002105 identified hardening default RBAC discovery ClusterRoleBindings as a work item to limit attack avenues.\",\n      \"quote\": \"One of the work items resulting from the [CVE-2018-1002105](https://github.com/kubernetes/kubernetes/issues/71411) post-mortem was to [investigate hardening the default RBAC discovery ClusterRoleBindings](https://github.com/kubernetes/kubernetes/issues/72115) (i.e. `system:discovery` and `system:basic-user`) to limit potential avenues for similar attack.\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"API extensions exposed by default discovery bindings represent a potential privacy concern.\",\n      \"quote\": \"Additionally, the fact that API extensions are exposed by the default discovery bindings is surprising to some and represents a potential privacy concern (e.g. `GET /apis/self-flying-cars.unicorn.vc/v1/`).\",\n      \"tool\": null\n    },\n    {\n      \"text\": \"There are legitimate use-cases for unauthenticated calls, such as health checks and version information, that must not be broken.\",\n      \"quote\": \"There are several non-sensitive and legitimate use-cases for unauthenticated calls, such as `/healthz` liveliness checks and [returning useful information about the cluster](https://github.com/kubernetes/kubernetes/issues/45366#issuecomment-299275002) to `kubectl version`, that we don't wish to break.\",\n      \"tool\": null\n    }\n  ]\n}",
    "seconds": 7.4
+  },
+  "KEP-793": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "147bf10dda5d83f86c5e",
+   "model": "qwen3.8:27b",
+   "reply": "{\n  \"reasons\": [\n    {\n      \"text\": \"The labels have existed for over two years and are widely used in various places.\",\n      \"quote\": \"The labels have existed over two years and are widely in various places.\",\n      \"tool\": null\n    }\n  ]\n}",
+   "seconds": 6.2
+  },
+  "KEP-950": {
+   "backend": "ollama",
+   "dropped": [],
+   "key": "2e3086e659b94bf6711f",
+   "model": "qwen3.8:27b",
+   "reply": "{\"reasons\": []}",
+   "seconds": 9.2
   }
  }
 }
