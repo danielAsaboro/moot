@@ -50,6 +50,7 @@ table.ledger tr.active td{background:var(--chip)}
 .node .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--ink-3);text-transform:uppercase}
 .node.Decision{border-color:var(--ink)}.node.Evidence.contra{border-color:var(--accent)}.node.Evidence.sup{border-color:var(--holds)}
 .arrow{align-self:center;color:var(--ink-3);font-family:var(--mono);font-size:12px}
+.step{display:flex;align-items:stretch;gap:6px}
 .premise{border-top:1px solid var(--rule);padding:10px 0}
 .premise .state{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
 .state.expired{color:var(--accent)}.state.disputed{color:var(--disputed)}.state.holds{color:var(--holds)}.state.unchecked{color:var(--ink-3)}
@@ -120,7 +121,7 @@ table.ledger td.verdictcell{text-align:right}
 .cy pre{white-space:pre-wrap;font-family:var(--mono);font-size:12px;margin:0;color:var(--ink-2);line-height:1.45}
 .cy .kw{color:var(--ink);font-weight:600}
 .cy .total{font-size:13px;color:var(--ink-2);margin:6px 0}
-.ev .id.link{cursor:pointer;text-decoration:underline dotted}
+.id.link{cursor:pointer;text-decoration:underline dotted}
 .trace{border:1px solid var(--rule);border-radius:6px;background:var(--paper);padding:10px 12px;margin:8px 0}
 .trace .t{font-family:var(--serif);font-size:16px;margin-bottom:4px}
 .kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--rule);border-radius:3px;padding:0 4px;color:var(--ink-3)}

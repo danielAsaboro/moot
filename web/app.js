@@ -97,13 +97,18 @@ function renderLedger() {
 }
 
 /* ---------- path chain (per premise) ---------- */
+// Each arrow travels with the node after it, so a wrapped chain never ends a line on a dangling arrow.
+function joinPath(nodes, arrow) {
+  return nodes.map((n, i) => i ? `<span class="step"><span class="arrow">${arrow}</span>${n}</span>` : n).join("");
+}
+
 function pathHtml(path, evidence) {
   const nodes = path.map(n => `<div class="node ${esc(n.label)}"><div class="lbl">${esc(n.label)}</div>${esc(n.title)}</div>`);
-  let html = nodes.join('<span class="arrow">→</span>');
+  let html = joinPath(nodes, "→");
   const contra = [...evidence].filter(e => e.rel === "CONTRADICTS").pop();
   const sup = [...evidence].filter(e => e.rel === "SUPPORTS").pop();
   const last = contra && (!sup || sup.at < contra.at) ? contra : (sup || contra);
-  if (last) html += `<span class="arrow">←</span><div class="node Evidence ${last.rel === "CONTRADICTS" ? "contra" : "sup"}"><div class="lbl">${esc(last.rel)} ${esc(last.at)}</div>${esc(last.title)}</div>`;
+  if (last) html += `<span class="step"><span class="arrow">←</span><div class="node Evidence ${last.rel === "CONTRADICTS" ? "contra" : "sup"}"><div class="lbl">${esc(last.rel)} ${esc(last.at)}</div>${esc(last.title)}</div></span>`;
   return `<div class="path">${html}</div>`;
 }
 
@@ -198,14 +203,14 @@ function renderDecision(data, ask) {
     <div class="card">
       <div class="id">${esc(d.id)} · decided ${esc(d.decided_on)} · ${esc((a.systems || []).join(", "))}</div>
       <div class="title">${esc(d.title)}</div>
-      <div class="verdictline"><span class="badge fill ${esc(a.verdict)}">${esc(label(a.verdict))}</span><span class="muted">owner: ${owner}</span></div>
+      <div class="verdictline"><span class="badge fill ${esc(a.verdict)}">${esc(label(a.verdict))}</span>${data.gate && !notYet ? gateBadge(data.gate) : ""}<span class="muted">owner: ${owner}</span></div>
       <div class="muted">${esc(d.summary)}</div>
       <details class="doc" id="adrBox"><summary>Read the ADR <span class="muted">· ${esc(d.source || "")}</span></summary><pre class="ticket">Loading…</pre></details>
       ${depthRow()}
       ${notYet ? `<div class="notyet">As of ${esc(a.as_of)} this decision had not been made yet. Move the date forward.</div>` : `
       <div class="tabs">${[["audit", "Audit"], ["graph", "Graph"], ["cypher", "Cypher"]].map(([k, t]) => `<button class="${state.tab === k ? "on" : ""}" data-tab="${k}">${t}</button>`).join("")}</div>
       <div class="tab ${state.tab === "audit" ? "on" : ""}" data-pane="audit">
-        ${data.gate ? gateHtml(data.gate) : ""}
+        ${data.gate && a.verdict !== "RETIRED" ? gateHtml(data.gate) : ""}
         ${a.superseded_by ? `<div class="muted" style="margin-top:10px">Superseded on ${esc(a.superseded_by.at)} by ${a.superseded_by.kind === "decision" ? `<a href="#" data-open="${esc(a.superseded_by.id)}">${esc(a.superseded_by.id)}: ${esc(a.superseded_by.title)}</a>` : `${esc(a.superseded_by.id)}: ${esc(a.superseded_by.title)}`}</div>` : ""}
         ${a.premises.length ? `<h3>Premises</h3>${a.premises.map(premiseHtml).join("")}` : `<h3>Premises</h3><div class="muted">None recorded. The ADR gives no reason, so there is nothing to check.</div>`}
         ${others.length ? `<h3>Rests on the same premise</h3>${others.map(o => `<div class="ev"><span class="id">${esc(o.id)}</span><span><a href="#" data-open="${esc(o.id)}">${esc(o.title)}</a> <span class="muted">· ${esc(o.systems.join(", "))}</span></span></div>`).join("")}` : ""}
@@ -258,17 +263,38 @@ function renderDecision(data, ask) {
 }
 
 /* ---------- validity gate: may an agent act on this decision? ---------- */
+// What a REVALIDATE asks for depends on why the graph cannot vouch for the decision.
+const REVALIDATE_ASK = {
+  undocumented: "record a reason before anyone acts on it",
+  premise_disputed: "the owner has to rule before anyone acts on it",
+  premise_unchecked: "a check could not be answered; verify it before anyone acts on it",
+  owner_left: "nobody owns it; hand it over before anyone acts on it",
+};
+
+function gateSummary(gt) {
+  if (gt.allowed) return "an agent may act on this decision";
+  if (gt.gate === "DENY") return "an agent must not act on this decision";
+  return REVALIDATE_ASK[gt.reasons[0].code] || "re-validate before anyone acts on it";
+}
+
+function gateBadge(gt) {
+  return `<span class="badge ${esc(gt.gate)}" title="Agent gate: ${esc(gateSummary(gt))}">agent: ${esc(gt.gate)}</span>`;
+}
+
+// One line per reason; the evidence id is a link to its trace, and the full path is already drawn under Premises.
 function gateHtml(gt) {
+  const hops = p => p && p.length > 2 ? ` <span class="muted">· ${p.length - 1} hops</span>` : "";
+  const ev = (text, id) => id ? esc(text).replace(esc(id), `<span class="id link" data-trace="${esc(id)}" title="What else does this document reach?">${esc(id)}</span>`) : esc(text);
   const why = gt.allowed
-    ? gt.basis.map(b => `<div class="muted">“${esc(b.text)}” holds${b.evidence ? ` · latest support ${esc(b.evidence)} on ${esc(b.at)}` : " · stated in the ADR, nothing contradicts it"}</div>`).join("")
-    : gt.reasons.map(r => `<div class="muted">${esc(r.text)}</div>${r.path && r.path.length > 1 ? chainHtml(r.path) : ""}`).join("");
-  return `<div class="gate"><div class="row"><span class="muted">Agent gate</span><span class="badge ${esc(gt.gate)}">${esc(gt.gate)}</span>
-    <span class="muted">${gt.allowed ? "an agent may act on this decision" : gt.gate === "DENY" ? "an agent must not act on this decision" : "re-validate before anyone acts on it"} · audited at depth ${gt.depth} · <code>GET /api/gate/${esc(gt.decision_id)}</code></span></div>${why}</div>`;
+    ? gt.basis.map(b => `<div class="muted">“${esc(b.text)}” holds${b.evidence ? ` · latest support <span class="id link" data-trace="${esc(b.evidence)}">${esc(b.evidence)}</span> on ${esc(b.at)}` : " · stated in the ADR, nothing contradicts it"}${hops(b.path)}</div>`).join("")
+    : gt.reasons.map(r => `<div class="muted">${ev(r.text, r.evidence)}${hops(r.path)}</div>`).join("");
+  return `<div class="gate"><div class="row"><span class="muted">Agent gate</span>${gateBadge(gt)}
+    <span class="muted">${esc(gateSummary(gt))} · audited at depth ${gt.depth} · <code>GET /api/gate/${esc(gt.decision_id)}</code></span></div>${why}</div>`;
 }
 
 /* ---------- re-open memo ---------- */
 function chainHtml(path) {
-  return `<div class="path">${path.map(n => `<div class="node ${esc(n.label)}"><div class="lbl">${esc(n.label)} ${esc(n.id)}</div>${esc(n.title)}</div>`).join('<span class="arrow">→</span>')}</div>`;
+  return `<div class="path">${joinPath(path.map(n => `<div class="node ${esc(n.label)}"><div class="lbl">${esc(n.label)} ${esc(n.id)}</div>${esc(n.title)}</div>`), "→")}</div>`;
 }
 
 function memoHtml(m) {
@@ -315,7 +341,7 @@ async function showOrphans() {
     <div class="muted">Each one goes up the reporting line, as it stood on the day the owner left, to the first person who is still here. The reasons and verdict travel with it. Approving writes a new dated OWNS edge; the old one stays, so time travel still shows who owned it then.</div>
     ${o.groups.map(g => `<div class="leaver">
       <h3>${esc(g.person.name)} · ${esc(g.person.role)} · left ${esc(g.person.left)}</h3>
-      ${g.successor ? `<div class="path">${g.successor.chain.map((n, i) => `<div class="node Person ${i && i < g.successor.chain.length - 1 ? "gone" : ""}"><div class="lbl">${i === 0 ? "left" : n.left && n.left <= o.as_of ? "also left " + esc(n.left) : "routes to"}</div>${esc(n.name)}</div>`).join('<span class="arrow">REPORTS_TO →</span>')}</div>` : '<div class="muted">Nobody in this reporting line is still here.</div>'}
+      ${g.successor ? `<div class="path">${joinPath(g.successor.chain.map((n, i) => `<div class="node Person ${i && i < g.successor.chain.length - 1 ? "gone" : ""}"><div class="lbl">${i === 0 ? "left" : n.left && n.left <= o.as_of ? "also left " + esc(n.left) : "routes to"}</div>${esc(n.name)}</div>`), "REPORTS_TO →")}</div>` : '<div class="muted">Nobody in this reporting line is still here.</div>'}
       ${g.decisions.map(d => `<div class="orow">
         <div><span class="id">${esc(d.id)}</span> <a href="#" data-open="${esc(d.id)}">${esc(d.title)}</a> <span class="badge ${esc(d.verdict)}">${esc(d.verdict)}</span>
           ${d.reasons.map(r => `<div class="muted">${r.hops > 1 ? "↳ which holds only while" : "because"} “${esc(r.text)}” <span class="state ${esc(r.state)}">${esc(r.state)}</span></div>`).join("") || '<div class="muted">no reason recorded</div>'}</div>
@@ -387,6 +413,9 @@ async function showRisky() {
 }
 
 /* ---------- real-world proof: public ADRs, separate graph ---------- */
+// the gate that follows from the verdict alone; a record shows its gate badge only when the gate says something more
+const GATE_FOR = { MOOT: "DENY", RETIRED: "DENY", HOLDS: "ALLOW" };
+
 async function showRealWorld() {
   unselect(); location.hash = "realworld";
   $("#panel").innerHTML = '<div class="empty"><div class="empty-title">Auditing public records…</div></div>';
@@ -395,7 +424,7 @@ async function showRealWorld() {
   const rest = rw.decisions.filter(d => d.verdict !== "MOOT" && d.verdict !== "RETIRED");
   const rec = d => `<div class="orow"><div>
       <div><span class="id">${esc(d.repo)} · ${esc(d.date)}${d.status !== "accepted" ? " · ADR status: " + esc(d.status) : ""}</span></div>
-      <a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.title)}</a> <span class="badge ${esc(d.verdict)}">${esc(d.verdict)}</span> <span class="badge ${esc(d.gate)}" title="Agent gate">${esc(d.gate)}</span>
+      <a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.title)}</a> <span class="badge ${esc(d.verdict)}">${esc(d.verdict)}</span>${d.gate !== GATE_FOR[d.verdict] ? ` <span class="badge ${esc(d.gate)}" title="Agent gate">agent: ${esc(d.gate)}</span>` : ""}
       <div class="muted">“${esc(d.quote)}”</div>
       ${d.retired ? `<div class="muted">retired ${esc(d.retired.date)} by <a href="${esc(d.retired.commit)}" target="_blank" rel="noopener">${esc(d.retired.title)}</a>: “${esc(d.retired.quote)}”</div>` :
         d.reasons.map(r => `<div class="muted">unwritten reason: ${esc(r.text)} <span class="state ${esc(r.state)}">${esc(r.state)}</span>${r.evidence.length ? ` · ${esc(r.evidence[r.evidence.length - 1].title)}` : r.unchecked ? ` · ${esc(r.unchecked)}` : ""}</div>`).join("")}
