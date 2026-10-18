@@ -27,7 +27,7 @@ from .stats import wilson
 ROOT = Path(__file__).resolve().parents[1]
 EVAL = ROOT / "eval"
 EVALS = {"results.json": "eval_retrieval.py", "results_scale.json": "eval_scale.py", "results_gate.json": "eval_gate.py",
-         "results_ablation.json": "eval_ablation.py"}
+         "results_ablation.json": "eval_ablation.py", "results_baseline.json": "eval_baseline.py"}
 TIMING = {"seed_s", "audit", "ledger", "trace", "fresh_process", "samples"}  # measured, not derived: excluded from --rerun
 
 
@@ -98,6 +98,24 @@ def check_headline(c: Checker, S: dict, G: dict, bt: str | None) -> None:
         rk = re.search(r"\| random, same number of flags \(mean of 200\) \| ([\d.]+) / ", bt).group(1)
         tk = re.search(r"\| trust the ADR \| (\d+) / ", bt).group(1)
         c.expect(doc, t, "headline backtest", r"maintainers \(of (\d+) tool deaths\) \| \*\*(\d+)\*\* \| trust the ADR (\d+) · random ([\d.]+) \|", (dd, caught, tk, rk))
+
+
+def check_baseline(c: Checker, B: dict) -> None:
+    """Study S3: the README headline row and sentence, and the table in docs/evaluation.md."""
+    a = B["arms"]
+    t = (ROOT / "README.md").read_text()
+    c.expect("README.md", t, "headline S3", r"dead decisions called HOLDS \(of (\d+)\) \| \*\*(\d+)\*\* \| RAG \+ same model (\d+) · RAG over stated reasons (\d+) \|",
+             (a["moot"]["dead_n"], len(a["moot"]["dead_called_holds"]), len(a["rag_bm25"]["dead_called_holds"]), len(a["rag_premises"]["dead_called_holds"])))
+    c.expect("README.md", t, "S3 sentence", r"Moot gets (\d+)/90 verdicts and (\d+)/(\d+) \"since when\" dates exactly; plain RAG with the same local model gets (\d+)/90 and (\d+)/(\d+)\. "
+             r"The ablations say what carries it: ignoring dates drops Moot to (\d+)/90, removing FalkorDB \(same rules over retrieved documents\) to (\d+)/90, depth 1 to (\d+)/90",
+             (a["moot"]["verdict"], a["moot"]["since"], a["moot"]["since_n"], a["rag_bm25"]["verdict"], a["rag_bm25"]["since"], a["rag_bm25"]["since_n"],
+              a["moot_no_asof"]["verdict"], a["no_falkordb"]["verdict"], a["moot_depth1"]["verdict"]))
+    ev = (ROOT / "docs" / "evaluation.md").read_text()
+    for arm, label in (("rag_bm25", r"RAG: BM25 top-5 \+ model"), ("rag_premises", r"RAG over stated reasons \+ model \(FalkorDB removed\)"),
+                       ("no_falkordb", r"ablation: FalkorDB removed, rules kept")):
+        x = a[arm]
+        c.expect("docs/evaluation.md", ev, f"S3 {arm}", rf"\| {label} \| (\d+) \| (\d+) \| (\d+) \| (\d+) \| (\d+) \|",
+                 (x["verdict"], len(x["dead_called_holds"]), x["why"], x["since"], len(x["false_alarms"])))
 
 
 def check_readme(c: Checker, R: dict, S: dict, G: dict, A: dict, bt: str | None) -> None:
@@ -208,11 +226,12 @@ def main(rerun: bool = False) -> int:
     c = Checker()
     if rerun:
         rerun_evals(c)
-    R, S, G, A = (load(n) for n in EVALS)
+    R, S, G, A, B = (load(n) for n in EVALS)
     bt = backtest_md()
     if bt is not None:
         c.equal("eval/results_backtest.md re-scored from data/backtest", bt, (EVAL / "results_backtest.md").read_text())
     check_headline(c, S, G, bt)
+    check_baseline(c, B)
     check_readme(c, R, S, G, A, bt)
     check_results(c, R, S, G)
     for b in c.bad:

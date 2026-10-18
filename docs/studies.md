@@ -40,6 +40,7 @@ Each study below states its hypothesis, data, metric and script before its first
   4. Depth 1 calls those same decisions HOLDS on the dates after PR-412 (2026-03-02).
   5. Dates ignored: every question on 2025-06-01 and 2026-01-01 whose label differs from today's verdict is wrong, and NOT_YET is never answered.
   6. Moot rows + model is within 5 verdicts of Moot: the model can read a path without breaking it.
+- **Outcome (2026-10-19, after the run):** predictions 1, 2, 5 and 6 held; 3 and 4 held for D01 only (D02 and D03 state the gateway limit directly, so neither a depth-1 audit nor a retriever over stated reasons misses them). The dead-decision denominator is 22, not the 21 written above. Details: [evaluation.md](evaluation.md#head-to-head-against-a-retrieval-company-brain-study-s3).
 - **Script:** `python3 eval/eval_baseline.py --llm` (fills the model cache) then `python3 eval/eval_baseline.py` → `eval/results_baseline.md` and `.json`.
 
 ## Registered after the fact

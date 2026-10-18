@@ -17,3 +17,4 @@ data/backtest/.tools
 data/github/.repos
 .vercel
 .env.local
+eval/baseline/llm_run.log

@@ -1,0 +1,270 @@
+{"key": "99b3e78acbf9a32900559e9b", "arm": "moot_rows", "qid": "D01@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"PR-412\"], \"since\": \"2026-03-02\"}"}
+{"key": "4b4049a30d3d7aa950a6182a", "arm": "moot_rows", "qid": "D02@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"PR-412\"], \"since\": \"2026-03-02\"}"}
+{"key": "b64cfd5b8476dc80ae07c606", "arm": "moot_rows", "qid": "D03@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"PR-412\"], \"since\": \"2026-03-02\"}"}
+{"key": "7d6435ddbc1309e2e8919581", "arm": "moot_rows", "qid": "D04@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"DISPUTED\", \"evidence\": [\"SRCH-233\", \"chat-2025-10-02-search\"], \"since\": \"2025-10-02\"}"}
+{"key": "1eb8ed4e67a3e3e184948be5", "arm": "moot_rows", "qid": "D05@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"UNDOCUMENTED\", \"evidence\": [], \"since\": null}"}
+{"key": "576ab8826b0b49f17399b579", "arm": "moot_rows", "qid": "D06@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"doc-soc2-2026\"], \"since\": \"2025-01-15\"}"}
+{"key": "be220bae62bdbc64f0de4f57", "arm": "moot_rows", "qid": "D07@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"PR-350\"], \"since\": \"2025-11-18\"}"}
+{"key": "db9384dd78a37f660a266036", "arm": "moot_rows", "qid": "D08@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"doc-allhands-2026-04\"], \"since\": \"2026-04-03\"}"}
+{"key": "ca3dd2b87c9063865efcbc65", "arm": "moot_rows", "qid": "D09@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"SALES-91\"], \"since\": \"2026-02-20\"}"}
+{"key": "a79fdfa9d5f8ac12b140ef27", "arm": "moot_rows", "qid": "D10@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"doc-metrics-2026-06\"], \"since\": \"2024-08-10\"}"}
+{"key": "08b26a6b7b3b14af169515c8", "arm": "moot_rows", "qid": "D11@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"DISPUTED\", \"evidence\": [\"PR-201\", \"chat-2025-08-21-ci\"], \"since\": \"2025-04-09\"}"}
+{"key": "49e9bcb9c9c3c83998d95850", "arm": "moot_rows", "qid": "D12@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"doc-arch-2026-02\"], \"since\": \"2024-07-15\"}"}
+{"key": "b184be81186ccea215b48b8c", "arm": "moot_rows", "qid": "D13@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"doc-aws-cmk\"], \"since\": \"2025-12-05\"}"}
+{"key": "d463ea181a9c16a09ef854e6", "arm": "moot_rows", "qid": "D14@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"BILL-77\"], \"since\": \"2024-06-20\"}"}
+{"key": "1b54fc5f74c3c22d51a0ccb8", "arm": "moot_rows", "qid": "D15@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"doc-analytics-2026-03\"], \"since\": \"2025-03-15\"}"}
+{"key": "e720043aeeff2aa836dfc8f0", "arm": "moot_rows", "qid": "D16@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"doc-privacy-2026\"], \"since\": \"2024-09-01\"}"}
+{"key": "5ffc2f5ce025fcd17b001019", "arm": "moot_rows", "qid": "D17@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"DISPUTED\", \"evidence\": [\"chat-2026-07-09-ld\", \"chat-2026-08-15-ld\"], \"since\": \"2026-07-09\"}"}
+{"key": "634e25fd33fa2d5ef5156fd3", "arm": "moot_rows", "qid": "D18@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"PR-520\"], \"since\": \"2026-05-22\"}"}
+{"key": "ae72190b068ad0e260b28d66", "arm": "moot_rows", "qid": "D19@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"DATA-140\"], \"since\": \"2026-04-30\"}"}
+{"key": "c6cdb9ed66dfc70166c09375", "arm": "moot_rows", "qid": "D20@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"doc-vendor-rn\"], \"since\": \"2026-02-11\"}"}
+{"key": "78c484ab98a870f80f6a6db1", "arm": "moot_rows", "qid": "D21@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"UNDOCUMENTED\", \"evidence\": [], \"since\": null}"}
+{"key": "e1d2ddce8ac33cd093edabf2", "arm": "moot_rows", "qid": "D22@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"doc-soc2-2026\"], \"since\": \"2025-04-01\"}"}
+{"key": "6f667ee952c1a24bc11155c3", "arm": "moot_rows", "qid": "D23@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"DISPUTED\", \"evidence\": [\"ADR-notes-sharding\", \"chat-2026-03-18-sharding\"], \"since\": \"2026-01-20\"}"}
+{"key": "1dd5aaab4adc00f73a94baeb", "arm": "moot_rows", "qid": "D24@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"doc-oncall-2026\"], \"since\": \"2025-01-10\"}"}
+{"key": "65c64cba5a886a7f7e2c58a5", "arm": "moot_rows", "qid": "D25@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"doc-abuse-2026-06\"], \"since\": \"2026-06-12\"}"}
+{"key": "8ff146a2efbb2062477c6f0a", "arm": "moot_rows", "qid": "D26@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"doc-logcost-2026\"], \"since\": \"2024-08-01\"}"}
+{"key": "19e61bfaeed0fc96b7cc2675", "arm": "moot_rows", "qid": "D27@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"doc-soc2-iac\"], \"since\": \"2024-07-01\"}"}
+{"key": "b44be2b13536d4964b994b01", "arm": "moot_rows", "qid": "D28@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"RETIRED\", \"evidence\": [\"D09\"], \"since\": \"2025-07-01\"}"}
+{"key": "88db0b81f57c1cb5201fa48e", "arm": "moot_rows", "qid": "D29@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"UNDOCUMENTED\", \"evidence\": [], \"since\": null}"}
+{"key": "fd4149dd6ba5c725a84e0e13", "arm": "moot_rows", "qid": "D30@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"doc-news-cookies\"], \"since\": \"2025-07-22\"}"}
+{"key": "babfe4f34963059ca0a98b36", "arm": "moot_rows", "qid": "D01@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D01\"], \"since\": \"2025-02-10\"}"}
+{"key": "b2030e443205a6c43063d9a4", "arm": "moot_rows", "qid": "D02@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [], \"since\": \"2025-03-01\"}"}
+{"key": "6df0d0b574d67a35b883e5e6", "arm": "moot_rows", "qid": "D03@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D03\"], \"since\": \"2025-04-12\"}"}
+{"key": "54e3dcc15aa0fc295192cd44", "arm": "moot_rows", "qid": "D04@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D04\"], \"since\": \"2024-11-20\"}"}
+{"key": "e93a216d034266cd26615360", "arm": "moot_rows", "qid": "D05@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"UNDOCUMENTED\", \"evidence\": [], \"since\": null}"}
+{"key": "a9355c33fef407399ece730e", "arm": "moot_rows", "qid": "D06@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D06\"], \"since\": \"2025-01-15\"}"}
+{"key": "a0c7231ee5a301bd6c02d6c1", "arm": "moot_rows", "qid": "D07@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D07\"], \"since\": \"2024-09-05\"}"}
+{"key": "e6d4c1c6de41f27fa0c16e44", "arm": "moot_rows", "qid": "D08@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D08\"], \"since\": \"2025-05-20\"}"}
+{"key": "d76072567c40b497edd27352", "arm": "moot_rows", "qid": "D09@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [\"D09\"], \"since\": null}"}
+{"key": "26f7e74eeadeaa1abc061b9b", "arm": "moot_rows", "qid": "D10@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D10\"], \"since\": \"2024-08-10\"}"}
+{"key": "d180f16e7a2697bcd5f8fe77", "arm": "moot_rows", "qid": "D11@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"PR-201\"], \"since\": \"2025-04-09\"}"}
+{"key": "eae8ab4ffcd52360ff22d826", "arm": "moot_rows", "qid": "D12@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D12\"], \"since\": \"2024-07-15\"}"}
+{"key": "652520393707a6cc562c63ee", "arm": "moot_rows", "qid": "D13@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D13\"], \"since\": \"2025-02-01\"}"}
+{"key": "199ea16c1cb96740599b74d1", "arm": "moot_rows", "qid": "D14@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D14\"], \"since\": \"2024-06-20\"}"}
+{"key": "3f826fc234df553858bc08c4", "arm": "moot_rows", "qid": "D15@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D15\"], \"since\": \"2025-03-15\"}"}
+{"key": "dc3645e1a5c7037096bb814d", "arm": "moot_rows", "qid": "D16@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D16\"], \"since\": \"2024-09-01\"}"}
+{"key": "e8340c1285d2b1a3bb0c6ec1", "arm": "moot_rows", "qid": "D17@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [\"D17\"], \"since\": null}"}
+{"key": "cde8d77e0341645018b533ff", "arm": "moot_rows", "qid": "D18@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D18\"], \"since\": \"2024-11-01\"}"}
+{"key": "001f777fc898e770ca743944", "arm": "moot_rows", "qid": "D19@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [\"D19\"], \"since\": null}"}
+{"key": "04736b8115fed0f9016ea196", "arm": "moot_rows", "qid": "D20@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [], \"since\": null}"}
+{"key": "78d9eadfe36dc47c855abbec", "arm": "moot_rows", "qid": "D21@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"UNDOCUMENTED\", \"evidence\": [], \"since\": null}"}
+{"key": "16c1ce1989412e66f2b76c4a", "arm": "moot_rows", "qid": "D22@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D22\"], \"since\": \"2025-04-01\"}"}
+{"key": "46cfe7f4d8dcbcd377a7e922", "arm": "moot_rows", "qid": "D23@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D23\"], \"since\": \"2024-06-15\"}"}
+{"key": "c4f7f0e4486650ef29a09ee3", "arm": "moot_rows", "qid": "D24@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"UNDOCUMENTED\", \"evidence\": [], \"since\": \"2025-01-10\"}"}
+{"key": "09cc329534a63fc61c740669", "arm": "moot_rows", "qid": "D25@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [\"D25\"], \"since\": null}"}
+{"key": "2adac44229ce38e38bfba0f1", "arm": "moot_rows", "qid": "D26@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D26\"], \"since\": \"2024-08-01\"}"}
+{"key": "a238d41c3b362ed823056776", "arm": "moot_rows", "qid": "D27@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D27\"], \"since\": \"2024-07-01\"}"}
+{"key": "c6297a8fd3ac42163c957f53", "arm": "moot_rows", "qid": "D28@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"UNDOCUMENTED\", \"evidence\": [], \"since\": null}"}
+{"key": "7fe7ef5a305f3f4733291d14", "arm": "moot_rows", "qid": "D29@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"UNDOCUMENTED\", \"evidence\": [], \"since\": null}"}
+{"key": "bf3d8486001474786ff3767c", "arm": "moot_rows", "qid": "D30@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [\"D30\"], \"since\": null}"}
+{"key": "957a22234997808fbed61bb0", "arm": "moot_rows", "qid": "D01@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D01\"], \"since\": \"2025-02-10\"}"}
+{"key": "671483dd46b93799cb543a7c", "arm": "moot_rows", "qid": "D02@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D02\"], \"since\": \"2025-03-01\"}"}
+{"key": "25c1b5326ee600b857c3c7df", "arm": "moot_rows", "qid": "D03@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D03\"], \"since\": \"2025-04-12\"}"}
+{"key": "8955c8cb25222ce9e3fcbe33", "arm": "moot_rows", "qid": "D04@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"DISPUTED\", \"evidence\": [\"SRCH-233\", \"chat-2025-10-02-search\"], \"since\": \"2025-10-02\"}"}
+{"key": "a468fe2e7f00955e704dc55d", "arm": "moot_rows", "qid": "D05@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"UNDOCUMENTED\", \"evidence\": [], \"since\": null}"}
+{"key": "5d8c9a821e3a6771711b1d59", "arm": "moot_rows", "qid": "D06@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D06\"], \"since\": \"2025-01-15\"}"}
+{"key": "26cd34f3aa561f42cbb1d441", "arm": "moot_rows", "qid": "D07@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"PR-350\"], \"since\": \"2025-11-18\"}"}
+{"key": "133c94d0c73c310f3755c7f7", "arm": "moot_rows", "qid": "D08@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D08\"], \"since\": \"2025-05-20\"}"}
+{"key": "72ea1b3938202044d441622e", "arm": "moot_rows", "qid": "D09@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D09\"], \"since\": \"2025-07-01\"}"}
+{"key": "12b1e1f29c355c896a27e2a9", "arm": "moot_rows", "qid": "D10@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D10\"], \"since\": \"2024-08-10\"}"}
+{"key": "746e7b0c79924774a5ddb495", "arm": "moot_rows", "qid": "D11@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"DISPUTED\", \"evidence\": [\"PR-201\", \"chat-2025-08-21-ci\"], \"since\": \"2025-04-09\"}"}
+{"key": "1987755c46b425854edeb7d9", "arm": "moot_rows", "qid": "D12@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D12\"], \"since\": \"2024-07-15\"}"}
+{"key": "42ed8f9f0ed77546bc6c46b5", "arm": "moot_rows", "qid": "D13@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"doc-aws-cmk\"], \"since\": \"2025-12-05\"}"}
+{"key": "a330f94c6ea6dc132b35d2c1", "arm": "moot_rows", "qid": "D14@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D14\"], \"since\": \"2024-06-20\"}"}
+{"key": "edbaa3795bc022dcea2c0cc6", "arm": "moot_rows", "qid": "D15@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D15\"], \"since\": \"2025-03-15\"}"}
+{"key": "8d370b2c90eb1a0af1c1bb38", "arm": "moot_rows", "qid": "D16@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D16\"], \"since\": \"2024-09-01\"}"}
+{"key": "060e94a609bebdc6097d7d2a", "arm": "moot_rows", "qid": "D17@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D17\"], \"since\": \"2025-06-10\"}"}
+{"key": "ea7a2b6f6518410d6b29d57e", "arm": "moot_rows", "qid": "D18@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D18\"], \"since\": \"2024-11-01\"}"}
+{"key": "ac329cc3d434a2aa217d83cf", "arm": "moot_rows", "qid": "D19@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D19\"], \"since\": \"2025-08-01\"}"}
+{"key": "ca6e97dea9535a730f722c7a", "arm": "moot_rows", "qid": "D20@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D20\"], \"since\": \"2025-09-01\"}"}
+{"key": "1efadf73be2f9d3caeba9034", "arm": "moot_rows", "qid": "D21@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"UNDOCUMENTED\", \"evidence\": [], \"since\": null}"}
+{"key": "3d61416f6a3f8f78d1951847", "arm": "moot_rows", "qid": "D22@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D22\"], \"since\": \"2025-04-01\"}"}
+{"key": "242ff56d024fbc63ce4e370b", "arm": "moot_rows", "qid": "D23@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D23\"], \"since\": \"2024-06-15\"}"}
+{"key": "29d9df73c1029bbbd864b416", "arm": "moot_rows", "qid": "D24@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D24\"], \"since\": \"2025-01-10\"}"}
+{"key": "92ecd2dc746460b26e447902", "arm": "moot_rows", "qid": "D25@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D25\"], \"since\": \"2025-10-01\"}"}
+{"key": "4e00675118c7023dfb0df115", "arm": "moot_rows", "qid": "D26@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D26\"], \"since\": \"2024-08-01\"}"}
+{"key": "e54e658a6fdfc83aacc58c21", "arm": "moot_rows", "qid": "D27@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D27\"], \"since\": \"2024-07-01\"}"}
+{"key": "253b4eef6e29afdd7de90f4e", "arm": "moot_rows", "qid": "D28@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"RETIRED\", \"evidence\": [\"D09\"], \"since\": \"2025-07-01\"}"}
+{"key": "1a25512e53881b4c88a03946", "arm": "moot_rows", "qid": "D29@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"UNDOCUMENTED\", \"evidence\": [], \"since\": null}"}
+{"key": "8f02a4a2cc51bb5a0fc64e16", "arm": "moot_rows", "qid": "D30@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"doc-news-cookies\"], \"since\": \"2025-07-22\"}"}
+{"key": "48cea28c022a6d65285074bf", "arm": "rag_bm25", "qid": "D01@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"D01\", \"PR-412\"], \"since\": \"2026-03-02\"}"}
+{"key": "4c5661d82bce20c98431eb66", "arm": "rag_bm25", "qid": "D02@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"D02\", \"PR-412\"], \"since\": \"2026-03-02\"}"}
+{"key": "aed5ccc1625530b95801bcaf", "arm": "rag_bm25", "qid": "D03@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"D03\", \"PR-412\"], \"since\": \"2026-03-02\"}"}
+{"key": "1bbe8cdaaf4f4d3f5ee70481", "arm": "rag_bm25", "qid": "D04@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D04\", \"chat-2025-10-02-search\"], \"since\": \"2024-11-20\"}"}
+{"key": "c1b92aecb02988e3cca56ec1", "arm": "rag_bm25", "qid": "D05@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D05\"], \"since\": \"2024-06-01\"}"}
+{"key": "898bb58f336ee555096db005", "arm": "rag_bm25", "qid": "D06@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D06\"], \"since\": \"2025-01-15\"}"}
+{"key": "dde46bc81a3c1dc514cdc7b2", "arm": "rag_bm25", "qid": "D07@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D07\"], \"since\": \"2024-09-05\"}"}
+{"key": "c83b1075c2b12ba31f82a5f5", "arm": "rag_bm25", "qid": "D08@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D08\"], \"since\": \"2025-05-20\"}"}
+{"key": "1f2f93765e3052cc9dd59a0b", "arm": "rag_bm25", "qid": "D09@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"D09\", \"SALES-91\"], \"since\": \"2026-02-20\"}"}
+{"key": "5afc34025ab5542865a08719", "arm": "rag_bm25", "qid": "D10@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D10\", \"doc-metrics-2026-06\"], \"since\": null}"}
+{"key": "7f0f4300832e111790df340e", "arm": "rag_bm25", "qid": "D11@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D11\"], \"since\": \"2024-10-01\"}"}
+{"key": "0e899a7aeb29a55ebceb31ba", "arm": "rag_bm25", "qid": "D12@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D12\"], \"since\": \"2024-07-15\"}"}
+{"key": "838dfaac772b787749d4c3c9", "arm": "rag_bm25", "qid": "D13@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D13\"], \"since\": \"2025-02-01\"}"}
+{"key": "5aa49301d305a7626a532560", "arm": "rag_bm25", "qid": "D14@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D14\"], \"since\": \"2024-06-20\"}"}
+{"key": "bbb3abaf1e391fbb1eba5a82", "arm": "rag_bm25", "qid": "D15@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D15\", \"doc-analytics-2026-03\"], \"since\": \"2025-03-15\"}"}
+{"key": "082496c3683a4bee094a1d54", "arm": "rag_bm25", "qid": "D16@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D16\"], \"since\": \"2024-09-01\"}"}
+{"key": "97ca35e00681267d9fb3a7a6", "arm": "rag_bm25", "qid": "D17@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D17\"], \"since\": \"2025-06-10\"}"}
+{"key": "474b7fa8c365f66df2c9b6ee", "arm": "rag_bm25", "qid": "D18@2026-10-16", "model": "qwen3.8:27b", "reply": "{\n\"verdict\": \"MOOT\",\n\"evidence\": [\n\"D18\",\n\"PR-520\"\n],\n\"since\": \"2026-05-22\"\n}"}
+{"key": "2b49afb15c65ea6ee9c6a289", "arm": "rag_bm25", "qid": "D19@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D19\"], \"since\": \"2025-08-01\"}"}
+{"key": "8ebed7d9b2de8cda0333b297", "arm": "rag_bm25", "qid": "D20@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"D20\", \"doc-vendor-rn\"], \"since\": \"2026-02-11\"}"}
+{"key": "549ca1ec7d2a0b288f8e2419", "arm": "rag_bm25", "qid": "D21@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D21\"], \"since\": \"2024-12-10\"}"}
+{"key": "b1cbab2489fb30f31f4fdf89", "arm": "rag_bm25", "qid": "D22@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D22\"], \"since\": \"2025-04-01\"}"}
+{"key": "ae20473a12fc3c3c6542427a", "arm": "rag_bm25", "qid": "D23@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D23\"], \"since\": \"2024-06-15\"}"}
+{"key": "5c85b3b810c5b50c1ce290f9", "arm": "rag_bm25", "qid": "D24@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D24\"], \"since\": \"2025-01-10\"}"}
+{"key": "d26ecca137be577578fbc8a1", "arm": "rag_bm25", "qid": "D25@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"src:D25\", \"doc-abuse-2026-06\"], \"since\": \"2026-06-12\"}"}
+{"key": "c0edb0d33baa7e9976160b97", "arm": "rag_bm25", "qid": "D26@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D26\"], \"since\": \"2024-08-01\"}"}
+{"key": "5c67885d8f85ee82b1fb3c27", "arm": "rag_bm25", "qid": "D27@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D27\", \"doc-soc2-iac\"], \"since\": \"2024-07-01\"}"}
+{"key": "1e944092d4ada224897034a8", "arm": "rag_bm25", "qid": "D28@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D28\"], \"since\": \"2024-06-10\"}"}
+{"key": "085f85d2e8aa66c11b7eb1a8", "arm": "rag_bm25", "qid": "D29@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D29\"], \"since\": \"2024-09-15\"}"}
+{"key": "df6c8997c640dbe0e87be100", "arm": "rag_bm25", "qid": "D30@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"src:D30\", \"doc-news-cookies\"], \"since\": \"2025-07-22\"}"}
+{"key": "1d77b30d95d4b3b4e1367230", "arm": "rag_bm25", "qid": "D01@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D01\"], \"since\": \"2025-02-10\"}"}
+{"key": "ab5d057e93f8be591256e871", "arm": "rag_bm25", "qid": "D02@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D02\"], \"since\": \"2025-03-01\"}"}
+{"key": "821e0d171ba8512f7de00eec", "arm": "rag_bm25", "qid": "D03@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D03\"], \"since\": \"2025-04-12\"}"}
+{"key": "6be5cb05b5025b8ada17284b", "arm": "rag_bm25", "qid": "D04@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D04\"], \"since\": \"2024-11-20\"}"}
+{"key": "f8b8b3da48c9672a800ca978", "arm": "rag_bm25", "qid": "D05@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D05\"], \"since\": \"2024-06-01\"}"}
+{"key": "e0621388f819840077b6d93c", "arm": "rag_bm25", "qid": "D06@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D06\"], \"since\": \"2025-01-15\"}"}
+{"key": "4f9a41859932b5c36770c643", "arm": "rag_bm25", "qid": "D07@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D07\"], \"since\": \"2024-09-05\"}"}
+{"key": "eaac16da114d75275916cb45", "arm": "rag_bm25", "qid": "D08@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [], \"since\": null}"}
+{"key": "86a3745b53fd89bd0ed45ce5", "arm": "rag_bm25", "qid": "D09@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D09\"], \"since\": \"2025-07-01\"}"}
+{"key": "deaab0806c04082054ad8992", "arm": "rag_bm25", "qid": "D10@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D10\"], \"since\": \"2024-08-10\"}"}
+{"key": "b04deee07b0430d6f00c9f7d", "arm": "rag_bm25", "qid": "D11@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D11\"], \"since\": \"2024-10-01\"}"}
+{"key": "b163fd1a8b3e0f517ce5ff9f", "arm": "rag_bm25", "qid": "D12@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D12\"], \"since\": \"2024-07-15\"}"}
+{"key": "d41964b7613657f6ecffcc8d", "arm": "rag_bm25", "qid": "D13@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D13\"], \"since\": \"2025-02-01\"}"}
+{"key": "da187202aa5e6333bed1e100", "arm": "rag_bm25", "qid": "D14@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D14\"], \"since\": \"2024-06-20\"}"}
+{"key": "dbed6d7d29f597eb807b2673", "arm": "rag_bm25", "qid": "D15@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D15\"], \"since\": \"2025-03-15\"}"}
+{"key": "69778d675b3750d598d0437b", "arm": "rag_bm25", "qid": "D16@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D16\"], \"since\": \"2024-09-01\"}"}
+{"key": "1388ab0b04e74340a4a9a351", "arm": "rag_bm25", "qid": "D17@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [], \"since\": null}"}
+{"key": "e5b9166e91284d9afacec083", "arm": "rag_bm25", "qid": "D18@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D18\"], \"since\": \"2024-11-01\"}"}
+{"key": "d82c4278051f498c80a5b34d", "arm": "rag_bm25", "qid": "D19@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [], \"since\": null}"}
+{"key": "38c535fc5f025e9cae733b62", "arm": "rag_bm25", "qid": "D20@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [], \"since\": null}"}
+{"key": "08f83270505de2fd219e403f", "arm": "rag_bm25", "qid": "D21@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [], \"since\": null}"}
+{"key": "3aa8279251bda994ea61bc19", "arm": "rag_bm25", "qid": "D22@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [], \"since\": null}"}
+{"key": "a52945949794544a3a538c99", "arm": "rag_bm25", "qid": "D23@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D23\"], \"since\": \"2024-06-15\"}"}
+{"key": "0d7c0aa40864d99022adc6a6", "arm": "rag_bm25", "qid": "D24@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D24\"], \"since\": \"2025-01-10\"}"}
+{"key": "1b1e0264f83b39d36ef9c92e", "arm": "rag_bm25", "qid": "D25@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [], \"since\": null}"}
+{"key": "b055016975de581b2d5fa181", "arm": "rag_bm25", "qid": "D26@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D26\"], \"since\": \"2024-08-01\"}"}
+{"key": "875e897de7564f57ae29c0ab", "arm": "rag_bm25", "qid": "D27@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D27\"], \"since\": \"2024-07-01\"}"}
+{"key": "08aed760d2cc93dee65b90ff", "arm": "rag_bm25", "qid": "D28@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D28\"], \"since\": \"2024-06-10\"}"}
+{"key": "35870c64848338faa62ae3f3", "arm": "rag_bm25", "qid": "D29@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D29\"], \"since\": \"2024-09-15\"}"}
+{"key": "26cce258511a610e3977515e", "arm": "rag_bm25", "qid": "D30@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [], \"since\": null}"}
+{"key": "f806c46d36d0069bdbec202c", "arm": "rag_bm25", "qid": "D01@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D01\"], \"since\": \"2025-02-10\"}"}
+{"key": "98479b28ffd5151f7f8fdd2c", "arm": "rag_bm25", "qid": "D02@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D02\"], \"since\": \"2025-03-01\"}"}
+{"key": "bcc38a67d2980e282f451351", "arm": "rag_bm25", "qid": "D03@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D03\"], \"since\": \"2025-04-12\"}"}
+{"key": "37a6d231727c1f6a711bf469", "arm": "rag_bm25", "qid": "D04@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D04\", \"chat-2025-10-02-search\"], \"since\": \"2024-11-20\"}"}
+{"key": "82579ed8d497230bba1694d4", "arm": "rag_bm25", "qid": "D05@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D05\"], \"since\": \"2024-06-01\"}"}
+{"key": "88a617f774779e38657ee0b1", "arm": "rag_bm25", "qid": "D06@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D06\"], \"since\": \"2025-01-15\"}"}
+{"key": "9ccbdfa2ed88dfdc5838339a", "arm": "rag_bm25", "qid": "D07@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D07\"], \"since\": \"2024-09-05\"}"}
+{"key": "e66e90fe6058119756b250a0", "arm": "rag_bm25", "qid": "D08@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D08\"], \"since\": \"2025-05-20\"}"}
+{"key": "1fe0cd8034b94cea03baeefa", "arm": "rag_bm25", "qid": "D09@2026-01-01", "model": "qwen3.8:27b", "reply": "{\n\"verdict\": \"HOLDS\",\n\"evidence\": [\n\"D09\"\n],\n\"since\": \"2025-07-01\"\n}"}
+{"key": "7572a0f1bb6057f80b8a7cbf", "arm": "rag_bm25", "qid": "D10@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D10\"], \"since\": \"2024-08-10\"}"}
+{"key": "2aa0d0a45ac422dc769756dd", "arm": "rag_bm25", "qid": "D11@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D11\"], \"since\": \"2024-10-01\"}"}
+{"key": "c9426820e038006119f42439", "arm": "rag_bm25", "qid": "D12@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D12\"], \"since\": \"2024-07-15\"}"}
+{"key": "20db64248821b34bb3f86f20", "arm": "rag_bm25", "qid": "D13@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D13\"], \"since\": \"2025-02-01\"}"}
+{"key": "098efb8f8fe67f394ab14dd8", "arm": "rag_bm25", "qid": "D14@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D14\"], \"since\": \"2024-06-20\"}"}
+{"key": "f4bda687c4c97aed70278556", "arm": "rag_bm25", "qid": "D15@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D15\", \"doc-analytics-2026-03\"], \"since\": \"2025-03-15\"}"}
+{"key": "a0cd752ebadfd11eef62c0a6", "arm": "rag_bm25", "qid": "D16@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D16\"], \"since\": \"2024-09-01\"}"}
+{"key": "fa883d826faaadbdb99a3d91", "arm": "rag_bm25", "qid": "D17@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D17\"], \"since\": \"2025-06-10\"}"}
+{"key": "358b576643a0ac7273126f50", "arm": "rag_bm25", "qid": "D18@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D18\"], \"since\": \"2024-11-01\"}"}
+{"key": "232a700e98272a45656176a3", "arm": "rag_bm25", "qid": "D19@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D19\"], \"since\": \"2025-08-01\"}"}
+{"key": "7f639757758206a9a81351bc", "arm": "rag_bm25", "qid": "D20@2026-01-01", "model": "qwen3.8:27b", "reply": "{\n\"verdict\": \"HOLDS\",\n\"evidence\": [\n\"D20\"\n],\n\"since\": \"2025-09-01\"\n}"}
+{"key": "b161ccfc10d9e83f35d5fe44", "arm": "rag_bm25", "qid": "D21@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D21\"], \"since\": \"2024-12-10\"}"}
+{"key": "0e1aa6dfc6242165d4c59a93", "arm": "rag_bm25", "qid": "D22@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D22\"], \"since\": \"2025-04-01\"}"}
+{"key": "84e7880d973294e1b742434c", "arm": "rag_bm25", "qid": "D23@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D23\"], \"since\": \"2024-06-15\"}"}
+{"key": "77eedaea6f6200adc69aa059", "arm": "rag_bm25", "qid": "D24@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D24\"], \"since\": \"2025-01-10\"}"}
+{"key": "30d6cbe68b3a471a014bbe73", "arm": "rag_bm25", "qid": "D25@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"src:D25\", \"doc-abuse-2026-06\"], \"since\": \"2026-06-12\"}"}
+{"key": "95f2e016e1b38a7199a7a20c", "arm": "rag_bm25", "qid": "D26@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D26\"], \"since\": \"2024-08-01\"}"}
+{"key": "b2fd1e2c061112cc6d400417", "arm": "rag_bm25", "qid": "D27@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D27\", \"doc-soc2-iac\"], \"since\": \"2024-07-01\"}"}
+{"key": "4d5d7afc32ad6754920cd928", "arm": "rag_bm25", "qid": "D28@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"RETIRED\", \"evidence\": [\"D09\"], \"since\": \"2025-07-01\"}"}
+{"key": "da025ddd75d105232e7d18d0", "arm": "rag_bm25", "qid": "D29@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D29\"], \"since\": \"2024-09-15\"}"}
+{"key": "e42eee54c8814209b2e8e9da", "arm": "rag_bm25", "qid": "D30@2026-01-01", "model": "qwen3.8:27b", "reply": "{\n\"verdict\": \"MOOT\",\n\"evidence\": [\n\"D30\",\n\"doc-news-cookies\"\n],\n\"since\": \"2025-07-22\"\n}"}
+{"key": "e2b0c7128b00f8c369d40a37", "arm": "rag_premises", "qid": "D01@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D01\"], \"since\": \"2025-02-10\"}"}
+{"key": "57d182e4bc6ea93f8e367697", "arm": "rag_premises", "qid": "D02@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"D02\", \"PR-412\"], \"since\": \"2026-03-02\"}"}
+{"key": "0d5d07deb8ed602978734f67", "arm": "rag_premises", "qid": "D03@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"D03\", \"PR-412\"], \"since\": \"2026-03-02\"}"}
+{"key": "12896e58719dafd95f173ea2", "arm": "rag_premises", "qid": "D04@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D04\", \"chat-2025-10-02-search\"], \"since\": \"2024-11-20\"}"}
+{"key": "48a5aecc4a3af01b64c1d4b9", "arm": "rag_premises", "qid": "D05@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"UNDOCUMENTED\", \"evidence\": [\"D05\"], \"since\": \"2024-06-01\"}"}
+{"key": "5b416210c5ce13c901a76222", "arm": "rag_premises", "qid": "D06@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D06\", \"doc-soc2-2026\"], \"since\": null}"}
+{"key": "0f9b2f6e573d6ac4c7f50da9", "arm": "rag_premises", "qid": "D07@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"D07\", \"PR-350\"], \"since\": \"2025-11-18\"}"}
+{"key": "4e0da1e0b1f61971486358a5", "arm": "rag_premises", "qid": "D08@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"D08\", \"doc-allhands-2026-04\"], \"since\": \"2026-04-03\"}"}
+{"key": "3e988a9b1bac023d93100de1", "arm": "rag_premises", "qid": "D09@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"src:D09\", \"SALES-91\"], \"since\": \"2026-02-20\"}"}
+{"key": "da503dbe64631f98149c8ab5", "arm": "rag_premises", "qid": "D10@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"src:D10\", \"doc-metrics-2026-06\"], \"since\": null}"}
+{"key": "7eb0b19e5e6b2de362f58940", "arm": "rag_premises", "qid": "D11@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D11\"], \"since\": null}"}
+{"key": "7f2b627b2aa84f46c06d06e0", "arm": "rag_premises", "qid": "D12@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D12\", \"doc-arch-2026-02\"], \"since\": null}"}
+{"key": "9dfd53bd581ba7e713f5e273", "arm": "rag_premises", "qid": "D13@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"D13\", \"doc-aws-cmk\"], \"since\": \"2025-12-05\"}"}
+{"key": "be3a36892ddad391c25cbeb0", "arm": "rag_premises", "qid": "D14@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D14\", \"BILL-77\"], \"since\": \"2024-06-20\"}"}
+{"key": "f390387506d4af04a6bb34a8", "arm": "rag_premises", "qid": "D15@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"src:D15\", \"doc-analytics-2026-03\"], \"since\": \"2025-03-15\"}"}
+{"key": "979f08a9bf74cd0e5e48c07a", "arm": "rag_premises", "qid": "D16@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"src:D16\", \"doc-privacy-2026\"], \"since\": null}"}
+{"key": "455314d24d15c67aff2ade2c", "arm": "rag_premises", "qid": "D17@2026-10-16", "model": "qwen3.8:27b", "reply": "{\n\"verdict\": \"HOLDS\",\n\"evidence\": [\n\"D17\",\n\"chat-2026-08-15-ld\"\n],\n\"since\": \"2025-06-10\"\n}"}
+{"key": "2e21f8c480ff54eca0aeb1b0", "arm": "rag_premises", "qid": "D18@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"D18\", \"PR-520\"], \"since\": \"2026-05-22\"}"}
+{"key": "435eeb217a8ae686e6c4ddb3", "arm": "rag_premises", "qid": "D19@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"D19\", \"DATA-140\"], \"since\": \"2026-04-30\"}"}
+{"key": "e05ec9989717ade7ddc0169a", "arm": "rag_premises", "qid": "D20@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"[src:D20]\", \"[doc-vendor-rn]\"], \"since\": \"2026-02-11\"}"}
+{"key": "4f21b68e19b0cd4e9527f9f3", "arm": "rag_premises", "qid": "D21@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"UNDOCUMENTED\", \"evidence\": [\"D21\"], \"since\": \"2024-12-10\"}"}
+{"key": "816c6a7e2330153d92ad76ae", "arm": "rag_premises", "qid": "D22@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D22\", \"doc-soc2-2026\"], \"since\": null}"}
+{"key": "77e119ff45210de69e0c2ee8", "arm": "rag_premises", "qid": "D23@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"D23\", \"ADR-notes-sharding\"], \"since\": \"2026-01-20\"}"}
+{"key": "84a365a32227c342d4d176a2", "arm": "rag_premises", "qid": "D24@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D24\"], \"since\": null}"}
+{"key": "ffd42fb3fd8a153f7f6b17e7", "arm": "rag_premises", "qid": "D25@2026-10-16", "model": "qwen3.8:27b", "reply": "{\n\"verdict\": \"MOOT\",\n\"evidence\": [\n\"D25\",\n\"doc-abuse-2026-06\"\n],\n\"since\": \"2026-06-12\"\n}"}
+{"key": "09c86d20ae798e3e315b5d72", "arm": "rag_premises", "qid": "D26@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D26\", \"doc-logcost-2026\"], \"since\": \"2024-08-01\"}"}
+{"key": "9e094b455cf02e2210797e6a", "arm": "rag_premises", "qid": "D27@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D27\", \"doc-soc2-iac\"], \"since\": \"2024-07-01\"}"}
+{"key": "525340f6761bc794db2f6698", "arm": "rag_premises", "qid": "D28@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"UNDOCUMENTED\", \"evidence\": [\"D28\"], \"since\": \"2024-06-10\"}"}
+{"key": "700b0288198cdcb2113fab58", "arm": "rag_premises", "qid": "D29@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"UNDOCUMENTED\", \"evidence\": [\"D29\"], \"since\": \"2024-09-15\"}"}
+{"key": "4f59bb5bd82c8ecda6eab7de", "arm": "rag_premises", "qid": "D30@2026-10-16", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"D30\", \"doc-news-cookies\"], \"since\": \"2025-07-22\"}"}
+{"key": "32c26f98abe700d2357e82b1", "arm": "rag_premises", "qid": "D01@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D01\"], \"since\": \"2025-02-10\"}"}
+{"key": "d959a0b492672271cd078833", "arm": "rag_premises", "qid": "D02@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D02\"], \"since\": \"2025-03-01\"}"}
+{"key": "b297ebb672a62dd6e2a8a28f", "arm": "rag_premises", "qid": "D03@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D03\"], \"since\": \"2025-04-12\"}"}
+{"key": "19bb4cdcda082f9892818f49", "arm": "rag_premises", "qid": "D04@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D04\"], \"since\": \"2024-11-20\"}"}
+{"key": "6859fb625a7e0d813687e2be", "arm": "rag_premises", "qid": "D05@2025-06-01", "model": "qwen3.8:27b", "reply": "{\n  \"verdict\": \"UNDOCUMENTED\",\n  \"evidence\": [\n    \"D05\"\n  ],\n  \"since\": \"2024-06-01\"\n}"}
+{"key": "a52262e1ab09a77e5df2c9e2", "arm": "rag_premises", "qid": "D06@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D06\"], \"since\": \"2025-01-15\"}"}
+{"key": "bc6cee4790806921ac0355a1", "arm": "rag_premises", "qid": "D07@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D07\"], \"since\": \"2024-09-05\"}"}
+{"key": "561ba3978ccf8c655a42c445", "arm": "rag_premises", "qid": "D08@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D08\"], \"since\": \"2025-05-20\"}"}
+{"key": "35cec4b6d5a6a43626672ce1", "arm": "rag_premises", "qid": "D09@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [], \"since\": null}"}
+{"key": "3c108ba5823ddfa2d74dceb7", "arm": "rag_premises", "qid": "D10@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"src:D10\"], \"since\": \"2024-08-10\"}"}
+{"key": "e247a0e790a382b4a112526c", "arm": "rag_premises", "qid": "D11@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D11\", \"PR-201\"], \"since\": null}"}
+{"key": "317733554345f34062ba5260", "arm": "rag_premises", "qid": "D12@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D12\"], \"since\": null}"}
+{"key": "d14e7b56e438d727c7d77f85", "arm": "rag_premises", "qid": "D13@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"src:D13\"], \"since\": \"2025-02-01\"}"}
+{"key": "6cc4aed676704a36463bf518", "arm": "rag_premises", "qid": "D14@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D14\"], \"since\": \"2024-06-20\"}"}
+{"key": "444565601adb593d57ba13d5", "arm": "rag_premises", "qid": "D15@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"src:D15\"], \"since\": \"2025-03-15\"}"}
+{"key": "50535680e09e0f0803d64486", "arm": "rag_premises", "qid": "D16@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [], \"since\": null}"}
+{"key": "9de28fe5691fc18a97fbab3e", "arm": "rag_premises", "qid": "D17@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [], \"since\": null}"}
+{"key": "7fa153b3058984c950608086", "arm": "rag_premises", "qid": "D18@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D18\"], \"since\": \"2024-11-01\"}"}
+{"key": "b9a8a0aa3e7a543fa5f9a8da", "arm": "rag_premises", "qid": "D19@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [], \"since\": null}"}
+{"key": "ced9c24faa030eb4afd12d3d", "arm": "rag_premises", "qid": "D20@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D20\"], \"since\": \"2025-09-01\"}"}
+{"key": "ee524243fa4f250daed8ab39", "arm": "rag_premises", "qid": "D21@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"UNDOCUMENTED\", \"evidence\": [\"D21\"], \"since\": \"2024-12-10\"}"}
+{"key": "0aaacc19db5dbba82966abbf", "arm": "rag_premises", "qid": "D22@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D22\"], \"since\": \"2025-04-01\"}"}
+{"key": "9d27d0fc787a4ca06447ac33", "arm": "rag_premises", "qid": "D23@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D23\"], \"since\": \"2024-06-15\"}"}
+{"key": "4f6eb46a8bd40b7c38783044", "arm": "rag_premises", "qid": "D24@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D24\"], \"since\": \"2025-01-10\"}"}
+{"key": "408237a6f6c20fd4a1818e7c", "arm": "rag_premises", "qid": "D25@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D25\"], \"since\": \"2025-10-01\"}"}
+{"key": "5b34b7295241a9195b036363", "arm": "rag_premises", "qid": "D26@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [], \"since\": null}"}
+{"key": "bab9292d8fa26072f57675ba", "arm": "rag_premises", "qid": "D27@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D27\"], \"since\": \"2024-07-01\"}"}
+{"key": "8953ddb9ed80901aaaec877b", "arm": "rag_premises", "qid": "D28@2025-06-01", "model": "qwen3.8:27b", "reply": "{\n\"verdict\": \"UNDOCUMENTED\",\n\"evidence\": [\n\"D28\"\n],\n\"since\": \"2024-06-10\"\n}"}
+{"key": "9163a7c955ae5727691126ad", "arm": "rag_premises", "qid": "D29@2025-06-01", "model": "qwen3.8:27b", "reply": "{\n\"verdict\": \"UNDOCUMENTED\",\n\"evidence\": [\n\"D29\"\n],\n\"since\": \"2024-09-15\"\n}"}
+{"key": "e713355884aec7fd336c3ffc", "arm": "rag_premises", "qid": "D30@2025-06-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"NOT_YET\", \"evidence\": [], \"since\": null}"}
+{"key": "cb55f656fbebaf36e7aad2c5", "arm": "rag_premises", "qid": "D01@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D01\"], \"since\": \"2025-02-10\"}"}
+{"key": "7da5e391695e1c0e2251924b", "arm": "rag_premises", "qid": "D02@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D02\"], \"since\": \"2025-03-01\"}"}
+{"key": "86931e78ba535446eb1f02b9", "arm": "rag_premises", "qid": "D03@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D03\"], \"since\": \"2025-04-12\"}"}
+{"key": "009c2bad8cc05cf0a7439a5c", "arm": "rag_premises", "qid": "D04@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D04\", \"chat-2025-10-02-search\"], \"since\": \"2024-11-20\"}"}
+{"key": "1dc2d904560021b3a3b6497a", "arm": "rag_premises", "qid": "D05@2026-01-01", "model": "qwen3.8:27b", "reply": "{\n\"verdict\": \"UNDOCUMENTED\",\n\"evidence\": [\n\"D05\"\n],\n\"since\": \"2024-06-01\"\n}"}
+{"key": "4d57055c098ca5a72ed932d4", "arm": "rag_premises", "qid": "D06@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D06\"], \"since\": \"2025-01-15\"}"}
+{"key": "1ae23d7d26746e1d153f452d", "arm": "rag_premises", "qid": "D07@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"D07\", \"PR-350\"], \"since\": \"2025-11-18\"}"}
+{"key": "2e60716bdf2d8f05550418b7", "arm": "rag_premises", "qid": "D08@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D08\"], \"since\": \"2025-05-20\"}"}
+{"key": "a09747a5b4ef3824aa508273", "arm": "rag_premises", "qid": "D09@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"src:D09\"], \"since\": \"2025-07-01\"}"}
+{"key": "7ddfe8d9a0d2e877bb6f398e", "arm": "rag_premises", "qid": "D10@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"src:D10\"], \"since\": \"2024-08-10\"}"}
+{"key": "c6b7eb20137ec6dcdc9536e8", "arm": "rag_premises", "qid": "D11@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D11\"], \"since\": null}"}
+{"key": "7bdfe5897a6d825876501a60", "arm": "rag_premises", "qid": "D12@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D12\"], \"since\": \"2024-07-15\"}"}
+{"key": "d7295b40a041941943f1e525", "arm": "rag_premises", "qid": "D13@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"D13\", \"doc-aws-cmk\"], \"since\": \"2025-12-05\"}"}
+{"key": "53dd4c6e7cec8639e9b38a06", "arm": "rag_premises", "qid": "D14@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D14\"], \"since\": \"2024-06-20\"}"}
+{"key": "b128463212ae85da0f45ceb6", "arm": "rag_premises", "qid": "D15@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"src:D15\"], \"since\": \"2025-03-15\"}"}
+{"key": "c260e289c03c18e2136d5744", "arm": "rag_premises", "qid": "D16@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"src:D16\", \"doc-privacy-2026\"], \"since\": null}"}
+{"key": "25f356537fe56efb15264427", "arm": "rag_premises", "qid": "D17@2026-01-01", "model": "qwen3.8:27b", "reply": "{\n\"verdict\": \"HOLDS\",\n\"evidence\": [\n\"D17\"\n],\n\"since\": \"2025-06-10\"\n}"}
+{"key": "22f7a01c824487f573e721cc", "arm": "rag_premises", "qid": "D18@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D18\"], \"since\": \"2024-11-01\"}"}
+{"key": "f103bcc858b6a1ade4fb6cd0", "arm": "rag_premises", "qid": "D19@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D19\"], \"since\": \"2025-08-01\"}"}
+{"key": "0785a4c8cdef954feb0ddaa5", "arm": "rag_premises", "qid": "D20@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D20\"], \"since\": \"2025-09-01\"}"}
+{"key": "707b0def1823110ac30f99ba", "arm": "rag_premises", "qid": "D21@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"UNDOCUMENTED\", \"evidence\": [\"D21\"], \"since\": \"2024-12-10\"}"}
+{"key": "f0e358ffac5fd83d411aa4bb", "arm": "rag_premises", "qid": "D22@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D22\"], \"since\": \"2025-04-01\"}"}
+{"key": "f28582709a360a942a7bf3c9", "arm": "rag_premises", "qid": "D23@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D23\"], \"since\": \"2024-06-15\"}"}
+{"key": "fc98e4ebc36b19efaeabd3b4", "arm": "rag_premises", "qid": "D24@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D24\"], \"since\": null}"}
+{"key": "83825cacd0a3f6e2f2117740", "arm": "rag_premises", "qid": "D25@2026-01-01", "model": "qwen3.8:27b", "reply": "{\n\"verdict\": \"HOLDS\",\n\"evidence\": [\n\"D25\"\n],\n\"since\": \"2025-10-01\"\n}"}
+{"key": "4299827dabb6e565eb49f9f9", "arm": "rag_premises", "qid": "D26@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D26\", \"doc-logcost-2026\"], \"since\": \"2024-08-01\"}"}
+{"key": "a1f809f56163c48542c706ac", "arm": "rag_premises", "qid": "D27@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"HOLDS\", \"evidence\": [\"D27\", \"doc-soc2-iac\"], \"since\": \"2024-07-01\"}"}
+{"key": "8a935a44e7ce2b1fb0f425e3", "arm": "rag_premises", "qid": "D28@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"UNDOCUMENTED\", \"evidence\": [\"D28\"], \"since\": \"2024-06-10\"}"}
+{"key": "5ebae89399058bd48e62bfe0", "arm": "rag_premises", "qid": "D29@2026-01-01", "model": "qwen3.8:27b", "reply": "{\n  \"verdict\": \"UNDOCUMENTED\",\n  \"evidence\": [\n    \"D29\"\n  ],\n  \"since\": \"2024-09-15\"\n}"}
+{"key": "27dee555c34ce4785db6b6f0", "arm": "rag_premises", "qid": "D30@2026-01-01", "model": "qwen3.8:27b", "reply": "{\"verdict\": \"MOOT\", \"evidence\": [\"D30\", \"doc-news-cookies\"], \"since\": \"2025-07-22\"}"}

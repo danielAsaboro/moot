@@ -101,6 +101,23 @@ The five records that are still in force and rest on a reason that no longer hol
 
 The licence checks all held: Elasticsearch and Redis both moved to source-available licences, and both now also offer AGPL, so "open source" still holds for them. Concourse CI was chosen by the Ministry of Justice in 2018 and by GOV.UK in 2025; in the graph that is one premise carrying two organisations' decisions. Limits: "no commit in a year" is a proxy for maintenance, not a verdict on quality; OSV advisories on the Kubernetes monorepo module include issues that are mitigated by configuration rather than fixed; and this is 25 records, not a survey.
 
+## Head-to-head against a retrieval company brain (study S3)
+
+Registered before it ran ([studies.md](studies.md#s3-head-to-head-graph-verdicts-against-a-retrieval-company-brain-with-ablations)): 90 frozen questions, each of Larkspur's 30 decisions on three dates, asked *does it still hold, which documents show it, since when?* The model arms share one local model (`qwen3.8:27b`), one prompt (which includes the verdict definitions) and one decoding; only the context differs. Full file: [eval/results_baseline.md](../eval/results_baseline.md).
+
+| arm | verdicts right (of 90) | dead decisions called HOLDS (of 22) | cited a document that killed it (of 22) | "since when" exact (of 24) | false alarms on HOLDS (of 50) |
+|---|---|---|---|---|---|
+| **Moot** (graph verdict, depth 4) | **90** | **0** | **22** | **24** | 0 |
+| Moot rows + model (the graph's path, narrated) | 89 | 0 | 22 | 18 | 0 |
+| RAG: BM25 top-5 + model | 62 | 13 | 9 | 8 | 1 |
+| RAG over stated reasons + model (FalkorDB removed) | 76 | 7 | 16 | 12 | 0 |
+| ablation: depth 1 | 88 | 2 | 20 | 22 | 0 |
+| ablation: no as_of (dates ignored) | 62 | 0 | 22 | 23 | 20 |
+| ablation: FalkorDB removed, rules kept | 60 | 8 | 10 | 10 | 16 |
+| trust the ADR | 56 | 22 | 0 | 0 | 0 |
+
+What each prediction did: (1) Moot 90/90, the common-mode ceiling, as predicted. (2) Plain RAG called 13 of 22 dead decisions HOLDS and got 8 of 24 dates exactly, as predicted (at least 4; under half). (3) RAG over the stated reasons cited a killing document more often than plain RAG (16 vs 9) but still missed D01, whose dead reason is two hops down; D02 and D03 state the gateway limit directly, so it caught them. The prediction named all three: partly wrong. (4) Depth 1 called D01 HOLDS after PR-412, but not D02 and D03, for the same reason; it also missed D19. Partly wrong. (5) Ignoring dates got every past question whose answer differs from today's wrong and never answered NOT_YET, as predicted. (6) The model reading Moot's rows got 89/90, within 5, as predicted; its "since when" fell to 18/24 because the rows carry dates but not the verdict history, which `verdict_history` computes.
+
 ## EnterpriseRAG-Bench: a blind supersession graph
 
 A separate study, run on someone else's benchmark: can a graph built *blind* (without reading the answer key) keep superseded documents out of a RAG context? Measured honestly, mostly no: Moot's frozen blind rules remove the superseded gold document in 1 of the 14 conflicts where BM25 leaks it (13/20 vs BM25's 14/20). A competing entry's oracle setup reaches 1/20 only because its graph was seeded from an inventory written by reading the gold answers. Full tables, the freeze manifest and the post-hoc arms: [eval/results_erag.md](../eval/results_erag.md).

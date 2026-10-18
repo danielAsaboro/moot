@@ -1,0 +1,2761 @@
+{
+ "answers": {
+  "moot": {
+   "D01@2025-06-01": {
+    "evidence": [],
+    "since": "2025-02-10",
+    "verdict": "HOLDS"
+   },
+   "D01@2026-01-01": {
+    "evidence": [],
+    "since": "2025-02-10",
+    "verdict": "HOLDS"
+   },
+   "D01@2026-10-16": {
+    "evidence": [
+     "PR-412"
+    ],
+    "since": "2026-03-02",
+    "verdict": "MOOT"
+   },
+   "D02@2025-06-01": {
+    "evidence": [],
+    "since": "2025-03-01",
+    "verdict": "HOLDS"
+   },
+   "D02@2026-01-01": {
+    "evidence": [],
+    "since": "2025-03-01",
+    "verdict": "HOLDS"
+   },
+   "D02@2026-10-16": {
+    "evidence": [
+     "PR-412"
+    ],
+    "since": "2026-03-02",
+    "verdict": "MOOT"
+   },
+   "D03@2025-06-01": {
+    "evidence": [],
+    "since": "2025-04-12",
+    "verdict": "HOLDS"
+   },
+   "D03@2026-01-01": {
+    "evidence": [],
+    "since": "2025-04-12",
+    "verdict": "HOLDS"
+   },
+   "D03@2026-10-16": {
+    "evidence": [
+     "PR-412"
+    ],
+    "since": "2026-03-02",
+    "verdict": "MOOT"
+   },
+   "D04@2025-06-01": {
+    "evidence": [],
+    "since": "2024-11-20",
+    "verdict": "HOLDS"
+   },
+   "D04@2026-01-01": {
+    "evidence": [
+     "SRCH-233"
+    ],
+    "since": "2025-10-02",
+    "verdict": "DISPUTED"
+   },
+   "D04@2026-10-16": {
+    "evidence": [
+     "SRCH-233"
+    ],
+    "since": "2025-10-02",
+    "verdict": "DISPUTED"
+   },
+   "D05@2025-06-01": {
+    "evidence": [],
+    "since": "2024-06-01",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D05@2026-01-01": {
+    "evidence": [],
+    "since": "2024-06-01",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D05@2026-10-16": {
+    "evidence": [],
+    "since": "2024-06-01",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D06@2025-06-01": {
+    "evidence": [],
+    "since": "2025-01-15",
+    "verdict": "HOLDS"
+   },
+   "D06@2026-01-01": {
+    "evidence": [],
+    "since": "2025-01-15",
+    "verdict": "HOLDS"
+   },
+   "D06@2026-10-16": {
+    "evidence": [],
+    "since": "2025-01-15",
+    "verdict": "HOLDS"
+   },
+   "D07@2025-06-01": {
+    "evidence": [],
+    "since": "2024-09-05",
+    "verdict": "HOLDS"
+   },
+   "D07@2026-01-01": {
+    "evidence": [
+     "PR-350"
+    ],
+    "since": "2025-11-18",
+    "verdict": "MOOT"
+   },
+   "D07@2026-10-16": {
+    "evidence": [
+     "PR-350"
+    ],
+    "since": "2025-11-18",
+    "verdict": "MOOT"
+   },
+   "D08@2025-06-01": {
+    "evidence": [],
+    "since": "2025-05-20",
+    "verdict": "HOLDS"
+   },
+   "D08@2026-01-01": {
+    "evidence": [],
+    "since": "2025-05-20",
+    "verdict": "HOLDS"
+   },
+   "D08@2026-10-16": {
+    "evidence": [
+     "doc-allhands-2026-04"
+    ],
+    "since": "2026-04-03",
+    "verdict": "MOOT"
+   },
+   "D09@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D09@2026-01-01": {
+    "evidence": [],
+    "since": "2025-07-01",
+    "verdict": "HOLDS"
+   },
+   "D09@2026-10-16": {
+    "evidence": [
+     "SALES-91"
+    ],
+    "since": "2026-02-20",
+    "verdict": "MOOT"
+   },
+   "D10@2025-06-01": {
+    "evidence": [],
+    "since": "2024-08-10",
+    "verdict": "HOLDS"
+   },
+   "D10@2026-01-01": {
+    "evidence": [],
+    "since": "2024-08-10",
+    "verdict": "HOLDS"
+   },
+   "D10@2026-10-16": {
+    "evidence": [],
+    "since": "2024-08-10",
+    "verdict": "HOLDS"
+   },
+   "D11@2025-06-01": {
+    "evidence": [
+     "PR-201"
+    ],
+    "since": "2025-04-09",
+    "verdict": "MOOT"
+   },
+   "D11@2026-01-01": {
+    "evidence": [
+     "PR-201"
+    ],
+    "since": "2025-08-21",
+    "verdict": "DISPUTED"
+   },
+   "D11@2026-10-16": {
+    "evidence": [
+     "PR-201"
+    ],
+    "since": "2025-08-21",
+    "verdict": "DISPUTED"
+   },
+   "D12@2025-06-01": {
+    "evidence": [],
+    "since": "2024-07-15",
+    "verdict": "HOLDS"
+   },
+   "D12@2026-01-01": {
+    "evidence": [],
+    "since": "2024-07-15",
+    "verdict": "HOLDS"
+   },
+   "D12@2026-10-16": {
+    "evidence": [],
+    "since": "2024-07-15",
+    "verdict": "HOLDS"
+   },
+   "D13@2025-06-01": {
+    "evidence": [],
+    "since": "2025-02-01",
+    "verdict": "HOLDS"
+   },
+   "D13@2026-01-01": {
+    "evidence": [
+     "doc-aws-cmk"
+    ],
+    "since": "2025-12-05",
+    "verdict": "MOOT"
+   },
+   "D13@2026-10-16": {
+    "evidence": [
+     "doc-aws-cmk"
+    ],
+    "since": "2025-12-05",
+    "verdict": "MOOT"
+   },
+   "D14@2025-06-01": {
+    "evidence": [],
+    "since": "2024-06-20",
+    "verdict": "HOLDS"
+   },
+   "D14@2026-01-01": {
+    "evidence": [],
+    "since": "2024-06-20",
+    "verdict": "HOLDS"
+   },
+   "D14@2026-10-16": {
+    "evidence": [],
+    "since": "2024-06-20",
+    "verdict": "HOLDS"
+   },
+   "D15@2025-06-01": {
+    "evidence": [],
+    "since": "2025-03-15",
+    "verdict": "HOLDS"
+   },
+   "D15@2026-01-01": {
+    "evidence": [],
+    "since": "2025-03-15",
+    "verdict": "HOLDS"
+   },
+   "D15@2026-10-16": {
+    "evidence": [],
+    "since": "2025-03-15",
+    "verdict": "HOLDS"
+   },
+   "D16@2025-06-01": {
+    "evidence": [],
+    "since": "2024-09-01",
+    "verdict": "HOLDS"
+   },
+   "D16@2026-01-01": {
+    "evidence": [],
+    "since": "2024-09-01",
+    "verdict": "HOLDS"
+   },
+   "D16@2026-10-16": {
+    "evidence": [],
+    "since": "2024-09-01",
+    "verdict": "HOLDS"
+   },
+   "D17@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D17@2026-01-01": {
+    "evidence": [],
+    "since": "2025-06-10",
+    "verdict": "HOLDS"
+   },
+   "D17@2026-10-16": {
+    "evidence": [
+     "chat-2026-07-09-ld"
+    ],
+    "since": "2026-08-15",
+    "verdict": "DISPUTED"
+   },
+   "D18@2025-06-01": {
+    "evidence": [],
+    "since": "2024-11-01",
+    "verdict": "HOLDS"
+   },
+   "D18@2026-01-01": {
+    "evidence": [],
+    "since": "2024-11-01",
+    "verdict": "HOLDS"
+   },
+   "D18@2026-10-16": {
+    "evidence": [
+     "PR-520"
+    ],
+    "since": "2026-05-22",
+    "verdict": "MOOT"
+   },
+   "D19@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D19@2026-01-01": {
+    "evidence": [],
+    "since": "2025-08-01",
+    "verdict": "HOLDS"
+   },
+   "D19@2026-10-16": {
+    "evidence": [
+     "DATA-140"
+    ],
+    "since": "2026-04-30",
+    "verdict": "MOOT"
+   },
+   "D20@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D20@2026-01-01": {
+    "evidence": [],
+    "since": "2025-09-01",
+    "verdict": "HOLDS"
+   },
+   "D20@2026-10-16": {
+    "evidence": [
+     "doc-vendor-rn"
+    ],
+    "since": "2026-02-11",
+    "verdict": "MOOT"
+   },
+   "D21@2025-06-01": {
+    "evidence": [],
+    "since": "2024-12-10",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D21@2026-01-01": {
+    "evidence": [],
+    "since": "2024-12-10",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D21@2026-10-16": {
+    "evidence": [],
+    "since": "2024-12-10",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D22@2025-06-01": {
+    "evidence": [],
+    "since": "2025-04-01",
+    "verdict": "HOLDS"
+   },
+   "D22@2026-01-01": {
+    "evidence": [],
+    "since": "2025-04-01",
+    "verdict": "HOLDS"
+   },
+   "D22@2026-10-16": {
+    "evidence": [],
+    "since": "2025-04-01",
+    "verdict": "HOLDS"
+   },
+   "D23@2025-06-01": {
+    "evidence": [],
+    "since": "2024-06-15",
+    "verdict": "HOLDS"
+   },
+   "D23@2026-01-01": {
+    "evidence": [],
+    "since": "2024-06-15",
+    "verdict": "HOLDS"
+   },
+   "D23@2026-10-16": {
+    "evidence": [
+     "ADR-notes-sharding"
+    ],
+    "since": "2026-03-18",
+    "verdict": "DISPUTED"
+   },
+   "D24@2025-06-01": {
+    "evidence": [],
+    "since": "2025-01-10",
+    "verdict": "HOLDS"
+   },
+   "D24@2026-01-01": {
+    "evidence": [],
+    "since": "2025-01-10",
+    "verdict": "HOLDS"
+   },
+   "D24@2026-10-16": {
+    "evidence": [],
+    "since": "2025-01-10",
+    "verdict": "HOLDS"
+   },
+   "D25@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D25@2026-01-01": {
+    "evidence": [],
+    "since": "2025-10-01",
+    "verdict": "HOLDS"
+   },
+   "D25@2026-10-16": {
+    "evidence": [
+     "doc-abuse-2026-06"
+    ],
+    "since": "2026-06-12",
+    "verdict": "MOOT"
+   },
+   "D26@2025-06-01": {
+    "evidence": [],
+    "since": "2024-08-01",
+    "verdict": "HOLDS"
+   },
+   "D26@2026-01-01": {
+    "evidence": [],
+    "since": "2024-08-01",
+    "verdict": "HOLDS"
+   },
+   "D26@2026-10-16": {
+    "evidence": [],
+    "since": "2024-08-01",
+    "verdict": "HOLDS"
+   },
+   "D27@2025-06-01": {
+    "evidence": [],
+    "since": "2024-07-01",
+    "verdict": "HOLDS"
+   },
+   "D27@2026-01-01": {
+    "evidence": [],
+    "since": "2024-07-01",
+    "verdict": "HOLDS"
+   },
+   "D27@2026-10-16": {
+    "evidence": [],
+    "since": "2024-07-01",
+    "verdict": "HOLDS"
+   },
+   "D28@2025-06-01": {
+    "evidence": [],
+    "since": "2024-06-10",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D28@2026-01-01": {
+    "evidence": [],
+    "since": "2025-07-01",
+    "verdict": "RETIRED"
+   },
+   "D28@2026-10-16": {
+    "evidence": [],
+    "since": "2025-07-01",
+    "verdict": "RETIRED"
+   },
+   "D29@2025-06-01": {
+    "evidence": [],
+    "since": "2024-09-15",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D29@2026-01-01": {
+    "evidence": [],
+    "since": "2024-09-15",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D29@2026-10-16": {
+    "evidence": [],
+    "since": "2024-09-15",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D30@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D30@2026-01-01": {
+    "evidence": [
+     "doc-news-cookies"
+    ],
+    "since": "2025-11-05",
+    "verdict": "MOOT"
+   },
+   "D30@2026-10-16": {
+    "evidence": [
+     "doc-news-cookies"
+    ],
+    "since": "2025-11-05",
+    "verdict": "MOOT"
+   }
+  },
+  "moot_depth1": {
+   "D01@2025-06-01": {
+    "evidence": [],
+    "since": "2025-02-10",
+    "verdict": "HOLDS"
+   },
+   "D01@2026-01-01": {
+    "evidence": [],
+    "since": "2025-02-10",
+    "verdict": "HOLDS"
+   },
+   "D01@2026-10-16": {
+    "evidence": [],
+    "since": "2025-02-10",
+    "verdict": "HOLDS"
+   },
+   "D02@2025-06-01": {
+    "evidence": [],
+    "since": "2025-03-01",
+    "verdict": "HOLDS"
+   },
+   "D02@2026-01-01": {
+    "evidence": [],
+    "since": "2025-03-01",
+    "verdict": "HOLDS"
+   },
+   "D02@2026-10-16": {
+    "evidence": [
+     "PR-412"
+    ],
+    "since": "2026-03-02",
+    "verdict": "MOOT"
+   },
+   "D03@2025-06-01": {
+    "evidence": [],
+    "since": "2025-04-12",
+    "verdict": "HOLDS"
+   },
+   "D03@2026-01-01": {
+    "evidence": [],
+    "since": "2025-04-12",
+    "verdict": "HOLDS"
+   },
+   "D03@2026-10-16": {
+    "evidence": [
+     "PR-412"
+    ],
+    "since": "2026-03-02",
+    "verdict": "MOOT"
+   },
+   "D04@2025-06-01": {
+    "evidence": [],
+    "since": "2024-11-20",
+    "verdict": "HOLDS"
+   },
+   "D04@2026-01-01": {
+    "evidence": [
+     "SRCH-233"
+    ],
+    "since": "2025-10-02",
+    "verdict": "DISPUTED"
+   },
+   "D04@2026-10-16": {
+    "evidence": [
+     "SRCH-233"
+    ],
+    "since": "2025-10-02",
+    "verdict": "DISPUTED"
+   },
+   "D05@2025-06-01": {
+    "evidence": [],
+    "since": "2024-06-01",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D05@2026-01-01": {
+    "evidence": [],
+    "since": "2024-06-01",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D05@2026-10-16": {
+    "evidence": [],
+    "since": "2024-06-01",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D06@2025-06-01": {
+    "evidence": [],
+    "since": "2025-01-15",
+    "verdict": "HOLDS"
+   },
+   "D06@2026-01-01": {
+    "evidence": [],
+    "since": "2025-01-15",
+    "verdict": "HOLDS"
+   },
+   "D06@2026-10-16": {
+    "evidence": [],
+    "since": "2025-01-15",
+    "verdict": "HOLDS"
+   },
+   "D07@2025-06-01": {
+    "evidence": [],
+    "since": "2024-09-05",
+    "verdict": "HOLDS"
+   },
+   "D07@2026-01-01": {
+    "evidence": [
+     "PR-350"
+    ],
+    "since": "2025-11-18",
+    "verdict": "MOOT"
+   },
+   "D07@2026-10-16": {
+    "evidence": [
+     "PR-350"
+    ],
+    "since": "2025-11-18",
+    "verdict": "MOOT"
+   },
+   "D08@2025-06-01": {
+    "evidence": [],
+    "since": "2025-05-20",
+    "verdict": "HOLDS"
+   },
+   "D08@2026-01-01": {
+    "evidence": [],
+    "since": "2025-05-20",
+    "verdict": "HOLDS"
+   },
+   "D08@2026-10-16": {
+    "evidence": [
+     "doc-allhands-2026-04"
+    ],
+    "since": "2026-04-03",
+    "verdict": "MOOT"
+   },
+   "D09@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D09@2026-01-01": {
+    "evidence": [],
+    "since": "2025-07-01",
+    "verdict": "HOLDS"
+   },
+   "D09@2026-10-16": {
+    "evidence": [
+     "SALES-91"
+    ],
+    "since": "2026-02-20",
+    "verdict": "MOOT"
+   },
+   "D10@2025-06-01": {
+    "evidence": [],
+    "since": "2024-08-10",
+    "verdict": "HOLDS"
+   },
+   "D10@2026-01-01": {
+    "evidence": [],
+    "since": "2024-08-10",
+    "verdict": "HOLDS"
+   },
+   "D10@2026-10-16": {
+    "evidence": [],
+    "since": "2024-08-10",
+    "verdict": "HOLDS"
+   },
+   "D11@2025-06-01": {
+    "evidence": [
+     "PR-201"
+    ],
+    "since": "2025-04-09",
+    "verdict": "MOOT"
+   },
+   "D11@2026-01-01": {
+    "evidence": [
+     "PR-201"
+    ],
+    "since": "2025-08-21",
+    "verdict": "DISPUTED"
+   },
+   "D11@2026-10-16": {
+    "evidence": [
+     "PR-201"
+    ],
+    "since": "2025-08-21",
+    "verdict": "DISPUTED"
+   },
+   "D12@2025-06-01": {
+    "evidence": [],
+    "since": "2024-07-15",
+    "verdict": "HOLDS"
+   },
+   "D12@2026-01-01": {
+    "evidence": [],
+    "since": "2024-07-15",
+    "verdict": "HOLDS"
+   },
+   "D12@2026-10-16": {
+    "evidence": [],
+    "since": "2024-07-15",
+    "verdict": "HOLDS"
+   },
+   "D13@2025-06-01": {
+    "evidence": [],
+    "since": "2025-02-01",
+    "verdict": "HOLDS"
+   },
+   "D13@2026-01-01": {
+    "evidence": [
+     "doc-aws-cmk"
+    ],
+    "since": "2025-12-05",
+    "verdict": "MOOT"
+   },
+   "D13@2026-10-16": {
+    "evidence": [
+     "doc-aws-cmk"
+    ],
+    "since": "2025-12-05",
+    "verdict": "MOOT"
+   },
+   "D14@2025-06-01": {
+    "evidence": [],
+    "since": "2024-06-20",
+    "verdict": "HOLDS"
+   },
+   "D14@2026-01-01": {
+    "evidence": [],
+    "since": "2024-06-20",
+    "verdict": "HOLDS"
+   },
+   "D14@2026-10-16": {
+    "evidence": [],
+    "since": "2024-06-20",
+    "verdict": "HOLDS"
+   },
+   "D15@2025-06-01": {
+    "evidence": [],
+    "since": "2025-03-15",
+    "verdict": "HOLDS"
+   },
+   "D15@2026-01-01": {
+    "evidence": [],
+    "since": "2025-03-15",
+    "verdict": "HOLDS"
+   },
+   "D15@2026-10-16": {
+    "evidence": [],
+    "since": "2025-03-15",
+    "verdict": "HOLDS"
+   },
+   "D16@2025-06-01": {
+    "evidence": [],
+    "since": "2024-09-01",
+    "verdict": "HOLDS"
+   },
+   "D16@2026-01-01": {
+    "evidence": [],
+    "since": "2024-09-01",
+    "verdict": "HOLDS"
+   },
+   "D16@2026-10-16": {
+    "evidence": [],
+    "since": "2024-09-01",
+    "verdict": "HOLDS"
+   },
+   "D17@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D17@2026-01-01": {
+    "evidence": [],
+    "since": "2025-06-10",
+    "verdict": "HOLDS"
+   },
+   "D17@2026-10-16": {
+    "evidence": [
+     "chat-2026-07-09-ld"
+    ],
+    "since": "2026-08-15",
+    "verdict": "DISPUTED"
+   },
+   "D18@2025-06-01": {
+    "evidence": [],
+    "since": "2024-11-01",
+    "verdict": "HOLDS"
+   },
+   "D18@2026-01-01": {
+    "evidence": [],
+    "since": "2024-11-01",
+    "verdict": "HOLDS"
+   },
+   "D18@2026-10-16": {
+    "evidence": [
+     "PR-520"
+    ],
+    "since": "2026-05-22",
+    "verdict": "MOOT"
+   },
+   "D19@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D19@2026-01-01": {
+    "evidence": [],
+    "since": "2025-08-01",
+    "verdict": "HOLDS"
+   },
+   "D19@2026-10-16": {
+    "evidence": [],
+    "since": "2025-08-01",
+    "verdict": "HOLDS"
+   },
+   "D20@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D20@2026-01-01": {
+    "evidence": [],
+    "since": "2025-09-01",
+    "verdict": "HOLDS"
+   },
+   "D20@2026-10-16": {
+    "evidence": [
+     "doc-vendor-rn"
+    ],
+    "since": "2026-02-11",
+    "verdict": "MOOT"
+   },
+   "D21@2025-06-01": {
+    "evidence": [],
+    "since": "2024-12-10",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D21@2026-01-01": {
+    "evidence": [],
+    "since": "2024-12-10",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D21@2026-10-16": {
+    "evidence": [],
+    "since": "2024-12-10",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D22@2025-06-01": {
+    "evidence": [],
+    "since": "2025-04-01",
+    "verdict": "HOLDS"
+   },
+   "D22@2026-01-01": {
+    "evidence": [],
+    "since": "2025-04-01",
+    "verdict": "HOLDS"
+   },
+   "D22@2026-10-16": {
+    "evidence": [],
+    "since": "2025-04-01",
+    "verdict": "HOLDS"
+   },
+   "D23@2025-06-01": {
+    "evidence": [],
+    "since": "2024-06-15",
+    "verdict": "HOLDS"
+   },
+   "D23@2026-01-01": {
+    "evidence": [],
+    "since": "2024-06-15",
+    "verdict": "HOLDS"
+   },
+   "D23@2026-10-16": {
+    "evidence": [
+     "ADR-notes-sharding"
+    ],
+    "since": "2026-03-18",
+    "verdict": "DISPUTED"
+   },
+   "D24@2025-06-01": {
+    "evidence": [],
+    "since": "2025-01-10",
+    "verdict": "HOLDS"
+   },
+   "D24@2026-01-01": {
+    "evidence": [],
+    "since": "2025-01-10",
+    "verdict": "HOLDS"
+   },
+   "D24@2026-10-16": {
+    "evidence": [],
+    "since": "2025-01-10",
+    "verdict": "HOLDS"
+   },
+   "D25@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D25@2026-01-01": {
+    "evidence": [],
+    "since": "2025-10-01",
+    "verdict": "HOLDS"
+   },
+   "D25@2026-10-16": {
+    "evidence": [
+     "doc-abuse-2026-06"
+    ],
+    "since": "2026-06-12",
+    "verdict": "MOOT"
+   },
+   "D26@2025-06-01": {
+    "evidence": [],
+    "since": "2024-08-01",
+    "verdict": "HOLDS"
+   },
+   "D26@2026-01-01": {
+    "evidence": [],
+    "since": "2024-08-01",
+    "verdict": "HOLDS"
+   },
+   "D26@2026-10-16": {
+    "evidence": [],
+    "since": "2024-08-01",
+    "verdict": "HOLDS"
+   },
+   "D27@2025-06-01": {
+    "evidence": [],
+    "since": "2024-07-01",
+    "verdict": "HOLDS"
+   },
+   "D27@2026-01-01": {
+    "evidence": [],
+    "since": "2024-07-01",
+    "verdict": "HOLDS"
+   },
+   "D27@2026-10-16": {
+    "evidence": [],
+    "since": "2024-07-01",
+    "verdict": "HOLDS"
+   },
+   "D28@2025-06-01": {
+    "evidence": [],
+    "since": "2024-06-10",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D28@2026-01-01": {
+    "evidence": [],
+    "since": "2025-07-01",
+    "verdict": "RETIRED"
+   },
+   "D28@2026-10-16": {
+    "evidence": [],
+    "since": "2025-07-01",
+    "verdict": "RETIRED"
+   },
+   "D29@2025-06-01": {
+    "evidence": [],
+    "since": "2024-09-15",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D29@2026-01-01": {
+    "evidence": [],
+    "since": "2024-09-15",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D29@2026-10-16": {
+    "evidence": [],
+    "since": "2024-09-15",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D30@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D30@2026-01-01": {
+    "evidence": [
+     "doc-news-cookies"
+    ],
+    "since": "2025-11-05",
+    "verdict": "MOOT"
+   },
+   "D30@2026-10-16": {
+    "evidence": [
+     "doc-news-cookies"
+    ],
+    "since": "2025-11-05",
+    "verdict": "MOOT"
+   }
+  },
+  "moot_no_asof": {
+   "D01@2025-06-01": {
+    "evidence": [
+     "PR-412"
+    ],
+    "since": "2026-03-02",
+    "verdict": "MOOT"
+   },
+   "D01@2026-01-01": {
+    "evidence": [
+     "PR-412"
+    ],
+    "since": "2026-03-02",
+    "verdict": "MOOT"
+   },
+   "D01@2026-10-16": {
+    "evidence": [
+     "PR-412"
+    ],
+    "since": "2026-03-02",
+    "verdict": "MOOT"
+   },
+   "D02@2025-06-01": {
+    "evidence": [
+     "PR-412"
+    ],
+    "since": "2026-03-02",
+    "verdict": "MOOT"
+   },
+   "D02@2026-01-01": {
+    "evidence": [
+     "PR-412"
+    ],
+    "since": "2026-03-02",
+    "verdict": "MOOT"
+   },
+   "D02@2026-10-16": {
+    "evidence": [
+     "PR-412"
+    ],
+    "since": "2026-03-02",
+    "verdict": "MOOT"
+   },
+   "D03@2025-06-01": {
+    "evidence": [
+     "PR-412"
+    ],
+    "since": "2026-03-02",
+    "verdict": "MOOT"
+   },
+   "D03@2026-01-01": {
+    "evidence": [
+     "PR-412"
+    ],
+    "since": "2026-03-02",
+    "verdict": "MOOT"
+   },
+   "D03@2026-10-16": {
+    "evidence": [
+     "PR-412"
+    ],
+    "since": "2026-03-02",
+    "verdict": "MOOT"
+   },
+   "D04@2025-06-01": {
+    "evidence": [
+     "SRCH-233"
+    ],
+    "since": "2025-10-02",
+    "verdict": "DISPUTED"
+   },
+   "D04@2026-01-01": {
+    "evidence": [
+     "SRCH-233"
+    ],
+    "since": "2025-10-02",
+    "verdict": "DISPUTED"
+   },
+   "D04@2026-10-16": {
+    "evidence": [
+     "SRCH-233"
+    ],
+    "since": "2025-10-02",
+    "verdict": "DISPUTED"
+   },
+   "D05@2025-06-01": {
+    "evidence": [],
+    "since": "2024-06-01",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D05@2026-01-01": {
+    "evidence": [],
+    "since": "2024-06-01",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D05@2026-10-16": {
+    "evidence": [],
+    "since": "2024-06-01",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D06@2025-06-01": {
+    "evidence": [],
+    "since": "2025-01-15",
+    "verdict": "HOLDS"
+   },
+   "D06@2026-01-01": {
+    "evidence": [],
+    "since": "2025-01-15",
+    "verdict": "HOLDS"
+   },
+   "D06@2026-10-16": {
+    "evidence": [],
+    "since": "2025-01-15",
+    "verdict": "HOLDS"
+   },
+   "D07@2025-06-01": {
+    "evidence": [
+     "PR-350"
+    ],
+    "since": "2025-11-18",
+    "verdict": "MOOT"
+   },
+   "D07@2026-01-01": {
+    "evidence": [
+     "PR-350"
+    ],
+    "since": "2025-11-18",
+    "verdict": "MOOT"
+   },
+   "D07@2026-10-16": {
+    "evidence": [
+     "PR-350"
+    ],
+    "since": "2025-11-18",
+    "verdict": "MOOT"
+   },
+   "D08@2025-06-01": {
+    "evidence": [
+     "doc-allhands-2026-04"
+    ],
+    "since": "2026-04-03",
+    "verdict": "MOOT"
+   },
+   "D08@2026-01-01": {
+    "evidence": [
+     "doc-allhands-2026-04"
+    ],
+    "since": "2026-04-03",
+    "verdict": "MOOT"
+   },
+   "D08@2026-10-16": {
+    "evidence": [
+     "doc-allhands-2026-04"
+    ],
+    "since": "2026-04-03",
+    "verdict": "MOOT"
+   },
+   "D09@2025-06-01": {
+    "evidence": [
+     "SALES-91"
+    ],
+    "since": "2026-02-20",
+    "verdict": "MOOT"
+   },
+   "D09@2026-01-01": {
+    "evidence": [
+     "SALES-91"
+    ],
+    "since": "2026-02-20",
+    "verdict": "MOOT"
+   },
+   "D09@2026-10-16": {
+    "evidence": [
+     "SALES-91"
+    ],
+    "since": "2026-02-20",
+    "verdict": "MOOT"
+   },
+   "D10@2025-06-01": {
+    "evidence": [],
+    "since": "2024-08-10",
+    "verdict": "HOLDS"
+   },
+   "D10@2026-01-01": {
+    "evidence": [],
+    "since": "2024-08-10",
+    "verdict": "HOLDS"
+   },
+   "D10@2026-10-16": {
+    "evidence": [],
+    "since": "2024-08-10",
+    "verdict": "HOLDS"
+   },
+   "D11@2025-06-01": {
+    "evidence": [
+     "PR-201"
+    ],
+    "since": "2025-08-21",
+    "verdict": "DISPUTED"
+   },
+   "D11@2026-01-01": {
+    "evidence": [
+     "PR-201"
+    ],
+    "since": "2025-08-21",
+    "verdict": "DISPUTED"
+   },
+   "D11@2026-10-16": {
+    "evidence": [
+     "PR-201"
+    ],
+    "since": "2025-08-21",
+    "verdict": "DISPUTED"
+   },
+   "D12@2025-06-01": {
+    "evidence": [],
+    "since": "2024-07-15",
+    "verdict": "HOLDS"
+   },
+   "D12@2026-01-01": {
+    "evidence": [],
+    "since": "2024-07-15",
+    "verdict": "HOLDS"
+   },
+   "D12@2026-10-16": {
+    "evidence": [],
+    "since": "2024-07-15",
+    "verdict": "HOLDS"
+   },
+   "D13@2025-06-01": {
+    "evidence": [
+     "doc-aws-cmk"
+    ],
+    "since": "2025-12-05",
+    "verdict": "MOOT"
+   },
+   "D13@2026-01-01": {
+    "evidence": [
+     "doc-aws-cmk"
+    ],
+    "since": "2025-12-05",
+    "verdict": "MOOT"
+   },
+   "D13@2026-10-16": {
+    "evidence": [
+     "doc-aws-cmk"
+    ],
+    "since": "2025-12-05",
+    "verdict": "MOOT"
+   },
+   "D14@2025-06-01": {
+    "evidence": [],
+    "since": "2024-06-20",
+    "verdict": "HOLDS"
+   },
+   "D14@2026-01-01": {
+    "evidence": [],
+    "since": "2024-06-20",
+    "verdict": "HOLDS"
+   },
+   "D14@2026-10-16": {
+    "evidence": [],
+    "since": "2024-06-20",
+    "verdict": "HOLDS"
+   },
+   "D15@2025-06-01": {
+    "evidence": [],
+    "since": "2025-03-15",
+    "verdict": "HOLDS"
+   },
+   "D15@2026-01-01": {
+    "evidence": [],
+    "since": "2025-03-15",
+    "verdict": "HOLDS"
+   },
+   "D15@2026-10-16": {
+    "evidence": [],
+    "since": "2025-03-15",
+    "verdict": "HOLDS"
+   },
+   "D16@2025-06-01": {
+    "evidence": [],
+    "since": "2024-09-01",
+    "verdict": "HOLDS"
+   },
+   "D16@2026-01-01": {
+    "evidence": [],
+    "since": "2024-09-01",
+    "verdict": "HOLDS"
+   },
+   "D16@2026-10-16": {
+    "evidence": [],
+    "since": "2024-09-01",
+    "verdict": "HOLDS"
+   },
+   "D17@2025-06-01": {
+    "evidence": [
+     "chat-2026-07-09-ld"
+    ],
+    "since": "2026-08-15",
+    "verdict": "DISPUTED"
+   },
+   "D17@2026-01-01": {
+    "evidence": [
+     "chat-2026-07-09-ld"
+    ],
+    "since": "2026-08-15",
+    "verdict": "DISPUTED"
+   },
+   "D17@2026-10-16": {
+    "evidence": [
+     "chat-2026-07-09-ld"
+    ],
+    "since": "2026-08-15",
+    "verdict": "DISPUTED"
+   },
+   "D18@2025-06-01": {
+    "evidence": [
+     "PR-520"
+    ],
+    "since": "2026-05-22",
+    "verdict": "MOOT"
+   },
+   "D18@2026-01-01": {
+    "evidence": [
+     "PR-520"
+    ],
+    "since": "2026-05-22",
+    "verdict": "MOOT"
+   },
+   "D18@2026-10-16": {
+    "evidence": [
+     "PR-520"
+    ],
+    "since": "2026-05-22",
+    "verdict": "MOOT"
+   },
+   "D19@2025-06-01": {
+    "evidence": [
+     "DATA-140"
+    ],
+    "since": "2026-04-30",
+    "verdict": "MOOT"
+   },
+   "D19@2026-01-01": {
+    "evidence": [
+     "DATA-140"
+    ],
+    "since": "2026-04-30",
+    "verdict": "MOOT"
+   },
+   "D19@2026-10-16": {
+    "evidence": [
+     "DATA-140"
+    ],
+    "since": "2026-04-30",
+    "verdict": "MOOT"
+   },
+   "D20@2025-06-01": {
+    "evidence": [
+     "doc-vendor-rn"
+    ],
+    "since": "2026-02-11",
+    "verdict": "MOOT"
+   },
+   "D20@2026-01-01": {
+    "evidence": [
+     "doc-vendor-rn"
+    ],
+    "since": "2026-02-11",
+    "verdict": "MOOT"
+   },
+   "D20@2026-10-16": {
+    "evidence": [
+     "doc-vendor-rn"
+    ],
+    "since": "2026-02-11",
+    "verdict": "MOOT"
+   },
+   "D21@2025-06-01": {
+    "evidence": [],
+    "since": "2024-12-10",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D21@2026-01-01": {
+    "evidence": [],
+    "since": "2024-12-10",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D21@2026-10-16": {
+    "evidence": [],
+    "since": "2024-12-10",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D22@2025-06-01": {
+    "evidence": [],
+    "since": "2025-04-01",
+    "verdict": "HOLDS"
+   },
+   "D22@2026-01-01": {
+    "evidence": [],
+    "since": "2025-04-01",
+    "verdict": "HOLDS"
+   },
+   "D22@2026-10-16": {
+    "evidence": [],
+    "since": "2025-04-01",
+    "verdict": "HOLDS"
+   },
+   "D23@2025-06-01": {
+    "evidence": [
+     "ADR-notes-sharding"
+    ],
+    "since": "2026-03-18",
+    "verdict": "DISPUTED"
+   },
+   "D23@2026-01-01": {
+    "evidence": [
+     "ADR-notes-sharding"
+    ],
+    "since": "2026-03-18",
+    "verdict": "DISPUTED"
+   },
+   "D23@2026-10-16": {
+    "evidence": [
+     "ADR-notes-sharding"
+    ],
+    "since": "2026-03-18",
+    "verdict": "DISPUTED"
+   },
+   "D24@2025-06-01": {
+    "evidence": [],
+    "since": "2025-01-10",
+    "verdict": "HOLDS"
+   },
+   "D24@2026-01-01": {
+    "evidence": [],
+    "since": "2025-01-10",
+    "verdict": "HOLDS"
+   },
+   "D24@2026-10-16": {
+    "evidence": [],
+    "since": "2025-01-10",
+    "verdict": "HOLDS"
+   },
+   "D25@2025-06-01": {
+    "evidence": [
+     "doc-abuse-2026-06"
+    ],
+    "since": "2026-06-12",
+    "verdict": "MOOT"
+   },
+   "D25@2026-01-01": {
+    "evidence": [
+     "doc-abuse-2026-06"
+    ],
+    "since": "2026-06-12",
+    "verdict": "MOOT"
+   },
+   "D25@2026-10-16": {
+    "evidence": [
+     "doc-abuse-2026-06"
+    ],
+    "since": "2026-06-12",
+    "verdict": "MOOT"
+   },
+   "D26@2025-06-01": {
+    "evidence": [],
+    "since": "2024-08-01",
+    "verdict": "HOLDS"
+   },
+   "D26@2026-01-01": {
+    "evidence": [],
+    "since": "2024-08-01",
+    "verdict": "HOLDS"
+   },
+   "D26@2026-10-16": {
+    "evidence": [],
+    "since": "2024-08-01",
+    "verdict": "HOLDS"
+   },
+   "D27@2025-06-01": {
+    "evidence": [],
+    "since": "2024-07-01",
+    "verdict": "HOLDS"
+   },
+   "D27@2026-01-01": {
+    "evidence": [],
+    "since": "2024-07-01",
+    "verdict": "HOLDS"
+   },
+   "D27@2026-10-16": {
+    "evidence": [],
+    "since": "2024-07-01",
+    "verdict": "HOLDS"
+   },
+   "D28@2025-06-01": {
+    "evidence": [],
+    "since": "2025-07-01",
+    "verdict": "RETIRED"
+   },
+   "D28@2026-01-01": {
+    "evidence": [],
+    "since": "2025-07-01",
+    "verdict": "RETIRED"
+   },
+   "D28@2026-10-16": {
+    "evidence": [],
+    "since": "2025-07-01",
+    "verdict": "RETIRED"
+   },
+   "D29@2025-06-01": {
+    "evidence": [],
+    "since": "2024-09-15",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D29@2026-01-01": {
+    "evidence": [],
+    "since": "2024-09-15",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D29@2026-10-16": {
+    "evidence": [],
+    "since": "2024-09-15",
+    "verdict": "UNDOCUMENTED"
+   },
+   "D30@2025-06-01": {
+    "evidence": [
+     "doc-news-cookies"
+    ],
+    "since": "2025-11-05",
+    "verdict": "MOOT"
+   },
+   "D30@2026-01-01": {
+    "evidence": [
+     "doc-news-cookies"
+    ],
+    "since": "2025-11-05",
+    "verdict": "MOOT"
+   },
+   "D30@2026-10-16": {
+    "evidence": [
+     "doc-news-cookies"
+    ],
+    "since": "2025-11-05",
+    "verdict": "MOOT"
+   }
+  },
+  "no_falkordb": {
+   "D01@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D01@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D01@2026-10-16": {
+    "evidence": [
+     "chat-noise-994"
+    ],
+    "since": "2026-07-12",
+    "verdict": "MOOT"
+   },
+   "D02@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D02@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D02@2026-10-16": {
+    "evidence": [
+     "PR-412"
+    ],
+    "since": "2026-03-02",
+    "verdict": "MOOT"
+   },
+   "D03@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D03@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D03@2026-10-16": {
+    "evidence": [
+     "PR-412"
+    ],
+    "since": "2026-03-02",
+    "verdict": "MOOT"
+   },
+   "D04@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D04@2026-01-01": {
+    "evidence": [
+     "SRCH-233",
+     "chat-2025-10-02-search"
+    ],
+    "since": "2025-09-14",
+    "verdict": "MOOT"
+   },
+   "D04@2026-10-16": {
+    "evidence": [
+     "PR-455",
+     "SRCH-233",
+     "chat-2025-10-02-search"
+    ],
+    "since": "2025-09-14",
+    "verdict": "MOOT"
+   },
+   "D05@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "UNDOCUMENTED"
+   },
+   "D05@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "UNDOCUMENTED"
+   },
+   "D05@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "UNDOCUMENTED"
+   },
+   "D06@2025-06-01": {
+    "evidence": [
+     "src:D22"
+    ],
+    "since": "2025-04-01",
+    "verdict": "MOOT"
+   },
+   "D06@2026-01-01": {
+    "evidence": [
+     "src:D22"
+    ],
+    "since": "2025-04-01",
+    "verdict": "MOOT"
+   },
+   "D06@2026-10-16": {
+    "evidence": [
+     "doc-soc2-iac",
+     "src:D22"
+    ],
+    "since": "2025-04-01",
+    "verdict": "MOOT"
+   },
+   "D07@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D07@2026-01-01": {
+    "evidence": [
+     "PR-350"
+    ],
+    "since": "2025-11-18",
+    "verdict": "MOOT"
+   },
+   "D07@2026-10-16": {
+    "evidence": [
+     "PR-350"
+    ],
+    "since": "2025-11-18",
+    "verdict": "MOOT"
+   },
+   "D08@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D08@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D08@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D09@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D09@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D09@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D10@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D10@2026-01-01": {
+    "evidence": [
+     "src:D25"
+    ],
+    "since": "2025-10-01",
+    "verdict": "MOOT"
+   },
+   "D10@2026-10-16": {
+    "evidence": [
+     "src:D25"
+    ],
+    "since": "2025-10-01",
+    "verdict": "MOOT"
+   },
+   "D11@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D11@2026-01-01": {
+    "evidence": [
+     "chat-2025-08-21-ci"
+    ],
+    "since": "2025-08-21",
+    "verdict": "MOOT"
+   },
+   "D11@2026-10-16": {
+    "evidence": [
+     "chat-2025-08-21-ci"
+    ],
+    "since": "2025-08-21",
+    "verdict": "MOOT"
+   },
+   "D12@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D12@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D12@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D13@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D13@2026-01-01": {
+    "evidence": [
+     "doc-aws-cmk"
+    ],
+    "since": "2025-12-05",
+    "verdict": "MOOT"
+   },
+   "D13@2026-10-16": {
+    "evidence": [
+     "doc-aws-cmk"
+    ],
+    "since": "2025-12-05",
+    "verdict": "MOOT"
+   },
+   "D14@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D14@2026-01-01": {
+    "evidence": [
+     "SRCH-233"
+    ],
+    "since": "2025-09-14",
+    "verdict": "MOOT"
+   },
+   "D14@2026-10-16": {
+    "evidence": [
+     "SRCH-233"
+    ],
+    "since": "2025-09-14",
+    "verdict": "MOOT"
+   },
+   "D15@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D15@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D15@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D16@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D16@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D16@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D17@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D17@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D17@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D18@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D18@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D18@2026-10-16": {
+    "evidence": [
+     "chat-noise-917"
+    ],
+    "since": "2026-02-16",
+    "verdict": "MOOT"
+   },
+   "D19@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D19@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D19@2026-10-16": {
+    "evidence": [
+     "DATA-140"
+    ],
+    "since": "2026-04-30",
+    "verdict": "MOOT"
+   },
+   "D20@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D20@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D20@2026-10-16": {
+    "evidence": [
+     "doc-vendor-rn"
+    ],
+    "since": "2026-02-11",
+    "verdict": "MOOT"
+   },
+   "D21@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "UNDOCUMENTED"
+   },
+   "D21@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "UNDOCUMENTED"
+   },
+   "D21@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "UNDOCUMENTED"
+   },
+   "D22@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D22@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D22@2026-10-16": {
+    "evidence": [
+     "doc-soc2-iac"
+    ],
+    "since": "2026-01-28",
+    "verdict": "MOOT"
+   },
+   "D23@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D23@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D23@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D24@2025-06-01": {
+    "evidence": [
+     "chat-noise-992"
+    ],
+    "since": "2025-04-01",
+    "verdict": "MOOT"
+   },
+   "D24@2026-01-01": {
+    "evidence": [
+     "chat-noise-992"
+    ],
+    "since": "2025-04-01",
+    "verdict": "MOOT"
+   },
+   "D24@2026-10-16": {
+    "evidence": [
+     "chat-noise-992"
+    ],
+    "since": "2025-04-01",
+    "verdict": "MOOT"
+   },
+   "D25@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D25@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D25@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D26@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D26@2026-01-01": {
+    "evidence": [
+     "src:D17",
+     "src:D30"
+    ],
+    "since": "2025-06-10",
+    "verdict": "MOOT"
+   },
+   "D26@2026-10-16": {
+    "evidence": [
+     "src:D17",
+     "src:D30"
+    ],
+    "since": "2025-06-10",
+    "verdict": "MOOT"
+   },
+   "D27@2025-06-01": {
+    "evidence": [
+     "src:D22"
+    ],
+    "since": "2025-04-01",
+    "verdict": "MOOT"
+   },
+   "D27@2026-01-01": {
+    "evidence": [
+     "src:D22"
+    ],
+    "since": "2025-04-01",
+    "verdict": "MOOT"
+   },
+   "D27@2026-10-16": {
+    "evidence": [
+     "doc-soc2-iac",
+     "src:D22"
+    ],
+    "since": "2025-04-01",
+    "verdict": "MOOT"
+   },
+   "D28@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "UNDOCUMENTED"
+   },
+   "D28@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "UNDOCUMENTED"
+   },
+   "D28@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "UNDOCUMENTED"
+   },
+   "D29@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "UNDOCUMENTED"
+   },
+   "D29@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "UNDOCUMENTED"
+   },
+   "D29@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "UNDOCUMENTED"
+   },
+   "D30@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D30@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D30@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   }
+  },
+  "trust_adr": {
+   "D01@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D01@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D01@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D02@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D02@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D02@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D03@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D03@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D03@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D04@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D04@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D04@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D05@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D05@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D05@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D06@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D06@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D06@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D07@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D07@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D07@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D08@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D08@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D08@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D09@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D09@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D09@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D10@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D10@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D10@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D11@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D11@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D11@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D12@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D12@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D12@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D13@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D13@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D13@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D14@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D14@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D14@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D15@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D15@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D15@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D16@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D16@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D16@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D17@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D17@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D17@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D18@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D18@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D18@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D19@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D19@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D19@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D20@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D20@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D20@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D21@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D21@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D21@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D22@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D22@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D22@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D23@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D23@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D23@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D24@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D24@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D24@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D25@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D25@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D25@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D26@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D26@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D26@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D27@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D27@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D27@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D28@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D28@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D28@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D29@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D29@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D29@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D30@2025-06-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "NOT_YET"
+   },
+   "D30@2026-01-01": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   },
+   "D30@2026-10-16": {
+    "evidence": [],
+    "since": null,
+    "verdict": "HOLDS"
+   }
+  }
+ },
+ "arms": {
+  "moot": {
+   "answered": 90,
+   "by_date": {
+    "2025-06-01": 30,
+    "2026-01-01": 30,
+    "2026-10-16": 30
+   },
+   "dead_called_holds": [],
+   "dead_n": 22,
+   "false_alarms": [],
+   "holds_n": 50,
+   "n": 90,
+   "since": 24,
+   "since_n": 24,
+   "unparsed": 0,
+   "verdict": 90,
+   "why": 22
+  },
+  "moot_depth1": {
+   "answered": 90,
+   "by_date": {
+    "2025-06-01": 30,
+    "2026-01-01": 30,
+    "2026-10-16": 28
+   },
+   "dead_called_holds": [
+    "D01@2026-10-16",
+    "D19@2026-10-16"
+   ],
+   "dead_n": 22,
+   "false_alarms": [],
+   "holds_n": 50,
+   "n": 90,
+   "since": 22,
+   "since_n": 24,
+   "unparsed": 0,
+   "verdict": 88,
+   "why": 20
+  },
+  "moot_no_asof": {
+   "answered": 90,
+   "by_date": {
+    "2025-06-01": 13,
+    "2026-01-01": 19,
+    "2026-10-16": 30
+   },
+   "dead_called_holds": [],
+   "dead_n": 22,
+   "false_alarms": [
+    "D01@2025-06-01",
+    "D01@2026-01-01",
+    "D02@2025-06-01",
+    "D02@2026-01-01",
+    "D03@2025-06-01",
+    "D03@2026-01-01",
+    "D04@2025-06-01",
+    "D07@2025-06-01",
+    "D08@2025-06-01",
+    "D08@2026-01-01",
+    "D09@2026-01-01",
+    "D13@2025-06-01",
+    "D17@2026-01-01",
+    "D18@2025-06-01",
+    "D18@2026-01-01",
+    "D19@2026-01-01",
+    "D20@2026-01-01",
+    "D23@2025-06-01",
+    "D23@2026-01-01",
+    "D25@2026-01-01"
+   ],
+   "holds_n": 50,
+   "n": 90,
+   "since": 23,
+   "since_n": 24,
+   "unparsed": 0,
+   "verdict": 62,
+   "why": 22
+  },
+  "moot_rows": {
+   "answered": 90,
+   "by_date": {
+    "2025-06-01": 29,
+    "2026-01-01": 30,
+    "2026-10-16": 30
+   },
+   "dead_called_holds": [],
+   "dead_n": 22,
+   "false_alarms": [],
+   "holds_n": 50,
+   "n": 90,
+   "since": 18,
+   "since_n": 24,
+   "unparsed": 0,
+   "verdict": 89,
+   "why": 22
+  },
+  "no_falkordb": {
+   "answered": 90,
+   "by_date": {
+    "2025-06-01": 26,
+    "2026-01-01": 20,
+    "2026-10-16": 14
+   },
+   "dead_called_holds": [
+    "D08@2026-10-16",
+    "D09@2026-10-16",
+    "D11@2025-06-01",
+    "D17@2026-10-16",
+    "D23@2026-10-16",
+    "D25@2026-10-16",
+    "D30@2026-01-01",
+    "D30@2026-10-16"
+   ],
+   "dead_n": 22,
+   "false_alarms": [
+    "D06@2025-06-01",
+    "D06@2026-01-01",
+    "D06@2026-10-16",
+    "D10@2026-01-01",
+    "D10@2026-10-16",
+    "D14@2026-01-01",
+    "D14@2026-10-16",
+    "D22@2026-10-16",
+    "D24@2025-06-01",
+    "D24@2026-01-01",
+    "D24@2026-10-16",
+    "D26@2026-01-01",
+    "D26@2026-10-16",
+    "D27@2025-06-01",
+    "D27@2026-01-01",
+    "D27@2026-10-16"
+   ],
+   "holds_n": 50,
+   "n": 90,
+   "since": 10,
+   "since_n": 24,
+   "unparsed": 0,
+   "verdict": 60,
+   "why": 10
+  },
+  "rag_bm25": {
+   "answered": 90,
+   "by_date": {
+    "2025-06-01": 22,
+    "2026-01-01": 22,
+    "2026-10-16": 18
+   },
+   "dead_called_holds": [
+    "D04@2026-01-01",
+    "D04@2026-10-16",
+    "D07@2026-01-01",
+    "D07@2026-10-16",
+    "D08@2026-10-16",
+    "D11@2025-06-01",
+    "D11@2026-01-01",
+    "D11@2026-10-16",
+    "D13@2026-01-01",
+    "D13@2026-10-16",
+    "D17@2026-10-16",
+    "D19@2026-10-16",
+    "D23@2026-10-16"
+   ],
+   "dead_n": 22,
+   "false_alarms": [
+    "D25@2026-01-01"
+   ],
+   "holds_n": 50,
+   "n": 90,
+   "since": 8,
+   "since_n": 24,
+   "unparsed": 0,
+   "verdict": 62,
+   "why": 9
+  },
+  "rag_premises": {
+   "answered": 90,
+   "by_date": {
+    "2025-06-01": 25,
+    "2026-01-01": 27,
+    "2026-10-16": 24
+   },
+   "dead_called_holds": [
+    "D01@2026-10-16",
+    "D04@2026-01-01",
+    "D04@2026-10-16",
+    "D11@2025-06-01",
+    "D11@2026-01-01",
+    "D11@2026-10-16",
+    "D17@2026-10-16"
+   ],
+   "dead_n": 22,
+   "false_alarms": [],
+   "holds_n": 50,
+   "n": 90,
+   "since": 12,
+   "since_n": 24,
+   "unparsed": 0,
+   "verdict": 76,
+   "why": 16
+  },
+  "trust_adr": {
+   "answered": 90,
+   "by_date": {
+    "2025-06-01": 25,
+    "2026-01-01": 21,
+    "2026-10-16": 10
+   },
+   "dead_called_holds": [
+    "D01@2026-10-16",
+    "D02@2026-10-16",
+    "D03@2026-10-16",
+    "D04@2026-01-01",
+    "D04@2026-10-16",
+    "D07@2026-01-01",
+    "D07@2026-10-16",
+    "D08@2026-10-16",
+    "D09@2026-10-16",
+    "D11@2025-06-01",
+    "D11@2026-01-01",
+    "D11@2026-10-16",
+    "D13@2026-01-01",
+    "D13@2026-10-16",
+    "D17@2026-10-16",
+    "D18@2026-10-16",
+    "D19@2026-10-16",
+    "D20@2026-10-16",
+    "D23@2026-10-16",
+    "D25@2026-10-16",
+    "D30@2026-01-01",
+    "D30@2026-10-16"
+   ],
+   "dead_n": 22,
+   "false_alarms": [],
+   "holds_n": 50,
+   "n": 90,
+   "since": 0,
+   "since_n": 24,
+   "unparsed": 0,
+   "verdict": 56,
+   "why": 0
+  }
+ },
+ "dates": [
+  "2025-06-01",
+  "2026-01-01",
+  "2026-10-16"
+ ],
+ "model": "qwen3.8:27b",
+ "n": 90
+}
