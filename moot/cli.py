@@ -20,6 +20,8 @@ def main(argv=None):
     vf.add_argument("--rerun", action="store_true", help="first re-run the deterministic evals from committed inputs (needs FalkorDB)")
     dp = sub.add_parser("departure", help="what leaves with a person (computed on a copy of the graph)"); dp.add_argument("person_id"); dp.add_argument("--as-of"); dp.add_argument("--graph")
     pp = sub.add_parser("people", help="who only knows what: bus factor and betweenness per person"); pp.add_argument("--as-of"); pp.add_argument("--graph")
+    isl = sub.add_parser("ingest-slack", help="a Slack workspace export (directory) into an existing graph, as dated chat evidence"); isl.add_argument("export"); isl.add_argument("--graph")
+    iis = sub.add_parser("ingest-issues", help="a GitHub (gh issue list --json) or Jira issues export into an existing graph"); iis.add_argument("file"); iis.add_argument("--graph"); iis.add_argument("--repo", default="")
     sn = sub.add_parser("sentinel", help="what changed between two dates: regressions, retirements, reversals, unauthorised changes"); sn.add_argument("--since", required=True); sn.add_argument("--until"); sn.add_argument("--graph")
     ot = sub.add_parser("teams", help="hidden teams: communities of collaborators against the official teams"); ot.add_argument("--graph")
     cp = sub.add_parser("connect", help="who connects two people: the shortest chain of shared records"); cp.add_argument("a"); cp.add_argument("b"); cp.add_argument("--graph")
@@ -125,6 +127,16 @@ def main(argv=None):
             print("  systems nobody else can explain:", ", ".join(r["systems_nobody_else_explains"]))
         if r["owned"]:
             print(f"  owns {len(r['owned'])} live decisions; next up the reporting line: {r['successor']['name'] if r['successor'] else 'nobody'}")
+        return
+    if args.cmd in ("ingest-slack", "ingest-issues"):
+        from pathlib import Path
+        from .connectors import exports
+        g = graph(args.graph)
+        idx = exports.decision_index(g)
+        src = Path(args.export if args.cmd == "ingest-slack" else args.file)
+        payload = exports.slack(src, idx) if args.cmd == "ingest-slack" else exports.issues(src, idx, args.repo)
+        r = exports.merge(g, payload, Path("data") / "exports" / g.name / f"{args.cmd.split('-')[1]}_{src.stem}.json")
+        print(f"{g.name}: {r['evidence']} records, {r['mentions']} mentions of {r['decisions_mentioned']} decisions")
         return
     if args.cmd == "sentinel":
         from . import sentinel

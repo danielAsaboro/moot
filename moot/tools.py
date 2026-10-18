@@ -337,6 +337,17 @@ def decision_team(g: Graph, decision_id: str, as_of: str | None = None) -> dict 
                 leads=sorted(now, key=lambda x: (x["role"], x["name"])), former=sorted(before, key=lambda x: x["to"]))
 
 
+# 5c. Where a decision was discussed: messages and tickets that name it (MENTIONS from moot/connectors/exports.py), dated.
+def discussions(g: Graph, decision_id: str, as_of: str | None = None, limit: int = 50) -> dict:
+    as_of = as_of or today()
+    rows = _q(g, "MATCH (e:Evidence)-[m:MENTIONS]->(:Decision {id: $id}) WHERE coalesce(m.at, e.date, '') <= $as_of "
+                 "OPTIONAL MATCH (p:Person)-[:AUTHORED]->(e) "
+                 "RETURN e.id, e.kind, e.title, e.date, e.excerpt, e.state, collect(DISTINCT p.name) ORDER BY e.date DESC LIMIT $n",
+              {"id": decision_id, "as_of": as_of, "n": limit}).result_set
+    return dict(decision_id=decision_id, as_of=as_of, items=[dict(id=i, kind=k, title=t, date=d, excerpt=(x or "")[:300], state=st,
+                                                               authors=[a for a in au if a]) for i, k, t, d, x, st, au in rows])
+
+
 # 6. The ledger: every decision with its verdict, in one pass.
 def ledger(g: Graph, as_of: str | None = None, depth: int = 4) -> list[dict]:
     as_of = as_of or today()
