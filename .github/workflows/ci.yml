@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    name: tests + moot verify (FalkorDB ${{ matrix.falkordb }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # v4.22 is what FalkorDB Cloud runs for the live site; v4.18 is what falkordblite embeds for local development
+        falkordb: ["v4.22.1", "v4.18.3"]
+    services:
+      falkordb:
+        image: falkordb/falkordb:${{ matrix.falkordb }}
+        ports: ["6379:6379"]
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 30
+    env:
+      FALKORDB_HOST: localhost
+      FALKORDB_PORT: "6379"
+      MOOT_TENANT: larkspur
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: pip install -e . "pytest>=8"
+      - name: Seed every graph (Larkspur, public ADRs, backtest, ingested repos)
+        run: python -m moot.cli seed
+      - name: Tests
+        run: python -m pytest -q
+      - name: Every README number re-derived from committed inputs
+        run: python -m moot.cli verify --rerun
+
+  ui:
+    name: UI typecheck + static build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci --no-fund --no-audit
+      - run: npm run typecheck
+      - run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
