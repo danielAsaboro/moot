@@ -71,6 +71,11 @@ gate: DENY (retired) · ask: Anish Ramasekar, its author, still here
 - **Any repository:** `moot ingest-github owner/repo` reads ADRs, history, pull requests and CODEOWNERS teams; quoted reasons are kept only as literal spans ([docs/reasons.md](docs/reasons.md)).
 - **Agents:** a Claude Code hook, a pull-request check, `moot draft-pr`, MCP on stdio and read-only over HTTP at `/mcp` ([docs/agents.md](docs/agents.md), [docs/mcp.md](docs/mcp.md)).
 - **What-if:** post a dated contradiction in your own sandbox copy and see which verdicts move.
+- **Sentinel:** `moot sentinel --since 2025-06-01` lists what changed: reasons that broke (with blast radius and a draft re-open memo that waits for approval), retirements, reversals, and status changes by someone without standing on that date.
+- **Answers that cite:** the agent loop (`moot/agentloop.py`) runs a fixed tool catalogue; every sentence must quote, word for word, a record a tool returned, checked in code (`moot/cite.py`), with one repair round; what fails is dropped, and nothing left is a plain "not in Moot's graph".
+- **Who works with whom:** `moot teams` sets label-propagation communities of people who wrote records together beside the teams they officially answer for; `moot connect a b` is the shortest chain of shared records between two people.
+- **Viewer-scoped answers:** `.moot/permissions.json` hides evidence by kind per viewer; a hidden record cannot move that viewer's verdict, and the answer says how many were withheld.
+- **Exports in:** `moot ingest-slack` (a workspace export) and `moot ingest-issues` (GitHub or Jira) add dated chat and tickets that name a decision; `discussions` shows where it was talked about.
 - **A demo company:** Larkspur, 8 people ([docs/larkspur.md](docs/larkspur.md)). [Architecture and screens](docs/architecture.md).
 
 ## Judging criteria: where to look
