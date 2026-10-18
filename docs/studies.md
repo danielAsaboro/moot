@@ -149,6 +149,16 @@ Each study below states its hypothesis, data, metric and script before its first
 - **Primary metric:** held-out Avg, graph agent against search-only agent; paired bootstrap 95% interval of the difference (10,000 resamples within each category). Also: unanswerable declined share, tokens, seconds.
 - **Prediction:** the graph agent beats the search-only agent and the interval of the difference excludes zero.
 
+## K3. Free-form organisational questions no single template answers
+
+- **Written:** 2026-10-22, before any K3 question or gold existed. K2 showed that one fixed graph query per question already answers most templated questions (38 of 57), so the agent added little on top (3). K3 asks what a new engineer would ask: questions that combine constraints, compare, or ask why, so that no single template of the K-studies answers them.
+- **Kinds (the gold rules, frozen with this entry):** (1) comparative: of two KEPs, which was in force longer by a date; (2) multi-constraint: which KEPs of a SIG created in a given year were later replaced, and by which; (3) people across teams: who has been a chair or tech lead of both of two SIGs at some point since 2018; (4) then and now: of a KEP's authors, who led its owning SIG on the day it was created and who leads it on the study date; (5) comparing teams: which of two SIGs had more KEPs reach implemented in a given year, with both counts; (6) why: why a KEP is no longer in force (the KEP that replaced it, or withdrawn / deferred), and since when; (7) tenure: who has held a chair or tech-lead seat of a SIG the longest without a break, as of the study date. KEPs, SIGs, years and dates are drawn by sha256 over SIG Auth, Node, Network and Storage.
+- **Gold:** `moot/k1.py`'s own parsing of the raw git history of kubernetes/enhancements and kubernetes/community (generalised for K3 by functions written with this entry), never Moot's graph; hashed and committed before any arm runs. Questions are phrased in plain words, not in the K-templates' wording.
+- **Arms (same local model, qwen3.8:27b, temperature 0, K2's harness and normaliser):** the agent with Moot's graph tools; the agent with file and git tools over the same checkouts; BM25 RAG over the checkouts and their history; and the fixed-query router: the single K-template whose words best match the question, answered by its fixed graph query, no model.
+- **Primary metric:** exact match on the test split (sets compared as sets), graph agent against file agent and against the fixed-query router; exact McNemar on paired questions. 30% dev by sha256, nothing tuned on test.
+- **Prediction:** the graph agent beats the fixed-query router by more than the 3 questions it added on K2, and beats the file agent.
+- **Schedule:** gold now (CPU); arms after X1's held-out run frees the GPU.
+
 ## H3. Ranking decisions by risk, where "everything holds" cannot score
 
 - **Written:** 2026-10-22, before any H3 repository was chosen or mined. H1 and H2 asked Moot to call each decision dead or alive; calling everything alive wins that game because deaths are rare (5 of 64, 1 of 22). H3 asks the question a team can use: rank the decisions in force by how likely each is to be abandoned, so the few that die are near the top. A constant answer has no ranking (AUC 0.5 by definition, precision at k equal to the base rate).
