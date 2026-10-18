@@ -19,3 +19,4 @@ data/github/.repos
 .env.local
 eval/baseline/llm_run.log
 drafts/
+data/herb/raw
