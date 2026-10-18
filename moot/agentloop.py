@@ -20,7 +20,7 @@ RESULT_CHARS = 6000
 SYSTEM = """You answer questions about an organisation from its records, using the tools below; never answer from memory.
 Each reply is ONE JSON object and nothing else:
 - to call a tool: {"tool": "<name>", "args": {...}}
-- to finish: {"answer": [{"text": "<one sentence or list item>", "cite": [{"id": "<record id from a tool result>", "quote": "<words copied exactly from that record>"}]}], "abstain": false}
+- to finish: {"answer": [{"text": "<one sentence or list item>", "cite": [{"id": "<the record's id from a tool result, or its link or name if it has no id>", "quote": "<words copied exactly from that record>"}]}], "abstain": false}
 Rules:
 - Every claim cites at least one record a tool returned, with a quote copied word for word (at least three words, or the exact identifier).
 - Give ids, links and names exactly as the records store them: all that answer the question, and only those.

@@ -42,9 +42,11 @@ def collect(result, into: dict[str, str]) -> None:
         for x in result:
             collect(x, into)
     elif isinstance(result, dict):
-        rid = result.get("id")
-        if isinstance(rid, str) and rid:
-            text = " \n ".join(str(v) for k, v in result.items() if isinstance(v, (str, int, float)) and k != "id")
+        # a record's id; records without one are cited by their link, key or name
+        rid = next((result[k] for k in ("id", "link", "url", "key", "name", "workstream") if isinstance(result.get(k), str) and result[k]), None)
+        if rid:
+            text = " \n ".join(str(v) for k, v in result.items() if isinstance(v, (str, int, float)) and v != rid)
+            text += " \n " + " \n ".join(str(x) for v in result.values() if isinstance(v, list) for x in v if isinstance(x, (str, int, float)))
             into[rid] = (into.get(rid, "") + " \n " + text).strip()
         for v in result.values():
             if isinstance(v, (dict, list)):
