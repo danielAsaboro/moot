@@ -1,4 +1,4 @@
-.PHONY: ui ui-dev db seed serve demo eval eval-scale eval-gate eval-ablation verify eval-e2e test extract reset realworld backtest backtest-score erag erag-judged
+.PHONY: judge-check ui ui-dev db seed serve demo eval eval-scale eval-gate eval-ablation verify eval-e2e test extract reset realworld backtest backtest-score erag erag-judged
 MODULE=$(shell python3 -c "import redislite,os;print(os.path.dirname(redislite.__file__))" 2>/dev/null)
 
 db:        ## start an embedded FalkorDB on :6379 (pip install falkordblite) when you have no Docker
@@ -40,5 +40,7 @@ eval-e2e:  ## model-in-the-loop eval -> eval/results_e2e.md (needs ANTHROPIC_API
 	python3 eval/eval_e2e.py
 extract:   ## LLM extraction from data/corpus -> data/extracted.json (needs ANTHROPIC_API_KEY)
 	python3 -m moot.cli extract
+judge-check: ## everything a judge can check offline in one go: tests (incl. NetworkX cross-checks), every README number re-derived, the held-out gold hash
+	python3 -m pytest -q && python3 -m moot.cli verify --rerun && python3 eval/eval_heldout.py && python3 eval/eval_router.py && echo "judge-check: all green"
 test:
 	python3 -m pytest -q
