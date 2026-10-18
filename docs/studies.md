@@ -59,6 +59,29 @@ Each study below states its hypothesis, data, metric and script before its first
   4. The tool-using agent and Moot land within each other's intervals; the agent costs dollars and seconds per decision, Moot costs neither.
 - **Script:** `python3 -m moot.heldout.gold` (labels), `python3 -m moot.heldout.inputs` (what arms may see), `python3 eval/eval_heldout.py --llm` → `eval/results_heldout.md` and `.json`.
 
+## P1. Precision of flags on real history, graded by what the repositories later did
+
+- **Written:** 2026-10-21 07:50 UTC, before `eval/eval_precision.py` existed or ran. Moot's monthly gate calls on the backtest (`data/backtest/gates.json`) and its own reading of the 22 flags (`eval/results_backtest.md`) were public before this entry; the grading below never reads that reading.
+- **Question:** when a method raises a flag on a real decision its repository still lists as in force, how often did the repository later abandon that decision?
+- **Units:** flags. A method's flag on a decision is the first month it calls the decision dead while the decision is in force: Moot's gate DENY (`data/backtest/gates.json`), the age rule on the decision's third anniversary, a random flagger with Moot's budget (200 seeds), trust the ADR (never flags). The 97 tool decisions of the backtest. Only flags raised on or before 2023-10-17 count, so every flag has a full three-year window before the 2026-10-17 snapshot.
+- **Gold, one procedure fixed in advance (the H1 rule, `moot/heldout/gold.py`):** a flag is confirmed if, within three years after it, the repository changed the ADR's status to superseded or deprecated, moved it to an archive folder, titled a later ADR as dropping the tool, or the tool left the repository's dependency manifests or Terraform (in the code on the flag's date, gone three years later or at the snapshot). Otherwise it is unconfirmed. A flag on a decision whose tool has no code signal and whose status never changed is unconfirmed.
+- **Metrics:** precision (confirmed / flags) with 95% Wilson intervals; flags per confirmed death; median lead time from flag to the repository's own change.
+- **Predictions:**
+  1. Moot's precision is higher than the age rule's, but the intervals overlap: both are small.
+  2. Moot's flags per confirmed death is lower than the age rule's.
+  3. Most of Moot's flags stay unconfirmed: teams keep using Terraform after its licence change, and quiet upstream libraries stay in manifests. Precision stays below 0.3.
+  4. Moot's median lead time is longer than a year when it is confirmed at all.
+- **Script:** `python3 eval/eval_precision.py` → `eval/results_precision.md` and `.json`.
+
+## A1. Agent effectiveness on real decisions: what would an agent have been allowed to do?
+
+- **Written:** 2026-10-21 07:50 UTC, while H1's test arms were still running and before this tally was computed. It reuses H1's frozen gold and split, so nothing new is labelled.
+- **Question:** an agent asks before acting on each H1 decision on 2023-10-17. How many actions on decisions that later died does each gatekeeper ALLOW, and how many actions on decisions that held does it block?
+- **Arms:** Moot's gate (ALLOW; DENY and REVALIDATE block), trust the ADR (allows all), the age rule (blocks at 3 years), BM25 RAG and the LLM agent from H1 (HOLDS allows, DEAD blocks).
+- **Metrics, on H1's test split:** dead decisions allowed (of 5), held decisions blocked (of 59), each with Wilson intervals. The two pull against each other and are reported side by side, never summed.
+- **Predictions:** Moot allows 0 of the dead decisions and blocks most of the held ones (REVALIDATE: no dated evidence either way); trust the ADR allows all 5; the age rule and the model arms fall between.
+- **Script:** part of `eval/eval_heldout.py` (`results_heldout.json` → `agent_gate`).
+
 ## Registered after the fact
 
 - **Backtest** (`eval/results_backtest.md`). The answer key (maintainers' own status changes) was fixed by code before the gate ran, but this file did not exist then, so the order rests on the results file's own account. Its gate was replayed before the empty-evidence fix; its score counts DENY only, which the fix does not touch (the fix turns some ALLOWs into REVALIDATE).
