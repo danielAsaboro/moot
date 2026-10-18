@@ -1,0 +1,205 @@
+"""`moot verify`: every headline number in README.md and eval/results*.md, checked against the output it came from.
+
+The README quotes numbers from several eval files by hand. This catches drift before a reader does. Each claim is a
+pattern in a document and the value the eval JSON says it should hold; a claim whose pattern is missing fails too, so a
+reworded sentence cannot silently stop being checked. The backtest is re-scored offline from its committed snapshot and
+must reproduce its results file byte for byte.
+
+  moot verify            check the committed eval output against the documents
+  moot verify --rerun    first re-run the deterministic evals from committed inputs into a scratch folder (needs
+                         FalkorDB) and require their deterministic fields to equal the committed JSON
+
+Exit status is non-zero on any mismatch.
+"""
+from __future__ import annotations
+
+import importlib.util
+import json
+import os
+import re
+import subprocess
+import sys
+import tempfile
+from pathlib import Path
+
+from .stats import wilson
+
+ROOT = Path(__file__).resolve().parents[1]
+EVAL = ROOT / "eval"
+EVALS = {"results.json": "eval_retrieval.py", "results_scale.json": "eval_scale.py", "results_gate.json": "eval_gate.py",
+         "results_ablation.json": "eval_ablation.py"}
+TIMING = {"seed_s", "audit", "ledger", "trace", "fresh_process", "samples"}  # measured, not derived: excluded from --rerun
+
+
+def f2(x: float) -> str:
+    return f"{x:.2f}"
+
+
+def f1(x: float) -> str:
+    return f"{x:.1f}"
+
+
+def g(x: float) -> str:
+    return f"{x:g}"
+
+
+class Checker:
+    def __init__(self):
+        self.ok, self.bad = 0, []
+
+    def expect(self, doc: str, text: str, label: str, pattern: str, expected: tuple) -> None:
+        m = re.search(pattern, text)
+        found = m.groups() if m else None
+        exp = tuple(str(x) for x in expected)
+        if found == exp:
+            self.ok += 1
+        else:
+            self.bad.append(f"{doc}: {label}: expected {exp}, found {found if found else 'no match for the pattern'}")
+
+    def equal(self, label: str, a, b) -> None:
+        if a == b:
+            self.ok += 1
+        else:
+            self.bad.append(f"{label}: differs")
+
+
+def load(name: str, base: Path = EVAL):
+    return json.loads((base / name).read_text())
+
+
+def backtest_md() -> str | None:
+    """Re-score the committed backtest snapshot offline into a scratch file and return the text."""
+    if not (ROOT / "data" / "backtest" / "gates.json").exists():
+        return None
+    spec = importlib.util.spec_from_file_location("eval_backtest_verify", EVAL / "eval_backtest.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    with tempfile.TemporaryDirectory() as d:
+        mod.OUT = Path(d) / "results_backtest.md"
+        import contextlib, io
+        with contextlib.redirect_stdout(io.StringIO()):
+            mod.main()
+        return mod.OUT.read_text()
+
+
+def check_readme(c: Checker, R: dict, S: dict, G: dict, A: dict, bt: str | None) -> None:
+    doc, t = "README.md", (ROOT / "README.md").read_text()
+    # retrieval
+    c.expect(doc, t, "retrieval n", r"for the (\d+) decisions that have an invalidating document", (R["n"],))
+    c.expect(doc, t, "graph recall", r"\| graph path query \(Moot\) \| \*\*([\d.]+)\*\* \(consistency check, see below\) \| \*\*(\d+)%\*\* \|",
+             (f2(R["graph_recall"]), round(R["graph_any"] * 100)))
+    c.expect(doc, t, "BM25 recall", r"\| BM25 top-5, query = decision title \+ summary \| ([\d.]+) \| (\d+)% \|",
+             (f2(R["bm25_recall"]), round(R["bm25_any"] * 100)))
+    c.expect(doc, t, "random recall", r"\| random 5 docs \(control\) \| ([\d.]+) \|", (f2(R["random_recall"]),))
+    # scale and latency
+    for x in S["scale"]:
+        a, l = x["audit"], x["ledger"]
+        c.expect(doc, t, f"scale row {x['n']}", rf"\| {x['n']:,} \| (\d+) · ([\d.]+) / ([\d.]+) ms \| ([\d.]+) ms \| (\d+) · ([\d.]+) / ([\d.]+) ms \| ([\d.]+) s \|",
+                 (a["n"], f1(a["p50"]), f1(a["p95"]), f1(a["cold"]), l["n"], f1(l["p50"]), f1(l["p95"]), f1(x["seed_s"])))
+    v = S["verdicts"]
+    c.expect(doc, t, "verdicts, graph", r"\| graph path rule \(Moot\) \| \*\*(\d+)/(\d+)\*\* \| \*\*([\d.]+)\*\* \| \*\*([\d.]+)\*\* \| \*\*([\d.]+)\*\* \|",
+             (v["exact"], v["n"], *(f2(v["stale_graph"][k]) for k in ("precision", "recall", "f1"))))
+    c.expect(doc, t, "verdicts, BM25", r"\| BM25 top-5 \+ change-cue heuristic \| – \| ([\d.]+) \| ([\d.]+) \| ([\d.]+) \|",
+             tuple(f2(v["stale_bm25"][k]) for k in ("precision", "recall", "f1")))
+    # gate
+    m = G["methods"]
+    nb, nh = G["n_block"], G["n_hold"]
+    c.expect(doc, t, "gate, Moot", r"\| Moot gate \(full-depth audit \+ `gate\(\)`\) \| \*\*(\d+)\*\* \| ([\d.]+) \| \*\*(\d+)\*\* \| (\d+), all REVALIDATE \|",
+             (len(m["moot"]["false_allows"]), f2(m["moot"]["false_allow_upper95"]), len(m["moot"]["stale_allowed"]), len(m["moot"]["false_blocks"])))
+    for key, label in (("bm25", r"BM25 top-5 \+ change-cue heuristic"), ("adr", r"trust the ADR \(a doc-chat brain that finds it and stops\)")):
+        c.expect(doc, t, f"gate, {key}", rf"\| {label} \| (\d+) \| ([\d.]+) \| (\d+) \| (\d+) \|",
+                 (len(m[key]["false_allows"]), f2(m[key]["false_allow_upper95"]), len(m[key]["stale_allowed"]), len(m[key]["false_blocks"])))
+    c.expect(doc, t, "gate denominators", r"An agent should act only on the (\d+) decisions that HOLD; the other (\d+) should be stopped", (nh, nb))
+    c.expect(doc, t, "Wilson bound in prose", r"still allows a true rate up to (\d+)%", (round(m["moot"]["false_allow_upper95"] * 100),))
+    p = G["public"]
+    c.expect(doc, t, "public ADR gates", r"the gate denies (\d+) \(.*?\) and asks to revalidate (\d+) .*?; (\d+) of the (\d+) still say",
+             (p["gates"].get("DENY", 0), p["gates"].get("REVALIDATE", 0), p["accepted"], p["records"]))
+    # ablation
+    dc = A["arms"]["delete_contradicts"]
+    add = A["arms"]["add_contradicts"]
+    c.expect(doc, t, "ablation, legacy", r"false allows, legacy rule \(no evidence = holds\) \| ([\d.]+) of (\d+) \| ([\d.]+) of (\d+) \|",
+             (g(dc[0]["legacy"]["false_allows"]["mean"]), nb, g(dc[-1]["legacy"]["false_allows"]["mean"]), nb))
+    c.expect(doc, t, "ablation, current", r"false allows, current gate \| ([\d.]+) of (\d+) \| ([\d.]+) of (\d+) \|",
+             (g(dc[0]["current"]["false_allows"]["mean"]), nb, g(dc[-1]["current"]["false_allows"]["mean"]), nb))
+    c.expect(doc, t, "ablation, junk", r"add (\d+) random CONTRADICTS edges: holds decisions denied \| ([\d.]+) of (\d+) \| ([\d.]+) of (\d+) \|",
+             (add[-1]["added"], g(add[0]["current"]["holds_denied"]["mean"]), nh, g(add[-1]["current"]["holds_denied"]["mean"]), nh))
+    # backtest, against the freshly re-scored results file
+    if bt is None:
+        return
+    num = lambda pat: re.search(pat, bt).groups()
+    in_force, dead = num(r"(\d+) decisions were in force at some point; \*\*(\d+)\*\* were later abandoned")
+    tools_n, share, dead_tool, _ = num(r"(\d+) of them \((\d+)%\) pick an outside tool in their title\. .*?\*\*(\d+) of the (\d+)\*\*")
+    c.expect(doc, t, "backtest coverage", r"(\d+) real decisions were in force at some point; (\d+) were later abandoned",
+             (in_force, dead))
+    c.expect(doc, t, "backtest tool share", r"Only (\d+) \((\d+)%\) pick an outside tool, and only \*\*(\d+) of the (\d+) deaths\*\*",
+             (tools_n, share, dead_tool, dead))
+    caught, dd, rec, lo, hi, missed, flagged = num(r"\| \*\*Moot gate \(DENY\)\*\* \| \*\*(\d+) / (\d+)\*\* \(recall ([\d.]+), ([\d.]+)–([\d.]+)\) \| (\d+) \| [^|]+ \| (\d+) of")
+    wl, wh = wilson(int(caught), int(dd))
+    c.expect(doc, t, "backtest Moot row", r"\| \*\*Moot gate\*\* \| \*\*(\d+) / (\d+)\*\* \(recall ([\d.]+), bootstrap 95% CI ([\d.]+)–([\d.]+), Wilson ([\d.]+)–([\d.]+)\) \| (\d+) \| (\d+) \|",
+             (caught, dd, rec, lo, hi, f2(wl), f2(wh), missed, flagged))
+    for label, pat in (("trust the ADR", r"trust the ADR"), ("age ≥ 3 years", r"age ≥ 3 years")):
+        k, n2, ms_, fl = num(rf"\| {pat} \| (\d+) / (\d+) \| (\d+) \| [^|]+ \| (\d+) of")
+        c.expect(doc, t, f"backtest {label}", rf"\| {pat} \| (\d+) / (\d+) \| (\d+) \| (\d+) \|", (k, n2, ms_, fl))
+    rk, rn, rm, rf_ = num(r"\| random, same number of flags \(mean of 200\) \| ([\d.]+) / (\d+) \| ([\d.]+) \| – \| ([\d.]+) \|")
+    c.expect(doc, t, "backtest random", r"\| random, same number of flags \| ([\d.]+) / (\d+) \| ([\d.]+) \| ([\d.]+) \|", (rk, rn, rm, rf_))
+
+
+def check_results(c: Checker, R: dict, S: dict, G: dict) -> None:
+    t = (EVAL / "results.md").read_text()
+    c.expect("eval/results.md", t, "graph row", r"\| graph path query \(Moot\) \| \*\*([\d.]+)\*\* \| \*\*(\d+)%\*\* \|",
+             (f2(R["graph_recall"]), round(R["graph_any"] * 100)))
+    t = (EVAL / "results_gate.md").read_text()
+    m = G["methods"]["moot"]
+    c.expect("eval/results_gate.md", t, "Moot row", r"\| Moot gate \(depth 6\) \| \*\*(\d+)\*\* \| ([\d.]+) \| \*\*(\d+)\*\* \| \*\*(\d+)\*\* \|",
+             (len(m["false_allows"]), f2(m["false_allow_upper95"]), len(m["stale_allowed"]), len(m["false_blocks"])))
+    allow = sorted(k for k, r in G["moot"].items() if r["gate"] == "ALLOW")
+    c.expect("eval/results_gate.md", t, "ALLOW list", r"- \*\*ALLOW\*\* \((\d+)\): ([^\n]*)", (len(allow), ", ".join(f"{k} (every premise has dated support)" for k in allow)))
+    t = (EVAL / "results_scale.md").read_text()
+    for x in S["scale"]:
+        c.expect("eval/results_scale.md", t, f"recall row {x['n']}", rf"\| {x['n']:,} \| [\d,]+ \| [\d,]+ / [\d,]+ \| [\d.]+ \| \*\*([\d.]+)\*\* \| ([\d.]+) \|",
+                 (f2(x["graph"]), f2(x["bm25"])))
+    erag = EVAL / "results_erag.md"
+    det = ROOT / "evidence" / "erag_deterministic.json"
+    if erag.exists() and det.exists():
+        d = json.loads(det.read_text())
+        c.expect("eval/results_erag.md", erag.read_text(), "headline",
+                 r"Moot blind (\d+)/(\d+) · ORACLE \(Canon's setup\) (\d+)/\d+ · BM25 baseline (\d+)/\d+",
+                 (d["moot"]["retired_gold_in_context"], d["moot"]["counts"]["conflicts"] if "counts" in d["moot"] else d["counts"]["conflicts"],
+                  d["oracle"]["retired_gold_in_context"], d["baseline"]["retired_gold_in_context"]))
+
+
+def strip_timing(x):
+    if isinstance(x, dict):
+        return {k: strip_timing(v) for k, v in x.items() if k not in TIMING}
+    if isinstance(x, list):
+        return [strip_timing(v) for v in x]
+    return x
+
+
+def rerun_evals(c: Checker) -> None:
+    with tempfile.TemporaryDirectory() as d:
+        env = dict(os.environ, MOOT_EVAL_OUT=d)
+        for out, script in EVALS.items():
+            print(f"re-running eval/{script} ...", flush=True)
+            subprocess.run([sys.executable, str(EVAL / script)], cwd=ROOT, env=env, check=True, capture_output=True)
+            c.equal(f"eval/{out} (deterministic fields) re-derived from committed inputs", strip_timing(load(out)), strip_timing(load(out, Path(d))))
+
+
+def main(rerun: bool = False) -> int:
+    c = Checker()
+    if rerun:
+        rerun_evals(c)
+    R, S, G, A = (load(n) for n in EVALS)
+    bt = backtest_md()
+    if bt is not None:
+        c.equal("eval/results_backtest.md re-scored from data/backtest", bt, (EVAL / "results_backtest.md").read_text())
+    check_readme(c, R, S, G, A, bt)
+    check_results(c, R, S, G)
+    for b in c.bad:
+        print("MISMATCH", b)
+    print(f"moot verify: {c.ok} checks passed, {len(c.bad)} failed")
+    return 1 if c.bad else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(rerun="--rerun" in sys.argv))

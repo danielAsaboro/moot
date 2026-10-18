@@ -1,0 +1,92 @@
+{
+ "generated_at": "2026-10-18T07:54:40.282118+00:00",
+ "dataset": {
+  "repo": "onyx-dot-app/EnterpriseRAG-Bench",
+  "revision": "69916e31c68aa5963c00248fd7f0bc12d04fd235"
+ },
+ "extractor_v2": {
+  "version": "rules-v2-posthoc",
+  "sha256": "1b7ead4f374e583c79e7acae49fa727db402e87fa3c545f16a250688a03aea8f",
+  "graph": "erag_v2",
+  "docs": 22108,
+  "questions": 500,
+  "retrieved": 25000,
+  "supersedes": 132
+ },
+ "extractor_v3": {
+  "version": "rules-v3-llm-posthoc",
+  "sha256": "5dc7fb0c32d9a96661cdff217fb4d3ebc891ecb0120c56776eddec66f1a027f4",
+  "model": "qwen2.5:14b-instruct",
+  "graph": "erag_v3",
+  "questions_read_by_model": 68,
+  "harm_coverage": "partial (28/460)",
+  "docs": 22108,
+  "questions": 500,
+  "retrieved": 25000,
+  "supersedes": 5
+ },
+ "extractor_v3g": {
+  "version": "rules-v3-llm-posthoc+groq",
+  "sha256": "f92f91718464195381412b83a537619e0cf6aeeef46e68d28bf4431aaa7a23d8",
+  "model": "qwen/qwen3.8-27b",
+  "graph": "erag_v3_groq",
+  "questions_read_by_model": 41,
+  "harm_coverage": "partial (1/460)",
+  "docs": 22108,
+  "questions": 500,
+  "retrieved": 25000,
+  "supersedes": 4
+ },
+ "extractor": {
+  "version": "rules-v1",
+  "sha256": "7e8028f3ffe0391f7217bcfec4afb1629c0f242011f18deec443a06fd15d823d",
+  "freeze": {
+   "extractor": "rules-v1",
+   "sha256": "7e8028f3ffe0391f7217bcfec4afb1629c0f242011f18deec443a06fd15d823d",
+   "frozen_at": "2026-10-18T05:52:41.685776+00:00",
+   "note": "frozen before the blind pipeline first ran on any benchmark question pool",
+   "v2": {
+    "extractor": "rules-v2-posthoc",
+    "sha256": "1b7ead4f374e583c79e7acae49fa727db402e87fa3c545f16a250688a03aea8f",
+    "v1_sha256_unchanged": true,
+    "frozen_at": "2026-10-18T06:09:30.273612+00:00",
+    "note": "post-hoc: written after rules-v1 was scored; frozen before its first run on benchmark pools"
+   },
+   "v3": {
+    "extractor": "rules-v3-llm-posthoc",
+    "model": "qwen2.5:14b-instruct",
+    "sha256": "5dc7fb0c32d9a96661cdff217fb4d3ebc891ecb0120c56776eddec66f1a027f4",
+    "v1_sha256_unchanged": true,
+    "frozen_at": "2026-10-18T06:26:02.720130+00:00",
+    "note": "post-hoc: written after v1 and v2 were scored; prompt and rules tuned only on dev pseudo-questions (document titles); frozen before its first run on benchmark pools"
+   }
+  }
+ },
+ "graph": {
+  "name": "erag",
+  "docs": 22108,
+  "questions": 500,
+  "retrieved": 25000,
+  "supersedes": 35
+ },
+ "files": {
+  "../erag-data/documents.parquet": "6b0747bf160af9427b12101537d53056ac592ada9831c1a98ae01fa50a8d2a9f",
+  "../erag-data/questions.parquet": "e25066f4eff3843dd0f3df0d1348113471e072e75007ffe390a0aa83f2a80af2",
+  "../erag-data/pools.json": "a0ee01e0f6b580df2bf3a92e4845bfe4ac7a84b6aa527ce0eabd8688cfd36777",
+  "../erag-data/blind_cut.json": "edb5813ec6e5becc12ee93335f8ee71614406885a87693638873c8b4e84b907d",
+  "../erag-data/blind_cut_v2.json": "259a931b1c71eb7e541d27c38d8b9c4fde518d2fe568c6a7c5dd0798d1c7c0a0",
+  "../erag-data/blind_cut_v3.json": "8c934e4ecc42fc4cc1d394f8151ecc513dcca77a5544b1393efa0d699b8860d4",
+  "../erag-data/blind_cut_v3_groq.json": "a88f0a9387a69372ec1f795168e5181bf478c098a768f107daf833aa69df3701",
+  "../erag-data/contexts.json": "d90d76aa11a5ae66d35393e347d29c286bc038f3dcbe758376c0b6446734fb9b",
+  "../canon-teardown/research/conflict_inventory.json": "25079e0793ebc687d08aa755f6905237970f903fb17887e7c39c43bc223e9135",
+  "moot/bench_erag/extract.py": "7e8028f3ffe0391f7217bcfec4afb1629c0f242011f18deec443a06fd15d823d",
+  "moot/bench_erag/extract_v2.py": "1b7ead4f374e583c79e7acae49fa727db402e87fa3c545f16a250688a03aea8f",
+  "moot/bench_erag/extract_v3.py": "5dc7fb0c32d9a96661cdff217fb4d3ebc891ecb0120c56776eddec66f1a027f4",
+  "moot/bench_erag/extract_v3_groq.py": "f92f91718464195381412b83a537619e0cf6aeeef46e68d28bf4431aaa7a23d8",
+  "moot/bench_erag/cut.py": "c05b16107c21015818a10b8de7912c9e687feac9e11d5627b3e1fa2ff4fba738",
+  "moot/bench_erag/graph.py": "2926c5fdac50b8b6aeab7a78bb9041a96fc4016c694527d0c3dbb71ce4b4325b",
+  "evidence/erag_deterministic.json": "0693e25621e86f501f3675d80c1e1d4099888a78464b9ad47d7121698891b3ee",
+  "evidence/erag_per_question.jsonl": "17cd1852da783c7b4dd0095347936f4f14040c0533cffa3951a91dd12b379950",
+  "eval/results_erag.md": "a5979438af7fa5d1114c13489c5330679ff029e3890de67dde75c2d5297aff85"
+ }
+}

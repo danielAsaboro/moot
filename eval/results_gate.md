@@ -2,20 +2,24 @@
 
 Larkspur, as of 2026-10-16: 30 decisions. An agent should act only on the 10 that HOLD; the other 20 (16 MOOT or DISPUTED, the rest UNDOCUMENTED or RETIRED) should be stopped.
 
-| method | false allows (of 20) | of which stale (of 16) | false blocks (of 10) | let through |
-|---|---|---|---|---|
-| Moot gate (depth 6) | **0** | **0** | **0** | – |
-| same rule, depth 1 | 0 | 0 | 0 | – |
-| BM25 top-5 + change cues | 4 | 4 | 8 | D11, D17, D25, D30 |
-| trust the ADR | 20 | 16 | 0 | D01, D02, D03, D04, D05, D07, D08, D09, D11, D13, D17, D18, D19, D20, D21, D23, D25, D28, D29, D30 |
+| method | false allows (of 20) | 95% upper bound on false-allow rate | of which stale (of 16) | false blocks (of 10) | let through |
+|---|---|---|---|---|---|
+| Moot gate (depth 6) | **0** | 0.12 | **0** | **6** | – |
+| same rule, depth 1 | 0 | 0.12 | 0 | 0 | – |
+| BM25 top-5 + change cues | 4 | 0.38 | 4 | 8 | D11, D17, D25, D30 |
+| trust the ADR | 20 | 1.00 | 16 | 0 | D01, D02, D03, D04, D05, D07, D08, D09, D11, D13, D17, D18, D19, D20, D21, D23, D25, D28, D29, D30 |
+
+The upper bound is the one-sided 95% Wilson bound: 0 false allows in 20 still leaves room for a true rate up to 12%. Thirty decisions cannot show a gate is safe, only that it is not obviously unsafe.
+
+**The Moot gate's 6 false blocks are all REVALIDATE, never DENY**: D06 (premise_unevidenced), D10 (premise_unevidenced), D16 (premise_unevidenced), D22 (premise_unevidenced), D26 (premise_unevidenced), D27 (premise_unevidenced). Each rests on a premise with no dated evidence either way. The spec calls these decisions HOLDS because nothing contradicts them; the gate refuses to let an agent act on that, because nothing ever checked them either. An owner's ruling (`POST /api/ruling`) is a dated edge that settles it. Until 2026-10-18 the gate printed "all premises hold" for them and scored 0 false blocks; that result is withdrawn ([docs/studies.md](../docs/studies.md)). The depth-1 row has no false blocks for the same reason it would miss a dead reason two hops down: it never looks at the unchecked premises below the stated one.
 
 How the Moot gate decided:
 
-- **ALLOW** (10): D06 (all premises hold), D10 (all premises hold), D12 (all premises hold), D14 (all premises hold), D15 (all premises hold), D16 (all premises hold), D22 (all premises hold), D24 (all premises hold), D26 (all premises hold), D27 (all premises hold)
-- **DENY** (13): D01 (owner_left+premise_expired), D02 (premise_expired), D03 (premise_expired), D07 (premise_expired), D08 (premise_expired), D09 (owner_left+premise_expired), D13 (premise_expired), D18 (premise_expired), D19 (owner_left+premise_expired), D20 (premise_expired), D25 (premise_expired), D28 (retired), D30 (premise_expired)
-- **REVALIDATE** (7): D04 (owner_left+premise_disputed), D05 (undocumented), D11 (premise_disputed), D17 (premise_disputed), D21 (undocumented), D23 (premise_disputed), D29 (undocumented)
+- **ALLOW** (4): D12 (every premise has dated support), D14 (every premise has dated support), D15 (every premise has dated support), D24 (every premise has dated support)
+- **DENY** (13): D01 (owner_left+premise_expired+premise_unevidenced), D02 (premise_expired), D03 (premise_expired), D07 (premise_expired), D08 (premise_expired), D09 (owner_left+premise_expired+premise_unevidenced), D13 (premise_expired), D18 (premise_expired), D19 (owner_left+premise_expired+premise_unevidenced), D20 (premise_expired), D25 (premise_expired), D28 (retired), D30 (premise_expired)
+- **REVALIDATE** (13): D04 (owner_left+premise_disputed), D05 (undocumented), D06 (premise_unevidenced), D10 (premise_unevidenced), D11 (premise_disputed), D16 (premise_unevidenced), D17 (premise_disputed+premise_unevidenced), D21 (undocumented), D22 (premise_unevidenced), D23 (premise_disputed), D26 (premise_unevidenced), D27 (premise_unevidenced), D29 (undocumented)
 
-Depth matters, but this corpus hides it: at depth 1, D01, D19 audit as HOLDS, because the reason that died is two hops below the one the ADR states. The depth-1 gate still stops them, but only on D01: owner_left; D19: owner_left, not on the dead reason. Hand either decision to an owner who is still here and a depth-1 gate lets it through. The gate always audits at depth 6, where the contradicting evidence itself is the reason it denies.
+Depth matters, but this corpus hides it: at depth 1, D01, D19 audit as HOLDS, because the reason that died is two hops below the one the ADR states. The depth-1 gate still stops them, but only on D01: owner_left, premise_unevidenced; D19: owner_left, premise_unevidenced, not on the dead reason. Those are reasons to ask, not a reason to stop: the depth-1 gate answers REVALIDATE where the full-depth gate answers DENY and names the contradicting evidence. The gate always audits at depth 6.
 
 ## Real public ADRs
 
@@ -27,4 +31,11 @@ Depth matters, but this corpus hides it: at depth 1, D01, D19 audit as HOLDS, be
 | REVALIDATE | 7 | ga-0025: "The current release of Redis has no known vulnerability" could not be checked: no package in an OSV ecosystem.; gi-0002: "The current release of terraform-aws-eks module has no known vulnerability" could not be checked: no package in an OSV ecosystem.; gi-0004: "The current release of AWS Load Balancer Controller has no known vulnerability" could not be checked: the Go module's latest version (v1.1.9) does not match the project's latest release (v3.6.0).; gi-0008: "The current release of external-secrets has no known vulnerability" could not be checked: the Go module's latest version (v1.3.2) does not match the project's latest release (helm-chart-2.13.0).; gi-0010: "The current release of Dex has no known vulnerability" could not be checked: the Go module's latest version (v0.6.1) does not match the project's latest release (v2.46.0).; gi-0018: "The current release of Concourse CI has no known vulnerability" could not be checked: the Go module's latest version (v4.2.3+incompatible) does not match the project's latest release (v8.3.1).; moj-003: "The current release of Concourse CI has no known vulnerability" could not be checked: the Go module's latest version (v4.2.3+incompatible) does not match the project's latest release (v8.3.1). |
 | ALLOW | 11 | every checked reason holds |
 
-Limits: the Larkspur answer key comes from the same spec as the graph, so the Moot row says the gate rule and the verdict rule agree, not that extraction is solved. The baselines get no model, by design, so this file reproduces offline. REVALIDATE is not a verdict on the decision; it means the graph cannot vouch for it, which is exactly when an agent should stop.
+## Threats to validity, worst first
+
+1. **Common-mode answer key.** The Larkspur answer key comes from the same spec as the graph, so the Moot row says the gate rule and the verdict rule agree, not that extraction is solved. The graph ablation ([results_ablation.md](results_ablation.md)) shows which edges the answers depend on.
+2. **Small n.** 20 decisions to stop and 10 to allow; one decision moves a rate by 5–10 points. Read the bounds, not the zeros.
+3. **Baselines without a model.** BM25 + cues and trust-the-ADR get no model, by design, so this file reproduces offline. A model-judged RAG baseline is in `eval/eval_e2e.py` and has not been run (no key on the build machine).
+4. **Real ADRs have no answer key.** The second table reports what the gate did and on what evidence, not whether it was right.
+
+REVALIDATE is not a verdict on the decision; it means the graph cannot vouch for it, which is exactly when an agent should stop.

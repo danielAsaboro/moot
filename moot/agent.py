@@ -143,8 +143,14 @@ def ask(g: Graph, question: str, as_of: str | None = None, depth: int = 4) -> di
     impact = [tools.premise_impact(g, p["id"]) for p in audit["premises"] if p["state"] == "expired"]
     memory = tools.findings(g, top["id"])
     current = next((f for f in memory if not f.get("superseded_by")), None)
-    latest_evidence = max((e["at"] for p in audit["premises"] for e in p["evidence"]), default="")
-    from_memory = bool(current and current["verdict"] == audit["verdict"] and current["as_of"] >= latest_evidence and int(current.get("depth", 0)) >= depth)
+    # Memory may answer only while nothing the verdict rests on has changed. A Finding carries the digest of the decision's
+    # whole subgraph at full depth (every premise, every dated event, retirement, owners), so evidence landing four hops
+    # down also invalidates it. Findings written before digests existed fall back to the dated check on audited premises.
+    if current and current.get("digest"):
+        fresh = current["digest"] == tools.decision_digest(g, top["id"])
+    else:
+        fresh = bool(current) and current["as_of"] >= max((e["at"] for p in audit["premises"] for e in p["evidence"]), default="")
+    from_memory = bool(current and fresh and current["verdict"] == audit["verdict"] and int(current.get("depth", 0)) >= depth)
     prose, mode = narrate(audit, impact)
     return dict(outcome="answered_from_memory" if from_memory else "answered_with_path", question=question,
                 candidates=cands, audit=audit, impact=impact, answer=prose, narration=mode,

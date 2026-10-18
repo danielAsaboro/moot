@@ -1,0 +1,268 @@
+{
+ "k": 5,
+ "n": 16,
+ "docs": 208,
+ "graph_recall": 1.0,
+ "bm25_recall": 0.8125,
+ "random_recall": 0.0094,
+ "graph_any": 1.0,
+ "bm25_any": 0.8125,
+ "rows": [
+  {
+   "id": "D01",
+   "title": "Cap file uploads at 10 MB",
+   "targets": [
+    "PR-412"
+   ],
+   "graph": 1.0,
+   "bm25": 1.0,
+   "bm25_top": [
+    "PR-412",
+    "doc-handbook-deploys",
+    "OPS-954",
+    "PR-488",
+    "doc-logcost-2026"
+   ]
+  },
+  {
+   "id": "D02",
+   "title": "Chunk CSV imports into 5 MB parts",
+   "targets": [
+    "PR-412"
+   ],
+   "graph": 1.0,
+   "bm25": 1.0,
+   "bm25_top": [
+    "PR-412",
+    "doc-vendor-rn",
+    "PR-1034",
+    "PR-923",
+    "OPS-1008"
+   ]
+  },
+  {
+   "id": "D03",
+   "title": "Reject photos over 8 MB in the mobile app",
+   "targets": [
+    "PR-412"
+   ],
+   "graph": 1.0,
+   "bm25": 1.0,
+   "bm25_top": [
+    "PR-412",
+    "PR-964",
+    "PR-1007",
+    "PR-935",
+    "chat-noise-973"
+   ]
+  },
+  {
+   "id": "D04",
+   "title": "Rebuild the search index in full every night",
+   "targets": [
+    "SRCH-233"
+   ],
+   "graph": 1.0,
+   "bm25": 1.0,
+   "bm25_top": [
+    "chat-2025-10-02-search",
+    "SRCH-233",
+    "PR-959",
+    "PR-971",
+    "PR-988"
+   ]
+  },
+  {
+   "id": "D07",
+   "title": "Freeze production deploys on Fridays",
+   "targets": [
+    "PR-350"
+   ],
+   "graph": 1.0,
+   "bm25": 1.0,
+   "bm25_top": [
+    "PR-350",
+    "PR-398",
+    "doc-handbook-deploys",
+    "chat-2026-01-08-standup",
+    "PR-1039"
+   ]
+  },
+  {
+   "id": "D08",
+   "title": "Keep the monolith; no new services",
+   "targets": [
+    "doc-allhands-2026-04"
+   ],
+   "graph": 1.0,
+   "bm25": 0.0,
+   "bm25_top": [
+    "PR-430",
+    "chat-2026-05-16-farewell",
+    "SRCH-233",
+    "doc-vendor-rn",
+    "PR-488"
+   ]
+  },
+  {
+   "id": "D09",
+   "title": "Serve EU customers from Frankfurt only",
+   "targets": [
+    "SALES-91"
+   ],
+   "graph": 1.0,
+   "bm25": 1.0,
+   "bm25_top": [
+    "doc-aws-cmk",
+    "PR-950",
+    "SALES-91",
+    "doc-privacy-2026",
+    "BILL-77"
+   ]
+  },
+  {
+   "id": "D11",
+   "title": "Require two reviewers on every pull request",
+   "targets": [
+    "PR-201"
+   ],
+   "graph": 1.0,
+   "bm25": 1.0,
+   "bm25_top": [
+    "PR-201",
+    "chat-2026-02-26-hiring",
+    "doc-oncall-2026",
+    "PR-520",
+    "doc-allhands-2026-04"
+   ]
+  },
+  {
+   "id": "D13",
+   "title": "Encrypt PII in the application layer",
+   "targets": [
+    "doc-aws-cmk"
+   ],
+   "graph": 1.0,
+   "bm25": 1.0,
+   "bm25_top": [
+    "doc-aws-cmk",
+    "chat-2026-06-05-retro",
+    "PR-398",
+    "PR-430",
+    "PR-455"
+   ]
+  },
+  {
+   "id": "D17",
+   "title": "Use LaunchDarkly for feature flags",
+   "targets": [
+    "chat-2026-07-09-ld"
+   ],
+   "graph": 1.0,
+   "bm25": 0.0,
+   "bm25_top": [
+    "DATA-150",
+    "OPS-1032",
+    "chat-2026-08-15-ld",
+    "OPS-969",
+    "PR-1004"
+   ]
+  },
+  {
+   "id": "D18",
+   "title": "Manual QA sign-off before every release",
+   "targets": [
+    "PR-520"
+   ],
+   "graph": 1.0,
+   "bm25": 1.0,
+   "bm25_top": [
+    "PR-520",
+    "PR-350",
+    "doc-vendor-rn",
+    "doc-handbook-deploys",
+    "PR-430"
+   ]
+  },
+  {
+   "id": "D19",
+   "title": "Run the data pipeline hourly, not continuously",
+   "targets": [
+    "DATA-140"
+   ],
+   "graph": 1.0,
+   "bm25": 0.0,
+   "bm25_top": [
+    "PR-471",
+    "PR-999",
+    "OPS-1000",
+    "chat-noise-944",
+    "chat-noise-1041"
+   ]
+  },
+  {
+   "id": "D20",
+   "title": "Pin the mobile app to React Native 0.72",
+   "targets": [
+    "doc-vendor-rn"
+   ],
+   "graph": 1.0,
+   "bm25": 1.0,
+   "bm25_top": [
+    "doc-vendor-rn",
+    "chat-noise-913",
+    "chat-noise-921",
+    "chat-noise-987",
+    "chat-noise-940"
+   ]
+  },
+  {
+   "id": "D23",
+   "title": "Use UUIDv4 for every primary key",
+   "targets": [
+    "ADR-notes-sharding"
+   ],
+   "graph": 1.0,
+   "bm25": 1.0,
+   "bm25_top": [
+    "ADR-notes-sharding",
+    "doc-aws-cmk",
+    "doc-okr-2026-h2",
+    "PR-520",
+    "PR-471"
+   ]
+  },
+  {
+   "id": "D25",
+   "title": "Disable public sign-ups",
+   "targets": [
+    "doc-abuse-2026-06"
+   ],
+   "graph": 1.0,
+   "bm25": 1.0,
+   "bm25_top": [
+    "doc-abuse-2026-06",
+    "PR-520",
+    "chat-2025-08-21-ci",
+    "chat-2026-05-16-farewell",
+    "SRCH-233"
+   ]
+  },
+  {
+   "id": "D30",
+   "title": "Block third-party cookies in the embed widget",
+   "targets": [
+    "doc-news-cookies"
+   ],
+   "graph": 1.0,
+   "bm25": 1.0,
+   "bm25_top": [
+    "doc-news-cookies",
+    "doc-logcost-2026",
+    "chat-noise-1022",
+    "PR-1045",
+    "chat-noise-1031"
+   ]
+  }
+ ]
+}

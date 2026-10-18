@@ -1,0 +1,346 @@
+{
+ "as_of": "2026-10-16",
+ "methods": {
+  "adr": {
+   "false_allow_upper95": 1.0,
+   "false_allows": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D07",
+    "D08",
+    "D09",
+    "D11",
+    "D13",
+    "D17",
+    "D18",
+    "D19",
+    "D20",
+    "D21",
+    "D23",
+    "D25",
+    "D28",
+    "D29",
+    "D30"
+   ],
+   "false_blocks": [],
+   "stale_allowed": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D07",
+    "D08",
+    "D09",
+    "D11",
+    "D13",
+    "D17",
+    "D18",
+    "D19",
+    "D20",
+    "D23",
+    "D25",
+    "D30"
+   ]
+  },
+  "bm25": {
+   "false_allow_upper95": 0.3784,
+   "false_allows": [
+    "D11",
+    "D17",
+    "D25",
+    "D30"
+   ],
+   "false_blocks": [
+    "D06",
+    "D10",
+    "D12",
+    "D14",
+    "D16",
+    "D22",
+    "D24",
+    "D27"
+   ],
+   "stale_allowed": [
+    "D11",
+    "D17",
+    "D25",
+    "D30"
+   ]
+  },
+  "depth1": {
+   "false_allow_upper95": 0.1192,
+   "false_allows": [],
+   "false_blocks": [],
+   "stale_allowed": []
+  },
+  "moot": {
+   "false_allow_upper95": 0.1192,
+   "false_allows": [],
+   "false_blocks": [
+    "D06",
+    "D10",
+    "D16",
+    "D22",
+    "D26",
+    "D27"
+   ],
+   "stale_allowed": []
+  }
+ },
+ "moot": {
+  "D01": {
+   "digest": "sha256:d20d1e4f9c467734",
+   "gate": "DENY",
+   "reasons": [
+    "owner_left",
+    "premise_expired",
+    "premise_unevidenced"
+   ]
+  },
+  "D02": {
+   "digest": "sha256:0c70e7d7effb8552",
+   "gate": "DENY",
+   "reasons": [
+    "premise_expired"
+   ]
+  },
+  "D03": {
+   "digest": "sha256:5d9a932639b17654",
+   "gate": "DENY",
+   "reasons": [
+    "premise_expired"
+   ]
+  },
+  "D04": {
+   "digest": "sha256:49c2bf71d7d6f858",
+   "gate": "REVALIDATE",
+   "reasons": [
+    "owner_left",
+    "premise_disputed"
+   ]
+  },
+  "D05": {
+   "digest": "sha256:c7e22a43206c900c",
+   "gate": "REVALIDATE",
+   "reasons": [
+    "undocumented"
+   ]
+  },
+  "D06": {
+   "digest": "sha256:213b6d7906eb31ea",
+   "gate": "REVALIDATE",
+   "reasons": [
+    "premise_unevidenced"
+   ]
+  },
+  "D07": {
+   "digest": "sha256:2cb866b22c58e77c",
+   "gate": "DENY",
+   "reasons": [
+    "premise_expired"
+   ]
+  },
+  "D08": {
+   "digest": "sha256:8aa0c073328b3840",
+   "gate": "DENY",
+   "reasons": [
+    "premise_expired"
+   ]
+  },
+  "D09": {
+   "digest": "sha256:7356a65afbf0e9d1",
+   "gate": "DENY",
+   "reasons": [
+    "owner_left",
+    "premise_expired",
+    "premise_unevidenced"
+   ]
+  },
+  "D10": {
+   "digest": "sha256:6645ef373231fdba",
+   "gate": "REVALIDATE",
+   "reasons": [
+    "premise_unevidenced"
+   ]
+  },
+  "D11": {
+   "digest": "sha256:dbaf60e102b85488",
+   "gate": "REVALIDATE",
+   "reasons": [
+    "premise_disputed"
+   ]
+  },
+  "D12": {
+   "digest": "sha256:870ba50f040d63cf",
+   "gate": "ALLOW",
+   "reasons": []
+  },
+  "D13": {
+   "digest": "sha256:c861baa7aa152409",
+   "gate": "DENY",
+   "reasons": [
+    "premise_expired"
+   ]
+  },
+  "D14": {
+   "digest": "sha256:8293e2e47086e998",
+   "gate": "ALLOW",
+   "reasons": []
+  },
+  "D15": {
+   "digest": "sha256:1eab2d51f4ec5366",
+   "gate": "ALLOW",
+   "reasons": []
+  },
+  "D16": {
+   "digest": "sha256:2b4b2f3f3c86894e",
+   "gate": "REVALIDATE",
+   "reasons": [
+    "premise_unevidenced"
+   ]
+  },
+  "D17": {
+   "digest": "sha256:ae0c5c55be641fbc",
+   "gate": "REVALIDATE",
+   "reasons": [
+    "premise_disputed",
+    "premise_unevidenced"
+   ]
+  },
+  "D18": {
+   "digest": "sha256:de736ea36165fdc7",
+   "gate": "DENY",
+   "reasons": [
+    "premise_expired"
+   ]
+  },
+  "D19": {
+   "digest": "sha256:8dc586ddac2bfe5c",
+   "gate": "DENY",
+   "reasons": [
+    "owner_left",
+    "premise_expired",
+    "premise_unevidenced"
+   ]
+  },
+  "D20": {
+   "digest": "sha256:54b7024f6677c407",
+   "gate": "DENY",
+   "reasons": [
+    "premise_expired"
+   ]
+  },
+  "D21": {
+   "digest": "sha256:15ba53e76a557c3e",
+   "gate": "REVALIDATE",
+   "reasons": [
+    "undocumented"
+   ]
+  },
+  "D22": {
+   "digest": "sha256:0ab08ebca8a1889d",
+   "gate": "REVALIDATE",
+   "reasons": [
+    "premise_unevidenced"
+   ]
+  },
+  "D23": {
+   "digest": "sha256:35ec0d06fc6f9646",
+   "gate": "REVALIDATE",
+   "reasons": [
+    "premise_disputed"
+   ]
+  },
+  "D24": {
+   "digest": "sha256:d89d250befb43a74",
+   "gate": "ALLOW",
+   "reasons": []
+  },
+  "D25": {
+   "digest": "sha256:08a1c4804bb906e2",
+   "gate": "DENY",
+   "reasons": [
+    "premise_expired"
+   ]
+  },
+  "D26": {
+   "digest": "sha256:8286c42ef6cd7f40",
+   "gate": "REVALIDATE",
+   "reasons": [
+    "premise_unevidenced"
+   ]
+  },
+  "D27": {
+   "digest": "sha256:cca120ac7d2d7c78",
+   "gate": "REVALIDATE",
+   "reasons": [
+    "premise_unevidenced"
+   ]
+  },
+  "D28": {
+   "digest": "sha256:82b91a543e938317",
+   "gate": "DENY",
+   "reasons": [
+    "retired"
+   ]
+  },
+  "D29": {
+   "digest": "sha256:7ed0834f8db3cb44",
+   "gate": "REVALIDATE",
+   "reasons": [
+    "undocumented"
+   ]
+  },
+  "D30": {
+   "digest": "sha256:f87b6a6a18ad3d61",
+   "gate": "DENY",
+   "reasons": [
+    "premise_expired"
+   ]
+  }
+ },
+ "n": 30,
+ "n_block": 20,
+ "n_hold": 10,
+ "n_stale": 16,
+ "public": {
+  "accepted": 23,
+  "by_record": {
+   "bs-007": "ALLOW",
+   "bs-010": "ALLOW",
+   "bs-013": "DENY",
+   "ga-0006": "DENY",
+   "ga-0025": "REVALIDATE",
+   "gi-0002": "REVALIDATE",
+   "gi-0004": "REVALIDATE",
+   "gi-0006": "ALLOW",
+   "gi-0007": "DENY",
+   "gi-0008": "REVALIDATE",
+   "gi-0009": "ALLOW",
+   "gi-0010": "REVALIDATE",
+   "gi-0013": "DENY",
+   "gi-0018": "REVALIDATE",
+   "gi-0020": "DENY",
+   "gi-0022": "ALLOW",
+   "gi-0023": "ALLOW",
+   "l4b-lerna": "ALLOW",
+   "l4b-lunr": "DENY",
+   "l4b-mdx": "ALLOW",
+   "l4b-style": "ALLOW",
+   "moj-003": "REVALIDATE",
+   "moj-004": "DENY",
+   "moj-011": "ALLOW",
+   "moj-047": "ALLOW"
+  },
+  "checked_on": "2026-10-17",
+  "gates": {
+   "ALLOW": 11,
+   "DENY": 7,
+   "REVALIDATE": 7
+  },
+  "records": 25
+ }
+}

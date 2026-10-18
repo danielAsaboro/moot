@@ -8,6 +8,8 @@ Decisions with at least one invalidating document (ground truth MOOT or DISPUTED
 | BM25 top-5, query = decision title + summary | 0.81 | 81% |
 | random 5 docs (control, mean of 20 seeds) | 0.01 | – |
 
+**Read the graph row as a consistency check, not a retrieval result.** The targets are the CONTRADICTS edges in `truth.json`, and the graph's CONTRADICTS edges are built from the same spec, so the graph is reading back its own edges: 1.00 says the ingest kept them all. It cannot be compared with BM25 as if both had searched. What the BM25 row does show is that the killing document is often unreachable by similarity to the decision, which is why the edges matter if an extractor can write them (`moot/ingest/extract.py`).
+
 Why BM25 misses: the invalidating document rarely shares words with the decision. "Cap file uploads at 10 MB" is killed by "Raise the API gateway body limit to 100 MB", two premise hops away; "Keep the monolith" is killed by all-hands notes about headcount. Lexical and semantic similarity find documents *about* the decision; the graph finds documents about its *reasons*.
 
 | decision | targets | graph | bm25 | bm25 top-5 |
@@ -29,4 +31,8 @@ Why BM25 misses: the invalidating document rarely shares words with the decision
 | D25 Disable public sign-ups | doc-abuse-2026-06 | 100% | 100% | doc-abuse-2026-06, PR-520, chat-2025-08-21-ci, chat-2026-05-16-farewell, SRCH-233 |
 | D30 Block third-party cookies in the embed widget | doc-news-cookies | 100% | 100% | doc-news-cookies, doc-logcost-2026, chat-noise-1022, PR-1045, chat-noise-1031 |
 
-Limits: the corpus is synthetic and small; BM25 is a strong but not state-of-the-art baseline (no embeddings, by design, so the number reproduces without a model); a retriever given the *premise text* instead of the decision would do better, but a RAG system does not know the premise exists. That is the point.
+## Threats to validity, worst first
+
+1. **Common-mode answer key** (above): the graph's 1.00 is guaranteed by construction.
+2. **Small and synthetic.** 16 decisions in an invented company; one decision is 6% of the recall.
+3. **BM25 is a fair but not state-of-the-art baseline** (no embeddings, by design, so the number reproduces without a model). A retriever given the *premise text* instead of the decision would do better, but a RAG system does not know the premise exists.

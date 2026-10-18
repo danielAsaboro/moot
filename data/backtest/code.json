@@ -1,0 +1,207 @@
+{
+ "CMSgov/easi-app:0014-use-mux-for-routing.md|gorilla-mux": {
+  "decision": "CMSgov/easi-app:0014-use-mux-for-routing.md",
+  "tool": "gorilla-mux",
+  "manifests": [
+   "go.mod",
+   "package.json"
+  ],
+  "at_head": true,
+  "at_decision": true
+ },
+ "CMSgov/easi-app:0017-go-orm.md|sqlx": {
+  "decision": "CMSgov/easi-app:0017-go-orm.md",
+  "tool": "sqlx",
+  "manifests": [
+   "go.mod",
+   "package.json"
+  ],
+  "at_head": true,
+  "at_decision": false
+ },
+ "CMSgov/easi-app:0036-rich-text-editor.md|toastui": {
+  "decision": "CMSgov/easi-app:0036-rich-text-editor.md",
+  "tool": "toastui",
+  "manifests": [
+   "go.mod",
+   "package.json"
+  ],
+  "at_head": true,
+  "at_decision": true
+ },
+ "GSA/notifications-api:0009-adr-implement-backstopjs-to-improve-qa.md|backstopjs": {
+  "decision": "GSA/notifications-api:0009-adr-implement-backstopjs-to-improve-qa.md",
+  "tool": "backstopjs",
+  "manifests": [
+   "package.json",
+   "pyproject.toml"
+  ],
+  "at_head": false,
+  "at_decision": false
+ },
+ "mozilla/fxa:0021-use-internjs-testing.md|intern": {
+  "decision": "mozilla/fxa:0021-use-internjs-testing.md",
+  "tool": "intern",
+  "manifests": [
+   "apps/payments/api/package.json",
+   "apps/payments/next/package.json",
+   "libs/accounts/connected-services/package.json",
+   "libs/accounts/email-renderer/package.json",
+   "libs/accounts/email-sender/package.json",
+   "libs/accounts/errors/package.json",
+   "libs/accounts/oauth/package.json",
+   "libs/accounts/passkey/package.json",
+   "libs/accounts/rate-limit/package.json",
+   "libs/accounts/recovery-phone/package.json",
+   "libs/accounts/subscriptions-legacy/package.json",
+   "libs/accounts/two-factor/package.json",
+   "libs/entitlements/metering/package.json",
+   "libs/free-access-program/package.json",
+   "libs/google/package.json",
+   "libs/payments/api-server/package.json",
+   "libs/payments/auth/package.json",
+   "libs/payments/capability/package.json",
+   "libs/payments/cart/package.json",
+   "libs/payments/content-server/package.json",
+   "libs/payments/currency/package.json",
+   "libs/payments/customer/package.json",
+   "libs/payments/eligibility/package.json",
+   "libs/payments/events/package.json",
+   "libs/payments/experiments/package.json",
+   "libs/payments/iap/package.json",
+   "libs/payments/legacy/package.json",
+   "libs/payments/management/package.json",
+   "libs/payments/metrics-aggregator/package.json",
+   "libs/payments/metrics/package.json",
+   "libs/payments/paypal/package.json",
+   "libs/payments/stripe/package.json",
+   "libs/payments/ui-auth/package.json",
+   "libs/payments/webhooks/package.json",
+   "libs/profile/client/package.json",
+   "libs/shared/assets/package.json",
+   "libs/shared/cloud-tasks/package.json",
+   "libs/shared/cms/package.json",
+   "libs/shared/crypto/package.json",
+   "libs/shared/email/package.json",
+   "libs/shared/error/package.json",
+   "libs/shared/experiments/package.json",
+   "libs/shared/express/package.json",
+   "libs/shared/geodb/package.json",
+   "libs/shared/guards/package.json",
+   "libs/shared/l10n/package.json",
+   "libs/shared/log/package.json",
+   "libs/shared/mozlog/package.json",
+   "libs/shared/nest-health/package.json",
+   "libs/shared/notifier/package.json",
+   "libs/shared/otel/package.json",
+   "libs/shared/otp/package.json",
+   "libs/shared/pem-jwk/package.json",
+   "libs/shared/react/package.json",
+   "libs/shared/sentry-browser/package.json",
+   "libs/shared/sentry-nest/package.json",
+   "libs/shared/sentry-next/package.json",
+   "libs/shared/sentry-node/package.json",
+   "libs/shared/sentry-utils/package.json",
+   "libs/shared/sentry/package.json",
+   "libs/shared/url-allow-list/package.json",
+   "libs/shared/user-agent/package.json",
+   "libs/vendored/common-password-list/package.json",
+   "libs/vendored/crypto-relier/package.json",
+   "libs/vendored/incremental-encoder/package.json",
+   "libs/vendored/jwtool/package.json",
+   "libs/vendored/typesafe-node-firestore/package.json",
+   "package.json",
+   "packages/123done/package.json",
+   "packages/db-migrations/package.json",
+   "packages/eslint-plugin-fxa/package.json",
+   "packages/fxa-admin-panel/package.json",
+   "packages/fxa-admin-server/package.json",
+   "packages/fxa-auth-client/package.json",
+   "packages/fxa-auth-server/package.json",
+   "packages/fxa-content-server/package.json",
+   "packages/fxa-dev-launcher/package.json",
+   "packages/fxa-event-broker/package.json",
+   "packages/fxa-geodb/package.json",
+   "packages/fxa-profile-server/package.json",
+   "packages/fxa-react/package.json",
+   "packages/fxa-settings/package.json"
+  ],
+  "at_head": false,
+  "at_decision": true
+ },
+ "openedx/edx-platform:0003-permissions-via-bridgekeeper.rst|bridgekeeper": {
+  "decision": "openedx/edx-platform:0003-permissions-via-bridgekeeper.rst",
+  "tool": "bridgekeeper",
+  "manifests": [
+   "package.json",
+   "pyproject.toml",
+   "requirements/edx-sandbox/base.txt",
+   "requirements/edx-sandbox/pyproject.toml",
+   "requirements/edx/base.txt",
+   "scripts/structures_pruning/pyproject.toml",
+   "scripts/structures_pruning/requirements/base.txt",
+   "scripts/user_retirement/pyproject.toml",
+   "scripts/user_retirement/requirements/base.txt",
+   "scripts/xblock/pyproject.toml",
+   "scripts/xblock/requirements.txt"
+  ],
+  "at_head": true,
+  "at_decision": false
+ },
+ "openedx/edx-platform:permissions.rst|django-rules": {
+  "decision": "openedx/edx-platform:permissions.rst",
+  "tool": "django-rules",
+  "manifests": [
+   "package.json",
+   "pyproject.toml",
+   "requirements/edx-sandbox/base.txt",
+   "requirements/edx-sandbox/pyproject.toml",
+   "requirements/edx/base.txt",
+   "scripts/structures_pruning/pyproject.toml",
+   "scripts/structures_pruning/requirements/base.txt",
+   "scripts/user_retirement/pyproject.toml",
+   "scripts/user_retirement/requirements/base.txt",
+   "scripts/xblock/pyproject.toml",
+   "scripts/xblock/requirements.txt"
+  ],
+  "at_head": true,
+  "at_decision": true
+ },
+ "thomvaill/log4brains:20200925-use-prettier-eslint-airbnb-for-the-code-style.md|prettier-eslint": {
+  "decision": "thomvaill/log4brains:20200925-use-prettier-eslint-airbnb-for-the-code-style.md",
+  "tool": "prettier-eslint",
+  "manifests": [
+   "package.json",
+   "packages/cli-common/package.json",
+   "packages/cli/package.json",
+   "packages/core/package.json",
+   "packages/global-cli/package.json",
+   "packages/init/package.json",
+   "packages/web/package.json"
+  ],
+  "at_head": true,
+  "at_decision": true
+ },
+ "thomvaill/log4brains:20201103-use-lunr-for-search.md|lunr": {
+  "decision": "thomvaill/log4brains:20201103-use-lunr-for-search.md",
+  "tool": "lunr",
+  "manifests": [
+   "package.json",
+   "packages/cli-common/package.json",
+   "packages/cli/package.json",
+   "packages/core/package.json",
+   "packages/global-cli/package.json",
+   "packages/init/package.json",
+   "packages/web/package.json"
+  ],
+  "at_head": true,
+  "at_decision": true
+ },
+ "wmde/fundraising-application:006_Vue.js.md|vue": {
+  "decision": "wmde/fundraising-application:006_Vue.js.md",
+  "tool": "vue",
+  "manifests": [],
+  "at_head": false,
+  "at_decision": true
+ }
+}

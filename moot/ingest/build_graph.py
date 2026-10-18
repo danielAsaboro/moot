@@ -49,7 +49,11 @@ def build(truth: dict) -> dict:
         node("Evidence", e["id"], kind=e["kind"], title=e["title"], date=e["date"], excerpt=e["text"][:280], path="")
         edge(e["author"], "AUTHORED", e["id"])
         if e.get("rel") and e.get("premise"):
-            edge(e["id"], e["rel"], e["premise"], at=e["date"], quote=e["text"][:200])
+            # two dates when the document states a change that takes effect on another day: `at` is when it took
+            # effect, `stated` is the document's own date (the audit counts it only once both have passed)
+            eff = e.get("effective_on")
+            dates = dict(at=eff, stated=e["date"]) if eff and eff != e["date"] else dict(at=e["date"])
+            edge(e["id"], e["rel"], e["premise"], **dates, quote=e.get("quote") or e["text"][:200])
     return dict(nodes=nodes, edges=edges)
 
 

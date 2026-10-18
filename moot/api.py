@@ -6,7 +6,7 @@ from pathlib import Path
 from datetime import date
 
 from fastapi import FastAPI, HTTPException, Query, Request
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
@@ -81,11 +81,49 @@ def decision(decision_id: str, as_of: str | None = None, depth: int = Query(4, g
 def gate(decision_id: str, as_of: str | None = None, graph_name: str | None = Query(None, alias="graph")):
     """The validity gate, for agents: may I act on (enforce, rely on, renew) this decision? ALLOW | DENY | REVALIDATE with the path.
     Read-only. `graph` picks the tenant (default) or the public-ADR graph."""
+    gr = _graph_for(graph_name)
+    tools.start_trace()
+    r = tools.check_action(gr, decision_id, as_of_param(as_of))
+    r["queries"] = tools.end_trace()
+    return r
+
+
+def _graph_for(graph_name: str | None):
     if graph_name not in (None, graph().name, PUBLIC_GRAPH):
         raise HTTPException(422, f"graph must be {graph().name} or {PUBLIC_GRAPH}")
-    tools.start_trace()
-    r = tools.check_action(graph(graph_name) if graph_name else g(), decision_id, as_of_param(as_of))
-    r["queries"] = tools.end_trace()
+    return graph(graph_name) if graph_name else g()
+
+
+@app.get("/api/packet/{decision_id}")
+def packet(decision_id: str, as_of: str | None = None, format: str = Query("json", pattern="^(json|md)$"),
+           graph_name: str | None = Query(None, alias="graph")):
+    """The evidence packet behind one verdict: gate, reasons, every receipt with its quote and dates, owner rulings, the
+    re-open memo, caveats, a synthetic-data flag and the snapshot digests. `format=md` downloads it as Markdown."""
+    pk = tools.evidence_packet(_graph_for(graph_name), decision_id, as_of_param(as_of))
+    if not pk["found"]:
+        raise HTTPException(404, f"{decision_id} is not in the graph")
+    if format == "md":
+        return PlainTextResponse(tools.packet_markdown(pk), media_type="text/markdown",
+                                 headers={"Content-Disposition": f'attachment; filename="moot-{decision_id}-{pk["as_of"]}.md"'})
+    return pk
+
+
+class Ruling(BaseModel):
+    decision_id: str
+    premise_id: str
+    holds: bool
+    as_of: str
+    by: str | None = None
+    note: str = ""
+
+
+@app.post("/api/ruling")
+def ruling(body: Ruling):
+    """Approval gate for an owner's ruling on a reason the gate could not vouch for (disputed, unchecked, unevidenced).
+    Writes a dated SUPPORTS or CONTRADICTS edge from a Finding; the next audit cites it until newer evidence lands."""
+    r = tools.write_ruling(g(), body.decision_id, body.premise_id, body.holds, as_of_param(body.as_of), body.by, body.note.strip()[:500])
+    if r.get("error"):
+        raise HTTPException(422, r["error"])
     return r
 
 

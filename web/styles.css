@@ -22,6 +22,7 @@ header{padding:28px 16px 12px;max-width:1180px;margin:0 auto}
 .ask input[type=date],.ask select{font:inherit;padding:10px 12px;border:1px solid var(--rule);background:var(--paper-2);color:var(--ink);border-radius:6px}
 button{font:inherit;padding:10px 16px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);border-radius:6px;cursor:pointer}
 button.ghost{background:transparent;color:var(--ink)}
+a.ghost{font:inherit;font-size:13px;padding:6px 12px;border:1px solid var(--ink);border-radius:6px;color:var(--ink);text-decoration:none}
 button.accent{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 button:disabled{opacity:.5;cursor:default}
 main{max-width:1180px;margin:0 auto;padding:0 16px 60px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px}
@@ -53,7 +54,7 @@ table.ledger tr.active td{background:var(--chip)}
 .step{display:flex;align-items:stretch;gap:6px}
 .premise{border-top:1px solid var(--rule);padding:10px 0}
 .premise .state{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
-.state.expired{color:var(--accent)}.state.disputed{color:var(--disputed)}.state.holds{color:var(--holds)}.state.unchecked{color:var(--ink-3)}
+.state.expired{color:var(--accent)}.state.disputed{color:var(--disputed)}.state.holds{color:var(--holds)}.state.unchecked,.state.unevidenced{color:var(--ink-3)}
 .ev{display:grid;grid-template-columns:92px 1fr;gap:8px;font-size:13.5px;padding:3px 0}
 .ev .d{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
 .ev .rel{font-family:var(--mono);font-size:11px;letter-spacing:.05em}

@@ -6,6 +6,8 @@ server and the agent all share. Paths are returned as node lists so the UI can s
 """
 from __future__ import annotations
 
+import hashlib
+import json
 import re
 import time
 from contextvars import ContextVar
@@ -13,7 +15,7 @@ from datetime import date, datetime, timezone
 
 from falkordb import Graph
 
-from .verdict import decision_verdict, gate, premise_state
+from .verdict import decision_verdict, event_order, gate, premise_state
 
 # Query tracing: the UI's "show the Cypher" view. Every read goes through _q, which records the
 # query text, its parameters, the row count and the FalkorDB round-trip time while a trace is open.
@@ -39,6 +41,10 @@ def _q(g: Graph, cypher: str, params: dict | None = None, write: bool = False):
                        write=write))
     return res
 
+
+# An event counts on `as_of` only once it had both taken effect and been stated: "valid at T, as known at K".
+# Edges without a `stated` date were stated the day they took effect.
+KNOWN = "r.at <= $as_of AND coalesce(r.stated, r.at) <= $as_of"
 
 STOP = set("why do we does the a an of in on at to for is are our it this that still and or with by from have has".split())
 
@@ -84,8 +90,8 @@ def audit_decision(g: Graph, decision_id: str, as_of: str | None = None, depth: 
     # (the ADR's own status change, when the successor is outside the graph). Neither counts before its `at`.
     head = _q(g,
         "MATCH (d:Decision {id: $id}) "
-        "OPTIONAL MATCH (n:Decision)-[su:SUPERSEDES]->(d) WHERE su.at <= $as_of "
-        "OPTIONAL MATCH (x:Evidence)-[rt:RETIRES]->(d) WHERE rt.at <= $as_of "
+        "OPTIONAL MATCH (n:Decision)-[su:SUPERSEDES]->(d) WHERE su.at <= $as_of AND coalesce(su.stated, su.at) <= $as_of "
+        "OPTIONAL MATCH (x:Evidence)-[rt:RETIRES]->(d) WHERE rt.at <= $as_of AND coalesce(rt.stated, rt.at) <= $as_of "
         "OPTIONAL MATCH (d)-[:RECORDED_IN]->(src:Evidence) OPTIONAL MATCH (d)-[:GOVERNS]->(s:System) "
         "RETURN d, n.id, n.title, su.at, x.id, x.title, rt.at, rt.quote, src, collect(DISTINCT s.name)",
         {"id": decision_id, "as_of": as_of}).result_set
@@ -99,11 +105,11 @@ def audit_decision(g: Graph, decision_id: str, as_of: str | None = None, depth: 
                     source=(_node(src) if src else None), systems=systems, owner=decision_owner(g, decision_id, as_of))
     rows = _q(g,
         "MATCH (d:Decision {id: $id}) MATCH p = (d)-[:BECAUSE_OF|DERIVED_FROM*1..%d]->(pr:Premise) "
-        "OPTIONAL MATCH (e:Evidence)-[r:SUPPORTS|CONTRADICTS]->(pr) WHERE r.at <= $as_of "
+        "OPTIONAL MATCH (e)-[r:SUPPORTS|CONTRADICTS]->(pr) WHERE %s "
         "OPTIONAL MATCH (a:Person)-[:AUTHORED]->(e) "
         "RETURN pr, nodes(p) AS pn, length(p) AS hops, "
-        "collect({id: e.id, title: e.title, kind: e.kind, date: e.date, rel: type(r), at: r.at, quote: r.quote, author: a.name}) "
-        "ORDER BY hops" % depth, {"id": decision_id, "as_of": as_of}).result_set
+        "collect({id: e.id, title: e.title, kind: e.kind, date: e.date, rel: type(r), at: r.at, stated: r.stated, quote: r.quote, author: a.name}) "
+        "ORDER BY hops" % (depth, KNOWN), {"id": decision_id, "as_of": as_of}).result_set
     premises, seen = [], set()
     for pr, path_nodes, _hops, events in rows:
         pid = pr.properties["id"]
@@ -111,12 +117,15 @@ def audit_decision(g: Graph, decision_id: str, as_of: str | None = None, depth: 
             continue
         seen.add(pid)
         events = [e for e in events if e.get("id")]
+        for e in events:
+            if e.get("stated") is None:
+                e.pop("stated", None)
         unchecked = pr.properties.get("unchecked") or None
         # a premise nobody could check, with no dated evidence either way, is reported as unchecked, not as holding
         state = "unchecked" if unchecked and not events else premise_state(events)
         premises.append(dict(id=pid, text=pr.properties["text"], kind=pr.properties.get("kind"), hops=len(path_nodes) - 1,
                              path=_path_ids(path_nodes), state=state, unchecked=unchecked,
-                             evidence=sorted(events, key=lambda e: e["at"]),
+                             evidence=sorted(events, key=event_order),
                              contradicted_before_decision=any(e["rel"] == "CONTRADICTS" and e["at"] < d.properties["decided_on"] for e in events)))
     verdict = decision_verdict(premises, superseded=bool(superseded_by))
     return dict(found=True, decision=_node(d), as_of=as_of, depth=depth, verdict=verdict, premises=premises,
@@ -131,8 +140,53 @@ GATE_DEPTH = 6
 
 def check_action(g: Graph, decision_id: str, as_of: str | None = None) -> dict:
     a = audit_decision(g, decision_id, as_of, GATE_DEPTH)
-    return dict(gate(a), decision_id=decision_id, title=a["decision"]["title"] if a.get("found") else None,
-                as_of=a.get("as_of") or as_of or today(), depth=GATE_DEPTH)
+    as_of = a.get("as_of") or as_of or today()
+    return dict(gate(a, coverage(g)), decision_id=decision_id, title=a["decision"]["title"] if a.get("found") else None,
+                as_of=as_of, depth=GATE_DEPTH, snapshot=snapshot(g, decision_id, as_of))
+
+
+def coverage(g: Graph) -> dict:
+    """How much the graph could vouch for at all. An empty or mis-pointed graph must not read as 'nothing contradicts it'."""
+    r = _q(g, "MATCH (d:Decision) WITH count(d) AS n OPTIONAL MATCH ()-[e:SUPPORTS|CONTRADICTS]->(:Premise) RETURN n, count(e)").result_set
+    return dict(decisions=r[0][0], evidence_edges=r[0][1])
+
+
+def _digest(rows) -> str:
+    return "sha256:" + hashlib.sha256(json.dumps(rows, sort_keys=True, default=str).encode()).hexdigest()[:16]
+
+
+def decision_digest(g: Graph, decision_id: str) -> str:
+    """A digest of every row that can change this decision's gate on any date: the decision, what retires it, its premises
+    to full depth with their paths, every dated event on them (all dates, not just up to as_of), and its owners.
+    The same (digest, as_of) pair always gives the same verdict; a new digest means the decision needs re-checking."""
+    rows = _q(g,
+        "MATCH (d:Decision {id: $id}) "
+        "OPTIONAL MATCH (x)-[rt:SUPERSEDES|RETIRES]->(d) "
+        "WITH d, collect([x.id, type(rt), properties(rt)]) AS ret "
+        "OPTIONAL MATCH (o:Person)-[w:OWNS]->(d) "
+        "WITH d, ret, collect([o.id, o.left, properties(w)]) AS own "
+        "OPTIONAL MATCH p = (d)-[:BECAUSE_OF|DERIVED_FROM*1..%d]->(pr:Premise) "
+        "OPTIONAL MATCH (e)-[r:SUPPORTS|CONTRADICTS]->(pr) "
+        "RETURN properties(d), ret, own, [n IN nodes(p) | n.id], properties(pr), collect([e.id, e.kind, type(r), properties(r)])" % GATE_DEPTH,
+        {"id": decision_id}).result_set
+    if not rows:
+        return _digest(["absent", decision_id])
+    canon = lambda xs: sorted((x for x in xs if x and x[0] is not None), key=lambda x: json.dumps(x, sort_keys=True, default=str))
+    head = [rows[0][0], canon(rows[0][1]), canon(rows[0][2])]
+    body = sorted(([path, pr, canon(ev)] for _, _, _, path, pr, ev in rows if path), key=lambda x: json.dumps(x, sort_keys=True, default=str))
+    return _digest([head, body])
+
+
+def graph_digest(g: Graph) -> str:
+    """A digest of the whole graph: every node and edge with its properties. Changes on any write, Findings included."""
+    nodes = _q(g, "MATCH (n) RETURN labels(n)[0], properties(n)").result_set
+    edges = _q(g, "MATCH (a)-[r]->(b) RETURN a.id, type(r), b.id, properties(r)").result_set
+    key = lambda x: json.dumps(x, sort_keys=True, default=str)
+    return _digest([sorted(nodes, key=key), sorted(edges, key=key)])
+
+
+def snapshot(g: Graph, decision_id: str, as_of: str) -> dict:
+    return dict(graph=g.name, as_of=as_of, digest=decision_digest(g, decision_id))
 
 
 # 3. Shared-premise impact: everything downstream of a premise, ranked by PageRank over the dependency graph.
@@ -192,14 +246,14 @@ def ledger(g: Graph, as_of: str | None = None, depth: int = 4) -> list[dict]:
     depth = max(1, min(int(depth), 6))
     rows = _q(g, 
         "MATCH (d:Decision) "
-        "OPTIONAL MATCH (n:Decision)-[su:SUPERSEDES]->(d) WHERE su.at <= $as_of "
-        "OPTIONAL MATCH (x:Evidence)-[rt:RETIRES]->(d) WHERE rt.at <= $as_of "
+        "OPTIONAL MATCH (n:Decision)-[su:SUPERSEDES]->(d) WHERE su.at <= $as_of AND coalesce(su.stated, su.at) <= $as_of "
+        "OPTIONAL MATCH (x:Evidence)-[rt:RETIRES]->(d) WHERE rt.at <= $as_of AND coalesce(rt.stated, rt.at) <= $as_of "
         "WITH d, coalesce(n.id, x.id) AS sup "
         "OPTIONAL MATCH p = (d)-[:BECAUSE_OF|DERIVED_FROM*1..%d]->(pr:Premise) "
-        "OPTIONAL MATCH (e:Evidence)-[r:SUPPORTS|CONTRADICTS]->(pr) WHERE r.at <= $as_of "
-        "WITH d, sup, pr, collect({rel: type(r), at: r.at}) AS ev "
+        "OPTIONAL MATCH (e)-[r:SUPPORTS|CONTRADICTS]->(pr) WHERE %s "
+        "WITH d, sup, pr, collect({rel: type(r), at: r.at, stated: r.stated, kind: e.kind}) AS ev "
         "OPTIONAL MATCH (d)-[:GOVERNS]->(s:System) "
-        "RETURN d, sup, pr.id, ev, collect(DISTINCT s.name) ORDER BY d.id" % depth,
+        "RETURN d, sup, pr.id, ev, collect(DISTINCT s.name) ORDER BY d.id" % (depth, KNOWN),
         {"as_of": as_of}).result_set
     owners = owners_as_of(g, as_of)
     out: dict[str, dict] = {}
@@ -260,11 +314,12 @@ def write_finding(g: Graph, decision_id: str, verdict: str, as_of: str, depth: i
                   kind: str = "verdict", assignee: str | None = None) -> dict:
     """Write an approved verdict (or re-open memo) as a Finding node. Called only after a human approves."""
     fid = f"finding:{decision_id}:{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%f')}"
+    digest = decision_digest(g, decision_id)
     _q(g, 
         "MATCH (d:Decision {id: $did}) "
         "OPTIONAL MATCH (prev:Finding)-[:ABOUT]->(d) WHERE NOT (prev)-[:SUPERSEDED_BY]->() "
         "WITH d, collect(prev) AS prevs "
-        "CREATE (f:Finding {id: $fid, verdict: $verdict, kind: $kind, as_of: $as_of, depth: $depth, note: $note, created_at: $now, valid_from: $as_of}) "
+        "CREATE (f:Finding {id: $fid, verdict: $verdict, kind: $kind, as_of: $as_of, depth: $depth, note: $note, created_at: $now, valid_from: $as_of, digest: $digest}) "
         "CREATE (f)-[:ABOUT]->(d) "
         "WITH f, prevs UNWIND (CASE WHEN size(prevs) = 0 THEN [null] ELSE prevs END) AS p "
         "FOREACH (_ IN CASE WHEN p IS NULL THEN [] ELSE [1] END | CREATE (p)-[:SUPERSEDED_BY]->(f)) "
@@ -272,8 +327,114 @@ def write_finding(g: Graph, decision_id: str, verdict: str, as_of: str, depth: i
         "FOREACH (_ IN CASE WHEN who IS NULL THEN [] ELSE [1] END | CREATE (f)-[:ASSIGNED_TO]->(who)) "
         "WITH f UNWIND $cites AS c MATCH (e:Evidence {id: c}) CREATE (f)-[:CITES]->(e)",
         {"did": decision_id, "fid": fid, "verdict": verdict, "kind": kind, "as_of": as_of, "depth": int(depth), "note": note,
-         "now": datetime.now(timezone.utc).isoformat(timespec="seconds"), "cites": cites, "assignee": assignee}, write=True)
-    return dict(id=fid, decision_id=decision_id, verdict=verdict, kind=kind, as_of=as_of, depth=depth, cites=cites, assignee=assignee)
+         "now": datetime.now(timezone.utc).isoformat(timespec="seconds"), "cites": cites, "assignee": assignee, "digest": digest}, write=True)
+    return dict(id=fid, decision_id=decision_id, verdict=verdict, kind=kind, as_of=as_of, depth=depth, cites=cites, assignee=assignee, digest=digest)
+
+
+# Learning from rulings: when an owner rules on a premise the gate could not vouch for, the ruling is a dated
+# SUPPORTS or CONTRADICTS edge from a Finding. The next audit reads it like any evidence and cites it, so the gate stops
+# asking a question a human already settled, until newer evidence lands after the ruling (verdict.premise_state).
+RULABLE = ("disputed", "unevidenced", "unchecked")
+
+
+def write_ruling(g: Graph, decision_id: str, premise_id: str, holds: bool, as_of: str, by: str | None = None, note: str = "") -> dict:
+    """Called only after a human approves. Refuses a premise outside the decision's audited subgraph, or one that needs no ruling."""
+    a = audit_decision(g, decision_id, as_of, GATE_DEPTH)
+    if not a["found"]:
+        return dict(error=f"{decision_id} is not in the graph")
+    p = next((x for x in a["premises"] if x["id"] == premise_id), None)
+    if p is None:
+        return dict(error=f"{premise_id} is not a reason behind {decision_id}")
+    if p["state"] not in RULABLE:
+        return dict(error=f"\"{p['text']}\" is {p['state']} on {as_of}; only a disputed, unchecked or unevidenced reason takes a ruling")
+    rel = "SUPPORTS" if holds else "CONTRADICTS"
+    fid = f"ruling:{premise_id}:{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%f')}"
+    title = f"Owner ruling on {as_of}: still holds" if holds else f"Owner ruling on {as_of}: no longer holds"
+    res = _q(g,
+        "MATCH (d:Decision {id: $did}), (pr:Premise {id: $pid}) "
+        "CREATE (f:Finding {id: $fid, kind: 'ruling', ruling: $ruling, title: $title, date: $as_of, as_of: $as_of, note: $note, "
+        "created_at: $now, valid_from: $as_of, was: $was}) "
+        "CREATE (f)-[:RULES_ON]->(d) CREATE (f)-[:%s {at: $as_of, quote: $note}]->(pr) "
+        "WITH f OPTIONAL MATCH (who:Person {id: $by}) "
+        "FOREACH (_ IN CASE WHEN who IS NULL THEN [] ELSE [1] END | CREATE (who)-[:AUTHORED]->(f)) RETURN f.id" % rel,
+        {"did": decision_id, "pid": premise_id, "fid": fid, "ruling": "holds" if holds else "expired", "title": title, "as_of": as_of,
+         "note": note, "now": datetime.now(timezone.utc).isoformat(timespec="seconds"), "was": p["state"], "by": by}, write=True).result_set
+    if not res:
+        return dict(error="nothing written")
+    return dict(id=fid, decision_id=decision_id, premise_id=premise_id, rel=rel, at=as_of, was=p["state"], by=by,
+                gate=check_action(g, decision_id, as_of)["gate"])
+
+
+def rulings(g: Graph, decision_id: str) -> list[dict]:
+    rows = _q(g, "MATCH (f:Finding {kind: 'ruling'})-[:RULES_ON]->(:Decision {id: $id}) MATCH (f)-[r:SUPPORTS|CONTRADICTS]->(pr:Premise) "
+                 "OPTIONAL MATCH (a:Person)-[:AUTHORED]->(f) RETURN f, pr.id, type(r), a.name ORDER BY f.created_at", {"id": decision_id}).result_set
+    return [dict(_node(f), premise=pid, rel=rel, by=who) for f, pid, rel, who in rows]
+
+
+# The evidence packet: everything a reviewer needs to check one verdict without Moot, as JSON or Markdown.
+SYNTHETIC_GRAPHS = {"larkspur"}
+
+
+def is_synthetic(name: str) -> bool:
+    return name in SYNTHETIC_GRAPHS or name.startswith("moot_")
+
+
+def evidence_packet(g: Graph, decision_id: str, as_of: str | None = None) -> dict:
+    as_of = as_of or today()
+    a = audit_decision(g, decision_id, as_of, GATE_DEPTH)
+    if not a["found"]:
+        return dict(found=False, decision_id=decision_id)
+    gt = check_action(g, decision_id, as_of)
+    memo = reopen_memo(g, decision_id, as_of, GATE_DEPTH) if a["verdict"] in ("MOOT", "DISPUTED") else None
+    receipts = [dict(premise=p["id"], text=p["text"], state=p["state"], hops=p["hops"], path=[n["id"] for n in p["path"]],
+                     unchecked=p.get("unchecked"),
+                     evidence=[{k: e.get(k) for k in ("id", "kind", "title", "rel", "at", "stated", "quote", "author") if e.get(k) is not None}
+                               for e in p["evidence"]]) for p in a["premises"]]
+    synthetic = is_synthetic(g.name)
+    caveats = [c for c in (
+        "Synthetic data: Larkspur is a fictional company; every document here was generated from a spec." if synthetic else None,
+        "A verdict only covers reasons someone wrote down. A premise can stop being true without any document saying so.",
+        "REVALIDATE is not a verdict on the decision: it means the graph cannot vouch for it." if gt["gate"] == "REVALIDATE" else None,
+        "Evidence counts from the later of the date it took effect and the date it was stated, so nothing is used before it was knowable.",
+    ) if c]
+    return dict(found=True, decision=dict(id=a["decision"]["id"], title=a["decision"]["title"], decided_on=a["decision"].get("decided_on")),
+                as_of=as_of, depth=GATE_DEPTH, verdict=a["verdict"], gate=gt["gate"], reasons=gt["reasons"], basis=gt["basis"],
+                superseded_by=a.get("superseded_by"), owner=a.get("owner"), receipts=receipts, rulings=rulings(g, decision_id),
+                findings=findings(g, decision_id), memo=memo["text"] if memo else None, synthetic=synthetic, caveats=caveats,
+                snapshot=dict(gt["snapshot"], graph_digest=graph_digest(g)))
+
+
+def packet_markdown(pk: dict) -> str:
+    d, s = pk["decision"], pk["snapshot"]
+    out = [f"# Evidence packet: {d['id']} {d['title']}", "",
+           f"- Verdict as of {pk['as_of']}: **{pk['verdict']}** · agent gate: **{pk['gate']}** (depth {pk['depth']})",
+           f"- Graph `{s['graph']}` · decision digest `{s['digest']}` · graph digest `{s['graph_digest']}`",
+           f"- Decided on {d.get('decided_on')}" + (f" · owner {pk['owner']['name']}" + ("" if pk["owner"]["active"] else f" (left {pk['owner']['valid_to']})") if pk.get("owner") else "")]
+    if pk["synthetic"]:
+        out.append("- **Synthetic data**")
+    if pk.get("superseded_by"):
+        x = pk["superseded_by"]
+        out.append(f"- Retired on {x['at']} by {x['id']} ({x['title']})")
+    out += ["", "## Why the gate said " + pk["gate"], ""]
+    out += [f"- `{r['code']}`: {r['text']}" for r in pk["reasons"]] or ["- every premise has dated support"]
+    out += ["", "## Receipts", ""]
+    for r in pk["receipts"]:
+        out.append(f"- **{r['premise']}** \"{r['text']}\": {r['state']} ({r['hops']} hop{'s' if r['hops'] != 1 else ''}: {' → '.join(r['path'])})")
+        if r.get("unchecked"):
+            out.append(f"  - could not be checked: {r['unchecked']}")
+        for e in r["evidence"]:
+            when = e["at"] + (f", stated {e['stated']}" if e.get("stated") and e["stated"] != e["at"] else "")
+            q = f" \"{e['quote']}\"" if e.get("quote") else ""
+            out.append(f"  - {when} {e['rel']} by `{e['id']}` ({e.get('kind') or '?'}{', ' + e['author'] if e.get('author') else ''}): {e.get('title') or ''}.{q}")
+        if not r["evidence"] and not r.get("unchecked"):
+            out.append("  - no dated evidence either way")
+    if pk["rulings"]:
+        out += ["", "## Owner rulings", ""] + [f"- {x['as_of']} `{x['id']}` on {x['premise']}: {x['ruling']} (was {x['was']}){', by ' + x['by'] if x.get('by') else ''}. {x.get('note') or ''}".rstrip() for x in pk["rulings"]]
+    if pk.get("memo"):
+        out += ["", "## Re-open memo", "", "```", pk["memo"], "```"]
+    out += ["", "## Caveats", ""] + [f"- {c}" for c in pk["caveats"]]
+    out += ["", f"Re-check: `GET /api/gate/{d['id']}?as_of={pk['as_of']}` returns the same verdict while the decision digest is `{s['digest']}`."]
+    return "\n".join(out) + "\n"
 
 
 def schema(g: Graph) -> dict:
@@ -452,8 +613,8 @@ def riskiest_reasons(g: Graph, as_of: str | None = None, depth: int = 4, limit: 
     current = {r["id"]: r for r in ledger(g, as_of, depth)}
     rows = _q(g,
         "MATCH (pr:Premise) OPTIONAL MATCH (d:Decision)-[:BECAUSE_OF|DERIVED_FROM*1..%d]->(pr) "
-        "OPTIONAL MATCH (e:Evidence)-[r:SUPPORTS|CONTRADICTS]->(pr) WHERE r.at <= $as_of "
-        "RETURN pr.id, pr.text, pr.kind, collect(DISTINCT d.id), collect(DISTINCT {rel: type(r), at: r.at})" % depth,
+        "OPTIONAL MATCH (e)-[r:SUPPORTS|CONTRADICTS]->(pr) WHERE %s "
+        "RETURN pr.id, pr.text, pr.kind, collect(DISTINCT d.id), collect(DISTINCT {rel: type(r), at: r.at, stated: r.stated, kind: e.kind})" % (depth, KNOWN),
         {"as_of": as_of}).result_set
     rank = {r[0]: r[1] for r in _q(g, "CALL algo.pageRank(null, null) YIELD node, score WHERE node:Premise RETURN node.id, score").result_set}
     out = []

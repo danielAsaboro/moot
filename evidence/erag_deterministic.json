@@ -1,0 +1,1695 @@
+{
+ "counts": {
+  "conflicts": 20,
+  "not_found": 20,
+  "others": 460
+ },
+ "others_covered": {
+  "baseline": 460,
+  "moot": 460,
+  "random": 460,
+  "moot_v2": 460,
+  "random_v2": 460,
+  "moot_v3": 28,
+  "random_v3": 28,
+  "moot_v3g": 1,
+  "random_v3g": 1,
+  "oracle": 460,
+  "oracle_drop": 460
+ },
+ "baseline": {
+  "retired_gold_in_context": 14,
+  "current_gold_in_context": 18,
+  "conflict_contexts_changed": 0,
+  "conflict_retired_gold_removed": 0,
+  "not_found_contexts_changed": 0,
+  "others_contexts_changed": 0,
+  "others_docs_removed": 0,
+  "others_expected_docs_removed": 0,
+  "others_questions_losing_expected_doc": 0,
+  "context_docs": 5000,
+  "per_conflict": {
+   "qst_0411": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0412": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0413": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0414": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0415": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0416": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0417": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0418": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0419": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0420": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0421": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0422": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0423": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0424": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0425": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0426": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0427": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0428": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0429": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0430": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   }
+  }
+ },
+ "moot": {
+  "retired_gold_in_context": 13,
+  "current_gold_in_context": 18,
+  "conflict_contexts_changed": 1,
+  "conflict_retired_gold_removed": 1,
+  "not_found_contexts_changed": 0,
+  "others_contexts_changed": 7,
+  "others_docs_removed": 11,
+  "others_expected_docs_removed": 1,
+  "others_questions_losing_expected_doc": 1,
+  "context_docs": 5000,
+  "per_conflict": {
+   "qst_0411": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0412": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0413": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0414": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0415": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0416": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0417": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0418": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0419": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0420": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0421": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0422": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0423": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0424": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0425": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0426": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0427": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0428": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0429": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0430": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   }
+  }
+ },
+ "random": {
+  "retired_gold_in_context": 14,
+  "current_gold_in_context": 18,
+  "conflict_contexts_changed": 1,
+  "conflict_retired_gold_removed": 0,
+  "not_found_contexts_changed": 0,
+  "others_contexts_changed": 7,
+  "others_docs_removed": 11,
+  "others_expected_docs_removed": 1,
+  "others_questions_losing_expected_doc": 1,
+  "context_docs": 5000,
+  "per_conflict": {
+   "qst_0411": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0412": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0413": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0414": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0415": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0416": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0417": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0418": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0419": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0420": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0421": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0422": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0423": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0424": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0425": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0426": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0427": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0428": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0429": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0430": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   }
+  }
+ },
+ "moot_v2": {
+  "retired_gold_in_context": 13,
+  "current_gold_in_context": 18,
+  "conflict_contexts_changed": 1,
+  "conflict_retired_gold_removed": 1,
+  "not_found_contexts_changed": 0,
+  "others_contexts_changed": 18,
+  "others_docs_removed": 26,
+  "others_expected_docs_removed": 2,
+  "others_questions_losing_expected_doc": 2,
+  "context_docs": 5000,
+  "per_conflict": {
+   "qst_0411": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0412": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0413": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0414": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0415": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0416": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0417": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0418": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0419": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0420": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0421": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0422": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0423": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0424": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0425": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0426": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0427": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0428": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0429": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0430": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   }
+  }
+ },
+ "random_v2": {
+  "retired_gold_in_context": 14,
+  "current_gold_in_context": 18,
+  "conflict_contexts_changed": 1,
+  "conflict_retired_gold_removed": 0,
+  "not_found_contexts_changed": 0,
+  "others_contexts_changed": 18,
+  "others_docs_removed": 26,
+  "others_expected_docs_removed": 3,
+  "others_questions_losing_expected_doc": 2,
+  "context_docs": 5000,
+  "per_conflict": {
+   "qst_0411": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0412": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0413": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0414": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0415": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0416": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0417": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0418": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0419": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0420": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0421": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0422": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0423": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0424": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0425": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0426": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0427": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0428": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0429": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0430": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   }
+  }
+ },
+ "moot_v3": {
+  "retired_gold_in_context": 13,
+  "current_gold_in_context": 18,
+  "conflict_contexts_changed": 1,
+  "conflict_retired_gold_removed": 1,
+  "not_found_contexts_changed": 0,
+  "others_contexts_changed": 4,
+  "others_docs_removed": 4,
+  "others_expected_docs_removed": 0,
+  "others_questions_losing_expected_doc": 0,
+  "context_docs": 5000,
+  "per_conflict": {
+   "qst_0411": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0412": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0413": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0414": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0415": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0416": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0417": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0418": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0419": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0420": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0421": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0422": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0423": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0424": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0425": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0426": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0427": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0428": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0429": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0430": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   }
+  }
+ },
+ "random_v3": {
+  "retired_gold_in_context": 14,
+  "current_gold_in_context": 18,
+  "conflict_contexts_changed": 1,
+  "conflict_retired_gold_removed": 0,
+  "not_found_contexts_changed": 0,
+  "others_contexts_changed": 4,
+  "others_docs_removed": 4,
+  "others_expected_docs_removed": 0,
+  "others_questions_losing_expected_doc": 0,
+  "context_docs": 5000,
+  "per_conflict": {
+   "qst_0411": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0412": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0413": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0414": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0415": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0416": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0417": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0418": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0419": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0420": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0421": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0422": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0423": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0424": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0425": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0426": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0427": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0428": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0429": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0430": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   }
+  }
+ },
+ "moot_v3g": {
+  "retired_gold_in_context": 12,
+  "current_gold_in_context": 18,
+  "conflict_contexts_changed": 2,
+  "conflict_retired_gold_removed": 2,
+  "not_found_contexts_changed": 2,
+  "others_contexts_changed": 0,
+  "others_docs_removed": 0,
+  "others_expected_docs_removed": 0,
+  "others_questions_losing_expected_doc": 0,
+  "context_docs": 5000,
+  "per_conflict": {
+   "qst_0411": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0412": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0413": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0414": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0415": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0416": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0417": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0418": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0419": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0420": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0421": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0422": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0423": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0424": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0425": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0426": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0427": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0428": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0429": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0430": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   }
+  }
+ },
+ "random_v3g": {
+  "retired_gold_in_context": 14,
+  "current_gold_in_context": 18,
+  "conflict_contexts_changed": 2,
+  "conflict_retired_gold_removed": 0,
+  "not_found_contexts_changed": 2,
+  "others_contexts_changed": 0,
+  "others_docs_removed": 0,
+  "others_expected_docs_removed": 0,
+  "others_questions_losing_expected_doc": 0,
+  "context_docs": 5000,
+  "per_conflict": {
+   "qst_0411": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0412": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0413": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0414": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0415": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0416": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0417": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0418": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0419": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0420": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0421": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0422": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0423": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0424": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0425": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0426": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0427": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0428": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0429": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0430": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   }
+  }
+ },
+ "oracle": {
+  "retired_gold_in_context": 1,
+  "current_gold_in_context": 20,
+  "conflict_contexts_changed": 15,
+  "conflict_retired_gold_removed": 13,
+  "not_found_contexts_changed": 0,
+  "others_contexts_changed": 0,
+  "others_docs_removed": 0,
+  "others_expected_docs_removed": 0,
+  "others_questions_losing_expected_doc": 0,
+  "context_docs": 5000,
+  "per_conflict": {
+   "qst_0411": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0412": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0413": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0414": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0415": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0416": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0417": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0418": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0419": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0420": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0421": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0422": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0423": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0424": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0425": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0426": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0427": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0428": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0429": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0430": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   }
+  }
+ },
+ "oracle_drop": {
+  "retired_gold_in_context": 1,
+  "current_gold_in_context": 18,
+  "conflict_contexts_changed": 13,
+  "conflict_retired_gold_removed": 13,
+  "not_found_contexts_changed": 0,
+  "others_contexts_changed": 0,
+  "others_docs_removed": 0,
+  "others_expected_docs_removed": 0,
+  "others_questions_losing_expected_doc": 0,
+  "context_docs": 5000,
+  "per_conflict": {
+   "qst_0411": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0412": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0413": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0414": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0415": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0416": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0417": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0418": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0419": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0420": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0421": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0422": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0423": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0424": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0425": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0426": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0427": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0428": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0429": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0430": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   }
+  }
+ },
+ "harm_detail_moot": [
+  {
+   "question_id": "qst_0006",
+   "question_type": "basic",
+   "removed": [
+    "dsid_9bab056f64364b64be1e59119214e044"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0057",
+   "question_type": "basic",
+   "removed": [
+    "dsid_3de754d20cc24a9e983f1ad872247c7f"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0080",
+   "question_type": "basic",
+   "removed": [
+    "dsid_1fa5a44034cf4fe39cdcd786e099651c"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0198",
+   "question_type": "semantic",
+   "removed": [
+    "dsid_59f207be194b4816a88d994e8b6e3911",
+    "dsid_bac1ed0058f44a66b302ac404a48c7ca"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0345",
+   "question_type": "project_related",
+   "removed": [
+    "dsid_b844fcab11e6497f9a967d4981895c8d"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0369",
+   "question_type": "project_related",
+   "removed": [
+    "dsid_2a502ff5d28242a1ba62637541094931"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0372",
+   "question_type": "project_related",
+   "removed": [
+    "dsid_0bebeaedbe794ec38ae1d6f4ddd5c2b6",
+    "dsid_2bcec842a49f49d4a7120328308a2f67",
+    "dsid_65982dbafed94d4192c1ea2fd959f3ad",
+    "dsid_aadcdf95b45a4d8da538664783cd730e"
+   ],
+   "expected_removed": [
+    "dsid_0bebeaedbe794ec38ae1d6f4ddd5c2b6"
+   ]
+  }
+ ],
+ "harm_detail_moot_v2": [
+  {
+   "question_id": "qst_0006",
+   "question_type": "basic",
+   "removed": [
+    "dsid_9bab056f64364b64be1e59119214e044"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0028",
+   "question_type": "basic",
+   "removed": [
+    "dsid_ba051a41aae34766bc0deb1907d5e485"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0057",
+   "question_type": "basic",
+   "removed": [
+    "dsid_3de754d20cc24a9e983f1ad872247c7f"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0080",
+   "question_type": "basic",
+   "removed": [
+    "dsid_1fa5a44034cf4fe39cdcd786e099651c"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0115",
+   "question_type": "basic",
+   "removed": [
+    "dsid_ffc012b4b214423796ffb413a4599bd6"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0197",
+   "question_type": "semantic",
+   "removed": [
+    "dsid_3baaea951b3941d596ed21be946c5075",
+    "dsid_88ceef6df455432692bc7a1292727642",
+    "dsid_a4d6a377a5cd41aaaebcfb3af46ef9b5"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0198",
+   "question_type": "semantic",
+   "removed": [
+    "dsid_59f207be194b4816a88d994e8b6e3911",
+    "dsid_bac1ed0058f44a66b302ac404a48c7ca"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0216",
+   "question_type": "semantic",
+   "removed": [
+    "dsid_82c0781b50cb47668b5d37a67a9a157d"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0222",
+   "question_type": "semantic",
+   "removed": [
+    "dsid_1f9c2833d1d54722ac6a6e8e65d5ef5c",
+    "dsid_d1a2ffd106b14743acfd62e901cf7803"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0231",
+   "question_type": "semantic",
+   "removed": [
+    "dsid_9d2e4b8b5ac6435ca53e9b8600766129"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0257",
+   "question_type": "semantic",
+   "removed": [
+    "dsid_e7558943e60640548016f5179bc554ec"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0272",
+   "question_type": "semantic",
+   "removed": [
+    "dsid_87f5d35ab87f4303b5bedc483264272e",
+    "dsid_dbd0e2a056a24786bf25d69d372aebd1"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0286",
+   "question_type": "semantic",
+   "removed": [
+    "dsid_19d7335f27de45c28c356629ae6b26b9"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0299",
+   "question_type": "semantic",
+   "removed": [
+    "dsid_ef820541e0d84143a206013e65bd3480"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0305",
+   "question_type": "intra_document_reasoning",
+   "removed": [
+    "dsid_c6a07633c306457ca67a9d7bd9fb8001"
+   ],
+   "expected_removed": [
+    "dsid_c6a07633c306457ca67a9d7bd9fb8001"
+   ]
+  },
+  {
+   "question_id": "qst_0345",
+   "question_type": "project_related",
+   "removed": [
+    "dsid_b844fcab11e6497f9a967d4981895c8d"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0369",
+   "question_type": "project_related",
+   "removed": [
+    "dsid_2a502ff5d28242a1ba62637541094931"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0372",
+   "question_type": "project_related",
+   "removed": [
+    "dsid_0bebeaedbe794ec38ae1d6f4ddd5c2b6",
+    "dsid_2bcec842a49f49d4a7120328308a2f67",
+    "dsid_65982dbafed94d4192c1ea2fd959f3ad",
+    "dsid_aadcdf95b45a4d8da538664783cd730e"
+   ],
+   "expected_removed": [
+    "dsid_0bebeaedbe794ec38ae1d6f4ddd5c2b6"
+   ]
+  }
+ ],
+ "harm_detail_moot_v3": [
+  {
+   "question_id": "qst_0003",
+   "question_type": "basic",
+   "removed": [
+    "dsid_746dda06fe2a45fa90d1f2e020c9ad89"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0012",
+   "question_type": "basic",
+   "removed": [
+    "dsid_4ab14396d2e24d6386c91b9d939eabc5"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0016",
+   "question_type": "basic",
+   "removed": [
+    "dsid_699b10524b7944da80f83e48da627bfd"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0024",
+   "question_type": "basic",
+   "removed": [
+    "dsid_ad564e4d6b3147cf857e75b34bbbecd8"
+   ],
+   "expected_removed": []
+  }
+ ],
+ "harm_detail_moot_v3g": [
+  {
+   "question_id": "qst_0484",
+   "question_type": "info_not_found",
+   "removed": [
+    "dsid_2679baedab704cd5bd0e311a4f7e20b6"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0490",
+   "question_type": "info_not_found",
+   "removed": [
+    "dsid_eba4be4de3a74b1e8704b52fe5a1f8f8"
+   ],
+   "expected_removed": []
+  }
+ ],
+ "v3g_extractor": "rules-v3-llm-posthoc+groq",
+ "v3g_model": "qwen/qwen3.8-27b",
+ "canon_judge_noise": {
+  "baseline_correct": 28,
+  "canon_filtered_correct": 33,
+  "contexts_changed": 15,
+  "delta_from_changed_contexts": 2,
+  "delta_from_identical_contexts": 3,
+  "delta_from_identical_context_and_answer": 2,
+  "not_found_identical_in_all_three_arms": 20,
+  "not_found_scored": {
+   "baseline": 13,
+   "canon": 13,
+   "canon_filtered": 15
+  },
+  "not_found_verdict_disagreements": 8,
+  "judge": "claude-sonnet-4-6"
+ },
+ "failure_analysis": {
+  "per_question": {
+   "qst_0411": {
+    "retired_rank": 2,
+    "current_rank": 1,
+    "current_doc_names_retired_value": true,
+    "retired_value_is_one_number": true
+   },
+   "qst_0412": {
+    "retired_rank": 3,
+    "current_rank": 1,
+    "current_doc_names_retired_value": true,
+    "retired_value_is_one_number": true
+   },
+   "qst_0413": {
+    "retired_rank": 1,
+    "current_rank": 1,
+    "current_doc_names_retired_value": false,
+    "retired_value_is_one_number": false
+   },
+   "qst_0414": {
+    "retired_rank": null,
+    "current_rank": 1,
+    "current_doc_names_retired_value": false,
+    "retired_value_is_one_number": false
+   },
+   "qst_0415": {
+    "retired_rank": 19,
+    "current_rank": 1,
+    "current_doc_names_retired_value": false,
+    "retired_value_is_one_number": false
+   },
+   "qst_0416": {
+    "retired_rank": 2,
+    "current_rank": 1,
+    "current_doc_names_retired_value": false,
+    "retired_value_is_one_number": false
+   },
+   "qst_0417": {
+    "retired_rank": null,
+    "current_rank": 31,
+    "current_doc_names_retired_value": true,
+    "retired_value_is_one_number": false
+   },
+   "qst_0418": {
+    "retired_rank": 25,
+    "current_rank": 1,
+    "current_doc_names_retired_value": false,
+    "retired_value_is_one_number": false
+   },
+   "qst_0419": {
+    "retired_rank": 6,
+    "current_rank": 1,
+    "current_doc_names_retired_value": true,
+    "retired_value_is_one_number": false
+   },
+   "qst_0420": {
+    "retired_rank": 2,
+    "current_rank": 1,
+    "current_doc_names_retired_value": false,
+    "retired_value_is_one_number": false
+   },
+   "qst_0421": {
+    "retired_rank": 2,
+    "current_rank": 1,
+    "current_doc_names_retired_value": false,
+    "retired_value_is_one_number": true
+   },
+   "qst_0422": {
+    "retired_rank": 2,
+    "current_rank": 1,
+    "current_doc_names_retired_value": true,
+    "retired_value_is_one_number": false
+   },
+   "qst_0423": {
+    "retired_rank": 2,
+    "current_rank": 1,
+    "current_doc_names_retired_value": false,
+    "retired_value_is_one_number": true
+   },
+   "qst_0424": {
+    "retired_rank": 1,
+    "current_rank": 2,
+    "current_doc_names_retired_value": false,
+    "retired_value_is_one_number": false
+   },
+   "qst_0425": {
+    "retired_rank": 5,
+    "current_rank": 1,
+    "current_doc_names_retired_value": false,
+    "retired_value_is_one_number": false
+   },
+   "qst_0426": {
+    "retired_rank": 2,
+    "current_rank": 1,
+    "current_doc_names_retired_value": false,
+    "retired_value_is_one_number": false
+   },
+   "qst_0427": {
+    "retired_rank": 2,
+    "current_rank": 1,
+    "current_doc_names_retired_value": false,
+    "retired_value_is_one_number": false
+   },
+   "qst_0428": {
+    "retired_rank": null,
+    "current_rank": 30,
+    "current_doc_names_retired_value": false,
+    "retired_value_is_one_number": false
+   },
+   "qst_0429": {
+    "retired_rank": 2,
+    "current_rank": 1,
+    "current_doc_names_retired_value": false,
+    "retired_value_is_one_number": false
+   },
+   "qst_0430": {
+    "retired_rank": 35,
+    "current_rank": 5,
+    "current_doc_names_retired_value": false,
+    "retired_value_is_one_number": false
+   }
+  },
+  "retired_in_top10": 14,
+  "current_also_in_top10": 14,
+  "current_ranked_first": 13,
+  "current_names_retired_value": 4,
+  "retired_value_is_one_number": 4
+ }
+}

@@ -13,6 +13,7 @@ No model is involved, so this runs anywhere with a seeded FalkorDB. `eval/eval_e
 from __future__ import annotations
 
 import json
+import os
 import random
 import re
 import sys
@@ -25,6 +26,7 @@ from moot import tools  # noqa: E402
 from moot.graph import graph  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
+OUT = Path(os.getenv("MOOT_EVAL_OUT") or ROOT / "eval")  # `moot verify --rerun` writes elsewhere and compares
 truth = json.loads((ROOT / "data" / "truth.json").read_text())
 K = 5
 
@@ -79,14 +81,24 @@ def main() -> None:
            f"| graph path query (Moot) | **{g_recall:.2f}** | **{g_any:.0%}** |",
            f"| BM25 top-5, query = decision title + summary | {b_recall:.2f} | {b_any:.0%} |",
            f"| random 5 docs (control, mean of 20 seeds) | {r_recall:.2f} | – |", "",
+           f"**Read the graph row as a consistency check, not a retrieval result.** The targets are the CONTRADICTS edges in `truth.json`, and the "
+           f"graph's CONTRADICTS edges are built from the same spec, so the graph is reading back its own edges: {g_recall:.2f} says the ingest kept "
+           "them all. It cannot be compared with BM25 as if both had searched. What the BM25 row does show is that the killing document is often "
+           "unreachable by similarity to the decision, which is why the edges matter if an extractor can write them (`moot/ingest/extract.py`).", "",
            "Why BM25 misses: the invalidating document rarely shares words with the decision. \"Cap file uploads at 10 MB\" is killed by \"Raise the API gateway body limit to 100 MB\", two premise hops away; "
            "\"Keep the monolith\" is killed by all-hands notes about headcount. Lexical and semantic similarity find documents *about* the decision; the graph finds documents about its *reasons*.", "",
            "| decision | targets | graph | bm25 | bm25 top-5 |", "|---|---|---|---|---|"]
     for r in rows:
         out.append(f"| {r['id']} {r['title']} | {', '.join(r['targets'])} | {r['graph']:.0%} | {r['bm25']:.0%} | {', '.join(r['bm25_top'])} |")
-    out += ["", "Limits: the corpus is synthetic and small; BM25 is a strong but not state-of-the-art baseline (no embeddings, by design, so the number reproduces without a model); "
-            "a retriever given the *premise text* instead of the decision would do better, but a RAG system does not know the premise exists. That is the point."]
-    (ROOT / "eval" / "results.md").write_text("\n".join(out) + "\n")
+    out += ["", "## Threats to validity, worst first", "",
+            "1. **Common-mode answer key** (above): the graph's 1.00 is guaranteed by construction.",
+            f"2. **Small and synthetic.** {n} decisions in an invented company; one decision is {1 / n:.0%} of the recall.",
+            "3. **BM25 is a fair but not state-of-the-art baseline** (no embeddings, by design, so the number reproduces without a model). "
+            "A retriever given the *premise text* instead of the decision would do better, but a RAG system does not know the premise exists."]
+    (OUT / "results.md").write_text("\n".join(out) + "\n")
+    (OUT / "results.json").write_text(json.dumps(dict(k=K, n=n, docs=len(docs), graph_recall=round(g_recall, 4), bm25_recall=round(b_recall, 4),
+                                                                random_recall=round(r_recall, 4), graph_any=g_any, bm25_any=b_any, rows=rows),
+                                                           indent=1) + "\n")
     print("\n".join(out[:10]))
 
 

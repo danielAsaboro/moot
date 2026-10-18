@@ -4,6 +4,15 @@ The model proposes; a validator disposes. Every premise and every evidence relat
 span that is a literal substring of the source document, or it is dropped. The output has the same
 shape as truth.json so `moot build` can turn it into graph.json and the eval can score it.
 
+Guards on what the model may write (borrowed from Hindsight's consolidator, plus the span check):
+  - ids are copied from the listing, never counted or invented: a relation naming an unknown premise id is dropped
+    and logged with the reason, not repaired
+  - every relation carries a `reason`, kept in the output for audit
+  - a reply that fails the schema is re-asked once with the errors quoted back; if it fails again, nothing from that
+    document is kept (never a partial reply)
+  - a stated effective date (`effective_on`) is kept only if the quote that states it is in the document; the
+    document's own date stays as the statement date
+
 Requires ANTHROPIC_API_KEY. Model: MOOT_MODEL (default claude-opus-5-5).
 """
 from __future__ import annotations
@@ -26,9 +35,13 @@ that states it. `derived_from_quote` is the exact "This holds because ..." sente
 depends on another stated fact, otherwise null. If the Context says no context was recorded, premises is []."""
 
 EVIDENCE_SYSTEM = """You judge whether a document affirms or contradicts any of the listed premises.
-Return only JSON: {"relations": [{"premise_id": str, "rel": "SUPPORTS"|"CONTRADICTS", "quote": str}]}.
-`quote` must be an exact substring of the document. Only include a relation when the document clearly
-states the premise still holds (SUPPORTS) or no longer holds (CONTRADICTS). Most documents touch no premise:
+Return only JSON: {"relations": [{"premise_id": str, "rel": "SUPPORTS"|"CONTRADICTS", "quote": str, "reason": str,
+"effective_on": "YYYY-MM-DD" or null, "effective_quote": str or null}]}.
+Copy `premise_id` exactly from the listing; never invent or renumber one. `quote` must be an exact substring of the
+document. `reason` is one sentence on why the quote affirms or contradicts the premise. Only when the document says
+the change takes effect on a different day than the document's own date, give that day as `effective_on` and the
+exact sentence that says so as `effective_quote`; otherwise both are null. Only include a relation when the document
+clearly states the premise still holds (SUPPORTS) or no longer holds (CONTRADICTS). Most documents touch no premise:
 then return {"relations": []}."""
 
 
@@ -74,14 +87,61 @@ def extract_adr(client, doc: dict) -> dict:
     return out
 
 
-def extract_evidence(client, doc: dict, premises: list[dict]) -> list[dict]:
+DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+
+def schema_errors(out) -> list[str]:
+    """Shape errors that earn a re-ask. Content errors (an unknown id, a quote not in the document) are dropped instead."""
+    if not isinstance(out, dict) or not isinstance(out.get("relations"), list):
+        return ['the reply must be a JSON object with a "relations" list']
+    errs = []
+    for i, r in enumerate(out["relations"]):
+        if not isinstance(r, dict):
+            errs.append(f"relations[{i}] is not an object"); continue
+        for k in ("premise_id", "quote", "reason"):
+            if not isinstance(r.get(k), str) or not r[k].strip():
+                errs.append(f"relations[{i}].{k} must be a non-empty string")
+        if r.get("rel") not in ("SUPPORTS", "CONTRADICTS"):
+            errs.append(f"relations[{i}].rel must be SUPPORTS or CONTRADICTS, got {r.get('rel')!r}")
+        if r.get("effective_on") is not None and not (isinstance(r["effective_on"], str) and DATE.match(r["effective_on"])):
+            errs.append(f"relations[{i}].effective_on must be YYYY-MM-DD or null")
+    return errs
+
+
+def validate_relations(relations: list[dict], doc: dict, valid_ids: set[str]) -> tuple[list[dict], list[dict]]:
+    """(kept, dropped) where every dropped relation says why. Nothing is repaired: a wrong id is not guessed at."""
+    kept, dropped = [], []
+    for r in relations:
+        why = (f"unknown premise id {r['premise_id']!r}" if r["premise_id"] not in valid_ids else
+               "quote is not in the document" if r["quote"] not in doc["text"] else
+               "effective_on given without a quote from the document" if r.get("effective_on") and not (r.get("effective_quote") and r["effective_quote"] in doc["text"]) else None)
+        (dropped if why else kept).append(dict(r, dropped=why) if why else r)
+    return kept, dropped
+
+
+def extract_evidence(client, doc: dict, premises: list[dict], log: list | None = None) -> list[dict]:
     listing = "\n".join(f"- {p['id']}: {p['text']}" for p in premises)
-    resp = client.messages.create(model=MODEL, max_tokens=1200, system=EVIDENCE_SYSTEM,
-                                  messages=[{"role": "user", "content": f"Premises:\n{listing}\n\nDocument ({doc['kind']}, {doc['date']}):\n{doc['text']}"}])
-    out = _json("".join(b.text for b in resp.content if b.type == "text"))
-    valid_ids = {p["id"] for p in premises}
-    return [r for r in out.get("relations", []) if r.get("quote") and r["quote"] in doc["text"] and r.get("premise_id") in valid_ids
-            and r.get("rel") in ("SUPPORTS", "CONTRADICTS")]
+    msgs = [{"role": "user", "content": f"Premises:\n{listing}\n\nDocument ({doc['kind']}, {doc['date']}):\n{doc['text']}"}]
+    for attempt in range(2):
+        resp = client.messages.create(model=MODEL, max_tokens=1200, system=EVIDENCE_SYSTEM, messages=msgs)
+        text = "".join(b.text for b in resp.content if b.type == "text")
+        try:
+            out = _json(text)
+        except json.JSONDecodeError as ex:
+            out = {"_error": str(ex)}
+        errs = schema_errors(out)
+        if not errs:
+            break
+        msgs += [{"role": "assistant", "content": text},
+                 {"role": "user", "content": "Your reply failed validation:\n- " + "\n- ".join(errs) + "\nReturn the corrected JSON only."}]
+    else:
+        if log is not None:
+            log.append(dict(doc=doc["id"], dropped="schema failed twice; nothing kept", errors=errs))
+        return []
+    kept, dropped = validate_relations(out["relations"], doc, {p["id"] for p in premises})
+    if log is not None:
+        log += [dict(doc=doc["id"], **d) for d in dropped]
+    return kept
 
 
 def main(limit: int | None = None, out: str = "extracted.json") -> None:
@@ -116,17 +176,18 @@ def main(limit: int | None = None, out: str = "extracted.json") -> None:
             if other["id"] != pid and other["text"].lower()[:30] in q:
                 premises[pid]["derived_from"] = other["id"]
     plist = list(premises.values())
-    evidence = []
+    evidence, log = [], []
     for d in others:
-        rels = extract_evidence(client, d, plist)
+        rels = extract_evidence(client, d, plist, log)
         author = next((p["id"] for p in people if p["name"] == d["author"]), "tomi")
         if rels:
             for r in rels:
-                evidence.append(dict(id=d["id"], kind=d["kind"], date=d["date"], author=author, title=d["title"], text=d["text"][:400], rel=r["rel"], premise=r["premise_id"], quote=r["quote"]))
+                evidence.append(dict(id=d["id"], kind=d["kind"], date=d["date"], author=author, title=d["title"], text=d["text"][:400], rel=r["rel"],
+                                     premise=r["premise_id"], quote=r["quote"], reason=r["reason"], effective_on=r.get("effective_on")))
         else:
             evidence.append(dict(id=d["id"], kind=d["kind"], date=d["date"], author=author, title=d["title"], text=d["text"][:400], rel=None, premise=None))
         print(f"{d['id']}: {[(r['rel'], r['premise_id']) for r in rels] or 'no premise touched'}")
-    result = dict(as_of="2026-10-16", people=people, systems=systems, premises=plist, decisions=decisions, evidence=evidence)
+    result = dict(as_of="2026-10-16", people=people, systems=systems, premises=plist, decisions=decisions, evidence=evidence, dropped=log)
     (DATA / out).write_text(json.dumps(result, indent=2))
     print(f"-> {DATA / out}: {len(decisions)} decisions, {len(plist)} premises, {sum(1 for e in evidence if e['rel'])} evidence relations")
 

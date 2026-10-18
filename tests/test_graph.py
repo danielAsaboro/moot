@@ -87,13 +87,17 @@ def test_gate(g):
     assert d01["gate"] == "DENY" and d01["depth"] == 6
     assert next(r for r in d01["reasons"] if r["code"] == "premise_expired")["evidence"] == "PR-412"
     assert [n["id"] for n in d01["reasons"][0]["path"]] == ["D01", "p_gateway_path", "p_gateway_limit"]
+    d12 = tools.check_action(g, "D12", spec.AS_OF)
+    assert d12["gate"] == "ALLOW" and all(b["evidence"] for b in d12["basis"])
+    # D06 holds, but one premise below it (p_soc2_cert) has no dated evidence either way: no evidence is not "holds"
     d06 = tools.check_action(g, "D06", spec.AS_OF)
-    assert d06["gate"] == "ALLOW" and {b["evidence"] for b in d06["basis"]} >= {"doc-soc2-2026"}
+    assert d06["verdict"] == "HOLDS" and d06["gate"] == "REVALIDATE"
+    assert [(r["code"], r["premise"]) for r in d06["reasons"]] == [("premise_unevidenced", "p_soc2_cert")]
     assert tools.check_action(g, "D17", spec.AS_OF)["gate"] == "REVALIDATE"   # disputed: the owner has to rule
     assert tools.check_action(g, "D05", spec.AS_OF)["gate"] == "REVALIDATE"   # undocumented
     assert tools.check_action(g, "D28", spec.AS_OF)["gate"] == "DENY"         # retired
     assert tools.check_action(g, "D99", spec.AS_OF)["gate"] == "DENY"         # not in the graph
-    assert tools.check_action(g, "D07", "2025-06-01")["gate"] == "ALLOW"      # time travel: before PR-350
+    assert tools.check_action(g, "D07", "2025-06-01")["gate"] == "REVALIDATE"  # time travel: before PR-350, nothing checked it yet
     assert tools.check_action(g, "D07", spec.AS_OF)["gate"] == "DENY"
 
 
@@ -144,7 +148,8 @@ def test_mcp_server_lists_tools():
     from moot import mcp_server
     names = {t.name for t in asyncio.run(mcp_server.mcp.list_tools())}
     assert {"find_decision", "audit_decision", "premise_impact", "trace_document", "ledger", "ask", "record_finding",
-            "orphaned_decisions", "record_handover", "reopen_memo", "what_if", "riskiest_reasons", "check_action"} <= names
+            "orphaned_decisions", "record_handover", "reopen_memo", "what_if", "riskiest_reasons", "check_action",
+            "record_ruling", "evidence_packet"} <= names
 
 
 def test_document_endpoint_serves_source_text(g, monkeypatch):
@@ -225,4 +230,131 @@ def test_handover_and_reopen_api(g, monkeypatch):
     gt = c.get("/api/gate/D01", params={"as_of": spec.AS_OF}).json()
     assert gt["gate"] == "DENY" and gt["queries"] and all(not q["write"] for q in gt["queries"])
     assert c.get("/api/gate/D01", params={"graph": "nope"}).status_code == 422
-    assert c.get("/api/decision/D06", params={"as_of": spec.AS_OF}).json()["gate"]["gate"] == "ALLOW"
+    assert c.get("/api/decision/D12", params={"as_of": spec.AS_OF}).json()["gate"]["gate"] == "ALLOW"
+    assert c.get("/api/decision/D06", params={"as_of": spec.AS_OF}).json()["gate"]["gate"] == "REVALIDATE"
+
+
+# The surfaces must give the same answer, compared at the instants where the answer changes. Two surfaces compared on a
+# quiet date would agree even if one read the as-of cutoff wrong. PR-412 contradicts D01's gateway limit on 2026-03-02.
+BOUNDARY = [("2026-03-01", "REVALIDATE"), ("2026-03-02", "DENY"), ("2026-03-03", "DENY")]
+
+
+def test_api_mcp_and_tools_agree_at_the_boundary(g, monkeypatch):
+    import asyncio
+    import json
+    from fastapi.testclient import TestClient
+    from moot import api, mcp_server
+    monkeypatch.setattr(api, "g", lambda: g)
+    monkeypatch.setattr(mcp_server, "graph", lambda name=None: g)
+    c = TestClient(api.app)
+    for as_of, expected in BOUNDARY:
+        http = c.get("/api/gate/D01", params={"as_of": as_of}).json()
+        http.pop("queries")
+        res = asyncio.run(mcp_server.mcp.call_tool("check_action", {"decision_id": "D01", "as_of": as_of}))
+        via_mcp = json.loads(res.content[0].text)
+        direct = json.loads(json.dumps(tools.check_action(g, "D01", as_of), default=str))
+        assert http == via_mcp == direct, as_of
+        assert http["gate"] == expected, as_of   # the cutoff is inclusive: evidence dated as_of counts on as_of
+        assert http["snapshot"] == dict(graph=g.name, as_of=as_of, digest=tools.decision_digest(g, "D01"))
+    # and the packet carries the same gate and reasons as both surfaces
+    for as_of, expected in BOUNDARY:
+        pk = c.get("/api/packet/D01", params={"as_of": as_of}).json()
+        assert pk["gate"] == expected and pk["reasons"] == c.get("/api/gate/D01", params={"as_of": as_of}).json()["reasons"]
+
+
+def test_snapshot_digest_is_stable_and_moves_with_the_subgraph(g):
+    a = tools.check_action(g, "D12", spec.AS_OF)["snapshot"]["digest"]
+    assert tools.check_action(g, "D12", spec.AS_OF)["snapshot"]["digest"] == a
+    assert tools.check_action(g, "D12", "2025-06-01")["snapshot"]["digest"] == a   # the digest covers all dates; as_of is separate
+    # a write elsewhere in the graph leaves D12's digest alone, but moves the whole-graph digest
+    before = tools.graph_digest(g)
+    g.query("CREATE (:Evidence {id: 'tmp-unrelated', title: 'x', date: '2026-01-01'})")
+    try:
+        assert tools.decision_digest(g, "D12") == a and tools.graph_digest(g) != before
+    finally:
+        g.query("MATCH (e:Evidence {id: 'tmp-unrelated'}) DELETE e")
+
+
+def test_coverage_refuses_an_empty_or_unevidenced_graph():
+    try:
+        db = connect(); db.connection.ping()
+    except Exception:
+        pytest.skip("FalkorDB not reachable")
+    e = db.select_graph("moot_test_empty")
+    e.query("CREATE (:Decision {id: 'X1', title: 'x', decided_on: '2025-01-01'})-[:BECAUSE_OF]->(:Premise {id: 'px', text: 'y'})")
+    try:
+        r = tools.check_action(e, "X1", "2026-01-01")
+        assert r["gate"] == "REVALIDATE" and r["reasons"][0]["code"] == "graph_has_no_evidence"
+        e.query("MATCH (n) DETACH DELETE n")
+        assert tools.check_action(e, "X1", "2026-01-01")["reasons"][0]["code"] == "graph_empty"
+    finally:
+        e.delete()
+
+
+def test_owner_ruling_is_a_dated_edge_the_next_audit_reads(g, monkeypatch):
+    from fastapi.testclient import TestClient
+    from moot import api
+    monkeypatch.setattr(api, "g", lambda: g)
+    c = TestClient(api.app)
+    assert tools.check_action(g, "D16", spec.AS_OF)["gate"] == "REVALIDATE"
+    # a reason that already has evidence takes no ruling, and neither does a premise outside the decision
+    assert c.post("/api/ruling", json={"decision_id": "D07", "premise_id": "p_no_rollback", "holds": True, "as_of": spec.AS_OF}).json()["detail"].endswith("takes a ruling")
+    assert c.post("/api/ruling", json={"decision_id": "D16", "premise_id": "p_soc2_cert", "holds": True, "as_of": spec.AS_OF}).status_code == 422
+    before = tools.decision_digest(g, "D16")
+    r = c.post("/api/ruling", json={"decision_id": "D16", "premise_id": "p_eu_market", "holds": True, "as_of": "2026-10-01",
+                                    "by": "kwame", "note": "EU is still a target market for 2027."}).json()
+    assert r["gate"] == "ALLOW" and r["was"] == "unevidenced"
+    after = tools.check_action(g, "D16", spec.AS_OF)
+    assert after["gate"] == "ALLOW" and any(b["ruling"] and b["evidence"] == r["id"] for b in after["basis"])
+    assert after["snapshot"]["digest"] != before
+    # time travel: before the ruling, nothing had checked the premise
+    assert tools.check_action(g, "D16", "2026-09-30")["gate"] == "REVALIDATE"
+    # newer evidence after the ruling reopens it by the ordinary rules
+    g.query("CREATE (e:Evidence {id: 'tmp-eu-exit', title: 'Exit the EU market', kind: 'doc', date: '2026-10-10'}) "
+            "WITH e MATCH (p:Premise {id: 'p_eu_market'}) CREATE (e)-[:CONTRADICTS {at: '2026-10-10', quote: 'we leave the EU'}]->(p)")
+    try:
+        assert tools.check_action(g, "D16", spec.AS_OF)["gate"] == "DENY"
+        assert tools.rulings(g, "D16")[0]["by"] == "Kwame Boateng"
+    finally:
+        g.query("MATCH (e:Evidence {id: 'tmp-eu-exit'}) DETACH DELETE e")
+
+
+def test_evidence_that_is_stated_later_does_not_count_before_it_is_known(g):
+    # a document written on 2026-07-01 says the gateway limit changed back on 2026-06-01; on 2026-06-15 nobody knew yet
+    g.query("CREATE (e:Evidence {id: 'tmp-late', title: 'Limit back to 10 MB', kind: 'doc', date: '2026-07-01'}) WITH e "
+            "MATCH (p:Premise {id: 'p_gateway_limit'}) CREATE (e)-[:SUPPORTS {at: '2026-06-01', stated: '2026-07-01', quote: 'reverted'}]->(p)")
+    try:
+        lim = lambda a: next(p for p in tools.audit_decision(g, "D02", a, 4)["premises"] if p["id"] == "p_gateway_limit")
+        assert lim("2026-06-15")["state"] == "expired" and [e["id"] for e in lim("2026-06-15")["evidence"]] == ["PR-412"]
+        assert lim("2026-07-01")["state"] == "disputed"
+        assert next(e for e in lim("2026-07-01")["evidence"] if e["id"] == "tmp-late")["stated"] == "2026-07-01"
+        assert {r["id"]: r["verdict"] for r in tools.ledger(g, "2026-06-15", 4)}["D02"] == "MOOT"
+        assert {r["id"]: r["verdict"] for r in tools.ledger(g, "2026-07-01", 4)}["D02"] == "DISPUTED"
+    finally:
+        g.query("MATCH (e:Evidence {id: 'tmp-late'}) DETACH DELETE e")
+
+
+def test_memory_expires_when_anything_below_changes(g):
+    tools.write_finding(g, "D14", "HOLDS", spec.AS_OF, 6, [], "test")
+    q = next(d["title"] for d in spec.DECISIONS if d["id"] == "D14")
+    assert agent.ask(g, q, spec.AS_OF, 4)["outcome"] == "answered_from_memory"
+    deep = tools.audit_decision(g, "D14", spec.AS_OF, 6)["premises"][-1]["id"]
+    g.query("CREATE (e:Evidence {id: 'tmp-deep', title: 'x', kind: 'doc', date: '2026-01-01'}) WITH e "
+            "MATCH (p:Premise {id: $p}) CREATE (e)-[:SUPPORTS {at: '2026-01-01'}]->(p)", {"p": deep})
+    try:
+        assert agent.ask(g, q, spec.AS_OF, 4)["outcome"] == "answered_with_path"
+    finally:
+        g.query("MATCH (e:Evidence {id: 'tmp-deep'}) DETACH DELETE e")
+
+
+def test_packet_markdown_and_cli(g, monkeypatch):
+    from fastapi.testclient import TestClient
+    from moot import api
+    monkeypatch.setattr(api, "g", lambda: g)
+    c = TestClient(api.app)
+    r = c.get("/api/packet/D01", params={"as_of": spec.AS_OF, "format": "md"})
+    assert r.status_code == 200 and "attachment" in r.headers["content-disposition"]
+    assert "PR-412" in r.text and "Synthetic data" in r.text and "decision digest" in r.text
+    assert c.get("/api/packet/D99").status_code == 404
+    pk = c.get("/api/packet/D01", params={"as_of": spec.AS_OF}).json()
+    assert pk["synthetic"] and pk["snapshot"]["graph_digest"].startswith("sha256:") and pk["memo"]

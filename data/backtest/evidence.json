@@ -1,0 +1,850 @@
+{
+ "apollo": {
+  "name": "Apollo Client",
+  "repo": "apollographql/apollo-client",
+  "first_commit": "2016-02-26",
+  "last_commit": "2026-10-16",
+  "commits": 2318,
+  "maintained": [],
+  "open_source": []
+ },
+ "argocd": {
+  "name": "Argo CD",
+  "repo": "argoproj/argo-cd",
+  "first_commit": "2018-02-14",
+  "last_commit": "2026-10-17",
+  "commits": 2432,
+  "maintained": [],
+  "open_source": []
+ },
+ "aws-lbc": {
+  "name": "AWS Load Balancer Controller",
+  "repo": "kubernetes-sigs/aws-load-balancer-controller",
+  "first_commit": "2020-02-06",
+  "last_commit": "2026-10-14",
+  "commits": 813,
+  "maintained": [],
+  "open_source": []
+ },
+ "axios": {
+  "name": "Axios",
+  "repo": "axios/axios",
+  "first_commit": "2014-08-18",
+  "last_commit": "2026-10-15",
+  "commits": 863,
+  "maintained": [],
+  "open_source": []
+ },
+ "backstopjs": {
+  "name": "BackstopJS",
+  "repo": "garris/BackstopJS",
+  "first_commit": "2014-10-15",
+  "last_commit": "2026-09-08",
+  "commits": 531,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2025-09-07",
+    "quote": "no commit to the default branch since 2024-09-07"
+   },
+   {
+    "rel": "SUPPORTS",
+    "at": "2026-09-08",
+    "quote": "commits resume on 2026-09-08 after a gap since 2024-09-07"
+   }
+  ],
+  "open_source": []
+ },
+ "bridgekeeper": {
+  "name": "bridgekeeper",
+  "repo": "excitedleigh/bridgekeeper",
+  "first_commit": "2017-12-05",
+  "last_commit": "2021-10-06",
+  "commits": 32,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2022-10-06",
+    "quote": "no commit to the default branch since 2021-10-06"
+   }
+  ],
+  "open_source": []
+ },
+ "buefy": {
+  "name": "Buefy",
+  "repo": "buefy/buefy",
+  "first_commit": "2017-03-31",
+  "last_commit": "2026-09-08",
+  "commits": 1094,
+  "maintained": [],
+  "open_source": []
+ },
+ "celery": {
+  "name": "Celery",
+  "repo": "celery/celery",
+  "first_commit": "2009-04-24",
+  "last_commit": "2026-10-17",
+  "commits": 3036,
+  "maintained": [],
+  "open_source": []
+ },
+ "concourse": {
+  "name": "Concourse CI",
+  "repo": "concourse/concourse",
+  "first_commit": "2014-04-13",
+  "last_commit": "2026-10-16",
+  "commits": 2877,
+  "maintained": [],
+  "open_source": []
+ },
+ "consul": {
+  "name": "Consul",
+  "repo": "hashicorp/consul",
+  "first_commit": "2013-11-04",
+  "last_commit": "2026-10-16",
+  "commits": 2932,
+  "maintained": [],
+  "open_source": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2023-08-10",
+    "quote": "HashiCorp moves Consul to the Business Source License",
+    "source": "https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license"
+   }
+  ]
+ },
+ "contour": {
+  "name": "Contour",
+  "repo": "projectcontour/contour",
+  "first_commit": "2017-10-30",
+  "last_commit": "2026-10-16",
+  "commits": 1445,
+  "maintained": [],
+  "open_source": []
+ },
+ "cra": {
+  "name": "Create React App",
+  "repo": "facebook/create-react-app",
+  "first_commit": "2016-07-18",
+  "last_commit": "2025-02-14",
+  "commits": 779,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2024-06-13",
+    "quote": "no commit to the default branch since 2023-06-14"
+   },
+   {
+    "rel": "SUPPORTS",
+    "at": "2024-08-09",
+    "quote": "commits resume on 2024-08-09 after a gap since 2023-06-14"
+   },
+   {
+    "rel": "CONTRADICTS",
+    "at": "2026-02-14",
+    "quote": "no commit to the default branch since 2025-02-14"
+   }
+  ],
+  "open_source": []
+ },
+ "crossplane": {
+  "name": "Crossplane",
+  "repo": "crossplane/crossplane",
+  "first_commit": "2018-09-07",
+  "last_commit": "2026-10-16",
+  "commits": 1748,
+  "maintained": [],
+  "open_source": []
+ },
+ "cypress": {
+  "name": "Cypress",
+  "repo": "cypress-io/cypress",
+  "first_commit": "2014-06-05",
+  "last_commit": "2026-10-17",
+  "commits": 3127,
+  "maintained": [],
+  "open_source": []
+ },
+ "devise": {
+  "name": "Devise",
+  "repo": "heartcombo/devise",
+  "first_commit": "2009-09-16",
+  "last_commit": "2026-10-06",
+  "commits": 1339,
+  "maintained": [],
+  "open_source": []
+ },
+ "dex": {
+  "name": "Dex",
+  "repo": "dexidp/dex",
+  "first_commit": "2016-07-26",
+  "last_commit": "2026-10-08",
+  "commits": 1225,
+  "maintained": [],
+  "open_source": []
+ },
+ "django-rules": {
+  "name": "django-rules",
+  "repo": "dfunckt/django-rules",
+  "first_commit": "2014-03-06",
+  "last_commit": "2025-10-11",
+  "commits": 74,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2021-01-16",
+    "quote": "no commit to the default branch since 2020-01-17"
+   },
+   {
+    "rel": "SUPPORTS",
+    "at": "2021-04-30",
+    "quote": "commits resume on 2021-04-30 after a gap since 2020-01-17"
+   },
+   {
+    "rel": "CONTRADICTS",
+    "at": "2026-10-11",
+    "quote": "no commit to the default branch since 2025-10-11"
+   }
+  ],
+  "open_source": []
+ },
+ "docsearch": {
+  "name": "Algolia DocSearch",
+  "repo": "algolia/docsearch",
+  "first_commit": "2015-11-20",
+  "last_commit": "2026-10-05",
+  "commits": 689,
+  "maintained": [],
+  "open_source": []
+ },
+ "elasticsearch": {
+  "name": "Elasticsearch",
+  "repo": "elastic/elasticsearch",
+  "first_commit": "2010-02-08",
+  "last_commit": "2026-10-17",
+  "commits": 5534,
+  "maintained": [],
+  "open_source": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2021-01-14",
+    "quote": "Elastic moves Elasticsearch from Apache 2.0 to SSPL / Elastic License",
+    "source": "https://www.elastic.co/blog/licensing-change"
+   },
+   {
+    "rel": "SUPPORTS",
+    "at": "2024-08-29",
+    "quote": "Elastic adds AGPLv3 as a license option",
+    "source": "https://www.elastic.co/blog/elasticsearch-is-open-source-again"
+   }
+  ]
+ },
+ "external-dns": {
+  "name": "external-dns",
+  "repo": "kubernetes-sigs/external-dns",
+  "first_commit": "2017-02-09",
+  "last_commit": "2026-10-16",
+  "commits": 1893,
+  "maintained": [],
+  "open_source": []
+ },
+ "external-secrets": {
+  "name": "external-secrets",
+  "repo": "external-secrets/external-secrets",
+  "first_commit": "2020-11-19",
+  "last_commit": "2026-10-16",
+  "commits": 1266,
+  "maintained": [],
+  "open_source": []
+ },
+ "fluent-bit": {
+  "name": "Fluent Bit",
+  "repo": "fluent/fluent-bit",
+  "first_commit": "2014-04-23",
+  "last_commit": "2026-10-17",
+  "commits": 2194,
+  "maintained": [],
+  "open_source": []
+ },
+ "flyway": {
+  "name": "Flyway",
+  "repo": "flyway/flyway",
+  "first_commit": "2010-04-13",
+  "last_commit": "2026-10-15",
+  "commits": 1311,
+  "maintained": [],
+  "open_source": []
+ },
+ "gatekeeper": {
+  "name": "OPA Gatekeeper",
+  "repo": "open-policy-agent/gatekeeper",
+  "first_commit": "2018-10-26",
+  "last_commit": "2026-10-12",
+  "commits": 1067,
+  "maintained": [],
+  "open_source": []
+ },
+ "gateway-api": {
+  "name": "Gateway API",
+  "repo": "kubernetes-sigs/gateway-api",
+  "first_commit": "2019-11-01",
+  "last_commit": "2026-10-15",
+  "commits": 1383,
+  "maintained": [],
+  "open_source": []
+ },
+ "gorilla-mux": {
+  "name": "gorilla/mux",
+  "repo": "gorilla/mux",
+  "first_commit": "2012-10-02",
+  "last_commit": "2024-06-19",
+  "commits": 189,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2021-09-12",
+    "quote": "no commit to the default branch since 2020-09-12"
+   },
+   {
+    "rel": "SUPPORTS",
+    "at": "2021-09-14",
+    "quote": "commits resume on 2021-09-14 after a gap since 2020-09-12"
+   },
+   {
+    "rel": "CONTRADICTS",
+    "at": "2025-06-19",
+    "quote": "no commit to the default branch since 2024-06-19"
+   }
+  ],
+  "open_source": []
+ },
+ "helm": {
+  "name": "Helm",
+  "repo": "helm/helm",
+  "first_commit": "2015-11-02",
+  "last_commit": "2026-10-16",
+  "commits": 2326,
+  "maintained": [],
+  "open_source": []
+ },
+ "intern": {
+  "name": "Intern",
+  "repo": "theintern/intern",
+  "first_commit": "2012-12-12",
+  "last_commit": "2023-01-26",
+  "commits": 429,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2024-01-26",
+    "quote": "no commit to the default branch since 2023-01-26"
+   }
+  ],
+  "open_source": []
+ },
+ "istio": {
+  "name": "Istio",
+  "repo": "istio/istio",
+  "first_commit": "2016-11-18",
+  "last_commit": "2026-10-17",
+  "commits": 3297,
+  "maintained": [],
+  "open_source": []
+ },
+ "jaeger": {
+  "name": "Jaeger",
+  "repo": "jaegertracing/jaeger",
+  "first_commit": "2016-04-18",
+  "last_commit": "2026-10-16",
+  "commits": 2039,
+  "maintained": [],
+  "open_source": []
+ },
+ "karpenter": {
+  "name": "Karpenter",
+  "repo": "kubernetes-sigs/karpenter",
+  "first_commit": "2022-10-11",
+  "last_commit": "2026-10-16",
+  "commits": 707,
+  "maintained": [],
+  "open_source": []
+ },
+ "keycloak": {
+  "name": "Keycloak",
+  "repo": "keycloak/keycloak",
+  "first_commit": "2013-07-02",
+  "last_commit": "2026-10-17",
+  "commits": 3519,
+  "maintained": [],
+  "open_source": []
+ },
+ "kibana": {
+  "name": "Kibana",
+  "repo": "elastic/kibana",
+  "first_commit": "2013-05-22",
+  "last_commit": "2026-10-17",
+  "commits": 4205,
+  "maintained": [],
+  "open_source": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2021-01-14",
+    "quote": "Elastic moves Kibana from Apache 2.0 to SSPL / Elastic License",
+    "source": "https://www.elastic.co/blog/licensing-change"
+   },
+   {
+    "rel": "SUPPORTS",
+    "at": "2024-08-29",
+    "quote": "Elastic adds AGPLv3 as a license option",
+    "source": "https://www.elastic.co/blog/elasticsearch-is-open-source-again"
+   }
+  ]
+ },
+ "kubeless": {
+  "name": "Kubeless",
+  "repo": "vmware-archive/kubeless",
+  "first_commit": "2016-11-16",
+  "last_commit": "2021-12-15",
+  "commits": 377,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2022-12-15",
+    "quote": "no commit to the default branch since 2021-12-15"
+   }
+  ],
+  "open_source": []
+ },
+ "kubernetes": {
+  "name": "Kubernetes",
+  "repo": "kubernetes/kubernetes",
+  "first_commit": "2014-06-06",
+  "last_commit": "2026-10-17",
+  "commits": 4438,
+  "maintained": [],
+  "open_source": []
+ },
+ "lerna": {
+  "name": "Lerna",
+  "repo": "lerna/lerna",
+  "first_commit": "2015-12-04",
+  "last_commit": "2026-10-12",
+  "commits": 699,
+  "maintained": [],
+  "open_source": []
+ },
+ "lunr": {
+  "name": "Lunr.js",
+  "repo": "olivernn/lunr.js",
+  "first_commit": "2011-06-11",
+  "last_commit": "2020-08-19",
+  "commits": 143,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2021-08-19",
+    "quote": "no commit to the default branch since 2020-08-19"
+   }
+  ],
+  "open_source": []
+ },
+ "luxon": {
+  "name": "Luxon",
+  "repo": "moment/luxon",
+  "first_commit": "2015-11-30",
+  "last_commit": "2026-08-09",
+  "commits": 446,
+  "maintained": [],
+  "open_source": []
+ },
+ "mongodb": {
+  "name": "MongoDB",
+  "repo": "mongodb/mongo",
+  "first_commit": "2007-10-19",
+  "last_commit": "2026-10-17",
+  "commits": 5923,
+  "maintained": [],
+  "open_source": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2018-10-16",
+    "quote": "MongoDB moves from AGPL to SSPL",
+    "source": "https://www.mongodb.com/legal/licensing/server-side-public-license/faq"
+   }
+  ]
+ },
+ "msw": {
+  "name": "Mock Service Worker",
+  "repo": "mswjs/msw",
+  "first_commit": "2018-11-13",
+  "last_commit": "2026-10-17",
+  "commits": 605,
+  "maintained": [],
+  "open_source": []
+ },
+ "nextjs": {
+  "name": "Next.js",
+  "repo": "vercel/next.js",
+  "first_commit": "2016-10-05",
+  "last_commit": "2026-10-17",
+  "commits": 3340,
+  "maintained": [],
+  "open_source": []
+ },
+ "nx": {
+  "name": "Nx",
+  "repo": "nrwl/nx",
+  "first_commit": "2017-09-01",
+  "last_commit": "2026-10-16",
+  "commits": 2337,
+  "maintained": [],
+  "open_source": []
+ },
+ "opa": {
+  "name": "Open Policy Agent",
+  "repo": "open-policy-agent/opa",
+  "first_commit": "2015-12-28",
+  "last_commit": "2026-10-16",
+  "commits": 2077,
+  "maintained": [],
+  "open_source": []
+ },
+ "opensearch": {
+  "name": "OpenSearch",
+  "repo": "opensearch-project/OpenSearch",
+  "first_commit": "2010-02-08",
+  "last_commit": "2026-10-17",
+  "commits": 5123,
+  "maintained": [],
+  "open_source": []
+ },
+ "pkl": {
+  "name": "Pkl",
+  "repo": "apple/pkl",
+  "first_commit": "2024-02-01",
+  "last_commit": "2026-10-16",
+  "commits": 382,
+  "maintained": [],
+  "open_source": []
+ },
+ "playwright": {
+  "name": "Playwright",
+  "repo": "microsoft/playwright",
+  "first_commit": "2019-11-15",
+  "last_commit": "2026-10-17",
+  "commits": 2091,
+  "maintained": [],
+  "open_source": []
+ },
+ "poetry": {
+  "name": "Poetry",
+  "repo": "python-poetry/poetry",
+  "first_commit": "2018-02-20",
+  "last_commit": "2026-10-12",
+  "commits": 1231,
+  "maintained": [],
+  "open_source": []
+ },
+ "prettier": {
+  "name": "Prettier",
+  "repo": "prettier/prettier",
+  "first_commit": "2016-11-29",
+  "last_commit": "2026-10-15",
+  "commits": 2380,
+  "maintained": [],
+  "open_source": []
+ },
+ "prettier-eslint": {
+  "name": "prettier-eslint",
+  "repo": "prettier/prettier-eslint",
+  "first_commit": "2017-01-12",
+  "last_commit": "2026-09-12",
+  "commits": 119,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2026-05-16",
+    "quote": "no commit to the default branch since 2025-05-16"
+   },
+   {
+    "rel": "SUPPORTS",
+    "at": "2026-06-14",
+    "quote": "commits resume on 2026-06-14 after a gap since 2025-05-16"
+   }
+  ],
+  "open_source": []
+ },
+ "prometheus": {
+  "name": "Prometheus",
+  "repo": "prometheus/prometheus",
+  "first_commit": "2012-11-24",
+  "last_commit": "2026-10-16",
+  "commits": 3620,
+  "maintained": [],
+  "open_source": []
+ },
+ "prometheus-adapter": {
+  "name": "Prometheus Adapter",
+  "repo": "kubernetes-sigs/prometheus-adapter",
+  "first_commit": "2017-05-10",
+  "last_commit": "2025-04-01",
+  "commits": 248,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2026-04-01",
+    "quote": "no commit to the default branch since 2025-04-01"
+   }
+  ],
+  "open_source": []
+ },
+ "puppet": {
+  "name": "Puppet",
+  "repo": "puppetlabs/puppet",
+  "first_commit": "2005-04-13",
+  "last_commit": "2024-12-10",
+  "commits": 4585,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2025-12-10",
+    "quote": "no commit to the default branch since 2024-12-10"
+   }
+  ],
+  "open_source": []
+ },
+ "react": {
+  "name": "React",
+  "repo": "facebook/react",
+  "first_commit": "2013-05-29",
+  "last_commit": "2026-10-15",
+  "commits": 3699,
+  "maintained": [],
+  "open_source": []
+ },
+ "react-bootstrap": {
+  "name": "React-Bootstrap",
+  "repo": "react-bootstrap/react-bootstrap",
+  "first_commit": "2013-12-27",
+  "last_commit": "2026-04-26",
+  "commits": 1365,
+  "maintained": [],
+  "open_source": []
+ },
+ "reactstrap": {
+  "name": "Reactstrap",
+  "repo": "reactstrap/reactstrap",
+  "first_commit": "2016-02-19",
+  "last_commit": "2024-09-26",
+  "commits": 486,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2025-09-26",
+    "quote": "no commit to the default branch since 2024-09-26"
+   }
+  ],
+  "open_source": []
+ },
+ "redis": {
+  "name": "Redis",
+  "repo": "redis/redis",
+  "first_commit": "2009-03-22",
+  "last_commit": "2026-10-17",
+  "commits": 3588,
+  "maintained": [],
+  "open_source": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2024-03-20",
+    "quote": "Redis moves from BSD to RSALv2 / SSPLv1",
+    "source": "https://redis.io/blog/redis-adopts-dual-source-available-licensing/"
+   },
+   {
+    "rel": "SUPPORTS",
+    "at": "2025-05-01",
+    "quote": "Redis 8 adds AGPLv3 as a license option",
+    "source": "https://redis.io/blog/agplv3/"
+   }
+  ]
+ },
+ "redux": {
+  "name": "Redux",
+  "repo": "reduxjs/redux",
+  "first_commit": "2015-05-30",
+  "last_commit": "2026-09-29",
+  "commits": 1261,
+  "maintained": [],
+  "open_source": []
+ },
+ "rhf": {
+  "name": "React Hook Form",
+  "repo": "react-hook-form/react-hook-form",
+  "first_commit": "2019-03-06",
+  "last_commit": "2026-10-17",
+  "commits": 1469,
+  "maintained": [],
+  "open_source": []
+ },
+ "rspec": {
+  "name": "RSpec",
+  "repo": "rspec/rspec",
+  "first_commit": "2009-06-29",
+  "last_commit": "2026-10-12",
+  "commits": 2481,
+  "maintained": [],
+  "open_source": []
+ },
+ "rtl": {
+  "name": "React Testing Library",
+  "repo": "testing-library/react-testing-library",
+  "first_commit": "2018-03-19",
+  "last_commit": "2026-08-27",
+  "commits": 299,
+  "maintained": [],
+  "open_source": []
+ },
+ "spire": {
+  "name": "SPIFFE/SPIRE",
+  "repo": "spiffe/spire",
+  "first_commit": "2017-03-23",
+  "last_commit": "2026-10-17",
+  "commits": 1976,
+  "maintained": [],
+  "open_source": []
+ },
+ "sqlx": {
+  "name": "sqlx",
+  "repo": "jmoiron/sqlx",
+  "first_commit": "2013-01-28",
+  "last_commit": "2024-05-30",
+  "commits": 252,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2023-04-16",
+    "quote": "no commit to the default branch since 2022-04-16"
+   },
+   {
+    "rel": "SUPPORTS",
+    "at": "2024-04-15",
+    "quote": "commits resume on 2024-04-15 after a gap since 2022-04-16"
+   },
+   {
+    "rel": "CONTRADICTS",
+    "at": "2025-05-30",
+    "quote": "no commit to the default branch since 2024-05-30"
+   }
+  ],
+  "open_source": []
+ },
+ "style-dictionary": {
+  "name": "Style Dictionary",
+  "repo": "amzn/style-dictionary",
+  "first_commit": "2016-10-17",
+  "last_commit": "2026-10-16",
+  "commits": 351,
+  "maintained": [],
+  "open_source": []
+ },
+ "terraform": {
+  "name": "Terraform",
+  "repo": "hashicorp/terraform",
+  "first_commit": "2014-05-21",
+  "last_commit": "2026-10-16",
+  "commits": 3305,
+  "maintained": [],
+  "open_source": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2023-08-10",
+    "quote": "HashiCorp moves Terraform to the Business Source License",
+    "source": "https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license"
+   }
+  ]
+ },
+ "terratest": {
+  "name": "Terratest",
+  "repo": "gruntwork-io/terratest",
+  "first_commit": "2016-03-04",
+  "last_commit": "2026-10-17",
+  "commits": 1145,
+  "maintained": [],
+  "open_source": []
+ },
+ "testify": {
+  "name": "Testify",
+  "repo": "stretchr/testify",
+  "first_commit": "2012-10-16",
+  "last_commit": "2026-09-24",
+  "commits": 527,
+  "maintained": [],
+  "open_source": []
+ },
+ "tf-aws-eks": {
+  "name": "terraform-aws-eks module",
+  "repo": "terraform-aws-modules/terraform-aws-eks",
+  "first_commit": "2018-06-06",
+  "last_commit": "2026-10-08",
+  "commits": 513,
+  "maintained": [],
+  "open_source": []
+ },
+ "toastui": {
+  "name": "TOAST UI Editor",
+  "repo": "nhn/tui.editor",
+  "first_commit": "2020-09-22",
+  "last_commit": "2023-02-17",
+  "commits": 128,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2024-02-17",
+    "quote": "no commit to the default branch since 2023-02-17"
+   }
+  ],
+  "open_source": []
+ },
+ "traefik": {
+  "name": "Traefik",
+  "repo": "traefik/traefik",
+  "first_commit": "2015-08-28",
+  "last_commit": "2026-10-15",
+  "commits": 2022,
+  "maintained": [],
+  "open_source": []
+ },
+ "vite": {
+  "name": "Vite",
+  "repo": "vitejs/vite",
+  "first_commit": "2020-04-20",
+  "last_commit": "2026-10-16",
+  "commits": 1758,
+  "maintained": [],
+  "open_source": []
+ },
+ "vue": {
+  "name": "Vue.js 2",
+  "repo": "vuejs/vue",
+  "first_commit": "2016-04-10",
+  "last_commit": "2024-10-10",
+  "commits": 754,
+  "maintained": [
+   {
+    "rel": "CONTRADICTS",
+    "at": "2025-10-10",
+    "quote": "no commit to the default branch since 2024-10-10"
+   }
+  ],
+  "open_source": []
+ },
+ "waffle": {
+  "name": "django-waffle",
+  "repo": "django-waffle/django-waffle",
+  "first_commit": "2011-01-23",
+  "last_commit": "2026-06-06",
+  "commits": 231,
+  "maintained": [],
+  "open_source": []
+ }
+}

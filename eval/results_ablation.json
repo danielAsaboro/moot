@@ -1,0 +1,742 @@
+{
+ "as_of": "2026-10-16",
+ "seeds": 20,
+ "n_block": 20,
+ "n_stale": 16,
+ "n_hold": 10,
+ "contradicts": 14,
+ "reason_edges": 36,
+ "arms": {
+  "delete_contradicts": [
+   {
+    "level": 0,
+    "current": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 6,
+      "min": 6,
+      "max": 6
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "legacy": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "n": 1
+   },
+   {
+    "level": 0.25,
+    "current": {
+     "false_allows": {
+      "mean": 0.55,
+      "min": 0,
+      "max": 2
+     },
+     "stale_allowed": {
+      "mean": 0.55,
+      "min": 0,
+      "max": 2
+     },
+     "false_blocks": {
+      "mean": 6,
+      "min": 6,
+      "max": 6
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "legacy": {
+     "false_allows": {
+      "mean": 3.35,
+      "min": 1,
+      "max": 5
+     },
+     "stale_allowed": {
+      "mean": 3.35,
+      "min": 1,
+      "max": 5
+     },
+     "false_blocks": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "n": 20
+   },
+   {
+    "level": 0.5,
+    "current": {
+     "false_allows": {
+      "mean": 0.95,
+      "min": 0,
+      "max": 2
+     },
+     "stale_allowed": {
+      "mean": 0.95,
+      "min": 0,
+      "max": 2
+     },
+     "false_blocks": {
+      "mean": 6,
+      "min": 6,
+      "max": 6
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "legacy": {
+     "false_allows": {
+      "mean": 6.35,
+      "min": 4,
+      "max": 8
+     },
+     "stale_allowed": {
+      "mean": 6.35,
+      "min": 4,
+      "max": 8
+     },
+     "false_blocks": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "n": 20
+   },
+   {
+    "level": 0.75,
+    "current": {
+     "false_allows": {
+      "mean": 1.45,
+      "min": 0,
+      "max": 2
+     },
+     "stale_allowed": {
+      "mean": 1.45,
+      "min": 0,
+      "max": 2
+     },
+     "false_blocks": {
+      "mean": 6,
+      "min": 6,
+      "max": 6
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "legacy": {
+     "false_allows": {
+      "mean": 8.6,
+      "min": 7,
+      "max": 10
+     },
+     "stale_allowed": {
+      "mean": 8.6,
+      "min": 7,
+      "max": 10
+     },
+     "false_blocks": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "n": 20
+   },
+   {
+    "level": 1,
+    "current": {
+     "false_allows": {
+      "mean": 2,
+      "min": 2,
+      "max": 2
+     },
+     "stale_allowed": {
+      "mean": 2,
+      "min": 2,
+      "max": 2
+     },
+     "false_blocks": {
+      "mean": 6,
+      "min": 6,
+      "max": 6
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "legacy": {
+     "false_allows": {
+      "mean": 12,
+      "min": 12,
+      "max": 12
+     },
+     "stale_allowed": {
+      "mean": 12,
+      "min": 12,
+      "max": 12
+     },
+     "false_blocks": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "n": 1
+   }
+  ],
+  "delete_reasons": [
+   {
+    "level": 0,
+    "current": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 6,
+      "min": 6,
+      "max": 6
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "legacy": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "n": 1
+   },
+   {
+    "level": 0.25,
+    "current": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 5.75,
+      "min": 3,
+      "max": 8
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "legacy": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 2.35,
+      "min": 0,
+      "max": 4
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "n": 20
+   },
+   {
+    "level": 0.5,
+    "current": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 7.2,
+      "min": 4,
+      "max": 10
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "legacy": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 5.6,
+      "min": 3,
+      "max": 8
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "n": 20
+   },
+   {
+    "level": 0.75,
+    "current": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 8.1,
+      "min": 6,
+      "max": 9
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "legacy": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 7.65,
+      "min": 6,
+      "max": 9
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "n": 20
+   },
+   {
+    "level": 1,
+    "current": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 10,
+      "min": 10,
+      "max": 10
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "legacy": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 10,
+      "min": 10,
+      "max": 10
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "n": 1
+   }
+  ],
+  "add_contradicts": [
+   {
+    "level": 0,
+    "added": 0,
+    "current": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 6,
+      "min": 6,
+      "max": 6
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "legacy": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "holds_denied": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     }
+    },
+    "n": 1
+   },
+   {
+    "level": 0.25,
+    "added": 4,
+    "current": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 6.55,
+      "min": 6,
+      "max": 8
+     },
+     "holds_denied": {
+      "mean": 1.55,
+      "min": 0,
+      "max": 5
+     }
+    },
+    "legacy": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 2.05,
+      "min": 0,
+      "max": 6
+     },
+     "holds_denied": {
+      "mean": 1.55,
+      "min": 0,
+      "max": 5
+     }
+    },
+    "n": 20
+   },
+   {
+    "level": 0.5,
+    "added": 7,
+    "current": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 7.15,
+      "min": 6,
+      "max": 10
+     },
+     "holds_denied": {
+      "mean": 2.65,
+      "min": 0,
+      "max": 6
+     }
+    },
+    "legacy": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 3.6,
+      "min": 0,
+      "max": 7
+     },
+     "holds_denied": {
+      "mean": 2.65,
+      "min": 0,
+      "max": 6
+     }
+    },
+    "n": 20
+   },
+   {
+    "level": 1,
+    "added": 14,
+    "current": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 7.4,
+      "min": 6,
+      "max": 9
+     },
+     "holds_denied": {
+      "mean": 4,
+      "min": 0,
+      "max": 7
+     }
+    },
+    "legacy": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 5,
+      "min": 1,
+      "max": 8
+     },
+     "holds_denied": {
+      "mean": 4,
+      "min": 0,
+      "max": 7
+     }
+    },
+    "n": 20
+   },
+   {
+    "level": 2,
+    "added": 28,
+    "current": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 8.7,
+      "min": 7,
+      "max": 10
+     },
+     "holds_denied": {
+      "mean": 5.65,
+      "min": 2,
+      "max": 8
+     }
+    },
+    "legacy": {
+     "false_allows": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "stale_allowed": {
+      "mean": 0,
+      "min": 0,
+      "max": 0
+     },
+     "false_blocks": {
+      "mean": 7.7,
+      "min": 4,
+      "max": 10
+     },
+     "holds_denied": {
+      "mean": 5.65,
+      "min": 2,
+      "max": 8
+     }
+    },
+    "n": 20
+   }
+  ]
+ }
+}

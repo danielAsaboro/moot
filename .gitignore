@@ -12,3 +12,5 @@ node_modules/
 .DS_Store
 hackathon/
 data/realworld/.cache/
+data/backtest/.repos
+data/backtest/.tools

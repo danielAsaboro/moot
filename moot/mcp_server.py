@@ -75,6 +75,25 @@ def check_action(decision_id: str, as_of: str | None = None, public_adrs: bool =
 
 
 @mcp.tool()
+def record_ruling(decision_id: str, premise_id: str, holds: bool, as_of: str, by: str | None = None, note: str = "") -> str:
+    """Record an owner's ruling on a reason check_action could not vouch for (disputed, unchecked or unevidenced): holds=true
+    if it still holds. Writes a dated edge the next audit cites, so the gate stops asking until newer evidence lands.
+    Call only after the user approves."""
+    return json.dumps(tools.write_ruling(graph(), decision_id, premise_id, holds, as_of, by, note), default=str)
+
+
+@mcp.tool()
+def evidence_packet(decision_id: str, as_of: str | None = None, markdown: bool = False, public_adrs: bool = False) -> str:
+    """Everything behind one verdict, to hand to a reviewer: gate, reasons, receipts with quotes and dates, rulings,
+    re-open memo, caveats, synthetic-data flag and snapshot digests. markdown=true returns it as a Markdown document."""
+    from .graph import PUBLIC_GRAPH
+    pk = tools.evidence_packet(graph(PUBLIC_GRAPH) if public_adrs else graph(), decision_id, as_of)
+    if markdown and pk.get("found"):
+        return tools.packet_markdown(pk)
+    return json.dumps(pk, default=str)
+
+
+@mcp.tool()
 def orphaned_decisions(as_of: str | None = None) -> str:
     """Live decisions whose owner has left, grouped by who left, each with its reasons, verdict and the suggested new owner (first active person up the reporting line)."""
     return json.dumps(tools.orphans(graph(), as_of), default=str)

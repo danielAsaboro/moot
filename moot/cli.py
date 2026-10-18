@@ -1,4 +1,4 @@
-"""moot: seed | stats | ask | audit | ledger | serve | mcp | generate | extract | eval"""
+"""moot: seed | stats | ask | audit | ledger | packet | verify | serve | mcp | generate | extract | eval"""
 from __future__ import annotations
 
 import argparse
@@ -15,6 +15,9 @@ def main(argv=None):
     sub.add_parser("stats")
     a = sub.add_parser("ask"); a.add_argument("question"); a.add_argument("--as-of"); a.add_argument("--depth", type=int, default=4)
     b = sub.add_parser("audit"); b.add_argument("decision_id"); b.add_argument("--as-of"); b.add_argument("--depth", type=int, default=4)
+    k = sub.add_parser("packet", help="the evidence packet behind one verdict (Markdown or JSON)"); k.add_argument("decision_id"); k.add_argument("--as-of"); k.add_argument("--json", action="store_true")
+    vf = sub.add_parser("verify", help="check every headline number in README.md and eval/results*.md against the eval JSON; non-zero on drift")
+    vf.add_argument("--rerun", action="store_true", help="first re-run the deterministic evals from committed inputs (needs FalkorDB)")
     l = sub.add_parser("ledger"); l.add_argument("--as-of"); l.add_argument("--depth", type=int, default=4)
     v = sub.add_parser("serve"); v.add_argument("--port", type=int, default=None)
     sub.add_parser("mcp", help="run the read-only MCP server on stdio")
@@ -26,6 +29,8 @@ def main(argv=None):
         from .corpus.generate import main as gen; gen(); return
     if args.cmd == "build":
         from .ingest.build_graph import main as build; build(); return
+    if args.cmd == "verify":
+        from .verify import main as verify; return verify(rerun=args.rerun)
     if args.cmd == "realworld":
         from .realworld.check import main as rw; rw(); return
     from .graph import graph, seed, stats
@@ -48,6 +53,11 @@ def main(argv=None):
         return
     if args.cmd == "audit":
         print(json.dumps(tools.audit_decision(graph(), args.decision_id, args.as_of, args.depth), indent=1)); return
+    if args.cmd == "packet":
+        pk = tools.evidence_packet(graph(), args.decision_id, args.as_of)
+        if not pk["found"]:
+            print(f"{args.decision_id} is not in the graph"); return 1
+        print(json.dumps(pk, indent=1, default=str) if args.json else tools.packet_markdown(pk)); return
     if args.cmd == "ledger":
         for r in tools.ledger(graph(), args.as_of, args.depth):
             print(f"{r['verdict']:<13} {r['id']}  {r['title']}  (owner: {r['owner']}{'' if r['owner_active'] else ', left'})")

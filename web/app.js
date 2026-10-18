@@ -249,6 +249,17 @@ function renderDecision(data, ask) {
       openDecision(d.id); loadWatch();
     } catch (e) { toast(e.message); ro.disabled = false; }
   });
+  document.querySelectorAll("[data-rule]").forEach(b => b.addEventListener("click", async () => {
+    b.disabled = true;
+    const holds = b.dataset.holds === "1";
+    try {
+      const r = await api("/api/ruling", { method: "POST", headers: { "content-type": "application/json" },
+        body: JSON.stringify({ decision_id: d.id, premise_id: b.dataset.rule, holds, as_of: data.gate.as_of,
+          by: a.owner && a.owner.active ? a.owner.id : null, note: "ruled in UI" }) });
+      toast(`Ruling recorded for ${b.dataset.rule}: gate is now ${r.gate}`);
+      openDecision(d.id);
+    } catch (e) { toast(e.message); b.disabled = false; }
+  }));
   const ap = $("#approve");
   if (ap) ap.addEventListener("click", async () => {
     ap.disabled = true;
@@ -263,6 +274,7 @@ function renderDecision(data, ask) {
 }
 
 /* ---------- validity gate: may an agent act on this decision? ---------- */
+const RULABLE = new Set(["premise_disputed", "premise_unchecked", "premise_unevidenced"]);
 // What a REVALIDATE asks for depends on why the graph cannot vouch for the decision.
 const REVALIDATE_ASK = {
   undocumented: "record a reason before anyone acts on it",
@@ -287,9 +299,13 @@ function gateHtml(gt) {
   const ev = (text, id) => id ? esc(text).replace(esc(id), `<span class="id link" data-trace="${esc(id)}" title="What else does this document reach?">${esc(id)}</span>`) : esc(text);
   const why = gt.allowed
     ? gt.basis.map(b => `<div class="muted">“${esc(b.text)}” holds${b.evidence ? ` · latest support <span class="id link" data-trace="${esc(b.evidence)}">${esc(b.evidence)}</span> on ${esc(b.at)}` : " · stated in the ADR, nothing contradicts it"}${hops(b.path)}</div>`).join("")
-    : gt.reasons.map(r => `<div class="muted">${ev(r.text, r.evidence)}${hops(r.path)}</div>`).join("");
+    : gt.reasons.map(r => `<div class="muted">${ev(r.text, r.evidence)}${hops(r.path)}</div>${RULABLE.has(r.code) && r.premise
+        ? `<div class="row"><span class="muted">Owner rules on “${esc(r.premise)}”:</span><button class="ghost" data-rule="${esc(r.premise)}" data-holds="1">still holds</button><button class="ghost" data-rule="${esc(r.premise)}" data-holds="0">no longer holds</button><span class="muted">writes a dated edge the next audit cites</span></div>` : ""}`).join("");
+  const sn = gt.snapshot || {};
+  const pk = `/api/packet/${encodeURIComponent(gt.decision_id)}?as_of=${encodeURIComponent(gt.as_of)}`;
   return `<div class="gate"><div class="row"><span class="muted">Agent gate</span>${gateBadge(gt)}
-    <span class="muted">${esc(gateSummary(gt))} · audited at depth ${gt.depth} · <code>GET /api/gate/${esc(gt.decision_id)}</code></span></div>${why}</div>`;
+    <span class="muted">${esc(gateSummary(gt))} · audited at depth ${gt.depth} · <code>GET /api/gate/${esc(gt.decision_id)}</code></span></div>${why}
+    <div class="row"><span class="muted">snapshot <code>${esc(sn.graph || "")}</code> as of ${esc(gt.as_of)} · digest <code>${esc(sn.digest || "")}</code></span><a class="ghost" href="${pk}&format=md" download>Download evidence packet</a></div></div>`;
 }
 
 /* ---------- re-open memo ---------- */
