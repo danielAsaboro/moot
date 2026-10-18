@@ -42,6 +42,8 @@ if snapshot.enabled():
         hit = _SNAP.get(snapshot.key(request.method, path, request.url.query, body))
         if hit:
             return Response(hit["body"], status_code=hit["status"], media_type=hit["type"])
+        if path == "/api/search":
+            return JSONResponse([])  # type-ahead hints only; the Ask answer itself says when it is outside the snapshot
         if request.method == "GET" and path.startswith("/api/document/"):
             return await call_next(request)  # read from data/corpus, no graph needed
         return JSONResponse({"detail": snapshot.READ_ONLY}, status_code=503)

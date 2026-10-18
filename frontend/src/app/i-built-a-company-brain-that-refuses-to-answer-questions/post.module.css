@@ -1,0 +1,20 @@
+.bar { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--paper) 85%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--rule); }
+.barInner { max-width: var(--maxw); margin: 0 auto; padding: 12px var(--gutter-r) 12px var(--gutter); display: flex; align-items: center; justify-content: space-between; }
+.barRight { display: flex; align-items: center; gap: 12px; }
+.cta { background: var(--ink); color: var(--paper); border-radius: var(--r-pill); padding: 7px 14px; font: 500 14px/1 var(--font-sans); text-decoration: none; }
+
+.page { background: var(--paper); color: var(--ink); padding: 56px var(--gutter-r) 96px var(--gutter); }
+.prose { max-width: 680px; margin: 0 auto; font: 400 19px/1.65 var(--font-display); overflow-wrap: break-word; }
+.prose h1 { font: 500 clamp(34px, 6vw, 52px)/1.1 var(--font-display); letter-spacing: -0.01em; margin: 0 0 20px; }
+.prose h2 { font: 600 27px/1.25 var(--font-display); margin: 48px 0 12px; }
+.prose h3 { font: 600 21px/1.3 var(--font-display); margin: 32px 0 8px; }
+.prose p, .prose ul, .prose ol, .prose blockquote, .prose pre { margin: 0 0 20px; }
+.prose ul, .prose ol { padding-left: 1.3em; }
+.prose li { margin-bottom: 8px; }
+.prose a { color: var(--accent); }
+.prose em { color: var(--ink-2); }
+.prose blockquote { border-left: 3px solid var(--accent); padding: 4px 0 4px 18px; color: var(--ink-2); }
+.prose blockquote p { margin: 0; }
+.prose code { font: 0.82em/1.4 var(--font-mono); background: var(--chip); border-radius: 6px; padding: 1px 5px; }
+.prose pre { background: var(--paper-3); border: 1px solid var(--rule); border-radius: var(--r-sm); padding: 16px 18px; overflow-x: auto; }
+.prose pre code { background: none; padding: 0; font-size: 14px; line-height: 1.55; white-space: pre; }
