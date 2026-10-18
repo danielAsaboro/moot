@@ -84,8 +84,8 @@ def evidence_docs(tools: set[str], t0: str) -> dict[str, list[dict]]:
     return out
 
 
-def main() -> None:
-    gold = json.loads(GOLD.read_text())
+def main(gold_path: Path = GOLD, out: Path = OUT) -> None:
+    gold = json.loads(gold_path.read_text())
     t0 = gold["t0"]
     ev = merged()
     tools = {t for u in gold["units"] for t in u["tools"]}
@@ -114,8 +114,8 @@ def main() -> None:
             info["osv"], info["osv_error"] = [], str(ex)[:120]
     payload = dict(t0=t0, gold_sha256=gold["sha256"], units=units, tools=tool_info, evidence=evidence_docs(tools, t0),
                    repos={k: dict(rev=v["rev"], adrs=v["adrs"]) for k, v in repos.items()})
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(payload, indent=1) + "\n")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(payload, indent=1) + "\n")
     print(f"{len(units)} units, {sum(1 for u in units if not u['adr'])} without their ADR text on T0, {len(tools)} tools, "
           f"{sum(len(v) for v in payload['evidence'].values())} evidence documents dated by {t0}")
 

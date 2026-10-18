@@ -198,10 +198,15 @@ def mine_new() -> None:
 
 
 def tag_new() -> None:
-    """Which tool each new ADR's title picks (catalogue + EXTRA_TOOLS, minus tools it drops), and the deaths a later ADR's title
-    implies, as the backtest does with NOT_PICKED -> data/heldout/new_decisions.json."""
+    """data/heldout/new_raw.json -> data/heldout/new_decisions.json (see tag)."""
+    (DATA / "new_decisions.json").write_text(json.dumps(tag(json.loads((DATA / "new_raw.json").read_text())), indent=1) + "\n")
+
+
+def tag(raw: list[dict]) -> list[dict]:
+    """Which tool each ADR's title picks (catalogue + EXTRA_TOOLS, minus tools it drops), and the deaths a later ADR's title
+    implies, as the backtest does with NOT_PICKED."""
     out = []
-    for d in json.loads((DATA / "new_raw.json").read_text()):
+    for d in raw:
         named = {t for t, (_, rx, _) in TOOLS.items() if re.search(rx, d["title"], re.I)}
         drop = {t for t in named if re.search(DROPPING + "(?:" + TOOLS[t][1] + ")", d["title"], re.I)}
         drop |= set().union(*[v for rx, v in NOT_PICKED.items() if re.search(rx, d["title"], re.I)]) & named
@@ -213,7 +218,7 @@ def tag_new() -> None:
                 if later["repo"] == d["repo"] and later["born"] > d["born"] and t in later["dropped"] \
                         and (not d["death"] or later["born"] < d["death"]["date"]):
                     d["death"] = dict(date=later["born"], kind="replaced", quote=later["title"], commit=None, path=later["path"])
-    (DATA / "new_decisions.json").write_text(json.dumps(sorted(out, key=lambda d: d["id"]), indent=1) + "\n")
+    return sorted(out, key=lambda d: d["id"])
 
 
 def units() -> list[dict]:

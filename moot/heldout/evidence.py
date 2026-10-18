@@ -22,9 +22,9 @@ def merged() -> dict[str, dict]:
     """The backtest's evidence plus the extra tools'."""
     from .gold import ROOT
     ev = json.loads((ROOT / "data" / "backtest" / "evidence.json").read_text())
-    f = DATA / "evidence_extra.json"
-    if f.exists():
-        ev.update(json.loads(f.read_text()))
+    for f in (DATA / "evidence_extra.json", ROOT / "data" / "h2" / "evidence.json"):
+        if f.exists():
+            ev.update({k: v for k, v in json.loads(f.read_text()).items() if k not in ev})
     return ev
 
 

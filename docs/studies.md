@@ -103,6 +103,18 @@ Each study below states its hypothesis, data, metric and script before its first
 - **Predictions:** Moot (warn) catches few deaths (outside evidence rarely precedes a team's own change) and its balanced accuracy lands near 0.5, like the majority class; the age rule has the highest recall and the lowest precision; no arm's balanced accuracy is separated from Moot's by its interval.
 - **Scripts:** `python3 -m moot.heldout.h2` (mine, label, split, hash) and `python3 eval/eval_heldout.py --study h2` → `eval/results_h2.md` and `.json`.
 
+## K1. Questions about a real organisation, where the graph should matter
+
+- **Written:** 2026-10-21 09:20 UTC, before the questions, the gold or any arm existed.
+- **Question:** asked things a company brain should answer about Kubernetes as an organisation, does an agent answer more of them right with Moot's graph tools than with file and git tools over the same checkout, or with retrieval?
+- **Questions (60, templated, 15 per template, KEPs drawn by sha256 from SIG Auth and SIG Node):** (1) which KEP replaced KEP-X and when? (2) who led the SIG that answers for KEP-X on date D? (3) was KEP-X in force on date D, and if not, what retired it? (4) who wrote KEP-X, and are they a SIG lead today? Dates D are drawn by sha256 from 2019-01-01 to 2026-10-01.
+- **Gold:** computed by `moot/k1.py` from the raw git history of `kubernetes/enhancements` (each kep.yaml's status over time, `replaces` / `superseded-by`) and `kubernetes/community` (sigs.yaml at the commit before D), with its own parsing. **Shared-source caveat:** Moot's graph is built deterministically from the same files, so a deterministic graph answer is close to the gold by construction (it is reported, labelled so); the comparison that matters is between agents given the same model and different tools. Where the graph dates leadership to the quarter and the gold to the day, the graph can be wrong, and that is scored.
+- **Split and freeze:** 30% dev by sha256 of the question, the rest test; questions and gold hashed and committed before any arm runs; prompts tuned on dev only; the test split runs once.
+- **Arms (same local model, qwen3.8:27b through Ollama, temperature 0):** an agent with Moot's read-only graph tools; an agent with file tools over the same checkouts (list, read, grep, git log, git show at a revision); BM25 RAG over the checkouts' files at HEAD; and, for reference, Moot answering each template with one fixed tool call and no model.
+- **Metrics:** exact match per question (sets compared as sets, dates to the day) with Wilson intervals, per template and overall; tokens, seconds per question.
+- **Predictions:** the graph-tool agent beats the file-tool agent overall, most on templates 2 and 3 (dates and leadership over time), and both beat RAG, which cannot see history; the deterministic graph answer is near the gold except on template 2 near quarter boundaries.
+- **Script:** `python3 -m moot.k1` (questions, gold, split, hash), `python3 eval/eval_k1.py --llm` → `eval/results_k1.md` and `.json`.
+
 ## Registered after the fact
 
 - **Backtest** (`eval/results_backtest.md`). The answer key (maintainers' own status changes) was fixed by code before the gate ran, but this file did not exist then, so the order rests on the results file's own account. Its gate was replayed before the empty-evidence fix; its score counts DENY only, which the fix does not touch (the fix turns some ALLOWs into REVALIDATE).
