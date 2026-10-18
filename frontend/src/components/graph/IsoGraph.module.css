@@ -1,0 +1,124 @@
+/* Isometric drawing, calm frame. The drawing's own colours are --iso-* (read by the 3D scene too): paper and ink in
+   light, the deep ink-blue blueprint in dark. useTokens reads the same names. A night ground (ground="night", or an ancestor with
+   data-ground="night") switches them, and the chrome around the drawing, to the dark band's palette in either theme. */
+.fig {
+  --iso-ground: var(--blueprint); --iso-line: var(--blueprint-line); --iso-muted: var(--ink-3);
+  --iso-accent: var(--accent); --iso-holds: var(--holds); --iso-disputed: var(--disputed);
+  margin: 0; container-type: inline-size; min-width: 0; display: grid; gap: 12px;
+}
+
+.night, :global([data-ground="night"]) .fig {
+  --iso-ground: var(--night); --iso-line: var(--night-label-2);
+  --iso-muted: color-mix(in srgb, var(--night-label-2) 58%, var(--night));
+  --iso-accent: color-mix(in srgb, var(--accent) 70%, var(--night-label));
+  --iso-holds: color-mix(in srgb, var(--holds-ink) 55%, var(--night-label));
+  --iso-disputed: color-mix(in srgb, var(--disputed-ink) 60%, var(--night-label));
+  /* chrome on the dark band */
+  --surface: var(--night-2); --surface-2: color-mix(in srgb, var(--night-label) 7%, var(--night-2));
+  --fill: color-mix(in srgb, var(--night-label) 13%, var(--night));
+  --separator: color-mix(in srgb, var(--night-label) 12%, var(--night-2));
+  --label: var(--night-label); --label-2: var(--night-label-2); --label-3: color-mix(in srgb, var(--night-label-2) 62%, var(--night));
+  --ink: var(--night-label); --ink-2: var(--night-label-2);
+  color: var(--label);
+}
+
+/* controls */
+.bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; }
+.tools { display: flex; align-items: center; gap: 6px; }
+.icon { width: 34px; height: 34px; padding: 0; font-size: 18px; line-height: 1; }
+
+.body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+@container (min-width: 560px) and (max-width: 819px) {
+  .side { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 16px; }
+  .side .detailWrap { grid-column: 1 / -1; grid-row: 2; }
+}
+@container (min-width: 820px) { .body { grid-template-columns: minmax(0, 1fr) 300px; } }
+
+/* the sheet */
+.stage { position: relative; min-width: 0; overflow: hidden; user-select: none; -webkit-user-select: none;
+  border-radius: var(--r-card); background: var(--iso-ground); color: var(--iso-line); }
+.canvas { position: absolute; inset: 0; }
+.canvas.hidden { visibility: hidden; }
+.retired .canvas, .retired .overlay { opacity: .5; }
+
+.fallback { position: absolute; inset: 0; overflow: auto; user-select: text; -webkit-user-select: text; padding: 64px 20px 48px;
+  background: var(--surface); color: var(--label); display: grid; align-content: start; gap: 12px; }
+.loadbar { width: 160px; }
+.chains { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.chains li { min-width: 0; }
+.chainHead { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--label-2); }
+
+/* callouts */
+.overlay { position: absolute; inset: 0; pointer-events: none; }
+.leaders { position: absolute; inset: 0; overflow: visible; }
+.leaders polyline { fill: none; stroke: var(--iso-line); stroke-width: 1; opacity: .55; }
+.leaders circle { fill: var(--iso-line); }
+.leaders .faded, .callout.faded { opacity: .3; }
+.callout { position: absolute; display: flex; align-items: center; gap: 8px; pointer-events: auto; cursor: default; min-height: 22px; }
+.callout.left { flex-direction: row-reverse; text-align: right; }
+.ctext { display: grid; min-width: 0; padding: 2px 6px; background: color-mix(in srgb, var(--iso-ground) 84%, transparent); border-radius: 6px; }
+.cl1 { font-size: 12.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.35; }
+.cid { font-family: var(--font-mono); font-size: 11.5px; font-weight: 400; }
+.cl2 { font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: .78; line-height: 1.35; }
+.num { flex: none; width: 22px; height: 22px; border-radius: 50%; display: inline-grid; place-items: center;
+  font-size: 12px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums;
+  background: var(--iso-ground); color: var(--iso-line); box-shadow: 0 0 0 1px currentColor inset; }
+.numD { flex: none; font-family: var(--font-mono); font-size: 11.5px; padding: 2px 7px; border-radius: var(--r-pill);
+  background: var(--iso-ground); color: var(--iso-line); box-shadow: 0 0 0 1px currentColor inset; }
+.ringLabel { position: absolute; font-size: 12px; opacity: .55; white-space: nowrap; }
+
+.tAccent { color: var(--iso-accent); }
+.tHolds { color: var(--iso-holds); }
+.tDisputed { color: var(--iso-disputed); }
+.tMuted { opacity: .8; }
+
+/* corner furniture */
+.stamp { position: absolute; top: 14px; right: 14px; display: grid; justify-items: end; gap: 4px; padding: 8px 10px;
+  border-radius: var(--r-group); background: color-mix(in srgb, var(--iso-ground) 88%, transparent); }
+@container (max-width: 559px) { .stamp { top: auto; right: auto; bottom: 12px; left: 12px; justify-items: start; } }
+.stampRow { display: inline-flex; align-items: center; gap: 8px; }
+.stampLabel { font-size: 13px; opacity: .75; }
+.digest { font-size: 12px; opacity: .65; }
+.notes { position: absolute; left: 14px; bottom: 14px; right: 14px; display: grid; gap: 4px; pointer-events: none; }
+.notes p { margin: 0; justify-self: start; font-size: 13px; padding: 4px 10px; border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--iso-line) 10%, var(--iso-ground)); }
+.orbitHint { position: absolute; right: 16px; bottom: 12px; font-size: 12px; opacity: .5; pointer-events: none; }
+
+/* parts list, detail and line styles */
+.side { display: grid; align-content: start; gap: 18px; min-width: 0; }
+.partRow { position: relative; }
+.partRow + .partRow::before { content: ""; position: absolute; top: 0; left: 50px; right: 0; border-top: 1px solid var(--separator); z-index: 1; }
+.partRow > :first-child { padding-top: 9px; padding-bottom: 9px; }
+.partRow > :first-child > span > span:first-child { font-size: 15px; }
+.partRow > :first-child > span > span + span { font-size: 13px; }
+.partOn > :first-child { background: color-mix(in srgb, var(--fill) 55%, transparent); }
+.side .num { background: var(--fill); color: var(--label); box-shadow: none; }
+.module { flex: none; fill: none; stroke: var(--label-2); stroke-width: 1.3; stroke-linejoin: round; }
+
+.detailWrap { min-height: 44px; padding: 0 4px; }
+.detailWrap > p { margin: 0; }
+.detail { display: grid; gap: 6px; }
+.detail p { margin: 0; }
+.dtext { font-size: 15px; line-height: 1.4; }
+.quote { margin: 0; padding: 10px 12px; border-radius: var(--r-sm); background: var(--surface-2); color: var(--label-2); font-size: 14px; line-height: 1.45; }
+.quote footer { margin-top: 4px; font-size: 12px; color: var(--label-3); }
+
+.styleRow { display: flex; align-items: center; gap: 12px; padding: 9px 16px; font-size: 14px; color: var(--label-2); position: relative; }
+.styleRow + .styleRow::before { content: ""; position: absolute; top: 0; left: 64px; right: 0; border-top: 1px solid var(--separator); }
+.sw { flex: none; fill: none; stroke-width: 1.5; }
+.swInk { stroke: var(--label); }
+.swAccent { stroke: var(--iso-accent); }
+.swDisputed { stroke: var(--iso-disputed); }
+.swMuted { stroke: var(--label-3); }
+.swHolds { stroke: var(--iso-holds); }
+
+/* preview: the framed hero on the decision page. Radius comes from the parent frame. */
+.previewFig { position: relative; display: block; border-radius: inherit; }
+.previewStage { border-radius: inherit; }
+.previewStage .canvas, .previewStage .overlay, .previewStage .callout { pointer-events: none; }
+.previewFallback { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 10px; padding: 16px;
+  background: var(--surface); color: var(--label); user-select: text; -webkit-user-select: text; }
+.expand { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background: transparent; cursor: pointer;
+  border-radius: inherit; }
+.expand:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.previewFig:hover .previewStage { box-shadow: 0 0 0 1px color-mix(in srgb, var(--iso-line) 14%, transparent) inset; }

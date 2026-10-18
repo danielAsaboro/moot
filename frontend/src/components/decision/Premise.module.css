@@ -1,0 +1,45 @@
+/* "Why it was made": reasons as expandable rows inside a Group. Same metrics as the shared Row (11/16 padding,
+   17px title, 15px grey subtitle, inset hairline), plus aria-expanded and an inline detail. */
+.item { --indent: 16px; position: relative; min-width: 0; }
+.inset { --indent: 36px; }
+.item + .item::before { content: ""; position: absolute; top: 0; left: var(--indent); right: 0; border-top: 1px solid var(--separator); }
+
+.row { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 44px; padding: 11px 16px 11px var(--indent);
+  border: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.row:hover { background: color-mix(in srgb, var(--fill) 45%, transparent); }
+.row:focus-visible { outline-offset: -2px; border-radius: var(--r-group); }
+.main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.title { font-size: 17px; line-height: 1.3; overflow-wrap: anywhere; }
+.sub { font-size: 15px; line-height: 1.35; color: var(--label-2); }
+.chev { color: var(--label-3); font-size: 22px; line-height: 1; margin-left: 2px; transition: transform .2s ease; }
+.chevOpen { transform: rotate(90deg); }
+
+.detail { margin: 0 12px 12px calc(var(--indent) - 4px); padding: 12px; border-radius: 12px; background: var(--surface);
+  display: grid; gap: 10px; min-width: 0; }
+.detail[hidden] { display: none; }
+.detail > :global(div):first-child { margin: 0; }
+
+.events { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.event { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; border: 0; border-radius: 12px;
+  background: var(--surface-2); color: inherit; font: inherit; text-align: left; min-width: 0; }
+button.event { cursor: pointer; }
+button.event:hover { background: var(--fill); }
+.evMain { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.evTitle { font-size: 15px; line-height: 1.35; overflow-wrap: anywhere; }
+.evSub { font-size: 13px; color: var(--label-2); overflow-wrap: anywhere; }
+.exLink { font-size: 13px; color: var(--accent); white-space: nowrap; }
+
+.note { margin: 0; font-size: 15px; line-height: 1.4; color: var(--label-2); }
+.ruleRow { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+.ruleBtn { padding-left: 0; font-size: 15px; }
+
+/* ruling sheet */
+.choice { display: grid; gap: 6px; padding: 0 16px; }
+.choice > :last-child { width: 100%; }
+.noteLabel { display: grid; gap: 6px; padding: 0 16px; }
+.noteLabel :global(.input) { width: 100%; font-size: 17px; }
+
+@media (max-width: 480px) {
+  .exLink { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .chev { transition: none; } }

@@ -1,0 +1,52 @@
+/* App shell: quiet blurred bar on the grouped ground. Tokens only. */
+.app { min-height: 100vh; min-height: 100dvh; background: var(--ground); }
+
+.bar { position: sticky; top: 0; z-index: 30; padding-top: env(safe-area-inset-top, 0px);
+  background: color-mix(in srgb, var(--ground) 86%, transparent);
+  -webkit-backdrop-filter: saturate(1.6) blur(18px); backdrop-filter: saturate(1.6) blur(18px);
+  border-bottom: 1px solid var(--separator); }
+.inner { display: flex; align-items: center; gap: 8px 24px; min-height: 52px; }
+.brand { text-decoration: none; color: var(--label); flex: none; display: inline-flex; align-items: center; border-radius: 6px; }
+
+.nav { display: flex; gap: 2px; flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.nav::-webkit-scrollbar { display: none; }
+.link { text-decoration: none; padding: 5px 12px; border-radius: var(--r-pill); color: var(--label-2); font-size: 15px; line-height: 1.33;
+  white-space: nowrap; flex: none; }
+.link:hover { color: var(--label); }
+.link.on { color: var(--label); background: var(--fill); }
+.link:focus-visible { outline-offset: -2px; border-radius: var(--r-pill); }
+
+.controls { display: flex; align-items: center; gap: 8px; flex: none; }
+
+/* "As of" capsule and its popover */
+.asof { position: relative; }
+.capsule { display: inline-flex; align-items: center; gap: 6px; border: 0; background: var(--fill); color: var(--label); border-radius: var(--r-pill);
+  padding: 5px 12px; font-size: 15px; line-height: 1.33; cursor: pointer; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.capsule:hover { opacity: .88; }
+.capsule[aria-expanded="true"] { background: var(--label); color: var(--surface); }
+.capDepth { color: inherit; opacity: .72; }
+.caret { flex: none; opacity: .7; }
+
+.popover { position: absolute; right: 0; top: calc(100% + 8px); z-index: 40; width: 340px; background: var(--surface); border-radius: var(--r-group);
+  padding: 16px; box-shadow: 0 12px 40px rgba(0, 0, 0, .14), 0 1px 3px rgba(0, 0, 0, .08); animation: pop .16s ease-out; }
+@keyframes pop { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+.settings { display: flex; flex-direction: column; gap: 14px; }
+.setRow { display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: center; gap: 12px; }
+.setLabel { font-size: 15px; color: var(--label); }
+.setCtl { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.date { flex: 1; padding: 7px 10px; font-size: 15px; font-variant-numeric: tabular-nums; }
+.today { padding: 6px 4px; font-size: 15px; }
+.setNote { margin: 2px 0 0; }
+
+.main { padding-top: 28px; padding-bottom: 64px; }
+
+@media (max-width: 760px) {
+  .inner { flex-wrap: wrap; padding-top: 8px; }
+  .controls { margin-left: auto; }
+  .nav { order: 3; flex-basis: 100%; margin-inline: calc(-1 * var(--gutter)) calc(-1 * var(--gutter-r)); padding: 0 var(--gutter-r) 8px var(--gutter); }
+  .main { padding-top: 20px; }
+}
+@media (max-width: 640px) {
+  .setRow { grid-template-columns: 1fr; gap: 8px; }
+}

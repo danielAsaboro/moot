@@ -1,0 +1,77 @@
+/* Ledger column: title, summary cards, grouped lists, and the rot chart (in a sheet). Tokens only. */
+.pane { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.busy { opacity: .55; transition: opacity .15s; }
+
+.head { display: flex; flex-direction: column; gap: 2px; padding: 0 4px; }
+.title { margin: 0; }
+.sub { margin: 0; font-variant-numeric: tabular-nums; }
+.inlineBtn { background: none; border: 0; padding: 0; font: inherit; color: var(--accent); cursor: pointer; }
+.inlineBtn:hover { text-decoration: underline; }
+
+/* summary */
+.summary { display: flex; flex-direction: column; gap: 8px; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.skCount { display: inline-block; width: 30px; height: 30px; vertical-align: top; }
+.quiet { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 4px; min-height: 32px; }
+.textToggle { background: none; border: 0; padding: 2px 0; font: inherit; color: inherit; cursor: pointer; font-variant-numeric: tabular-nums; }
+.textToggle:hover:not(:disabled) { color: var(--label); }
+.textToggle:disabled { cursor: default; }
+.textOn { color: var(--label); font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.quietActions { display: flex; gap: 14px; }
+.trendBtn { font-size: 15px; padding: 4px; }
+.cardFoot { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* sparkline in the Moot card */
+.spark { display: flex; align-items: flex-end; gap: 2px; height: 24px; margin-top: 4px; width: 100%; }
+.sparkSpace { display: block; height: 24px; margin-top: 4px; }
+.sparkBar { flex: 1; min-width: 1px; border-radius: 2px; background: color-mix(in srgb, var(--accent) 34%, var(--surface)); }
+.sparkZero { background: var(--separator); }
+.sparkAfter { opacity: .45; }
+.sparkOn { background: var(--accent); }
+
+/* list bar + quiet filter */
+.listBar { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 0 4px; font-size: 13px; }
+.filterRow { display: flex; align-items: center; gap: 8px; }
+.filter { flex: 1; padding: 8px 12px; font-size: 15px; }
+.filterDone { font-size: 15px; padding: 4px; }
+
+/* grouped lists */
+.groups { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+.more { position: relative; display: block; width: 100%; text-align: left; background: transparent; border: 0; padding: 12px 16px;
+  font: inherit; font-size: 17px; color: var(--accent); cursor: pointer; }
+.more::before { content: ""; position: absolute; top: 0; left: 16px; right: 0; border-top: 1px solid var(--separator); }
+.more:hover { background: color-mix(in srgb, var(--fill) 45%, transparent); }
+.none { margin: 0; padding: 12px 4px; }
+
+.skGroup { display: flex; flex-direction: column; gap: 8px; }
+.skHead { width: 84px; height: 12px; margin-left: 16px; }
+.skBody { background: var(--surface); border-radius: var(--r-group); overflow: hidden; }
+.skRow { display: flex; flex-direction: column; gap: 7px; padding: 13px 16px; border-top: 1px solid var(--separator); }
+.skRow:first-child { border-top: 0; }
+.skTitle { height: 15px; display: block; }
+.skMeta { width: 45%; height: 12px; display: block; }
+
+/* rot chart (inside the "Show trend" sheet) */
+.rot { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.rotLead { margin: 0; color: var(--label-2); }
+.rotSkel { height: 168px; border-radius: var(--r-group); }
+.rotCard { background: var(--surface); border-radius: var(--r-group); padding: 14px 14px 8px; }
+.rotPlot { position: relative; width: 100%; }
+.rotSvg { display: block; overflow: visible; }
+.bar { fill: color-mix(in srgb, var(--accent) 38%, var(--surface)); transition: fill .15s; }
+.barZero { fill: var(--separator); }
+.barOn { fill: var(--accent); }
+.barAfter { opacity: .4; }
+.hotBand { fill: var(--fill); opacity: .7; }
+.selNum { font-family: var(--font-sans); font-size: 12px; font-weight: 600; fill: var(--label); font-variant-numeric: tabular-nums; }
+.axis { font-family: var(--font-sans); font-size: 12px; fill: var(--label-3); font-variant-numeric: tabular-nums; }
+.grid { stroke: var(--separator); stroke-width: 1; }
+.baseline { stroke: var(--separator); stroke-width: 1; }
+.rotHits { position: absolute; inset: 0; }
+.hit { position: absolute; padding: 0; margin: 0; border: 0; background: transparent; cursor: pointer; border-radius: 6px; }
+.hit:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+@media (max-width: 420px) {
+  .stats { gap: 8px; }
+  .cardFoot { display: none; }
+}

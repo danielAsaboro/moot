@@ -6,6 +6,7 @@ from pathlib import Path
 from datetime import date
 
 from fastapi import FastAPI, HTTPException, Query, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
@@ -14,9 +15,13 @@ from . import agent, tools
 from .graph import DATA, PUBLIC_GRAPH, graph, stats
 
 ROOT = Path(__file__).resolve().parents[1]
-WEB = ROOT / "web"
+WEB = ROOT / "web"                      # legacy UI, served at /legacy
+UI = ROOT / "frontend" / "out"          # Next.js static export (`make ui`), served at /
 
 app = FastAPI(title="Moot", version="0.1.0")
+# Only the Next.js dev server (`make ui-dev`) needs cross-origin access; the built UI is same-origin.
+app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:3001", "http://127.0.0.1:3001"],
+                   allow_methods=["GET", "POST"], allow_headers=["content-type"])
 
 
 def g():
@@ -28,8 +33,8 @@ async def unhandled(request: Request, ex: Exception):
     """FalkorDB down or a query error: say so plainly instead of a bare 500."""
     msg = str(ex)
     if "Connection" in msg or "refused" in msg.lower() or "timed out" in msg.lower():
-        return JSONResponse(503, dict(detail=f"FalkorDB is not reachable: {msg}"))
-    return JSONResponse(500, dict(detail=msg))
+        return JSONResponse(status_code=503, content=dict(detail=f"FalkorDB is not reachable: {msg}"))
+    return JSONResponse(status_code=500, content=dict(detail=msg))
 
 
 def as_of_param(as_of: str | None) -> str | None:
@@ -315,14 +320,33 @@ def document(doc_id: str):
     return dict(id=doc_id, kind=d["kind"], title=d["title"], date=d["date"], author=d["author"], path=d["path"], text=d["text"])
 
 
+@app.get("/api/evals")
+def evals():
+    """The committed eval results (eval/results*.json), so the landing page quotes the same numbers `moot verify` checks."""
+    import json
+    out = {}
+    for f in sorted((ROOT / "eval").glob("results*.json")):
+        out[f.stem.removeprefix("results").lstrip("_") or "retrieval"] = json.loads(f.read_text())
+    return out
+
+
 @app.get("/api/schema")
 def schema():
     return tools.schema(g())
 
 
-@app.get("/")
-def index():
+@app.get("/legacy")
+def legacy():
     return FileResponse(WEB / "index.html")
 
 
 app.mount("/static", StaticFiles(directory=WEB), name="static")
+
+# The Next.js export owns every other path: / is the landing page, /app/ the ledger. Mounted last, so /api/* wins.
+# Without a build (`make ui`), / falls back to the legacy UI.
+if (UI / "index.html").exists():
+    app.mount("/", StaticFiles(directory=UI, html=True), name="ui")
+else:
+    @app.get("/")
+    def index():
+        return FileResponse(WEB / "index.html")

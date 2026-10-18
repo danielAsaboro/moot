@@ -1,0 +1,5 @@
+/* Agent gate, sheet content: answer, grouped reasons, the call, the packet. Sits on the sheet's --ground. */
+.gate { display: grid; gap: 20px; min-width: 0; justify-items: stretch; }
+.gate > a { justify-self: start; }
+.head { display: grid; gap: 10px; justify-items: start; padding: 4px 4px 0; }
+.sum { margin: 0; color: var(--label); }

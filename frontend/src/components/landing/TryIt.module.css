@@ -1,0 +1,41 @@
+/* Try it: one borderless card holding the ask field, sample questions and the answer. */
+.section { padding-block: 0 112px; }
+.card { margin-top: 40px; background: var(--surface); border-radius: var(--r-hero); padding: 32px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+
+.askRow { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.field { flex: 1; min-width: 0; }
+/* The shared SearchField, one size up: this is the page's demo input. */
+.field > form { padding: 14px 18px; border-radius: var(--r-group); gap: 10px; }
+.field input { font-size: 19px; }
+.askRow > :global(.btn) { flex: none; padding: 14px 24px; }
+
+.samples { display: flex; flex-wrap: wrap; gap: 8px; }
+.samples > :global(.btn) { white-space: nowrap; }
+
+.out { margin-top: 12px; min-height: 2rem; }
+.out > p { margin: 0; }
+.loading { display: grid; gap: 12px; max-width: 40rem; }
+
+.answer { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.head { display: flex; align-items: flex-start; gap: 14px; }
+.head > :first-child { flex: none; margin-top: 2px; }
+.decision { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.decision h3, .decision p { margin: 0; }
+.prose { margin: 0; font-size: 17px; line-height: 1.55; color: var(--label-2); max-width: 46rem; overflow-wrap: anywhere; }
+.path { min-width: 0; }
+.path > p { margin: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.state { display: inline-flex; }
+.foot { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; padding-top: 4px; }
+.foot p { margin: 0; }
+.foot :global(.link) { font-size: 17px; white-space: nowrap; }
+
+@media (max-width: 640px) {
+  .section { padding-block: 0 72px; }
+  .card { margin-top: 28px; padding: 20px 16px; border-radius: var(--r-card); }
+  .field > form { padding: 12px 14px; }
+  .field input { font-size: 17px; }
+  .askRow > :global(.btn) { padding: 12px 18px; }
+  .samples { flex-wrap: nowrap; overflow-x: auto; margin-inline: -16px; padding-inline: 16px; scrollbar-width: none; }
+  .samples::-webkit-scrollbar { display: none; }
+  .head { flex-direction: column; gap: 10px; }
+}
