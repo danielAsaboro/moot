@@ -49,7 +49,7 @@ K2 was registered before any of its questions existed and frozen before any arm 
 
 ## Forecasting which decisions die
 
-The README keeps the headline and a compact table; this is every result, with the reading of each. `moot verify` checks every number here.
+Calling each decision dead or alive (H1, H2, A1, P1, the backtest) is a game a constant answer wins, because deaths are rare. H3 was registered to ask the usable version, ranking decisions by risk (AUC, precision in the top 10%), on 447 repositories no earlier study used; only 29 of their tool decisions were in force on 2022-10-17 and none died by 2025-10-17, so by its own rule H3 is underpowered and makes no claim ([results_h3.md](../eval/results_h3.md)). Every number of the other studies follows.
 
 
 Every study was registered in [docs/studies.md](studies.md) before it ran, and the results ship whatever they are. The short version: **on independent real data, Moot does not predict which decisions die better than the baselines.** Its value is the graph, the provenance and the gate in front of agents, not a forecast.
