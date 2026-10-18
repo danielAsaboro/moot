@@ -38,6 +38,7 @@ K1 asks what Kubernetes' own records say: which KEP replaced this one and when, 
 - **Fair baselines:** before any test answer was scored, three harness faults were fixed on dev and every affected arm re-run in full (the file agent could not reach `sigs.yaml` history or read past 6,000 characters; bare answers were dropped by the parser, which left RAG at 0); one name normaliser for every arm. Each is in the [register](docs/studies.md); earlier answers are kept, not scored.
 - **Post hoc, a product fix:** SIG leadership is now dated to the `sigs.yaml` commit instead of the quarter (registered before K2); on the rebuilt graph the same fixed query answers 26 of 34, median under a millisecond. The frozen row above stays 25.
 - **Shared source:** Moot's graph is built from the same repositories the gold is read from, so the fixed-query row measures how faithfully the graph holds that history. The contest is between agents with different tools. [Full tables](eval/results_k1.md).
+
 ### K2, the confirmation
 
 K2 was registered before any of its questions existed and frozen before any arm ran: 78 questions over SIG Auth, Node, Network and Storage KEPs, K1's four kinds plus how many of a SIG's KEPs were in force on a date and whether a person led the owning SIG the day a KEP was created; the same model, harness and prompts as K1's final run, nothing tuned on its dev split.
@@ -53,7 +54,7 @@ K2 was registered before any of its questions existed and frozen before any arm 
 - **Accuracy:** the graph agent is ahead of the file and git agent beyond chance (only the graph agent right on 22 questions, only the file agent on 3, exact McNemar p < 0.001) and of BM25 RAG (18 against 3, p = 0.001).
 - **Against the registered prediction:** the margin over the file agent is at least K1's dev margin, as predicted, and largest where a date has to be joined to a person: whether someone led the owning SIG the day a KEP was created (11 of 11 against 1 of 11), and whether a KEP's authors lead a SIG today (11 against 6). Two parts did not hold: on how many of a SIG's KEPs were in force on a date every arm, the fixed query included, got 0 of 11 (the graph dates a KEP's force from its first implementable commit, the gold reads every status change), and RAG did not stay near zero (26 of 57). [Full tables](eval/results_k2.md).
 
-- **Not a forecaster:** on 64 held-out real decisions Moot scored 52 against 59 for calling everything "still holds". Every forecasting study (H1, A1, H2, P1, the backtest) is in [docs/results.md](docs/results.md), every number kept.
+**Not a forecaster:** on 64 held-out real decisions Moot scored 52 against 59 for calling everything "still holds". Every forecasting study (H1, A1, H2, P1, the backtest) is in [docs/results.md](docs/results.md), every number kept.
 
 ## One decision, end to end
 
