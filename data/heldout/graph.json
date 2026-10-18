@@ -2,132 +2,263 @@
  "nodes": [
   {
    "label": "Premise",
-   "id": "p_kubeless_maintained",
+   "id": "p_apollo_maintained",
    "props": {
-    "text": "Kubeless is actively maintained",
+    "text": "Apollo Client is actively maintained",
     "kind": "unwritten",
-    "tool": "kubeless",
+    "tool": "apollo",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_apollo_open_source",
+   "props": {
+    "text": "Apollo Client is open source",
+    "kind": "unwritten",
+    "tool": "apollo",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_argocd_maintained",
+   "props": {
+    "text": "Argo CD is actively maintained",
+    "kind": "unwritten",
+    "tool": "argocd",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_argocd_open_source",
+   "props": {
+    "text": "Argo CD is open source",
+    "kind": "unwritten",
+    "tool": "argocd",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_aws-lbc_maintained",
+   "props": {
+    "text": "AWS Load Balancer Controller is actively maintained",
+    "kind": "unwritten",
+    "tool": "aws-lbc",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_aws-lbc_open_source",
+   "props": {
+    "text": "AWS Load Balancer Controller is open source",
+    "kind": "unwritten",
+    "tool": "aws-lbc",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_axios_maintained",
+   "props": {
+    "text": "Axios is actively maintained",
+    "kind": "unwritten",
+    "tool": "axios",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_axios_open_source",
+   "props": {
+    "text": "Axios is open source",
+    "kind": "unwritten",
+    "tool": "axios",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_bridgekeeper_maintained",
+   "props": {
+    "text": "bridgekeeper is actively maintained",
+    "kind": "unwritten",
+    "tool": "bridgekeeper",
     "check": "maintained"
    }
   },
   {
    "label": "Evidence",
-   "id": "maintained:kubeless:2022-12-15",
+   "id": "maintained:bridgekeeper:2022-10-06",
    "props": {
     "kind": "check",
-    "title": "git history of vmware-archive/kubeless: no commit to the default branch since 2021-12-15",
-    "date": "2022-12-15",
-    "excerpt": "no commit to the default branch since 2021-12-15",
-    "path": "https://github.com/vmware-archive/kubeless"
+    "title": "git history of excitedleigh/bridgekeeper: no commit to the default branch since 2021-10-06",
+    "date": "2022-10-06",
+    "excerpt": "no commit to the default branch since 2021-10-06",
+    "path": "https://github.com/excitedleigh/bridgekeeper"
    }
   },
   {
    "label": "Premise",
-   "id": "p_kubeless_open_source",
+   "id": "p_bridgekeeper_open_source",
    "props": {
-    "text": "Kubeless is open source",
+    "text": "bridgekeeper is open source",
     "kind": "unwritten",
-    "tool": "kubeless",
+    "tool": "bridgekeeper",
     "check": "open_source"
    }
   },
   {
    "label": "Premise",
-   "id": "p_vite_maintained",
+   "id": "p_buefy_maintained",
    "props": {
-    "text": "Vite is actively maintained",
+    "text": "Buefy is actively maintained",
     "kind": "unwritten",
-    "tool": "vite",
+    "tool": "buefy",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_vite_open_source",
+   "id": "p_buefy_open_source",
    "props": {
-    "text": "Vite is open source",
+    "text": "Buefy is open source",
     "kind": "unwritten",
-    "tool": "vite",
+    "tool": "buefy",
     "check": "open_source"
    }
   },
   {
    "label": "Premise",
-   "id": "p_terratest_maintained",
+   "id": "p_cassandra-driver_maintained",
    "props": {
-    "text": "Terratest is actively maintained",
+    "text": "Cassandra Java driver is actively maintained",
     "kind": "unwritten",
-    "tool": "terratest",
+    "tool": "cassandra-driver",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_terratest_open_source",
+   "id": "p_cassandra-driver_open_source",
    "props": {
-    "text": "Terratest is open source",
+    "text": "Cassandra Java driver is open source",
     "kind": "unwritten",
-    "tool": "terratest",
+    "tool": "cassandra-driver",
     "check": "open_source"
    }
   },
   {
    "label": "Premise",
-   "id": "p_nx_maintained",
+   "id": "p_concourse_maintained",
    "props": {
-    "text": "Nx is actively maintained",
+    "text": "Concourse CI is actively maintained",
     "kind": "unwritten",
-    "tool": "nx",
+    "tool": "concourse",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_nx_open_source",
+   "id": "p_concourse_open_source",
    "props": {
-    "text": "Nx is open source",
+    "text": "Concourse CI is open source",
     "kind": "unwritten",
-    "tool": "nx",
+    "tool": "concourse",
     "check": "open_source"
    }
   },
   {
    "label": "Premise",
-   "id": "p_spire_maintained",
+   "id": "p_consul_maintained",
    "props": {
-    "text": "SPIFFE/SPIRE is actively maintained",
+    "text": "Consul is actively maintained",
     "kind": "unwritten",
-    "tool": "spire",
+    "tool": "consul",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_spire_open_source",
+   "id": "p_consul_open_source",
    "props": {
-    "text": "SPIFFE/SPIRE is open source",
+    "text": "Consul is open source",
     "kind": "unwritten",
-    "tool": "spire",
+    "tool": "consul",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:consul:2023-08-10",
+   "props": {
+    "kind": "check",
+    "title": "HashiCorp moves Consul to the Business Source License (https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license)",
+    "date": "2023-08-10",
+    "excerpt": "HashiCorp moves Consul to the Business Source License",
+    "path": "https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_contour_maintained",
+   "props": {
+    "text": "Contour is actively maintained",
+    "kind": "unwritten",
+    "tool": "contour",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_contour_open_source",
+   "props": {
+    "text": "Contour is open source",
+    "kind": "unwritten",
+    "tool": "contour",
     "check": "open_source"
    }
   },
   {
    "label": "Premise",
-   "id": "p_jest_maintained",
+   "id": "p_cypress_maintained",
    "props": {
-    "text": "Jest is actively maintained",
+    "text": "Cypress is actively maintained",
     "kind": "unwritten",
-    "tool": "jest",
+    "tool": "cypress",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_jest_open_source",
+   "id": "p_cypress_open_source",
    "props": {
-    "text": "Jest is open source",
+    "text": "Cypress is open source",
     "kind": "unwritten",
-    "tool": "jest",
+    "tool": "cypress",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_devise_maintained",
+   "props": {
+    "text": "Devise is actively maintained",
+    "kind": "unwritten",
+    "tool": "devise",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_devise_open_source",
+   "props": {
+    "text": "Devise is open source",
+    "kind": "unwritten",
+    "tool": "devise",
     "check": "open_source"
    }
   },
@@ -186,173 +317,64 @@
   },
   {
    "label": "Premise",
-   "id": "p_aws-lbc_maintained",
+   "id": "p_dugite_maintained",
    "props": {
-    "text": "AWS Load Balancer Controller is actively maintained",
+    "text": "dugite is actively maintained",
     "kind": "unwritten",
-    "tool": "aws-lbc",
+    "tool": "dugite",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_aws-lbc_open_source",
+   "id": "p_dugite_open_source",
    "props": {
-    "text": "AWS Load Balancer Controller is open source",
+    "text": "dugite is open source",
     "kind": "unwritten",
-    "tool": "aws-lbc",
+    "tool": "dugite",
     "check": "open_source"
    }
   },
   {
    "label": "Premise",
-   "id": "p_style-dictionary_maintained",
+   "id": "p_elasticsearch_maintained",
    "props": {
-    "text": "Style Dictionary is actively maintained",
+    "text": "Elasticsearch is actively maintained",
     "kind": "unwritten",
-    "tool": "style-dictionary",
+    "tool": "elasticsearch",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_style-dictionary_open_source",
+   "id": "p_elasticsearch_open_source",
    "props": {
-    "text": "Style Dictionary is open source",
+    "text": "Elasticsearch is open source",
     "kind": "unwritten",
-    "tool": "style-dictionary",
+    "tool": "elasticsearch",
     "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_rails_maintained",
-   "props": {
-    "text": "Ruby on Rails is actively maintained",
-    "kind": "unwritten",
-    "tool": "rails",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_rails_open_source",
-   "props": {
-    "text": "Ruby on Rails is open source",
-    "kind": "unwritten",
-    "tool": "rails",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_waffle_maintained",
-   "props": {
-    "text": "django-waffle is actively maintained",
-    "kind": "unwritten",
-    "tool": "waffle",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_waffle_open_source",
-   "props": {
-    "text": "django-waffle is open source",
-    "kind": "unwritten",
-    "tool": "waffle",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_msw_maintained",
-   "props": {
-    "text": "Mock Service Worker is actively maintained",
-    "kind": "unwritten",
-    "tool": "msw",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_msw_open_source",
-   "props": {
-    "text": "Mock Service Worker is open source",
-    "kind": "unwritten",
-    "tool": "msw",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_puppet_maintained",
-   "props": {
-    "text": "Puppet is actively maintained",
-    "kind": "unwritten",
-    "tool": "puppet",
-    "check": "maintained"
    }
   },
   {
    "label": "Evidence",
-   "id": "maintained:puppet:2025-12-10",
+   "id": "open_source:elasticsearch:2021-01-14",
    "props": {
     "kind": "check",
-    "title": "git history of puppetlabs/puppet: no commit to the default branch since 2024-12-10",
-    "date": "2025-12-10",
-    "excerpt": "no commit to the default branch since 2024-12-10",
-    "path": "https://github.com/puppetlabs/puppet"
+    "title": "Elastic moves Elasticsearch from Apache 2.0 to SSPL / Elastic License (https://www.elastic.co/blog/licensing-change)",
+    "date": "2021-01-14",
+    "excerpt": "Elastic moves Elasticsearch from Apache 2.0 to SSPL / Elastic License",
+    "path": "https://www.elastic.co/blog/licensing-change"
    }
   },
   {
-   "label": "Premise",
-   "id": "p_puppet_open_source",
+   "label": "Evidence",
+   "id": "open_source:elasticsearch:2024-08-29",
    "props": {
-    "text": "Puppet is open source",
-    "kind": "unwritten",
-    "tool": "puppet",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_redux_maintained",
-   "props": {
-    "text": "Redux is actively maintained",
-    "kind": "unwritten",
-    "tool": "redux",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_redux_open_source",
-   "props": {
-    "text": "Redux is open source",
-    "kind": "unwritten",
-    "tool": "redux",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_apollo_maintained",
-   "props": {
-    "text": "Apollo Client is actively maintained",
-    "kind": "unwritten",
-    "tool": "apollo",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_apollo_open_source",
-   "props": {
-    "text": "Apollo Client is open source",
-    "kind": "unwritten",
-    "tool": "apollo",
-    "check": "open_source"
+    "kind": "check",
+    "title": "Elastic adds AGPLv3 as a license option (https://www.elastic.co/blog/elasticsearch-is-open-source-again)",
+    "date": "2024-08-29",
+    "excerpt": "Elastic adds AGPLv3 as a license option",
+    "path": "https://www.elastic.co/blog/elasticsearch-is-open-source-again"
    }
   },
   {
@@ -377,454 +399,81 @@
   },
   {
    "label": "Premise",
-   "id": "p_kubernetes_maintained",
+   "id": "p_external-dns_maintained",
    "props": {
-    "text": "Kubernetes is actively maintained",
+    "text": "external-dns is actively maintained",
     "kind": "unwritten",
-    "tool": "kubernetes",
+    "tool": "external-dns",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_kubernetes_open_source",
+   "id": "p_external-dns_open_source",
    "props": {
-    "text": "Kubernetes is open source",
+    "text": "external-dns is open source",
     "kind": "unwritten",
-    "tool": "kubernetes",
+    "tool": "external-dns",
     "check": "open_source"
    }
   },
   {
    "label": "Premise",
-   "id": "p_react-bootstrap_maintained",
+   "id": "p_external-secrets_maintained",
    "props": {
-    "text": "React-Bootstrap is actively maintained",
+    "text": "external-secrets is actively maintained",
     "kind": "unwritten",
-    "tool": "react-bootstrap",
+    "tool": "external-secrets",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_react-bootstrap_open_source",
+   "id": "p_external-secrets_open_source",
    "props": {
-    "text": "React-Bootstrap is open source",
+    "text": "external-secrets is open source",
     "kind": "unwritten",
-    "tool": "react-bootstrap",
+    "tool": "external-secrets",
     "check": "open_source"
    }
   },
   {
    "label": "Premise",
-   "id": "p_lerna_maintained",
+   "id": "p_fluent-bit_maintained",
    "props": {
-    "text": "Lerna is actively maintained",
+    "text": "Fluent Bit is actively maintained",
     "kind": "unwritten",
-    "tool": "lerna",
+    "tool": "fluent-bit",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_lerna_open_source",
+   "id": "p_fluent-bit_open_source",
    "props": {
-    "text": "Lerna is open source",
+    "text": "Fluent Bit is open source",
     "kind": "unwritten",
-    "tool": "lerna",
+    "tool": "fluent-bit",
     "check": "open_source"
    }
   },
   {
    "label": "Premise",
-   "id": "p_reactor-netty_maintained",
+   "id": "p_flyway_maintained",
    "props": {
-    "text": "Reactor Netty is actively maintained",
+    "text": "Flyway is actively maintained",
     "kind": "unwritten",
-    "tool": "reactor-netty",
+    "tool": "flyway",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_reactor-netty_open_source",
+   "id": "p_flyway_open_source",
    "props": {
-    "text": "Reactor Netty is open source",
+    "text": "Flyway is open source",
     "kind": "unwritten",
-    "tool": "reactor-netty",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_concourse_maintained",
-   "props": {
-    "text": "Concourse CI is actively maintained",
-    "kind": "unwritten",
-    "tool": "concourse",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_concourse_open_source",
-   "props": {
-    "text": "Concourse CI is open source",
-    "kind": "unwritten",
-    "tool": "concourse",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_helm_maintained",
-   "props": {
-    "text": "Helm is actively maintained",
-    "kind": "unwritten",
-    "tool": "helm",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_helm_open_source",
-   "props": {
-    "text": "Helm is open source",
-    "kind": "unwritten",
-    "tool": "helm",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_cassandra-driver_maintained",
-   "props": {
-    "text": "Cassandra Java driver is actively maintained",
-    "kind": "unwritten",
-    "tool": "cassandra-driver",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_cassandra-driver_open_source",
-   "props": {
-    "text": "Cassandra Java driver is open source",
-    "kind": "unwritten",
-    "tool": "cassandra-driver",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_buefy_maintained",
-   "props": {
-    "text": "Buefy is actively maintained",
-    "kind": "unwritten",
-    "tool": "buefy",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_buefy_open_source",
-   "props": {
-    "text": "Buefy is open source",
-    "kind": "unwritten",
-    "tool": "buefy",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_contour_maintained",
-   "props": {
-    "text": "Contour is actively maintained",
-    "kind": "unwritten",
-    "tool": "contour",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_contour_open_source",
-   "props": {
-    "text": "Contour is open source",
-    "kind": "unwritten",
-    "tool": "contour",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_prettier_maintained",
-   "props": {
-    "text": "Prettier is actively maintained",
-    "kind": "unwritten",
-    "tool": "prettier",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_prettier_open_source",
-   "props": {
-    "text": "Prettier is open source",
-    "kind": "unwritten",
-    "tool": "prettier",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_cypress_maintained",
-   "props": {
-    "text": "Cypress is actively maintained",
-    "kind": "unwritten",
-    "tool": "cypress",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_cypress_open_source",
-   "props": {
-    "text": "Cypress is open source",
-    "kind": "unwritten",
-    "tool": "cypress",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_axios_maintained",
-   "props": {
-    "text": "Axios is actively maintained",
-    "kind": "unwritten",
-    "tool": "axios",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_axios_open_source",
-   "props": {
-    "text": "Axios is open source",
-    "kind": "unwritten",
-    "tool": "axios",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_testify_maintained",
-   "props": {
-    "text": "Testify is actively maintained",
-    "kind": "unwritten",
-    "tool": "testify",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_testify_open_source",
-   "props": {
-    "text": "Testify is open source",
-    "kind": "unwritten",
-    "tool": "testify",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_redis_maintained",
-   "props": {
-    "text": "Redis is actively maintained",
-    "kind": "unwritten",
-    "tool": "redis",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_redis_open_source",
-   "props": {
-    "text": "Redis is open source",
-    "kind": "unwritten",
-    "tool": "redis",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Evidence",
-   "id": "open_source:redis:2024-03-20",
-   "props": {
-    "kind": "check",
-    "title": "Redis moves from BSD to RSALv2 / SSPLv1 (https://redis.io/blog/redis-adopts-dual-source-available-licensing/)",
-    "date": "2024-03-20",
-    "excerpt": "Redis moves from BSD to RSALv2 / SSPLv1",
-    "path": "https://redis.io/blog/redis-adopts-dual-source-available-licensing/"
-   }
-  },
-  {
-   "label": "Evidence",
-   "id": "open_source:redis:2025-05-01",
-   "props": {
-    "kind": "check",
-    "title": "Redis 8 adds AGPLv3 as a license option (https://redis.io/blog/agplv3/)",
-    "date": "2025-05-01",
-    "excerpt": "Redis 8 adds AGPLv3 as a license option",
-    "path": "https://redis.io/blog/agplv3/"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_opa_maintained",
-   "props": {
-    "text": "Open Policy Agent is actively maintained",
-    "kind": "unwritten",
-    "tool": "opa",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_opa_open_source",
-   "props": {
-    "text": "Open Policy Agent is open source",
-    "kind": "unwritten",
-    "tool": "opa",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_nextjs_maintained",
-   "props": {
-    "text": "Next.js is actively maintained",
-    "kind": "unwritten",
-    "tool": "nextjs",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_nextjs_open_source",
-   "props": {
-    "text": "Next.js is open source",
-    "kind": "unwritten",
-    "tool": "nextjs",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_jaeger_maintained",
-   "props": {
-    "text": "Jaeger is actively maintained",
-    "kind": "unwritten",
-    "tool": "jaeger",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_jaeger_open_source",
-   "props": {
-    "text": "Jaeger is open source",
-    "kind": "unwritten",
-    "tool": "jaeger",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_traefik_maintained",
-   "props": {
-    "text": "Traefik is actively maintained",
-    "kind": "unwritten",
-    "tool": "traefik",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_traefik_open_source",
-   "props": {
-    "text": "Traefik is open source",
-    "kind": "unwritten",
-    "tool": "traefik",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_bridgekeeper_maintained",
-   "props": {
-    "text": "bridgekeeper is actively maintained",
-    "kind": "unwritten",
-    "tool": "bridgekeeper",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Evidence",
-   "id": "maintained:bridgekeeper:2022-10-06",
-   "props": {
-    "kind": "check",
-    "title": "git history of excitedleigh/bridgekeeper: no commit to the default branch since 2021-10-06",
-    "date": "2022-10-06",
-    "excerpt": "no commit to the default branch since 2021-10-06",
-    "path": "https://github.com/excitedleigh/bridgekeeper"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_bridgekeeper_open_source",
-   "props": {
-    "text": "bridgekeeper is open source",
-    "kind": "unwritten",
-    "tool": "bridgekeeper",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_rtl_maintained",
-   "props": {
-    "text": "React Testing Library is actively maintained",
-    "kind": "unwritten",
-    "tool": "rtl",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_rtl_open_source",
-   "props": {
-    "text": "React Testing Library is open source",
-    "kind": "unwritten",
-    "tool": "rtl",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_postgres_maintained",
-   "props": {
-    "text": "PostgreSQL is actively maintained",
-    "kind": "unwritten",
-    "tool": "postgres",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_postgres_open_source",
-   "props": {
-    "text": "PostgreSQL is open source",
-    "kind": "unwritten",
-    "tool": "postgres",
+    "tool": "flyway",
     "check": "open_source"
    }
   },
@@ -883,154 +532,52 @@
   },
   {
    "label": "Premise",
-   "id": "p_toastui_maintained",
+   "id": "p_helm_maintained",
    "props": {
-    "text": "TOAST UI Editor is actively maintained",
+    "text": "Helm is actively maintained",
     "kind": "unwritten",
-    "tool": "toastui",
+    "tool": "helm",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_helm_open_source",
+   "props": {
+    "text": "Helm is open source",
+    "kind": "unwritten",
+    "tool": "helm",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_intern_maintained",
+   "props": {
+    "text": "Intern is actively maintained",
+    "kind": "unwritten",
+    "tool": "intern",
     "check": "maintained"
    }
   },
   {
    "label": "Evidence",
-   "id": "maintained:toastui:2024-02-17",
+   "id": "maintained:intern:2024-01-26",
    "props": {
     "kind": "check",
-    "title": "git history of nhn/tui.editor: no commit to the default branch since 2023-02-17",
-    "date": "2024-02-17",
-    "excerpt": "no commit to the default branch since 2023-02-17",
-    "path": "https://github.com/nhn/tui.editor"
+    "title": "git history of theintern/intern: no commit to the default branch since 2023-01-26",
+    "date": "2024-01-26",
+    "excerpt": "no commit to the default branch since 2023-01-26",
+    "path": "https://github.com/theintern/intern"
    }
   },
   {
    "label": "Premise",
-   "id": "p_toastui_open_source",
+   "id": "p_intern_open_source",
    "props": {
-    "text": "TOAST UI Editor is open source",
+    "text": "Intern is open source",
     "kind": "unwritten",
-    "tool": "toastui",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_terraform_maintained",
-   "props": {
-    "text": "Terraform is actively maintained",
-    "kind": "unwritten",
-    "tool": "terraform",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_terraform_open_source",
-   "props": {
-    "text": "Terraform is open source",
-    "kind": "unwritten",
-    "tool": "terraform",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Evidence",
-   "id": "open_source:terraform:2023-08-10",
-   "props": {
-    "kind": "check",
-    "title": "HashiCorp moves Terraform to the Business Source License (https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license)",
-    "date": "2023-08-10",
-    "excerpt": "HashiCorp moves Terraform to the Business Source License",
-    "path": "https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_scala_maintained",
-   "props": {
-    "text": "Scala is actively maintained",
-    "kind": "unwritten",
-    "tool": "scala",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_scala_open_source",
-   "props": {
-    "text": "Scala is open source",
-    "kind": "unwritten",
-    "tool": "scala",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_vue_maintained",
-   "props": {
-    "text": "Vue.js 2 is actively maintained",
-    "kind": "unwritten",
-    "tool": "vue",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Evidence",
-   "id": "maintained:vue:2025-10-10",
-   "props": {
-    "kind": "check",
-    "title": "git history of vuejs/vue: no commit to the default branch since 2024-10-10",
-    "date": "2025-10-10",
-    "excerpt": "no commit to the default branch since 2024-10-10",
-    "path": "https://github.com/vuejs/vue"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_vue_open_source",
-   "props": {
-    "text": "Vue.js 2 is open source",
-    "kind": "unwritten",
-    "tool": "vue",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_external-dns_maintained",
-   "props": {
-    "text": "external-dns is actively maintained",
-    "kind": "unwritten",
-    "tool": "external-dns",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_external-dns_open_source",
-   "props": {
-    "text": "external-dns is open source",
-    "kind": "unwritten",
-    "tool": "external-dns",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_flyway_maintained",
-   "props": {
-    "text": "Flyway is actively maintained",
-    "kind": "unwritten",
-    "tool": "flyway",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_flyway_open_source",
-   "props": {
-    "text": "Flyway is open source",
-    "kind": "unwritten",
-    "tool": "flyway",
+    "tool": "intern",
     "check": "open_source"
    }
   },
@@ -1056,61 +603,458 @@
   },
   {
    "label": "Premise",
-   "id": "p_fluent-bit_maintained",
+   "id": "p_jaeger_maintained",
    "props": {
-    "text": "Fluent Bit is actively maintained",
+    "text": "Jaeger is actively maintained",
     "kind": "unwritten",
-    "tool": "fluent-bit",
+    "tool": "jaeger",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_fluent-bit_open_source",
+   "id": "p_jaeger_open_source",
    "props": {
-    "text": "Fluent Bit is open source",
+    "text": "Jaeger is open source",
     "kind": "unwritten",
-    "tool": "fluent-bit",
+    "tool": "jaeger",
     "check": "open_source"
    }
   },
   {
    "label": "Premise",
-   "id": "p_rspamd_maintained",
+   "id": "p_jest_maintained",
    "props": {
-    "text": "Rspamd is actively maintained",
+    "text": "Jest is actively maintained",
     "kind": "unwritten",
-    "tool": "rspamd",
+    "tool": "jest",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_rspamd_open_source",
+   "id": "p_jest_open_source",
    "props": {
-    "text": "Rspamd is open source",
+    "text": "Jest is open source",
     "kind": "unwritten",
-    "tool": "rspamd",
+    "tool": "jest",
     "check": "open_source"
    }
   },
   {
    "label": "Premise",
-   "id": "p_prometheus_maintained",
+   "id": "p_kibana_maintained",
    "props": {
-    "text": "Prometheus is actively maintained",
+    "text": "Kibana is actively maintained",
     "kind": "unwritten",
-    "tool": "prometheus",
+    "tool": "kibana",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_prometheus_open_source",
+   "id": "p_kibana_open_source",
    "props": {
-    "text": "Prometheus is open source",
+    "text": "Kibana is open source",
     "kind": "unwritten",
-    "tool": "prometheus",
+    "tool": "kibana",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:kibana:2021-01-14",
+   "props": {
+    "kind": "check",
+    "title": "Elastic moves Kibana from Apache 2.0 to SSPL / Elastic License (https://www.elastic.co/blog/licensing-change)",
+    "date": "2021-01-14",
+    "excerpt": "Elastic moves Kibana from Apache 2.0 to SSPL / Elastic License",
+    "path": "https://www.elastic.co/blog/licensing-change"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:kibana:2024-08-29",
+   "props": {
+    "kind": "check",
+    "title": "Elastic adds AGPLv3 as a license option (https://www.elastic.co/blog/elasticsearch-is-open-source-again)",
+    "date": "2024-08-29",
+    "excerpt": "Elastic adds AGPLv3 as a license option",
+    "path": "https://www.elastic.co/blog/elasticsearch-is-open-source-again"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kubeless_maintained",
+   "props": {
+    "text": "Kubeless is actively maintained",
+    "kind": "unwritten",
+    "tool": "kubeless",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:kubeless:2022-12-15",
+   "props": {
+    "kind": "check",
+    "title": "git history of vmware-archive/kubeless: no commit to the default branch since 2021-12-15",
+    "date": "2022-12-15",
+    "excerpt": "no commit to the default branch since 2021-12-15",
+    "path": "https://github.com/vmware-archive/kubeless"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kubeless_open_source",
+   "props": {
+    "text": "Kubeless is open source",
+    "kind": "unwritten",
+    "tool": "kubeless",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kubernetes_maintained",
+   "props": {
+    "text": "Kubernetes is actively maintained",
+    "kind": "unwritten",
+    "tool": "kubernetes",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_kubernetes_open_source",
+   "props": {
+    "text": "Kubernetes is open source",
+    "kind": "unwritten",
+    "tool": "kubernetes",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lerna_maintained",
+   "props": {
+    "text": "Lerna is actively maintained",
+    "kind": "unwritten",
+    "tool": "lerna",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lerna_open_source",
+   "props": {
+    "text": "Lerna is open source",
+    "kind": "unwritten",
+    "tool": "lerna",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lunr_maintained",
+   "props": {
+    "text": "Lunr.js is actively maintained",
+    "kind": "unwritten",
+    "tool": "lunr",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:lunr:2021-08-19",
+   "props": {
+    "kind": "check",
+    "title": "git history of olivernn/lunr.js: no commit to the default branch since 2020-08-19",
+    "date": "2021-08-19",
+    "excerpt": "no commit to the default branch since 2020-08-19",
+    "path": "https://github.com/olivernn/lunr.js"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_lunr_open_source",
+   "props": {
+    "text": "Lunr.js is open source",
+    "kind": "unwritten",
+    "tool": "lunr",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_luxon_maintained",
+   "props": {
+    "text": "Luxon is actively maintained",
+    "kind": "unwritten",
+    "tool": "luxon",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_luxon_open_source",
+   "props": {
+    "text": "Luxon is open source",
+    "kind": "unwritten",
+    "tool": "luxon",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_msw_maintained",
+   "props": {
+    "text": "Mock Service Worker is actively maintained",
+    "kind": "unwritten",
+    "tool": "msw",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_msw_open_source",
+   "props": {
+    "text": "Mock Service Worker is open source",
+    "kind": "unwritten",
+    "tool": "msw",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_netty_maintained",
+   "props": {
+    "text": "Netty is actively maintained",
+    "kind": "unwritten",
+    "tool": "netty",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_netty_open_source",
+   "props": {
+    "text": "Netty is open source",
+    "kind": "unwritten",
+    "tool": "netty",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_nextjs_maintained",
+   "props": {
+    "text": "Next.js is actively maintained",
+    "kind": "unwritten",
+    "tool": "nextjs",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_nextjs_open_source",
+   "props": {
+    "text": "Next.js is open source",
+    "kind": "unwritten",
+    "tool": "nextjs",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_nomad_maintained",
+   "props": {
+    "text": "Nomad is actively maintained",
+    "kind": "unwritten",
+    "tool": "nomad",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_nomad_open_source",
+   "props": {
+    "text": "Nomad is open source",
+    "kind": "unwritten",
+    "tool": "nomad",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:nomad:2023-08-10",
+   "props": {
+    "kind": "check",
+    "title": "HashiCorp moves Nomad to the Business Source License (https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license)",
+    "date": "2023-08-10",
+    "excerpt": "HashiCorp moves Nomad to the Business Source License",
+    "path": "https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_nx_maintained",
+   "props": {
+    "text": "Nx is actively maintained",
+    "kind": "unwritten",
+    "tool": "nx",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_nx_open_source",
+   "props": {
+    "text": "Nx is open source",
+    "kind": "unwritten",
+    "tool": "nx",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_opa_maintained",
+   "props": {
+    "text": "Open Policy Agent is actively maintained",
+    "kind": "unwritten",
+    "tool": "opa",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_opa_open_source",
+   "props": {
+    "text": "Open Policy Agent is open source",
+    "kind": "unwritten",
+    "tool": "opa",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_opensearch_maintained",
+   "props": {
+    "text": "OpenSearch is actively maintained",
+    "kind": "unwritten",
+    "tool": "opensearch",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_opensearch_open_source",
+   "props": {
+    "text": "OpenSearch is open source",
+    "kind": "unwritten",
+    "tool": "opensearch",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_plantuml_maintained",
+   "props": {
+    "text": "PlantUML is actively maintained",
+    "kind": "unwritten",
+    "tool": "plantuml",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:plantuml:2012-09-07",
+   "props": {
+    "kind": "check",
+    "title": "git history of plantuml/plantuml: no commit to the default branch since 2011-09-08",
+    "date": "2012-09-07",
+    "excerpt": "no commit to the default branch since 2011-09-08",
+    "path": "https://github.com/plantuml/plantuml"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:plantuml:2013-12-10",
+   "props": {
+    "kind": "check",
+    "title": "git history of plantuml/plantuml: commits resume on 2013-12-10 after a gap since 2011-09-08",
+    "date": "2013-12-10",
+    "excerpt": "commits resume on 2013-12-10 after a gap since 2011-09-08",
+    "path": "https://github.com/plantuml/plantuml"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_plantuml_open_source",
+   "props": {
+    "text": "PlantUML is open source",
+    "kind": "unwritten",
+    "tool": "plantuml",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_poetry_maintained",
+   "props": {
+    "text": "Poetry is actively maintained",
+    "kind": "unwritten",
+    "tool": "poetry",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_poetry_open_source",
+   "props": {
+    "text": "Poetry is open source",
+    "kind": "unwritten",
+    "tool": "poetry",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_postgres_maintained",
+   "props": {
+    "text": "PostgreSQL is actively maintained",
+    "kind": "unwritten",
+    "tool": "postgres",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_postgres_open_source",
+   "props": {
+    "text": "PostgreSQL is open source",
+    "kind": "unwritten",
+    "tool": "postgres",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prettier_maintained",
+   "props": {
+    "text": "Prettier is actively maintained",
+    "kind": "unwritten",
+    "tool": "prettier",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prettier_open_source",
+   "props": {
+    "text": "Prettier is open source",
+    "kind": "unwritten",
+    "tool": "prettier",
     "check": "open_source"
    }
   },
@@ -1158,163 +1102,314 @@
   },
   {
    "label": "Premise",
-   "id": "p_lunr_maintained",
+   "id": "p_prometheus_maintained",
    "props": {
-    "text": "Lunr.js is actively maintained",
+    "text": "Prometheus is actively maintained",
     "kind": "unwritten",
-    "tool": "lunr",
+    "tool": "prometheus",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_prometheus_open_source",
+   "props": {
+    "text": "Prometheus is open source",
+    "kind": "unwritten",
+    "tool": "prometheus",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_pulsar_maintained",
+   "props": {
+    "text": "Apache Pulsar is actively maintained",
+    "kind": "unwritten",
+    "tool": "pulsar",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_pulsar_open_source",
+   "props": {
+    "text": "Apache Pulsar is open source",
+    "kind": "unwritten",
+    "tool": "pulsar",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_puppet_maintained",
+   "props": {
+    "text": "Puppet is actively maintained",
+    "kind": "unwritten",
+    "tool": "puppet",
     "check": "maintained"
    }
   },
   {
    "label": "Evidence",
-   "id": "maintained:lunr:2021-08-19",
+   "id": "maintained:puppet:2025-12-10",
    "props": {
     "kind": "check",
-    "title": "git history of olivernn/lunr.js: no commit to the default branch since 2020-08-19",
-    "date": "2021-08-19",
-    "excerpt": "no commit to the default branch since 2020-08-19",
-    "path": "https://github.com/olivernn/lunr.js"
+    "title": "git history of puppetlabs/puppet: no commit to the default branch since 2024-12-10",
+    "date": "2025-12-10",
+    "excerpt": "no commit to the default branch since 2024-12-10",
+    "path": "https://github.com/puppetlabs/puppet"
    }
   },
   {
    "label": "Premise",
-   "id": "p_lunr_open_source",
+   "id": "p_puppet_open_source",
    "props": {
-    "text": "Lunr.js is open source",
+    "text": "Puppet is open source",
     "kind": "unwritten",
-    "tool": "lunr",
+    "tool": "puppet",
     "check": "open_source"
    }
   },
   {
    "label": "Premise",
-   "id": "p_consul_maintained",
+   "id": "p_rails_maintained",
    "props": {
-    "text": "Consul is actively maintained",
+    "text": "Ruby on Rails is actively maintained",
     "kind": "unwritten",
-    "tool": "consul",
+    "tool": "rails",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_consul_open_source",
+   "id": "p_rails_open_source",
    "props": {
-    "text": "Consul is open source",
+    "text": "Ruby on Rails is open source",
     "kind": "unwritten",
-    "tool": "consul",
+    "tool": "rails",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_react_maintained",
+   "props": {
+    "text": "React is actively maintained",
+    "kind": "unwritten",
+    "tool": "react",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_react_open_source",
+   "props": {
+    "text": "React is open source",
+    "kind": "unwritten",
+    "tool": "react",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_react-bootstrap_maintained",
+   "props": {
+    "text": "React-Bootstrap is actively maintained",
+    "kind": "unwritten",
+    "tool": "react-bootstrap",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_react-bootstrap_open_source",
+   "props": {
+    "text": "React-Bootstrap is open source",
+    "kind": "unwritten",
+    "tool": "react-bootstrap",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_reactor-netty_maintained",
+   "props": {
+    "text": "Reactor Netty is actively maintained",
+    "kind": "unwritten",
+    "tool": "reactor-netty",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_reactor-netty_open_source",
+   "props": {
+    "text": "Reactor Netty is open source",
+    "kind": "unwritten",
+    "tool": "reactor-netty",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_redis_maintained",
+   "props": {
+    "text": "Redis is actively maintained",
+    "kind": "unwritten",
+    "tool": "redis",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_redis_open_source",
+   "props": {
+    "text": "Redis is open source",
+    "kind": "unwritten",
+    "tool": "redis",
     "check": "open_source"
    }
   },
   {
    "label": "Evidence",
-   "id": "open_source:consul:2023-08-10",
+   "id": "open_source:redis:2024-03-20",
    "props": {
     "kind": "check",
-    "title": "HashiCorp moves Consul to the Business Source License (https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license)",
-    "date": "2023-08-10",
-    "excerpt": "HashiCorp moves Consul to the Business Source License",
-    "path": "https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license"
+    "title": "Redis moves from BSD to RSALv2 / SSPLv1 (https://redis.io/blog/redis-adopts-dual-source-available-licensing/)",
+    "date": "2024-03-20",
+    "excerpt": "Redis moves from BSD to RSALv2 / SSPLv1",
+    "path": "https://redis.io/blog/redis-adopts-dual-source-available-licensing/"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "open_source:redis:2025-05-01",
+   "props": {
+    "kind": "check",
+    "title": "Redis 8 adds AGPLv3 as a license option (https://redis.io/blog/agplv3/)",
+    "date": "2025-05-01",
+    "excerpt": "Redis 8 adds AGPLv3 as a license option",
+    "path": "https://redis.io/blog/agplv3/"
    }
   },
   {
    "label": "Premise",
-   "id": "p_netty_maintained",
+   "id": "p_redux_maintained",
    "props": {
-    "text": "Netty is actively maintained",
+    "text": "Redux is actively maintained",
     "kind": "unwritten",
-    "tool": "netty",
+    "tool": "redux",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_netty_open_source",
+   "id": "p_redux_open_source",
    "props": {
-    "text": "Netty is open source",
+    "text": "Redux is open source",
     "kind": "unwritten",
-    "tool": "netty",
+    "tool": "redux",
     "check": "open_source"
    }
   },
   {
    "label": "Premise",
-   "id": "p_external-secrets_maintained",
+   "id": "p_rspamd_maintained",
    "props": {
-    "text": "external-secrets is actively maintained",
+    "text": "Rspamd is actively maintained",
     "kind": "unwritten",
-    "tool": "external-secrets",
+    "tool": "rspamd",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_external-secrets_open_source",
+   "id": "p_rspamd_open_source",
    "props": {
-    "text": "external-secrets is open source",
+    "text": "Rspamd is open source",
     "kind": "unwritten",
-    "tool": "external-secrets",
+    "tool": "rspamd",
     "check": "open_source"
    }
   },
   {
    "label": "Premise",
-   "id": "p_luxon_maintained",
+   "id": "p_rtl_maintained",
    "props": {
-    "text": "Luxon is actively maintained",
+    "text": "React Testing Library is actively maintained",
     "kind": "unwritten",
-    "tool": "luxon",
+    "tool": "rtl",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_luxon_open_source",
+   "id": "p_rtl_open_source",
    "props": {
-    "text": "Luxon is open source",
+    "text": "React Testing Library is open source",
     "kind": "unwritten",
-    "tool": "luxon",
+    "tool": "rtl",
     "check": "open_source"
    }
   },
   {
    "label": "Premise",
-   "id": "p_opensearch_maintained",
+   "id": "p_scala_maintained",
    "props": {
-    "text": "OpenSearch is actively maintained",
+    "text": "Scala is actively maintained",
     "kind": "unwritten",
-    "tool": "opensearch",
+    "tool": "scala",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_opensearch_open_source",
+   "id": "p_scala_open_source",
    "props": {
-    "text": "OpenSearch is open source",
+    "text": "Scala is open source",
     "kind": "unwritten",
-    "tool": "opensearch",
+    "tool": "scala",
     "check": "open_source"
    }
   },
   {
    "label": "Premise",
-   "id": "p_dugite_maintained",
+   "id": "p_spire_maintained",
    "props": {
-    "text": "dugite is actively maintained",
+    "text": "SPIFFE/SPIRE is actively maintained",
     "kind": "unwritten",
-    "tool": "dugite",
+    "tool": "spire",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_dugite_open_source",
+   "id": "p_spire_open_source",
    "props": {
-    "text": "dugite is open source",
+    "text": "SPIFFE/SPIRE is open source",
     "kind": "unwritten",
-    "tool": "dugite",
+    "tool": "spire",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_sqlite_maintained",
+   "props": {
+    "text": "SQLite is actively maintained",
+    "kind": "unwritten",
+    "tool": "sqlite",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_sqlite_open_source",
+   "props": {
+    "text": "SQLite is open source",
+    "kind": "unwritten",
+    "tool": "sqlite",
     "check": "open_source"
    }
   },
@@ -1373,148 +1468,93 @@
   },
   {
    "label": "Premise",
-   "id": "p_poetry_maintained",
+   "id": "p_style-dictionary_maintained",
    "props": {
-    "text": "Poetry is actively maintained",
+    "text": "Style Dictionary is actively maintained",
     "kind": "unwritten",
-    "tool": "poetry",
+    "tool": "style-dictionary",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_poetry_open_source",
+   "id": "p_style-dictionary_open_source",
    "props": {
-    "text": "Poetry is open source",
+    "text": "Style Dictionary is open source",
     "kind": "unwritten",
-    "tool": "poetry",
+    "tool": "style-dictionary",
     "check": "open_source"
    }
   },
   {
    "label": "Premise",
-   "id": "p_plantuml_maintained",
+   "id": "p_terraform_maintained",
    "props": {
-    "text": "PlantUML is actively maintained",
+    "text": "Terraform is actively maintained",
     "kind": "unwritten",
-    "tool": "plantuml",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Evidence",
-   "id": "maintained:plantuml:2012-09-07",
-   "props": {
-    "kind": "check",
-    "title": "git history of plantuml/plantuml: no commit to the default branch since 2011-09-08",
-    "date": "2012-09-07",
-    "excerpt": "no commit to the default branch since 2011-09-08",
-    "path": "https://github.com/plantuml/plantuml"
-   }
-  },
-  {
-   "label": "Evidence",
-   "id": "maintained:plantuml:2013-12-10",
-   "props": {
-    "kind": "check",
-    "title": "git history of plantuml/plantuml: commits resume on 2013-12-10 after a gap since 2011-09-08",
-    "date": "2013-12-10",
-    "excerpt": "commits resume on 2013-12-10 after a gap since 2011-09-08",
-    "path": "https://github.com/plantuml/plantuml"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_plantuml_open_source",
-   "props": {
-    "text": "PlantUML is open source",
-    "kind": "unwritten",
-    "tool": "plantuml",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_elasticsearch_maintained",
-   "props": {
-    "text": "Elasticsearch is actively maintained",
-    "kind": "unwritten",
-    "tool": "elasticsearch",
+    "tool": "terraform",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_elasticsearch_open_source",
+   "id": "p_terraform_open_source",
    "props": {
-    "text": "Elasticsearch is open source",
+    "text": "Terraform is open source",
     "kind": "unwritten",
-    "tool": "elasticsearch",
+    "tool": "terraform",
     "check": "open_source"
    }
   },
   {
    "label": "Evidence",
-   "id": "open_source:elasticsearch:2021-01-14",
+   "id": "open_source:terraform:2023-08-10",
    "props": {
     "kind": "check",
-    "title": "Elastic moves Elasticsearch from Apache 2.0 to SSPL / Elastic License (https://www.elastic.co/blog/licensing-change)",
-    "date": "2021-01-14",
-    "excerpt": "Elastic moves Elasticsearch from Apache 2.0 to SSPL / Elastic License",
-    "path": "https://www.elastic.co/blog/licensing-change"
-   }
-  },
-  {
-   "label": "Evidence",
-   "id": "open_source:elasticsearch:2024-08-29",
-   "props": {
-    "kind": "check",
-    "title": "Elastic adds AGPLv3 as a license option (https://www.elastic.co/blog/elasticsearch-is-open-source-again)",
-    "date": "2024-08-29",
-    "excerpt": "Elastic adds AGPLv3 as a license option",
-    "path": "https://www.elastic.co/blog/elasticsearch-is-open-source-again"
+    "title": "HashiCorp moves Terraform to the Business Source License (https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license)",
+    "date": "2023-08-10",
+    "excerpt": "HashiCorp moves Terraform to the Business Source License",
+    "path": "https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license"
    }
   },
   {
    "label": "Premise",
-   "id": "p_kibana_maintained",
+   "id": "p_terratest_maintained",
    "props": {
-    "text": "Kibana is actively maintained",
+    "text": "Terratest is actively maintained",
     "kind": "unwritten",
-    "tool": "kibana",
+    "tool": "terratest",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_kibana_open_source",
+   "id": "p_terratest_open_source",
    "props": {
-    "text": "Kibana is open source",
+    "text": "Terratest is open source",
     "kind": "unwritten",
-    "tool": "kibana",
+    "tool": "terratest",
     "check": "open_source"
    }
   },
   {
-   "label": "Evidence",
-   "id": "open_source:kibana:2021-01-14",
+   "label": "Premise",
+   "id": "p_testify_maintained",
    "props": {
-    "kind": "check",
-    "title": "Elastic moves Kibana from Apache 2.0 to SSPL / Elastic License (https://www.elastic.co/blog/licensing-change)",
-    "date": "2021-01-14",
-    "excerpt": "Elastic moves Kibana from Apache 2.0 to SSPL / Elastic License",
-    "path": "https://www.elastic.co/blog/licensing-change"
+    "text": "Testify is actively maintained",
+    "kind": "unwritten",
+    "tool": "testify",
+    "check": "maintained"
    }
   },
   {
-   "label": "Evidence",
-   "id": "open_source:kibana:2024-08-29",
+   "label": "Premise",
+   "id": "p_testify_open_source",
    "props": {
-    "kind": "check",
-    "title": "Elastic adds AGPLv3 as a license option (https://www.elastic.co/blog/elasticsearch-is-open-source-again)",
-    "date": "2024-08-29",
-    "excerpt": "Elastic adds AGPLv3 as a license option",
-    "path": "https://www.elastic.co/blog/elasticsearch-is-open-source-again"
+    "text": "Testify is open source",
+    "kind": "unwritten",
+    "tool": "testify",
+    "check": "open_source"
    }
   },
   {
@@ -1539,163 +1579,123 @@
   },
   {
    "label": "Premise",
-   "id": "p_argocd_maintained",
+   "id": "p_toastui_maintained",
    "props": {
-    "text": "Argo CD is actively maintained",
+    "text": "TOAST UI Editor is actively maintained",
     "kind": "unwritten",
-    "tool": "argocd",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_argocd_open_source",
-   "props": {
-    "text": "Argo CD is open source",
-    "kind": "unwritten",
-    "tool": "argocd",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_pulsar_maintained",
-   "props": {
-    "text": "Apache Pulsar is actively maintained",
-    "kind": "unwritten",
-    "tool": "pulsar",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_pulsar_open_source",
-   "props": {
-    "text": "Apache Pulsar is open source",
-    "kind": "unwritten",
-    "tool": "pulsar",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_sqlite_maintained",
-   "props": {
-    "text": "SQLite is actively maintained",
-    "kind": "unwritten",
-    "tool": "sqlite",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_sqlite_open_source",
-   "props": {
-    "text": "SQLite is open source",
-    "kind": "unwritten",
-    "tool": "sqlite",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_nomad_maintained",
-   "props": {
-    "text": "Nomad is actively maintained",
-    "kind": "unwritten",
-    "tool": "nomad",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_nomad_open_source",
-   "props": {
-    "text": "Nomad is open source",
-    "kind": "unwritten",
-    "tool": "nomad",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Evidence",
-   "id": "open_source:nomad:2023-08-10",
-   "props": {
-    "kind": "check",
-    "title": "HashiCorp moves Nomad to the Business Source License (https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license)",
-    "date": "2023-08-10",
-    "excerpt": "HashiCorp moves Nomad to the Business Source License",
-    "path": "https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_devise_maintained",
-   "props": {
-    "text": "Devise is actively maintained",
-    "kind": "unwritten",
-    "tool": "devise",
-    "check": "maintained"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_devise_open_source",
-   "props": {
-    "text": "Devise is open source",
-    "kind": "unwritten",
-    "tool": "devise",
-    "check": "open_source"
-   }
-  },
-  {
-   "label": "Premise",
-   "id": "p_intern_maintained",
-   "props": {
-    "text": "Intern is actively maintained",
-    "kind": "unwritten",
-    "tool": "intern",
+    "tool": "toastui",
     "check": "maintained"
    }
   },
   {
    "label": "Evidence",
-   "id": "maintained:intern:2024-01-26",
+   "id": "maintained:toastui:2024-02-17",
    "props": {
     "kind": "check",
-    "title": "git history of theintern/intern: no commit to the default branch since 2023-01-26",
-    "date": "2024-01-26",
-    "excerpt": "no commit to the default branch since 2023-01-26",
-    "path": "https://github.com/theintern/intern"
+    "title": "git history of nhn/tui.editor: no commit to the default branch since 2023-02-17",
+    "date": "2024-02-17",
+    "excerpt": "no commit to the default branch since 2023-02-17",
+    "path": "https://github.com/nhn/tui.editor"
    }
   },
   {
    "label": "Premise",
-   "id": "p_intern_open_source",
+   "id": "p_toastui_open_source",
    "props": {
-    "text": "Intern is open source",
+    "text": "TOAST UI Editor is open source",
     "kind": "unwritten",
-    "tool": "intern",
+    "tool": "toastui",
     "check": "open_source"
    }
   },
   {
    "label": "Premise",
-   "id": "p_react_maintained",
+   "id": "p_traefik_maintained",
    "props": {
-    "text": "React is actively maintained",
+    "text": "Traefik is actively maintained",
     "kind": "unwritten",
-    "tool": "react",
+    "tool": "traefik",
     "check": "maintained"
    }
   },
   {
    "label": "Premise",
-   "id": "p_react_open_source",
+   "id": "p_traefik_open_source",
    "props": {
-    "text": "React is open source",
+    "text": "Traefik is open source",
     "kind": "unwritten",
-    "tool": "react",
+    "tool": "traefik",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_vite_maintained",
+   "props": {
+    "text": "Vite is actively maintained",
+    "kind": "unwritten",
+    "tool": "vite",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_vite_open_source",
+   "props": {
+    "text": "Vite is open source",
+    "kind": "unwritten",
+    "tool": "vite",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_vue_maintained",
+   "props": {
+    "text": "Vue.js 2 is actively maintained",
+    "kind": "unwritten",
+    "tool": "vue",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Evidence",
+   "id": "maintained:vue:2025-10-10",
+   "props": {
+    "kind": "check",
+    "title": "git history of vuejs/vue: no commit to the default branch since 2024-10-10",
+    "date": "2025-10-10",
+    "excerpt": "no commit to the default branch since 2024-10-10",
+    "path": "https://github.com/vuejs/vue"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_vue_open_source",
+   "props": {
+    "text": "Vue.js 2 is open source",
+    "kind": "unwritten",
+    "tool": "vue",
+    "check": "open_source"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_waffle_maintained",
+   "props": {
+    "text": "django-waffle is actively maintained",
+    "kind": "unwritten",
+    "tool": "waffle",
+    "check": "maintained"
+   }
+  },
+  {
+   "label": "Premise",
+   "id": "p_waffle_open_source",
+   "props": {
+    "text": "django-waffle is open source",
+    "kind": "unwritten",
+    "tool": "waffle",
     "check": "open_source"
    }
   },
@@ -2806,12 +2806,21 @@
  ],
  "edges": [
   {
-   "src": "maintained:kubeless:2022-12-15",
+   "src": "maintained:bridgekeeper:2022-10-06",
    "rel": "CONTRADICTS",
-   "dst": "p_kubeless_maintained",
+   "dst": "p_bridgekeeper_maintained",
    "props": {
-    "at": "2022-12-15",
-    "quote": "no commit to the default branch since 2021-12-15"
+    "at": "2022-10-06",
+    "quote": "no commit to the default branch since 2021-10-06"
+   }
+  },
+  {
+   "src": "open_source:consul:2023-08-10",
+   "rel": "CONTRADICTS",
+   "dst": "p_consul_open_source",
+   "props": {
+    "at": "2023-08-10",
+    "quote": "HashiCorp moves Consul to the Business Source License"
    }
   },
   {
@@ -2842,39 +2851,21 @@
    }
   },
   {
-   "src": "maintained:puppet:2025-12-10",
+   "src": "open_source:elasticsearch:2021-01-14",
    "rel": "CONTRADICTS",
-   "dst": "p_puppet_maintained",
+   "dst": "p_elasticsearch_open_source",
    "props": {
-    "at": "2025-12-10",
-    "quote": "no commit to the default branch since 2024-12-10"
+    "at": "2021-01-14",
+    "quote": "Elastic moves Elasticsearch from Apache 2.0 to SSPL / Elastic License"
    }
   },
   {
-   "src": "open_source:redis:2024-03-20",
-   "rel": "CONTRADICTS",
-   "dst": "p_redis_open_source",
-   "props": {
-    "at": "2024-03-20",
-    "quote": "Redis moves from BSD to RSALv2 / SSPLv1"
-   }
-  },
-  {
-   "src": "open_source:redis:2025-05-01",
+   "src": "open_source:elasticsearch:2024-08-29",
    "rel": "SUPPORTS",
-   "dst": "p_redis_open_source",
+   "dst": "p_elasticsearch_open_source",
    "props": {
-    "at": "2025-05-01",
-    "quote": "Redis 8 adds AGPLv3 as a license option"
-   }
-  },
-  {
-   "src": "maintained:bridgekeeper:2022-10-06",
-   "rel": "CONTRADICTS",
-   "dst": "p_bridgekeeper_maintained",
-   "props": {
-    "at": "2022-10-06",
-    "quote": "no commit to the default branch since 2021-10-06"
+    "at": "2024-08-29",
+    "quote": "Elastic adds AGPLv3 as a license option"
    }
   },
   {
@@ -2905,30 +2896,75 @@
    }
   },
   {
-   "src": "maintained:toastui:2024-02-17",
+   "src": "maintained:intern:2024-01-26",
    "rel": "CONTRADICTS",
-   "dst": "p_toastui_maintained",
+   "dst": "p_intern_maintained",
    "props": {
-    "at": "2024-02-17",
-    "quote": "no commit to the default branch since 2023-02-17"
+    "at": "2024-01-26",
+    "quote": "no commit to the default branch since 2023-01-26"
    }
   },
   {
-   "src": "open_source:terraform:2023-08-10",
+   "src": "open_source:kibana:2021-01-14",
    "rel": "CONTRADICTS",
-   "dst": "p_terraform_open_source",
+   "dst": "p_kibana_open_source",
+   "props": {
+    "at": "2021-01-14",
+    "quote": "Elastic moves Kibana from Apache 2.0 to SSPL / Elastic License"
+   }
+  },
+  {
+   "src": "open_source:kibana:2024-08-29",
+   "rel": "SUPPORTS",
+   "dst": "p_kibana_open_source",
+   "props": {
+    "at": "2024-08-29",
+    "quote": "Elastic adds AGPLv3 as a license option"
+   }
+  },
+  {
+   "src": "maintained:kubeless:2022-12-15",
+   "rel": "CONTRADICTS",
+   "dst": "p_kubeless_maintained",
+   "props": {
+    "at": "2022-12-15",
+    "quote": "no commit to the default branch since 2021-12-15"
+   }
+  },
+  {
+   "src": "maintained:lunr:2021-08-19",
+   "rel": "CONTRADICTS",
+   "dst": "p_lunr_maintained",
+   "props": {
+    "at": "2021-08-19",
+    "quote": "no commit to the default branch since 2020-08-19"
+   }
+  },
+  {
+   "src": "open_source:nomad:2023-08-10",
+   "rel": "CONTRADICTS",
+   "dst": "p_nomad_open_source",
    "props": {
     "at": "2023-08-10",
-    "quote": "HashiCorp moves Terraform to the Business Source License"
+    "quote": "HashiCorp moves Nomad to the Business Source License"
    }
   },
   {
-   "src": "maintained:vue:2025-10-10",
+   "src": "maintained:plantuml:2012-09-07",
    "rel": "CONTRADICTS",
-   "dst": "p_vue_maintained",
+   "dst": "p_plantuml_maintained",
    "props": {
-    "at": "2025-10-10",
-    "quote": "no commit to the default branch since 2024-10-10"
+    "at": "2012-09-07",
+    "quote": "no commit to the default branch since 2011-09-08"
+   }
+  },
+  {
+   "src": "maintained:plantuml:2013-12-10",
+   "rel": "SUPPORTS",
+   "dst": "p_plantuml_maintained",
+   "props": {
+    "at": "2013-12-10",
+    "quote": "commits resume on 2013-12-10 after a gap since 2011-09-08"
    }
   },
   {
@@ -2950,21 +2986,30 @@
    }
   },
   {
-   "src": "maintained:lunr:2021-08-19",
+   "src": "maintained:puppet:2025-12-10",
    "rel": "CONTRADICTS",
-   "dst": "p_lunr_maintained",
+   "dst": "p_puppet_maintained",
    "props": {
-    "at": "2021-08-19",
-    "quote": "no commit to the default branch since 2020-08-19"
+    "at": "2025-12-10",
+    "quote": "no commit to the default branch since 2024-12-10"
    }
   },
   {
-   "src": "open_source:consul:2023-08-10",
+   "src": "open_source:redis:2024-03-20",
    "rel": "CONTRADICTS",
-   "dst": "p_consul_open_source",
+   "dst": "p_redis_open_source",
    "props": {
-    "at": "2023-08-10",
-    "quote": "HashiCorp moves Consul to the Business Source License"
+    "at": "2024-03-20",
+    "quote": "Redis moves from BSD to RSALv2 / SSPLv1"
+   }
+  },
+  {
+   "src": "open_source:redis:2025-05-01",
+   "rel": "SUPPORTS",
+   "dst": "p_redis_open_source",
+   "props": {
+    "at": "2025-05-01",
+    "quote": "Redis 8 adds AGPLv3 as a license option"
    }
   },
   {
@@ -2995,75 +3040,30 @@
    }
   },
   {
-   "src": "maintained:plantuml:2012-09-07",
+   "src": "open_source:terraform:2023-08-10",
    "rel": "CONTRADICTS",
-   "dst": "p_plantuml_maintained",
-   "props": {
-    "at": "2012-09-07",
-    "quote": "no commit to the default branch since 2011-09-08"
-   }
-  },
-  {
-   "src": "maintained:plantuml:2013-12-10",
-   "rel": "SUPPORTS",
-   "dst": "p_plantuml_maintained",
-   "props": {
-    "at": "2013-12-10",
-    "quote": "commits resume on 2013-12-10 after a gap since 2011-09-08"
-   }
-  },
-  {
-   "src": "open_source:elasticsearch:2021-01-14",
-   "rel": "CONTRADICTS",
-   "dst": "p_elasticsearch_open_source",
-   "props": {
-    "at": "2021-01-14",
-    "quote": "Elastic moves Elasticsearch from Apache 2.0 to SSPL / Elastic License"
-   }
-  },
-  {
-   "src": "open_source:elasticsearch:2024-08-29",
-   "rel": "SUPPORTS",
-   "dst": "p_elasticsearch_open_source",
-   "props": {
-    "at": "2024-08-29",
-    "quote": "Elastic adds AGPLv3 as a license option"
-   }
-  },
-  {
-   "src": "open_source:kibana:2021-01-14",
-   "rel": "CONTRADICTS",
-   "dst": "p_kibana_open_source",
-   "props": {
-    "at": "2021-01-14",
-    "quote": "Elastic moves Kibana from Apache 2.0 to SSPL / Elastic License"
-   }
-  },
-  {
-   "src": "open_source:kibana:2024-08-29",
-   "rel": "SUPPORTS",
-   "dst": "p_kibana_open_source",
-   "props": {
-    "at": "2024-08-29",
-    "quote": "Elastic adds AGPLv3 as a license option"
-   }
-  },
-  {
-   "src": "open_source:nomad:2023-08-10",
-   "rel": "CONTRADICTS",
-   "dst": "p_nomad_open_source",
+   "dst": "p_terraform_open_source",
    "props": {
     "at": "2023-08-10",
-    "quote": "HashiCorp moves Nomad to the Business Source License"
+    "quote": "HashiCorp moves Terraform to the Business Source License"
    }
   },
   {
-   "src": "maintained:intern:2024-01-26",
+   "src": "maintained:toastui:2024-02-17",
    "rel": "CONTRADICTS",
-   "dst": "p_intern_maintained",
+   "dst": "p_toastui_maintained",
    "props": {
-    "at": "2024-01-26",
-    "quote": "no commit to the default branch since 2023-01-26"
+    "at": "2024-02-17",
+    "quote": "no commit to the default branch since 2023-02-17"
+   }
+  },
+  {
+   "src": "maintained:vue:2025-10-10",
+   "rel": "CONTRADICTS",
+   "dst": "p_vue_maintained",
+   "props": {
+    "at": "2025-10-10",
+    "quote": "no commit to the default branch since 2024-10-10"
    }
   },
   {

@@ -96,7 +96,7 @@ def arm_moot(advisory: bool = False) -> dict[str, dict]:
                  for g in GOLD["units"] for u in [UNITS[g["id"]]]]
     g = connect().select_graph(f"moot_eval_heldout_{os.getpid()}")
     path = ROOT / "data" / STUDY / ("graph_advisory.json" if advisory else "graph.json")
-    payload = build(decisions, {t: ev[t] for t in {t for d in decisions for t in d["tools"]}})
+    payload = build(decisions, {t: ev[t] for t in sorted({t for d in decisions for t in d["tools"]})})  # sorted: the same graph.json every run
     if advisory:
         for n in payload["nodes"]:
             if n["label"] == "Premise" and n["props"].get("check") == "open_source":

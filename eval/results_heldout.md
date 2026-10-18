@@ -56,32 +56,32 @@ Added after these numbers were seen: of the 59 held decisions Moot's gate blocke
 | decision | gold | backed by | Moot | Moot's reason | RAG | agent | age |
 |---|---|---|---|---|---|---|---|
 | CMSgov/easi-app:0002-use-terraform.md | HOLDS | status | DEAD | "Terraform is open source" was contradicted on 2023-08-10 by open_source:terraform:2023-08-10. | HOLDS | HOLDS | DEAD |
-| CMSgov/easi-app:0012-backend-testing-suite.md | HOLDS | code | HOLDS | "Testify is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
+| CMSgov/easi-app:0012-backend-testing-suite.md | HOLDS | code | HOLDS | "Testify is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
 | CMSgov/easi-app:0014-use-mux-for-routing.md | HOLDS | code | HOLDS | "gorilla/mux is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
 | CMSgov/easi-app:0016-migration-tool.md | HOLDS | status | HOLDS | "Flyway is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
 | CMSgov/easi-app:0017-go-orm.md | HOLDS | code | DEAD | "sqlx is actively maintained" was contradicted on 2023-04-16 by maintained:sqlx:2023-04-16. | HOLDS | DEAD | DEAD |
 | DFE-Digital/apply-for-teacher-training:0002-use-devise-for-authentication.md | HOLDS | code | HOLDS | "Devise is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
 | DFE-Digital/find-a-lost-trn:00003-use-rails.md | HOLDS | code | HOLDS | "Ruby on Rails is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
-| DFE-Digital/find-a-lost-trn:00004-use-postgres-state.md | HOLDS | code | HOLDS | "PostgreSQL is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
+| DFE-Digital/find-a-lost-trn:00004-use-postgres-state.md | HOLDS | code | HOLDS | "PostgreSQL is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
 | DFE-Digital/find-a-lost-trn:00006-sidekiq-and-redis.md | HOLDS | code | HOLDS | "Redis is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
-| HHS/Head-Start-TTADP:0007-use-plantuml-for-diagrams.md | HOLDS | code | HOLDS | "PlantUML is actively maintained" was contradicted by maintained:plantuml:2012-09-07 and re-affirmed by mainta | HOLDS | HOLDS | DEAD |
-| SmartBear/git-en-boite:0009-prefer-dugite-over-raw-git-commands-in-tests.md | HOLDS | code | HOLDS | "dugite is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
+| HHS/Head-Start-TTADP:0007-use-plantuml-for-diagrams.md | HOLDS | code | HOLDS | "PlantUML is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
+| SmartBear/git-en-boite:0009-prefer-dugite-over-raw-git-commands-in-tests.md | HOLDS | code | HOLDS | "dugite is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
 | alphagov/govuk-aws:0007-puppet-cert-management.md | HOLDS | status | HOLDS | "Puppet is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
-| alphagov/govuk-aws:0008-postgres-on-puppetmaster.md | HOLDS | status | HOLDS | "Puppet is open source" has no dated evidence either way; nobody has checked it. | DEAD | DEAD | DEAD |
+| alphagov/govuk-aws:0008-postgres-on-puppetmaster.md | HOLDS | status | HOLDS | "Puppet is actively maintained" has no dated evidence either way; nobody has checked it. | DEAD | DEAD | DEAD |
 | alphagov/govuk-aws:0025-use-elasticache-for-redis.md | HOLDS | code | HOLDS | "Redis is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
-| alphagov/govuk-aws:0029-combine-api-redis-into-backend-redis.md | HOLDS | code | HOLDS | "Redis is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
-| alphagov/govuk-infrastructure:0002-use-aws-eks-terraform-module.md | HOLDS | code | HOLDS | "terraform-aws-eks module is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
+| alphagov/govuk-aws:0029-combine-api-redis-into-backend-redis.md | HOLDS | code | HOLDS | "Redis is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
+| alphagov/govuk-infrastructure:0002-use-aws-eks-terraform-module.md | HOLDS | code | HOLDS | "terraform-aws-eks module is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
 | alphagov/govuk-infrastructure:0004-use-aws-load-balancer-controller-for-edge-traffic-services.md | HOLDS | code | HOLDS | "AWS Load Balancer Controller is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
-| alphagov/govuk-infrastructure:0005-use-eks-managed-node-groups.md | HOLDS | status | HOLDS | "Kubernetes is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
+| alphagov/govuk-infrastructure:0005-use-eks-managed-node-groups.md | HOLDS | status | HOLDS | "Kubernetes is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
 | alphagov/govuk-infrastructure:0006-use-helm-for-application-package-management.md | HOLDS | code | HOLDS | "Helm is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
-| alphagov/govuk-infrastructure:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md | DEAD | status | DEAD | "Elasticsearch is open source" was contradicted on 2021-01-14 by open_source:elasticsearch:2021-01-14. | HOLDS | DEAD | HOLDS |
-| alphagov/govuk-infrastructure:0008-use-external-secrets-for-secrets-storage.md | HOLDS | code | HOLDS | "external-secrets is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
+| alphagov/govuk-infrastructure:0007-use-fluentbit-elasticsearch-and-kibana-for-application-logs.md | DEAD | status | DEAD | "Kibana is open source" was contradicted on 2021-01-14 by open_source:kibana:2021-01-14. | HOLDS | DEAD | HOLDS |
+| alphagov/govuk-infrastructure:0008-use-external-secrets-for-secrets-storage.md | HOLDS | code | HOLDS | "external-secrets is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
 | alphagov/govuk-infrastructure:0009-use-external-dns-for-dns-record-management.md | HOLDS | code | HOLDS | "external-dns is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
-| apache/james-project:0019-reactor-netty-adoption.md | HOLDS | code | HOLDS | "Reactor Netty is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
+| apache/james-project:0019-reactor-netty-adoption.md | HOLDS | code | HOLDS | "Reactor Netty is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
 | apache/james-project:0033-use-scala-in-event-sourcing-modules.md | HOLDS | code | HOLDS | "Scala is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
 | apache/james-project:0052-pulsar-mailqueue.md | HOLDS | code | HOLDS | "Apache Pulsar is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
-| apache/james-project:0056-opensearch-migration.md | HOLDS | status | HOLDS | "OpenSearch is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
-| apache/james-project:0059-upgrade-to-cassadra-driver-4.md | HOLDS | code | HOLDS | "Cassandra Java driver is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
+| apache/james-project:0056-opensearch-migration.md | HOLDS | status | HOLDS | "OpenSearch is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
+| apache/james-project:0059-upgrade-to-cassadra-driver-4.md | HOLDS | code | HOLDS | "Cassandra Java driver is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
 | backstage/backstage:adr012-use-luxon-locale-and-date-presets.md | HOLDS | code | HOLDS | "Luxon is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
 | change-metrics/monocle:0002-Choice-of-Elasticsearch.md | HOLDS | status | DEAD | "Elasticsearch is open source" was contradicted on 2021-01-14 by open_source:elasticsearch:2021-01-14. | HOLDS | DEAD | DEAD |
 | change-metrics/monocle:0003-Choice-of-React.md | HOLDS | code | HOLDS | "React is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
@@ -89,33 +89,33 @@ Added after these numbers were seen: of the 59 held decisions Moot's gate blocke
 | cljdoc/cljdoc:0017-use-nomad-for-deployment.md | HOLDS | status | DEAD | "Nomad is open source" was contradicted on 2023-08-10 by open_source:nomad:2023-08-10. | HOLDS | HOLDS | DEAD |
 | cloudfoundry/korifi:0007-use-contour-for-ingress.md | HOLDS | status | HOLDS | "Contour is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
 | guardian/dotcom-rendering:use-percy-for-e2e-visual-regression-testing.md | DEAD | code | HOLDS | "Cypress is open source" has no dated evidence either way; nobody has checked it. | DEAD | HOLDS | HOLDS |
-| kyma-project/community:dr-005-Istio_as_the_API_Gateway.md | HOLDS | status | HOLDS | "Istio is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
+| kyma-project/community:dr-005-Istio_as_the_API_Gateway.md | HOLDS | status | HOLDS | "Istio is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
 | ministryofjustice/cloud-platform:001-Use-AWS-hosted-elasticsearch.md | HOLDS | status | DEAD | "Elasticsearch is open source" was contradicted on 2021-01-14 by open_source:elasticsearch:2021-01-14. | DEAD | HOLDS | DEAD |
 | ministryofjustice/cloud-platform:003-Use-Concourse-CI.md | HOLDS | status | HOLDS | "Concourse CI is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
-| ministryofjustice/cloud-platform:004-use-kubernetes-for-container-management.md | HOLDS | status | HOLDS | "Kubernetes is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
+| ministryofjustice/cloud-platform:004-use-kubernetes-for-container-management.md | HOLDS | status | HOLDS | "Kubernetes is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
 | ministryofjustice/cloud-platform:011-Introduce-Open-Policy-Agent.md | HOLDS | status | HOLDS | "Open Policy Agent is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
-| ministryofjustice/cloud-platform:014-Why-we-build-our-own-kubernetes-cluster.md | HOLDS | status | HOLDS | "Kubernetes is open source" has no dated evidence either way; nobody has checked it. | DEAD | DEAD | DEAD |
+| ministryofjustice/cloud-platform:014-Why-we-build-our-own-kubernetes-cluster.md | HOLDS | status | HOLDS | "Kubernetes is actively maintained" has no dated evidence either way; nobody has checked it. | DEAD | DEAD | DEAD |
 | ministryofjustice/cloud-platform:022-EKS.md | HOLDS | status | HOLDS | "Kubernetes is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
-| ministryofjustice/modernisation-platform:0007-use-terratest-opa-and-go-for-testing.md | HOLDS | status | HOLDS | "Open Policy Agent is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
-| mozilla/fxa:0002-use-react-redux-and-typescript-for-subscription-management-pages.md | DEAD | code | HOLDS | "Redux is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
+| ministryofjustice/modernisation-platform:0007-use-terratest-opa-and-go-for-testing.md | HOLDS | status | HOLDS | "Open Policy Agent is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
+| mozilla/fxa:0002-use-react-redux-and-typescript-for-subscription-management-pages.md | DEAD | code | HOLDS | "React is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
 | mozilla/fxa:0010-transition-fxa-from-backbone-to-react.md | HOLDS | code | HOLDS | "React is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
 | mozilla/fxa:0021-use-internjs-testing.md | DEAD | code | HOLDS | "Intern is open source" has no dated evidence either way; nobody has checked it. | DEAD | HOLDS | DEAD |
-| mozilla/fxa:0035-refactor-payments-frontend-with-nextjs.md | HOLDS | code | HOLDS | "Next.js is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
-| mozilla/fxa:0037-use-nx-for-monorepo.md | HOLDS | code | HOLDS | "Nx is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
+| mozilla/fxa:0035-refactor-payments-frontend-with-nextjs.md | HOLDS | code | HOLDS | "Next.js is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
+| mozilla/fxa:0037-use-nx-for-monorepo.md | HOLDS | code | HOLDS | "Nx is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
 | openedx/edx-enterprise:0012-enterprise-feature-flags-waffle.rst | HOLDS | code | HOLDS | "django-waffle is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
-| openedx/edx-platform:0002-waffle-utils-extraction.rst | HOLDS | code | HOLDS | "django-waffle is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
+| openedx/edx-platform:0002-waffle-utils-extraction.rst | HOLDS | code | HOLDS | "django-waffle is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
 | openedx/edx-platform:0003-permissions-via-bridgekeeper.rst | HOLDS | code | DEAD | "bridgekeeper is actively maintained" was contradicted on 2022-10-06 by maintained:bridgekeeper:2022-10-06. | HOLDS | DEAD | DEAD |
-| openedx/edx-platform:0004-waffle-util-namespacing.rst | HOLDS | code | HOLDS | "django-waffle is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
+| openedx/edx-platform:0004-waffle-util-namespacing.rst | HOLDS | code | HOLDS | "django-waffle is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
 | openedx/edx-platform:permissions.rst | HOLDS | code | HOLDS | "django-rules is actively maintained" was contradicted by maintained:django-rules:2021-01-16 and re-affirmed b | DEAD | HOLDS | DEAD |
-| openedx/frontend-app-learning:0006-thunk-and-api-naming.md | DEAD | code | HOLDS | "Redux is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
-| openedx/frontend-platform:0004-axios-caching-implementation.rst | HOLDS | code | HOLDS | "Axios is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
-| openedx/paragon:0017-runtime-a11y-validation.rst | HOLDS | code | HOLDS | "React is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
-| openedx/paragon:0019-scaling-styles-with-design-tokens.rst | HOLDS | code | HOLDS | "Style Dictionary is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
-| operate-first/blueprint:0004-argocd-apps-of-apps-structure.md | HOLDS | status | HOLDS | "Argo CD is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
+| openedx/frontend-app-learning:0006-thunk-and-api-naming.md | DEAD | code | HOLDS | "Redux is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
+| openedx/frontend-platform:0004-axios-caching-implementation.rst | HOLDS | code | HOLDS | "Axios is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
+| openedx/paragon:0017-runtime-a11y-validation.rst | HOLDS | code | HOLDS | "React is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
+| openedx/paragon:0019-scaling-styles-with-design-tokens.rst | HOLDS | code | HOLDS | "Style Dictionary is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
+| operate-first/blueprint:0004-argocd-apps-of-apps-structure.md | HOLDS | status | HOLDS | "Argo CD is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
 | operate-first/blueprint:0006-monitoring-structure.md | HOLDS | status | HOLDS | "Prometheus is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | HOLDS |
 | thomvaill/log4brains:20200925-use-nextjs-for-static-site-generation.md | HOLDS | code | HOLDS | "Next.js is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
-| thomvaill/log4brains:20200925-use-prettier-eslint-airbnb-for-the-code-style.md | HOLDS | code | HOLDS | "prettier-eslint is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
-| thomvaill/log4brains:20200927-avoid-react-fc-type.md | HOLDS | code | HOLDS | "React is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
+| thomvaill/log4brains:20200925-use-prettier-eslint-airbnb-for-the-code-style.md | HOLDS | code | HOLDS | "prettier-eslint is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
+| thomvaill/log4brains:20200927-avoid-react-fc-type.md | HOLDS | code | HOLDS | "React is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
 | thomvaill/log4brains:20201103-use-lunr-for-search.md | HOLDS | code | DEAD | "Lunr.js is actively maintained" was contradicted on 2021-08-19 by maintained:lunr:2021-08-19. | HOLDS | HOLDS | HOLDS |
-| wmde/fundraising-application:006_Vue.js.md | HOLDS | status | HOLDS | "Vue.js 2 is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
-| wmde/fundraising-application:010_Components_Framework.md | HOLDS | status | HOLDS | "Buefy is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
+| wmde/fundraising-application:006_Vue.js.md | HOLDS | status | HOLDS | "Vue.js 2 is open source" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
+| wmde/fundraising-application:010_Components_Framework.md | HOLDS | status | HOLDS | "Buefy is actively maintained" has no dated evidence either way; nobody has checked it. | HOLDS | HOLDS | DEAD |
