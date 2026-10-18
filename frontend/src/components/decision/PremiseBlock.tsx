@@ -36,7 +36,9 @@ export function premiseStatus(p: Premise): string {
     case "expired": return ev ? `contradicted ${longDate(ev.at)}` : "contradicted";
     case "disputed": {
       const c = last("CONTRADICTS"), sup = last("SUPPORTS");
-      return c && sup ? `contradicted ${longDate(c.at)}, re-affirmed ${longDate(sup.at)}` : "contradicted and re-affirmed";
+      if (c && sup && sup.at >= c.at) return `contradicted ${longDate(c.at)}, re-affirmed ${longDate(sup.at)}`;
+      // an advisory check (licence or vulnerability) that no stated reason depends on: flagged, not dead
+      return c ? `flagged ${longDate(c.at)} by a licence or vulnerability check` : "contradicted and re-affirmed";
     }
     case "holds": return ev ? `supported ${longDate(ev.at)}` : "nothing stands against it";
     case "unchecked": return "could not be checked";

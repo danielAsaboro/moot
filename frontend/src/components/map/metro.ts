@@ -814,7 +814,8 @@ export function mountMetro(root: HTMLElement, DATA: MapData, opts: MetroOptions)
     }
     if (v === "DISPUTED") {
       const r = rows.find(r => pState(r.id, m) === "disputed"), c = r && lastOf(r.id, m, "CONTRADICTS"), s = r && lastOf(r.id, m, "SUPPORTS");
-      if (r && c && s) return `${t(r.id)} was contradicted on ${fmtLong(c.at)} and re-affirmed on ${fmtLong(s.at)}; the owner has to rule.`;
+      if (r && c && s && s.at >= c.at) return `${t(r.id)} was contradicted on ${fmtLong(c.at)} and re-affirmed on ${fmtLong(s.at)}; the owner has to rule.`;
+      if (r && c) return `${t(r.id)} was flagged on ${fmtLong(c.at)} by a licence or vulnerability check that no stated reason depends on; the owner has to rule.`;
     }
     const direct = rows.find(r => r.hops === 1);
     if (!direct) return "Holds.";
@@ -857,7 +858,8 @@ export function mountMetro(root: HTMLElement, DATA: MapData, opts: MetroOptions)
       const c = closedSince(t.id, m), lc = lastOf(t.id, m, "CONTRADICTS"), ls = lastOf(t.id, m, "SUPPORTS");
       if (st == null) why = `Not in use yet: no decision rests on it in ${fmtMonth(MONTHS[m])}.`;
       else if (st === "expired" && c) why = `Closed since ${fmtLong(c.at)}, contradicted by “${title(c.id)}” (${c.id}). Its stations stay on the map: the rules are still enforced, their line no longer runs.`;
-      else if (st === "disputed" && lc && ls) why = `Contradicted on ${fmtLong(lc.at)} and re-affirmed on ${fmtLong(ls.at)}. The line still runs until the owner rules.`;
+      else if (st === "disputed" && lc && ls && ls.at >= lc.at) why = `Contradicted on ${fmtLong(lc.at)} and re-affirmed on ${fmtLong(ls.at)}. The line still runs until the owner rules.`;
+      else if (st === "disputed" && lc) why = `Flagged on ${fmtLong(lc.at)} by a licence or vulnerability check that no stated reason depends on. The line still runs until the owner rules.`;
       else if (st === "holds" && ls) why = `Running. Last inspected on ${fmtLong(ls.at)}.`;
       else why = "Unsurveyed: nobody has recorded dated evidence for or against it.";
       h += `<p class="why">${esc(why)}</p>`;

@@ -293,7 +293,7 @@ def ingest(full: str, path: str | None = None, checks: bool = True, today: str |
             for rid in rids:
                 for k in rw.PREMISE:
                     edges.append(dict(src=rid, rel="DERIVED_FROM", dst=f"p_{tid}_{k}", props={}))
-    payload = dict(nodes=list(nodes.values()), edges=edges)
+    payload = advisory_checks(dict(nodes=list(nodes.values()), edges=edges))
     out.mkdir(parents=True, exist_ok=True)
     (out / "graph.json").write_text(json.dumps(payload, indent=1))
     summary = dict(repo=full, graph=graph_name(full), folder=folder, read_on=today, adr_files=len(files), decisions=len(decisions),
@@ -304,6 +304,37 @@ def ingest(full: str, path: str | None = None, checks: bool = True, today: str |
                    failing=sum(1 for t in tool_checks.values() for c in t["checks"].values() if not c["holds"]))
     (out / "summary.json").write_text(json.dumps(summary, indent=1))
     return summary
+
+
+# Licence and vulnerability checks are advisory: a licence change or an OSV advisory makes a tool's premise disputed, not
+# expired (moot/verdict.py premise_state). It can kill a decision only through a reason the ADR states that depends on it,
+# in the ADR's own words; that reason then carries the check's dated evidence directly. Maintenance stays a hard check.
+# The phrases are narrow on purpose: "open-source projects use it" is about popularity, not the tool's licence.
+ADVISORY = {"open_source": re.compile(r"licen[cs]|\bis open[- ]source\b|open[- ]source (licen|software|tool|alternative)|proprietary|copyleft|\bBUSL\b", re.I),
+            "no_known_vuln": re.compile(r"vulnerab|\bCVEs?\b|security (advisor|fix|update)", re.I)}
+
+
+def advisory_checks(payload: dict) -> dict:
+    """Mark the licence and vulnerability premises advisory and give each stated reason that names that concern the check's
+    own SUPPORTS/CONTRADICTS edge. Idempotent: run on a graph.json written before this rule, it gives the same result."""
+    nodes = {n["id"]: n for n in payload["nodes"]}
+    for n in payload["nodes"]:
+        if n["label"] == "Premise" and n["props"].get("check") in ADVISORY:
+            n["props"]["advisory"] = True
+    have = {(e["src"], e["rel"], e["dst"]) for e in payload["edges"]}
+    checks = [e for e in payload["edges"] if e["rel"] in ("SUPPORTS", "CONTRADICTS") and nodes.get(e["dst"], {}).get("props", {}).get("advisory")]
+    for link in [e for e in payload["edges"] if e["rel"] == "DERIVED_FROM"]:
+        reason, tool_premise = nodes.get(link["src"]), nodes.get(link["dst"])
+        if not reason or not tool_premise or reason["props"].get("kind") != "stated":
+            continue
+        concern = tool_premise["props"].get("check")
+        if concern not in ADVISORY or not ADVISORY[concern].search(reason["props"].get("text", "") + " " + reason["props"].get("quote", "")):
+            continue
+        for c in checks:
+            if c["dst"] == tool_premise["id"] and (c["src"], c["rel"], reason["id"]) not in have:
+                payload["edges"].append(dict(src=c["src"], rel=c["rel"], dst=reason["id"], props=dict(c["props"], via=tool_premise["id"])))
+                have.add((c["src"], c["rel"], reason["id"]))
+    return payload
 
 
 def summary_for_graph(name: str) -> dict | None:

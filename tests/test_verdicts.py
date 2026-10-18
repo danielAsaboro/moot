@@ -14,6 +14,18 @@ def test_premise_states():
     assert premise_state(ev(("SUPPORTS", "2026-01-01"), ("CONTRADICTS", "2026-02-01"))) == "expired"
 
 
+def test_an_advisory_check_disputes_but_never_expires():
+    """A licence change or an OSV advisory is a reason for the owner to look, not proof the decision is dead."""
+    assert premise_state(ev(("CONTRADICTS", "2026-01-01")), advisory=True) == "disputed"
+    assert premise_state(ev(("SUPPORTS", "2026-01-01")), advisory=True) == "holds"
+    assert premise_state([], advisory=True) == "unevidenced"
+    a = dict(found=True, verdict="DISPUTED", decision=dict(id="d1", decided_on="2025-01-01"), superseded_by=None, owner=None,
+             premises=[dict(id="p_terraform_open_source", text="Terraform is open source", state="disputed", path=[], hops=1,
+                            evidence=[dict(id="open_source:terraform", rel="CONTRADICTS", at="2026-01-01")])])
+    g = gate(a)
+    assert g["gate"] == "REVALIDATE" and "no stated reason depends on" in g["reasons"][0]["text"]
+
+
 def test_decision_verdicts():
     assert decision_verdict([], superseded=False) == "UNDOCUMENTED"
     assert decision_verdict([dict(state="holds")], superseded=True) == "RETIRED"

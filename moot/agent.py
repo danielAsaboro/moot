@@ -78,8 +78,11 @@ def template_narration(audit: dict, impact: list[dict]) -> str:
         elif p["state"] == "disputed":
             ev = sorted(p["evidence"], key=lambda e: e["at"])
             c = [e for e in ev if e["rel"] == "CONTRADICTS"][-1]
-            s = [e for e in ev if e["rel"] == "SUPPORTS" and e["at"] >= c["at"]][-1]
-            parts.append(f"Its premise \"{p['text']}\" was contradicted on {c['at']} by [{c['id']}] and re-affirmed on {s['at']} by [{s['id']}], so it is disputed rather than dead.")
+            s = [e for e in ev if e["rel"] == "SUPPORTS" and e["at"] >= c["at"]]
+            if s:
+                parts.append(f"Its premise \"{p['text']}\" was contradicted on {c['at']} by [{c['id']}] and re-affirmed on {s[-1]['at']} by [{s[-1]['id']}], so it is disputed rather than dead.")
+            else:  # an advisory check (licence or vulnerability) that no stated reason depends on
+                parts.append(f"Its premise \"{p['text']}\" was contradicted on {c['at']} by [{c['id']}], a licence or vulnerability check that no reason the ADR states depends on, so it is disputed rather than dead.")
         else:
             sup = [e for e in p["evidence"] if e["rel"] == "SUPPORTS"]
             parts.append(f"Its premise \"{p['text']}\" still holds" + (f"; the latest support is [{sup[-1]['id']}] on {sup[-1]['at']}." if sup else "; nothing on record contradicts it."))

@@ -1797,7 +1797,8 @@
     "text": "Argo CD is open source",
     "kind": "unwritten",
     "tool": "argocd",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -1819,7 +1820,8 @@
     "kind": "unwritten",
     "tool": "argocd",
     "check": "no_known_vuln",
-    "unchecked": "no package in an OSV ecosystem"
+    "unchecked": "no package in an OSV ecosystem",
+    "advisory": true
    }
   },
   {
@@ -1850,7 +1852,8 @@
     "text": "AWS Load Balancer Controller is open source",
     "kind": "unwritten",
     "tool": "aws-lbc",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -1872,7 +1875,8 @@
     "kind": "unwritten",
     "tool": "aws-lbc",
     "check": "no_known_vuln",
-    "unchecked": "the Go module's latest version (v1.1.9) does not match the project's latest release (v3.6.0)"
+    "unchecked": "the Go module's latest version (v1.1.9) does not match the project's latest release (v3.6.0)",
+    "advisory": true
    }
   },
   {
@@ -1903,7 +1907,8 @@
     "text": "Concourse CI is open source",
     "kind": "unwritten",
     "tool": "concourse",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -1925,7 +1930,8 @@
     "kind": "unwritten",
     "tool": "concourse",
     "check": "no_known_vuln",
-    "unchecked": "the Go module's latest version (v4.2.3+incompatible) does not match the project's latest release (v8.3.1)"
+    "unchecked": "the Go module's latest version (v4.2.3+incompatible) does not match the project's latest release (v8.3.1)",
+    "advisory": true
    }
   },
   {
@@ -1956,7 +1962,8 @@
     "text": "Crossplane is open source",
     "kind": "unwritten",
     "tool": "crossplane",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -1977,7 +1984,8 @@
     "text": "The current release of Crossplane has no known vulnerability",
     "kind": "unwritten",
     "tool": "crossplane",
-    "check": "no_known_vuln"
+    "check": "no_known_vuln",
+    "advisory": true
    }
   },
   {
@@ -2019,7 +2027,8 @@
     "text": "Dex is open source",
     "kind": "unwritten",
     "tool": "dex",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -2041,7 +2050,8 @@
     "kind": "unwritten",
     "tool": "dex",
     "check": "no_known_vuln",
-    "unchecked": "the Go module's latest version (v0.6.1) does not match the project's latest release (v2.46.0)"
+    "unchecked": "the Go module's latest version (v0.6.1) does not match the project's latest release (v2.46.0)",
+    "advisory": true
    }
   },
   {
@@ -2072,7 +2082,8 @@
     "text": "Elasticsearch is open source",
     "kind": "unwritten",
     "tool": "elasticsearch",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -2093,7 +2104,8 @@
     "text": "The current release of Elasticsearch has no known vulnerability",
     "kind": "unwritten",
     "tool": "elasticsearch",
-    "check": "no_known_vuln"
+    "check": "no_known_vuln",
+    "advisory": true
    }
   },
   {
@@ -2135,7 +2147,8 @@
     "text": "external-dns is open source",
     "kind": "unwritten",
     "tool": "external-dns",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -2156,7 +2169,8 @@
     "text": "The current release of external-dns has no known vulnerability",
     "kind": "unwritten",
     "tool": "external-dns",
-    "check": "no_known_vuln"
+    "check": "no_known_vuln",
+    "advisory": true
    }
   },
   {
@@ -2198,7 +2212,8 @@
     "text": "external-secrets is open source",
     "kind": "unwritten",
     "tool": "external-secrets",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -2220,7 +2235,8 @@
     "kind": "unwritten",
     "tool": "external-secrets",
     "check": "no_known_vuln",
-    "unchecked": "the Go module's latest version (v1.3.2) does not match the project's latest release (helm-chart-2.13.0)"
+    "unchecked": "the Go module's latest version (v1.3.2) does not match the project's latest release (helm-chart-2.13.0)",
+    "advisory": true
    }
   },
   {
@@ -2251,7 +2267,8 @@
     "text": "Fluent Bit is open source",
     "kind": "unwritten",
     "tool": "fluent-bit",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -2273,7 +2290,8 @@
     "kind": "unwritten",
     "tool": "fluent-bit",
     "check": "no_known_vuln",
-    "unchecked": "no package in an OSV ecosystem"
+    "unchecked": "no package in an OSV ecosystem",
+    "advisory": true
    }
   },
   {
@@ -2304,7 +2322,8 @@
     "text": "OPA Gatekeeper is open source",
     "kind": "unwritten",
     "tool": "gatekeeper",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -2325,7 +2344,8 @@
     "text": "The current release of OPA Gatekeeper has no known vulnerability",
     "kind": "unwritten",
     "tool": "gatekeeper",
-    "check": "no_known_vuln"
+    "check": "no_known_vuln",
+    "advisory": true
    }
   },
   {
@@ -2367,7 +2387,8 @@
     "text": "Helm is open source",
     "kind": "unwritten",
     "tool": "helm",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -2388,7 +2409,8 @@
     "text": "The current release of Helm has no known vulnerability",
     "kind": "unwritten",
     "tool": "helm",
-    "check": "no_known_vuln"
+    "check": "no_known_vuln",
+    "advisory": true
    }
   },
   {
@@ -2430,7 +2452,8 @@
     "text": "Kibana is open source",
     "kind": "unwritten",
     "tool": "kibana",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -2452,7 +2475,8 @@
     "kind": "unwritten",
     "tool": "kibana",
     "check": "no_known_vuln",
-    "unchecked": "no package in an OSV ecosystem"
+    "unchecked": "no package in an OSV ecosystem",
+    "advisory": true
    }
   },
   {
@@ -2483,7 +2507,8 @@
     "text": "Kubernetes is open source",
     "kind": "unwritten",
     "tool": "kubernetes",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -2504,7 +2529,8 @@
     "text": "The current release of Kubernetes has no known vulnerability",
     "kind": "unwritten",
     "tool": "kubernetes",
-    "check": "no_known_vuln"
+    "check": "no_known_vuln",
+    "advisory": true
    }
   },
   {
@@ -2546,7 +2572,8 @@
     "text": "Pkl is open source",
     "kind": "unwritten",
     "tool": "pkl",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -2567,7 +2594,8 @@
     "text": "The current release of Pkl has no known vulnerability",
     "kind": "unwritten",
     "tool": "pkl",
-    "check": "no_known_vuln"
+    "check": "no_known_vuln",
+    "advisory": true
    }
   },
   {
@@ -2609,7 +2637,8 @@
     "text": "Prometheus is open source",
     "kind": "unwritten",
     "tool": "prometheus",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -2631,7 +2660,8 @@
     "kind": "unwritten",
     "tool": "prometheus",
     "check": "no_known_vuln",
-    "unchecked": "no package in an OSV ecosystem"
+    "unchecked": "no package in an OSV ecosystem",
+    "advisory": true
    }
   },
   {
@@ -2662,7 +2692,8 @@
     "text": "Prometheus Adapter is open source",
     "kind": "unwritten",
     "tool": "prometheus-adapter",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -2683,7 +2714,8 @@
     "text": "The current release of Prometheus Adapter has no known vulnerability",
     "kind": "unwritten",
     "tool": "prometheus-adapter",
-    "check": "no_known_vuln"
+    "check": "no_known_vuln",
+    "advisory": true
    }
   },
   {
@@ -2725,7 +2757,8 @@
     "text": "Terraform is open source",
     "kind": "unwritten",
     "tool": "terraform",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -2747,7 +2780,8 @@
     "kind": "unwritten",
     "tool": "terraform",
     "check": "no_known_vuln",
-    "unchecked": "no package in an OSV ecosystem"
+    "unchecked": "no package in an OSV ecosystem",
+    "advisory": true
    }
   },
   {
@@ -2778,7 +2812,8 @@
     "text": "terraform-aws-eks module is open source",
     "kind": "unwritten",
     "tool": "tf-aws-eks",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -2800,7 +2835,8 @@
     "kind": "unwritten",
     "tool": "tf-aws-eks",
     "check": "no_known_vuln",
-    "unchecked": "no package in an OSV ecosystem"
+    "unchecked": "no package in an OSV ecosystem",
+    "advisory": true
    }
   }
  ],

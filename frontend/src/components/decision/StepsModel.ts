@@ -200,8 +200,9 @@ export function buildSteps(audit: Audit): StepsModel {
       const ev = [...p.evidence].sort(byDate);
       const c = ev.filter(e => e.rel === "CONTRADICTS").pop();
       const s = ev.filter(e => e.rel === "SUPPORTS").pop();
-      why.push(c && s
+      why.push(c && s && s.at >= c.at
         ? `${q(p.text)} was contradicted by ${c.id} on ${L(c.at)} and re-affirmed by ${s.id} on ${L(s.at)}.`
+        : c ? `${q(p.text)} was flagged by ${c.id} on ${L(c.at)}, a licence or vulnerability check that no stated reason depends on, so it is disputed, not dead.`
         : `${q(p.text)} has evidence on both sides.`);
       adds.push(pkey(p));
       for (const e of [c, s]) { const k = e ? keyOfEvent(p, e) : null; if (k) adds.push(k); }

@@ -182,15 +182,15 @@ def premise_spof(g: Graph, as_of: str | None = None, limit: int = 10) -> dict:
         "OPTIONAL MATCH (e)-[r:SUPPORTS|CONTRADICTS]->(pr) WHERE r.at <= $as_of "
         "OPTIONAL MATCH (a:Person)-[:AUTHORED]->(e) "
         "RETURN pr.id, pr.text, ds, collect(DISTINCT e.id), collect(DISTINCT CASE WHEN a.left = '' OR a.left > $as_of THEN a.name END), "
-        "collect(DISTINCT {rel: type(r), at: r.at})" % GATE_DEPTH, {"as_of": as_of}).result_set
+        "collect(DISTINCT {rel: type(r), at: r.at}), pr.advisory" % GATE_DEPTH, {"as_of": as_of}).result_set
     out = []
-    for pid, text, ds, docs, authors, ev in rows:
+    for pid, text, ds, docs, authors, ev, advisory in rows:
         ds = sorted(d for d in ds if d in live)
         docs = sorted(x for x in docs if x)
         authors = sorted(x for x in authors if x)
         if len(ds) < 2 or (len(docs) > 1 and len(authors) > 1):
             continue
-        state = tools.premise_state([e for e in ev if e.get("at")])
+        state = tools.premise_state([e for e in ev if e.get("at")], bool(advisory))
         why = "no evidence at all" if not docs else f"one document ({docs[0]})" if len(docs) == 1 else \
             f"one person still here ({authors[0]})" if len(authors) == 1 else "no one still here wrote its evidence"
         out.append(dict(id=pid, text=text, state=state, decisions=ds, evidence=docs, people=authors, why=why))

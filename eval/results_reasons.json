@@ -586,30 +586,30 @@
    "before": {
     "verdicts": {
      "HOLDS": 8,
-     "MOOT": 4,
-     "DISPUTED": 0,
+     "MOOT": 1,
+     "DISPUTED": 3,
      "UNDOCUMENTED": 11,
      "RETIRED": 1
     },
     "gates": {
      "ALLOW": 4,
-     "REVALIDATE": 15,
-     "DENY": 5
+     "REVALIDATE": 18,
+     "DENY": 2
     },
     "holds_allow": 4
    },
    "after": {
     "verdicts": {
      "HOLDS": 12,
-     "MOOT": 6,
-     "DISPUTED": 0,
+     "MOOT": 1,
+     "DISPUTED": 5,
      "UNDOCUMENTED": 5,
      "RETIRED": 1
     },
     "gates": {
      "ALLOW": 2,
-     "REVALIDATE": 15,
-     "DENY": 7
+     "REVALIDATE": 20,
+     "DENY": 2
     },
     "holds_allow": 2
    },
@@ -640,9 +640,9 @@
      "id": "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases",
      "title": "3. Split Terraform state into separate AWS cluster and Kubernetes resource phases",
      "before": "UNDOCUMENTED",
-     "after": "MOOT",
+     "after": "DISPUTED",
      "gate_before": "REVALIDATE",
-     "gate_after": "DENY"
+     "gate_after": "REVALIDATE"
     },
     {
      "id": "0006-use-helm-for-application-package-management",
@@ -680,9 +680,9 @@
      "id": "0016-use-iam-roles-for-services",
      "title": "16. Use IAM roles for external services and applications",
      "before": "UNDOCUMENTED",
-     "after": "MOOT",
+     "after": "DISPUTED",
      "gate_before": "REVALIDATE",
-     "gate_after": "DENY"
+     "gate_after": "REVALIDATE"
     },
     {
      "id": "0023-use-opa-gatekeeper",
@@ -694,97 +694,6 @@
     }
    ],
    "per_decision": {
-    "0002-use-aws-eks-terraform-module": {
-     "title": "2. Use `aws-eks` Terraform module",
-     "verdict": "MOOT",
-     "gate": "DENY",
-     "premises": {
-      "holds": 4,
-      "unchecked": 1,
-      "expired": 1,
-      "unevidenced": 4
-     },
-     "stated": 4,
-     "stated_evidenced": 0,
-     "reasons": [
-      "premise_expired",
-      "premise_unchecked",
-      "premise_unevidenced",
-      "premise_unevidenced",
-      "premise_unevidenced",
-      "premise_unevidenced"
-     ],
-     "expired": [
-      {
-       "premise": "p_kubernetes_no_known_vuln",
-       "text": "The current release of Kubernetes has no known vulnerability",
-       "stated": false,
-       "evidence": "no_known_vuln:kubernetes",
-       "at": "2026-10-19",
-       "quote": "2 OSV advisories affect v1.37.1"
-      }
-     ]
-    },
-    "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases": {
-     "title": "3. Split Terraform state into separate AWS cluster and Kubernetes resource phases",
-     "verdict": "MOOT",
-     "gate": "DENY",
-     "premises": {
-      "unevidenced": 4,
-      "holds": 1,
-      "expired": 1,
-      "unchecked": 1
-     },
-     "stated": 4,
-     "stated_evidenced": 0,
-     "reasons": [
-      "premise_expired",
-      "premise_unevidenced",
-      "premise_unevidenced",
-      "premise_unevidenced",
-      "premise_unevidenced",
-      "premise_unchecked"
-     ],
-     "expired": [
-      {
-       "premise": "p_terraform_open_source",
-       "text": "Terraform is open source",
-       "stated": false,
-       "evidence": "open_source:terraform",
-       "at": "2026-10-19",
-       "quote": "source-available: BUSL-1.1"
-      }
-     ]
-    },
-    "0005-use-eks-managed-node-groups": {
-     "title": "5. Use AWS Elastic Kubernetes Service (EKS) managed node groups",
-     "verdict": "MOOT",
-     "gate": "DENY",
-     "premises": {
-      "unevidenced": 4,
-      "holds": 2,
-      "expired": 1
-     },
-     "stated": 4,
-     "stated_evidenced": 0,
-     "reasons": [
-      "premise_expired",
-      "premise_unevidenced",
-      "premise_unevidenced",
-      "premise_unevidenced",
-      "premise_unevidenced"
-     ],
-     "expired": [
-      {
-       "premise": "p_kubernetes_no_known_vuln",
-       "text": "The current release of Kubernetes has no known vulnerability",
-       "stated": false,
-       "evidence": "no_known_vuln:kubernetes",
-       "at": "2026-10-19",
-       "quote": "2 OSV advisories affect v1.37.1"
-      }
-     ]
-    },
     "0013-expose-external-metrics-for-hpa": {
      "title": "13. Expose external metrics for Horizontal Pod Autoscaler using Prometheus adapter",
      "verdict": "MOOT",
@@ -816,63 +725,109 @@
       }
      ]
     },
-    "0016-use-iam-roles-for-services": {
-     "title": "16. Use IAM roles for external services and applications",
-     "verdict": "MOOT",
-     "gate": "DENY",
+    "0002-use-aws-eks-terraform-module": {
+     "title": "2. Use `aws-eks` Terraform module",
+     "verdict": "DISPUTED",
+     "gate": "REVALIDATE",
      "premises": {
-      "unevidenced": 4,
-      "holds": 2,
-      "expired": 1
+      "holds": 4,
+      "unchecked": 1,
+      "disputed": 1,
+      "unevidenced": 4
      },
      "stated": 4,
      "stated_evidenced": 0,
      "reasons": [
-      "premise_expired",
+      "premise_unchecked",
+      "premise_disputed",
       "premise_unevidenced",
       "premise_unevidenced",
       "premise_unevidenced",
       "premise_unevidenced"
      ],
-     "expired": [
-      {
-       "premise": "p_kubernetes_no_known_vuln",
-       "text": "The current release of Kubernetes has no known vulnerability",
-       "stated": false,
-       "evidence": "no_known_vuln:kubernetes",
-       "at": "2026-10-19",
-       "quote": "2 OSV advisories affect v1.37.1"
-      }
-     ]
+     "expired": []
+    },
+    "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases": {
+     "title": "3. Split Terraform state into separate AWS cluster and Kubernetes resource phases",
+     "verdict": "DISPUTED",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 4,
+      "holds": 1,
+      "disputed": 1,
+      "unchecked": 1
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_disputed",
+      "premise_unchecked"
+     ],
+     "expired": []
+    },
+    "0005-use-eks-managed-node-groups": {
+     "title": "5. Use AWS Elastic Kubernetes Service (EKS) managed node groups",
+     "verdict": "DISPUTED",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 4,
+      "holds": 2,
+      "disputed": 1
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_disputed",
+      "premise_unevidenced",
+      "premise_unevidenced"
+     ],
+     "expired": []
+    },
+    "0016-use-iam-roles-for-services": {
+     "title": "16. Use IAM roles for external services and applications",
+     "verdict": "DISPUTED",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 4,
+      "holds": 2,
+      "disputed": 1
+     },
+     "stated": 4,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_disputed"
+     ],
+     "expired": []
     },
     "0020-use-crossplane-for-abstraction": {
      "title": "20. Use Crossplane for abstraction",
-     "verdict": "MOOT",
-     "gate": "DENY",
+     "verdict": "DISPUTED",
+     "gate": "REVALIDATE",
      "premises": {
       "unevidenced": 4,
       "holds": 2,
-      "expired": 1
+      "disputed": 1
      },
      "stated": 4,
      "stated_evidenced": 0,
      "reasons": [
-      "premise_expired",
       "premise_unevidenced",
       "premise_unevidenced",
       "premise_unevidenced",
+      "premise_disputed",
       "premise_unevidenced"
      ],
-     "expired": [
-      {
-       "premise": "p_crossplane_no_known_vuln",
-       "text": "The current release of Crossplane has no known vulnerability",
-       "stated": false,
-       "evidence": "no_known_vuln:crossplane",
-       "at": "2026-10-19",
-       "quote": "1 OSV advisory affects v2.4.2"
-      }
-     ]
+     "expired": []
     },
     "0011-use-graviton-for-compute-instances": {
      "title": "11. Use AWS Graviton (ARM) for compute instances",
@@ -1163,30 +1118,30 @@
    "before": {
     "verdicts": {
      "HOLDS": 5,
-     "MOOT": 3,
-     "DISPUTED": 0,
+     "MOOT": 2,
+     "DISPUTED": 1,
      "UNDOCUMENTED": 21,
      "RETIRED": 2
     },
     "gates": {
      "ALLOW": 1,
-     "REVALIDATE": 25,
-     "DENY": 5
+     "REVALIDATE": 26,
+     "DENY": 4
     },
     "holds_allow": 1
    },
    "after": {
     "verdicts": {
      "HOLDS": 10,
-     "MOOT": 9,
-     "DISPUTED": 0,
+     "MOOT": 6,
+     "DISPUTED": 3,
      "UNDOCUMENTED": 10,
      "RETIRED": 2
     },
     "gates": {
      "ALLOW": 0,
-     "REVALIDATE": 20,
-     "DENY": 11
+     "REVALIDATE": 23,
+     "DENY": 8
     },
     "holds_allow": 0
    },
@@ -1217,9 +1172,9 @@
      "id": "0010-terraform-directory-structure",
      "title": "10. Terraform directory structure",
      "before": "UNDOCUMENTED",
-     "after": "MOOT",
+     "after": "DISPUTED",
      "gate_before": "REVALIDATE",
-     "gate_after": "DENY"
+     "gate_after": "REVALIDATE"
     },
     {
      "id": "0011-migration-strategy",
@@ -1233,9 +1188,9 @@
      "id": "0014-launch-config-change-propagation-process",
      "title": "14. Launch Config change propagation process",
      "before": "UNDOCUMENTED",
-     "after": "MOOT",
+     "after": "DISPUTED",
      "gate_before": "REVALIDATE",
-     "gate_after": "DENY"
+     "gate_after": "REVALIDATE"
     },
     {
      "id": "0016-internal-dns-zones",
@@ -1351,35 +1306,6 @@
       }
      ]
     },
-    "0010-terraform-directory-structure": {
-     "title": "10. Terraform directory structure",
-     "verdict": "MOOT",
-     "gate": "DENY",
-     "premises": {
-      "holds": 3,
-      "unevidenced": 2,
-      "unchecked": 1,
-      "expired": 1
-     },
-     "stated": 4,
-     "stated_evidenced": 2,
-     "reasons": [
-      "premise_expired",
-      "premise_unevidenced",
-      "premise_unevidenced",
-      "premise_unchecked"
-     ],
-     "expired": [
-      {
-       "premise": "p_terraform_open_source",
-       "text": "Terraform is open source",
-       "stated": false,
-       "evidence": "open_source:terraform",
-       "at": "2026-10-19",
-       "quote": "source-available: BUSL-1.1"
-      }
-     ]
-    },
     "0011-migration-strategy": {
      "title": "11. Migration Strategy",
      "verdict": "MOOT",
@@ -1406,62 +1332,6 @@
        "evidence": "maintained:puppet",
        "at": "2026-10-19",
        "quote": "last commit to main on 2024-12-11"
-      }
-     ]
-    },
-    "0012-security-groups-in-terraform": {
-     "title": "12. Security Groups in Terraform",
-     "verdict": "MOOT",
-     "gate": "DENY",
-     "premises": {
-      "expired": 1,
-      "holds": 1,
-      "unchecked": 1
-     },
-     "stated": 0,
-     "stated_evidenced": 0,
-     "reasons": [
-      "premise_expired",
-      "premise_unchecked"
-     ],
-     "expired": [
-      {
-       "premise": "p_terraform_open_source",
-       "text": "Terraform is open source",
-       "stated": false,
-       "evidence": "open_source:terraform",
-       "at": "2026-10-19",
-       "quote": "source-available: BUSL-1.1"
-      }
-     ]
-    },
-    "0014-launch-config-change-propagation-process": {
-     "title": "14. Launch Config change propagation process",
-     "verdict": "MOOT",
-     "gate": "DENY",
-     "premises": {
-      "unevidenced": 3,
-      "holds": 1,
-      "unchecked": 1,
-      "expired": 1
-     },
-     "stated": 3,
-     "stated_evidenced": 0,
-     "reasons": [
-      "premise_expired",
-      "premise_unevidenced",
-      "premise_unevidenced",
-      "premise_unevidenced",
-      "premise_unchecked"
-     ],
-     "expired": [
-      {
-       "premise": "p_terraform_open_source",
-       "text": "Terraform is open source",
-       "stated": false,
-       "evidence": "open_source:terraform",
-       "at": "2026-10-19",
-       "quote": "source-available: BUSL-1.1"
       }
      ]
     },
@@ -1548,6 +1418,64 @@
        "quote": "last commit to main on 2024-12-11"
       }
      ]
+    },
+    "0010-terraform-directory-structure": {
+     "title": "10. Terraform directory structure",
+     "verdict": "DISPUTED",
+     "gate": "REVALIDATE",
+     "premises": {
+      "holds": 3,
+      "unevidenced": 2,
+      "unchecked": 1,
+      "disputed": 1
+     },
+     "stated": 4,
+     "stated_evidenced": 2,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unchecked",
+      "premise_disputed"
+     ],
+     "expired": []
+    },
+    "0012-security-groups-in-terraform": {
+     "title": "12. Security Groups in Terraform",
+     "verdict": "DISPUTED",
+     "gate": "REVALIDATE",
+     "premises": {
+      "disputed": 1,
+      "holds": 1,
+      "unchecked": 1
+     },
+     "stated": 0,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_disputed",
+      "premise_unchecked"
+     ],
+     "expired": []
+    },
+    "0014-launch-config-change-propagation-process": {
+     "title": "14. Launch Config change propagation process",
+     "verdict": "DISPUTED",
+     "gate": "REVALIDATE",
+     "premises": {
+      "unevidenced": 3,
+      "holds": 1,
+      "unchecked": 1,
+      "disputed": 1
+     },
+     "stated": 3,
+     "stated_evidenced": 0,
+     "reasons": [
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unevidenced",
+      "premise_unchecked",
+      "premise_disputed"
+     ],
+     "expired": []
     },
     "0002-hosting-platforms": {
      "title": "2. Hosting Platforms",
@@ -1871,29 +1799,29 @@
   "before": {
    "verdicts": {
     "HOLDS": 16,
-    "MOOT": 8,
-    "DISPUTED": 0,
+    "MOOT": 4,
+    "DISPUTED": 4,
     "UNDOCUMENTED": 46,
     "RETIRED": 5
    },
    "gates": {
     "ALLOW": 8,
-    "REVALIDATE": 54,
-    "DENY": 13
+    "REVALIDATE": 58,
+    "DENY": 9
    }
   },
   "after": {
    "verdicts": {
     "HOLDS": 35,
-    "MOOT": 17,
-    "DISPUTED": 0,
+    "MOOT": 9,
+    "DISPUTED": 8,
     "UNDOCUMENTED": 18,
     "RETIRED": 5
    },
    "gates": {
     "ALLOW": 2,
-    "REVALIDATE": 51,
-    "DENY": 22
+    "REVALIDATE": 59,
+    "DENY": 14
    }
   },
   "adrs_read": 75,

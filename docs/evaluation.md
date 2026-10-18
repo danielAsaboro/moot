@@ -107,10 +107,10 @@ The GitHub connector now reads the reasons each ADR states (`moot/connectors/rea
 
 | | HOLDS | of which ALLOW | MOOT | UNDOCUMENTED | RETIRED |
 |---|---|---|---|---|---|
-| before (titles, status lines, history) | 16 | 8 | 8 | 46 | 5 |
-| after (plus 157 quoted reasons, 31 tool links, 8 later-ADR edges) | 35 | 2 | 17 | 18 | 5 |
+| before (titles, status lines, history) | 16 | 8 | 4 | 46 | 5 |
+| after (plus 157 quoted reasons, 31 tool links, 8 later-ADR edges) | 35 | 2 | 9 | 18 | 5 |
 
-Of the 9 new MOOT decisions, 8 come from a tool check on a tool a stated reason depends on and 1 from a later ADR's own words; each is listed with its quote in the results file. ALLOW fell because a reason an ADR states, and nobody has evidence for, makes the gate say REVALIDATE. There is no labelled set of real reasons, so extraction quality is not scored; every reason links to its sentence for a reader to check.
+Of the 5 new MOOT decisions, 4 come from the maintenance check on a tool a stated reason depends on (Puppet) and 1 from a later ADR's own words; each is listed with its quote in the results file. Licence and vulnerability checks are advisory in the connector's graphs (since 2026-10-21): a licence change or an OSV advisory makes a tool's premise DISPUTED, never expired, unless a reason the ADR states depends on it in its own words, and none of the 31 tool-linked reasons does. That moved 8 decisions from MOOT to DISPUTED (Terraform's BUSL-1.1 licence, OSV advisories on Kubernetes and Terraform); the gate asks their owner to rule instead of calling them dead. The backtest and the 25 public ADRs keep the original rule, because their tool premises are the only reasons they have and the backtest was scored with it before this change. ALLOW fell because a reason an ADR states, and nobody has evidence for, makes the gate say REVALIDATE. There is no labelled set of real reasons, so extraction quality is not scored; every reason links to its sentence for a reader to check.
 
 ## Head-to-head against a retrieval company brain (study S3)
 

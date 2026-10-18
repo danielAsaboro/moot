@@ -10,7 +10,7 @@ def event_order(e: dict) -> tuple:
     return (e["at"], e.get("stated") or e["at"], e["rel"] == "SUPPORTS", e.get("kind") == "ruling")
 
 
-def premise_state(events: list[dict]) -> str:
+def premise_state(events: list[dict], advisory: bool = False) -> str:
     """events: [{rel: SUPPORTS|CONTRADICTS, at: 'YYYY-MM-DD', stated?: 'YYYY-MM-DD', kind?: 'ruling'}] already filtered to
     what was known on as_of.
 
@@ -21,6 +21,11 @@ def premise_state(events: list[dict]) -> str:
 
     An owner's ruling (kind='ruling', a Finding written after approval) settles everything before it: only the ruling and
     later events count. Newer evidence after the ruling reopens the question by the same rules.
+
+    advisory=True (a licence or vulnerability check on a tool in an ingested repository, moot/connectors/github.py): a
+    contradiction makes the premise disputed, never expired. A licence change or a CVE is a reason to look, not proof the
+    decision is dead; it expires a decision only through a stated reason that depends on it, which carries the check's
+    evidence itself.
     """
     if not events:
         return "unevidenced"
@@ -29,7 +34,7 @@ def premise_state(events: list[dict]) -> str:
     if rulings:
         ordered = ordered[rulings[-1]:]
     if ordered[-1]["rel"] == "CONTRADICTS":
-        return "expired"
+        return "disputed" if advisory else "expired"
     if any(e["rel"] == "CONTRADICTS" for e in ordered):
         return "disputed"
     return "holds"
@@ -90,9 +95,10 @@ def gate(audit: dict, coverage: dict | None = None) -> dict:
                                 premise=p["id"], evidence=c["id"], path=p["path"]))
         elif p["state"] == "disputed":
             c = [e for e in ev if e["rel"] == "CONTRADICTS"][-1]
-            s = [e for e in ev if e["rel"] == "SUPPORTS"][-1]
-            reasons.append(dict(code="premise_disputed", text=f"\"{p['text']}\" was contradicted by {c['id']} and re-affirmed by {s['id']}; the owner has to rule.",
-                                premise=p["id"], evidence=c["id"], path=p["path"]))
+            s = [e for e in ev if e["rel"] == "SUPPORTS" and e["at"] >= c["at"]]
+            text = (f"\"{p['text']}\" was contradicted by {c['id']} and re-affirmed by {s[-1]['id']}; the owner has to rule." if s else
+                    f"\"{p['text']}\" was flagged by {c['id']}, a licence or vulnerability check no stated reason depends on; the owner has to rule.")
+            reasons.append(dict(code="premise_disputed", text=text, premise=p["id"], evidence=c["id"], path=p["path"]))
         elif p["state"] == "unchecked":
             reasons.append(dict(code="premise_unchecked", text=f"\"{p['text']}\" could not be checked: {p.get('unchecked')}.",
                                 premise=p["id"], path=p["path"]))

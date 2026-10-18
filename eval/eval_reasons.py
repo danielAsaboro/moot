@@ -137,6 +137,9 @@ def markdown(R: dict) -> str:
         "Moving a decision from UNDOCUMENTED to HOLDS means *the ADR says why, and nothing on record contradicts it*, not *we confirmed it*.",
         "- **The verdict rules did not change.** An unevidenced reason does not change a verdict (as in Larkspur); the change is that the "
         "graph now records what the ADR says, with the quote, character span, section, document and model on every Premise.",
+        "- **Licence and vulnerability checks are advisory** (since 2026-10-21, both sides of the table). A licence change or an OSV "
+        "advisory makes a tool's premise DISPUTED, never expired, unless a stated reason depends on it in its own words (it then carries "
+        "the check's evidence itself; `advisory_checks` in moot/connectors/github.py). Maintenance stays a hard check.",
         "- **A model can miss or misread a reason.** The span check stops invented quotes, not a wrong reading of a real one. Every reason "
         "in the graph links back to its sentence, so a reader can check it in one click.",
         "- **One local model, one run** (temperature 0, seed 7). A different model would keep different reasons.",

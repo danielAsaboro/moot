@@ -1778,7 +1778,8 @@
     "text": "Elasticsearch is open source",
     "kind": "unwritten",
     "tool": "elasticsearch",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -1799,7 +1800,8 @@
     "text": "The current release of Elasticsearch has no known vulnerability",
     "kind": "unwritten",
     "tool": "elasticsearch",
-    "check": "no_known_vuln"
+    "check": "no_known_vuln",
+    "advisory": true
    }
   },
   {
@@ -1842,7 +1844,8 @@
     "kind": "unwritten",
     "tool": "mongodb",
     "check": "open_source",
-    "unchecked": "GitHub reports NOASSERTION and the LICENSE file did not match a known license"
+    "unchecked": "GitHub reports NOASSERTION and the LICENSE file did not match a known license",
+    "advisory": true
    }
   },
   {
@@ -1853,7 +1856,8 @@
     "kind": "unwritten",
     "tool": "mongodb",
     "check": "no_known_vuln",
-    "unchecked": "no package in an OSV ecosystem"
+    "unchecked": "no package in an OSV ecosystem",
+    "advisory": true
    }
   },
   {
@@ -1884,7 +1888,8 @@
     "text": "Puppet is open source",
     "kind": "unwritten",
     "tool": "puppet",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -1905,7 +1910,8 @@
     "text": "The current release of Puppet has no known vulnerability",
     "kind": "unwritten",
     "tool": "puppet",
-    "check": "no_known_vuln"
+    "check": "no_known_vuln",
+    "advisory": true
    }
   },
   {
@@ -1947,7 +1953,8 @@
     "text": "Redis is open source",
     "kind": "unwritten",
     "tool": "redis",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -1969,7 +1976,8 @@
     "kind": "unwritten",
     "tool": "redis",
     "check": "no_known_vuln",
-    "unchecked": "no package in an OSV ecosystem"
+    "unchecked": "no package in an OSV ecosystem",
+    "advisory": true
    }
   },
   {
@@ -2000,7 +2008,8 @@
     "text": "Terraform is open source",
     "kind": "unwritten",
     "tool": "terraform",
-    "check": "open_source"
+    "check": "open_source",
+    "advisory": true
    }
   },
   {
@@ -2022,7 +2031,8 @@
     "kind": "unwritten",
     "tool": "terraform",
     "check": "no_known_vuln",
-    "unchecked": "no package in an OSV ecosystem"
+    "unchecked": "no package in an OSV ecosystem",
+    "advisory": true
    }
   }
  ],

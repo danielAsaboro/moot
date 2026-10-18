@@ -41,40 +41,21 @@
  "checks": 44,
  "failing": 4,
  "verdicts": {
+  "DISPUTED": 5,
   "HOLDS": 12,
-  "MOOT": 6,
+  "MOOT": 1,
   "RETIRED": 1,
   "UNDOCUMENTED": 5
  },
  "gates": {
   "ALLOW": 2,
-  "DENY": 7,
-  "REVALIDATE": 15
+  "DENY": 2,
+  "REVALIDATE": 20
  },
  "moot": [
   {
-   "id": "0002-use-aws-eks-terraform-module",
-   "title": "2. Use `aws-eks` Terraform module"
-  },
-  {
-   "id": "0003-split-terraform-state-into-separate-aws-cluster-and-kubernetes-resource-phases",
-   "title": "3. Split Terraform state into separate AWS cluster and Kubernetes resource phases"
-  },
-  {
-   "id": "0005-use-eks-managed-node-groups",
-   "title": "5. Use AWS Elastic Kubernetes Service (EKS) managed node groups"
-  },
-  {
    "id": "0013-expose-external-metrics-for-hpa",
    "title": "13. Expose external metrics for Horizontal Pod Autoscaler using Prometheus adapter"
-  },
-  {
-   "id": "0016-use-iam-roles-for-services",
-   "title": "16. Use IAM roles for external services and applications"
-  },
-  {
-   "id": "0020-use-crossplane-for-abstraction",
-   "title": "20. Use Crossplane for abstraction"
   }
  ]
 }

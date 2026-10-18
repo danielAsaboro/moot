@@ -116,3 +116,21 @@ def test_api_reads_any_known_graph_and_refuses_others(monkeypatch):
     finally:
         g.delete()
         api._known["at"] = 0
+
+
+def test_licence_and_vulnerability_checks_are_advisory_unless_a_stated_reason_depends_on_them():
+    def payload():
+        nodes = [dict(label="Premise", id=f"p_tf_{k}", props=dict(text=k, kind="unwritten", tool="tf", check=k)) for k in ("maintained", "open_source", "no_known_vuln")]
+        nodes += [dict(label="Premise", id="r_a", props=dict(kind="stated", text="We chose Terraform because it is open source", quote="Terraform is open source")),
+                  dict(label="Premise", id="r_b", props=dict(kind="stated", text="Many open-source projects use Terraform", quote="used by many open-source projects")),
+                  dict(label="Evidence", id="open_source:tf", props=dict(kind="check")), dict(label="Evidence", id="no_known_vuln:tf", props=dict(kind="check"))]
+        edges = [dict(src="open_source:tf", rel="CONTRADICTS", dst="p_tf_open_source", props=dict(at="2023-08-10")),
+                 dict(src="no_known_vuln:tf", rel="CONTRADICTS", dst="p_tf_no_known_vuln", props=dict(at="2026-01-01"))]
+        edges += [dict(src=r, rel="DERIVED_FROM", dst=f"p_tf_{k}", props={}) for r in ("r_a", "r_b") for k in ("maintained", "open_source", "no_known_vuln")]
+        return dict(nodes=nodes, edges=edges)
+    out = gh.advisory_checks(payload())
+    adv = {n["id"] for n in out["nodes"] if n["props"].get("advisory")}
+    assert adv == {"p_tf_open_source", "p_tf_no_known_vuln"}  # maintenance stays a hard check
+    direct = [(e["src"], e["rel"], e["dst"]) for e in out["edges"] if e["props"].get("via")]
+    assert direct == [("open_source:tf", "CONTRADICTS", "r_a")]  # only the reason that is about the licence, not popularity
+    assert gh.advisory_checks(json.loads(json.dumps(out))) == out  # idempotent

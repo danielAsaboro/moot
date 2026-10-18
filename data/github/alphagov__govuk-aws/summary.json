@@ -28,14 +28,15 @@
  "checks": 11,
  "failing": 2,
  "verdicts": {
+  "DISPUTED": 3,
   "HOLDS": 10,
-  "MOOT": 9,
+  "MOOT": 6,
   "RETIRED": 2,
   "UNDOCUMENTED": 10
  },
  "gates": {
-  "DENY": 11,
-  "REVALIDATE": 20
+  "DENY": 8,
+  "REVALIDATE": 23
  },
  "moot": [
   {
@@ -47,20 +48,8 @@
    "title": "8. Postgres on Puppetmaster"
   },
   {
-   "id": "0010-terraform-directory-structure",
-   "title": "10. Terraform directory structure"
-  },
-  {
    "id": "0011-migration-strategy",
    "title": "11. Migration Strategy"
-  },
-  {
-   "id": "0012-security-groups-in-terraform",
-   "title": "12. Security Groups in Terraform"
-  },
-  {
-   "id": "0014-launch-config-change-propagation-process",
-   "title": "14. Launch Config change propagation process"
   },
   {
    "id": "0019-centralise-mysql-databases",

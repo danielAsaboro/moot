@@ -122,7 +122,7 @@ def audit_decision(g: Graph, decision_id: str, as_of: str | None = None, depth: 
                 e.pop("stated", None)
         unchecked = pr.properties.get("unchecked") or None
         # a premise nobody could check, with no dated evidence either way, is reported as unchecked, not as holding
-        state = "unchecked" if unchecked and not events else premise_state(events)
+        state = "unchecked" if unchecked and not events else premise_state(events, bool(pr.properties.get("advisory")))
         premises.append(dict(id=pid, text=pr.properties["text"], kind=pr.properties.get("kind"), hops=len(path_nodes) - 1,
                              path=_path_ids(path_nodes), state=state, unchecked=unchecked,
                              evidence=sorted(events, key=event_order),
@@ -281,11 +281,11 @@ def ledger(g: Graph, as_of: str | None = None, depth: int = 4) -> list[dict]:
         "OPTIONAL MATCH (e)-[r:SUPPORTS|CONTRADICTS]->(pr) WHERE %s "
         "WITH d, sup, pr, collect({rel: type(r), at: r.at, stated: r.stated, kind: e.kind}) AS ev "
         "OPTIONAL MATCH (d)-[:GOVERNS]->(s:System) "
-        "RETURN d, sup, pr.id, ev, collect(DISTINCT s.name) ORDER BY d.id" % (depth, KNOWN),
+        "RETURN d, sup, pr.id, ev, collect(DISTINCT s.name), pr.advisory ORDER BY d.id" % (depth, KNOWN),
         {"as_of": as_of}).result_set
     owners = owners_as_of(g, as_of)
     out: dict[str, dict] = {}
-    for d, sup, pid, ev, systems in rows:
+    for d, sup, pid, ev, systems, advisory in rows:
         did = d.properties["id"]
         if d.properties.get("decided_on", "") > as_of:
             continue  # not decided yet as of that date
@@ -293,7 +293,7 @@ def ledger(g: Graph, as_of: str | None = None, depth: int = 4) -> list[dict]:
         item = out.setdefault(did, dict(_node(d), superseded=bool(sup), premises={}, owner=o["name"] if o else None,
                                         owner_id=o["id"] if o else None, owner_active=bool(o and o["active"]), systems=systems))
         if pid:
-            item["premises"][pid] = premise_state([e for e in ev if e.get("at")])
+            item["premises"][pid] = premise_state([e for e in ev if e.get("at")], bool(advisory))
     result = []
     for item in out.values():
         states = [dict(state=s) for s in item.pop("premises").values()]
@@ -322,12 +322,12 @@ def timeline(g: Graph, start: str = "2025-01-01", end: str | None = None, depth:
         "OPTIONAL MATCH p = (d)-[:BECAUSE_OF|DERIVED_FROM*1..%d]->(pr:Premise) "
         "OPTIONAL MATCH (e)-[r:SUPPORTS|CONTRADICTS]->(pr) "
         "WITH d, ends, pr, collect({rel: type(r), at: r.at, stated: r.stated, kind: e.kind}) AS ev "
-        "RETURN d.id, d.decided_on, ends, pr.id, ev ORDER BY d.id" % depth).result_set
+        "RETURN d.id, d.decided_on, ends, pr.id, ev, pr.advisory ORDER BY d.id" % depth).result_set
     decisions: dict[str, dict] = {}
-    for did, decided, ends, pid, ev in rows:
+    for did, decided, ends, pid, ev, advisory in rows:
         item = decisions.setdefault(did, dict(decided_on=decided or "", ends=[x for x in ends if x.get("at")], premises={}))
         if pid:
-            item["premises"][pid] = [e for e in ev if e.get("at")]
+            item["premises"][pid] = ([e for e in ev if e.get("at")], bool(advisory))
     y, m = int(start[:4]), int(start[5:7])
     points = []
     while True:
@@ -339,7 +339,7 @@ def timeline(g: Graph, start: str = "2025-01-01", end: str | None = None, depth:
         for did, item in decisions.items():
             if item["decided_on"] > as_of:
                 continue  # not decided yet as of that date
-            states = [dict(state=premise_state([e for e in evs if _known(e, as_of)])) for evs in item["premises"].values()]
+            states = [dict(state=premise_state([e for e in evs if _known(e, as_of)], adv)) for evs, adv in item["premises"].values()]
             verdicts[did] = decision_verdict(states, any(_known(x, as_of) for x in item["ends"]))
         counts: dict[str, int] = {}
         for v in verdicts.values():
@@ -668,16 +668,16 @@ def riskiest_reasons(g: Graph, as_of: str | None = None, depth: int = 4, limit: 
     rows = _q(g,
         "MATCH (pr:Premise) OPTIONAL MATCH (d:Decision)-[:BECAUSE_OF|DERIVED_FROM*1..%d]->(pr) "
         "OPTIONAL MATCH (e)-[r:SUPPORTS|CONTRADICTS]->(pr) WHERE %s "
-        "RETURN pr.id, pr.text, pr.kind, collect(DISTINCT d.id), collect(DISTINCT {rel: type(r), at: r.at, stated: r.stated, kind: e.kind})" % (depth, KNOWN),
+        "RETURN pr.id, pr.text, pr.kind, collect(DISTINCT d.id), collect(DISTINCT {rel: type(r), at: r.at, stated: r.stated, kind: e.kind}), pr.advisory" % (depth, KNOWN),
         {"as_of": as_of}).result_set
     rank = {r[0]: r[1] for r in _q(g, "CALL algo.pageRank(null, null) YIELD node, score WHERE node:Premise RETURN node.id, score").result_set}
     out = []
-    for pid, text, kind, dids, ev in rows:
+    for pid, text, kind, dids, ev, advisory in rows:
         live = [current[x] for x in dids if x in current and current[x]["verdict"] != "RETIRED"]
         if not live:
             continue
         standing = [x for x in live if x["verdict"] != "MOOT"]
-        out.append(dict(id=pid, text=text, kind=kind, state=premise_state([e for e in ev if e.get("at")]),
+        out.append(dict(id=pid, text=text, kind=kind, state=premise_state([e for e in ev if e.get("at")], bool(advisory)),
                         decisions=len(live), standing=len(standing), decision_ids=sorted(x["id"] for x in live),
                         systems=sorted({s for x in live for s in x["systems"]}), pagerank=rank.get(pid)))
     out.sort(key=lambda x: (-x["standing"], -x["decisions"], x["id"]))
