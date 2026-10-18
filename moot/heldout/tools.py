@@ -67,6 +67,41 @@ EXTRA_INFRA = {"gradle": (r"(^|/)build\.gradle(\.kts)?$|(^|/)gradlew$", None), "
 # ("Don't build on top of Codox", "Removing Pact Contract Testing"); the tool must follow within a few words.
 DROPPING = r"\b(instead of|replac\w*|remov\w*|away from|migrat\w* from|deprecat\w*|switch\w* from|against|avoid|don't|do not)\b(\W+\w+){0,4}?\W+"
 
+
+# Added for H2 from its repositories' ADR titles, before H2 was labelled (a first labelling pass found 3 units and was discarded)
+EXTRA_TOOLS.update({
+    "viper": ("Viper", r"\bviper\b", "spf13/viper"),
+    "dapr": ("Dapr", r"\bdapr\b", "dapr/dapr"),
+    "yarn": ("Yarn", r"\byarn\b(?! workspaces)", "yarnpkg/berry"),
+    "maven": ("Maven", r"\bmaven\b", "apache/maven"),
+    "junit5": ("JUnit 5", r"junit ?5", "junit-team/junit5"),
+    "typescript": ("TypeScript", r"\btypescript\b", "microsoft/TypeScript"),
+    "spring": ("Spring Framework", r"\bspring\b(?! boot)", "spring-projects/spring-framework"),
+    "spring-boot": ("Spring Boot", r"spring boot", "spring-projects/spring-boot"),
+    "archunit": ("ArchUnit", r"\barchunit\b", "TNG/ArchUnit"),
+    "webpack": ("webpack", r"\bwebpack\b", "webpack/webpack"),
+    "yeoman": ("Yeoman", r"\byeoman\b", "yeoman/yo"),
+    "neo4j": ("Neo4j", r"\bneo4j\b", "neo4j/neo4j"),
+    "antlr": ("ANTLR", r"\bantlr\b", "antlr/antlr4"),
+    "auth0": ("Auth0", r"\bauth0\b", None),
+    "sendgrid-lib": ("SendGrid client", r"\bsendgrid\b", "sendgrid/sendgrid-nodejs"),
+    "angular": ("Angular", r"\bangular\b", "angular/angular"),
+    "docker": ("Docker", r"\bdocker\b", "moby/moby"),
+    "golang": ("Go", r"\b(golang|use go)\b", "golang/go"),
+    "kiali": ("Kiali", r"\bkiali\b", "kiali/kiali"),
+    "bitrise": ("Bitrise", r"\bbitrise\b", None),
+})
+EXTRA_DEPENDENCY.update({
+    "viper": r"github\.com/spf13/viper", "dapr": r"github\.com/dapr/|\"@dapr/", "junit5": r"junit-jupiter|org\.junit\.jupiter",
+    "typescript": r'"typescript"', "spring": r"org\.springframework", "spring-boot": r"spring-boot", "archunit": r"archunit",
+    "webpack": r'"webpack"', "yeoman": r'"yo"|"yeoman-', "neo4j": r"neo4j", "antlr": r"antlr", "sendgrid-lib": r"sendgrid",
+    "angular": r'"@angular/core"',
+})
+EXTRA_INFRA.update({
+    "yarn": (r"(^|/)yarn\.lock$", None), "maven": (r"(^|/)pom\.xml$", None), "docker": (r"(^|/)Dockerfile$", None),
+    "golang": (r"(^|/)go\.mod$", None), "bitrise": (r"(^|/)bitrise\.ya?ml$", None), "kiali": (r"\.(ya?ml|tf)$", r"kiali"),
+})
+
 # Study H2's repositories (docs/studies.md H2): GitHub code searches on 2026-10-21, non-forks created before 2021-10-01 with at
 # least 3 stars, minus every repository of the backtest and of H1.
 H2_REPOS = [

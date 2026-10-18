@@ -102,6 +102,7 @@ Each study below states its hypothesis, data, metric and script before its first
 - **Run once.** Whatever comes out is reported.
 - **Predictions:** Moot (warn) catches few deaths (outside evidence rarely precedes a team's own change) and its balanced accuracy lands near 0.5, like the majority class; the age rule has the highest recall and the lowest precision; no arm's balanced accuracy is separated from Moot's by its interval.
 - **Scripts:** `python3 -m moot.heldout.h2` (mine, label, split, hash) and `python3 eval/eval_heldout.py --study h2` → `eval/results_h2.md` and `.json`.
+- **Amended 10:05 UTC, before any arm ran:** a first labelling pass with the H1 catalogue found 3 units (only counts were looked at). The catalogue was extended from the H2 repositories' ADR titles alone (`moot/heldout/tools.py`, the block marked for H2: Viper, Dapr, Yarn, Maven, JUnit 5, TypeScript, Spring, Spring Boot, ArchUnit, webpack, Yeoman, Neo4j, ANTLR, Auth0, SendGrid, Angular, Docker, Go, Kiali, Bitrise) and the set relabelled once: **22 units from 16 repositories, 1 DEAD** (test 16 with 1 DEAD, dev 6 with 0). That is too few deaths to measure detection: balanced accuracy on one death is all or nothing. H2 is run once anyway, as registered, and reported as underpowered.
 
 ## K1. Questions about a real organisation, where the graph should matter
 

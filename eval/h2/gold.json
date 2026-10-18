@@ -1,0 +1,534 @@
+{
+ "sha256": "ca6d3920ceb83cf42d383c6ad65b89669e503ced9bc3b5ebabf61a69df63826d",
+ "written": "2026-10-21",
+ "skipped": [
+  "VolleyManagement/volley-management:0002-use-sendgrid-as-mailing-system.md",
+  "architecture-topography/topo:0003-graphql-as-api-query-language-via-appolo-server.md",
+  "fragaria/ng2-f-template-spa:0004-use-yeoman-to-generate-seed-application.md",
+  "hycomsa/mokka:0002-use-archunit-for-checking-the-architecture.md",
+  "redbadger/badger-brian:0002-use-dapr.md",
+  "redbadger/badger-brian:0004-deploy-hr-api-in-dapr.md"
+ ],
+ "t0": "2022-10-17",
+ "end": "2025-10-17",
+ "units": [
+  {
+   "id": "OpenTOSCA/container:0001-use-maven.md",
+   "repo": "OpenTOSCA/container",
+   "source": "h2",
+   "title": "Use maven as a buildtool and dependency manager",
+   "path": "docs/adr/0001-use-maven.md",
+   "url": "https://github.com/OpenTOSCA/container/blob/HEAD/docs/adr/0001-use-maven.md",
+   "born": "2020-06-18",
+   "tools": [
+    "maven"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "maven": true
+   },
+   "code_end": {
+    "maven": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "OpenTOSCA/container:0002-use-spring-dependency-incjection.md",
+   "repo": "OpenTOSCA/container",
+   "source": "h2",
+   "title": "Use Spring for Dependency Injection and discovery of plugins",
+   "path": "docs/adr/0002-use-spring-dependency-incjection.md",
+   "url": "https://github.com/OpenTOSCA/container/blob/HEAD/docs/adr/0002-use-spring-dependency-incjection.md",
+   "born": "2020-06-18",
+   "tools": [
+    "spring"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "spring": true
+   },
+   "code_end": {
+    "spring": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "VolleyManagement/volley-management:0001-use-auth0-as-authentication-provider.md",
+   "repo": "VolleyManagement/volley-management",
+   "source": "h2",
+   "title": "Use Auth0 as authentication provider",
+   "path": "docs/adr/0001-use-auth0-as-authentication-provider.md",
+   "url": "https://github.com/VolleyManagement/volley-management/blob/HEAD/docs/adr/0001-use-auth0-as-authentication-provider.md",
+   "born": "2019-08-22",
+   "tools": [
+    "auth0"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "auth0": null
+   },
+   "code_end": {
+    "auth0": null
+   },
+   "split": "dev"
+  },
+  {
+   "id": "VolleyManagement/volley-management:0003-use-angular-for-spa.md",
+   "repo": "VolleyManagement/volley-management",
+   "source": "h2",
+   "title": "Use Angular Framework for VolleyManagement.SPA container",
+   "path": "docs/adr/0003-use-angular-for-spa.md",
+   "url": "https://github.com/VolleyManagement/volley-management/blob/HEAD/docs/adr/0003-use-angular-for-spa.md",
+   "born": "2019-08-23",
+   "tools": [
+    "angular"
+   ],
+   "gold": "DEAD",
+   "backed_by": [
+    "code"
+   ],
+   "first": {
+    "source": "code",
+    "date": "2024-01-01",
+    "what": "angular is in the code on 2022-10-17 and gone by 2024-01-01"
+   },
+   "events": [
+    {
+     "source": "code",
+     "date": "2024-01-01",
+     "what": "angular is in the code on 2022-10-17 and gone by 2024-01-01"
+    }
+   ],
+   "code_t0": {
+    "angular": true
+   },
+   "code_end": {
+    "angular": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "VolleyManagement/volley-management:0004-use-docker-for-hosting-application.md",
+   "repo": "VolleyManagement/volley-management",
+   "source": "h2",
+   "title": "Use Docker for hosting application",
+   "path": "docs/adr/0004-use-docker-for-hosting-application.md",
+   "url": "https://github.com/VolleyManagement/volley-management/blob/HEAD/docs/adr/0004-use-docker-for-hosting-application.md",
+   "born": "2019-08-23",
+   "tools": [
+    "docker"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "docker": true
+   },
+   "code_end": {
+    "docker": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "adr/adr-manager:0001-use-vue.js.md",
+   "repo": "adr/adr-manager",
+   "source": "h2",
+   "title": "Use Vue.js",
+   "path": "docs/adr/0001-use-vue.js.md",
+   "url": "https://github.com/adr/adr-manager/blob/HEAD/docs/adr/0001-use-vue.js.md",
+   "born": "2021-01-07",
+   "tools": [
+    "vue"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "vue": true
+   },
+   "code_end": {
+    "vue": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "adr/adr-manager:0002-use-antlr-for-parsing-adrs.md",
+   "repo": "adr/adr-manager",
+   "source": "h2",
+   "title": "Use ANTLR for parsing ADRs",
+   "path": "docs/adr/0002-use-antlr-for-parsing-adrs.md",
+   "url": "https://github.com/adr/adr-manager/blob/HEAD/docs/adr/0002-use-antlr-for-parsing-adrs.md",
+   "born": "2021-01-07",
+   "tools": [
+    "antlr"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "antlr": true
+   },
+   "code_end": {
+    "antlr": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "architecture-topography/topo:0002-use-neo4j-as-persistence.md",
+   "repo": "architecture-topography/topo",
+   "source": "h2",
+   "title": "2. Use Neo4j as Persistence",
+   "path": "doc/adr/0002-use-neo4j-as-persistence.md",
+   "url": "https://github.com/architecture-topography/topo/blob/HEAD/doc/adr/0002-use-neo4j-as-persistence.md",
+   "born": "2020-06-06",
+   "tools": [
+    "neo4j"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "neo4j": true
+   },
+   "code_end": {
+    "neo4j": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "arvos-dev/arvos:0002-use-golang.md",
+   "repo": "arvos-dev/arvos",
+   "source": "h2",
+   "title": "Use Golang",
+   "path": "docs/adr/0002-use-golang.md",
+   "url": "https://github.com/arvos-dev/arvos/blob/HEAD/docs/adr/0002-use-golang.md",
+   "born": "2021-10-28",
+   "tools": [
+    "golang"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "golang": null
+   },
+   "code_end": {
+    "golang": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "fragaria/ng2-f-template-spa:0003-use-webpack-for-build.md",
+   "repo": "fragaria/ng2-f-template-spa",
+   "source": "h2",
+   "title": "0003. Use Webpack for application build",
+   "path": "docs/adr/0003-use-webpack-for-build.md",
+   "url": "https://github.com/fragaria/ng2-f-template-spa/blob/HEAD/docs/adr/0003-use-webpack-for-build.md",
+   "born": "2017-01-18",
+   "tools": [
+    "webpack"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "webpack": true
+   },
+   "code_end": {
+    "webpack": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "hycomsa/mokka:0003-upgrade-to-spring-boot-2-2-1.md",
+   "repo": "hycomsa/mokka",
+   "source": "h2",
+   "title": "3. Upgrade to Spring Boot 2.2.1",
+   "path": "doc/adr/0003-upgrade-to-spring-boot-2-2-1.md",
+   "url": "https://github.com/hycomsa/mokka/blob/HEAD/doc/adr/0003-upgrade-to-spring-boot-2-2-1.md",
+   "born": "2019-11-07",
+   "tools": [
+    "spring-boot"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "spring-boot": true
+   },
+   "code_end": {
+    "spring-boot": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "liquidmetal-dev/flintlock:0002-use-go.md",
+   "repo": "liquidmetal-dev/flintlock",
+   "source": "h2",
+   "title": "2. Use Go for the implementation",
+   "path": "docs/adr/0002-use-go.md",
+   "url": "https://github.com/liquidmetal-dev/flintlock/blob/HEAD/docs/adr/0002-use-go.md",
+   "born": "2021-06-29",
+   "tools": [
+    "golang"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "golang": true
+   },
+   "code_end": {
+    "golang": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "mahanhz/clean-architecture-example:0003-use-spring-framework.md",
+   "repo": "mahanhz/clean-architecture-example",
+   "source": "h2",
+   "title": "3. Use Spring framework",
+   "path": "doc/adr/0003-use-spring-framework.md",
+   "url": "https://github.com/mahanhz/clean-architecture-example/blob/HEAD/doc/adr/0003-use-spring-framework.md",
+   "born": "2017-07-30",
+   "tools": [
+    "spring"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "spring": true
+   },
+   "code_end": {
+    "spring": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "molgenis/molgenis-frontend:0002-use-typescript.md",
+   "repo": "molgenis/molgenis-frontend",
+   "source": "h2",
+   "title": "2. Use TypeScript",
+   "path": "doc/adr/0002-use-typescript.md",
+   "url": "https://github.com/molgenis/molgenis-frontend/blob/HEAD/doc/adr/0002-use-typescript.md",
+   "born": "2020-09-04",
+   "tools": [
+    "typescript"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "typescript": true
+   },
+   "code_end": {
+    "typescript": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "nielsutrecht/adr-example:0003-use-junit-5-for-testing.md",
+   "repo": "nielsutrecht/adr-example",
+   "source": "h2",
+   "title": "3. Use JUnit 5 for testing",
+   "path": "doc/adr/0003-use-junit-5-for-testing.md",
+   "url": "https://github.com/nielsutrecht/adr-example/blob/HEAD/doc/adr/0003-use-junit-5-for-testing.md",
+   "born": "2018-09-27",
+   "tools": [
+    "junit5"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "junit5": null
+   },
+   "code_end": {
+    "junit5": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "pmckeown/dependency-track-maven-plugin:0002-use-maven-to-build-plugin.md",
+   "repo": "pmckeown/dependency-track-maven-plugin",
+   "source": "h2",
+   "title": "2. use maven to build plugin",
+   "path": "doc/adr/0002-use-maven-to-build-plugin.md",
+   "url": "https://github.com/pmckeown/dependency-track-maven-plugin/blob/HEAD/doc/adr/0002-use-maven-to-build-plugin.md",
+   "born": "2019-07-29",
+   "tools": [
+    "maven"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "maven": true
+   },
+   "code_end": {
+    "maven": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "poorprogrammer/cfo:0002-use-yarn-install-instead-of-npm-install-for-web.md",
+   "repo": "poorprogrammer/cfo",
+   "source": "h2",
+   "title": "2. Use yarn install instead of npm install for web",
+   "path": "doc/adr/0002-use-yarn-install-instead-of-npm-install-for-web.md",
+   "url": "https://github.com/poorprogrammer/cfo/blob/HEAD/doc/adr/0002-use-yarn-install-instead-of-npm-install-for-web.md",
+   "born": "2020-09-07",
+   "tools": [
+    "yarn"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "yarn": true
+   },
+   "code_end": {
+    "yarn": true
+   },
+   "split": "test"
+  },
+  {
+   "id": "servian/TechChallengeApp:0002-user-viper-for-config.md",
+   "repo": "servian/TechChallengeApp",
+   "source": "h2",
+   "title": "2. Use viper for config",
+   "path": "doc/adr/0002-use-viper-for-config.md",
+   "url": "https://github.com/servian/TechChallengeApp/blob/HEAD/doc/adr/0002-use-viper-for-config.md",
+   "born": "2018-08-08",
+   "tools": [
+    "viper"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "viper": true
+   },
+   "code_end": {
+    "viper": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "theaiscope/GDD-app:0003-use-bitrise-for-ci.md",
+   "repo": "theaiscope/GDD-app",
+   "source": "h2",
+   "title": "3. Use Bitrise for CI",
+   "path": "doc/adr/0003-use-bitrise-for-ci.md",
+   "url": "https://github.com/theaiscope/GDD-app/blob/HEAD/doc/adr/0003-use-bitrise-for-ci.md",
+   "born": "2019-06-04",
+   "tools": [
+    "bitrise"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "bitrise": true
+   },
+   "code_end": {
+    "bitrise": true
+   },
+   "split": "dev"
+  },
+  {
+   "id": "willgarcia/rotc:0005-use-standalone-prometheus.md",
+   "repo": "willgarcia/rotc",
+   "source": "h2",
+   "title": "5. Use standalone prometheus",
+   "path": "doc/adr/0005-use-standalone-prometheus.md",
+   "url": "https://github.com/willgarcia/rotc/blob/HEAD/doc/adr/0005-use-standalone-prometheus.md",
+   "born": "2020-07-24",
+   "tools": [
+    "prometheus"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "prometheus": null
+   },
+   "code_end": {
+    "prometheus": null
+   },
+   "split": "dev"
+  },
+  {
+   "id": "willgarcia/rotc:0006-use-standalone-jaeger.md",
+   "repo": "willgarcia/rotc",
+   "source": "h2",
+   "title": "6. Use standalone jaeger",
+   "path": "doc/adr/0006-use-standalone-jaeger.md",
+   "url": "https://github.com/willgarcia/rotc/blob/HEAD/doc/adr/0006-use-standalone-jaeger.md",
+   "born": "2020-07-24",
+   "tools": [
+    "jaeger"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "status"
+   ],
+   "code_t0": {
+    "jaeger": null
+   },
+   "code_end": {
+    "jaeger": null
+   },
+   "split": "test"
+  },
+  {
+   "id": "willgarcia/rotc:0007-user-standalone-kiali.md",
+   "repo": "willgarcia/rotc",
+   "source": "h2",
+   "title": "7. User standalone kiali",
+   "path": "doc/adr/0007-use-standalone-kiali.md",
+   "url": "https://github.com/willgarcia/rotc/blob/HEAD/doc/adr/0007-use-standalone-kiali.md",
+   "born": "2020-07-24",
+   "tools": [
+    "kiali"
+   ],
+   "gold": "HOLDS",
+   "backed_by": [
+    "code"
+   ],
+   "code_t0": {
+    "kiali": true
+   },
+   "code_end": {
+    "kiali": true
+   },
+   "split": "test"
+  }
+ ]
+}
