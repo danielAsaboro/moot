@@ -14,6 +14,8 @@
   "random_v3": 28,
   "moot_v3g": 1,
   "random_v3g": 1,
+  "moot_v3l": 460,
+  "random_v3l": 460,
   "oracle": 460,
   "oracle_drop": 460
  },
@@ -1043,6 +1045,234 @@
    }
   }
  },
+ "moot_v3l": {
+  "retired_gold_in_context": 12,
+  "current_gold_in_context": 18,
+  "conflict_contexts_changed": 2,
+  "conflict_retired_gold_removed": 2,
+  "not_found_contexts_changed": 1,
+  "others_contexts_changed": 9,
+  "others_docs_removed": 9,
+  "others_expected_docs_removed": 1,
+  "others_questions_losing_expected_doc": 1,
+  "context_docs": 5000,
+  "per_conflict": {
+   "qst_0411": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0412": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0413": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0414": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0415": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0416": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0417": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0418": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0419": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0420": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0421": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0422": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0423": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0424": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0425": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0426": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0427": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0428": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0429": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0430": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   }
+  }
+ },
+ "random_v3l": {
+  "retired_gold_in_context": 14,
+  "current_gold_in_context": 18,
+  "conflict_contexts_changed": 2,
+  "conflict_retired_gold_removed": 0,
+  "not_found_contexts_changed": 1,
+  "others_contexts_changed": 9,
+  "others_docs_removed": 9,
+  "others_expected_docs_removed": 0,
+  "others_questions_losing_expected_doc": 0,
+  "context_docs": 5000,
+  "per_conflict": {
+   "qst_0411": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0412": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0413": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0414": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0415": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0416": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0417": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0418": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0419": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0420": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0421": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0422": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0423": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": true
+   },
+   "qst_0424": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0425": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0426": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0427": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0428": {
+    "retired_in": false,
+    "current_in": false,
+    "changed": false
+   },
+   "qst_0429": {
+    "retired_in": true,
+    "current_in": true,
+    "changed": false
+   },
+   "qst_0430": {
+    "retired_in": false,
+    "current_in": true,
+    "changed": false
+   }
+  }
+ },
  "oracle": {
   "retired_gold_in_context": 1,
   "current_gold_in_context": 20,
@@ -1545,8 +1775,94 @@
    "expected_removed": []
   }
  ],
+ "harm_detail_moot_v3l": [
+  {
+   "question_id": "qst_0029",
+   "question_type": "basic",
+   "removed": [
+    "dsid_24ad37cf41bd4d1190e6741cd5a87569"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0128",
+   "question_type": "basic",
+   "removed": [
+    "dsid_b22b2bd5c19940f58372b24895466da8"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0142",
+   "question_type": "basic",
+   "removed": [
+    "dsid_06464e95b7cc44de8a9677f3260c336e"
+   ],
+   "expected_removed": [
+    "dsid_06464e95b7cc44de8a9677f3260c336e"
+   ]
+  },
+  {
+   "question_id": "qst_0197",
+   "question_type": "semantic",
+   "removed": [
+    "dsid_ceb5472c6ffb4fa89a7a0a76f6d2c7cf"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0240",
+   "question_type": "semantic",
+   "removed": [
+    "dsid_c70e9f13417f427b9fd8ab17ff5fc961"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0326",
+   "question_type": "intra_document_reasoning",
+   "removed": [
+    "dsid_c207e9e0617541b787c3af063ad27107"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0327",
+   "question_type": "intra_document_reasoning",
+   "removed": [
+    "dsid_63ff9a2868b444c897f317d9849b94d9"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0399",
+   "question_type": "constrained",
+   "removed": [
+    "dsid_99342b2ddf86469fa1531ce3a343c6f6"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0452",
+   "question_type": "miscellaneous",
+   "removed": [
+    "dsid_a8a5eac6e7a243319426769963506277"
+   ],
+   "expected_removed": []
+  },
+  {
+   "question_id": "qst_0490",
+   "question_type": "info_not_found",
+   "removed": [
+    "dsid_eba4be4de3a74b1e8704b52fe5a1f8f8"
+   ],
+   "expected_removed": []
+  }
+ ],
  "v3g_extractor": "rules-v3-llm-posthoc+groq",
  "v3g_model": "qwen/qwen3.8-27b",
+ "v3l_extractor": "rules-v3-llm-posthoc+qwen3.8-local",
+ "v3l_model": "qwen3.8:27b",
  "canon_judge_noise": {
   "baseline_correct": 28,
   "canon_filtered_correct": 33,

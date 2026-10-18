@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-18T07:54:40.282118+00:00",
+ "generated_at": "2026-10-18T15:45:23.440748+00:00",
  "dataset": {
   "repo": "onyx-dot-app/EnterpriseRAG-Bench",
   "revision": "69916e31c68aa5963c00248fd7f0bc12d04fd235"
@@ -36,6 +36,18 @@
   "questions": 500,
   "retrieved": 25000,
   "supersedes": 4
+ },
+ "extractor_v3l": {
+  "version": "rules-v3-llm-posthoc+qwen3.8-local",
+  "sha256": "fd1e2093b74252efaf79eb30f7ca3e1c3d8074b42ac7082edf5f5655952b577f",
+  "model": "qwen3.8:27b",
+  "graph": "erag_v3_local38",
+  "questions_read_by_model": 500,
+  "harm_coverage": "partial (460/460)",
+  "docs": 22108,
+  "questions": 500,
+  "retrieved": 25000,
+  "supersedes": 12
  },
  "extractor": {
   "version": "rules-v1",
@@ -77,16 +89,18 @@
   "../erag-data/blind_cut_v2.json": "259a931b1c71eb7e541d27c38d8b9c4fde518d2fe568c6a7c5dd0798d1c7c0a0",
   "../erag-data/blind_cut_v3.json": "8c934e4ecc42fc4cc1d394f8151ecc513dcca77a5544b1393efa0d699b8860d4",
   "../erag-data/blind_cut_v3_groq.json": "a88f0a9387a69372ec1f795168e5181bf478c098a768f107daf833aa69df3701",
-  "../erag-data/contexts.json": "d90d76aa11a5ae66d35393e347d29c286bc038f3dcbe758376c0b6446734fb9b",
+  "../erag-data/blind_cut_v3_local38.json": "9c21e686c28d8b30be5f4b9622ebe5d7ed607b9bd84ea02d0b0040b047d06b28",
+  "../erag-data/contexts.json": "4f4d66748aa7a9f9f4358aece527cfa350f4a36fa2482223afacc1b8adf745ea",
   "../canon-teardown/research/conflict_inventory.json": "25079e0793ebc687d08aa755f6905237970f903fb17887e7c39c43bc223e9135",
   "moot/bench_erag/extract.py": "7e8028f3ffe0391f7217bcfec4afb1629c0f242011f18deec443a06fd15d823d",
   "moot/bench_erag/extract_v2.py": "1b7ead4f374e583c79e7acae49fa727db402e87fa3c545f16a250688a03aea8f",
   "moot/bench_erag/extract_v3.py": "5dc7fb0c32d9a96661cdff217fb4d3ebc891ecb0120c56776eddec66f1a027f4",
   "moot/bench_erag/extract_v3_groq.py": "f92f91718464195381412b83a537619e0cf6aeeef46e68d28bf4431aaa7a23d8",
-  "moot/bench_erag/cut.py": "c05b16107c21015818a10b8de7912c9e687feac9e11d5627b3e1fa2ff4fba738",
+  "moot/bench_erag/extract_v3_local38.py": "fd1e2093b74252efaf79eb30f7ca3e1c3d8074b42ac7082edf5f5655952b577f",
+  "moot/bench_erag/cut.py": "046dbcae6c1d3ae3397c9002eae84c8b1e1c990ab5722960c26745f8251cc4ca",
   "moot/bench_erag/graph.py": "2926c5fdac50b8b6aeab7a78bb9041a96fc4016c694527d0c3dbb71ce4b4325b",
-  "evidence/erag_deterministic.json": "0693e25621e86f501f3675d80c1e1d4099888a78464b9ad47d7121698891b3ee",
-  "evidence/erag_per_question.jsonl": "17cd1852da783c7b4dd0095347936f4f14040c0533cffa3951a91dd12b379950",
-  "eval/results_erag.md": "a5979438af7fa5d1114c13489c5330679ff029e3890de67dde75c2d5297aff85"
+  "evidence/erag_deterministic.json": "0986ce8db989a4ceef3b1428d28be82471660a34267c11ca341763f8691cf230",
+  "evidence/erag_per_question.jsonl": "c62e494ee4ab6ecd6dd077798247c9767e581e0d4a50e392a2514cf733c69ec9",
+  "eval/results_erag.md": "7862c91ecd55cb7c5952b10148f986fbcdb4ffc8dadb2015c06d77c6c4542c84"
  }
 }

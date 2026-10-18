@@ -7,8 +7,10 @@ LABEL = dict(baseline="BM25 baseline", moot="Moot blind v1 (frozen)", random="ra
              moot_v2="Moot blind v2 (post-hoc)", random_v2="random, v2 count",
              moot_v3="Moot blind v3, local LLM (post-hoc)", random_v3="random, v3 count",
              moot_v3g="Moot blind v3-groq, Groq LLM (post-hoc)", random_v3g="random, v3-groq count",
+             moot_v3l="Moot blind v3, local qwen3.8:27b (post-hoc)", random_v3l="random, v3 qwen3.8 count",
              oracle="ORACLE: Canon's setup (drop + pin)", oracle_drop="ORACLE, drop only")
-ARMS_ALL = ("baseline", "moot", "random", "moot_v2", "random_v2", "moot_v3", "random_v3", "moot_v3g", "random_v3g", "oracle_drop",
+ARMS_ALL = ("baseline", "moot", "random", "moot_v2", "random_v2", "moot_v3", "random_v3", "moot_v3g", "random_v3g", "moot_v3l", "random_v3l",
+            "oracle_drop",
             "oracle")
 
 
@@ -28,6 +30,18 @@ def v3g_line(det: dict, n: dict) -> str:
             f"{n['not_found']} changed. The model read the {n['conflicts'] + n['not_found']} scored questions and {cov} of the other "
             f"{n['others']}, so {harm}: {g['others_contexts_changed']} contexts changed, {g['others_expected_docs_removed']} expected "
             "documents removed. Responses are cached in `erag-data/v3_groq_cache`; `python3 eval/erag_v3_fill.py groq --cut` resumes.")
+
+
+def v3l_line(det: dict, n: dict) -> str:
+    g, cov = det["moot_v3l"], det["others_covered"]["moot_v3l"]
+    harm = (f"its harm covers all {n['others']} other questions" if cov == n["others"] else f"its harm is partial ({cov}/{n['others']})")
+    return (f"- **v3, local qwen3.8** (`{det.get('v3l_extractor')}`, post-hoc, still blind) is v3's prompt and rules, unchanged, "
+            f"with `{det.get('v3l_model')}` (ollama's nvfp4 MLX build) on this machine, thinking off, temperature 0. It caught "
+            f"{', '.join(caught(det, 'moot_v3l')) or 'none'}: superseded gold in context {g['retired_gold_in_context']}/"
+            f"{det['counts']['conflicts']}, current gold in context {g['current_gold_in_context']}/{det['counts']['conflicts']}, "
+            f"info_not_found {g['not_found_contexts_changed']}/{n['not_found']} changed. The model read {cov} of the other "
+            f"{n['others']}, so {harm}: {g['others_contexts_changed']} contexts changed, {g['others_expected_docs_removed']} expected "
+            "documents removed. Cache: `erag-data/v3_local38_cache`; `python3 eval/erag_v3_fill.py local38 --cut` resumes.")
 
 
 def write(det: dict, judged: dict | None, out: Path) -> None:
@@ -104,6 +118,7 @@ def write(det: dict, judged: dict | None, out: Path) -> None:
              "current one says what it replaced, and the two-value rule blocks conflicts where other documents add values."]
             if "moot_v3" in det else []),
           *([v3g_line(det, n)] if "moot_v3g" in det else []),
+          *([v3l_line(det, n)] if "moot_v3l" in det else []),
           f"- Harm, v1: {m['others_contexts_changed']}/{n['others']} other contexts changed, {m['others_docs_removed']} documents "
           f"removed, {m['others_expected_docs_removed']} of them expected "
           f"({', '.join(h['question_id'] for h in det['harm_detail_moot'] if h['expected_removed']) or 'none'}). "

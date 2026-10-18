@@ -4,6 +4,7 @@
   python -m moot.bench_erag.cut v2     rules-v2 (post-hoc):        FalkorDB `erag_v2` -> erag-data/blind_cut_v2.json
   python -m moot.bench_erag.cut v3     local-LLM claims (post-hoc): FalkorDB `erag_v3` -> erag-data/blind_cut_v3.json
   python -m moot.bench_erag.cut v3-groq  v3 on Groq (post-hoc):    FalkorDB `erag_v3_groq` -> erag-data/blind_cut_v3_groq.json
+  python -m moot.bench_erag.cut v3-local38  v3 on local qwen3.8:27b: FalkorDB `erag_v3_local38` -> erag-data/blind_cut_v3_local38.json
 
 The cut: drop every top-10 document the graph proves superseded, backfill from the same BM25 ranking (never
 re-admitting a dropped document), keep exactly TOP_K. Nothing here imports the answer key.
@@ -26,8 +27,9 @@ OUT = DATA / "blind_cut.json"
 VERSIONS = {"v1": ("moot.bench_erag.extract", graph.GRAPH, OUT),
             "v2": ("moot.bench_erag.extract_v2", graph.GRAPH + "_v2", DATA / "blind_cut_v2.json"),
             "v3": ("moot.bench_erag.extract_v3", graph.GRAPH + "_v3", DATA / "blind_cut_v3.json"),
-            "v3-groq": ("moot.bench_erag.extract_v3_groq", graph.GRAPH + "_v3_groq", DATA / "blind_cut_v3_groq.json")}
-LLM = ("v3", "v3-groq")
+            "v3-groq": ("moot.bench_erag.extract_v3_groq", graph.GRAPH + "_v3_groq", DATA / "blind_cut_v3_groq.json"),
+            "v3-local38": ("moot.bench_erag.extract_v3_local38", graph.GRAPH + "_v3_local38", DATA / "blind_cut_v3_local38.json")}
+LLM = ("v3", "v3-groq", "v3-local38")
 
 
 def fill(ranking: list[str], drop: set[str], k: int = TOP_K) -> list[str]:
@@ -82,7 +84,7 @@ def run(version: str = "v1") -> dict:
         payload["covered"] = covered
     if hasattr(ex, "MODEL"):
         payload["model"] = ex.MODEL
-    if version == "v3-groq":
+    if version in ("v3-groq", "v3-local38"):
         payload["extractor_v3_sha256"] = extractor_hash(importlib.import_module("moot.bench_erag.extract_v3"))
     if version in ("v2",) + LLM:
         payload["extractor_v1_sha256"] = extractor_hash(extract)   # v2 imports v1's rules
