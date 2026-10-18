@@ -33,10 +33,13 @@ K1 asks Kubernetes what its own records say: which KEP replaced this one and whe
 
 | arm (qwen3.8:27b, temperature 0) | test, exact match | dev, exact match | tokens (dev) | median s per question (dev) | tool calls (dev) |
 |---|---|---|---|---|---|
-| **agent with Moot's graph tools** | running | 9/12 | 43,544 | 17.7 | 26 |
-| agent with file and git tools over the same checkouts | running | 5/12 | 41,532 | 24.4 | 38 |
-| BM25 RAG over the checkouts | running | 0/12 | 30,672 | 31.4 | 0 |
+| **agent with Moot's graph tools** | running | 11/12 | 35,721 | 9.1 | 24 |
+| agent with file and git tools over the same checkouts | running | 7/12 | 119,612 | 34.3 | 66 |
+| BM25 RAG over the checkouts | running | 7/12 | 30,672 | 30.5 | 0 |
+| BM25 RAG over the checkouts and their history (post hoc) | running | 7/12 | 24,060 | 22.2 | 0 |
 | one fixed graph query per question, no model | 25/34 | 10/12 | 0 | – | 0 |
+
+The baselines were audited for fairness before any test answer was scored, and five harness faults were fixed on dev and re-run in full (the file/git agent could not reach `sigs.yaml` history or read past a file's first 6,000 characters; RAG's answers were dropped by the parser; one name-to-handle normaliser for every arm); each is recorded in the [register](docs/studies.md), and the answers from before each fix are kept, not scored.
 
 **Shared-source caveat, stated once:** Moot's graph is built from the same two repositories the gold is read from, so the last row measures how faithfully the graph holds that history, not an independent prediction. The contest is between agents with the same model and different tools. Full tables, per question type: [results_k1.md](eval/results_k1.md). K2, a larger confirmation set over four SIGs, is frozen and runs next.
 
@@ -66,7 +69,7 @@ K1 asks Kubernetes what its own records say: which KEP replaced this one and whe
 | criterion | the evidence |
 |---|---|
 | **Graph-native use of FalkorDB** | Verdicts *are* path queries over dated edges, all through `GRAPH.RO_QUERY` ([queries](docs/queries.md)); `algo.WCC`, `algo.betweenness`, `algo.pageRank`, `algo.SPpaths` answer who knows why, what leaves with a person, blast radius and what a PR broke; one named graph per organisation. Removing FalkorDB but keeping the rules drops Larkspur's head-to-head from 90/90 to 60/90 and H1 from 52/64 to 24/64. |
-| **Agent effectiveness** | On K1 the same model answers more of Kubernetes' organisational questions with Moot's graph tools than with file and git tools or BM25 RAG (dev 9, 5 and 0 of 12; test running). The gate answers before an agent acts, names who to ask, and blocks a coding agent's edit under a dead decision. On real decisions the old strict policy blocked everything it could not vouch for (59 of 59 that held); the product policy lets 4 of 5 later-dead decisions through but blocks only 8 of 59 that held. A tool-call router routes 20 of 22 questions the keyword rules misroute. |
+| **Agent effectiveness** | On K1 the same model answers more of Kubernetes' organisational questions with Moot's graph tools than with file and git tools or BM25 RAG (dev 11, 7 and 7 of 12, with a third of the file agent's tokens; test running). The gate answers before an agent acts, names who to ask, and blocks a coding agent's edit under a dead decision. On real decisions the old strict policy blocked everything it could not vouch for (59 of 59 that held); the product policy lets 4 of 5 later-dead decisions through but blocks only 8 of 59 that held. A tool-call router routes 20 of 22 questions the keyword rules misroute. |
 | **Potential impact** | A real organisation end to end (Kubernetes), any public repository's ADRs and CODEOWNERS, and an agent gate that works over HTTP, MCP and in the editor. |
 | **Technical excellence** | One-command setup (`docker compose up --build`, or `make demo`), 155 tests, CI on FalkorDB v4.22.1 and v4.18.3 plus the UI build, `moot verify --rerun` re-derives every number above from committed inputs, `make judge-check` runs it all. |
 | **Explainability and provenance** | Every answer carries its path, evidence ids and dates, the Cypher it ran and a digest of the rows; every model-proposed quote is a checked literal span with its source and model. "No evidence" is never "holds". |

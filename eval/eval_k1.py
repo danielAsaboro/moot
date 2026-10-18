@@ -31,7 +31,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from moot import tools  # noqa: E402
 from moot.graph import graph  # noqa: E402
-from moot.stats import wilson  # noqa: E402
+from moot.stats import mcnemar_exact, wilson  # noqa: E402
+from moot.llm import price as llm_price  # noqa: E402  (Groq's listed price for these open weights)
 
 OUT = Path(os.getenv("MOOT_EVAL_OUT") or ROOT / "eval")
 STUDY = sys.argv[sys.argv.index("--study") + 1] if "--study" in sys.argv else "k1"  # "k2": the confirmation run, same harness
@@ -478,7 +479,13 @@ def main() -> None:
             res[split][arm] = dict(right=k, n=len(got), of=len(rs), ci=wilson(k, len(got)), per_template=per,
                                    tokens=sum(c["tokens_in"] + c["tokens_out"] for c in costs),
                                    seconds_median=sorted(c["seconds"] for c in costs)[len(costs) // 2] if costs else None,
-                                   calls=sum(c["calls"] for c in costs))
+                                   calls=sum(c["calls"] for c in costs),
+                                   usd=round(sum(llm_price("qwen/qwen3.8-27b", c["tokens_in"], c["tokens_out"]) for c in costs), 4))
+        res[split]["paired"] = {}
+        for other in ("file_tools", "rag_bm25", "rag_history"):  # exact McNemar, the graph agent against each baseline, questions both answered
+            both = [r for r in rs if r["moot_tools"] is not None and r[other] is not None]
+            b_, c_ = sum(1 for r in both if r["moot_tools"] and not r[other]), sum(1 for r in both if r[other] and not r["moot_tools"])
+            res[split]["paired"][other] = dict(n=len(both), only_moot=b_, only_other=c_, p=round(mcnemar_exact(b_, c_), 3))
     (OUT / f"results_{STUDY}.json").write_text(json.dumps(dict(model=MODEL, questions_sha256=Q["sha256"], results=res, rows=rows), indent=1) + "\n")
     names = dict(moot_tools="**agent with Moot's graph tools**", file_tools="agent with file and git tools over the same checkouts",
                  rag_bm25="BM25 RAG over the checkouts at HEAD", rag_history="BM25 RAG over the checkouts and their history (post hoc, see register)", moot_direct="Moot, one fixed graph query per template, no model (shared-source reference)")
@@ -491,14 +498,19 @@ def main() -> None:
          "the contest is between agents with the same model and different tools. Templates: (1) which KEP replaced it and when, (2) who led its SIG "
          "on a date, (3) was it in force on a date and what retired it, (4) its authors and whether each leads a SIG today.", ""]
     for split in ("test", "dev"):
-        L += [f"## {split.title()} split", "", "| arm | exact match (95% CI) | " + " | ".join(f"t{t}" for t in TEMPLATES) + " | tokens | median s per question | tool calls |",
-              "|" + "---|" * (len(TEMPLATES) + 5)]
+        L += [f"## {split.title()} split", "", "| arm | exact match (95% CI) | " + " | ".join(f"t{t}" for t in TEMPLATES) + " | tokens | $ at Groq's price | median s per question | tool calls |",
+              "|" + "---|" * (len(TEMPLATES) + 6)]
         for arm in ARMS:
             s = res[split][arm]
             if not s["n"]:
                 continue
             L.append(f"| {names[arm]} | {s['right']}/{s['n']} ({s['ci'][0]:.2f}–{s['ci'][1]:.2f}) | " + " | ".join(s["per_template"][t] for t in TEMPLATES)
-                     + f" | {s['tokens']:,} | {s['seconds_median'] if s['seconds_median'] is not None else '–'} | {s['calls']} |")
+                     + f" | {s['tokens']:,} | {s['usd']:.3f} | {s['seconds_median'] if s['seconds_median'] is not None else '–'} | {s['calls']} |")
+        L.append("")
+        for other, pr in res[split]["paired"].items():
+            if pr["n"]:
+                L.append(f"- graph agent vs {names[other].strip('*')}: on {pr['n']} questions both answered, only the graph agent right on "
+                         f"{pr['only_moot']}, only the other on {pr['only_other']}; exact McNemar p = {pr['p']}")
         L.append("")
     if OTHER:
         local = [(arm, q, cache[key_for(arm, q, OTHER, "v1")]) for q in Q["questions"] for arm in ("moot_tools", "file_tools", "rag_bm25")

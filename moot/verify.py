@@ -326,6 +326,21 @@ def check_studies(c: Checker) -> None:
                  (f"{tot['moot']['asked']:,}", tot["moot"]["stale"], tot["ttl90"]["stale"], tot["ttl365"]["stale"]))
 
 
+def check_k1(c: Checker) -> None:
+    """Study K1, the README's headline table, against eval/results_k1.json (a split not yet scored reads "running")."""
+    f = EVAL / "results_k1.json"
+    if not f.exists():
+        return
+    R = json.loads(f.read_text())["results"]
+    cell = lambda s: f"{s['right']}/{s['n']}" if s["n"] == s["of"] else "running"
+    for arm, label in (("moot_tools", r"\*\*agent with Moot's graph tools\*\*"), ("file_tools", "agent with file and git tools over the same checkouts"),
+                       ("rag_bm25", r"BM25 RAG over the checkouts"),
+                       ("rag_history", r"BM25 RAG over the checkouts and their history \(post hoc\)"), ("moot_direct", "one fixed graph query per question, no model")):
+        t, d = R["test"][arm], R["dev"][arm]
+        c.expect("README.md", (ROOT / "README.md").read_text(), f"K1 row {arm}", rf"\| {label} \| ([^|]+) \| ([^|]+) \| ([\d,]+) \| ([^|]+) \| (\d+) \|",
+                 (cell(t), cell(d), f"{d['tokens']:,}", d["seconds_median"] if d["seconds_median"] is not None else "–", d["calls"]))
+
+
 def check_test_count(c: Checker) -> None:
     """The README's test count is the number pytest collects."""
     out = subprocess.run([sys.executable, "-m", "pytest", "--collect-only", "-q"], cwd=ROOT, capture_output=True, text=True).stdout
@@ -365,6 +380,7 @@ def main(rerun: bool = False) -> int:
     check_results(c, R, S, G)
     check_reasons(c)
     check_router(c)
+    check_k1(c)
     check_history(c)
     check_studies(c)
     check_test_count(c)
